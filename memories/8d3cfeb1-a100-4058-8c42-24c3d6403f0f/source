@@ -1,0 +1,2809 @@
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" >
+ <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" >
+ 
+ <meta name="ROBOTS" content="NOARCHIVE">
+ 
+ <link rel="icon" type="image/vnd.microsoft.icon" href="http://www.gstatic.com/codesite/ph/images/phosting.ico">
+ 
+ 
+ <script type="text/javascript">
+ 
+ 
+ 
+ 
+ var codesite_token = null;
+ 
+ 
+ var CS_env = {"profileUrl":null,"assetVersionPath":"http://www.gstatic.com/codesite/ph/16229512607128645344","token":null,"projectHomeUrl":"/p/volchecker","relativeBaseUrl":"","assetHostPath":"http://www.gstatic.com/codesite/ph","domainName":null,"projectName":"volchecker","loggedInUserEmail":null};
+ var _gaq = _gaq || [];
+ _gaq.push(
+ ['siteTracker._setAccount', 'UA-18071-1'],
+ ['siteTracker._trackPageview']);
+ 
+ (function() {
+ var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+ (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ga);
+ })();
+ 
+ </script>
+ 
+ 
+ <title>volchecker.cpp - 
+ volchecker -
+ 
+ 
+ PulseAudio volume checker and executer - Google Project Hosting
+ </title>
+ <link type="text/css" rel="stylesheet" href="http://www.gstatic.com/codesite/ph/16229512607128645344/css/core.css">
+ 
+ <link type="text/css" rel="stylesheet" href="http://www.gstatic.com/codesite/ph/16229512607128645344/css/ph_detail.css" >
+ 
+ 
+ <link type="text/css" rel="stylesheet" href="http://www.gstatic.com/codesite/ph/16229512607128645344/css/d_sb.css" >
+ 
+ 
+ 
+<!--[if IE]>
+ <link type="text/css" rel="stylesheet" href="http://www.gstatic.com/codesite/ph/16229512607128645344/css/d_ie.css" >
+<![endif]-->
+ <style type="text/css">
+ .menuIcon.off { background: no-repeat url(http://www.gstatic.com/codesite/ph/images/dropdown_sprite.gif) 0 -42px }
+ .menuIcon.on { background: no-repeat url(http://www.gstatic.com/codesite/ph/images/dropdown_sprite.gif) 0 -28px }
+ .menuIcon.down { background: no-repeat url(http://www.gstatic.com/codesite/ph/images/dropdown_sprite.gif) 0 0; }
+ 
+ 
+ 
+  tr.inline_comment {
+ background: #fff;
+ vertical-align: top;
+ }
+ div.draft, div.published {
+ padding: .3em;
+ border: 1px solid #999; 
+ margin-bottom: .1em;
+ font-family: arial, sans-serif;
+ max-width: 60em;
+ }
+ div.draft {
+ background: #ffa;
+ } 
+ div.published {
+ background: #e5ecf9;
+ }
+ div.published .body, div.draft .body {
+ padding: .5em .1em .1em .1em;
+ max-width: 60em;
+ white-space: pre-wrap;
+ white-space: -moz-pre-wrap;
+ white-space: -pre-wrap;
+ white-space: -o-pre-wrap;
+ word-wrap: break-word;
+ font-size: 1em;
+ }
+ div.draft .actions {
+ margin-left: 1em;
+ font-size: 90%;
+ }
+ div.draft form {
+ padding: .5em .5em .5em 0;
+ }
+ div.draft textarea, div.published textarea {
+ width: 95%;
+ height: 10em;
+ font-family: arial, sans-serif;
+ margin-bottom: .5em;
+ }
+
+ 
+ .nocursor, .nocursor td, .cursor_hidden, .cursor_hidden td {
+ background-color: white;
+ height: 2px;
+ }
+ .cursor, .cursor td {
+ background-color: darkblue;
+ height: 2px;
+ display: '';
+ }
+ 
+ 
+.list {
+ border: 1px solid white;
+ border-bottom: 0;
+}
+
+ 
+ </style>
+</head>
+<body class="t4">
+<script type="text/javascript">
+ window.___gcfg = {lang: 'en'};
+ (function() 
+ {var po = document.createElement("script");
+ po.type = "text/javascript"; po.async = true;po.src = "https://apis.google.com/js/plusone.js";
+ var s = document.getElementsByTagName("script")[0];
+ s.parentNode.insertBefore(po, s);
+ })();
+</script>
+<div class="headbg">
+
+ <div id="gaia">
+ 
+
+ <span>
+ 
+ 
+ <a href="#" id="projects-dropdown" onclick="return false;"><u>My favorites</u> <small>&#9660;</small></a>
+ | <a href="https://www.google.com/accounts/ServiceLogin?service=code&amp;ltmpl=phosting&amp;continue=http%3A%2F%2Fcode.google.com%2Fp%2Fvolchecker%2Fsource%2Fbrowse%2Ftrunk%2Fvolchecker%2Fsrc%2Fvolchecker.cpp&amp;followup=http%3A%2F%2Fcode.google.com%2Fp%2Fvolchecker%2Fsource%2Fbrowse%2Ftrunk%2Fvolchecker%2Fsrc%2Fvolchecker.cpp" onclick="_CS_click('/gb/ph/signin');"><u>Sign in</u></a>
+ 
+ </span>
+
+ </div>
+
+ <div class="gbh" style="left: 0pt;"></div>
+ <div class="gbh" style="right: 0pt;"></div>
+ 
+ 
+ <div style="height: 1px"></div>
+<!--[if lte IE 7]>
+<div style="text-align:center;">
+Your version of Internet Explorer is not supported. Try a browser that
+contributes to open source, such as <a href="http://www.firefox.com">Firefox</a>,
+<a href="http://www.google.com/chrome">Google Chrome</a>, or
+<a href="http://code.google.com/chrome/chromeframe/">Google Chrome Frame</a>.
+</div>
+<![endif]-->
+
+
+
+ <table style="padding:0px; margin: 0px 0px 10px 0px; width:100%" cellpadding="0" cellspacing="0"
+ itemscope itemtype="http://schema.org/CreativeWork">
+ <tr style="height: 58px;">
+ 
+ 
+ 
+ <td id="plogo">
+ <link itemprop="url" href="/p/volchecker">
+ <a href="/p/volchecker/">
+ 
+ <img src="http://www.gstatic.com/codesite/ph/images/defaultlogo.png" alt="Logo" itemprop="image">
+ 
+ </a>
+ </td>
+ 
+ <td style="padding-left: 0.5em">
+ 
+ <div id="pname">
+ <a href="/p/volchecker/"><span itemprop="name">volchecker</span></a>
+ </div>
+ 
+ <div id="psum">
+ <a id="project_summary_link"
+ href="/p/volchecker/"><span itemprop="description">PulseAudio volume checker and executer</span></a>
+ 
+ </div>
+ 
+ 
+ </td>
+ <td style="white-space:nowrap;text-align:right; vertical-align:bottom;">
+ 
+ <form action="/hosting/search">
+ <input size="30" name="q" value="" type="text">
+ 
+ <input type="submit" name="projectsearch" value="Search projects" >
+ </form>
+ 
+ </tr>
+ </table>
+
+</div>
+
+ 
+<div id="mt" class="gtb"> 
+ <a href="/p/volchecker/" class="tab ">Project&nbsp;Home</a>
+ 
+ 
+ 
+ 
+ <a href="/p/volchecker/downloads/list" class="tab ">Downloads</a>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <a href="/p/volchecker/issues/list"
+ class="tab ">Issues</a>
+ 
+ 
+ 
+ 
+ 
+ <a href="/p/volchecker/source/checkout"
+ class="tab active">Source</a>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <div class=gtbc></div>
+</div>
+<table cellspacing="0" cellpadding="0" width="100%" align="center" border="0" class="st">
+ <tr>
+ 
+ 
+ 
+ 
+ 
+ 
+ <td class="subt">
+ <div class="st2">
+ <div class="isf">
+ 
+ 
+
+
+ <span class="inst1"><a href="/p/volchecker/source/checkout">Checkout</a></span> &nbsp;
+ <span class="inst2"><a href="/p/volchecker/source/browse/">Browse</a></span> &nbsp;
+ <span class="inst3"><a href="/p/volchecker/source/list">Changes</a></span> &nbsp;
+ 
+ &nbsp;
+ 
+ 
+ <form action="/p/volchecker/source/search" method="get" style="display:inline"
+ onsubmit="document.getElementById('codesearchq').value = document.getElementById('origq').value">
+ <input type="hidden" name="q" id="codesearchq" value="">
+ <input type="text" maxlength="2048" size="38" id="origq" name="origq" value="" title="Google Code Search" style="font-size:92%">&nbsp;<input type="submit" value="Search Trunk" name="btnG" style="font-size:92%">
+ 
+ 
+ 
+ 
+ 
+ 
+ </form>
+ <script type="text/javascript">
+ 
+ function codesearchQuery(form) {
+ var query = document.getElementById('q').value;
+ if (query) { form.action += '%20' + query; }
+ }
+ </script>
+ </div>
+</div>
+
+ </td>
+ 
+ 
+ 
+ <td align="right" valign="top" class="bevel-right"></td>
+ </tr>
+</table>
+
+
+<script type="text/javascript">
+ var cancelBubble = false;
+ function _go(url) { document.location = url; }
+</script>
+<div id="maincol"
+ 
+>
+
+ 
+
+
+
+
+<div class="expand">
+<div id="colcontrol">
+<style type="text/css">
+ #file_flipper { white-space: nowrap; padding-right: 2em; }
+ #file_flipper.hidden { display: none; }
+ #file_flipper .pagelink { color: #0000CC; text-decoration: underline; }
+ #file_flipper #visiblefiles { padding-left: 0.5em; padding-right: 0.5em; }
+</style>
+<table id="nav_and_rev" class="list"
+ cellpadding="0" cellspacing="0" width="100%">
+ <tr>
+ 
+ <td nowrap="nowrap" class="src_crumbs src_nav" width="33%">
+ <strong class="src_nav">Source path:&nbsp;</strong>
+ <span id="crumb_root">
+ 
+ <a href="/p/volchecker/source/browse/">svn</a>/&nbsp;</span>
+ <span id="crumb_links" class="ifClosed"><a href="/p/volchecker/source/browse/trunk/">trunk</a><span class="sp">/&nbsp;</span><a href="/p/volchecker/source/browse/trunk/volchecker/">volchecker</a><span class="sp">/&nbsp;</span><a href="/p/volchecker/source/browse/trunk/volchecker/src/">src</a><span class="sp">/&nbsp;</span>volchecker.cpp</span>
+ 
+ 
+
+
+ </td>
+ 
+ 
+ <td nowrap="nowrap" width="33%" align="right">
+ <table cellpadding="0" cellspacing="0" style="font-size: 100%"><tr>
+ 
+ 
+ <td class="flipper"><b>r3</b></td>
+ 
+ </tr></table>
+ </td> 
+ </tr>
+</table>
+
+<div class="fc">
+ 
+ 
+ 
+<style type="text/css">
+.undermouse span {
+ background-image: url(http://www.gstatic.com/codesite/ph/images/comments.gif); }
+</style>
+<table class="opened" id="review_comment_area"
+><tr>
+<td id="nums">
+<pre><table width="100%"><tr class="nocursor"><td></td></tr></table></pre>
+<pre><table width="100%" id="nums_table_0"><tr id="gr_svn3_1"
+
+><td id="1"><a href="#1">1</a></td></tr
+><tr id="gr_svn3_2"
+
+><td id="2"><a href="#2">2</a></td></tr
+><tr id="gr_svn3_3"
+
+><td id="3"><a href="#3">3</a></td></tr
+><tr id="gr_svn3_4"
+
+><td id="4"><a href="#4">4</a></td></tr
+><tr id="gr_svn3_5"
+
+><td id="5"><a href="#5">5</a></td></tr
+><tr id="gr_svn3_6"
+
+><td id="6"><a href="#6">6</a></td></tr
+><tr id="gr_svn3_7"
+
+><td id="7"><a href="#7">7</a></td></tr
+><tr id="gr_svn3_8"
+
+><td id="8"><a href="#8">8</a></td></tr
+><tr id="gr_svn3_9"
+
+><td id="9"><a href="#9">9</a></td></tr
+><tr id="gr_svn3_10"
+
+><td id="10"><a href="#10">10</a></td></tr
+><tr id="gr_svn3_11"
+
+><td id="11"><a href="#11">11</a></td></tr
+><tr id="gr_svn3_12"
+
+><td id="12"><a href="#12">12</a></td></tr
+><tr id="gr_svn3_13"
+
+><td id="13"><a href="#13">13</a></td></tr
+><tr id="gr_svn3_14"
+
+><td id="14"><a href="#14">14</a></td></tr
+><tr id="gr_svn3_15"
+
+><td id="15"><a href="#15">15</a></td></tr
+><tr id="gr_svn3_16"
+
+><td id="16"><a href="#16">16</a></td></tr
+><tr id="gr_svn3_17"
+
+><td id="17"><a href="#17">17</a></td></tr
+><tr id="gr_svn3_18"
+
+><td id="18"><a href="#18">18</a></td></tr
+><tr id="gr_svn3_19"
+
+><td id="19"><a href="#19">19</a></td></tr
+><tr id="gr_svn3_20"
+
+><td id="20"><a href="#20">20</a></td></tr
+><tr id="gr_svn3_21"
+
+><td id="21"><a href="#21">21</a></td></tr
+><tr id="gr_svn3_22"
+
+><td id="22"><a href="#22">22</a></td></tr
+><tr id="gr_svn3_23"
+
+><td id="23"><a href="#23">23</a></td></tr
+><tr id="gr_svn3_24"
+
+><td id="24"><a href="#24">24</a></td></tr
+><tr id="gr_svn3_25"
+
+><td id="25"><a href="#25">25</a></td></tr
+><tr id="gr_svn3_26"
+
+><td id="26"><a href="#26">26</a></td></tr
+><tr id="gr_svn3_27"
+
+><td id="27"><a href="#27">27</a></td></tr
+><tr id="gr_svn3_28"
+
+><td id="28"><a href="#28">28</a></td></tr
+><tr id="gr_svn3_29"
+
+><td id="29"><a href="#29">29</a></td></tr
+><tr id="gr_svn3_30"
+
+><td id="30"><a href="#30">30</a></td></tr
+><tr id="gr_svn3_31"
+
+><td id="31"><a href="#31">31</a></td></tr
+><tr id="gr_svn3_32"
+
+><td id="32"><a href="#32">32</a></td></tr
+><tr id="gr_svn3_33"
+
+><td id="33"><a href="#33">33</a></td></tr
+><tr id="gr_svn3_34"
+
+><td id="34"><a href="#34">34</a></td></tr
+><tr id="gr_svn3_35"
+
+><td id="35"><a href="#35">35</a></td></tr
+><tr id="gr_svn3_36"
+
+><td id="36"><a href="#36">36</a></td></tr
+><tr id="gr_svn3_37"
+
+><td id="37"><a href="#37">37</a></td></tr
+><tr id="gr_svn3_38"
+
+><td id="38"><a href="#38">38</a></td></tr
+><tr id="gr_svn3_39"
+
+><td id="39"><a href="#39">39</a></td></tr
+><tr id="gr_svn3_40"
+
+><td id="40"><a href="#40">40</a></td></tr
+><tr id="gr_svn3_41"
+
+><td id="41"><a href="#41">41</a></td></tr
+><tr id="gr_svn3_42"
+
+><td id="42"><a href="#42">42</a></td></tr
+><tr id="gr_svn3_43"
+
+><td id="43"><a href="#43">43</a></td></tr
+><tr id="gr_svn3_44"
+
+><td id="44"><a href="#44">44</a></td></tr
+><tr id="gr_svn3_45"
+
+><td id="45"><a href="#45">45</a></td></tr
+><tr id="gr_svn3_46"
+
+><td id="46"><a href="#46">46</a></td></tr
+><tr id="gr_svn3_47"
+
+><td id="47"><a href="#47">47</a></td></tr
+><tr id="gr_svn3_48"
+
+><td id="48"><a href="#48">48</a></td></tr
+><tr id="gr_svn3_49"
+
+><td id="49"><a href="#49">49</a></td></tr
+><tr id="gr_svn3_50"
+
+><td id="50"><a href="#50">50</a></td></tr
+><tr id="gr_svn3_51"
+
+><td id="51"><a href="#51">51</a></td></tr
+><tr id="gr_svn3_52"
+
+><td id="52"><a href="#52">52</a></td></tr
+><tr id="gr_svn3_53"
+
+><td id="53"><a href="#53">53</a></td></tr
+><tr id="gr_svn3_54"
+
+><td id="54"><a href="#54">54</a></td></tr
+><tr id="gr_svn3_55"
+
+><td id="55"><a href="#55">55</a></td></tr
+><tr id="gr_svn3_56"
+
+><td id="56"><a href="#56">56</a></td></tr
+><tr id="gr_svn3_57"
+
+><td id="57"><a href="#57">57</a></td></tr
+><tr id="gr_svn3_58"
+
+><td id="58"><a href="#58">58</a></td></tr
+><tr id="gr_svn3_59"
+
+><td id="59"><a href="#59">59</a></td></tr
+><tr id="gr_svn3_60"
+
+><td id="60"><a href="#60">60</a></td></tr
+><tr id="gr_svn3_61"
+
+><td id="61"><a href="#61">61</a></td></tr
+><tr id="gr_svn3_62"
+
+><td id="62"><a href="#62">62</a></td></tr
+><tr id="gr_svn3_63"
+
+><td id="63"><a href="#63">63</a></td></tr
+><tr id="gr_svn3_64"
+
+><td id="64"><a href="#64">64</a></td></tr
+><tr id="gr_svn3_65"
+
+><td id="65"><a href="#65">65</a></td></tr
+><tr id="gr_svn3_66"
+
+><td id="66"><a href="#66">66</a></td></tr
+><tr id="gr_svn3_67"
+
+><td id="67"><a href="#67">67</a></td></tr
+><tr id="gr_svn3_68"
+
+><td id="68"><a href="#68">68</a></td></tr
+><tr id="gr_svn3_69"
+
+><td id="69"><a href="#69">69</a></td></tr
+><tr id="gr_svn3_70"
+
+><td id="70"><a href="#70">70</a></td></tr
+><tr id="gr_svn3_71"
+
+><td id="71"><a href="#71">71</a></td></tr
+><tr id="gr_svn3_72"
+
+><td id="72"><a href="#72">72</a></td></tr
+><tr id="gr_svn3_73"
+
+><td id="73"><a href="#73">73</a></td></tr
+><tr id="gr_svn3_74"
+
+><td id="74"><a href="#74">74</a></td></tr
+><tr id="gr_svn3_75"
+
+><td id="75"><a href="#75">75</a></td></tr
+><tr id="gr_svn3_76"
+
+><td id="76"><a href="#76">76</a></td></tr
+><tr id="gr_svn3_77"
+
+><td id="77"><a href="#77">77</a></td></tr
+><tr id="gr_svn3_78"
+
+><td id="78"><a href="#78">78</a></td></tr
+><tr id="gr_svn3_79"
+
+><td id="79"><a href="#79">79</a></td></tr
+><tr id="gr_svn3_80"
+
+><td id="80"><a href="#80">80</a></td></tr
+><tr id="gr_svn3_81"
+
+><td id="81"><a href="#81">81</a></td></tr
+><tr id="gr_svn3_82"
+
+><td id="82"><a href="#82">82</a></td></tr
+><tr id="gr_svn3_83"
+
+><td id="83"><a href="#83">83</a></td></tr
+><tr id="gr_svn3_84"
+
+><td id="84"><a href="#84">84</a></td></tr
+><tr id="gr_svn3_85"
+
+><td id="85"><a href="#85">85</a></td></tr
+><tr id="gr_svn3_86"
+
+><td id="86"><a href="#86">86</a></td></tr
+><tr id="gr_svn3_87"
+
+><td id="87"><a href="#87">87</a></td></tr
+><tr id="gr_svn3_88"
+
+><td id="88"><a href="#88">88</a></td></tr
+><tr id="gr_svn3_89"
+
+><td id="89"><a href="#89">89</a></td></tr
+><tr id="gr_svn3_90"
+
+><td id="90"><a href="#90">90</a></td></tr
+><tr id="gr_svn3_91"
+
+><td id="91"><a href="#91">91</a></td></tr
+><tr id="gr_svn3_92"
+
+><td id="92"><a href="#92">92</a></td></tr
+><tr id="gr_svn3_93"
+
+><td id="93"><a href="#93">93</a></td></tr
+><tr id="gr_svn3_94"
+
+><td id="94"><a href="#94">94</a></td></tr
+><tr id="gr_svn3_95"
+
+><td id="95"><a href="#95">95</a></td></tr
+><tr id="gr_svn3_96"
+
+><td id="96"><a href="#96">96</a></td></tr
+><tr id="gr_svn3_97"
+
+><td id="97"><a href="#97">97</a></td></tr
+><tr id="gr_svn3_98"
+
+><td id="98"><a href="#98">98</a></td></tr
+><tr id="gr_svn3_99"
+
+><td id="99"><a href="#99">99</a></td></tr
+><tr id="gr_svn3_100"
+
+><td id="100"><a href="#100">100</a></td></tr
+><tr id="gr_svn3_101"
+
+><td id="101"><a href="#101">101</a></td></tr
+><tr id="gr_svn3_102"
+
+><td id="102"><a href="#102">102</a></td></tr
+><tr id="gr_svn3_103"
+
+><td id="103"><a href="#103">103</a></td></tr
+><tr id="gr_svn3_104"
+
+><td id="104"><a href="#104">104</a></td></tr
+><tr id="gr_svn3_105"
+
+><td id="105"><a href="#105">105</a></td></tr
+><tr id="gr_svn3_106"
+
+><td id="106"><a href="#106">106</a></td></tr
+><tr id="gr_svn3_107"
+
+><td id="107"><a href="#107">107</a></td></tr
+><tr id="gr_svn3_108"
+
+><td id="108"><a href="#108">108</a></td></tr
+><tr id="gr_svn3_109"
+
+><td id="109"><a href="#109">109</a></td></tr
+><tr id="gr_svn3_110"
+
+><td id="110"><a href="#110">110</a></td></tr
+><tr id="gr_svn3_111"
+
+><td id="111"><a href="#111">111</a></td></tr
+><tr id="gr_svn3_112"
+
+><td id="112"><a href="#112">112</a></td></tr
+><tr id="gr_svn3_113"
+
+><td id="113"><a href="#113">113</a></td></tr
+><tr id="gr_svn3_114"
+
+><td id="114"><a href="#114">114</a></td></tr
+><tr id="gr_svn3_115"
+
+><td id="115"><a href="#115">115</a></td></tr
+><tr id="gr_svn3_116"
+
+><td id="116"><a href="#116">116</a></td></tr
+><tr id="gr_svn3_117"
+
+><td id="117"><a href="#117">117</a></td></tr
+><tr id="gr_svn3_118"
+
+><td id="118"><a href="#118">118</a></td></tr
+><tr id="gr_svn3_119"
+
+><td id="119"><a href="#119">119</a></td></tr
+><tr id="gr_svn3_120"
+
+><td id="120"><a href="#120">120</a></td></tr
+><tr id="gr_svn3_121"
+
+><td id="121"><a href="#121">121</a></td></tr
+><tr id="gr_svn3_122"
+
+><td id="122"><a href="#122">122</a></td></tr
+><tr id="gr_svn3_123"
+
+><td id="123"><a href="#123">123</a></td></tr
+><tr id="gr_svn3_124"
+
+><td id="124"><a href="#124">124</a></td></tr
+><tr id="gr_svn3_125"
+
+><td id="125"><a href="#125">125</a></td></tr
+><tr id="gr_svn3_126"
+
+><td id="126"><a href="#126">126</a></td></tr
+><tr id="gr_svn3_127"
+
+><td id="127"><a href="#127">127</a></td></tr
+><tr id="gr_svn3_128"
+
+><td id="128"><a href="#128">128</a></td></tr
+><tr id="gr_svn3_129"
+
+><td id="129"><a href="#129">129</a></td></tr
+><tr id="gr_svn3_130"
+
+><td id="130"><a href="#130">130</a></td></tr
+><tr id="gr_svn3_131"
+
+><td id="131"><a href="#131">131</a></td></tr
+><tr id="gr_svn3_132"
+
+><td id="132"><a href="#132">132</a></td></tr
+><tr id="gr_svn3_133"
+
+><td id="133"><a href="#133">133</a></td></tr
+><tr id="gr_svn3_134"
+
+><td id="134"><a href="#134">134</a></td></tr
+><tr id="gr_svn3_135"
+
+><td id="135"><a href="#135">135</a></td></tr
+><tr id="gr_svn3_136"
+
+><td id="136"><a href="#136">136</a></td></tr
+><tr id="gr_svn3_137"
+
+><td id="137"><a href="#137">137</a></td></tr
+><tr id="gr_svn3_138"
+
+><td id="138"><a href="#138">138</a></td></tr
+><tr id="gr_svn3_139"
+
+><td id="139"><a href="#139">139</a></td></tr
+><tr id="gr_svn3_140"
+
+><td id="140"><a href="#140">140</a></td></tr
+><tr id="gr_svn3_141"
+
+><td id="141"><a href="#141">141</a></td></tr
+><tr id="gr_svn3_142"
+
+><td id="142"><a href="#142">142</a></td></tr
+><tr id="gr_svn3_143"
+
+><td id="143"><a href="#143">143</a></td></tr
+><tr id="gr_svn3_144"
+
+><td id="144"><a href="#144">144</a></td></tr
+><tr id="gr_svn3_145"
+
+><td id="145"><a href="#145">145</a></td></tr
+><tr id="gr_svn3_146"
+
+><td id="146"><a href="#146">146</a></td></tr
+><tr id="gr_svn3_147"
+
+><td id="147"><a href="#147">147</a></td></tr
+><tr id="gr_svn3_148"
+
+><td id="148"><a href="#148">148</a></td></tr
+><tr id="gr_svn3_149"
+
+><td id="149"><a href="#149">149</a></td></tr
+><tr id="gr_svn3_150"
+
+><td id="150"><a href="#150">150</a></td></tr
+><tr id="gr_svn3_151"
+
+><td id="151"><a href="#151">151</a></td></tr
+><tr id="gr_svn3_152"
+
+><td id="152"><a href="#152">152</a></td></tr
+><tr id="gr_svn3_153"
+
+><td id="153"><a href="#153">153</a></td></tr
+><tr id="gr_svn3_154"
+
+><td id="154"><a href="#154">154</a></td></tr
+><tr id="gr_svn3_155"
+
+><td id="155"><a href="#155">155</a></td></tr
+><tr id="gr_svn3_156"
+
+><td id="156"><a href="#156">156</a></td></tr
+><tr id="gr_svn3_157"
+
+><td id="157"><a href="#157">157</a></td></tr
+><tr id="gr_svn3_158"
+
+><td id="158"><a href="#158">158</a></td></tr
+><tr id="gr_svn3_159"
+
+><td id="159"><a href="#159">159</a></td></tr
+><tr id="gr_svn3_160"
+
+><td id="160"><a href="#160">160</a></td></tr
+><tr id="gr_svn3_161"
+
+><td id="161"><a href="#161">161</a></td></tr
+><tr id="gr_svn3_162"
+
+><td id="162"><a href="#162">162</a></td></tr
+><tr id="gr_svn3_163"
+
+><td id="163"><a href="#163">163</a></td></tr
+><tr id="gr_svn3_164"
+
+><td id="164"><a href="#164">164</a></td></tr
+><tr id="gr_svn3_165"
+
+><td id="165"><a href="#165">165</a></td></tr
+><tr id="gr_svn3_166"
+
+><td id="166"><a href="#166">166</a></td></tr
+><tr id="gr_svn3_167"
+
+><td id="167"><a href="#167">167</a></td></tr
+><tr id="gr_svn3_168"
+
+><td id="168"><a href="#168">168</a></td></tr
+><tr id="gr_svn3_169"
+
+><td id="169"><a href="#169">169</a></td></tr
+><tr id="gr_svn3_170"
+
+><td id="170"><a href="#170">170</a></td></tr
+><tr id="gr_svn3_171"
+
+><td id="171"><a href="#171">171</a></td></tr
+><tr id="gr_svn3_172"
+
+><td id="172"><a href="#172">172</a></td></tr
+><tr id="gr_svn3_173"
+
+><td id="173"><a href="#173">173</a></td></tr
+><tr id="gr_svn3_174"
+
+><td id="174"><a href="#174">174</a></td></tr
+><tr id="gr_svn3_175"
+
+><td id="175"><a href="#175">175</a></td></tr
+><tr id="gr_svn3_176"
+
+><td id="176"><a href="#176">176</a></td></tr
+><tr id="gr_svn3_177"
+
+><td id="177"><a href="#177">177</a></td></tr
+><tr id="gr_svn3_178"
+
+><td id="178"><a href="#178">178</a></td></tr
+><tr id="gr_svn3_179"
+
+><td id="179"><a href="#179">179</a></td></tr
+><tr id="gr_svn3_180"
+
+><td id="180"><a href="#180">180</a></td></tr
+><tr id="gr_svn3_181"
+
+><td id="181"><a href="#181">181</a></td></tr
+><tr id="gr_svn3_182"
+
+><td id="182"><a href="#182">182</a></td></tr
+><tr id="gr_svn3_183"
+
+><td id="183"><a href="#183">183</a></td></tr
+><tr id="gr_svn3_184"
+
+><td id="184"><a href="#184">184</a></td></tr
+><tr id="gr_svn3_185"
+
+><td id="185"><a href="#185">185</a></td></tr
+><tr id="gr_svn3_186"
+
+><td id="186"><a href="#186">186</a></td></tr
+><tr id="gr_svn3_187"
+
+><td id="187"><a href="#187">187</a></td></tr
+><tr id="gr_svn3_188"
+
+><td id="188"><a href="#188">188</a></td></tr
+><tr id="gr_svn3_189"
+
+><td id="189"><a href="#189">189</a></td></tr
+><tr id="gr_svn3_190"
+
+><td id="190"><a href="#190">190</a></td></tr
+><tr id="gr_svn3_191"
+
+><td id="191"><a href="#191">191</a></td></tr
+><tr id="gr_svn3_192"
+
+><td id="192"><a href="#192">192</a></td></tr
+><tr id="gr_svn3_193"
+
+><td id="193"><a href="#193">193</a></td></tr
+><tr id="gr_svn3_194"
+
+><td id="194"><a href="#194">194</a></td></tr
+><tr id="gr_svn3_195"
+
+><td id="195"><a href="#195">195</a></td></tr
+><tr id="gr_svn3_196"
+
+><td id="196"><a href="#196">196</a></td></tr
+><tr id="gr_svn3_197"
+
+><td id="197"><a href="#197">197</a></td></tr
+><tr id="gr_svn3_198"
+
+><td id="198"><a href="#198">198</a></td></tr
+><tr id="gr_svn3_199"
+
+><td id="199"><a href="#199">199</a></td></tr
+><tr id="gr_svn3_200"
+
+><td id="200"><a href="#200">200</a></td></tr
+><tr id="gr_svn3_201"
+
+><td id="201"><a href="#201">201</a></td></tr
+><tr id="gr_svn3_202"
+
+><td id="202"><a href="#202">202</a></td></tr
+><tr id="gr_svn3_203"
+
+><td id="203"><a href="#203">203</a></td></tr
+><tr id="gr_svn3_204"
+
+><td id="204"><a href="#204">204</a></td></tr
+><tr id="gr_svn3_205"
+
+><td id="205"><a href="#205">205</a></td></tr
+><tr id="gr_svn3_206"
+
+><td id="206"><a href="#206">206</a></td></tr
+><tr id="gr_svn3_207"
+
+><td id="207"><a href="#207">207</a></td></tr
+><tr id="gr_svn3_208"
+
+><td id="208"><a href="#208">208</a></td></tr
+><tr id="gr_svn3_209"
+
+><td id="209"><a href="#209">209</a></td></tr
+><tr id="gr_svn3_210"
+
+><td id="210"><a href="#210">210</a></td></tr
+><tr id="gr_svn3_211"
+
+><td id="211"><a href="#211">211</a></td></tr
+><tr id="gr_svn3_212"
+
+><td id="212"><a href="#212">212</a></td></tr
+><tr id="gr_svn3_213"
+
+><td id="213"><a href="#213">213</a></td></tr
+><tr id="gr_svn3_214"
+
+><td id="214"><a href="#214">214</a></td></tr
+><tr id="gr_svn3_215"
+
+><td id="215"><a href="#215">215</a></td></tr
+><tr id="gr_svn3_216"
+
+><td id="216"><a href="#216">216</a></td></tr
+><tr id="gr_svn3_217"
+
+><td id="217"><a href="#217">217</a></td></tr
+><tr id="gr_svn3_218"
+
+><td id="218"><a href="#218">218</a></td></tr
+><tr id="gr_svn3_219"
+
+><td id="219"><a href="#219">219</a></td></tr
+><tr id="gr_svn3_220"
+
+><td id="220"><a href="#220">220</a></td></tr
+><tr id="gr_svn3_221"
+
+><td id="221"><a href="#221">221</a></td></tr
+><tr id="gr_svn3_222"
+
+><td id="222"><a href="#222">222</a></td></tr
+><tr id="gr_svn3_223"
+
+><td id="223"><a href="#223">223</a></td></tr
+><tr id="gr_svn3_224"
+
+><td id="224"><a href="#224">224</a></td></tr
+><tr id="gr_svn3_225"
+
+><td id="225"><a href="#225">225</a></td></tr
+><tr id="gr_svn3_226"
+
+><td id="226"><a href="#226">226</a></td></tr
+><tr id="gr_svn3_227"
+
+><td id="227"><a href="#227">227</a></td></tr
+><tr id="gr_svn3_228"
+
+><td id="228"><a href="#228">228</a></td></tr
+><tr id="gr_svn3_229"
+
+><td id="229"><a href="#229">229</a></td></tr
+><tr id="gr_svn3_230"
+
+><td id="230"><a href="#230">230</a></td></tr
+><tr id="gr_svn3_231"
+
+><td id="231"><a href="#231">231</a></td></tr
+><tr id="gr_svn3_232"
+
+><td id="232"><a href="#232">232</a></td></tr
+><tr id="gr_svn3_233"
+
+><td id="233"><a href="#233">233</a></td></tr
+><tr id="gr_svn3_234"
+
+><td id="234"><a href="#234">234</a></td></tr
+><tr id="gr_svn3_235"
+
+><td id="235"><a href="#235">235</a></td></tr
+><tr id="gr_svn3_236"
+
+><td id="236"><a href="#236">236</a></td></tr
+><tr id="gr_svn3_237"
+
+><td id="237"><a href="#237">237</a></td></tr
+><tr id="gr_svn3_238"
+
+><td id="238"><a href="#238">238</a></td></tr
+><tr id="gr_svn3_239"
+
+><td id="239"><a href="#239">239</a></td></tr
+><tr id="gr_svn3_240"
+
+><td id="240"><a href="#240">240</a></td></tr
+><tr id="gr_svn3_241"
+
+><td id="241"><a href="#241">241</a></td></tr
+><tr id="gr_svn3_242"
+
+><td id="242"><a href="#242">242</a></td></tr
+><tr id="gr_svn3_243"
+
+><td id="243"><a href="#243">243</a></td></tr
+><tr id="gr_svn3_244"
+
+><td id="244"><a href="#244">244</a></td></tr
+><tr id="gr_svn3_245"
+
+><td id="245"><a href="#245">245</a></td></tr
+><tr id="gr_svn3_246"
+
+><td id="246"><a href="#246">246</a></td></tr
+><tr id="gr_svn3_247"
+
+><td id="247"><a href="#247">247</a></td></tr
+><tr id="gr_svn3_248"
+
+><td id="248"><a href="#248">248</a></td></tr
+><tr id="gr_svn3_249"
+
+><td id="249"><a href="#249">249</a></td></tr
+><tr id="gr_svn3_250"
+
+><td id="250"><a href="#250">250</a></td></tr
+><tr id="gr_svn3_251"
+
+><td id="251"><a href="#251">251</a></td></tr
+><tr id="gr_svn3_252"
+
+><td id="252"><a href="#252">252</a></td></tr
+><tr id="gr_svn3_253"
+
+><td id="253"><a href="#253">253</a></td></tr
+><tr id="gr_svn3_254"
+
+><td id="254"><a href="#254">254</a></td></tr
+><tr id="gr_svn3_255"
+
+><td id="255"><a href="#255">255</a></td></tr
+><tr id="gr_svn3_256"
+
+><td id="256"><a href="#256">256</a></td></tr
+><tr id="gr_svn3_257"
+
+><td id="257"><a href="#257">257</a></td></tr
+><tr id="gr_svn3_258"
+
+><td id="258"><a href="#258">258</a></td></tr
+><tr id="gr_svn3_259"
+
+><td id="259"><a href="#259">259</a></td></tr
+><tr id="gr_svn3_260"
+
+><td id="260"><a href="#260">260</a></td></tr
+><tr id="gr_svn3_261"
+
+><td id="261"><a href="#261">261</a></td></tr
+><tr id="gr_svn3_262"
+
+><td id="262"><a href="#262">262</a></td></tr
+><tr id="gr_svn3_263"
+
+><td id="263"><a href="#263">263</a></td></tr
+><tr id="gr_svn3_264"
+
+><td id="264"><a href="#264">264</a></td></tr
+><tr id="gr_svn3_265"
+
+><td id="265"><a href="#265">265</a></td></tr
+><tr id="gr_svn3_266"
+
+><td id="266"><a href="#266">266</a></td></tr
+><tr id="gr_svn3_267"
+
+><td id="267"><a href="#267">267</a></td></tr
+><tr id="gr_svn3_268"
+
+><td id="268"><a href="#268">268</a></td></tr
+><tr id="gr_svn3_269"
+
+><td id="269"><a href="#269">269</a></td></tr
+><tr id="gr_svn3_270"
+
+><td id="270"><a href="#270">270</a></td></tr
+><tr id="gr_svn3_271"
+
+><td id="271"><a href="#271">271</a></td></tr
+><tr id="gr_svn3_272"
+
+><td id="272"><a href="#272">272</a></td></tr
+><tr id="gr_svn3_273"
+
+><td id="273"><a href="#273">273</a></td></tr
+><tr id="gr_svn3_274"
+
+><td id="274"><a href="#274">274</a></td></tr
+><tr id="gr_svn3_275"
+
+><td id="275"><a href="#275">275</a></td></tr
+><tr id="gr_svn3_276"
+
+><td id="276"><a href="#276">276</a></td></tr
+><tr id="gr_svn3_277"
+
+><td id="277"><a href="#277">277</a></td></tr
+><tr id="gr_svn3_278"
+
+><td id="278"><a href="#278">278</a></td></tr
+><tr id="gr_svn3_279"
+
+><td id="279"><a href="#279">279</a></td></tr
+><tr id="gr_svn3_280"
+
+><td id="280"><a href="#280">280</a></td></tr
+><tr id="gr_svn3_281"
+
+><td id="281"><a href="#281">281</a></td></tr
+><tr id="gr_svn3_282"
+
+><td id="282"><a href="#282">282</a></td></tr
+><tr id="gr_svn3_283"
+
+><td id="283"><a href="#283">283</a></td></tr
+></table></pre>
+<pre><table width="100%"><tr class="nocursor"><td></td></tr></table></pre>
+</td>
+<td id="lines">
+<pre><table width="100%"><tr class="cursor_stop cursor_hidden"><td></td></tr></table></pre>
+<pre class="prettyprint lang-cpp"><table id="src_table_0"><tr
+id=sl_svn3_1
+
+><td class="source">/***<br></td></tr
+><tr
+id=sl_svn3_2
+
+><td class="source">  This file is part of volchecker.<br></td></tr
+><tr
+id=sl_svn3_3
+
+><td class="source"><br></td></tr
+><tr
+id=sl_svn3_4
+
+><td class="source">  Copyright 2011 Jens Schoedt<br></td></tr
+><tr
+id=sl_svn3_5
+
+><td class="source"><br></td></tr
+><tr
+id=sl_svn3_6
+
+><td class="source">  volchecker is free software; you can redistribute it and/or modify<br></td></tr
+><tr
+id=sl_svn3_7
+
+><td class="source">  it under the terms of the GNU Lesser General Public License as<br></td></tr
+><tr
+id=sl_svn3_8
+
+><td class="source">  published by the Free Software Foundation; either version 2.1 of the<br></td></tr
+><tr
+id=sl_svn3_9
+
+><td class="source">  License, or (at your option) any later version.<br></td></tr
+><tr
+id=sl_svn3_10
+
+><td class="source"><br></td></tr
+><tr
+id=sl_svn3_11
+
+><td class="source">  volchecker is distributed in the hope that it will be useful, but<br></td></tr
+><tr
+id=sl_svn3_12
+
+><td class="source">  WITHOUT ANY WARRANTY; without even the implied warranty of<br></td></tr
+><tr
+id=sl_svn3_13
+
+><td class="source">  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU<br></td></tr
+><tr
+id=sl_svn3_14
+
+><td class="source">  General Public License for more details.<br></td></tr
+><tr
+id=sl_svn3_15
+
+><td class="source"><br></td></tr
+><tr
+id=sl_svn3_16
+
+><td class="source">  You should have received a copy of the GNU Lesser General Public<br></td></tr
+><tr
+id=sl_svn3_17
+
+><td class="source">  License along with volchecker; if not, write to the Free Software<br></td></tr
+><tr
+id=sl_svn3_18
+
+><td class="source">  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307<br></td></tr
+><tr
+id=sl_svn3_19
+
+><td class="source">  USA.<br></td></tr
+><tr
+id=sl_svn3_20
+
+><td class="source">***/<br></td></tr
+><tr
+id=sl_svn3_21
+
+><td class="source"><br></td></tr
+><tr
+id=sl_svn3_22
+
+><td class="source"><br></td></tr
+><tr
+id=sl_svn3_23
+
+><td class="source">#include &lt;unistd.h&gt;             /* read, write, close */<br></td></tr
+><tr
+id=sl_svn3_24
+
+><td class="source">#include &lt;fcntl.h&gt;              /* open */<br></td></tr
+><tr
+id=sl_svn3_25
+
+><td class="source">#include &lt;signal.h&gt;<br></td></tr
+><tr
+id=sl_svn3_26
+
+><td class="source">#include &lt;stdio.h&gt;<br></td></tr
+><tr
+id=sl_svn3_27
+
+><td class="source">#include &lt;stdlib.h&gt;<br></td></tr
+><tr
+id=sl_svn3_28
+
+><td class="source">#include &lt;pulse/pulseaudio.h&gt;<br></td></tr
+><tr
+id=sl_svn3_29
+
+><td class="source"><br></td></tr
+><tr
+id=sl_svn3_30
+
+><td class="source">#include &lt;iostream&gt;<br></td></tr
+><tr
+id=sl_svn3_31
+
+><td class="source">using namespace std;<br></td></tr
+><tr
+id=sl_svn3_32
+
+><td class="source"><br></td></tr
+><tr
+id=sl_svn3_33
+
+><td class="source">pa_context *context = NULL;<br></td></tr
+><tr
+id=sl_svn3_34
+
+><td class="source">pa_threaded_mainloop* loop = NULL;<br></td></tr
+><tr
+id=sl_svn3_35
+
+><td class="source">static pa_stream *stream = NULL;<br></td></tr
+><tr
+id=sl_svn3_36
+
+><td class="source">unsigned channels = 0;<br></td></tr
+><tr
+id=sl_svn3_37
+
+><td class="source"><br></td></tr
+><tr
+id=sl_svn3_38
+
+><td class="source">float threshold = 0.002;<br></td></tr
+><tr
+id=sl_svn3_39
+
+><td class="source">int belowLimit = 1000;<br></td></tr
+><tr
+id=sl_svn3_40
+
+><td class="source">int belowCounter = 0;<br></td></tr
+><tr
+id=sl_svn3_41
+
+><td class="source">int state = 0; // 0=off 1=on<br></td></tr
+><tr
+id=sl_svn3_42
+
+><td class="source"><br></td></tr
+><tr
+id=sl_svn3_43
+
+><td class="source">const char *on_command;<br></td></tr
+><tr
+id=sl_svn3_44
+
+><td class="source">const char *off_command;<br></td></tr
+><tr
+id=sl_svn3_45
+
+><td class="source">char on_control[3] = { 0xFF, 0x01, 0x01 };<br></td></tr
+><tr
+id=sl_svn3_46
+
+><td class="source">char off_control[3] = { 0xFF, 0x01, 0x00 };<br></td></tr
+><tr
+id=sl_svn3_47
+
+><td class="source"><br></td></tr
+><tr
+id=sl_svn3_48
+
+><td class="source">void show_error(const char *txt, bool show_pa_error = true) {<br></td></tr
+><tr
+id=sl_svn3_49
+
+><td class="source">	if (show_pa_error)<br></td></tr
+><tr
+id=sl_svn3_50
+
+><td class="source">		fprintf(stderr, &quot;%s: %s \n&quot;, txt, pa_strerror(pa_context_errno(context)));<br></td></tr
+><tr
+id=sl_svn3_51
+
+><td class="source">}<br></td></tr
+><tr
+id=sl_svn3_52
+
+><td class="source"><br></td></tr
+><tr
+id=sl_svn3_53
+
+><td class="source">void triggerApp(bool on) {<br></td></tr
+><tr
+id=sl_svn3_54
+
+><td class="source">	if (on) {<br></td></tr
+><tr
+id=sl_svn3_55
+
+><td class="source">		printf(&quot;on command %s \n&quot;, on_command);<br></td></tr
+><tr
+id=sl_svn3_56
+
+><td class="source">		execl(on_command, on_command, NULL);<br></td></tr
+><tr
+id=sl_svn3_57
+
+><td class="source">		return;<br></td></tr
+><tr
+id=sl_svn3_58
+
+><td class="source">	}<br></td></tr
+><tr
+id=sl_svn3_59
+
+><td class="source">	printf(&quot;off command %s \n&quot;, on_command);<br></td></tr
+><tr
+id=sl_svn3_60
+
+><td class="source">	execl(off_command, off_command, NULL);<br></td></tr
+><tr
+id=sl_svn3_61
+
+><td class="source">}<br></td></tr
+><tr
+id=sl_svn3_62
+
+><td class="source"><br></td></tr
+><tr
+id=sl_svn3_63
+
+><td class="source">void trigger(bool on) {<br></td></tr
+><tr
+id=sl_svn3_64
+
+><td class="source">	int usbdev; /* handle to FTDI device */<br></td></tr
+><tr
+id=sl_svn3_65
+
+><td class="source">	//char response[20]; /* receive buffer */<br></td></tr
+><tr
+id=sl_svn3_66
+
+><td class="source">	printf(&quot;Trigger: %s \n&quot;, (on)?&quot;on&quot;:&quot;off&quot;);<br></td></tr
+><tr
+id=sl_svn3_67
+
+><td class="source">	if (on_command &amp;&amp; off_command) {<br></td></tr
+><tr
+id=sl_svn3_68
+
+><td class="source">		triggerApp(on);<br></td></tr
+><tr
+id=sl_svn3_69
+
+><td class="source">		return;<br></td></tr
+><tr
+id=sl_svn3_70
+
+><td class="source">	}<br></td></tr
+><tr
+id=sl_svn3_71
+
+><td class="source">	//1)I added a system call to my code using stty for 115200 Baud 8N1:<br></td></tr
+><tr
+id=sl_svn3_72
+
+><td class="source">	system(&quot;stty -F /dev/ttyUSB0 9600&quot;);<br></td></tr
+><tr
+id=sl_svn3_73
+
+><td class="source">	//2) Later in my code I opened the device for reading/writing:<br></td></tr
+><tr
+id=sl_svn3_74
+
+><td class="source">	usbdev = open(&quot;/dev/ttyUSB0&quot;, O_RDWR);<br></td></tr
+><tr
+id=sl_svn3_75
+
+><td class="source">	if (usbdev == -1) {<br></td></tr
+><tr
+id=sl_svn3_76
+
+><td class="source">		fprintf(stderr, &quot;Could not open USB device: /dev/ttyUSB0&quot;);<br></td></tr
+><tr
+id=sl_svn3_77
+
+><td class="source">		return;<br></td></tr
+><tr
+id=sl_svn3_78
+
+><td class="source">	}<br></td></tr
+><tr
+id=sl_svn3_79
+
+><td class="source">	//3) I then used write to send, example uses 2 chars. These are defined prior to the call and can be any value from 0 to 255 for each char.:<br></td></tr
+><tr
+id=sl_svn3_80
+
+><td class="source">	if (on)<br></td></tr
+><tr
+id=sl_svn3_81
+
+><td class="source">		write(usbdev, on_control, 3);<br></td></tr
+><tr
+id=sl_svn3_82
+
+><td class="source">	else<br></td></tr
+><tr
+id=sl_svn3_83
+
+><td class="source">		write(usbdev, off_control, 3);<br></td></tr
+><tr
+id=sl_svn3_84
+
+><td class="source">	//4) For receive, use the read command with the number of chars to receive, example uses 1:<br></td></tr
+><tr
+id=sl_svn3_85
+
+><td class="source">	//read(usbdev, response, 20);<br></td></tr
+><tr
+id=sl_svn3_86
+
+><td class="source">	//printf(&quot;Response - %s \n&quot;, response);<br></td></tr
+><tr
+id=sl_svn3_87
+
+><td class="source">	//5) Add the following to close the device:<br></td></tr
+><tr
+id=sl_svn3_88
+
+><td class="source">	close(usbdev);<br></td></tr
+><tr
+id=sl_svn3_89
+
+><td class="source">}<br></td></tr
+><tr
+id=sl_svn3_90
+
+><td class="source"><br></td></tr
+><tr
+id=sl_svn3_91
+
+><td class="source">static void check_level(float level) {<br></td></tr
+><tr
+id=sl_svn3_92
+
+><td class="source">	if (level &gt; threshold) {<br></td></tr
+><tr
+id=sl_svn3_93
+
+><td class="source">		belowCounter = 0;<br></td></tr
+><tr
+id=sl_svn3_94
+
+><td class="source">		if (state == 0) {<br></td></tr
+><tr
+id=sl_svn3_95
+
+><td class="source">			// turn on<br></td></tr
+><tr
+id=sl_svn3_96
+
+><td class="source">			trigger(true);<br></td></tr
+><tr
+id=sl_svn3_97
+
+><td class="source">			state = 1;<br></td></tr
+><tr
+id=sl_svn3_98
+
+><td class="source">		}<br></td></tr
+><tr
+id=sl_svn3_99
+
+><td class="source">		return;<br></td></tr
+><tr
+id=sl_svn3_100
+
+><td class="source">	}<br></td></tr
+><tr
+id=sl_svn3_101
+
+><td class="source">	belowCounter++;<br></td></tr
+><tr
+id=sl_svn3_102
+
+><td class="source">	if (state == 1 &amp;&amp; belowCounter &gt; belowLimit) {<br></td></tr
+><tr
+id=sl_svn3_103
+
+><td class="source">		// turn off<br></td></tr
+><tr
+id=sl_svn3_104
+
+><td class="source">		trigger(false);<br></td></tr
+><tr
+id=sl_svn3_105
+
+><td class="source">		state = 0;<br></td></tr
+><tr
+id=sl_svn3_106
+
+><td class="source">	}<br></td></tr
+><tr
+id=sl_svn3_107
+
+><td class="source">}<br></td></tr
+><tr
+id=sl_svn3_108
+
+><td class="source"><br></td></tr
+><tr
+id=sl_svn3_109
+
+><td class="source">static void stream_read_callback(pa_stream *s, size_t l, void *) {<br></td></tr
+><tr
+id=sl_svn3_110
+
+><td class="source">	const void *d;<br></td></tr
+><tr
+id=sl_svn3_111
+
+><td class="source">	if (pa_stream_peek(s, &amp;d, &amp;l) &lt; 0) {<br></td></tr
+><tr
+id=sl_svn3_112
+
+><td class="source">		show_error(&quot;pa_stream_peek() failed&quot;);<br></td></tr
+><tr
+id=sl_svn3_113
+
+><td class="source">		return;<br></td></tr
+><tr
+id=sl_svn3_114
+
+><td class="source">	}<br></td></tr
+><tr
+id=sl_svn3_115
+
+><td class="source"><br></td></tr
+><tr
+id=sl_svn3_116
+
+><td class="source">	const float *data = (const float*) d;<br></td></tr
+><tr
+id=sl_svn3_117
+
+><td class="source">	unsigned samples = l / sizeof(float);<br></td></tr
+><tr
+id=sl_svn3_118
+
+><td class="source">	float level = 0;<br></td></tr
+><tr
+id=sl_svn3_119
+
+><td class="source"><br></td></tr
+><tr
+id=sl_svn3_120
+
+><td class="source">	while (samples &gt;= channels) {<br></td></tr
+><tr
+id=sl_svn3_121
+
+><td class="source">		for (unsigned c = 0; c &lt; channels; c++) {<br></td></tr
+><tr
+id=sl_svn3_122
+
+><td class="source">			float v = fabs(data[c]);<br></td></tr
+><tr
+id=sl_svn3_123
+
+><td class="source">			if (v &gt; level)<br></td></tr
+><tr
+id=sl_svn3_124
+
+><td class="source">				level = v;<br></td></tr
+><tr
+id=sl_svn3_125
+
+><td class="source">		}<br></td></tr
+><tr
+id=sl_svn3_126
+
+><td class="source">		data += channels;<br></td></tr
+><tr
+id=sl_svn3_127
+
+><td class="source">		samples -= channels;<br></td></tr
+><tr
+id=sl_svn3_128
+
+><td class="source">	}<br></td></tr
+><tr
+id=sl_svn3_129
+
+><td class="source">	pa_stream_drop(s);<br></td></tr
+><tr
+id=sl_svn3_130
+
+><td class="source"><br></td></tr
+><tr
+id=sl_svn3_131
+
+><td class="source">	//printf(&quot;Level : %f \n&quot;, level);<br></td></tr
+><tr
+id=sl_svn3_132
+
+><td class="source">	check_level(level);<br></td></tr
+><tr
+id=sl_svn3_133
+
+><td class="source">}<br></td></tr
+><tr
+id=sl_svn3_134
+
+><td class="source"><br></td></tr
+><tr
+id=sl_svn3_135
+
+><td class="source">static void stream_state_callback(pa_stream *s, void *) {<br></td></tr
+><tr
+id=sl_svn3_136
+
+><td class="source">	const pa_channel_map *pcm;<br></td></tr
+><tr
+id=sl_svn3_137
+
+><td class="source"><br></td></tr
+><tr
+id=sl_svn3_138
+
+><td class="source">	switch (pa_stream_get_state(s)) {<br></td></tr
+><tr
+id=sl_svn3_139
+
+><td class="source">	case PA_STREAM_UNCONNECTED:<br></td></tr
+><tr
+id=sl_svn3_140
+
+><td class="source">	case PA_STREAM_CREATING:<br></td></tr
+><tr
+id=sl_svn3_141
+
+><td class="source">		break;<br></td></tr
+><tr
+id=sl_svn3_142
+
+><td class="source"><br></td></tr
+><tr
+id=sl_svn3_143
+
+><td class="source">	case PA_STREAM_READY:<br></td></tr
+><tr
+id=sl_svn3_144
+
+><td class="source">		pcm = pa_stream_get_channel_map(s);<br></td></tr
+><tr
+id=sl_svn3_145
+
+><td class="source">		channels = pcm-&gt;channels;<br></td></tr
+><tr
+id=sl_svn3_146
+
+><td class="source">		break;<br></td></tr
+><tr
+id=sl_svn3_147
+
+><td class="source"><br></td></tr
+><tr
+id=sl_svn3_148
+
+><td class="source">	case PA_STREAM_FAILED:<br></td></tr
+><tr
+id=sl_svn3_149
+
+><td class="source">		show_error(&quot;Connection failed&quot;);<br></td></tr
+><tr
+id=sl_svn3_150
+
+><td class="source">		break;<br></td></tr
+><tr
+id=sl_svn3_151
+
+><td class="source"><br></td></tr
+><tr
+id=sl_svn3_152
+
+><td class="source">	case PA_STREAM_TERMINATED:<br></td></tr
+><tr
+id=sl_svn3_153
+
+><td class="source">		show_error(&quot;Stream terminated&quot;);<br></td></tr
+><tr
+id=sl_svn3_154
+
+><td class="source">		break;<br></td></tr
+><tr
+id=sl_svn3_155
+
+><td class="source">	}<br></td></tr
+><tr
+id=sl_svn3_156
+
+><td class="source">}<br></td></tr
+><tr
+id=sl_svn3_157
+
+><td class="source"><br></td></tr
+><tr
+id=sl_svn3_158
+
+><td class="source">static void create_stream(const char *name, const char *description, const pa_sample_spec &amp;ss, const pa_channel_map &amp;cmap) {<br></td></tr
+><tr
+id=sl_svn3_159
+
+><td class="source">	pa_sample_spec nss;<br></td></tr
+><tr
+id=sl_svn3_160
+
+><td class="source"><br></td></tr
+><tr
+id=sl_svn3_161
+
+><td class="source">	nss.format = PA_SAMPLE_FLOAT32;<br></td></tr
+><tr
+id=sl_svn3_162
+
+><td class="source">	nss.rate = 2;<br></td></tr
+><tr
+id=sl_svn3_163
+
+><td class="source">	nss.channels = ss.channels;<br></td></tr
+><tr
+id=sl_svn3_164
+
+><td class="source"><br></td></tr
+><tr
+id=sl_svn3_165
+
+><td class="source">	stream = pa_stream_new(context, &quot;volchecker&quot;, &amp;nss, &amp;cmap);<br></td></tr
+><tr
+id=sl_svn3_166
+
+><td class="source">	pa_stream_set_state_callback(stream, stream_state_callback, NULL);<br></td></tr
+><tr
+id=sl_svn3_167
+
+><td class="source">	pa_stream_set_read_callback(stream, stream_read_callback, NULL);<br></td></tr
+><tr
+id=sl_svn3_168
+
+><td class="source">	pa_stream_connect_record(stream, name, NULL, (enum pa_stream_flags) PA_STREAM_PEAK_DETECT);<br></td></tr
+><tr
+id=sl_svn3_169
+
+><td class="source">}<br></td></tr
+><tr
+id=sl_svn3_170
+
+><td class="source"><br></td></tr
+><tr
+id=sl_svn3_171
+
+><td class="source">static void context_get_source_info_callback(pa_context *, const pa_source_info *si, int is_last, void *) {<br></td></tr
+><tr
+id=sl_svn3_172
+
+><td class="source">	if (is_last &lt; 0) {<br></td></tr
+><tr
+id=sl_svn3_173
+
+><td class="source">		show_error(&quot;Failed to get source information&quot;);<br></td></tr
+><tr
+id=sl_svn3_174
+
+><td class="source">		return;<br></td></tr
+><tr
+id=sl_svn3_175
+
+><td class="source">	}<br></td></tr
+><tr
+id=sl_svn3_176
+
+><td class="source"><br></td></tr
+><tr
+id=sl_svn3_177
+
+><td class="source">	if (!si)<br></td></tr
+><tr
+id=sl_svn3_178
+
+><td class="source">		return;<br></td></tr
+><tr
+id=sl_svn3_179
+
+><td class="source"><br></td></tr
+><tr
+id=sl_svn3_180
+
+><td class="source">	create_stream(si-&gt;name, si-&gt;description, si-&gt;sample_spec, si-&gt;channel_map);<br></td></tr
+><tr
+id=sl_svn3_181
+
+><td class="source">}<br></td></tr
+><tr
+id=sl_svn3_182
+
+><td class="source"><br></td></tr
+><tr
+id=sl_svn3_183
+
+><td class="source">static void context_get_sink_info_callback(pa_context *, const pa_sink_info *si, int is_last, void *) {<br></td></tr
+><tr
+id=sl_svn3_184
+
+><td class="source">	if (is_last &lt; 0) {<br></td></tr
+><tr
+id=sl_svn3_185
+
+><td class="source">		show_error(&quot;Failed to get sink information&quot;);<br></td></tr
+><tr
+id=sl_svn3_186
+
+><td class="source">		return;<br></td></tr
+><tr
+id=sl_svn3_187
+
+><td class="source">	}<br></td></tr
+><tr
+id=sl_svn3_188
+
+><td class="source"><br></td></tr
+><tr
+id=sl_svn3_189
+
+><td class="source">	if (!si)<br></td></tr
+><tr
+id=sl_svn3_190
+
+><td class="source">		return;<br></td></tr
+><tr
+id=sl_svn3_191
+
+><td class="source"><br></td></tr
+><tr
+id=sl_svn3_192
+
+><td class="source">	create_stream(si-&gt;monitor_source_name, si-&gt;description, si-&gt;sample_spec, si-&gt;channel_map);<br></td></tr
+><tr
+id=sl_svn3_193
+
+><td class="source">}<br></td></tr
+><tr
+id=sl_svn3_194
+
+><td class="source"><br></td></tr
+><tr
+id=sl_svn3_195
+
+><td class="source">static void context_get_server_info_callback(pa_context *c, const pa_server_info*si, void *) {<br></td></tr
+><tr
+id=sl_svn3_196
+
+><td class="source">	if (!si) {<br></td></tr
+><tr
+id=sl_svn3_197
+
+><td class="source">		show_error(&quot;Failed to get server information&quot;);<br></td></tr
+><tr
+id=sl_svn3_198
+
+><td class="source">		return;<br></td></tr
+><tr
+id=sl_svn3_199
+
+><td class="source">	}<br></td></tr
+><tr
+id=sl_svn3_200
+
+><td class="source"><br></td></tr
+><tr
+id=sl_svn3_201
+
+><td class="source">	// output<br></td></tr
+><tr
+id=sl_svn3_202
+
+><td class="source">	if (!si-&gt;default_sink_name)<br></td></tr
+><tr
+id=sl_svn3_203
+
+><td class="source">		show_error(&quot;No default sink set.&quot;, false);<br></td></tr
+><tr
+id=sl_svn3_204
+
+><td class="source">	else<br></td></tr
+><tr
+id=sl_svn3_205
+
+><td class="source">		pa_operation_unref(pa_context_get_sink_info_by_name(c, si-&gt;default_sink_name, context_get_sink_info_callback, NULL));<br></td></tr
+><tr
+id=sl_svn3_206
+
+><td class="source"><br></td></tr
+><tr
+id=sl_svn3_207
+
+><td class="source">	// input<br></td></tr
+><tr
+id=sl_svn3_208
+
+><td class="source">	if (!si-&gt;default_source_name)<br></td></tr
+><tr
+id=sl_svn3_209
+
+><td class="source">		show_error(&quot;No default source set.&quot;, false);<br></td></tr
+><tr
+id=sl_svn3_210
+
+><td class="source">	else<br></td></tr
+><tr
+id=sl_svn3_211
+
+><td class="source">		pa_operation_unref(pa_context_get_source_info_by_name(c, si-&gt;default_source_name, context_get_source_info_callback, NULL));<br></td></tr
+><tr
+id=sl_svn3_212
+
+><td class="source"><br></td></tr
+><tr
+id=sl_svn3_213
+
+><td class="source">}<br></td></tr
+><tr
+id=sl_svn3_214
+
+><td class="source"><br></td></tr
+><tr
+id=sl_svn3_215
+
+><td class="source">static void context_state_callback(pa_context *c, void* userdata) {<br></td></tr
+><tr
+id=sl_svn3_216
+
+><td class="source">	switch (pa_context_get_state(c)) {<br></td></tr
+><tr
+id=sl_svn3_217
+
+><td class="source">	case PA_CONTEXT_UNCONNECTED:<br></td></tr
+><tr
+id=sl_svn3_218
+
+><td class="source">	case PA_CONTEXT_CONNECTING:<br></td></tr
+><tr
+id=sl_svn3_219
+
+><td class="source">	case PA_CONTEXT_AUTHORIZING:<br></td></tr
+><tr
+id=sl_svn3_220
+
+><td class="source">	case PA_CONTEXT_SETTING_NAME:<br></td></tr
+><tr
+id=sl_svn3_221
+
+><td class="source">		break;<br></td></tr
+><tr
+id=sl_svn3_222
+
+><td class="source">	case PA_CONTEXT_READY:<br></td></tr
+><tr
+id=sl_svn3_223
+
+><td class="source">		pa_operation_unref(pa_context_get_server_info(c, context_get_server_info_callback, NULL));<br></td></tr
+><tr
+id=sl_svn3_224
+
+><td class="source">		break;<br></td></tr
+><tr
+id=sl_svn3_225
+
+><td class="source">	case PA_CONTEXT_FAILED:<br></td></tr
+><tr
+id=sl_svn3_226
+
+><td class="source">		show_error(&quot;Connection failed&quot;);<br></td></tr
+><tr
+id=sl_svn3_227
+
+><td class="source">		break;<br></td></tr
+><tr
+id=sl_svn3_228
+
+><td class="source">	case PA_CONTEXT_TERMINATED:<br></td></tr
+><tr
+id=sl_svn3_229
+
+><td class="source">		show_error(&quot;Terminated&quot;);<br></td></tr
+><tr
+id=sl_svn3_230
+
+><td class="source">		break;<br></td></tr
+><tr
+id=sl_svn3_231
+
+><td class="source">	}<br></td></tr
+><tr
+id=sl_svn3_232
+
+><td class="source">}<br></td></tr
+><tr
+id=sl_svn3_233
+
+><td class="source"><br></td></tr
+><tr
+id=sl_svn3_234
+
+><td class="source">int main(int argc, char *argv[]) {<br></td></tr
+><tr
+id=sl_svn3_235
+
+><td class="source">	const char* usage = &quot;Checks the volume level of PulseAudio on both in and output. \n&quot;<br></td></tr
+><tr
+id=sl_svn3_236
+
+><td class="source">		&quot;If the level gets above threshold on_script is executed. \n&quot;<br></td></tr
+><tr
+id=sl_svn3_237
+
+><td class="source">		&quot;If the level is below threshold for some time off_script is executed. \n&quot;<br></td></tr
+><tr
+id=sl_svn3_238
+
+><td class="source">		&quot;Threshold is between 0.000-1.000 default 0.002 \n&quot;<br></td></tr
+><tr
+id=sl_svn3_239
+
+><td class="source">		&quot;Usage: volchecker on_script off_script threshold\n&quot;<br></td></tr
+><tr
+id=sl_svn3_240
+
+><td class="source">		&quot;Example: volchecker /home/me/on.sh /home/me/off.sh 0.002\n&quot;;<br></td></tr
+><tr
+id=sl_svn3_241
+
+><td class="source">	if (argc &gt; 1 &amp;&amp; argc &lt; 4) {<br></td></tr
+><tr
+id=sl_svn3_242
+
+><td class="source">		printf(usage);<br></td></tr
+><tr
+id=sl_svn3_243
+
+><td class="source">		return -1;<br></td></tr
+><tr
+id=sl_svn3_244
+
+><td class="source">	} else if (argc == 4) {<br></td></tr
+><tr
+id=sl_svn3_245
+
+><td class="source">		on_command = argv[1];<br></td></tr
+><tr
+id=sl_svn3_246
+
+><td class="source">		off_command = argv[2];<br></td></tr
+><tr
+id=sl_svn3_247
+
+><td class="source">		threshold = atof(argv[3]);<br></td></tr
+><tr
+id=sl_svn3_248
+
+><td class="source">	}<br></td></tr
+><tr
+id=sl_svn3_249
+
+><td class="source">	printf(usage);<br></td></tr
+><tr
+id=sl_svn3_250
+
+><td class="source">	printf(&quot;Using default configuration. You probably want:\n&quot;);<br></td></tr
+><tr
+id=sl_svn3_251
+
+><td class="source"><br></td></tr
+><tr
+id=sl_svn3_252
+
+><td class="source">	trigger(false); // turn off to start with<br></td></tr
+><tr
+id=sl_svn3_253
+
+><td class="source"><br></td></tr
+><tr
+id=sl_svn3_254
+
+><td class="source">	int pa_ready = 0;<br></td></tr
+><tr
+id=sl_svn3_255
+
+><td class="source"><br></td></tr
+><tr
+id=sl_svn3_256
+
+><td class="source">	signal(SIGPIPE, SIG_IGN);<br></td></tr
+><tr
+id=sl_svn3_257
+
+><td class="source"><br></td></tr
+><tr
+id=sl_svn3_258
+
+><td class="source">	loop = pa_threaded_mainloop_new();<br></td></tr
+><tr
+id=sl_svn3_259
+
+><td class="source"><br></td></tr
+><tr
+id=sl_svn3_260
+
+><td class="source">	context = pa_context_new(pa_threaded_mainloop_get_api(loop), &quot;volchecker&quot;);<br></td></tr
+><tr
+id=sl_svn3_261
+
+><td class="source"><br></td></tr
+><tr
+id=sl_svn3_262
+
+><td class="source">	pa_context_connect(context, NULL, PA_CONTEXT_NOAUTOSPAWN, NULL);<br></td></tr
+><tr
+id=sl_svn3_263
+
+><td class="source">	pa_context_set_state_callback(context, context_state_callback, &amp;pa_ready);<br></td></tr
+><tr
+id=sl_svn3_264
+
+><td class="source"><br></td></tr
+><tr
+id=sl_svn3_265
+
+><td class="source">	/* Run the main loop */<br></td></tr
+><tr
+id=sl_svn3_266
+
+><td class="source">	if (pa_threaded_mainloop_start(loop) &lt; 0) {<br></td></tr
+><tr
+id=sl_svn3_267
+
+><td class="source">		show_error(&quot;Main loop failed&quot;);<br></td></tr
+><tr
+id=sl_svn3_268
+
+><td class="source">	}<br></td></tr
+><tr
+id=sl_svn3_269
+
+><td class="source"><br></td></tr
+><tr
+id=sl_svn3_270
+
+><td class="source">	while (true) {<br></td></tr
+><tr
+id=sl_svn3_271
+
+><td class="source">		pa_threaded_mainloop_lock(loop);<br></td></tr
+><tr
+id=sl_svn3_272
+
+><td class="source">		pa_threaded_mainloop_wait(loop);<br></td></tr
+><tr
+id=sl_svn3_273
+
+><td class="source">		sleep(10);<br></td></tr
+><tr
+id=sl_svn3_274
+
+><td class="source">	}<br></td></tr
+><tr
+id=sl_svn3_275
+
+><td class="source"><br></td></tr
+><tr
+id=sl_svn3_276
+
+><td class="source">	if (context)<br></td></tr
+><tr
+id=sl_svn3_277
+
+><td class="source">		pa_context_unref(context);<br></td></tr
+><tr
+id=sl_svn3_278
+
+><td class="source"><br></td></tr
+><tr
+id=sl_svn3_279
+
+><td class="source">	pa_threaded_mainloop_free(loop);<br></td></tr
+><tr
+id=sl_svn3_280
+
+><td class="source">	printf(&quot;Exiting&quot;);<br></td></tr
+><tr
+id=sl_svn3_281
+
+><td class="source">	return 0;<br></td></tr
+><tr
+id=sl_svn3_282
+
+><td class="source">}<br></td></tr
+><tr
+id=sl_svn3_283
+
+><td class="source"><br></td></tr
+></table></pre>
+<pre><table width="100%"><tr class="cursor_stop cursor_hidden"><td></td></tr></table></pre>
+</td>
+</tr></table>
+
+ 
+<script type="text/javascript">
+ var lineNumUnderMouse = -1;
+ 
+ function gutterOver(num) {
+ gutterOut();
+ var newTR = document.getElementById('gr_svn3_' + num);
+ if (newTR) {
+ newTR.className = 'undermouse';
+ }
+ lineNumUnderMouse = num;
+ }
+ function gutterOut() {
+ if (lineNumUnderMouse != -1) {
+ var oldTR = document.getElementById(
+ 'gr_svn3_' + lineNumUnderMouse);
+ if (oldTR) {
+ oldTR.className = '';
+ }
+ lineNumUnderMouse = -1;
+ }
+ }
+ var numsGenState = {table_base_id: 'nums_table_'};
+ var srcGenState = {table_base_id: 'src_table_'};
+ var alignerRunning = false;
+ var startOver = false;
+ function setLineNumberHeights() {
+ if (alignerRunning) {
+ startOver = true;
+ return;
+ }
+ numsGenState.chunk_id = 0;
+ numsGenState.table = document.getElementById('nums_table_0');
+ numsGenState.row_num = 0;
+ if (!numsGenState.table) {
+ return; // Silently exit if no file is present.
+ }
+ srcGenState.chunk_id = 0;
+ srcGenState.table = document.getElementById('src_table_0');
+ srcGenState.row_num = 0;
+ alignerRunning = true;
+ continueToSetLineNumberHeights();
+ }
+ function rowGenerator(genState) {
+ if (genState.row_num < genState.table.rows.length) {
+ var currentRow = genState.table.rows[genState.row_num];
+ genState.row_num++;
+ return currentRow;
+ }
+ var newTable = document.getElementById(
+ genState.table_base_id + (genState.chunk_id + 1));
+ if (newTable) {
+ genState.chunk_id++;
+ genState.row_num = 0;
+ genState.table = newTable;
+ return genState.table.rows[0];
+ }
+ return null;
+ }
+ var MAX_ROWS_PER_PASS = 1000;
+ function continueToSetLineNumberHeights() {
+ var rowsInThisPass = 0;
+ var numRow = 1;
+ var srcRow = 1;
+ while (numRow && srcRow && rowsInThisPass < MAX_ROWS_PER_PASS) {
+ numRow = rowGenerator(numsGenState);
+ srcRow = rowGenerator(srcGenState);
+ rowsInThisPass++;
+ if (numRow && srcRow) {
+ if (numRow.offsetHeight != srcRow.offsetHeight) {
+ numRow.firstChild.style.height = srcRow.offsetHeight + 'px';
+ }
+ }
+ }
+ if (rowsInThisPass >= MAX_ROWS_PER_PASS) {
+ setTimeout(continueToSetLineNumberHeights, 10);
+ } else {
+ alignerRunning = false;
+ if (startOver) {
+ startOver = false;
+ setTimeout(setLineNumberHeights, 500);
+ }
+ }
+ }
+ function initLineNumberHeights() {
+ // Do 2 complete passes, because there can be races
+ // between this code and prettify.
+ startOver = true;
+ setTimeout(setLineNumberHeights, 250);
+ window.onresize = setLineNumberHeights;
+ }
+ initLineNumberHeights();
+</script>
+
+ 
+ 
+ <div id="log">
+ <div style="text-align:right">
+ <a class="ifCollapse" href="#" onclick="_toggleMeta(this); return false">Show details</a>
+ <a class="ifExpand" href="#" onclick="_toggleMeta(this); return false">Hide details</a>
+ </div>
+ <div class="ifExpand">
+ 
+ 
+ <div class="pmeta_bubble_bg" style="border:1px solid white">
+ <div class="round4"></div>
+ <div class="round2"></div>
+ <div class="round1"></div>
+ <div class="box-inner">
+ <div id="changelog">
+ <p>Change log</p>
+ <div>
+ <a href="/p/volchecker/source/detail?spec=svn3&amp;r=3">r3</a>
+ by jens.schoedt
+ on Jun 15, 2011
+ &nbsp; <a href="/p/volchecker/source/diff?spec=svn3&r=3&amp;format=side&amp;path=/trunk/volchecker/src/volchecker.cpp&amp;old_path=/trunk/volchecker/src/volchecker.cpp&amp;old=">Diff</a>
+ </div>
+ <pre>Initial import.</pre>
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ <script type="text/javascript">
+ var detail_url = '/p/volchecker/source/detail?r=3&spec=svn3';
+ var publish_url = '/p/volchecker/source/detail?r=3&spec=svn3#publish';
+ // describe the paths of this revision in javascript.
+ var changed_paths = [];
+ var changed_urls = [];
+ 
+ changed_paths.push('/trunk/volchecker/.cproject');
+ changed_urls.push('/p/volchecker/source/browse/trunk/volchecker/.cproject?r\x3d3\x26spec\x3dsvn3');
+ 
+ 
+ changed_paths.push('/trunk/volchecker/.project');
+ changed_urls.push('/p/volchecker/source/browse/trunk/volchecker/.project?r\x3d3\x26spec\x3dsvn3');
+ 
+ 
+ changed_paths.push('/trunk/volchecker/src');
+ changed_urls.push('/p/volchecker/source/browse/trunk/volchecker/src?r\x3d3\x26spec\x3dsvn3');
+ 
+ 
+ changed_paths.push('/trunk/volchecker/src/volchecker.cpp');
+ changed_urls.push('/p/volchecker/source/browse/trunk/volchecker/src/volchecker.cpp?r\x3d3\x26spec\x3dsvn3');
+ 
+ var selected_path = '/trunk/volchecker/src/volchecker.cpp';
+ 
+ 
+ function getCurrentPageIndex() {
+ for (var i = 0; i < changed_paths.length; i++) {
+ if (selected_path == changed_paths[i]) {
+ return i;
+ }
+ }
+ }
+ function getNextPage() {
+ var i = getCurrentPageIndex();
+ if (i < changed_paths.length - 1) {
+ return changed_urls[i + 1];
+ }
+ return null;
+ }
+ function getPreviousPage() {
+ var i = getCurrentPageIndex();
+ if (i > 0) {
+ return changed_urls[i - 1];
+ }
+ return null;
+ }
+ function gotoNextPage() {
+ var page = getNextPage();
+ if (!page) {
+ page = detail_url;
+ }
+ window.location = page;
+ }
+ function gotoPreviousPage() {
+ var page = getPreviousPage();
+ if (!page) {
+ page = detail_url;
+ }
+ window.location = page;
+ }
+ function gotoDetailPage() {
+ window.location = detail_url;
+ }
+ function gotoPublishPage() {
+ window.location = publish_url;
+ }
+</script>
+
+ 
+ <style type="text/css">
+ #review_nav {
+ border-top: 3px solid white;
+ padding-top: 6px;
+ margin-top: 1em;
+ }
+ #review_nav td {
+ vertical-align: middle;
+ }
+ #review_nav select {
+ margin: .5em 0;
+ }
+ </style>
+ <div id="review_nav">
+ <table><tr><td>Go to:&nbsp;</td><td>
+ <select name="files_in_rev" onchange="window.location=this.value">
+ 
+ <option value="/p/volchecker/source/browse/trunk/volchecker/.cproject?r=3&amp;spec=svn3"
+ 
+ >/trunk/volchecker/.cproject</option>
+ 
+ <option value="/p/volchecker/source/browse/trunk/volchecker/.project?r=3&amp;spec=svn3"
+ 
+ >/trunk/volchecker/.project</option>
+ 
+ <option value="/p/volchecker/source/browse/trunk/volchecker/src?r=3&amp;spec=svn3"
+ 
+ >/trunk/volchecker/src</option>
+ 
+ <option value="/p/volchecker/source/browse/trunk/volchecker/src/volchecker.cpp?r=3&amp;spec=svn3"
+ selected="selected"
+ >...nk/volchecker/src/volchecker.cpp</option>
+ 
+ </select>
+ </td></tr></table>
+ 
+ 
+ 
+
+
+
+ <div style="white-space:nowrap">
+ Project members,
+ <a href="https://www.google.com/accounts/ServiceLogin?service=code&amp;ltmpl=phosting&amp;continue=http%3A%2F%2Fcode.google.com%2Fp%2Fvolchecker%2Fsource%2Fbrowse%2Ftrunk%2Fvolchecker%2Fsrc%2Fvolchecker.cpp&amp;followup=http%3A%2F%2Fcode.google.com%2Fp%2Fvolchecker%2Fsource%2Fbrowse%2Ftrunk%2Fvolchecker%2Fsrc%2Fvolchecker.cpp"
+ >sign in</a> to write a code review</div>
+
+
+ 
+ </div>
+ 
+ 
+ </div>
+ <div class="round1"></div>
+ <div class="round2"></div>
+ <div class="round4"></div>
+ </div>
+ <div class="pmeta_bubble_bg" style="border:1px solid white">
+ <div class="round4"></div>
+ <div class="round2"></div>
+ <div class="round1"></div>
+ <div class="box-inner">
+ <div id="older_bubble">
+ <p>Older revisions</p>
+ 
+ <a href="/p/volchecker/source/list?path=/trunk/volchecker/src/volchecker.cpp&start=3">All revisions of this file</a>
+ </div>
+ </div>
+ <div class="round1"></div>
+ <div class="round2"></div>
+ <div class="round4"></div>
+ </div>
+ 
+ <div class="pmeta_bubble_bg" style="border:1px solid white">
+ <div class="round4"></div>
+ <div class="round2"></div>
+ <div class="round1"></div>
+ <div class="box-inner">
+ <div id="fileinfo_bubble">
+ <p>File info</p>
+ 
+ <div>Size: 7558 bytes,
+ 283 lines</div>
+ 
+ <div><a href="//volchecker.googlecode.com/svn/trunk/volchecker/src/volchecker.cpp">View raw file</a></div>
+ </div>
+ 
+ </div>
+ <div class="round1"></div>
+ <div class="round2"></div>
+ <div class="round4"></div>
+ </div>
+ </div>
+ </div>
+
+
+</div>
+
+</div>
+</div>
+
+<script src="http://www.gstatic.com/codesite/ph/16229512607128645344/js/prettify/prettify.js"></script>
+<script type="text/javascript">prettyPrint();</script>
+
+
+<script src="http://www.gstatic.com/codesite/ph/16229512607128645344/js/source_file_scripts.js"></script>
+
+ <script type="text/javascript" src="http://www.gstatic.com/codesite/ph/16229512607128645344/js/kibbles.js"></script>
+ <script type="text/javascript">
+ var lastStop = null;
+ var initialized = false;
+ 
+ function updateCursor(next, prev) {
+ if (prev && prev.element) {
+ prev.element.className = 'cursor_stop cursor_hidden';
+ }
+ if (next && next.element) {
+ next.element.className = 'cursor_stop cursor';
+ lastStop = next.index;
+ }
+ }
+ 
+ function pubRevealed(data) {
+ updateCursorForCell(data.cellId, 'cursor_stop cursor_hidden');
+ if (initialized) {
+ reloadCursors();
+ }
+ }
+ 
+ function draftRevealed(data) {
+ updateCursorForCell(data.cellId, 'cursor_stop cursor_hidden');
+ if (initialized) {
+ reloadCursors();
+ }
+ }
+ 
+ function draftDestroyed(data) {
+ updateCursorForCell(data.cellId, 'nocursor');
+ if (initialized) {
+ reloadCursors();
+ }
+ }
+ function reloadCursors() {
+ kibbles.skipper.reset();
+ loadCursors();
+ if (lastStop != null) {
+ kibbles.skipper.setCurrentStop(lastStop);
+ }
+ }
+ // possibly the simplest way to insert any newly added comments
+ // is to update the class of the corresponding cursor row,
+ // then refresh the entire list of rows.
+ function updateCursorForCell(cellId, className) {
+ var cell = document.getElementById(cellId);
+ // we have to go two rows back to find the cursor location
+ var row = getPreviousElement(cell.parentNode);
+ row.className = className;
+ }
+ // returns the previous element, ignores text nodes.
+ function getPreviousElement(e) {
+ var element = e.previousSibling;
+ if (element.nodeType == 3) {
+ element = element.previousSibling;
+ }
+ if (element && element.tagName) {
+ return element;
+ }
+ }
+ function loadCursors() {
+ // register our elements with skipper
+ var elements = CR_getElements('*', 'cursor_stop');
+ var len = elements.length;
+ for (var i = 0; i < len; i++) {
+ var element = elements[i]; 
+ element.className = 'cursor_stop cursor_hidden';
+ kibbles.skipper.append(element);
+ }
+ }
+ function toggleComments() {
+ CR_toggleCommentDisplay();
+ reloadCursors();
+ }
+ function keysOnLoadHandler() {
+ // setup skipper
+ kibbles.skipper.addStopListener(
+ kibbles.skipper.LISTENER_TYPE.PRE, updateCursor);
+ // Set the 'offset' option to return the middle of the client area
+ // an option can be a static value, or a callback
+ kibbles.skipper.setOption('padding_top', 50);
+ // Set the 'offset' option to return the middle of the client area
+ // an option can be a static value, or a callback
+ kibbles.skipper.setOption('padding_bottom', 100);
+ // Register our keys
+ kibbles.skipper.addFwdKey("n");
+ kibbles.skipper.addRevKey("p");
+ kibbles.keys.addKeyPressListener(
+ 'u', function() { window.location = detail_url; });
+ kibbles.keys.addKeyPressListener(
+ 'r', function() { window.location = detail_url + '#publish'; });
+ 
+ kibbles.keys.addKeyPressListener('j', gotoNextPage);
+ kibbles.keys.addKeyPressListener('k', gotoPreviousPage);
+ 
+ 
+ }
+ </script>
+<script src="http://www.gstatic.com/codesite/ph/16229512607128645344/js/code_review_scripts.js"></script>
+<script type="text/javascript">
+ function showPublishInstructions() {
+ var element = document.getElementById('review_instr');
+ if (element) {
+ element.className = 'opened';
+ }
+ }
+ var codereviews;
+ function revsOnLoadHandler() {
+ // register our source container with the commenting code
+ var paths = {'svn3': '/trunk/volchecker/src/volchecker.cpp'}
+ codereviews = CR_controller.setup(
+ {"profileUrl":null,"assetVersionPath":"http://www.gstatic.com/codesite/ph/16229512607128645344","token":null,"projectHomeUrl":"/p/volchecker","relativeBaseUrl":"","assetHostPath":"http://www.gstatic.com/codesite/ph","domainName":null,"projectName":"volchecker","loggedInUserEmail":null}, '', 'svn3', paths,
+ CR_BrowseIntegrationFactory);
+ 
+ codereviews.registerActivityListener(CR_ActivityType.REVEAL_DRAFT_PLATE, showPublishInstructions);
+ 
+ codereviews.registerActivityListener(CR_ActivityType.REVEAL_PUB_PLATE, pubRevealed);
+ codereviews.registerActivityListener(CR_ActivityType.REVEAL_DRAFT_PLATE, draftRevealed);
+ codereviews.registerActivityListener(CR_ActivityType.DISCARD_DRAFT_COMMENT, draftDestroyed);
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ var initialized = true;
+ reloadCursors();
+ }
+ window.onload = function() {keysOnLoadHandler(); revsOnLoadHandler();};
+
+</script>
+<script type="text/javascript" src="http://www.gstatic.com/codesite/ph/16229512607128645344/js/dit_scripts.js"></script>
+
+ 
+ 
+ 
+ <script type="text/javascript" src="http://www.gstatic.com/codesite/ph/16229512607128645344/js/ph_core.js"></script>
+ 
+ 
+ 
+ 
+</div> 
+
+<div id="footer" dir="ltr">
+ <div class="text">
+ <a href="/projecthosting/terms.html">Terms</a> -
+ <a href="http://www.google.com/privacy.html">Privacy</a> -
+ <a href="/p/support/">Project Hosting Help</a>
+ </div>
+</div>
+ <div class="hostedBy" style="margin-top: -20px;">
+ <span style="vertical-align: top;">Powered by <a href="http://code.google.com/projecthosting/">Google Project Hosting</a></span>
+ </div>
+
+ 
+ 
+
+
+ 
+ </body>
+</html>
+

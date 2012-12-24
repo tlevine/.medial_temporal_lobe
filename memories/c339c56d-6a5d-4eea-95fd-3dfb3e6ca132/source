@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="client-nojs">
+<head>
+<title>Laptop - ArchWiki</title>
+<meta charset="UTF-8" />
+<meta name="generator" content="MediaWiki 1.19.3" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="search" type="application/opensearchdescription+xml" href="/opensearch_desc.php" title="ArchWiki (en)" />
+<link rel="EditURI" type="application/rsd+xml" href="https://wiki.archlinux.org/api.php?action=rsd" />
+<link rel="copyright" href="http://www.gnu.org/copyleft/fdl.html" />
+<link rel="alternate" type="application/atom+xml" title="ArchWiki Atom feed" href="/index.php?title=Special:RecentChanges&amp;feed=atom" />
+<link rel="stylesheet" href="https://wiki.archlinux.org/load.php?debug=false&amp;lang=en&amp;modules=mediawiki.legacy.commonPrint%2Cshared%7Cskins.archlinux&amp;only=styles&amp;skin=archlinux&amp;*" />
+<!--[if IE 6]><link rel="stylesheet" href="/skins/archlinux/IE60Fixes.css?303" media="screen" /><![endif]-->
+<!--[if IE 7]><link rel="stylesheet" href="/skins/archlinux/IE70Fixes.css?303" media="screen" /><![endif]--><meta name="ResourceLoaderDynamicStyles" content="" />
+
+<script src="https://wiki.archlinux.org/load.php?debug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=archlinux&amp;*"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Laptop","wgTitle":"Laptop","wgCurRevisionId":240061,"wgArticleId":4149,"wgIsArticle":true,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Laptops"],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgRelevantPageName":"Laptop","wgRestrictionEdit":[],"wgRestrictionMove":[]});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function($){mw.user.options.set({"ccmeonemails":0,"cols":80,"date":"default","diffonly":0,"disablemail":0,"disablesuggest":0,"editfont":"default","editondblclick":0,"editsection":1,"editsectiononrightclick":0,"enotifminoredits":0,"enotifrevealaddr":0,"enotifusertalkpages":1,"enotifwatchlistpages":0,"extendwatchlist":0,"externaldiff":0,"externaleditor":0,"fancysig":0,"forceeditsummary":0,"gender":"unknown","hideminor":0,"hidepatrolled":0,"highlightbroken":1,"imagesize":2,"justify":0,"math":1,"minordefault":0,"newpageshidepatrolled":0,"nocache":0,"noconvertlink":0,"norollbackdiff":0,"numberheadings":0,"previewonfirst":0,"previewontop":1,"quickbar":5,"rcdays":7,"rclimit":50,"rememberpassword":0,"rows":25,"searchlimit":20,"showhiddencats":0,"showjumplinks":1,"shownumberswatching":1,"showtoc":1,"showtoolbar":1,"skin":"archlinux","stubthreshold":0,"thumbsize":2,"underline":2,"uselivepreview":0,"usenewrc":0,"watchcreations":0,"watchdefault":0,"watchdeletion"
+:0,"watchlistdays":3,"watchlisthideanons":0,"watchlisthidebots":0,"watchlisthideliu":0,"watchlisthideminor":0,"watchlisthideown":0,"watchlisthidepatrolled":0,"watchmoves":0,"wllimit":250,"variant":"en","language":"en","searchNs0":true,"searchNs1":false,"searchNs2":false,"searchNs3":false,"searchNs4":false,"searchNs5":false,"searchNs6":false,"searchNs7":false,"searchNs8":false,"searchNs9":false,"searchNs10":false,"searchNs11":false,"searchNs12":false,"searchNs13":false,"searchNs14":false,"searchNs15":false});;},{},{});mw.loader.implement("user.tokens",function($){mw.user.tokens.set({"editToken":"+\\","watchToken":false});;},{},{});
+
+/* cache key: archwiki:resourceloader:filter:minify-js:7:789e73e7868a9c0b6be7e25913e3565b */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax"]);
+}</script>
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-Laptop skin-archlinux action-view">
+
+<div id="archnavbar"><!-- Arch Linux global navigation bar -->
+	<div id="archnavbarlogo">
+		<p><a id="logo" href="http://www.archlinux.org/"></a></p>
+	</div>
+	<div id="archnavbarmenu">
+		<ul id="archnavbarlist">
+			<li id="anb-home"><a href="http://www.archlinux.org/">Home</a></li><li id="anb-packages"><a href="http://www.archlinux.org/packages/">Packages</a></li><li id="anb-forums"><a href="https://bbs.archlinux.org/">Forums</a></li><li id="anb-wiki" class="anb-selected"><a href="https://wiki.archlinux.org/">Wiki</a></li><li id="anb-bugs"><a href="https://bugs.archlinux.org/">Bugs</a></li><li id="anb-aur"><a href="https://aur.archlinux.org/">AUR</a></li><li id="anb-download"><a href="http://www.archlinux.org/download/">Download</a></li>		</ul>
+	</div>
+</div><!-- #archnavbar -->
+
+<div id="globalWrapper">
+<div id="column-content"><div id="content">
+	<a id="top"></a>
+	
+	<h1 id="firstHeading" class="firstHeading"><span dir="auto">Laptop</span></h1>
+	<div id="bodyContent" class="mw-body">
+		<div id="siteSub">From ArchWiki</div>
+		<div id="contentSub"></div>
+		<div id="jump-to-nav" class="mw-jump">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>
+		<!-- start content -->
+<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><table id="toc" class="toc"><tr><td><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Setting_Up_For_Laptops"><span class="tocnumber">1</span> <span class="toctext">Setting Up For Laptops</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Power_Management"><span class="tocnumber">2</span> <span class="toctext">Power Management</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="#Battery_State_Monitoring_Utilities"><span class="tocnumber">2.1</span> <span class="toctext">Battery State Monitoring Utilities</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="#Suspend_and_Hibernate"><span class="tocnumber">2.2</span> <span class="toctext">Suspend and Hibernate</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Power_saving"><span class="tocnumber">2.3</span> <span class="toctext">Power saving</span></a>
+<ul>
+<li class="toclevel-3 tocsection-6"><a href="#Automatic_tweaks_for_battery_life"><span class="tocnumber">2.3.1</span> <span class="toctext">Automatic tweaks for battery life</span></a></li>
+<li class="toclevel-3 tocsection-7"><a href="#PCI-e_ASPM"><span class="tocnumber">2.3.2</span> <span class="toctext">PCI-e ASPM</span></a></li>
+<li class="toclevel-3 tocsection-8"><a href="#Granola"><span class="tocnumber">2.3.3</span> <span class="toctext">Granola</span></a></li>
+<li class="toclevel-3 tocsection-9"><a href="#WLAN-device"><span class="tocnumber">2.3.4</span> <span class="toctext">WLAN-device</span></a></li>
+<li class="toclevel-3 tocsection-10"><a href="#Disk-related_tweaks"><span class="tocnumber">2.3.5</span> <span class="toctext">Disk-related tweaks</span></a></li>
+<li class="toclevel-3 tocsection-11"><a href="#More_tweaks"><span class="tocnumber">2.3.6</span> <span class="toctext">More tweaks</span></a></li>
+<li class="toclevel-3 tocsection-12"><a href="#Hard_drive_spin_down_problem"><span class="tocnumber">2.3.7</span> <span class="toctext">Hard drive spin down problem</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-13"><a href="#Using_a_script_and_an_udev_rule"><span class="tocnumber">2.4</span> <span class="toctext">Using a script and an udev rule</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-14"><a href="#Screen_brightness"><span class="tocnumber">3</span> <span class="toctext">Screen brightness</span></a>
+<ul>
+<li class="toclevel-2 tocsection-15"><a href="#setpci_fallback_method"><span class="tocnumber">3.1</span> <span class="toctext">setpci fallback method</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-16"><a href="#Touchpad"><span class="tocnumber">4</span> <span class="toctext">Touchpad</span></a></li>
+<li class="toclevel-1 tocsection-17"><a href="#Hard_disk_shock_protection"><span class="tocnumber">5</span> <span class="toctext">Hard disk shock protection</span></a></li>
+<li class="toclevel-1 tocsection-18"><a href="#Network_Time_Syncing"><span class="tocnumber">6</span> <span class="toctext">Network Time Syncing</span></a></li>
+</ul>
+</td></tr></table>
+<h2> <span class="mw-headline" id="Setting_Up_For_Laptops"> Setting Up For Laptops </span></h2>
+<p>This page should contain links to pages needed for configuring a laptop for the best experience. Setting up a laptop is in many ways the same as setting up a desktop. However, there are a few key differences. When setting up a laptop with Arch Linux, the following points should be taken into consideration:
+</p>
+<ul><li> <a href="#Power_Management">#Power Management</a> Power Management for laptops refers to optimizing the system to last as long as possible on a single battery charge. This can be accomplished by a variety of tweaks.
+<ul><li> <a href="#Suspend_and_Hibernate">#Suspend and Hibernate</a>&#160;: the operating system can be manually suspended either to memory or to disk, allowing for an (almost) complete shutdown of other hardware.
+</li><li> Hard drive spindown&#160;: the system can be configured to automatically turn off the hard disk after a specified interval of inactivity.
+</li><li> Screen shut off&#160;: the laptop screen can be configured to automatically turn off after a specified interval of inactivity (not just blanked with a screensaver but completely shut off).
+</li><li> CPU frequency scaling&#160;: the processor(s) can be configured to automatically step down to a lower frequency at lower loads.
+</li></ul>
+</li></ul>
+<ul><li> <a href="#Screen_brightness">#Screen brightness</a>. How do I manage screen brightness?
+</li><li> Network and wireless setup is described in <a href="/index.php/Wireless_Setup" title="Wireless Setup">Wireless Setup</a>.
+</li><li> Media buttons can be configured as described in <a href="/index.php/Extra_Keyboard_Keys" title="Extra Keyboard Keys">Extra Keyboard Keys</a>.
+</li><li> <a href="#Touchpad">#Touchpad</a> sensitivity, acceleration, button function and scroll borders can be configured for some (Synaptics or Alps) touchpads.
+</li><li> <a href="#Hard_disk_shock_protection">#Hard disk shock protection</a> 
+</li></ul>
+<p>All of these points are important to take into consideration when getting a laptop set up the way you like. Fortunately, Arch Linux provides all the tools and programs necessary to take complete control of your laptop. These programs and utilities are highlighted below, with appropriate tips tutorials.
+</p><p>Note: the following links may be useful:
+</p>
+<ul><li> <a rel="nofollow" class="external free" href="http://www.linux-on-laptops.com/">http://www.linux-on-laptops.com/</a>
+</li><li> <a rel="nofollow" class="external free" href="http://www.linlap.com/">http://www.linlap.com/</a>
+</li></ul>
+<h2> <span class="mw-headline" id="Power_Management"> Power Management </span></h2>
+<p>Power management is very important for anyone who wishes to make good use of their battery capacity. The following tools and programs help to increase battery life and keep your laptop cool and quiet.
+</p>
+<h3> <span class="mw-headline" id="Battery_State_Monitoring_Utilities"> Battery State Monitoring Utilities </span></h3>
+<p>Battery state can be read using ACPI utilities from the terminal. ACPI command line utilities are provided via the <span style="font-family: monospace"><a rel="nofollow" class="external text" href="https://www.archlinux.org/packages/?name=acpi">acpi</a></span> package. A simple battery monitor that sits in the system tray is <span style="font-family: monospace"><a rel="nofollow" class="external text" href="https://aur.archlinux.org/packages/batterymon-clone/">batterymon-clone</a></span> which can be found in the <a href="/index.php/Arch_User_Repository" title="Arch User Repository">AUR</a>.
+</p>
+<div style="padding: 5px; margin: 0.50em 0; background-color: #DDFFDD; border: thin solid #BBDDBB; overflow: hidden;"><strong> Tip: </strong>More information can be found in the <a href="/index.php/ACPI_modules" title="ACPI modules">ACPI modules</a> article.</div>
+<ul><li> <span style="font-family: monospace"><a rel="nofollow" class="external text" href="https://www.archlinux.org/packages/?name=batti">batti</a></span> is a simple battery monitor for the system tray, similar to batterymon-clone. Unlike the latter <code style="display:inline-block; padding: 0.1em 0.3em;">batti</code> uses UPower, and if that is missing DeviceKit.Power, for it's power information.
+</li></ul>
+<h3> <span class="mw-headline" id="Suspend_and_Hibernate"> Suspend and Hibernate </span></h3>
+<p>Manually suspending the operating system, either to memory (standby) or to disk (hibernate) sometimes provides the most efficient way to optimize battery life, depending on the usage pattern of the laptop. While there is relatively straightforward support in the linux kernel to support these operations, typically some adjustments have to be made before initiating these operations (typically due to problematic drivers, modules or hardware). The following tools provide wrappers around the kernel interfaces to suspend/resume&#160;:
+</p>
+<ul><li> <a href="/index.php/Acpid" title="Acpid">Acpid</a>
+</li><li> <a href="/index.php/Pm-utils" title="Pm-utils">Pm-utils</a>
+</li><li> <a href="/index.php/Uswsusp" title="Uswsusp">Uswsusp</a>
+</li></ul>
+<p>which are described in more detail in <a href="/index.php/Suspend" title="Suspend" class="mw-redirect">Suspend</a>.
+</p>
+<h3> <span class="mw-headline" id="Power_saving">Power saving</span></h3>
+<p>See the main article, <a href="/index.php/Power_saving" title="Power saving">power saving</a>.
+</p>
+<h4> <span class="mw-headline" id="Automatic_tweaks_for_battery_life"> Automatic tweaks for battery life </span></h4>
+<p>As opposed to manually initiated actions like suspend/hibernate, a number of tweaks can be made to prolong the battery life of the laptop under low/idle usage.
+</p>
+<ul><li> <a href="/index.php/CPU_Frequency_Scaling" title="CPU Frequency Scaling">CPU Frequency Scaling</a> is a technology used primarily by notebooks which enables the OS to scale the CPU frequency up or down, depending on the current system load and/or power scheme.
+</li><li> <a href="/index.php/Laptop_Mode_Tools" title="Laptop Mode Tools">Laptop Mode Tools</a> provides a comprehensive suite of tools to tweak a large number of power saving settings through well documented configuration files.
+</li><li> <a href="/index.php/Powertop" title="Powertop">Powertop</a> is a handy utility from Intel that displays which hardware/processes are using the most power on your system, and provides instructions on how to stop or remove power-wasting services. Works great for mobile Intel CPUs; provides the current CPU state and suggestions for power saving. Also works on AMD systems, but does not provide as much information about the CPU state.
+</li></ul>
+<p>The following options are specific to certain laptop types:
+</p>
+<ul><li> <a href="/index.php/Asus_G1#The_Lapsus_daemon_.26_KDE_applet" title="Asus G1" class="mw-redirect">Lapsus</a> is a set of programs providing easy access to many features of various laptops. It currently supports most features provided by asus-laptop kernel module from ACPI4Asus project, such as additional LEDs, hotkeys, backlight control etc. It also has support for some IBM laptops features provided by IBM ThinkPad ACPI Extras Driver and NVRAM device.
+</li><li> Battery tweaks for Thinkpads can be found in the <a href="/index.php/Tp_smapi" title="Tp smapi">tp_smapi</a> article.
+</li><li> <a href="/index.php/TLP" title="TLP">TLP</a> for Thinkpads is a set of scripts, which set many powersaving options according to the current Powersource. <a href="/index.php/TLP" title="TLP">TLP</a> is intended to be used on Thinkpads, but most settings should work on other laptops too.
+</li></ul>
+<h4> <span class="mw-headline" id="PCI-e_ASPM">PCI-e ASPM</span></h4>
+<p>On some laptops, powertop suggests enabling the <code style="display:inline-block; padding: 0.1em 0.3em;">CONFIG_PCIEASPM</code> kernel option. It can be found under "Bus options (PCI etc.)"-&gt;"PCI Express ASPM support". This option is marked as experimental in the current kernel (2.6.35) and allows the PCI-e links to enter a power saving state. 
+</p><p>According to <a rel="nofollow" class="external autonumber" href="http://www.lesswatts.org/projects/devices-power-management/pcie.php">[1]</a>, this option might degrade performance a bit, but on an Acer 3820TG laptop, it can reduce power consumption by about one third or even more.
+</p><p>More experience with this setting would be appreciated, so please share them <a rel="nofollow" class="external text" href="https://bbs.archlinux.org/viewtopic.php?id=107173">here</a>!
+</p><p>It seems like the option is going to be enabled by default in kernel 2.6.36; if so, the information here will be obsolete soon. However, if your system should be able to make use of this power management feature but you are receiving messages like like the following (check <code style="display:inline-block; padding: 0.1em 0.3em;">/var/log/everything.log*</code>):
+</p>
+<pre>disabling ASPM on pre-1.1 PCI-e device.  You can enable it with 'pcie_aspm=force'
+</pre>
+<p>then add <code style="display:inline-block; padding: 0.1em 0.3em;">pcie_aspm=force</code> to your kernel command line.
+</p>
+<h4> <span class="mw-headline" id="Granola"> Granola </span></h4>
+<div style="text-align: center; margin-bottom: 1em; overflow:hidden;">
+<table class="notice noprint toc" id="out_of_date" style="background: &#123;&#123;&#123;backgroundcolor}}}; border-color: &#123;&#123;&#123;bordercolor}}}; width: 100%">
+<tr>
+<td style="background-color: &#123;&#123;&#123;signalcolor}}}; width: 100px"> <a href="/index.php/File:Tango-dialog-warning.png" class="image"><img alt="Tango-dialog-warning.png" src="/images/d/d8/Tango-dialog-warning.png" width="48" height="48" /></a>
+</td>
+<td>  <b>This article or section is out of date.</b> <div style="font-size: 90%"><b>Reason:</b> Arch Linux has moved to systemd, so rc.conf is no longer used. (<a href="/index.php/Talk:Laptop" title="Talk:Laptop">Discuss</a>)</div>
+</td>
+<td style="background-color: &#123;&#123;&#123;signalcolor}}}; width: 100px"> <a href="/index.php/File:Tango-dialog-warning.png" class="image"><img alt="Tango-dialog-warning.png" src="/images/d/d8/Tango-dialog-warning.png" width="48" height="48" /></a>
+</td></tr></table>
+</div>
+<p><a rel="nofollow" class="external text" href="https://aur.archlinux.org/packages.php?ID=36841">Granola</a> is a daemon that monitors the cpu usage and uses the cpufreq-userspace module to lessen power usage without any noticeable difference in performance.
+To use it, first install from the AUR:<a rel="nofollow" class="external autonumber" href="https://aur.archlinux.org/packages.php?ID=36841">[2]</a>, the default settings will work for most setups.
+You will need to load the cpufreq_userspace module, as well as the cpufreq scaling governor for your CPU at startup.
+Edit <code style="display:inline-block; padding: 0.1em 0.3em;">/etc/rc.conf</code>:
+For most generic cpus:
+</p>
+<pre> MODULES=( ... cpufreq_userspace acpi-cpufreq ... )
+</pre>
+<p>For Intel Atom or Pentium 4 cpus:
+</p>
+<pre> MODULES=( ... cpufreq_userspace p4_clockmod ... )
+</pre>
+<p>Then add Granola to the DAEMONS array:
+</p>
+<pre> DAEMONS=( ... granola ... )
+</pre>
+<p>and reboot. 
+</p><p>To test if it worked, run:
+</p>
+<pre> cat /sys/devices/system/cpu/cpu0/cpufreq/cpuinfo_cur_freq
+ #OR
+ cpufreq-info #if you have cpufreq-utils installed
+</pre>
+<p>and check that the cpu frequency is below maximum.
+</p>
+<h4> <span class="mw-headline" id="WLAN-device">WLAN-device</span></h4>
+<p>When often en route working with your Notebook without WLAN-Access around, it might be expedient to add a little script to your system startup that automatically turns off your WLAN-Hardware to keep it from searching for Access Points and wasting power on this, when not connected:
+</p>
+<pre>#!/bin/bash
+
+essid="`iwconfig wlan0 | grep ESSID | awk {'print $4'}`"
+	if [ "$essid" == "ESSID:off/any" ]&#160;; then
+		sudo iwconfig wlan0 txpower off
+	fi
+</pre>
+<p>[edit, if wlan0 is not your WLAN-device]
+</p><p>Start the script according to your DE/WM options by '(sleep xx &amp;&amp; /path/to/script)' depending on how long it usually takes to connect to your Access Point, 60 seconds are a good default value. It will check if you're connected, turning off the device if not.
+</p>
+<pre>sudo iwconfig wlan0 txpower on
+</pre>
+<p>will bring it back up, as, of course, a reboot will.
+</p>
+<h4> <span class="mw-headline" id="Disk-related_tweaks"> Disk-related tweaks </span></h4>
+<p>Disable file access time: every time you access (read) a file the filesystem writes an access time to the file metadata. You can disable this on individual files by using the chattr command, or you can enable it on an entire disk by setting the <i>noatime</i> option in your fstab, as follows:
+</p>
+<pre>/dev/sda1          /          ext3          defaults,noatime          1  2
+</pre>
+<p><a rel="nofollow" class="external text" href="http://www.faqs.org/docs/securing/chap6sec73.html">Source</a>
+</p>
+<div style="padding: 5px; margin: 0.50em 0; background-color: #DDDDFF; border: thin solid #BBBBDD; overflow: hidden;"><strong> Note: </strong>
+<ul><li> Disabling <code style="display:inline-block; padding: 0.1em 0.3em;">atime</code> causes troubles with <a href="/index.php/Mutt" title="Mutt">mutt</a> and other applications that make use of file timestamps. Consider compromising between performance and compatibility by using mount option <code style="display:inline-block; padding: 0.1em 0.3em;">relatime</code> instead, or look into <a rel="nofollow" class="external text" href="http://wiki.mutt.org/?MaildirFormat">mutt work-around for noatime</a>.
+</li><li> <code style="display:inline-block; padding: 0.1em 0.3em;">relatime</code> is used by default as of kernel 2.6.30, so unless you're using an older kernel, there should be no need to edit fstab.
+</li></ul>
+</div>
+<p>To allow the CD/DVD rom to spin down after a while using <a href="/index.php/Udisks" title="Udisks" class="mw-redirect">udisks</a>:
+</p>
+<pre># udisks --inhibit-polling /dev/sr0
+</pre>
+<h4> <span class="mw-headline" id="More_tweaks"> More tweaks </span></h4>
+<p>These are some generic suggestions that will work with most laptops.
+</p><p>Add the following to <code style="display:inline-block; padding: 0.1em 0.3em;">/etc/modprobe.d/modprobe.conf</code>:
+</p>
+<pre>options usbcore autosuspend=1
+</pre>
+<p>Add the following to <code style="display:inline-block; padding: 0.1em 0.3em;">/etc/sysctl.conf</code>
+</p>
+<pre>vm.dirty_writeback_centisecs=1500
+vm.laptop_mode=5
+</pre>
+<div style="padding: 5px; margin: 0.50em 0; background-color: #DDDDFF; border: thin solid #BBBBDD; overflow: hidden;"><strong> Note: </strong><i>laptop-mode-tools</i> automatically rewrites these values based on the values <code style="display:inline-block; padding: 0.1em 0.3em;">LM_BATT_MAX_LOST_WORK_SECONDS</code>, <code style="display:inline-block; padding: 0.1em 0.3em;">LM_AC_MAX_LOST_WORK_SECONDS</code> (both multiplied by 100) resp. <code style="display:inline-block; padding: 0.1em 0.3em;">LM_SECONDS_BEFORE_SYNC</code>, which are set in <code style="display:inline-block; padding: 0.1em 0.3em;">/etc/laptop-mode/laptop-mode.conf</code>. However, that only happens if the three "Enable laptop mode" variables in the same file are set accordingly — left to 0, it resets the values to kernel defaults (500 / 0) for the corresponding scenario regardless of <code style="display:inline-block; padding: 0.1em 0.3em;">/etc/sysctl.conf</code>.</div>
+<div style="text-align: center; margin-bottom: 1em; overflow:hidden;">
+<table class="notice noprint toc" id="disputed" style="background: &#123;&#123;&#123;backgroundcolor}}}; border-color: &#123;&#123;&#123;bordercolor}}}; width: 100%">
+<tr>
+<td style="background-color: &#123;&#123;&#123;signalcolor}}}; width: 100px"> <a href="/index.php/File:Tango-emblem-important.png" class="image"><img alt="Tango-emblem-important.png" src="/images/c/c8/Tango-emblem-important.png" width="48" height="48" /></a>
+</td>
+<td>  <b>The factual accuracy of this article or section is disputed.</b> <div style="font-size: 90%"><b>Reason:</b> This belongs in a udev rule, not rc.local. (<a href="/index.php/Talk:Laptop" title="Talk:Laptop">Discuss</a>)</div>
+</td>
+<td style="background-color: &#123;&#123;&#123;signalcolor}}}; width: 100px"> <a href="/index.php/File:Tango-emblem-important.png" class="image"><img alt="Tango-emblem-important.png" src="/images/c/c8/Tango-emblem-important.png" width="48" height="48" /></a>
+</td></tr></table>
+</div>
+<p>Add the following to <code style="display:inline-block; padding: 0.1em 0.3em;">/etc/rc.local</code> (and make sure it gets executed at boot time)
+</p>
+<pre>/usr/sbin/iwpriv your_wireless_interface set_power 5
+</pre>
+<p>Source: <a rel="nofollow" class="external text" href="http://www.nervous.it/2007/11/linux-dell-xps-m1330/">here</a>
+</p>
+<h4> <span class="mw-headline" id="Hard_drive_spin_down_problem"> Hard drive spin down problem </span></h4>
+<p>Documented <a rel="nofollow" class="external text" href="https://bugs.launchpad.net/ubuntu/+source/acpi-support/+bug/59695">here</a>
+</p><p>To prevent your laptop hard drive from spinning down too often (result of too aggressive APM defaults) do the following:
+</p><p>Add the following to <code style="display:inline-block; padding: 0.1em 0.3em;">/etc/rc.local</code>
+</p>
+<pre>hdparm -B 254 /dev/sdX <i>where X is your hard drive device</i>
+</pre>
+<p>You can also set it to 255 to completely disable spinning down.  You may wish to set a lower value if you move your laptop around as lower values park the heads more often and reduce the chance of damage to your hard disk while it is being moved.  If you do not move your laptop at all when you are using it, then 255 or 254 is probably best.  If you do, then you might want to try a lower value.  A value like 128 might be a good middle-ground.
+</p><p>Add the following to <code style="display:inline-block; padding: 0.1em 0.3em;">/etc/pm/sleep.d/50-hdparm_pm</code>
+</p>
+<pre>#!/bin/sh
+ 
+if [ -n "$1" ] &amp;&amp; ([ "$1" = "resume" ] || [ "$1" = "thaw" ]); then
+	hdparm -B 254 /dev/your-hard-drive &gt; /dev/null
+fi
+</pre>
+<p>and run <i>chmod +x /etc/pm/sleep.d/50-hdparm_pm</i> to make sure it resets after suspend.  Again, you can change the value 254 as you see fit.
+</p><p>Now the APM level should be set for your hard drive.
+</p><p>For some laptops, the option -S to hdparm can also be relevant (sets the spindown time for the drive). Note that all these options can also be configured using the <a href="/index.php/Laptop_Mode_Tools" title="Laptop Mode Tools"> laptop-mode tools</a>.  This will allow you to set a high value when on AC and a lower value when you are running on battery power.
+</p>
+<h3> <span class="mw-headline" id="Using_a_script_and_an_udev_rule"> Using a script and an udev rule </span></h3>
+<p>Since systemd users can suspend and hibernate through <code style="display:inline-block; padding: 0.1em 0.3em;">systemctl suspend</code> or <code style="display:inline-block; padding: 0.1em 0.3em;">systemctl hibernate</code> and handle acpi events with <code style="display:inline-block; padding: 0.1em 0.3em;">/etc/systemd/logind.conf</code>, it might be interesting to remove pm-utils and acpid. Now, there's just one thing systemd can't do (at this time of writing): powermanagement, depending on whether the system is running on AC or battery. To fill this gap, one can create a single udev rule that launches a script when the laptop is unplugged and plugged:
+</p>
+<pre style="margin-bottom: 0; border-bottom:none; padding-bottom:0.8em;">/etc/udev/rules.d/powersave</pre>
+<pre style="margin-top: 0; border-top-style:dashed; padding-top: 0.8em;">
+SUBSYSTEM==&quot;power_supply&quot;, ENV{POWER_SUPPLY_ONLINE}==&quot;0&quot;, RUN+=&quot;/path/to/your/script true&quot;
+SUBSYSTEM==&quot;power_supply&quot;, ENV{POWER_SUPPLY_ONLINE}==&quot;1&quot;, RUN+=&quot;/path/to/your/script false&quot;
+</pre>
+<div style="padding: 5px; margin: 0.50em 0; background-color: #DDDDFF; border: thin solid #BBBBDD; overflow: hidden;"><strong> Note: </strong>One can use the same script that pm-powersave uses. You just have to make it executable and place it somewhere else (for example, /usr/bin).</div>
+<p>An example of a powersave script can be found here: <a rel="nofollow" class="external autonumber" href="https://bbs.archlinux.org/viewtopic.php?pid=1046075#p1046075">[3]</a> (or in aur: <span style="font-family: monospace"><a rel="nofollow" class="external text" href="https://aur.archlinux.org/packages/powerdown/">powerdown</a></span>) and here: <a rel="nofollow" class="external autonumber" href="https://github.com/Unia/powersave">[4]</a>.
+</p><p>The above udev rule should work as expected, but if your power settings aren't updated after a suspend or hibernate cycle, you should add a script in <code style="display:inline-block; padding: 0.1em 0.3em;">/usr/lib/systemd/system-sleep/</code> with the following contents:
+</p>
+<pre style="margin-bottom: 0; border-bottom:none; padding-bottom:0.8em;">/usr/lib/systemd/system-sleep/00powersave</pre>
+<pre style="margin-top: 0; border-top-style:dashed; padding-top: 0.8em;">
+#!/bin/sh
+
+case $1 in
+    pre) /path/to/your/script false ;;
+    post)       
+	if cat /sys/class/power_supply/AC0/online | grep 0 &gt; /dev/null 2&gt;&amp;1
+	then
+    		/path/to/your/script true	
+	else
+    		/path/to/your/script false
+	fi
+    ;;
+esac'
+exit 0
+</pre>
+<p>Don't forget to make it executable!
+</p>
+<div style="padding: 5px; margin: 0.50em 0; background-color: #DDDDFF; border: thin solid #BBBBDD; overflow: hidden;"><strong> Note: </strong>Be aware that AC0 may be different for your laptop, change it if that is the case.</div>
+<p>Now you don't need pm-utils anymore. Depending on your configuration, it may be a dependency of some other package. If you wish to remove it anyway, run <code style="display:inline-block; padding: 0.1em 0.3em;">pacman -Rdd pm-utils</code>.
+</p>
+<h2> <span class="mw-headline" id="Screen_brightness"> Screen brightness </span></h2>
+<div style="text-align: center; margin-bottom: 1em; overflow:hidden;">
+<table class="notice noprint toc" id="merge" style="background: &#123;&#123;&#123;backgroundcolor}}}; border-color: &#123;&#123;&#123;bordercolor}}}; width: 100%">
+<tr>
+<td style="background-color: &#123;&#123;&#123;signalcolor}}}; width: 100px"> <a href="/index.php/File:Tango-two-arrows.png" class="image"><img alt="Tango-two-arrows.png" src="/images/7/72/Tango-two-arrows.png" width="75" height="48" /></a>
+</td>
+<td>  <b>This article or section is a candidate for merging with <a href="/index.php/Backlight" title="Backlight">Backlight</a>.</b> <div style="font-size: 90%"><b>Notes:</b> <span style="color:red;">please use the second argument of the template to provide more detailed indications.</span> (<a href="/index.php/Talk:Laptop" title="Talk:Laptop">Discuss</a>)</div>
+</td>
+<td style="background-color: &#123;&#123;&#123;signalcolor}}}; width: 100px"> <a href="/index.php/File:Tango-two-arrows.png" class="image"><img alt="Tango-two-arrows.png" src="/images/7/72/Tango-two-arrows.png" width="75" height="48" /></a>
+</td></tr></table>
+</div>
+<p>To change your display brightness, first check <code style="display:inline-block; padding: 0.1em 0.3em;">/sys/class/backlight</code>:
+</p>
+<pre>   # ls /sys/class/backlight/
+   intel_backlight
+</pre>
+<p>So this particular backlight is managed by an Intel card. Keep in mind that different cards might manage this differently! It is called <i>acpi_video0</i> on an ATI card, for instance.
+</p><p>Check current value:
+</p>
+<pre>   $ cat /sys/class/backlight/intel_backlight/brightness
+</pre>
+<p>In this case, the backlight managed by echoing values into <code style="display:inline-block; padding: 0.1em 0.3em;">/sys/class/backlight/intel_backlight/brightness</code>:
+</p>
+<pre>   # echo "400" &gt; /sys/class/backlight/intel_backlight/brightness
+</pre>
+<p>If you get a response along the lines of "invalid argument" then you didn't honor the maximum brightness. Obviously you cannot go any higher than your screens maximum brightness. The values for maximum brightness and brightness in general vary wildly among cards. This Intel card, for instance, can go up to 976 while the ATI can go up 9. Obviously these values don't say anything about maximum effective brightness.
+</p><p>Check your maximum brightness: 
+</p>
+<pre>   $ cat /sys/class/backlight/intel_backlight/max_brightness
+</pre>
+<p>If your laptop's Fn keys don't work or Gnome/KDE fail to correctly set the brightness using their power daemons, you can try appending <b>acpi_backlight=vendor</b> to your kernel line in your bootloader.
+</p>
+<h3> <span class="mw-headline" id="setpci_fallback_method"> setpci fallback method </span></h3>
+<div style="padding: 5px; margin: 0.50em 0; background-color: #FFDDDD; border: thin solid #DDBBBB; overflow: hidden;"><strong> Warning: </strong> The setpci command edits hardware parameters. Use with caution.</div>
+<p>On some laptops, the above methods do not actually change screen brightness. If this is the case for your laptop, first find the domain and bus using lspci:
+</p>
+<pre>   $ lspci
+   (...)
+   00:02.0 VGA compatible controller: Intel Corporation Mobile 4 Series Chipset Integrated Graphics Controller (rev 09)
+   (...)
+</pre>
+<p>Now use setpci to change the value at slot F4 to, say, a0:
+</p>
+<pre>   # setpci -s 00:02.0 f4.b=a0
+</pre>
+<p>The <code style="display:inline-block; padding: 0.1em 0.3em;">.b</code> indicates a byte value; this runs in hexadecimal from <code style="display:inline-block; padding: 0.1em 0.3em;">00</code> to <code style="display:inline-block; padding: 0.1em 0.3em;">ff</code>. <b>ff</b> Is usually the brightest, although this may be reversed. See <a rel="nofollow" class="external text" href="https://bbs.archlinux.org/viewtopic.php?pid=1088825#p1088825">here</a> for a script which can be used with brightness keys.
+</p>
+<h2> <span class="mw-headline" id="Touchpad"> Touchpad </span></h2>
+<p>To get your touchpad working properly, see the <a href="/index.php/Touchpad_Synaptics" title="Touchpad Synaptics">Touchpad Synaptics</a> page. Note that your laptop may have an ALPS touchpad (such as the DELL Inspiron 6000), and not a Synaptics touchpad. In either case, see the link above.
+</p>
+<h2> <span class="mw-headline" id="Hard_disk_shock_protection"> Hard disk shock protection </span></h2>
+<p>There are several laptops from different vendors featuring shock protection capabilities. As manufacturers have refused to support open source development of the required software components so far, Linux support for shock protection varies considerably between different hardware implementations.
+</p><p>Currently, two projects, named HDAPS and hpfall, support this kind of protection.
+HDAPS is for IBM/Lenovo Thinkpads and hpfall for HP/Compaq laptops
+</p><p>Just Check <a href="/index.php/HDAPS" title="HDAPS">Hard Disk Active Protection System</a>.
+<span style="font-family: monospace"><a rel="nofollow" class="external text" href="https://aur.archlinux.org/packages/hpfall/">hpfall</a></span> can be installed from the <a href="/index.php/AUR" title="AUR" class="mw-redirect">AUR</a>.
+</p>
+<h2> <span class="mw-headline" id="Network_Time_Syncing"> Network Time Syncing </span></h2>
+<p>For a laptop, it may be a good idea to use <a href="/index.php/Chrony" title="Chrony">Chrony</a> as an alternative to <a href="/index.php/NTPd" title="NTPd" class="mw-redirect">NTPd</a> to sync your clock over the network. Chrony is designed to work well even on systems with no permanent network connection (such as laptops), and is capable of much faster time synchronisation than standard ntp. Chrony has several advantages when used in systems running on virtual machines, such as a larger range for frequency correction to help correct quickly drifting clocks, and better response to rapid changes in the clock frequency. It also has a smaller memory footprint and no unnecessary process wakeups, improving power efficiency.
+</p>
+<!-- 
+NewPP limit report
+Preprocessor node count: 640/1000000
+Post-expand include size: 15518/2097152 bytes
+Template argument size: 7111/2097152 bytes
+Expensive parser function count: 0/100
+-->
+
+<!-- Saved in parser cache with key archwiki:pcache:idhash:4149-0!*!0!!en!2!* and timestamp 20121212182618 -->
+</div><div class="printfooter">
+Retrieved from "<a href="https://wiki.archlinux.org/index.php?title=Laptop&amp;oldid=240061">https://wiki.archlinux.org/index.php?title=Laptop&amp;oldid=240061</a>"</div>
+		<div id='catlinks' class='catlinks'><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="/index.php/Special:Categories" title="Special:Categories">Category</a>: <ul><li><a href="/index.php/Category:Laptops" title="Category:Laptops">Laptops</a></li></ul></div></div>		<!-- end content -->
+				<div class="visualClear"></div>
+	</div>
+</div></div>
+<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<div class="pBody">
+			<ul>
+				<li id="ca-nstab-main" class="selected"><a href="/index.php/Laptop" primary="1" context="subject" title="View the content page [c]" accesskey="c">Page</a></li>
+				<li id="ca-talk"><a href="/index.php/Talk:Laptop" primary="1" context="talk" title="Discussion about the content page [t]" accesskey="t">Discussion</a></li>
+				<li id="ca-viewsource"><a href="/index.php?title=Laptop&amp;action=edit" primary="1" title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></li>
+				<li id="ca-history"><a href="/index.php?title=Laptop&amp;action=history" rel="archives" title="Past revisions of this page [h]" accesskey="h">History</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-personal">
+		<h5>Personal tools</h5>
+		<div class="pBody">
+			<ul>
+				<li id="pt-login"><a href="/index.php?title=Special:UserLogin&amp;returnto=Laptop" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in / create account</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-logo">
+<a href="/index.php/Main_Page" style="background-image: url(/skins/archlinux/archlogo.png);" title="Visit the main page"></a>
+	</div>
+	<div class="generated-sidebar portlet" id="p-navigation">
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage-description"><a href="/index.php/Main_Page" title="Visit the main page [z]" accesskey="z">Main page</a></li>
+				<li id="n-Table-of-Contents"><a href="/index.php/Table_of_Contents">Table of Contents</a></li>
+				<li id="n-portal"><a href="/index.php/Getting_Involved" title="Various ways Archers can contribute to the community">Getting Involved</a></li>
+				<li id="n-currentevents"><a href="/index.php/ArchWiki:News" title="The latest lowdown on the wiki">Wiki News</a></li>
+				<li id="n-recentchanges"><a href="/index.php/Special:RecentChanges" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li>
+				<li id="n-randompage"><a href="/index.php/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li>
+				<li id="n-help"><a href="/index.php/Help:Contents" title="Wiki navigation, reading, and editing help">Help</a></li>
+			</ul>
+		</div>
+	</div>
+	<div id="p-search" class="portlet">
+		<h5><label for="searchInput">Search</label></h5>
+		<div id="searchBody" class="pBody">
+			<form action="/index.php" id="searchform">
+				<input type='hidden' name="title" value="Special:Search"/>
+				<input type="search" name="search" title="Search ArchWiki [f]" accesskey="f" id="searchInput" />
+				<input type="submit" name="go" value="Go" title="Go to a page with this exact name if exists" id="searchGoButton" class="searchButton" />&#160;
+				<input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton" />
+			</form>
+		</div>
+	</div>
+	<div class="portlet" id="p-tb">
+		<h5>Toolbox</h5>
+		<div class="pBody">
+			<ul>
+				<li id="t-whatlinkshere"><a href="/index.php/Special:WhatLinksHere/Laptop" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+				<li id="t-recentchangeslinked"><a href="/index.php/Special:RecentChangesLinked/Laptop" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+				<li id="t-specialpages"><a href="/index.php/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li>
+				<li><a href="/index.php?title=Laptop&amp;printable=yes" rel="alternate">Printable version</a></li>
+				<li id="t-permalink"><a href="/index.php?title=Laptop&amp;oldid=240061" title="Permanent link to this revision of the page">Permanent link</a></li>
+			</ul>
+		</div>
+	</div>
+	<div id="p-lang" class="portlet">
+		<h5>In other languages</h5>
+		<div class="pBody">
+			<ul>
+				<li class="interwiki-cs"><a href="https://wiki.archlinux.org/index.php/Laptop_(%C4%8Cesky)" title="Laptop" lang="cs" hreflang="cs">Česky</a></li>
+				<li class="interwiki-es"><a href="https://wiki.archlinux.org/index.php/Laptop_(Espa%C3%B1ol)" title="Laptop" lang="es" hreflang="es">Español</a></li>
+				<li class="interwiki-it"><a href="https://wiki.archlinux.org/index.php/Laptop_(Italiano)" title="Laptop" lang="it" hreflang="it">Italiano</a></li>
+				<li class="interwiki-ru"><a href="https://wiki.archlinux.org/index.php/Laptop_(%D0%A0%D1%83%D1%81%D1%81%D0%BA%D0%B8%D0%B9)" title="Laptop" lang="ru" hreflang="ru">Русский</a></li>
+				<li class="interwiki-zh-cn"><a href="https://wiki.archlinux.org/index.php/Laptop_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)" title="Laptop" lang="zh-cn" hreflang="zh-cn">‪中文(中国大陆)‬</a></li>
+			</ul>
+		</div>
+	</div>
+</div><!-- end of the left (by default at least) column -->
+<div class="visualClear"></div>
+<div id="footer">
+	<ul id="f-list">
+		<li id="lastmod"> This page was last modified on 12 December 2012, at 18:26.</li>
+		<li id="copyright">Content is available under <a class="external" href="http://www.gnu.org/copyleft/fdl.html">GNU Free Documentation License 1.3 or later</a>.</li>
+		<li id="privacy"><a href="/index.php/ArchWiki:Privacy_policy" title="ArchWiki:Privacy policy">Privacy policy</a></li>
+		<li id="about"><a href="/index.php/ArchWiki:About" title="ArchWiki:About">About ArchWiki</a></li>
+		<li id="disclaimer"><a href="/index.php/ArchWiki:General_disclaimer" title="ArchWiki:General disclaimer">Disclaimers</a></li>
+	</ul>
+</div>
+</div>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.user","mediawiki.page.ready"], null, true);
+}</script>
+<!-- Served in 0.043 secs. --></body><!-- Cached/compressed 20121212182821 -->
+</html>

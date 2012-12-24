@@ -1,0 +1,945 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US"
+ xmlns:og='http://opengraphprotocol.org/schema/'
+ xmlns:fb='http://www.facebook.com/2008/fbml'><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Gaussian distributions form monoids</title>    
+<!--<title>My Experiments in Truth &middot; Gaussian distributions form monoids</title>-->
+    
+	<link rel="stylesheet" href="http://izbicki.me/blog/wp-content/plugins/slick-social-share-buttons/css/dcssb.css" type="text/css" media="screen"  />
+	<!--Facebook OpenGraph Slick Social Share Buttons -->
+	<meta property="og:site_name" content="My Experiments in Truth"/>
+		<meta property="og:title" content="Gausian distributions form a monoid"/>
+			<meta property="og:description" content="(And why machine learning experts should care)
+This is the first in a series of posts about the HLearn library for haskell that I've been working on for the past few months. The idea of the library i"/>
+		
+		<meta property="og:url" content="http://izbicki.me/blog/gausian-distributions-are-monoids"/>
+		
+		<meta property="og:image" content=""/>
+		<meta property="fb:admins" content="" />
+		<meta property="fb:app_id" content="" />
+		<meta property="og:type" content="article" /><!--End Facebook OpenGraph Settings -->
+		
+<!-- This site is optimized with the Yoast WordPress SEO plugin v1.0.3 - http://yoast.com/wordpress/seo/ -->
+<meta name='description' content='Gaussian distributions obey the monoid laws, which lets us train Gaussian distributions online and in  parallel &quot;for free.&quot;'/>
+<link rel="canonical" href="http://izbicki.me/blog/gausian-distributions-are-monoids" />
+<!-- / Yoast WordPress SEO plugin. -->
+
+<link rel="alternate" type="application/rss+xml" title="My Experiments in Truth &raquo; Feed" href="http://izbicki.me/blog/feed" />
+<link rel="alternate" type="application/rss+xml" title="My Experiments in Truth &raquo; Comments Feed" href="http://izbicki.me/blog/comments/feed" />
+
+			<script type="text/javascript">//<![CDATA[
+			// Google Analytics for WordPress by Yoast v4.2.8 | http://yoast.com/wordpress/google-analytics/
+			var _gaq = _gaq || [];
+			_gaq.push(['_setAccount', 'UA-36396447-1']);
+							_gaq.push(['_setCustomVar',1,'post_type','post',3],['_setCustomVar',2,'category','computer-science',3],['_setCustomVar',3,'categories','computer-science data-mining haskell statistics',3],['_trackPageview']);
+			(function () {
+				var ga = document.createElement('script');
+				ga.type = 'text/javascript';
+				ga.async = true;
+				ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+				var s = document.getElementsByTagName('script')[0];
+				s.parentNode.insertBefore(ga, s);
+			})();
+			//]]></script>
+			<link rel="alternate" type="application/rss+xml" title="My Experiments in Truth &raquo; Gausian distributions form a monoid Comments Feed" href="http://izbicki.me/blog/gausian-distributions-are-monoids/feed" />
+<link rel='stylesheet' id='footenote_css-css'  href='http://izbicki.me/blog/wp-content/plugins/jquery-hover-footnotes/footnote-voodoo.css?ver=3.4.2' type='text/css' media='all' />
+<script type='text/javascript' src='http://izbicki.me/blog/wp-includes/js/jquery/jquery.js?ver=1.7.2'></script>
+<script type='text/javascript' src='http://izbicki.me/blog/wp-content/plugins/jquery-hover-footnotes/footnote-voodoo.js?ver=3.4.2'></script>
+<script type='text/javascript' src='http://izbicki.me/blog/wp-content/themes/tarski/app/js/tarski.js?ver=3.1.2'></script>
+<script type='text/javascript' src='http://izbicki.me/blog/wp-includes/js/comment-reply.js?ver=3.4.2'></script>
+<script type='text/javascript' src='http://izbicki.me/blog/wp-content/plugins/slick-social-share-buttons/js/ga.social_tracking.js?ver=3.4.2'></script>
+<script type='text/javascript' src='http://izbicki.me/blog/wp-content/plugins/slick-social-share-buttons/js/jquery.social.slick.1.0.js?ver=3.4.2'></script>
+<meta name="wp_theme" content="Tarski 3.1.2">
+<meta name="description" content="Writing about computer science and religion">
+<meta name="robots" content="all">
+<link rel="profile" href="http://gmpg.org/xfn/11">
+
+<link rel="stylesheet" href="http://izbicki.me/blog/wp-content/themes/tarski/style.css" type="text/css" media="all">
+<link rel="stylesheet" href="http://izbicki.me/blog/wp-content/themes/tarski/library/css/print.css" type="text/css" media="print">
+
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://izbicki.me/blog/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://izbicki.me/blog/wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 3.4.2" />
+<link rel='shortlink' href='http://izbicki.me/blog/?p=1442' />
+		<style type="text/css">
+						ol.footnotes li {list-style-type:decimal;}
+						ol.footnotes{font-size:0.8em; color:#666666;}		</style>
+		    <script type="text/javascript" src="http://izbicki.me/blog/wp-content/plugins/wp-highlightjs/highlight.pack.js"></script>
+    <script type="text/javascript">hljs.initHighlightingOnLoad();</script>
+    <link rel="stylesheet" href="http://izbicki.me/blog/wp-content/plugins/wp-highlightjs/styles/default.css" />
+    <style>pre.hljs {padding: 0px;}
+pre.hljs code {border: 1px solid #ccc; padding: 5px;}</style>
+<style type="text/css">
+/* <![CDATA[ */
+img.latex { vertical-align: middle; border: none; }
+/* ]]> */
+</style>
+<script type="text/javascript">
+//<![CDATA[
+	var screen_res = "2560 x 1600"; 
+//]]>
+</script>
+<style type="text/css" id="custom-background-css">
+body.custom-background { background-color: #fefefe; }
+</style>
+</head>
+
+<body id="post-gausian-distributions-are-monoids" class="single single-post postid-1442 single-format-standard custom-background centre">
+
+<div id="wrapper" class="tarski">
+    <div id="header">
+        <div id="title">
+	<p id="blog-title"><a title="Return to main page" href="http://izbicki.me/blog" rel="home">My Experiments in Truth</a></p>
+	</div>
+<div id="navigation" class="clearfix">        <ul id="menu-primary-navigation" class="primary xoxo">
+            <li><a title="Return to front page" href="http://izbicki.me/blog">Home</a></li>
+            
+    </ul><div class="secondary">
+    <p><a class="feed" href="http://izbicki.me/blog/feed">Subscribe to feed</a></p>
+</div></div><script type="text/javascript">
+    jQuery(document).ready(function() {
+        var container = jQuery('#navigation > ul'),
+            navbar;
+        
+        if (container.length > 0) {
+            navbar = new Tarski.Navbar(container);
+        }
+    });
+</script>    </div>
+    
+    <div id="content" class="clearfix">
+
+<div class="primary">
+        
+                
+                        
+                <div class="post-1442 post type-post status-publish format-standard hentry category-computer-science category-data-mining category-haskell category-statistics entry">
+                
+                    <div class="meta">
+                        <h1 class="title entry-title">Gausian distributions form a monoid</h1>                        
+                        <p class="metadata"><span class="date updated">November 24, 2012</span> in <span class="categories"><a href="http://izbicki.me/blog/category/computer-science" title="View all posts in Computer Science" rel="category tag">Computer Science</a>, <a href="http://izbicki.me/blog/category/computer-science/data-mining" title="View all posts in Data Mining" rel="category tag">Data Mining</a>, <a href="http://izbicki.me/blog/category/computer-science/haskell" title="View all posts in Haskell" rel="category tag">Haskell</a>, <a href="http://izbicki.me/blog/category/computer-science/statistics" title="View all posts in Statistics" rel="category tag">Statistics</a></span> | <a class="comments-link" href="http://izbicki.me/blog/gausian-distributions-are-monoids#comments">30 comments</a></p>                    </div>
+                    
+                    <div class="content clearfix">
+                                                <h4>(And why machine learning experts should care)</h4>
+<p><img class="alignright" title="gaussian" src="http://izbicki.me/blog/wp-content/uploads/2012/11/gaussian.png" alt="" width="275" height="220" />This is the first in a series of posts about the <a href="http://hackage.haskell.org/package/HLearn-algebra" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://hackage.haskell.org']);">HLearn library</a> for haskell that I&#8217;ve been working on for the past few months. The idea of the library is to show that abstract algebra&#8212;specifically <a href="https://en.wikipedia.org/wiki/Monoid" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://en.wikipedia.org']);">monoids</a>, <a href="https://en.wikipedia.org/wiki/Group_(mathematics)" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://en.wikipedia.org']);">groups</a>, and <a href="https://en.wikipedia.org/wiki/Homomorphism" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://en.wikipedia.org']);">homomorphisms</a>&#8212;are useful not just in esoteric functional programming, but also in real world machine learning problems.  In particular, <strong>by framing a learning algorithm according to these algebraic properties, we get three things for free</strong>: (1) an online version of the algorithm; (2) a parallel version of the algorithm; and (3) a procedure for cross-validation that runs asymptotically faster than the standard version.</p>
+<p>We&#8217;ll start with the example of a <a href="https://en.wikipedia.org/wiki/Normal_distribution" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://en.wikipedia.org']);">Gaussian distribution</a>. Gaussians are ubiquitous in learning algorithms because they accurately describe most data.  But more importantly, they are easy to work with.  They are fully determined by their mean and variance, and these parameters are easy to calculate.</p>
+<p>In this post we&#8217;ll start with examples of why the monoid and group properties of Gaussians are useful in practice, then we&#8217;ll look at the math underlying these examples, and finally we&#8217;ll see that this technique is extremely fast in practice and results in <strong>near perfect parallelization</strong>.</p>
+<p><span id="more-1442"></span></p>
+<h3>HLearn by Example</h3>
+<p>Install the libraries from a shell:</p>
+<pre>$ cabal install HLearn-distributions</pre>
+<p>Then import the HLearn libraries into a literate haskell file:</p>
+<pre>&gt; import HLearn.Algebra
+&gt; import HLearn.Models.Distributions.Gaussian</pre>
+<p>And some libraries for comparing our performance:</p>
+<pre>&gt; import Criterion.Main
+&gt; import Statistics.Distribution.Normal
+&gt; import qualified Data.Vector.Unboxed as VU</pre>
+<p>Now let&#8217;s create some data to work with. For simplicity&#8217;s sake, we&#8217;ll use a made up data set of how much money people make. Every entry represents one person making that salary. (We use a small data set here for ease of explanation.  When we stress test this library at the end of the post we use much larger data sets.)</p>
+<pre>&gt; gradstudents = [15e3,25e3,18e3,17e3,9e3]        :: [Double]
+&gt; teachers     = [40e3,35e3,89e3,50e3,52e3,97e3]  :: [Double]
+&gt; doctors      = [130e3,105e3,250e3]              :: [Double]</pre>
+<p>In order to train a Gaussian distribution from the data, we simply use the <strong>train</strong> function, like so:</p>
+<pre>&gt; gradstudents_gaussian = train gradstudents      :: Gaussian Double
+&gt; teachers_gaussian     = train teachers          :: Gaussian Double
+&gt; doctors_gaussian      = train doctors           :: Gaussian Double</pre>
+<p>The train function is a member of the HomTrainer type class, which we&#8217;ll talk more about later.  Also, now that we&#8217;ve trained some Gaussian distributions, we can perform all the normal calculations we might want to do on a distribution.  For example, taking the mean, standard deviation, pdf, and cdf.</p>
+<p>Now for the interesting bits. We start by showing that the Gaussian is a semigroup. A <strong>semigroup</strong> is any data structure that has an associative binary operation called (<strong>&lt;&gt;</strong>). Basically, we can think of (&lt;&gt;) as &#8220;adding&#8221; or &#8220;merging&#8221; the two structures together. (Semigroups are monoids with only a mappend function.)</p>
+<p>So how do we use this? Well, what if we decide we want a Gaussian over everyone&#8217;s salaries? Using the traditional approach, we&#8217;d have to recompute this from scratch.</p>
+<pre>&gt; all_salaries = concat [gradstudents,teachers,doctors]
+&gt; traditional_all_gaussian = train all_salaries :: Gaussian Double</pre>
+<p>But this repeats work we&#8217;ve already done. On a real world data set with millions or billions of samples, this would be very slow. Better would be to merge the Gaussians we&#8217;ve already trained into one final Gaussian. We can do that with the semigroup operation (&lt;&gt;):</p>
+<pre>&gt; semigroup_all_gaussian = gradstudents_gaussian &lt;&gt; teachers_gaussian &lt;&gt; doctors_gaussian</pre>
+<p>Now,</p>
+<pre>traditional_all_gaussian == semigroup_all_gaussian</pre>
+<p>The coolest part about this is that <em>the semigroup operation takes time <strong>O(1)</strong>, no matter how much data we&#8217;ve trained the Gaussians on.</em> The naive approach takes time <strong>O(n)</strong>, so we&#8217;ve got a pretty big speed up!</p>
+<p>Next, a <strong>monoid</strong> is a semigroup with an identity. The identity for a Gaussian is easy to define&#8212;simply train on the empty data set!</p>
+<pre>&gt; gaussian_identity = train ([]::[Double]) :: Gaussian Double</pre>
+<p>Now,</p>
+<pre>gaussian_identity == mempty</pre>
+<p>But we&#8217;ve still got one more trick up our sleeves.  The Gaussian distribution is not just a monoid, but also a group. Groups appear all the time in abstract algebra, but they haven&#8217;t seen much attention in functional programming for some reason. Well <strong>groups</strong> are simple: they&#8217;re just monoids with an inverse. This inverse lets us do &#8220;subtraction&#8221; on our data structures.</p>
+<p>So back to our salary example. Lets say we&#8217;ve calculated all our salaries, but we&#8217;ve realized that including grad students in the salary calculations was a mistake. (They&#8217;re not real people after all.) In a normal library, we would have to recalculate everything from scratch again, excluding the grad students:</p>
+<pre>&gt; nograds = concat [teachers,doctors]
+&gt; traditional_nograds_gaussian = train nograds :: Gaussian Double</pre>
+<p>But as we&#8217;ve already discussed, this takes a lot of time. We can use the <strong>inverse</strong> function to do this same operation in constant time:</p>
+<pre>&gt; group_nograds_gaussian = semigroup_all_gaussian &lt;&gt; (inverse gradstudents_gaussian)</pre>
+<p>And now,</p>
+<pre>traditional_nograds_gaussian == group_nograds_gaussian</pre>
+<p>Again, we&#8217;ve converted an operation that would have taken time<strong> O(n)</strong> into one that takes time <strong>O(1)</strong>. Can&#8217;t get much better than that!</p>
+<h3>The HomTrainer Type Class</h3>
+<p>As I&#8217;ve already mentioned, the HomTrainer type class is the basis of the <a href="http://hackage.haskell.org/package/HLearn-algebra" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://hackage.haskell.org']);">HLearn library</a>.  Basically, any learning algorithm that is also a <strong>semigroup homomorphism</strong> can be made an instance of HomTrainer.  This means that if xs and ys are lists of data points, the class obeys the following law:</p>
+<pre>train (xs ++ ys) == (train xs) &lt;&gt; (train ys)</pre>
+<p>It might be easier to see what this means in picture form:</p>
+<p style="text-align: center;"><img class="aligncenter size-full wp-image-1635" title="gaussian commutative table" src="http://izbicki.me/blog/wp-content/uploads/2012/11/gaussian-commutative-table22.png" alt="gaussian commutative table" width="525" height="489" /></p>
+<p>On the left hand side, we have some data sets, and on the right hand side, we have the corresponding Gaussian distributions and their parameters.  Because training the Gaussian is a homomorphism, it doesn&#8217;t matter whether we follow the orange or green paths to get to our final answer.  We get the exact same answer either way.</p>
+<p>Based on this property alone, we get the three &#8220;free&#8221; properties I mentioned in the introduction.  (1) We get an online algorithm for free.  The function <strong>add1dp</strong> can be used to add a single new point to an existing Gaussian distribution.  Let&#8217;s say I forgot about one of the graduate students&#8212;I&#8217;m sure this would never happen in real life&#8212;I can add their salary like this:</p>
+<pre>&gt; gradstudents_updated_gaussian = add1dp gradstudents_gaussian (10e3::Double)</pre>
+<p>This updated Gaussian is exactly what we would get if we had included the new data point in the original data set.</p>
+<p>(2) We get a parallel algorithm.  We can use the higher order function <strong>parallel</strong> to parallelize any application of train.  For example,</p>
+<pre>&gt; gradstudents_parallel_gaussian = (parallel train) gradstudents :: Gaussian Double</pre>
+<p>The function parallel automatically detects the number of processors your computer has and evenly distributes the work load over them.  As we&#8217;ll see in the performance section, this results in perfect parallelization of the training function.  Parallelization literally could not be any simpler!</p>
+<p>(3) We get asymptotically faster cross-validation; but that&#8217;s not really applicable to a Gaussian distribution so we&#8217;ll ignore it here.</p>
+<p>One last note about the HomTrainer class: we never actually have to define the <strong>train</strong> function for our learning algorithm explicitly.  All we have to do is define the semigroup operation, and the compiler will derive our training function for us!  We&#8217;ll save a discussion of why this homomorphism property gives us these results for another post.  Instead, we&#8217;ll just take a look at what the Gaussian distribution&#8217;s semigroup operation looks like.</p>
+<h3>The Semigroup operation</h3>
+<p>Our Gaussian data type is defined as:</p>
+<pre>data Gaussian datapoint = Gaussian
+    { n  :: !Int         -- The number of samples trained on
+    , m1 :: !datapoint   -- The mean (first moment) of the trained distribution
+    , m2 :: !datapoint   -- The variance (second moment) times (n-1)
+    , dc :: !Int         -- The number of "dummy points" that have been added
+    }</pre>
+<p>In order to estimate a Gaussian from a sample, we must find the total number of samples (n), the mean (m1), and the variance (calculated from m2).  (We&#8217;ll explain what dc means a little later.)  Therefore, we must figure out an appropriate definition for our semigroup operation below:</p>
+<pre>(Gaussian na m1a m2a dca) &lt;&gt; (Gaussian nb m1b m2b dcb) = Gaussian n' m1' m2' dc'</pre>
+<p>First, we calculate the number of samples n&#8217;. The number of samples in the resulting distribution is simply the sum of the number of samples in both the input distributions:</p>
+<p style="text-align: center;"><span id='tex_7110'></span></p>
+<p>Second, we calculate the new average m1&#8242;. We start with the definition that the final mean is:</p>
+<p style="text-align: center;"><span id='tex_9786'></span></p>
+<p>Then we split the summation according to whether the input element <span id='tex_9533'></span> was from the left Gaussian a or right Gaussian b, and substitute with the definition of the mean above:</p>
+<table cellpadding="10" align="center">
+<tbody>
+<tr>
+<td style="text-align: left;"><span id='tex_4484'></span></td>
+</tr>
+<tr>
+<td><span id='tex_4326'></span></td>
+</tr>
+</tbody>
+</table>
+<p>Notice that this is simply the weighted average of the two means. This makes intuitive sense. But there is a slight problem with this definition: When implemented on a computer with floating point arithmetic, we will get infinity whenever n&#8217; is 0.  We solve this problem by adding a &#8220;dummy&#8221; element into the Gaussian whenever n&#8217; would be zero.  This increases n&#8217; from 0 to 1, preventing the division by 0.  The variable dc counts how many dummy variables have been added, so that we can remove them before performing calculations (e.g. finding the pdf) that would be affected by an incorrect number of samples.</p>
+<p>Finally, we must calculate the new m2&#8242;. We start with the definition that the variance times (n-1) is:</p>
+<p style="text-align: center;"><span id='tex_9379'></span></p>
+<p>(Note that the second half of the equation is a property of variance, and <a href="https://en.wikipedia.org/wiki/Variance#Population_variance_and_sample_variance" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://en.wikipedia.org']);">its derivation can be found on wikipedia</a>.)</p>
+<p>Then, we do some algebra, split the summations according to which input Gaussian the data point came from, and resubstitute the definition of m2 to get:</p>
+<table cellpadding="10" align="center">
+<tbody>
+<tr>
+<td><span id='tex_1471'></span></td>
+</tr>
+<tr>
+<td><span id='tex_3424'></span></td>
+</tr>
+<tr>
+<td><span id='tex_5950'></span></td>
+</tr>
+<tr>
+<td><span id='tex_3208'></span></td>
+</tr>
+<tr>
+<td><span id='tex_9014'></span></td>
+</tr>
+</tbody>
+</table>
+<p>Notice that this equation has no divisions in it.  This is why we are storing m2 as the variance times (n-1) rather than simply the variance.  Adding in the extra divisions causes training our Gaussian distribution to run about 4x slower.  I&#8217;d say haskell is getting pretty fast if the number of floating point divisions we perform is impacting our code&#8217;s performance that much!</p>
+<h3>Performance</h3>
+<p>This algebraic interpretation of the Gaussian distribution has excellent time and space performance.  To show this, we&#8217;ll compare performance to the excellent Haskell package called &#8220;<a href="http://hackage.haskell.org/package/statistics" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://hackage.haskell.org']);">statistics</a>&#8221; that also has support for Gaussian distributions.  We use the criterion package to create three tests:</p>
+<pre>&gt; size = 10^8
+&gt; main = defaultMain
+&gt;     [ bench "statistics-Gaussian" $ whnf (normalFromSample . VU.enumFromN 0) (size)
+&gt;     , bench "HLearn-Gaussian" $ whnf
+&gt;         (train :: VU.Vector Double -&gt; Gaussian Double)
+&gt;         (VU.enumFromN (0::Double) size)
+&gt;     , bench "HLearn-Gaussian-Parallel" $ whnf
+&gt;         (parallel $ (train :: VU.Vector Double -&gt; Gaussian Double))
+&gt;         (VU.enumFromN (0::Double) size)
+&gt;     ]</pre>
+<p>In these test, we time three different methods of constructing Gaussian distributions given 100,000,000 data points.  On my laptop with 2 cores, I get these results:</p>
+<table border="1" cellspacing="0" cellpadding="5px" align="center">
+<tbody>
+<tr>
+<td>statistics-Gaussian</td>
+<td>2.85 sec</td>
+</tr>
+<tr>
+<td>HLearn-Gaussian</td>
+<td>1.91 sec</td>
+</tr>
+<tr>
+<td><strong>HLearn-Gaussian-Parallel</strong></td>
+<td><strong>0.96 sec</strong></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Pretty nice!  The algebraic method managed to outperform the traditional method for training a Gaussian by a handy margin.  Plus, our parallel algorithm runs exactly twice as fast on two processors.  Theoretically, this should scale to an arbitrary number of processors, but I don&#8217;t have a bigger machine to try it out on.</p>
+<p>Another interesting advantage of the <a href="http://hackage.haskell.org/package/HLearn-algebra" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://hackage.haskell.org']);">HLearn library</a> is that <strong>we can trade off time and space performance</strong> by changing which data structures store our data set.  Specifically, we can use the same functions to train on a list or an unboxed vector.  We do this by using the <a href="http://hackage.haskell.org/package/ConstraintKinds" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://hackage.haskell.org']);">ConstraintKinds</a> package on hackage that extends the base type classes like Functor and Foldable to work on classes that require constraints.  Thus, we have a Functor instance of Vector.Unboxed. This is not possible without ConstraintKinds.</p>
+<p>Using this benchmark code:</p>
+<pre>main = do
+    print $ (train [0..fromIntegral size::Double] :: Gaussian Double)
+    print $ (train (VU.enumFromN (0::Double) size) :: Gaussian Double)</pre>
+<p style="text-align: left;">We generate the following heap profile:</p>
+<p style="text-align: center;"><img class="aligncenter size-full wp-image-1485" title="spacetests-gaussian" src="http://izbicki.me/blog/wp-content/uploads/2012/11/spacetests-gaussian.png" alt="" width="690" height="462" /></p>
+<p style="text-align: left;">Processing the data as a vector requires that we allocate all the memory in advance.  This lets the program run faster, but prevents us from loading data sets larger than the amount of memory we have.  Processing the data as a list, however, allows us to allocate the memory only as we use it.  But because lists are boxed and lazy data structures, we must accept that our program will run about 10x slower.  Lucky for us, <strong>GHC takes care of all the boring details of making this happen seamlessly.  We only have to write our train function once.</strong></p>
+<h3 style="text-align: left;">Future Posts</h3>
+<p style="text-align: left;">There&#8217;s still at least four more major topics to cover in the HLearn library:  (1) We can extend this discussion to show how the Naive Bayes learning algorithm has a similar monoid and group structure.  (2) There are many more learning algorithms with group structures we can look into.  (3) We can look at exactly how all these higher order functions, like batch and parallel work under the hood.  And (4) we can see how the fast cross-validation I briefly mentioned works and why it&#8217;s important.</p>
+<p style="text-align: left;"><a href="http://izbicki.me/blog/feed" >Subscribe to the RSS feed</a> and stay tuned!</p>
+                    </div>
+                    
+                                    
+                </div> <!-- /entry -->
+            
+                    
+            
+        
+        <div id="comments-header">
+        <div class="clearfix">
+            <h2 class="title">30 comments</h2>
+                      <p class="comments-feed"><a href="http://izbicki.me/blog/gausian-distributions-are-monoids/feed">Comments feed for this article</a></p>
+                    </div>
+                  <p class="trackback-link">Trackback link: <a href="http://izbicki.me/blog/gausian-distributions-are-monoids/trackback">http://izbicki.me/blog/gausian-distributions-are-monoids/trackback</a></p>
+            </div>
+    
+            <ol id="comments" class="clearfix">
+                    <li class="comment even thread-even depth-1" id="comment-930">
+            <div class="comment-wrapper clearfix" id="comment-wrapper-930">
+                                                        
+                    <img alt="Omar&#8217;s avatar" src="http://0.gravatar.com/avatar/276e53c9ffcd6f6540911e4dc940119d?s=50&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D50&amp;r=G" class="avatar avatar-50 photo"  />                    
+                    <p class="comment-meta commentmetadata"><span class="comment-author vcard"><span class="fn">Omar</span></span> on <span class="comment-permalink"><a title="Permalink to this comment" href="http://izbicki.me/blog/gausian-distributions-are-monoids#comment-930">November 24, 2012 at 10:51 PM</a></span>                    </p>
+                    
+                    <div class="comment-content content">
+                        <p>The title, &#8220;Gaussian distributions are monoids&#8221; makes it sound like each individual Gaussian distribution is a monoid (which is nonsense and is the reason I clicked through to see what the heck was going on). I think you meant something like &#8220;Gaussian distributions form a monoid&#8221;, or more precisely that the type &#8220;Gaussian a&#8221; in your library is a monoid. To make this clear consider &#8220;The natural numbers form a monoid&#8221; vs &#8220;Natural numbers are monoids&#8221;.</p>
+                    </div>
+                    
+                    <p class="reply"><a class='comment-reply-link' href='/blog/gausian-distributions-are-monoids?replytocom=930#respond' onclick='return addComment.moveForm("comment-wrapper-930", "930", "respond", "1442")'>Reply</a></p>                            </div>
+<ol class='children'>
+        <li class="comment byuser comment-author-admin bypostauthor odd alt depth-2 comment-lvl-first" id="comment-931">
+            <div class="comment-wrapper clearfix" id="comment-wrapper-931">
+                                                        
+                    <a class="avatar-link" href="http://izbicki.me" rel="external nofollow"><img alt="Mike&#8217;s avatar" src="http://1.gravatar.com/avatar/7019dabd783b2ecfaf04f5440ebb56df?s=50&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D50&amp;r=G" class="avatar avatar-50 photo"  /></a>                    
+                    <p class="comment-meta commentmetadata"><span class="comment-author vcard"><a class="url fn" href="http://izbicki.me"   rel="external nofollow">Mike</a></span> on <span class="comment-permalink"><a title="Permalink to this comment" href="http://izbicki.me/blog/gausian-distributions-are-monoids#comment-931">November 24, 2012 at 11:05 PM</a></span>                    </p>
+                    
+                    <div class="comment-content content">
+                        <p>You&#8217;re right.  I&#8217;ve updated the title.  Thanks.</p>
+                    </div>
+                    
+                    <p class="reply"><a class='comment-reply-link' href='/blog/gausian-distributions-are-monoids?replytocom=931#respond' onclick='return addComment.moveForm("comment-wrapper-931", "931", "respond", "1442")'>Reply</a></p>                            </div>
+</li>
+</ol>
+</li>
+        <li class="comment even thread-odd thread-alt depth-1" id="comment-932">
+            <div class="comment-wrapper clearfix" id="comment-wrapper-932">
+                                                        
+                    <a class="avatar-link" href="http://jeremykun.wordpress.com" rel="external nofollow"><img alt="Jeremy Kun&#8217;s avatar" src="http://0.gravatar.com/avatar/69ab5f0705a94cc63205292ea432cc7e?s=50&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D50&amp;r=G" class="avatar avatar-50 photo"  /></a>                    
+                    <p class="comment-meta commentmetadata"><span class="comment-author vcard"><a class="url fn" href="http://jeremykun.wordpress.com" onclick="javascript:_gaq.push(['_trackEvent','outbound-commentauthor','http://jeremykun.wordpress.com']);"  rel="external nofollow">Jeremy Kun</a></span> on <span class="comment-permalink"><a title="Permalink to this comment" href="http://izbicki.me/blog/gausian-distributions-are-monoids#comment-932">November 24, 2012 at 11:21 PM</a></span>                    </p>
+                    
+                    <div class="comment-content content">
+                        <p>I&#8217;m intrigued by your Haskell code, but confused as to how you&#8217;re realizing Gaussian distributions as groups&#8230;</p>
+<p>For instance, the operations performed aren&#8217;t on elements of a Gaussian distribution as a set (which is awkward to speak of, since distributions are measures). So I think instead you meant to call the set of all Gaussian distributions a group. But even then, what is the empty Gaussian? What is the inverse of a Gaussian? These are not Gaussian distributions (they are not even probability distributions at all). I can&#8217;t even imagine what the following piece of code would evaluate to, if the sample function were defined to sample from a distribution as one would expect:</p>
+<p>sample (inverse gradstudents_gaussian)</p>
+<p>Is there something I&#8217;m missing? It&#8217;s obvious that you have an efficient way of manipulating the samples implicitly, and that&#8217;s great, but I don&#8217;t think they&#8217;re group operations.</p>
+                    </div>
+                    
+                    <p class="reply"><a class='comment-reply-link' href='/blog/gausian-distributions-are-monoids?replytocom=932#respond' onclick='return addComment.moveForm("comment-wrapper-932", "932", "respond", "1442")'>Reply</a></p>                            </div>
+<ol class='children'>
+        <li class="comment byuser comment-author-admin bypostauthor odd alt depth-2 comment-lvl-first" id="comment-933">
+            <div class="comment-wrapper clearfix" id="comment-wrapper-933">
+                                                        
+                    <a class="avatar-link" href="http://izbicki.me" rel="external nofollow"><img alt="Mike&#8217;s avatar" src="http://1.gravatar.com/avatar/7019dabd783b2ecfaf04f5440ebb56df?s=50&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D50&amp;r=G" class="avatar avatar-50 photo"  /></a>                    
+                    <p class="comment-meta commentmetadata"><span class="comment-author vcard"><a class="url fn" href="http://izbicki.me"   rel="external nofollow">Mike</a></span> on <span class="comment-permalink"><a title="Permalink to this comment" href="http://izbicki.me/blog/gausian-distributions-are-monoids#comment-933">November 24, 2012 at 11:35 PM</a></span>                    </p>
+                    
+                    <div class="comment-content content">
+                        <p>I guess technically this is a generalization of the Gaussian into something else.  The empty element is:</p>
+<pre>Gaussian 0 0 0 0</pre>
+<p>and</p>
+<pre>inverse $ Gaussian n m1 m2 dc </pre>
+<p>is defined as </p>
+<pre>Gaussian (-n) m1 (-m2) dc</pre>
+<p>The plots of the upside down Gaussian in the post are taken just by plugging these numbers directly into the formulas for the pdf.  This gives a negative probability, which is meaningless, I agree.</p>
+<p>You can verify that the associativity required for a group holds, or you could do some quick haskell tests to convince yourself.  The only tricky thing is, like mentioned in the post, that you have to account for all the division by zeros you get from working with the empty element.  You could dive into the code to see how this is handled, but I figured it was too much to explain in this post.</p>
+                    </div>
+                    
+                    <p class="reply"><a class='comment-reply-link' href='/blog/gausian-distributions-are-monoids?replytocom=933#respond' onclick='return addComment.moveForm("comment-wrapper-933", "933", "respond", "1442")'>Reply</a></p>                            </div>
+<ol class='children'>
+        <li class="comment even depth-3 comment-lvl-first" id="comment-942">
+            <div class="comment-wrapper clearfix" id="comment-wrapper-942">
+                                                        
+                    <img alt="pisk&#8217;s avatar" src="http://0.gravatar.com/avatar/e4c5601cd72a2a63ffc70d2d71cc9221?s=50&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D50&amp;r=G" class="avatar avatar-50 photo"  />                    
+                    <p class="comment-meta commentmetadata"><span class="comment-author vcard"><span class="fn">pisk</span></span> on <span class="comment-permalink"><a title="Permalink to this comment" href="http://izbicki.me/blog/gausian-distributions-are-monoids#comment-942">November 25, 2012 at 3:39 AM</a></span>                    </p>
+                    
+                    <div class="comment-content content">
+                        <p>I guess it&#8217;s a case of a what is in the the name of the rose.</p>
+<p> You labeled n &#8220;The number of samples trained on&#8221; and you said it&#8217;s a Gaussian; and then you&#8217;re saying it&#8217;s also a group because it has an inverse.</p>
+<p> A negative cardinality set doesn&#8217;t make sense. </p>
+<p> So maybe give some caveats to your naming scheme so old fogeys like myself don&#8217;t their panties in a bunch&#8230;</p>
+                    </div>
+                    
+                    <p class="reply"><a class='comment-reply-link' href='/blog/gausian-distributions-are-monoids?replytocom=942#respond' onclick='return addComment.moveForm("comment-wrapper-942", "942", "respond", "1442")'>Reply</a></p>                            </div>
+</li>
+</ol>
+</li>
+        <li class="comment odd alt depth-2" id="comment-935">
+            <div class="comment-wrapper clearfix" id="comment-wrapper-935">
+                                                        
+                    <a class="avatar-link" href="http://www.matthewgordon.org" rel="external nofollow"><img alt="Matthew Gordon&#8217;s avatar" src="http://1.gravatar.com/avatar/9750eeedceb1cd7464a9d836f63b94c1?s=50&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D50&amp;r=G" class="avatar avatar-50 photo"  /></a>                    
+                    <p class="comment-meta commentmetadata"><span class="comment-author vcard"><a class="url fn" href="http://www.matthewgordon.org" onclick="javascript:_gaq.push(['_trackEvent','outbound-commentauthor','http://www.matthewgordon.org']);"  rel="external nofollow">Matthew Gordon</a></span> on <span class="comment-permalink"><a title="Permalink to this comment" href="http://izbicki.me/blog/gausian-distributions-are-monoids#comment-935">November 25, 2012 at 12:37 AM</a></span>                    </p>
+                    
+                    <div class="comment-content content">
+                        <p>The author is looking at Gaussian distributions as monoids, not groups, so they don&#8217;t need to have an inverse. This is actually why monoids are a generalization of groups.</p>
+<p>I admit that the analogy might be a bit forced, but it also looks pretty handy (and intriguing)!</p>
+                    </div>
+                    
+                    <p class="reply"><a class='comment-reply-link' href='/blog/gausian-distributions-are-monoids?replytocom=935#respond' onclick='return addComment.moveForm("comment-wrapper-935", "935", "respond", "1442")'>Reply</a></p>                            </div>
+<ol class='children'>
+        <li class="comment byuser comment-author-admin bypostauthor even depth-3 comment-lvl-first" id="comment-936">
+            <div class="comment-wrapper clearfix" id="comment-wrapper-936">
+                                                        
+                    <a class="avatar-link" href="http://izbicki.me" rel="external nofollow"><img alt="Mike&#8217;s avatar" src="http://1.gravatar.com/avatar/7019dabd783b2ecfaf04f5440ebb56df?s=50&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D50&amp;r=G" class="avatar avatar-50 photo"  /></a>                    
+                    <p class="comment-meta commentmetadata"><span class="comment-author vcard"><a class="url fn" href="http://izbicki.me"   rel="external nofollow">Mike</a></span> on <span class="comment-permalink"><a title="Permalink to this comment" href="http://izbicki.me/blog/gausian-distributions-are-monoids#comment-936">November 25, 2012 at 12:41 AM</a></span>                    </p>
+                    
+                    <div class="comment-content content">
+                        <p>The Gaussian is both a monoid and a group.</p>
+                    </div>
+                    
+                    <p class="reply"><a class='comment-reply-link' href='/blog/gausian-distributions-are-monoids?replytocom=936#respond' onclick='return addComment.moveForm("comment-wrapper-936", "936", "respond", "1442")'>Reply</a></p>                            </div>
+</li>
+        <li class="comment odd alt depth-3" id="comment-951">
+            <div class="comment-wrapper clearfix" id="comment-wrapper-951">
+                                                        
+                    <a class="avatar-link" href="http://jeremykun.wordpress.com" rel="external nofollow"><img alt="Jeremy Kun&#8217;s avatar" src="http://0.gravatar.com/avatar/69ab5f0705a94cc63205292ea432cc7e?s=50&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D50&amp;r=G" class="avatar avatar-50 photo"  /></a>                    
+                    <p class="comment-meta commentmetadata"><span class="comment-author vcard"><a class="url fn" href="http://jeremykun.wordpress.com" onclick="javascript:_gaq.push(['_trackEvent','outbound-commentauthor','http://jeremykun.wordpress.com']);"  rel="external nofollow">Jeremy Kun</a></span> on <span class="comment-permalink"><a title="Permalink to this comment" href="http://izbicki.me/blog/gausian-distributions-are-monoids#comment-951">November 25, 2012 at 8:33 AM</a></span>                    </p>
+                    
+                    <div class="comment-content content">
+                        <p>My point is that even with just a monoid structure, the &#8220;empty Gaussian&#8221; is not a probability distribution. If we&#8217;re trying to be rigorous in terms of algebra, we should also be rigorous in terms of probability theory. I can readily believe there are a few ways to combine distributions via an associative operation to make a semigroup.</p>
+<p>I think one way you could phrase this is by saying it&#8217;s isomorphic to the formal group generated by the set of your Haskell Gaussian objects (trained on arbitrary lists). Then these inverses and identity objects are just that: formal objects which need no sensible interpretation as distributions.</p>
+<p>At least mathematicians do this all the time with formal sums in free abelian groups and such, but programmers are usually not as sloppy as mathematicians (they can&#8217;t afford to be).</p>
+                    </div>
+                    
+                    <p class="reply"><a class='comment-reply-link' href='/blog/gausian-distributions-are-monoids?replytocom=951#respond' onclick='return addComment.moveForm("comment-wrapper-951", "951", "respond", "1442")'>Reply</a></p>                            </div>
+<ol class='children'>
+        <li class="comment byuser comment-author-admin bypostauthor even depth-4 comment-lvl-first" id="comment-955">
+            <div class="comment-wrapper clearfix" id="comment-wrapper-955">
+                                                        
+                    <a class="avatar-link" href="http://izbicki.me" rel="external nofollow"><img alt="Mike&#8217;s avatar" src="http://1.gravatar.com/avatar/7019dabd783b2ecfaf04f5440ebb56df?s=50&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D50&amp;r=G" class="avatar avatar-50 photo"  /></a>                    
+                    <p class="comment-meta commentmetadata"><span class="comment-author vcard"><a class="url fn" href="http://izbicki.me"   rel="external nofollow">Mike</a></span> on <span class="comment-permalink"><a title="Permalink to this comment" href="http://izbicki.me/blog/gausian-distributions-are-monoids#comment-955">November 25, 2012 at 9:35 AM</a></span>                    </p>
+                    
+                    <div class="comment-content content">
+                        <p>I see what you mean, but I&#8217;m arguing that maybe mathematicians should have a much more general notion of what it means to be a &#8220;Gaussian distribution.&#8221;  We should be using the construct that is the most elegant, and this seems more elegant to me.</p>
+<p>If I went the whole isomorphism route you suggest, I would have to add a couple of very pointless paragraphs explaining what all that means, and no one would slog through that to get to the juicier bits below.</p>
+                    </div>
+                    
+                    <p class="reply"><a class='comment-reply-link' href='/blog/gausian-distributions-are-monoids?replytocom=955#respond' onclick='return addComment.moveForm("comment-wrapper-955", "955", "respond", "1442")'>Reply</a></p>                            </div>
+<ol class='children'>
+        <li class="comment odd alt depth-5 comment-lvl-first" id="comment-970">
+            <div class="comment-wrapper clearfix" id="comment-wrapper-970">
+                                                        
+                    <a class="avatar-link" href="http://llama.freegeek.org/~wren/" rel="external nofollow"><img alt="wren ng thornton&#8217;s avatar" src="http://1.gravatar.com/avatar/90631719404b3e6b78d3bcce2a9e5e43?s=50&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D50&amp;r=G" class="avatar avatar-50 photo"  /></a>                    
+                    <p class="comment-meta commentmetadata"><span class="comment-author vcard"><a class="url fn" href="http://llama.freegeek.org/~wren/" onclick="javascript:_gaq.push(['_trackEvent','outbound-commentauthor','http://llama.freegeek.org']);"  rel="external nofollow">wren ng thornton</a></span> on <span class="comment-permalink"><a title="Permalink to this comment" href="http://izbicki.me/blog/gausian-distributions-are-monoids#comment-970">November 25, 2012 at 5:56 PM</a></span>                    </p>
+                    
+                    <div class="comment-content content">
+                        <p>I disagree. Probability theorists have perfectly good reasons for calling Gaussians Gaussians. And, alas, that means that Gaussian distributions only form a semigroup and no more. This is part of the reason why functional programmers like myself don&#8217;t talk about groups more often; while groups may be common in mathematics, they aren&#8217;t nearly so common for the kind of data I work on (as a computational linguist).</p>
+<p>However, in spite of Gaussian distributions only forming a semigroup, it is very much worth pointing out that population statistics form a group. Without moving to a quantum setting there&#8217;s no meaning behind negative probabilities; however, there&#8217;s a perfectly good meaning behind a negative population statistic. Populations are something like sets, and so it&#8217;s perfectly valid to have an empty population or to take the inverse statistics of a population; in spite of the fact that these no longer generate meaningful Gaussian distributions.</p>
+<p>Being rigorous about the abstract algebra is important, but so is being rigorous about the statistics. There is a connection between raw populations, summary statistics, and distributions; but it is vital not to confuse them. Doing so is akin to confusing between scalars and vectors.</p>
+                    </div>
+                    
+                                                </div>
+</li>
+        <li class="comment even depth-5" id="comment-1106">
+            <div class="comment-wrapper clearfix" id="comment-wrapper-1106">
+                                                        
+                    <img alt="Alessandro Pezzoni&#8217;s avatar" src="http://1.gravatar.com/avatar/d7d7a8bf8ed616a7bc66500d25f2c32f?s=50&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D50&amp;r=G" class="avatar avatar-50 photo"  />                    
+                    <p class="comment-meta commentmetadata"><span class="comment-author vcard"><span class="fn">Alessandro Pezzoni</span></span> on <span class="comment-permalink"><a title="Permalink to this comment" href="http://izbicki.me/blog/gausian-distributions-are-monoids#comment-1106">December 12, 2012 at 8:35 AM</a></span>                    </p>
+                    
+                    <div class="comment-content content">
+                        <p>Sorry for the late reply, but here are my two cents as a mathematician.</p>
+<p>For brevity, let&#8217;s call G the set of all Gaussian distributions. First of all, note that this semigroup operation on G is clearly commutative. Moreover, every semigroup can be made into a monoid in a universal way by adding an identity element if there isn&#8217;t one already. So, even though the &#8220;0 Gaussian distribution&#8221; is not a probability distribution, it is uniquely determined by G (up to isomorphism).<br />
+Now that we have a commutative monoid G&#8217;, there is a universal way of getting a group out of it, called the <em>Grothendieck</em> group of G&#8217; (see for example the <a href="https://en.wikipedia.org/wiki/Grothendieck_group" onclick="javascript:_gaq.push(['_trackEvent','outbound-comment','http://en.wikipedia.org']);" rel="nofollow">Wikipedia article</a>).</p>
+<p>This is just to say that, although those described in this article are not Gaussian distributions in the usual meaning, there is a &#8220;best&#8221; way to get them, which is independent of the chosen representation.<br />
+So maybe a better title, albeit less catchy, would have been something like: &#8220;Why the Grothendieck group of Gaussian distributions matters&#8221;.</p>
+                    </div>
+                    
+                                                </div>
+</li>
+        <li class="comment byuser comment-author-admin bypostauthor odd alt depth-5" id="comment-1107">
+            <div class="comment-wrapper clearfix" id="comment-wrapper-1107">
+                                                        
+                    <a class="avatar-link" href="http://izbicki.me" rel="external nofollow"><img alt="Mike&#8217;s avatar" src="http://1.gravatar.com/avatar/7019dabd783b2ecfaf04f5440ebb56df?s=50&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D50&amp;r=G" class="avatar avatar-50 photo"  /></a>                    
+                    <p class="comment-meta commentmetadata"><span class="comment-author vcard"><a class="url fn" href="http://izbicki.me"   rel="external nofollow">Mike</a></span> on <span class="comment-permalink"><a title="Permalink to this comment" href="http://izbicki.me/blog/gausian-distributions-are-monoids#comment-1107">December 12, 2012 at 11:33 AM</a></span>                    </p>
+                    
+                    <div class="comment-content content">
+                        <p>That&#8217;s very interesting and helpful.  Thanks.  Is their a version of the Grothendieck group that doesn&#8217;t require commutivity?  The Gaussian semigroup happens to commute, but other important semigroups for learning problems don&#8217;t.</p>
+<p>I think technically the construction I gave is not a Grothendieck group because I didn&#8217;t follow his procedure for constructing.  I&#8217;m going to have to think more about the potential performance issues with using the more general version.</p>
+                    </div>
+                    
+                                                </div>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+        <li class="comment even thread-even depth-1" id="comment-946">
+            <div class="comment-wrapper clearfix" id="comment-wrapper-946">
+                                                        
+                    <a class="avatar-link" href="http://sepulcarium.org/" rel="external nofollow"><img alt="Aleksey Khudyakov&#8217;s avatar" src="http://0.gravatar.com/avatar/0b6d4461bab3ab0801d0f2f8ac4736ef?s=50&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D50&amp;r=G" class="avatar avatar-50 photo"  /></a>                    
+                    <p class="comment-meta commentmetadata"><span class="comment-author vcard"><a class="url fn" href="http://sepulcarium.org/" onclick="javascript:_gaq.push(['_trackEvent','outbound-commentauthor','http://sepulcarium.org']);"  rel="external nofollow">Aleksey Khudyakov</a></span> on <span class="comment-permalink"><a title="Permalink to this comment" href="http://izbicki.me/blog/gausian-distributions-are-monoids#comment-946">November 25, 2012 at 6:12 AM</a></span>                    </p>
+                    
+                    <div class="comment-content content">
+                        <p>I think statement is misnomer. It&#8217;s correct but author deals here not with distributions but with estimation of distributions&#8217; parameters. Normal distribution fully defined by mean and variance so semigroup operation should depend only on them but it takes into account number of elements in sample. It should do it to get correct estimate. Actually semigroup operation is join of two samples. It&#8217;s just more efficient and do not keep samples in the memory.</p>
+<p>I tried to implement vaguely similar thing for estimation of various statistics but never completed due to a lack of time. If you interested incomplete description is here:</p>
+<p><a href="http://sepulcarium.org/blog/posts/2012-07-04-Generalize_estimators.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-comment','http://sepulcarium.org']);" rel="nofollow">http://sepulcarium.org/blog/posts/2012-07-04-Generalize_estimators.html</a><br />
+<a href="http://sepulcarium.org/blog/posts/2012-08-16-estimators_laws.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-comment','http://sepulcarium.org']);" rel="nofollow">http://sepulcarium.org/blog/posts/2012-08-16-estimators_laws.html</a></p>
+<p>Inverse is weird thing. It have negative variance for starters. It could be seen as some computation trick but probably it does correspond to some mathematical object. Both imaginary numbers and generalized functions started as computation tricks.</p>
+<p>In fact it&#8217;s very easy to make arbitrary distributions semigroups and monoids. If we have random variables X and Y (not necessarily normally distributed) then result of operation would be distribution X+Y. Neutral element would be distribution where we always get 0. Addition could be replaced with any other associative operation, But it&#8217;s entirely different from what is described in the post.</p>
+                    </div>
+                    
+                    <p class="reply"><a class='comment-reply-link' href='/blog/gausian-distributions-are-monoids?replytocom=946#respond' onclick='return addComment.moveForm("comment-wrapper-946", "946", "respond", "1442")'>Reply</a></p>                            </div>
+</li>
+        <li class="comment odd alt thread-odd thread-alt depth-1" id="comment-947">
+            <div class="comment-wrapper clearfix" id="comment-wrapper-947">
+                                                        
+                    <img alt="dmalikov&#8217;s avatar" src="http://0.gravatar.com/avatar/4eed5285039322bafbeee9102367b0a4?s=50&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D50&amp;r=G" class="avatar avatar-50 photo"  />                    
+                    <p class="comment-meta commentmetadata"><span class="comment-author vcard"><span class="fn">dmalikov</span></span> on <span class="comment-permalink"><a title="Permalink to this comment" href="http://izbicki.me/blog/gausian-distributions-are-monoids#comment-947">November 25, 2012 at 6:33 AM</a></span>                    </p>
+                    
+                    <div class="comment-content content">
+                        <p>M</p>
+<p><code><br />
+Registering HLearn-algebra-0.0.1...<br />
+Installed HLearn-algebra-0.0.1<br />
+Configuring HLearn-distributions-0.0.1.1...<br />
+Building HLearn-distributions-0.0.1.1...<br />
+Preprocessing library HLearn-distributions-0.0.1.1...<br />
+[1 of 4] Compiling HLearn.Models.Distributions.Common ( src/HLearn/Models/Distributions/Common.hs, dist/build/HLearn/Models/Distributions/Common.o )<br />
+[2 of 4] Compiling HLearn.Models.Distributions.Categorical ( src/HLearn/Models/Distributions/Categorical.hs, dist/build/HLearn/Models/Distributions/Categorical.o )<br />
+[3 of 4] Compiling HLearn.Models.Distributions.Gaussian ( src/HLearn/Models/Distributions/Gaussian.lhs, dist/build/HLearn/Models/Distributions/Gaussian.o )</p>
+<p>src/HLearn/Models/Distributions/Gaussian.lhs:187:33:<br />
+    Not in scope: type constructor or class Unbox'<br />
+    Perhaps you meant `U.Unbox' (imported from Data.Vector.Unboxed)<br />
+Failed to install HLearn-distributions-0.0.1.1<br />
+cabal: Error: some packages failed to install:<br />
+HLearn-distributions-0.0.1.1 failed during the building phase. The exception<br />
+was:<br />
+ExitFailure 1<br />
+</code></p>
+                    </div>
+                    
+                    <p class="reply"><a class='comment-reply-link' href='/blog/gausian-distributions-are-monoids?replytocom=947#respond' onclick='return addComment.moveForm("comment-wrapper-947", "947", "respond", "1442")'>Reply</a></p>                            </div>
+<ol class='children'>
+        <li class="comment byuser comment-author-admin bypostauthor even depth-2 comment-lvl-first" id="comment-953">
+            <div class="comment-wrapper clearfix" id="comment-wrapper-953">
+                                                        
+                    <a class="avatar-link" href="http://izbicki.me" rel="external nofollow"><img alt="Mike&#8217;s avatar" src="http://1.gravatar.com/avatar/7019dabd783b2ecfaf04f5440ebb56df?s=50&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D50&amp;r=G" class="avatar avatar-50 photo"  /></a>                    
+                    <p class="comment-meta commentmetadata"><span class="comment-author vcard"><a class="url fn" href="http://izbicki.me"   rel="external nofollow">Mike</a></span> on <span class="comment-permalink"><a title="Permalink to this comment" href="http://izbicki.me/blog/gausian-distributions-are-monoids#comment-953">November 25, 2012 at 9:29 AM</a></span>                    </p>
+                    
+                    <div class="comment-content content">
+                        <p>Thanks.  I&#8217;m not sure why it&#8217;s failing to compile on the hackage server.  It has something to do with the unboxed instance for the Gaussian, but I&#8217;m not sure why.</p>
+<pre> cabal install hlearn-distributions</pre>
+<p>Still works fine for me.  I&#8217;m looking into it.</p>
+                    </div>
+                    
+                    <p class="reply"><a class='comment-reply-link' href='/blog/gausian-distributions-are-monoids?replytocom=953#respond' onclick='return addComment.moveForm("comment-wrapper-953", "953", "respond", "1442")'>Reply</a></p>                            </div>
+<ol class='children'>
+        <li class="comment odd alt depth-3 comment-lvl-first" id="comment-972">
+            <div class="comment-wrapper clearfix" id="comment-wrapper-972">
+                                                        
+                    <img alt="Michael Thompson&#8217;s avatar" src="http://0.gravatar.com/avatar/2016159480607b2c079bb70df33c3bae?s=50&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D50&amp;r=G" class="avatar avatar-50 photo"  />                    
+                    <p class="comment-meta commentmetadata"><span class="comment-author vcard"><span class="fn">Michael Thompson</span></span> on <span class="comment-permalink"><a title="Permalink to this comment" href="http://izbicki.me/blog/gausian-distributions-are-monoids#comment-972">November 25, 2012 at 7:18 PM</a></span>                    </p>
+                    
+                    <div class="comment-content content">
+                        <p>It is an update to <code>vector-th-unbox</code>. I was  just trying to figure it out. Compare the incantations for <a href="http://hackage.haskell.org/packages/archive/vector-th-unbox/0.1.0.1/doc/html/Data-Vector-Unboxed-Deriving.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-comment','http://hackage.haskell.org']);" rel="nofollow">version 0.1.x</a> with those for <a href="http://hackage.haskell.org/packages/archive/vector-th-unbox/0.2/doc/html/Data-Vector-Unboxed-Deriving.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-comment','http://hackage.haskell.org']);" rel="nofollow">version 0.2</a></p>
+                    </div>
+                    
+                    <p class="reply"><a class='comment-reply-link' href='/blog/gausian-distributions-are-monoids?replytocom=972#respond' onclick='return addComment.moveForm("comment-wrapper-972", "972", "respond", "1442")'>Reply</a></p>                            </div>
+<ol class='children'>
+        <li class="comment byuser comment-author-admin bypostauthor even depth-4 comment-lvl-first" id="comment-973">
+            <div class="comment-wrapper clearfix" id="comment-wrapper-973">
+                                                        
+                    <a class="avatar-link" href="http://izbicki.me" rel="external nofollow"><img alt="Mike&#8217;s avatar" src="http://1.gravatar.com/avatar/7019dabd783b2ecfaf04f5440ebb56df?s=50&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D50&amp;r=G" class="avatar avatar-50 photo"  /></a>                    
+                    <p class="comment-meta commentmetadata"><span class="comment-author vcard"><a class="url fn" href="http://izbicki.me"   rel="external nofollow">Mike</a></span> on <span class="comment-permalink"><a title="Permalink to this comment" href="http://izbicki.me/blog/gausian-distributions-are-monoids#comment-973">November 25, 2012 at 7:26 PM</a></span>                    </p>
+                    
+                    <div class="comment-content content">
+                        <p>Thanks a bunch!  I&#8217;ve updated the dependencies in the cabal file and re-uploaded to hackage.  Hopefully it works for you now.</p>
+                    </div>
+                    
+                    <p class="reply"><a class='comment-reply-link' href='/blog/gausian-distributions-are-monoids?replytocom=973#respond' onclick='return addComment.moveForm("comment-wrapper-973", "973", "respond", "1442")'>Reply</a></p>                            </div>
+<ol class='children'>
+        <li class="comment odd alt depth-5 comment-lvl-first" id="comment-982">
+            <div class="comment-wrapper clearfix" id="comment-wrapper-982">
+                                                        
+                    <img alt="Michael Thompson&#8217;s avatar" src="http://0.gravatar.com/avatar/2016159480607b2c079bb70df33c3bae?s=50&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D50&amp;r=G" class="avatar avatar-50 photo"  />                    
+                    <p class="comment-meta commentmetadata"><span class="comment-author vcard"><span class="fn">Michael Thompson</span></span> on <span class="comment-permalink"><a title="Permalink to this comment" href="http://izbicki.me/blog/gausian-distributions-are-monoids#comment-982">November 26, 2012 at 10:03 AM</a></span>                    </p>
+                    
+                    <div class="comment-content content">
+                        <p>The haddocks for version 0.2 <a href="https://github.com/liyang/vector-th-unbox/issues/2" onclick="javascript:_gaq.push(['_trackEvent','outbound-comment','http://github.com']);" rel="nofollow">subtly wrong</a> It seems the new incantation should be:</p>
+<p><code><br />
+derivingUnbox "Gaussian"<br />
+    [t| (U.Unbox a) =&gt;  (Gaussian a) -&gt; (Int, a, a, Int) |]<br />
+     [| \ (Gaussian n m1 m2 dc) -&gt; (n,m1,m2,dc) |]<br />
+     [| \ (n,m1,m2,dc) -&gt; (Gaussian n m1 m2 dc) |]<br />
+</code></p>
+<p>note the &#8216;t&#8217; in place of &#8216;d&#8217;.</p>
+                    </div>
+                    
+                                                </div>
+</li>
+        <li class="comment byuser comment-author-admin bypostauthor even depth-5" id="comment-991">
+            <div class="comment-wrapper clearfix" id="comment-wrapper-991">
+                                                        
+                    <a class="avatar-link" href="http://izbicki.me" rel="external nofollow"><img alt="Mike&#8217;s avatar" src="http://1.gravatar.com/avatar/7019dabd783b2ecfaf04f5440ebb56df?s=50&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D50&amp;r=G" class="avatar avatar-50 photo"  /></a>                    
+                    <p class="comment-meta commentmetadata"><span class="comment-author vcard"><a class="url fn" href="http://izbicki.me"   rel="external nofollow">Mike</a></span> on <span class="comment-permalink"><a title="Permalink to this comment" href="http://izbicki.me/blog/gausian-distributions-are-monoids#comment-991">November 26, 2012 at 4:32 PM</a></span>                    </p>
+                    
+                    <div class="comment-content content">
+                        <p>I like the layout of version 0.2 better than 0.1 because it looks more like standard haskell syntax.  I&#8217;ve gone ahead and updated the package to use your code above.  (I haven&#8217;t tested it, so hopefully it doesn&#8217;t break anything.)</p>
+<p>Thanks again!</p>
+                    </div>
+                    
+                                                </div>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+        <li class="comment odd alt thread-even depth-1" id="comment-950">
+            <div class="comment-wrapper clearfix" id="comment-wrapper-950">
+                                                        
+                    <img alt="Kosta&#8217;s avatar" src="http://0.gravatar.com/avatar/eedcad00228eb7f388f6c9d2081edb3d?s=50&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D50&amp;r=G" class="avatar avatar-50 photo"  />                    
+                    <p class="comment-meta commentmetadata"><span class="comment-author vcard"><span class="fn">Kosta</span></span> on <span class="comment-permalink"><a title="Permalink to this comment" href="http://izbicki.me/blog/gausian-distributions-are-monoids#comment-950">November 25, 2012 at 8:31 AM</a></span>                    </p>
+                    
+                    <div class="comment-content content">
+                        <p>Cool post! Very intriguing!</p>
+<p>Doesn&#8217;t directly carrying the mean around introduce a lot of floating-point inaccuracies? Wouldn&#8217;t it be better to have the sum in the datastructure and calculate the mean = sum / (n &#8211; dp) when we need it?</p>
+<p>This escpecially worries me when doing a lot of add1dp&#8230;</p>
+<p>Cheers,<br />
+Kosta</p>
+                    </div>
+                    
+                    <p class="reply"><a class='comment-reply-link' href='/blog/gausian-distributions-are-monoids?replytocom=950#respond' onclick='return addComment.moveForm("comment-wrapper-950", "950", "respond", "1442")'>Reply</a></p>                            </div>
+<ol class='children'>
+        <li class="comment byuser comment-author-admin bypostauthor even depth-2 comment-lvl-first" id="comment-954">
+            <div class="comment-wrapper clearfix" id="comment-wrapper-954">
+                                                        
+                    <a class="avatar-link" href="http://izbicki.me" rel="external nofollow"><img alt="Mike&#8217;s avatar" src="http://1.gravatar.com/avatar/7019dabd783b2ecfaf04f5440ebb56df?s=50&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D50&amp;r=G" class="avatar avatar-50 photo"  /></a>                    
+                    <p class="comment-meta commentmetadata"><span class="comment-author vcard"><a class="url fn" href="http://izbicki.me"   rel="external nofollow">Mike</a></span> on <span class="comment-permalink"><a title="Permalink to this comment" href="http://izbicki.me/blog/gausian-distributions-are-monoids#comment-954">November 25, 2012 at 9:32 AM</a></span>                    </p>
+                    
+                    <div class="comment-content content">
+                        <p>If we do what you suggest, then we have several divisions in the definition of m2, which is worse.</p>
+                    </div>
+                    
+                    <p class="reply"><a class='comment-reply-link' href='/blog/gausian-distributions-are-monoids?replytocom=954#respond' onclick='return addComment.moveForm("comment-wrapper-954", "954", "respond", "1442")'>Reply</a></p>                            </div>
+<ol class='children'>
+        <li class="comment odd alt depth-3 comment-lvl-first" id="comment-962">
+            <div class="comment-wrapper clearfix" id="comment-wrapper-962">
+                                                        
+                    <img alt="Kosta&#8217;s avatar" src="http://0.gravatar.com/avatar/eedcad00228eb7f388f6c9d2081edb3d?s=50&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D50&amp;r=G" class="avatar avatar-50 photo"  />                    
+                    <p class="comment-meta commentmetadata"><span class="comment-author vcard"><span class="fn">Kosta</span></span> on <span class="comment-permalink"><a title="Permalink to this comment" href="http://izbicki.me/blog/gausian-distributions-are-monoids#comment-962">November 25, 2012 at 12:18 PM</a></span>                    </p>
+                    
+                    <div class="comment-content content">
+                        <p>Hmmm&#8230; then let&#8217;s do both? <img src='http://izbicki.me/blog/wp-includes/images/smilies/icon_wink.gif' alt=';)' class='wp-smiley' /> </p>
+<p>I don&#8217;t know how bad the floating point inaccuracies are w.r.t. those two approaches. That could be an option if it&#8217;s worth it&#8230;</p>
+                    </div>
+                    
+                    <p class="reply"><a class='comment-reply-link' href='/blog/gausian-distributions-are-monoids?replytocom=962#respond' onclick='return addComment.moveForm("comment-wrapper-962", "962", "respond", "1442")'>Reply</a></p>                            </div>
+<ol class='children'>
+        <li class="comment byuser comment-author-admin bypostauthor even depth-4 comment-lvl-first" id="comment-964">
+            <div class="comment-wrapper clearfix" id="comment-wrapper-964">
+                                                        
+                    <a class="avatar-link" href="http://izbicki.me" rel="external nofollow"><img alt="Mike&#8217;s avatar" src="http://1.gravatar.com/avatar/7019dabd783b2ecfaf04f5440ebb56df?s=50&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D50&amp;r=G" class="avatar avatar-50 photo"  /></a>                    
+                    <p class="comment-meta commentmetadata"><span class="comment-author vcard"><a class="url fn" href="http://izbicki.me"   rel="external nofollow">Mike</a></span> on <span class="comment-permalink"><a title="Permalink to this comment" href="http://izbicki.me/blog/gausian-distributions-are-monoids#comment-964">November 25, 2012 at 1:38 PM</a></span>                    </p>
+                    
+                    <div class="comment-content content">
+                        <p>I don&#8217;t know what you mean by &#8220;do both&#8221;?</p>
+                    </div>
+                    
+                    <p class="reply"><a class='comment-reply-link' href='/blog/gausian-distributions-are-monoids?replytocom=964#respond' onclick='return addComment.moveForm("comment-wrapper-964", "964", "respond", "1442")'>Reply</a></p>                            </div>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+        <li class="comment odd alt thread-odd thread-alt depth-1" id="comment-966">
+            <div class="comment-wrapper clearfix" id="comment-wrapper-966">
+                                                        
+                    <img alt="Kosta&#8217;s avatar" src="http://0.gravatar.com/avatar/eedcad00228eb7f388f6c9d2081edb3d?s=50&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D50&amp;r=G" class="avatar avatar-50 photo"  />                    
+                    <p class="comment-meta commentmetadata"><span class="comment-author vcard"><span class="fn">Kosta</span></span> on <span class="comment-permalink"><a title="Permalink to this comment" href="http://izbicki.me/blog/gausian-distributions-are-monoids#comment-966">November 25, 2012 at 2:27 PM</a></span>                    </p>
+                    
+                    <div class="comment-content content">
+                        <p>Nevermind, my last comment made no sense whatsoever.</p>
+<p>However, couldn&#8217;t we treat variance in a similar way, that it is variance * (n-1) * (n-dc)? That way, we would only need to do 2 divisions when showing the variance and keep our mean and variance calculations division-free. Of course, that would only make sense if the fp accuracy is greatly increased by this. I&#8217;m actually not really experienced in that field <img src='http://izbicki.me/blog/wp-includes/images/smilies/icon_smile.gif' alt=':)' class='wp-smiley' /> </p>
+<p>(Sorry, it&#8217;s too late down here at the moment to figure out the math if that is even possible&#8230;)</p>
+                    </div>
+                    
+                    <p class="reply"><a class='comment-reply-link' href='/blog/gausian-distributions-are-monoids?replytocom=966#respond' onclick='return addComment.moveForm("comment-wrapper-966", "966", "respond", "1442")'>Reply</a></p>                            </div>
+<ol class='children'>
+        <li class="comment byuser comment-author-admin bypostauthor even depth-2 comment-lvl-first" id="comment-967">
+            <div class="comment-wrapper clearfix" id="comment-wrapper-967">
+                                                        
+                    <a class="avatar-link" href="http://izbicki.me" rel="external nofollow"><img alt="Mike&#8217;s avatar" src="http://1.gravatar.com/avatar/7019dabd783b2ecfaf04f5440ebb56df?s=50&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D50&amp;r=G" class="avatar avatar-50 photo"  /></a>                    
+                    <p class="comment-meta commentmetadata"><span class="comment-author vcard"><a class="url fn" href="http://izbicki.me"   rel="external nofollow">Mike</a></span> on <span class="comment-permalink"><a title="Permalink to this comment" href="http://izbicki.me/blog/gausian-distributions-are-monoids#comment-967">November 25, 2012 at 3:03 PM</a></span>                    </p>
+                    
+                    <div class="comment-content content">
+                        <p>I messed around with the algebra and couldn&#8217;t get anything like that to work out.  Maybe it&#8217;s possible though.</p>
+                    </div>
+                    
+                    <p class="reply"><a class='comment-reply-link' href='/blog/gausian-distributions-are-monoids?replytocom=967#respond' onclick='return addComment.moveForm("comment-wrapper-967", "967", "respond", "1442")'>Reply</a></p>                            </div>
+</li>
+</ol>
+</li>
+        <li class="comment odd alt thread-even depth-1" id="comment-988">
+            <div class="comment-wrapper clearfix" id="comment-wrapper-988">
+                                                        
+                    <a class="avatar-link" href="http://www.imasters.com.br" rel="external nofollow"><img alt="Rina Noronha&#8217;s avatar" src="http://1.gravatar.com/avatar/dd2db4f90127e60b3a3692e619223aee?s=50&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D50&amp;r=G" class="avatar avatar-50 photo"  /></a>                    
+                    <p class="comment-meta commentmetadata"><span class="comment-author vcard"><a class="url fn" href="http://www.imasters.com.br" onclick="javascript:_gaq.push(['_trackEvent','outbound-commentauthor','http://www.imasters.com.br']);"  rel="external nofollow">Rina Noronha</a></span> on <span class="comment-permalink"><a title="Permalink to this comment" href="http://izbicki.me/blog/gausian-distributions-are-monoids#comment-988">November 26, 2012 at 1:52 PM</a></span>                    </p>
+                    
+                    <div class="comment-content content">
+                        <p>Hi, I&#8217;d like to talk to you about translating this article to portuguese, giving all the due credits to you. Can you please send me an email? thanks a lot!</p>
+                    </div>
+                    
+                    <p class="reply"><a class='comment-reply-link' href='/blog/gausian-distributions-are-monoids?replytocom=988#respond' onclick='return addComment.moveForm("comment-wrapper-988", "988", "respond", "1442")'>Reply</a></p>                            </div>
+</li>
+        <li class="comment even thread-odd thread-alt depth-1" id="comment-1007">
+            <div class="comment-wrapper clearfix" id="comment-wrapper-1007">
+                                                        
+                    <img alt="Sergiy Matusevych&#8217;s avatar" src="http://1.gravatar.com/avatar/732023496a90a7d575a3540b297e02e5?s=50&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D50&amp;r=G" class="avatar avatar-50 photo"  />                    
+                    <p class="comment-meta commentmetadata"><span class="comment-author vcard"><span class="fn">Sergiy Matusevych</span></span> on <span class="comment-permalink"><a title="Permalink to this comment" href="http://izbicki.me/blog/gausian-distributions-are-monoids#comment-1007">November 28, 2012 at 1:09 PM</a></span>                    </p>
+                    
+                    <div class="comment-content content">
+                        <p>Maybe I miss something, but how did you arrive to the conclusion that  $(x_i &#8211; m)^2 = (x_i^2 &#8211; m^2)$ ?</p>
+                    </div>
+                    
+                    <p class="reply"><a class='comment-reply-link' href='/blog/gausian-distributions-are-monoids?replytocom=1007#respond' onclick='return addComment.moveForm("comment-wrapper-1007", "1007", "respond", "1442")'>Reply</a></p>                            </div>
+<ol class='children'>
+        <li class="comment byuser comment-author-admin bypostauthor odd alt depth-2 comment-lvl-first" id="comment-1008">
+            <div class="comment-wrapper clearfix" id="comment-wrapper-1008">
+                                                        
+                    <a class="avatar-link" href="http://izbicki.me" rel="external nofollow"><img alt="Mike&#8217;s avatar" src="http://1.gravatar.com/avatar/7019dabd783b2ecfaf04f5440ebb56df?s=50&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D50&amp;r=G" class="avatar avatar-50 photo"  /></a>                    
+                    <p class="comment-meta commentmetadata"><span class="comment-author vcard"><a class="url fn" href="http://izbicki.me"   rel="external nofollow">Mike</a></span> on <span class="comment-permalink"><a title="Permalink to this comment" href="http://izbicki.me/blog/gausian-distributions-are-monoids#comment-1008">November 28, 2012 at 2:43 PM</a></span>                    </p>
+                    
+                    <div class="comment-content content">
+                        <p>It follows directly from the definition of variance.  There&#8217;s a proof on wikipedia: <a href="https://en.wikipedia.org/wiki/Variance#Population_variance_and_sample_variance" onclick="javascript:_gaq.push(['_trackEvent','outbound-comment','http://en.wikipedia.org']);" rel="nofollow">https://en.wikipedia.org/wiki/Variance#Population_variance_and_sample_variance</a></p>
+                    </div>
+                    
+                    <p class="reply"><a class='comment-reply-link' href='/blog/gausian-distributions-are-monoids?replytocom=1008#respond' onclick='return addComment.moveForm("comment-wrapper-1008", "1008", "respond", "1442")'>Reply</a></p>                            </div>
+<ol class='children'>
+        <li class="comment even depth-3 comment-lvl-first" id="comment-1025">
+            <div class="comment-wrapper clearfix" id="comment-wrapper-1025">
+                                                        
+                    <a class="avatar-link" href="http://sitr.us/" rel="external nofollow"><img alt="Jesse Hallett&#8217;s avatar" src="http://1.gravatar.com/avatar/9f4c83f1c2c91663757e25137b4aa471?s=50&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D50&amp;r=G" class="avatar avatar-50 photo"  /></a>                    
+                    <p class="comment-meta commentmetadata"><span class="comment-author vcard"><a class="url fn" href="http://sitr.us/" onclick="javascript:_gaq.push(['_trackEvent','outbound-commentauthor','http://sitr.us']);"  rel="external nofollow">Jesse Hallett</a></span> on <span class="comment-permalink"><a title="Permalink to this comment" href="http://izbicki.me/blog/gausian-distributions-are-monoids#comment-1025">November 30, 2012 at 2:31 PM</a></span>                    </p>
+                    
+                    <div class="comment-content content">
+                        <p>I was scratching my head over the same point.  Maybe it would be helpful to add a note that that equivalence is not arrived at by a simple squaring.</p>
+<p>Thank you for writing this article.  I feel that it has provided me with a lot of good information about Gaussian distributions and about groups.  I look forward to reading more about HLearn!</p>
+                    </div>
+                    
+                    <p class="reply"><a class='comment-reply-link' href='/blog/gausian-distributions-are-monoids?replytocom=1025#respond' onclick='return addComment.moveForm("comment-wrapper-1025", "1025", "respond", "1442")'>Reply</a></p>                            </div>
+<ol class='children'>
+        <li class="comment byuser comment-author-admin bypostauthor odd alt depth-4 comment-lvl-first" id="comment-1026">
+            <div class="comment-wrapper clearfix" id="comment-wrapper-1026">
+                                                        
+                    <a class="avatar-link" href="http://izbicki.me" rel="external nofollow"><img alt="Mike&#8217;s avatar" src="http://1.gravatar.com/avatar/7019dabd783b2ecfaf04f5440ebb56df?s=50&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D50&amp;r=G" class="avatar avatar-50 photo"  /></a>                    
+                    <p class="comment-meta commentmetadata"><span class="comment-author vcard"><a class="url fn" href="http://izbicki.me"   rel="external nofollow">Mike</a></span> on <span class="comment-permalink"><a title="Permalink to this comment" href="http://izbicki.me/blog/gausian-distributions-are-monoids#comment-1026">November 30, 2012 at 4:19 PM</a></span>                    </p>
+                    
+                    <div class="comment-content content">
+                        <p>Good idea.  I added a note in the main text.</p>
+                    </div>
+                    
+                    <p class="reply"><a class='comment-reply-link' href='/blog/gausian-distributions-are-monoids?replytocom=1026#respond' onclick='return addComment.moveForm("comment-wrapper-1026", "1026", "respond", "1442")'>Reply</a></p>                            </div>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+        </ol>
+        
+                								<div id="respond">
+				<h3 id="reply-title">Reply <small><a rel="nofollow" id="cancel-comment-reply-link" href="/blog/gausian-distributions-are-monoids#respond" style="display:none;">Cancel reply</a></small></h3>
+									<form action="http://izbicki.me/blog/wp-comments-post.php" method="post" id="commentform">
+																			<p class="comment-notes">Your email address will not be published. Required fields are marked <span class="required">*</span></p>							<p class="comment-form-author"><label for="author">Name</label> <span class="required">*</span><input id="author" name="author" type="text" value="" size="30" aria-required='true' /></p>
+<p class="comment-form-email"><label for="email">Email</label> <span class="required">*</span><input id="email" name="email" type="text" value="" size="30" aria-required='true' /></p>
+<p class="comment-form-url"><label for="url">Website</label><input id="url" name="url" type="text" value="" size="30" /></p>
+												    <div class="response textarea-wrap">
+        <label for="comment">Your comment</label>
+        <textarea name="comment" id="comment"
+            cols="60" rows="10"
+            aria-required="true" aria-multiline="true"></textarea>
+    </div>						<p class="form-allowed-tags">You may use these <abbr title="HyperText Markup Language">HTML</abbr> tags and attributes:  <code>&lt;a href=&quot;&quot; title=&quot;&quot;&gt; &lt;abbr title=&quot;&quot;&gt; &lt;acronym title=&quot;&quot;&gt; &lt;b&gt; &lt;blockquote cite=&quot;&quot;&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=&quot;&quot;&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=&quot;&quot;&gt; &lt;strike&gt; &lt;strong&gt; </code></p>						<p class="form-submit">
+							<input name="submit" type="submit" id="submit" value="Post Comment" />
+							<input type='hidden' name='comment_post_ID' value='1442' id='comment_post_ID' />
+<input type='hidden' name='comment_parent' id='comment_parent' value='0' />
+						</p>
+						<p style="display: none;"><input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="b1d0b5448a" /></p>					</form>
+							</div><!-- #respond -->
+				<script type="text/javascript">
+		jQuery(document).ready(function () {
+			jQuery('#commentform').submit(function () {
+				_gaq.push(
+					['_setAccount', 'UA-36396447-1'],
+					['_trackEvent', 'comment', 'submit']
+				);
+			});
+		});
+	</script>
+				    </div>
+
+<div id="sidebar" class="secondary">
+
+    <div id="categories-7" class="widget widget_categories"><h3>Categories</h3>		<ul>
+	<li class="cat-item cat-item-40"><a href="http://izbicki.me/blog/category/beer" title="View all posts filed under Beer">Beer</a> (2)
+</li>
+	<li class="cat-item cat-item-17"><a href="http://izbicki.me/blog/category/computer-science" title="View all posts filed under Computer Science">Computer Science</a> (6)
+<ul class='children'>
+	<li class="cat-item cat-item-18"><a href="http://izbicki.me/blog/category/computer-science/data-mining" title="View all posts filed under Data Mining">Data Mining</a> (3)
+</li>
+	<li class="cat-item cat-item-38"><a href="http://izbicki.me/blog/category/computer-science/haskell" title="View all posts filed under Haskell">Haskell</a> (2)
+</li>
+	<li class="cat-item cat-item-19"><a href="http://izbicki.me/blog/category/computer-science/paper-analysis-computer-science" title="View all posts filed under Paper Analysis">Paper Analysis</a> (1)
+</li>
+	<li class="cat-item cat-item-34"><a href="http://izbicki.me/blog/category/computer-science/statistics" title="View all posts filed under Statistics">Statistics</a> (2)
+</li>
+</ul>
+</li>
+	<li class="cat-item cat-item-35"><a href="http://izbicki.me/blog/category/projects" title="View all posts filed under Projects">Projects</a> (7)
+<ul class='children'>
+	<li class="cat-item cat-item-36"><a href="http://izbicki.me/blog/category/projects/litig-o-meter" title="View all posts filed under Litig-o-meter">Litig-o-meter</a> (1)
+</li>
+	<li class="cat-item cat-item-37"><a href="http://izbicki.me/blog/category/projects/pokerpirate-projects" title="View all posts filed under PokerPirate">PokerPirate</a> (6)
+</li>
+</ul>
+</li>
+	<li class="cat-item cat-item-20"><a href="http://izbicki.me/blog/category/religion" title="View all posts filed under Religion">Religion</a> (15)
+<ul class='children'>
+	<li class="cat-item cat-item-42"><a href="http://izbicki.me/blog/category/religion/conscientious-objection" title="View all posts filed under Conscientious Objection">Conscientious Objection</a> (4)
+</li>
+	<li class="cat-item cat-item-43"><a href="http://izbicki.me/blog/category/religion/food-not-bombs" title="View all posts filed under Food not Bombs">Food not Bombs</a> (1)
+</li>
+	<li class="cat-item cat-item-44"><a href="http://izbicki.me/blog/category/religion/my-co-discharge" title="View all posts filed under My CO Discharge">My CO Discharge</a> (6)
+</li>
+	<li class="cat-item cat-item-46"><a href="http://izbicki.me/blog/category/religion/thoughts" title="View all posts filed under Thoughts">Thoughts</a> (3)
+</li>
+</ul>
+</li>
+		</ul>
+</div><div id="archives-4" class="widget widget_archive"><h3>Archives</h3>		<ul>
+			<li><a href='http://izbicki.me/blog/2012/11' title='November 2012'>November 2012</a>&nbsp;(3)</li>
+	<li><a href='http://izbicki.me/blog/2012/10' title='October 2012'>October 2012</a>&nbsp;(2)</li>
+	<li><a href='http://izbicki.me/blog/2012/07' title='July 2012'>July 2012</a>&nbsp;(3)</li>
+	<li><a href='http://izbicki.me/blog/2012/06' title='June 2012'>June 2012</a>&nbsp;(3)</li>
+	<li><a href='http://izbicki.me/blog/2012/05' title='May 2012'>May 2012</a>&nbsp;(2)</li>
+	<li><a href='http://izbicki.me/blog/2012/04' title='April 2012'>April 2012</a>&nbsp;(1)</li>
+	<li><a href='http://izbicki.me/blog/2012/03' title='March 2012'>March 2012</a>&nbsp;(3)</li>
+	<li><a href='http://izbicki.me/blog/2011/12' title='December 2011'>December 2011</a>&nbsp;(2)</li>
+	<li><a href='http://izbicki.me/blog/2011/11' title='November 2011'>November 2011</a>&nbsp;(6)</li>
+	<li><a href='http://izbicki.me/blog/2011/10' title='October 2011'>October 2011</a>&nbsp;(4)</li>
+		</ul>
+</div>        
+</div>
+</div> <!-- /main content -->
+
+
+
+<div id="footer" class="clearfix">
+    
+    <div class="secondary">
+        
+                
+    </div> <!-- /secondary -->
+    
+    <div class="primary">
+        
+                
+    </div> <!-- /primary -->
+    
+    <div id="theme-info" class="clearfix">
+        
+        <div class="secondary">
+    <p><a class="feed" href="http://izbicki.me/blog/feed">Subscribe to feed</a></p>
+</div><div class="primary content">
+    <p>Powered by <a href="http://wordpress.org/">WordPress</a> and <a href="http://tarskitheme.com/">Tarski</a></p>
+</div>
+        
+    </div> <!-- /theme-info -->
+    
+</div> <!-- /footer -->
+
+</div><script language="javascript">var $j  = jQuery.noConflict();
+		$j(window).load(function(){ 
+tex_ajax('http://izbicki.me/blog/wp-content/plugins/optimized-latex/ajax.php?class=latex&image=tex_c60ae9f9003746c80c62d4640f6874d5.png&alt=n%27+%3D+n_a%2Bn_b&title=n%27+%3D+n_a%2Bn_b&width=87&height=15&path=http%3A%2F%2Fizbicki.me%2Fblog%2Fwp-content%2Fplugins%2Foptimized-latex','tex_7110');
+tex_ajax('http://izbicki.me/blog/wp-content/plugins/optimized-latex/ajax.php?class=latex&image=tex_2dc3ea2467b27442522bf116c6368470.png&alt=%5Cdisplaystyle+m%27_1+%3D+%5Cfrac%7B1%7D%7Bn%27%7D%5Csum_%7Bi%3D1%7D%5E%7Bn%27%7D+x_i&title=%5Cdisplaystyle+m%27_1+%3D+%5Cfrac%7B1%7D%7Bn%27%7D%5Csum_%7Bi%3D1%7D%5E%7Bn%27%7D+x_i&width=102&height=48&path=http%3A%2F%2Fizbicki.me%2Fblog%2Fwp-content%2Fplugins%2Foptimized-latex','tex_9786');
+tex_ajax('http://izbicki.me/blog/wp-content/plugins/optimized-latex/ajax.php?class=latex&image=tex_b33827bdecea068af0ce6ac3b6cf45e9.png&alt=x_i&title=x_i&width=13&height=10&path=http%3A%2F%2Fizbicki.me%2Fblog%2Fwp-content%2Fplugins%2Foptimized-latex','tex_9533');
+tex_ajax('http://izbicki.me/blog/wp-content/plugins/optimized-latex/ajax.php?class=latex&image=tex_07b0d4f1673da860fa78863eb7e11c9f.png&alt=%5Cdisplaystyle+m%27_1+%3D+%5Cfrac%7B1%7D%7Bn%27%7D%5Cleft%28%5Csum_%7Bi%3D1%7D%5E%7Bn_a%7D+x_%7Bia%7D+%2B+%5Csum_%7Bi%3D1%7D%5E%7Bn_b%7D+x_%7Bib%7D%5Cright%29&title=%5Cdisplaystyle+m%27_1+%3D+%5Cfrac%7B1%7D%7Bn%27%7D%5Cleft%28%5Csum_%7Bi%3D1%7D%5E%7Bn_a%7D+x_%7Bia%7D+%2B+%5Csum_%7Bi%3D1%7D%5E%7Bn_b%7D+x_%7Bib%7D%5Cright%29&width=198&height=50&path=http%3A%2F%2Fizbicki.me%2Fblog%2Fwp-content%2Fplugins%2Foptimized-latex','tex_4484');
+tex_ajax('http://izbicki.me/blog/wp-content/plugins/optimized-latex/ajax.php?class=latex&image=tex_c77a26115c06c978b245bc871bb00298.png&alt=m%27_1+%3D+%5Cfrac%7B1%7D%7Bn%27%7D%5Cleft%28n_a+m_%7B1a%7D+%2B+n_b+m_%7B1b%7D%5Cright%29&title=m%27_1+%3D+%5Cfrac%7B1%7D%7Bn%27%7D%5Cleft%28n_a+m_%7B1a%7D+%2B+n_b+m_%7B1b%7D%5Cright%29&width=176&height=20&path=http%3A%2F%2Fizbicki.me%2Fblog%2Fwp-content%2Fplugins%2Foptimized-latex','tex_4326');
+tex_ajax('http://izbicki.me/blog/wp-content/plugins/optimized-latex/ajax.php?class=latex&image=tex_240ba03b0952b1e7d16eb8570d9d1ee5.png&alt=%5Cdisplaystyle+m%27_2+%3D+%5Csum_%7Bi%3D1%7D%5E%7Bn%27%7D%28x_i+-+m%27_1%29%5E2+%3D+%5Csum_%7Bi%3D1%7D%5E%7Bn%27%7D%28x_i%5E2+-+m_1%5E%7B%272%7D%29&title=%5Cdisplaystyle+m%27_2+%3D+%5Csum_%7Bi%3D1%7D%5E%7Bn%27%7D%28x_i+-+m%27_1%29%5E2+%3D+%5Csum_%7Bi%3D1%7D%5E%7Bn%27%7D%28x_i%5E2+-+m_1%5E%7B%272%7D%29&width=259&height=48&path=http%3A%2F%2Fizbicki.me%2Fblog%2Fwp-content%2Fplugins%2Foptimized-latex','tex_9379');
+tex_ajax('http://izbicki.me/blog/wp-content/plugins/optimized-latex/ajax.php?class=latex&image=tex_98bcfbeb97b96fae576f1befed224590.png&alt=%5Cdisplaystyle+m%27_2+%3D+%5Csum_%7Bi%3D1%7D%5E%7Bn%27%7D%28x_i%5E2+-+m_1%5E%7B%272%7D%29&title=%5Cdisplaystyle+m%27_2+%3D+%5Csum_%7Bi%3D1%7D%5E%7Bn%27%7D%28x_i%5E2+-+m_1%5E%7B%272%7D%29&width=139&height=48&path=http%3A%2F%2Fizbicki.me%2Fblog%2Fwp-content%2Fplugins%2Foptimized-latex','tex_1471');
+tex_ajax('http://izbicki.me/blog/wp-content/plugins/optimized-latex/ajax.php?class=latex&image=tex_5b74c85cbe3e5a84f8e480f7929ed940.png&alt=%5Cdisplaystyle+m%27_2+%3D+%5Csum_%7Bi%3D1%7D%5E%7Bn%27%7D%28x_i%5E2%29+-+n%27+m_1%5E%7B%272%7D&title=%5Cdisplaystyle+m%27_2+%3D+%5Csum_%7Bi%3D1%7D%5E%7Bn%27%7D%28x_i%5E2%29+-+n%27+m_1%5E%7B%272%7D&width=153&height=48&path=http%3A%2F%2Fizbicki.me%2Fblog%2Fwp-content%2Fplugins%2Foptimized-latex','tex_3424');
+tex_ajax('http://izbicki.me/blog/wp-content/plugins/optimized-latex/ajax.php?class=latex&image=tex_0205050ad154c8caea4007ca220404f7.png&alt=%5Cdisplaystyle+m%27_2+%3D+%5Csum_%7Bi%3D1%7D%5E%7Bn_a%7D%28x_%7Bia%7D%5E2%29+%2B+%5Csum_%7Bi%3D1%7D%5E%7Bn_b%7D%28x_%7Bib%7D%5E2%29+-+n%27+m_1%5E%7B%272%7D&title=%5Cdisplaystyle+m%27_2+%3D+%5Csum_%7Bi%3D1%7D%5E%7Bn_a%7D%28x_%7Bia%7D%5E2%29+%2B+%5Csum_%7Bi%3D1%7D%5E%7Bn_b%7D%28x_%7Bib%7D%5E2%29+-+n%27+m_1%5E%7B%272%7D&width=233&height=46&path=http%3A%2F%2Fizbicki.me%2Fblog%2Fwp-content%2Fplugins%2Foptimized-latex','tex_5950');
+tex_ajax('http://izbicki.me/blog/wp-content/plugins/optimized-latex/ajax.php?class=latex&image=tex_bd31d3a387f3b4a36f51f506f38a8906.png&alt=%5Cdisplaystyle+m%27_2+%3D+%5Csum_%7Bi%3D1%7D%5E%7Bn_a%7D%28x_%7Bia%7D%5E2+-m_%7B1a%7D%5E2%29+%2B+n_a+m_%7B1a%7D%5E2+%2B+%5Csum_%7Bi%3D1%7D%5E%7Bn_b%7D%28x_%7Bib%7D%5E2+-+m_%7B1b%7D%5E2%29+%2Bn_b+m_%7B1b%7D%5E2+-+n%27+m_1%5E%7B%272%7D&title=%5Cdisplaystyle+m%27_2+%3D+%5Csum_%7Bi%3D1%7D%5E%7Bn_a%7D%28x_%7Bia%7D%5E2+-m_%7B1a%7D%5E2%29+%2B+n_a+m_%7B1a%7D%5E2+%2B+%5Csum_%7Bi%3D1%7D%5E%7Bn_b%7D%28x_%7Bib%7D%5E2+-+m_%7B1b%7D%5E2%29+%2Bn_b+m_%7B1b%7D%5E2+-+n%27+m_1%5E%7B%272%7D&width=451&height=46&path=http%3A%2F%2Fizbicki.me%2Fblog%2Fwp-content%2Fplugins%2Foptimized-latex','tex_3208');
+tex_ajax('http://izbicki.me/blog/wp-content/plugins/optimized-latex/ajax.php?class=latex&image=tex_b4461e561955033f9018fb9a77f49c8d.png&alt=%5Cdisplaystyle+m%27_2+%3D+m_%7B2a%7D%2B+n_a+m_%7B1a%7D%5E2+%2B+m_%7B2b%7D%2B+n_b+m_%7B1b%7D%5E2-n%27+m_1%5E%7B%272%7D&title=%5Cdisplaystyle+m%27_2+%3D+m_%7B2a%7D%2B+n_a+m_%7B1a%7D%5E2+%2B+m_%7B2b%7D%2B+n_b+m_%7B1b%7D%5E2-n%27+m_1%5E%7B%272%7D&width=298&height=18&path=http%3A%2F%2Fizbicki.me%2Fblog%2Fwp-content%2Fplugins%2Foptimized-latex','tex_9014');
+ });</script><div id="dc-dcssb">
+		<ul id="nav-dcssb" class=""><li id="dcssb-twitter" class="size-box"><a href="http://twitter.com/share" data-url="http://izbicki.me/blog/gausian-distributions-are-monoids" data-counturl="http://izbicki.me/blog/gausian-distributions-are-monoids" data-text="Gausian distributions form a monoid" class="twitter-share-button" data-count="vertical" data-via=""></a></li>
+			<script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+			<div id="fb-root"></div>
+			<script>
+	window.fbAsyncInit = function() {
+	FB.init({appId: "", status: true, cookie: true, xfbml: true});};
+	(function() {
+		var e = document.createElement("script");
+		e.type = "text/javascript";
+		e.src = document.location.protocol + "//connect.facebook.net/en_US/all.js";
+		e.async = true;
+	document.getElementById("fb-root").appendChild(e);
+	}());
+</script>
+<li id="dcssb-facebook" class="size-box"><fb:like href="http%3A%2F%2Fizbicki.me%2Fblog%2Fgausian-distributions-are-monoids" send="false" layout="box_count" show_faces="false" font=""></fb:like></li>
+			<script type="text/javascript" src="http://platform.linkedin.com/in.js"></script>
+			<li id="dcssb-linkedin" class="size-box"><script type="in/share" data-url="http://izbicki.me/blog/gausian-distributions-are-monoids" data-counter="top"></script></li>
+			<li id="dcssb-stumble" class="size-box"><iframe src="http://www.stumbleupon.com/badge/embed/5/?url=http%3A%2F%2Fizbicki.me%2Fblog%2Fgausian-distributions-are-monoids" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:50px; height: 60px;" allowTransparency="true"></iframe></li><li id="dcssb-pinit" class="size-box vertical"><a href="http://pinterest.com/pin/create/button/?url=http%3A%2F%2Fizbicki.me%2Fblog%2Fgausian-distributions-are-monoids&amp;media=&amp;description=%28And+why+machine+learning+experts+should+care%29%0D%0AThis+is+the+first+in+a+series+of+posts+about+the+HLearn+library+for+haskell+that+I%27ve" class="pin-it-button" count-layout="vertical">Pin It</a><script type="text/javascript" src="http://assets.pinterest.com/js/pinit.js"></script></li><script type="text/javascript" src="http://delicious-button.googlecode.com/files/jquery.delicious-button-1.1.min.js"></script>
+			<li id="dcssb-delicious" class="size-box"><a class="delicious-button" href="http://delicious.com/save">
+ <!-- {
+ url:"http://izbicki.me/blog/gausian-distributions-are-monoids"
+ ,title:"Gausian distributions form a monoid"
+ ,button:"tall"
+ } -->
+ Delicious
+</a></li>
+			</ul>
+		<div class="clear"></div>
+		<div class="dc-corner"><span></span></div>
+		</div>			<script type="text/javascript">_ga.trackFacebook();</script>
+			<script type="text/javascript">
+				jQuery(window).load(function() {
+
+								
+					var config = {
+						idWrapper : 'dcssb-slick',
+						location: 'bottom',
+						align: 'left',
+						offset: '20px',
+						speed: 600,
+						tabText: '<img src="http://izbicki.me/blog/wp-content/plugins/slick-social-share-buttons/css/images/tab_bottom_vertical.png" alt="Share" />',
+						autoClose: false,
+						loadOpen: false,
+						classWrapper: 'dc-social-slick vertical',
+						classOpen: 'dcssb-open',
+						classClose: 'dcssb-close',
+						classToggle: 'dcssb-link'					
+					};
+					if(!jQuery().dcSocialSlick) {
+						$.getScript('http://izbicki.me/blog/wp-content/plugins/slick-social-share-buttons/js/jquery.social.slick.1.0.js', function(){
+							jQuery('#dc-dcssb').dcSocialSlick(config);
+						}); 
+					} else {
+						jQuery('#dc-dcssb').dcSocialSlick(config);
+					}
+
+								});
+			</script>
+		
+			<!--
+<p class="small"> WassUp 1.8.3 timestamp: 2012-12-12 06:33:29PM UTC (11:33AM)<br />
+If above timestamp is not current time, this page is cached.</p> -->
+<script type='text/javascript' src='http://izbicki.me/blog/wp-content/plugins/optimized-latex/ajax.js?ver=0,50'></script>
+</body></html>
+
+<!-- Dynamic page generated in 0.894 seconds. -->
+<!-- Cached page generated by WP-Super-Cache on 2012-12-12 11:33:29 -->
+<!-- super cache -->

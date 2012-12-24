@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="client-nojs">
+<head>
+<title>CPU Frequency Scaling - ArchWiki</title>
+<meta charset="UTF-8" />
+<meta name="generator" content="MediaWiki 1.19.3" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="search" type="application/opensearchdescription+xml" href="/opensearch_desc.php" title="ArchWiki (en)" />
+<link rel="EditURI" type="application/rsd+xml" href="https://wiki.archlinux.org/api.php?action=rsd" />
+<link rel="copyright" href="http://www.gnu.org/copyleft/fdl.html" />
+<link rel="alternate" type="application/atom+xml" title="ArchWiki Atom feed" href="/index.php?title=Special:RecentChanges&amp;feed=atom" />
+<link rel="stylesheet" href="https://wiki.archlinux.org/load.php?debug=false&amp;lang=en&amp;modules=mediawiki.legacy.commonPrint%2Cshared%7Cskins.archlinux&amp;only=styles&amp;skin=archlinux&amp;*" />
+<!--[if IE 6]><link rel="stylesheet" href="/skins/archlinux/IE60Fixes.css?303" media="screen" /><![endif]-->
+<!--[if IE 7]><link rel="stylesheet" href="/skins/archlinux/IE70Fixes.css?303" media="screen" /><![endif]--><meta name="ResourceLoaderDynamicStyles" content="" />
+
+<script src="https://wiki.archlinux.org/load.php?debug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=archlinux&amp;*"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"CPU_Frequency_Scaling","wgTitle":"CPU Frequency Scaling","wgCurRevisionId":237080,"wgArticleId":1112,"wgIsArticle":true,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Power management","CPU"],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgRelevantPageName":"CPU_Frequency_Scaling","wgRestrictionEdit":[],"wgRestrictionMove":[]});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function($){mw.user.options.set({"ccmeonemails":0,"cols":80,"date":"default","diffonly":0,"disablemail":0,"disablesuggest":0,"editfont":"default","editondblclick":0,"editsection":1,"editsectiononrightclick":0,"enotifminoredits":0,"enotifrevealaddr":0,"enotifusertalkpages":1,"enotifwatchlistpages":0,"extendwatchlist":0,"externaldiff":0,"externaleditor":0,"fancysig":0,"forceeditsummary":0,"gender":"unknown","hideminor":0,"hidepatrolled":0,"highlightbroken":1,"imagesize":2,"justify":0,"math":1,"minordefault":0,"newpageshidepatrolled":0,"nocache":0,"noconvertlink":0,"norollbackdiff":0,"numberheadings":0,"previewonfirst":0,"previewontop":1,"quickbar":5,"rcdays":7,"rclimit":50,"rememberpassword":0,"rows":25,"searchlimit":20,"showhiddencats":0,"showjumplinks":1,"shownumberswatching":1,"showtoc":1,"showtoolbar":1,"skin":"archlinux","stubthreshold":0,"thumbsize":2,"underline":2,"uselivepreview":0,"usenewrc":0,"watchcreations":0,"watchdefault":0,"watchdeletion"
+:0,"watchlistdays":3,"watchlisthideanons":0,"watchlisthidebots":0,"watchlisthideliu":0,"watchlisthideminor":0,"watchlisthideown":0,"watchlisthidepatrolled":0,"watchmoves":0,"wllimit":250,"variant":"en","language":"en","searchNs0":true,"searchNs1":false,"searchNs2":false,"searchNs3":false,"searchNs4":false,"searchNs5":false,"searchNs6":false,"searchNs7":false,"searchNs8":false,"searchNs9":false,"searchNs10":false,"searchNs11":false,"searchNs12":false,"searchNs13":false,"searchNs14":false,"searchNs15":false});;},{},{});mw.loader.implement("user.tokens",function($){mw.user.tokens.set({"editToken":"+\\","watchToken":false});;},{},{});
+
+/* cache key: archwiki:resourceloader:filter:minify-js:7:789e73e7868a9c0b6be7e25913e3565b */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax"]);
+}</script>
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-CPU_Frequency_Scaling skin-archlinux action-view">
+
+<div id="archnavbar"><!-- Arch Linux global navigation bar -->
+	<div id="archnavbarlogo">
+		<p><a id="logo" href="http://www.archlinux.org/"></a></p>
+	</div>
+	<div id="archnavbarmenu">
+		<ul id="archnavbarlist">
+			<li id="anb-home"><a href="http://www.archlinux.org/">Home</a></li><li id="anb-packages"><a href="http://www.archlinux.org/packages/">Packages</a></li><li id="anb-forums"><a href="https://bbs.archlinux.org/">Forums</a></li><li id="anb-wiki" class="anb-selected"><a href="https://wiki.archlinux.org/">Wiki</a></li><li id="anb-bugs"><a href="https://bugs.archlinux.org/">Bugs</a></li><li id="anb-aur"><a href="https://aur.archlinux.org/">AUR</a></li><li id="anb-download"><a href="http://www.archlinux.org/download/">Download</a></li>		</ul>
+	</div>
+</div><!-- #archnavbar -->
+
+<div id="globalWrapper">
+<div id="column-content"><div id="content">
+	<a id="top"></a>
+	
+	<h1 id="firstHeading" class="firstHeading"><span dir="auto">CPU Frequency Scaling</span></h1>
+	<div id="bodyContent" class="mw-body">
+		<div id="siteSub">From ArchWiki</div>
+		<div id="contentSub"></div>
+		<div id="jump-to-nav" class="mw-jump">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>
+		<!-- start content -->
+<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><table style="margin-left: 5px; padding: 5px; border-spacing: 0px 4px; float: right; clear: right; width: 25%;" cellpadding="0">
+
+<tr style="text-align: center; border-bottom: 5px #08c solid;">
+<th style="background: #333; color: white; padding: 3px;"> <b>Summary</b>
+</th></tr>
+<tr>
+<td style="text-align: left; padding: 3px"> An overview of the popular userspace tools for the kernel <a rel="nofollow" class="external text" href="http://www.kernel.org/pub/linux/utils/kernel/cpufreq/cpufreq-info.html">CPUfreq</a> subsystem.
+</td></tr>
+<tr style="text-align: center; height: 1.5em; border-bottom: 5px #08c solid;">
+<th style="background: #333; color: white; padding: 2px;"> <b>Related</b>
+</th></tr>
+<tr>
+<td style="text-align: left; padding: 3px"> <a href="/index.php/Laptop_Mode_Tools" title="Laptop Mode Tools">Laptop Mode Tools</a>
+</td></tr>
+<tr>
+<td style="text-align: left; padding: 3px"> <a href="/index.php/Pm-utils" title="Pm-utils">pm-utils</a>
+</td></tr>
+<tr>
+<td style="text-align: left; padding: 3px"> <a href="/index.php/PHC" title="PHC">PHC</a>
+</td></tr></table>
+<div style="text-align: center; margin-bottom: 1em; overflow:hidden;">
+<table class="notice noprint toc" id="disputed" style="background: &#123;&#123;&#123;backgroundcolor}}}; border-color: &#123;&#123;&#123;bordercolor}}}; width: 100%">
+<tr>
+<td style="background-color: &#123;&#123;&#123;signalcolor}}}; width: 100px"> <a href="/index.php/File:Tango-emblem-important.png" class="image"><img alt="Tango-emblem-important.png" src="/images/c/c8/Tango-emblem-important.png" width="48" height="48" /></a>
+</td>
+<td>  <b>The factual accuracy of this article or section is disputed.</b> <div style="font-size: 90%"><b>Reason:</b> This article needs cleanup as far as kernel cpufreq and userspace cpufrequtils and cpupower are concerned. (<a href="/index.php/Talk:CPU_Frequency_Scaling" title="Talk:CPU Frequency Scaling">Discuss</a>)</div>
+</td>
+<td style="background-color: &#123;&#123;&#123;signalcolor}}}; width: 100px"> <a href="/index.php/File:Tango-emblem-important.png" class="image"><img alt="Tango-emblem-important.png" src="/images/c/c8/Tango-emblem-important.png" width="48" height="48" /></a>
+</td></tr></table>
+</div>
+<p>cpufreq refers to the kernel infrastructure that implements CPU frequency scaling. This technology enables the operating system to scale the CPU speed up or down in order to save power. CPU frequencies can be scaled automatically depending on the system load, in response to ACPI events, or manually by userspace programs.
+</p><p>Since kernel 3.4 the necessary modules are loaded automatically and the recommended <a href="/index.php/CPU_Frequency_Scaling#Scaling_governors" title="CPU Frequency Scaling">ondemand governor</a> is enabled by default. However, userspace applications like <a href="#cpupower">cpupower</a>, <a href="/index.php/Acpid" title="Acpid">acpid</a>, <a href="/index.php/Laptop-mode-tools" title="Laptop-mode-tools" class="mw-redirect">laptop-mode-tools</a>, or GUI tools provided for your desktop environment, may still be used for advanced configuration. 
+</p>
+<table id="toc" class="toc"><tr><td><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#cpupower"><span class="tocnumber">1</span> <span class="toctext">cpupower</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Configuration"><span class="tocnumber">2</span> <span class="toctext">Configuration</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="#CPU_frequency_driver"><span class="tocnumber">2.1</span> <span class="toctext">CPU frequency driver</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="#Scaling_governors"><span class="tocnumber">2.2</span> <span class="toctext">Scaling governors</span></a>
+<ul>
+<li class="toclevel-3 tocsection-5"><a href="#Improving_on-demand_performance"><span class="tocnumber">2.2.1</span> <span class="toctext">Improving on-demand performance</span></a>
+<ul>
+<li class="toclevel-4 tocsection-6"><a href="#Changing_the_on-demand_governor.27s_threshold"><span class="tocnumber">2.2.1.1</span> <span class="toctext">Changing the on-demand governor's threshold</span></a></li>
+<li class="toclevel-4 tocsection-7"><a href="#On-demand_governor_sampling_down_factor"><span class="tocnumber">2.2.1.2</span> <span class="toctext">On-demand governor sampling_down_factor</span></a></li>
+</ul>
+</li>
+<li class="toclevel-3 tocsection-8"><a href="#Tuning_conservative_governor"><span class="tocnumber">2.2.2</span> <span class="toctext">Tuning conservative governor</span></a>
+<ul>
+<li class="toclevel-4 tocsection-9"><a href="#Changing_the_conservative_governor.27s_thresholds"><span class="tocnumber">2.2.2.1</span> <span class="toctext">Changing the conservative governor's thresholds</span></a></li>
+</ul>
+</li>
+<li class="toclevel-3 tocsection-10"><a href="#Interaction_with_ACPI_events"><span class="tocnumber">2.2.3</span> <span class="toctext">Interaction with ACPI events</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-11"><a href="#Daemon"><span class="tocnumber">2.3</span> <span class="toctext">Daemon</span></a></li>
+<li class="toclevel-2 tocsection-12"><a href="#Privilege_Granting_Under_GNOME"><span class="tocnumber">2.4</span> <span class="toctext">Privilege Granting Under GNOME</span></a></li>
+<li class="toclevel-2 tocsection-13"><a href="#Laptop_Mode_Tools"><span class="tocnumber">2.5</span> <span class="toctext">Laptop Mode Tools</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-14"><a href="#Troubleshooting"><span class="tocnumber">3</span> <span class="toctext">Troubleshooting</span></a>
+<ul>
+<li class="toclevel-2 tocsection-15"><a href="#BIOS_frequency_limitation"><span class="tocnumber">3.1</span> <span class="toctext">BIOS frequency limitation</span></a></li>
+</ul>
+</li>
+</ul>
+</td></tr></table>
+<h2> <span class="mw-headline" id="cpupower">cpupower</span></h2>
+<p><span style="font-family: monospace"><a rel="nofollow" class="external text" href="https://www.archlinux.org/packages/?name=cpupower">cpupower</a></span> is a set of userspace utilities designed to assist with <i>CPU frequency scaling</i>. The package is not required to use scaling, but is highly recommended because it provides useful command-line utilities and a service to change the governor at boot (see <a href="#Daemon">#Daemon</a> below).
+</p>
+<div style="padding: 5px; margin: 0.50em 0; background-color: #DDFFDD; border: thin solid #BBDDBB; overflow: hidden;"><strong> Tip: </strong>Make sure you edit <code style="display:inline-block; padding: 0.1em 0.3em;">/etc/conf.d/cpupower</code> and set the governor/frequencies you desire before starting cpupower daemon</div>
+<div style="padding: 5px; margin: 0.50em 0; background-color: #DDDDFF; border: thin solid #BBBBDD; overflow: hidden;"><strong> Note: </strong>Using kernel 3.5 or later additional features in cpupower do no longer work, because support for them has been removed from the kernel. Do not set the smp_scheduler or mc_scheduler values in the configuration file, or starting the daemon will fail.</div>
+<h2> <span class="mw-headline" id="Configuration">Configuration</span></h2>
+<p>Configuring CPU scaling is a 3-part process:
+</p>
+<ol><li> Load appropriate CPU frequency driver
+</li><li> Load desired scaling governor(s)
+</li><li> Select a method to manage switching and tuning governor(s):
+<ul><li> manually via <code style="display:inline-block; padding: 0.1em 0.3em;">/sys</code> interface or <span style="font-family: monospace"><a rel="nofollow" class="external text" href="https://www.archlinux.org/packages/?name=cpupower">cpupower</a></span>,
+</li><li> the cpupower <a href="#Daemon">#Daemon</a>,
+</li><li> <a href="/index.php/Laptop_Mode_Tools" title="Laptop Mode Tools">Laptop Mode Tools</a>,
+</li><li> <a href="/index.php/Acpid" title="Acpid">acpid</a> events,
+</li><li> desktop enviroment tools/applets,
+</li><li> or some combination of the above.
+</li></ul>
+</li></ol>
+<h3> <span class="mw-headline" id="CPU_frequency_driver"> CPU frequency driver </span></h3>
+<div style="padding: 5px; margin: 0.50em 0; background-color: #DDDDFF; border: thin solid #BBBBDD; overflow: hidden;"><strong> Note: </strong>The CPU frequency driver for your CPU is automatically loaded since kernel 3.4, therefore loading it manually - as described in this section - should not be necessary anymore.</div>
+<p>In order for frequency scaling to work properly, the operating system must first know the limits of the CPU(s).  To accomplish this, a kernel module is loaded that can read and manage the specifications of the CPU(s).  Note that these modules may need related features enabled in BIOS which may be labeled as: <i>Speedstep</i>, <i>Cool and Quiet</i>, <i>PowerNow!</i>, or <i>ACPI</i>.
+</p><p>If you have a 64-bit processor, you will very likely want either <b><code style="display:inline-block; padding: 0.1em 0.3em;">acpi_cpufreq</code></b> for Intel processors or <b><code style="display:inline-block; padding: 0.1em 0.3em;">powernow-k8</code></b> for AMD K8/K10 processors (Athlon 64, Opteron, and Phenom).  These modules are built for both 32 and 64-bit kernels so even if you run a 32-bit kernel on your 64-bit hardware they are probably still the ones you want.
+</p><p>To see a full list of available drivers, run the following:
+</p>
+<pre>$ ls /lib/modules/$(uname -r)/kernel/drivers/cpufreq/
+</pre>
+<p>The following table is a partial list of available frequency drivers (Adapted from kernel source file <code style="display:inline-block; padding: 0.1em 0.3em;">&lt;kernel source&gt;/arch/x86/kernel/cpu/cpufreq/Kconfig</code>).
+</p>
+<table border="1">
+<tr>
+<th>Module</th>
+<th>Description
+</th></tr>
+<tr>
+<td> acpi_cpufreq  </td>
+<td> CPUFreq driver which utilizes the ACPI Processor Performance States. This driver also supports Intel Enhanced SpeedStep (previously supported by the deprecated speedstep-centrino module).
+</td></tr>
+<tr>
+<td> speedstep-ich </td>
+<td> CPUFreq driver for certain mobile Intel Pentium III (Coppermine), all mobile Intel Pentium III-M (Tualatin) and all mobile Intel Pentium 4 P4-M on systems which have an Intel ICH2, ICH3 or ICH4 southbridge.
+</td></tr>
+<tr>
+<td> speedstep-smi </td>
+<td> CPUFreq driver for certain mobile Intel Pentium III (Coppermine), all mobile Intel Pentium III-M (Tualatin) on systems which have an Intel 440BX/ZX/MX southbridge.
+</td></tr>
+<tr>
+<td> powernow-k8   </td>
+<td> CPUFreq driver for K8/K10 Athlon64/Opteron/Phenom processors.
+</td></tr>
+<tr>
+<td> powernow-k7   </td>
+<td> CPUFreq driver for mobile AMD K7 mobile processors.
+</td></tr>
+<tr>
+<td> cpufreq-nforce2 </td>
+<td> CPUFreq driver for FSB changing on nVidia nForce2 platforms. (AMD K7, Socket A)
+</td></tr>
+<tr>
+<td> pcc-cpufreq   </td>
+<td> This driver supports Processor Clocking Control interface by Hewlett-Packard and Microsoft Corporation which is useful on some Proliant servers.
+</td></tr>
+<tr>
+<td> p4_clockmod   </td>
+<td> CPUFreq driver for Intel Pentium 4 / Xeon / Celeron processors.  When enabled it will lower CPU temperature by skipping clocks.<br />You probably want to use a Speedstep driver instead.
+</td></tr></table>
+<p><br />
+To load the CPU frequency driver manually:
+</p>
+<pre># modprobe acpi_cpufreq
+</pre>
+<p>Note that if you attempt to load the wrong module you will get an error such as
+</p>
+<pre>FATAL: Error inserting acpi_cpufreq ([...]/acpi-cpufreq.ko): No such device
+</pre>
+<p>Once the appropriate cpufreq driver is loaded, detailed information about the CPU(s) can be displayed by running: 
+</p>
+<pre style="margin-bottom: 0; border-bottom:none; padding-bottom:0.8em;">$ cpupower frequency-info
+</pre>
+<pre style="margin-top: 0; border-top-style:dashed; padding-top: 0.8em;">
+analyzing CPU 0:
+  driver: acpi-cpufreq
+  CPUs which run at the same hardware frequency: 0 1 2 3
+  CPUs which need to have their frequency coordinated by software: 0
+  maximum transition latency: 10.0 us.
+  hardware limits: 1.20 GHz - 2.40 GHz
+  available frequency steps: 2.40 GHz, 2.40 GHz, 2.27 GHz, 2.13 GHz, 2.00 GHz, 1.87 GHz, 1.73 GHz, 1.60 GHz, 1.47 GHz, 1.33 GHz, 1.20 GHz
+  available cpufreq governors: ondemand, performance
+  current policy: frequency should be within 1.20 GHz and 2.40 GHz.
+                  The governor &quot;ondemand&quot; may decide which speed to use
+                  within this range.
+  current CPU frequency is 1.20 GHz.
+  boost state support:
+    Supported: yes
+    Active: yes
+    25500 MHz max turbo 4 active cores
+    25500 MHz max turbo 3 active cores
+    25500 MHz max turbo 2 active cores
+    25500 MHz max turbo 1 active cores
+</pre>
+<p>To load the driver automatically at start-up, add a file specifying the appropriate driver to the <code style="display:inline-block; padding: 0.1em 0.3em;">/etc/modules-load.d/</code> directory. For example:
+</p>
+<pre style="margin-bottom: 0; border-bottom:none; padding-bottom:0.8em;">/etc/modules-load.d/cpufreq.conf</pre>
+<pre style="margin-top: 0; border-top-style:dashed; padding-top: 0.8em;">
+# Load cpufreq driver
+acpi_cpufreq</pre>
+<h3> <span class="mw-headline" id="Scaling_governors"> Scaling governors </span></h3>
+<p>Governors can be thought of as pre-configured power schemes for the CPU. Some of the governors must be loaded as kernel modules in order to be seen by user space programs. One may load as many governors as desired (only one will be active on a CPU at any given time).
+</p><p>Available governors:
+</p>
+<dl><dt><code style="display:inline-block; padding: 0.1em 0.3em;">cpufreq_ondemand</code> <i>(default and recommended)</i></dt><dd> Dynamically switches between the CPU(s) available clock speeds based on system load
+</dd><dt><code style="display:inline-block; padding: 0.1em 0.3em;">cpufreq_performance</code></dt><dd> The performance governor runs the CPU(s) at maximum clock speed
+</dd><dt><code style="display:inline-block; padding: 0.1em 0.3em;">cpufreq_conservative</code></dt><dd> Similar to <code style="display:inline-block; padding: 0.1em 0.3em;">ondemand</code>, but the CPU(s) clock speed switches gradually through all its available frequencies based on system load
+</dd><dt><code style="display:inline-block; padding: 0.1em 0.3em;">cpufreq_powersave</code></dt><dd> Runs the CPU(s) at minimum speed
+</dd><dt><code style="display:inline-block; padding: 0.1em 0.3em;">cpufreq_userspace</code></dt><dd> Manually configured clock speeds by user
+</dd></dl>
+<p>For Desktops and most systems, the ondemand governor can provide the best compromise between heat emission, power consumption, performance, and manageability. Since it is the default and built into the kernel, loading the CPU frequency driver should be sufficient to activate it.
+For Laptops or other mobile systems, the conservative governor can possibly provide significant savings in power consumption.
+</p><p>The governors <code style="display:inline-block; padding: 0.1em 0.3em;">ondemand</code> and <code style="display:inline-block; padding: 0.1em 0.3em;">performance</code> are built into the kernel and do not need to be loaded as modules. If you want to use one of the other governors, you have to load them with <code style="display:inline-block; padding: 0.1em 0.3em;">modprobe</code>. For example:
+</p>
+<pre># modprobe cpufreq_powersave
+# modprobe cpufreq_userspace
+</pre>
+<p>Or, add a file specifying the desired governor(s) to <code style="display:inline-block; padding: 0.1em 0.3em;">/etc/modules-load.d/</code> and reboot.
+</p>
+<pre style="margin-bottom: 0; border-bottom:none; padding-bottom:0.8em;">/etc/modules-load.d/cpufreq_gov.conf</pre>
+<pre style="margin-top: 0; border-top-style:dashed; padding-top: 0.8em;">
+# Load cpufreq governors
+cpufreq_powersave
+cpufreq_userspace</pre> 
+<div style="padding: 5px; margin: 0.50em 0; background-color: #DDDDFF; border: thin solid #BBBBDD; overflow: hidden;"><strong> Note: </strong>Remember that if you are using a kernel older than 3.4 (e.g. <span style="font-family: monospace"><a rel="nofollow" class="external text" href="https://www.archlinux.org/packages/?name=linux-lts">linux-lts</a></span>) the needed <a href="#CPU_frequency_driver">#CPU frequency driver</a> should be added to the top of the list to ensure it is loaded at boot.</div>
+<p>To see which governors have been loaded and which frequencies are supported:
+</p>
+<pre># cpupower frequency-info
+</pre>
+<p>Manually set the governor by running the <code style="display:inline-block; padding: 0.1em 0.3em;">cpupower</code> command (as root). For example:
+</p>
+<pre># cpupower frequency-set -g performance
+</pre>
+<div style="padding: 5px; margin: 0.50em 0; background-color: #DDDDFF; border: thin solid #BBBBDD; overflow: hidden;"><strong> Note: </strong>These settings will not be preserved after a reboot/shutdown. See the <a href="#Daemon">#Daemon</a> section below for configuring cpufreq governors at boot.</div>
+<p>Additional options such as upper and lower frequency bounds used by the governor can optionally be set by using the <code style="display:inline-block; padding: 0.1em 0.3em;">-u</code> and <code style="display:inline-block; padding: 0.1em 0.3em;">-d</code> options. For example, to set the second core's upper frequency bound as 2.00GHz and its lower bound as 1.00 GHz:
+</p>
+<pre># cpupower -c 1 frequency-set -g ondemand -u 2.00Ghz -d 1.00Ghz
+</pre>
+<p>To manually set a processor to a specific frequency the userspace governor is used.  For example, to set core 0 to 2.50Ghz and core 1 to 800Mhz:
+</p>
+<pre># cpupower -c 0 frequency-set -f 2.50Ghz
+# cpupower -c 1 frequency-set -f 800Mhz
+</pre>
+<p>Run <code style="display:inline-block; padding: 0.1em 0.3em;">cpupower --help</code> or <code style="display:inline-block; padding: 0.1em 0.3em;">man cpupower</code> for more information.
+</p><p>For those who would like a GUI for setting governors or frequency there is <a href="/index.php/Trayfreq" title="Trayfreq">trayfreq</a>, a GTK+ application that sits in the system tray.
+</p><p>The monitoring of CPU clock in real-time is accomplished by running:
+</p>
+<pre>$ watch grep \"cpu MHz\" /proc/cpuinfo
+</pre>
+<h4> <span class="mw-headline" id="Improving_on-demand_performance">Improving on-demand performance</span></h4>
+<p>With the out-of-the-box configuration, the ondemand governor will result in a slight but measurable and noticeable loss of performance. It will not clock up the CPU when it is at lower than 95% usage, and will sample the usage at the fastest possible frequency when at full clock speeds in order to clock back down as soon as possible.
+</p><p>Tuning the governor for your needs can reduce the performance loss to the point where it is negligible/non-existent if you are willing to lose a lot of the power savings. If you just want to save power while idle, lowering the up_threshold to 11% and raising the sample_down_factor by an order of magnitude can accomplish this.
+</p><p>Tunables are available in <code style="display:inline-block; padding: 0.1em 0.3em;">/sys/devices/system/cpu/cpufreq/ondemand/</code> once the governor is loaded and selected and can be preserved at reboot using <code style="display:inline-block; padding: 0.1em 0.3em;">/etc/tmpfiles.d</code>. For example:
+</p>
+<pre style="margin-bottom: 0; border-bottom:none; padding-bottom:0.8em;">/etc/tmpfiles.d/ondemand_threshold.conf</pre>
+<pre style="margin-top: 0; border-top-style:dashed; padding-top: 0.8em;">w /sys/devices/system/cpu/cpufreq/ondemand/up_threshold - - - - 25</pre>
+<h5> <span class="mw-headline" id="Changing_the_on-demand_governor.27s_threshold">Changing the on-demand governor's threshold</span></h5>
+<p>To change when the <code style="display:inline-block; padding: 0.1em 0.3em;">ondemand</code> governor switches to a higher multiplier, one can manipulate <code style="display:inline-block; padding: 0.1em 0.3em;">/sys/devices/system/cpu/cpufreq/ondemand/up_threshold</code>. Determine the current setting by issuing the following command as root:
+</p>
+<pre># cat /sys/devices/system/cpu/cpufreq/ondemand/up_threshold
+</pre>
+<p>The value returned should be <code style="display:inline-block; padding: 0.1em 0.3em;">95</code>, the default setting as of kernel version 3.0. This means that the <code style="display:inline-block; padding: 0.1em 0.3em;">ondemand</code> governor currently increases the clock rate if a core reaches 95% utilization. This can be changed, for example:
+</p>
+<pre># echo -n 15 &gt; /sys/devices/system/cpu/cpufreq/ondemand/up_threshold
+</pre>
+<h5> <span class="mw-headline" id="On-demand_governor_sampling_down_factor">On-demand governor sampling_down_factor</span></h5>
+<p><code style="display:inline-block; padding: 0.1em 0.3em;">sampling_down_factor</code> is another global ondemand global tunable.
+</p><p>Having <code style="display:inline-block; padding: 0.1em 0.3em;">sampling_down_factor</code> set to <code style="display:inline-block; padding: 0.1em 0.3em;">1</code> makes no changes from existing behavior, but having <code style="display:inline-block; padding: 0.1em 0.3em;">sampling_down_factor</code> set to a value greater than 1 (e.g. 100) causes it to act as a multiplier for the scheduling interval for re-evaluating load when the CPU is at its highest clock frequency due to high load. This improves performance by reducing the overhead of load evaluation and helping the CPU stay at its highest clock frequency when it is truly busy, rather than shifting back and forth in speed. This tunable has no effect on behavior at lower frequencies/lower CPU loads.
+</p><p>Read the value (default: 1):
+</p>
+<pre># cat /sys/devices/system/cpu/cpufreq/ondemand/sampling_down_factor
+</pre>
+<p>Set the value:
+</p>
+<pre># echo -n 10 &gt; /sys/devices/system/cpu/cpufreq/ondemand/sampling_down_factor
+</pre>
+<div style="padding: 5px; margin: 0.50em 0; background-color: #DDDDFF; border: thin solid #BBBBDD; overflow: hidden;"><strong> Note: </strong>When using systemd with cpupower, the above commands can be added to <code style="display:inline-block; padding: 0.1em 0.3em;">/usr/lib/systemd/scripts/cpupower</code>, at the end of the script, right before <code style="display:inline-block; padding: 0.1em 0.3em;">exit $fail</code>.</div>
+<h4> <span class="mw-headline" id="Tuning_conservative_governor">Tuning conservative governor</span></h4>
+<p>While the conservative governor switches smoothly and utilizes all of the available frequencies, users may want to tune it further. Out-of-the-box it will clock the CPU up when load reaches 75% and clock down when load drops to 20%. As with the on-demand governor, decreasing the <code style="display:inline-block; padding: 0.1em 0.3em;">up_threshold</code> may improve performance and responsiveness.
+</p><p>Tunables are available in <code style="display:inline-block; padding: 0.1em 0.3em;">/sys/devices/system/cpu/cpufreq/conservative/</code>. Refer to the <a href="#Improving_ondemand_performance">#Improving ondemand performance</a> section for important advice regarding making this changes permanent, and potential daemon loading issues.
+</p>
+<h5> <span class="mw-headline" id="Changing_the_conservative_governor.27s_thresholds">Changing the conservative governor's thresholds</span></h5>
+<p>Determine the current <code style="display:inline-block; padding: 0.1em 0.3em;">up_threshold</code> setting by issuing the following command as root:
+</p>
+<pre># cat /sys/devices/system/cpu/cpufreq/conservative/up_threshold
+</pre>
+<p>The value returned should be <code style="display:inline-block; padding: 0.1em 0.3em;">75</code>, the default setting as of kernel version 3.0. This means that the <code style="display:inline-block; padding: 0.1em 0.3em;">conservative</code> governor currently increases the clock rate to the next highest speed if a core reaches 75% utilization. The can be changed, for example:
+</p>
+<pre># echo -n 40 &gt; /sys/devices/system/cpu/cpufreq/conservative/up_threshold
+</pre>
+<div style="padding: 5px; margin: 0.50em 0; background-color: #DDDDFF; border: thin solid #BBBBDD; overflow: hidden;"><strong> Note: </strong>The minimum value one can enter must be above the one in <code style="display:inline-block; padding: 0.1em 0.3em;">down_threshold</code>; entering a value under that results in the error, "bash: echo: write error: Invalid argument"</div>
+<p>Similarly the <code style="display:inline-block; padding: 0.1em 0.3em;">down_threshold</code> value can be read and modified via <code style="display:inline-block; padding: 0.1em 0.3em;">/sys/devices/system/cpu/cpufreq/conservative/down_threshold</code>. The default value should be <code style="display:inline-block; padding: 0.1em 0.3em;">20</code> as of kernel version 3.0. This means that the <code style="display:inline-block; padding: 0.1em 0.3em;">conservative</code> governor decreases the clock rate to the next lowest speed if a core falls to 20% utilization, which is a sensible default.
+</p><p>While the down sampling rate can also be adjusted for the <code style="display:inline-block; padding: 0.1em 0.3em;">conservative</code> governor, increasing it may only help with occasional low usage CPU spikes during high usage applications, as the <code style="display:inline-block; padding: 0.1em 0.3em;">down_threshold</code> is a much more direct control for down scaling which does not exist on the <code style="display:inline-block; padding: 0.1em 0.3em;">ondemand</code> governor.
+</p><p>Be aware that setting <code style="display:inline-block; padding: 0.1em 0.3em;">down_threshold</code> too close to <code style="display:inline-block; padding: 0.1em 0.3em;">up_threshold</code> may result in constant CPU switching, which might be something desirable for certain users and not for others. Setting <code style="display:inline-block; padding: 0.1em 0.3em;">down_threshold</code> or <code style="display:inline-block; padding: 0.1em 0.3em;">up_threshold</code> too low may result in the CPU being clocked higher than it needs sacrificing power saving for performance, and setting <code style="display:inline-block; padding: 0.1em 0.3em;">up_threshold</code> too high may result in decreased performance, but reduced power consumption. Experiment to find the optimal values for your system and your needs.
+</p>
+<h4> <span class="mw-headline" id="Interaction_with_ACPI_events"> Interaction with ACPI events </span></h4>
+<p>Users may configure scaling governors to switch automatically based on different ACPI events such as connecting the AC adapter or closing a laptop lid.  A quick example is given below, however it may be worth reading full article on <a href="/index.php/Acpid" title="Acpid">acpid</a>.
+</p><p>Events are defined in <code style="display:inline-block; padding: 0.1em 0.3em;">/etc/acpi/handler.sh</code>. If the <span style="font-family: monospace"><a rel="nofollow" class="external text" href="https://www.archlinux.org/packages/?name=acpid">acpid</a></span> package is installed, the file should already exist and be executable. For example, to change the scaling governor from <code style="display:inline-block; padding: 0.1em 0.3em;">performance</code> to <code style="display:inline-block; padding: 0.1em 0.3em;">conservative</code> when the AC adapter is disconnected and change it back if reconnected:
+</p>
+<pre style="margin-bottom: 0; border-bottom:none; padding-bottom:0.8em;">/etc/acpi/handler.sh
+</pre>
+<pre style="margin-top: 0; border-top-style:dashed; padding-top: 0.8em;">
+[...]
+
+ ac_adapter)
+     case &quot;$2&quot; in
+         AC*)
+             case &quot;$4&quot; in
+                 00000000)
+                     echo &quot;conservative&quot; &gt;/sys/devices/system/cpu/cpu0/cpufreq/scaling_governor    
+                     echo -n $minspeed &gt;$setspeed
+                     #/etc/laptop-mode/laptop-mode start
+                 ;;
+                 00000001)
+                     echo &quot;performance&quot; &gt;/sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
+                     echo -n $maxspeed &gt;$setspeed
+                     #/etc/laptop-mode/laptop-mode stop
+                 ;;
+             esac
+         ;;
+         *) logger &quot;ACPI action undefined: $2&quot; ;;
+     esac
+ ;;
+
+[...]
+</pre>
+<h3> <span class="mw-headline" id="Daemon"> Daemon </span></h3>
+<p><span style="font-family: monospace"><a rel="nofollow" class="external text" href="https://www.archlinux.org/packages/?name=cpupower">cpupower</a></span> includes a daemon which allows users to set the desired scaling governor and min/max clock speeds for all processor cores at boot-time.
+</p><p>Before starting the daemon, edit <code style="display:inline-block; padding: 0.1em 0.3em;">/etc/conf.d/cpupower</code> as root, selecting the desired governor and setting the min/max speed for your CPU(s).
+</p>
+<div style="padding: 5px; margin: 0.50em 0; background-color: #DDDDFF; border: thin solid #BBBBDD; overflow: hidden;"><strong> Note: </strong>The exact min/max values of the CPU(s) can be determined by running <code style="display:inline-block; padding: 0.1em 0.3em;">cpupower frequency-info</code>. However, these values are <i>optional</i>. Users may omit them entirely by deleting or commenting out the min/max_freq lines; scaling will work automatically.</div>
+<p>With the appropriate configuration, start the daemon with the following command:
+</p>
+<pre># systemctl start cpupower
+</pre>
+<p>To start the daemon automatically at startup:
+</p>
+<pre># systemctl enable cpupower
+</pre>
+<h3> <span class="mw-headline" id="Privilege_Granting_Under_GNOME"> Privilege Granting Under GNOME </span></h3>
+<p><a href="/index.php/GNOME" title="GNOME">GNOME</a> has a nice applet to change the governor on the fly.  To use it without the need to enter the root password, simply create <code style="display:inline-block; padding: 0.1em 0.3em;">/var/lib/polkit-1/localauthority/50-local.d/org.gnome.cpufreqselector.pkla</code> and populate it with the following:
+</p>
+<pre>[org.gnome.cpufreqselector]
+Identity=unix-user:USER
+Action=org.gnome.cpufreqselector
+ResultAny=no
+ResultInactive=no
+ResultActive=yes</pre>0
+<p>Where the word <code style="display:inline-block; padding: 0.1em 0.3em;">USER</code> is replaced with the username of interest.
+</p><p>The <span style="font-family: monospace"><a rel="nofollow" class="external text" href="https://aur.archlinux.org/packages/desktop-privileges/">desktop-privileges</a></span> package in the <a href="/index.php/Arch_User_Repository" title="Arch User Repository">AUR</a> contains a similar <code style="display:inline-block; padding: 0.1em 0.3em;">.pkla</code> file for authorizing all users of the <code style="display:inline-block; padding: 0.1em 0.3em;">power</code> <a href="/index.php/Users_and_Groups" title="Users and Groups">group</a> to change the governor.
+</p>
+<h3> <span class="mw-headline" id="Laptop_Mode_Tools">Laptop Mode Tools</span></h3>
+<p>If you are already using or plan to use <a href="/index.php/Laptop_Mode_Tools" title="Laptop Mode Tools">Laptop Mode Tools</a> for other power saving solutions, then you may want to let it also manage CPU frequency scaling. To do so, you just have to insert the appropriate frequency driver to the <code style="display:inline-block; padding: 0.1em 0.3em;">/etc/modules.d/</code> directory. (see <a href="#CPU_frequency_driver">#CPU frequency driver</a> above) and then go through the <code style="display:inline-block; padding: 0.1em 0.3em;">/etc/laptop-mode/conf.d/cpufreq.conf</code> file to define governors, frequencies and policies. You will not need to load other modules and daemons or to set up scaling governors and interaction with ACPI events. Please refer to <a href="/index.php/Laptop_Mode_Tools" title="Laptop Mode Tools">Laptop Mode Tools</a> for more details.
+</p>
+<h2> <span class="mw-headline" id="Troubleshooting"> Troubleshooting </span></h2>
+<div style="text-align: center; margin-bottom: 1em; overflow:hidden;">
+<table class="notice noprint toc" id="disputed" style="background: &#123;&#123;&#123;backgroundcolor}}}; border-color: &#123;&#123;&#123;bordercolor}}}; width: 100%">
+<tr>
+<td style="background-color: &#123;&#123;&#123;signalcolor}}}; width: 100px"> <a href="/index.php/File:Tango-emblem-important.png" class="image"><img alt="Tango-emblem-important.png" src="/images/c/c8/Tango-emblem-important.png" width="48" height="48" /></a>
+</td>
+<td>  <b>The factual accuracy of this article or section is disputed.</b> <div style="font-size: 90%"><b>Reason:</b> <span style="color:red;">please use the first argument of the template to provide a brief explanation.</span> (<a href="/index.php/Talk:CPU_Frequency_Scaling" title="Talk:CPU Frequency Scaling">Discuss</a>)</div>
+</td>
+<td style="background-color: &#123;&#123;&#123;signalcolor}}}; width: 100px"> <a href="/index.php/File:Tango-emblem-important.png" class="image"><img alt="Tango-emblem-important.png" src="/images/c/c8/Tango-emblem-important.png" width="48" height="48" /></a>
+</td></tr></table>
+</div>
+<ul><li> Some applications, like <a href="/index.php/Ntop" title="Ntop">ntop</a>, do not respond well to automatic frequency scaling. In the case of ntop it can result in segmentation faults and lots of lost information as even the <code style="display:inline-block; padding: 0.1em 0.3em;">on-demand</code> governor cannot change the frequency quickly enough when a lot of packets suddenly arrive at the monitored network interface that cannot be handled by the current processor speed.
+</li></ul>
+<ul><li> Some CPU's may suffer from poor performance with the default settings of the <code style="display:inline-block; padding: 0.1em 0.3em;">on-demand</code> governor (e.g. flash videos not playing smoothly or stuttering window animations). Instead of completely disabling frequency scaling to resolve these issues, the aggressiveness of frequency scaling can be increased by lowering the <i>up_threshold</i> <a href="/index.php/Sysctl" title="Sysctl">sysctl</a> variable for each CPU. See <a href="#Changing_the_on-demand_governor.27s_threshold">#Changing the on-demand governor's threshold</a>.
+</li></ul>
+<ul><li> Sometimes the on-demand governor may not throttle to the maximum frequency but one step below. This can be solved by setting max_freq value slightly higher than the real maximum. For example, if frequency range of the CPU is from 2.00 GHz to 3.00 GHz, setting max_freq to 3.01 GHz can be a good idea.
+</li></ul>
+<ul><li> Some combinations of <a href="/index.php/ALSA" title="ALSA" class="mw-redirect">ALSA</a> drivers and sound chips may cause audio skipping as the governor changes between frequencies, switching back to a non-changing governor seems to stop the audio skipping.
+</li></ul>
+<h3> <span class="mw-headline" id="BIOS_frequency_limitation"> BIOS frequency limitation </span></h3>
+<p>Some CPU/BIOS configurations may have difficulties to scale to the maximum frequency or scale to higher frequencies at all. This is most likely caused by BIOS events telling the OS to limit the frequency resulting in <code style="display:inline-block; padding: 0.1em 0.3em;">/sys/devices/system/cpu/cpu0/cpufreq/bios_limit</code> set to a lower value.
+</p><p>Either you just made a specific Setting in the BIOS Setup Utility, (Frequency, Thermal Management, etc.) you can blame a buggy/outdated BIOS or the BIOS might have a serious reason for throttling the CPU on it's own.
+</p><p>Reasons like that can be (assuming your machine's a notebook) that the battery is removed (or near death) so you're on AC-power only. In this case a weak AC-source might not supply enough electricity to fulfill extreme peak demands by the overall system and as there is no battery to assist this could lead to data loss, data corruption or in worst case even hardware damage!
+</p><p>Not all BIOS'es limit the CPU-Frequency in this case, but for example most IBM/Lenove Thinkpads do. Refer to thinkwiki for more <a rel="nofollow" class="external text" href="http://www.thinkwiki.org/wiki/Problem_with_CPU_frequency_scaling">thinkpad related info on this topic</a>.
+</p><p>If you checked there's not just an odd BIOS setting and you know what you're doing you can make the Kernel ignore these BIOS-limitations.
+</p>
+<div style="padding: 5px; margin: 0.50em 0; background-color: #FFDDDD; border: thin solid #DDBBBB; overflow: hidden;"><strong> Warning: </strong>Make sure you read and understood the section above. CPU frequency limitation is a safety feature of your BIOS and you should not need to work around it.</div>
+<p>A special parameter has to be passed to the processor module.
+</p><p>For trying this temporarily change the value in <code style="display:inline-block; padding: 0.1em 0.3em;">/sys/module/processor/parameters/ignore_ppc</code> from <code style="display:inline-block; padding: 0.1em 0.3em;">0</code> to <code style="display:inline-block; padding: 0.1em 0.3em;">1</code>.
+</p><p>For setting it permanent refer to <a href="/index.php/Kernel_modules#Configuration" title="Kernel modules">Kernel modules</a> or just read on.
+Add <code style="display:inline-block; padding: 0.1em 0.3em;">processor.ignore_ppc=1</code> to your kernel boot line or create
+</p>
+<pre style="margin-bottom: 0; border-bottom:none; padding-bottom:0.8em;">/etc/modprobe.d/ignore_ppc.conf</pre>
+<pre style="margin-top: 0; border-top-style:dashed; padding-top: 0.8em;"># If the frequency of your machine gets wrongly limited by BIOS, this should help
+options processor ignore_ppc=1</pre>
+
+<!-- 
+NewPP limit report
+Preprocessor node count: 1139/1000000
+Post-expand include size: 22465/2097152 bytes
+Template argument size: 8978/2097152 bytes
+Expensive parser function count: 0/100
+-->
+
+<!-- Saved in parser cache with key archwiki:pcache:idhash:1112-0!*!0!!en!2!* and timestamp 20121212124117 -->
+</div><div class="printfooter">
+Retrieved from "<a href="https://wiki.archlinux.org/index.php?title=CPU_Frequency_Scaling&amp;oldid=237080">https://wiki.archlinux.org/index.php?title=CPU_Frequency_Scaling&amp;oldid=237080</a>"</div>
+		<div id='catlinks' class='catlinks'><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="/index.php/Special:Categories" title="Special:Categories">Categories</a>: <ul><li><a href="/index.php/Category:Power_management" title="Category:Power management">Power management</a></li><li><a href="/index.php/Category:CPU" title="Category:CPU">CPU</a></li></ul></div></div>		<!-- end content -->
+				<div class="visualClear"></div>
+	</div>
+</div></div>
+<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<div class="pBody">
+			<ul>
+				<li id="ca-nstab-main" class="selected"><a href="/index.php/CPU_Frequency_Scaling" primary="1" context="subject" title="View the content page [c]" accesskey="c">Page</a></li>
+				<li id="ca-talk"><a href="/index.php/Talk:CPU_Frequency_Scaling" primary="1" context="talk" title="Discussion about the content page [t]" accesskey="t">Discussion</a></li>
+				<li id="ca-viewsource"><a href="/index.php?title=CPU_Frequency_Scaling&amp;action=edit" primary="1" title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></li>
+				<li id="ca-history"><a href="/index.php?title=CPU_Frequency_Scaling&amp;action=history" rel="archives" title="Past revisions of this page [h]" accesskey="h">History</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-personal">
+		<h5>Personal tools</h5>
+		<div class="pBody">
+			<ul>
+				<li id="pt-login"><a href="/index.php?title=Special:UserLogin&amp;returnto=CPU+Frequency+Scaling" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in / create account</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-logo">
+<a href="/index.php/Main_Page" style="background-image: url(/skins/archlinux/archlogo.png);" title="Visit the main page"></a>
+	</div>
+	<div class="generated-sidebar portlet" id="p-navigation">
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage-description"><a href="/index.php/Main_Page" title="Visit the main page [z]" accesskey="z">Main page</a></li>
+				<li id="n-Table-of-Contents"><a href="/index.php/Table_of_Contents">Table of Contents</a></li>
+				<li id="n-portal"><a href="/index.php/Getting_Involved" title="Various ways Archers can contribute to the community">Getting Involved</a></li>
+				<li id="n-currentevents"><a href="/index.php/ArchWiki:News" title="The latest lowdown on the wiki">Wiki News</a></li>
+				<li id="n-recentchanges"><a href="/index.php/Special:RecentChanges" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li>
+				<li id="n-randompage"><a href="/index.php/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li>
+				<li id="n-help"><a href="/index.php/Help:Contents" title="Wiki navigation, reading, and editing help">Help</a></li>
+			</ul>
+		</div>
+	</div>
+	<div id="p-search" class="portlet">
+		<h5><label for="searchInput">Search</label></h5>
+		<div id="searchBody" class="pBody">
+			<form action="/index.php" id="searchform">
+				<input type='hidden' name="title" value="Special:Search"/>
+				<input type="search" name="search" title="Search ArchWiki [f]" accesskey="f" id="searchInput" />
+				<input type="submit" name="go" value="Go" title="Go to a page with this exact name if exists" id="searchGoButton" class="searchButton" />&#160;
+				<input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton" />
+			</form>
+		</div>
+	</div>
+	<div class="portlet" id="p-tb">
+		<h5>Toolbox</h5>
+		<div class="pBody">
+			<ul>
+				<li id="t-whatlinkshere"><a href="/index.php/Special:WhatLinksHere/CPU_Frequency_Scaling" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+				<li id="t-recentchangeslinked"><a href="/index.php/Special:RecentChangesLinked/CPU_Frequency_Scaling" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+				<li id="t-specialpages"><a href="/index.php/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li>
+				<li><a href="/index.php?title=CPU_Frequency_Scaling&amp;printable=yes" rel="alternate">Printable version</a></li>
+				<li id="t-permalink"><a href="/index.php?title=CPU_Frequency_Scaling&amp;oldid=237080" title="Permanent link to this revision of the page">Permanent link</a></li>
+			</ul>
+		</div>
+	</div>
+	<div id="p-lang" class="portlet">
+		<h5>In other languages</h5>
+		<div class="pBody">
+			<ul>
+				<li class="interwiki-cs"><a href="https://wiki.archlinux.org/index.php/CPU_Frequency_Scaling_(%C4%8Cesky)" title="CPU Frequency Scaling" lang="cs" hreflang="cs">Česky</a></li>
+				<li class="interwiki-de"><a href="https://wiki.archlinux.de/title/Cpufrequtils" title="Cpufrequtils" lang="de" hreflang="de">Deutsch</a></li>
+				<li class="interwiki-el"><a href="https://wiki.archlinux.org/index.php/CPU_Frequency_Scaling_(%CE%95%CE%BB%CE%BB%CE%B7%CE%BD%CE%B9%CE%BA%CE%AC)" title="CPU Frequency Scaling" lang="el" hreflang="el">Ελληνικά</a></li>
+				<li class="interwiki-es"><a href="https://wiki.archlinux.org/index.php/CPU_Frequency_Scaling_(Espa%C3%B1ol)" title="CPU Frequency Scaling" lang="es" hreflang="es">Español</a></li>
+				<li class="interwiki-fr"><a href="http://wiki.archlinux.fr/Cpufreq" title="Cpufreq" lang="fr" hreflang="fr">Français</a></li>
+				<li class="interwiki-it"><a href="https://wiki.archlinux.org/index.php/CPU_Frequency_Scaling_(Italiano)" title="CPU Frequency Scaling" lang="it" hreflang="it">Italiano</a></li>
+				<li class="interwiki-pt"><a href="https://wiki.archlinux.org/index.php/CPU_Frequency_Scaling_(Portugu%C3%AAs)" title="CPU Frequency Scaling" lang="pt" hreflang="pt">Português</a></li>
+				<li class="interwiki-ru"><a href="https://wiki.archlinux.org/index.php/CPU_Frequency_Scaling_(%D0%A0%D1%83%D1%81%D1%81%D0%BA%D0%B8%D0%B9)" title="CPU Frequency Scaling" lang="ru" hreflang="ru">Русский</a></li>
+				<li class="interwiki-sk"><a href="https://wiki.archlinux.org/index.php/CPU_Frequency_Scaling_(Slovensk%C3%BD)" title="CPU Frequency Scaling" lang="sk" hreflang="sk">Slovenčina</a></li>
+				<li class="interwiki-tr"><a href="http://archtr.org/wiki/index.php?title=I%C5%9Flemci_frekans%C4%B1n%C4%B1_%C3%B6l%C3%A7ekleme" title="Işlemci frekansını ölçekleme" lang="tr" hreflang="tr">Türkçe</a></li>
+				<li class="interwiki-zh-cn"><a href="https://wiki.archlinux.org/index.php/CPU_Frequency_Scaling_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)" title="CPU Frequency Scaling" lang="zh-cn" hreflang="zh-cn">‪中文(中国大陆)‬</a></li>
+			</ul>
+		</div>
+	</div>
+</div><!-- end of the left (by default at least) column -->
+<div class="visualClear"></div>
+<div id="footer">
+	<ul id="f-list">
+		<li id="lastmod"> This page was last modified on 28 November 2012, at 02:43.</li>
+		<li id="copyright">Content is available under <a class="external" href="http://www.gnu.org/copyleft/fdl.html">GNU Free Documentation License 1.3 or later</a>.</li>
+		<li id="privacy"><a href="/index.php/ArchWiki:Privacy_policy" title="ArchWiki:Privacy policy">Privacy policy</a></li>
+		<li id="about"><a href="/index.php/ArchWiki:About" title="ArchWiki:About">About ArchWiki</a></li>
+		<li id="disclaimer"><a href="/index.php/ArchWiki:General_disclaimer" title="ArchWiki:General disclaimer">Disclaimers</a></li>
+	</ul>
+</div>
+</div>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.user","mediawiki.page.ready"], null, true);
+}</script>
+<!-- Served in 0.225 secs. --></body><!-- Cached/compressed 20121212124118 -->
+</html>

@@ -1,0 +1,976 @@
+  
+
+
+<!DOCTYPE html>
+<html>
+  <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# githubog: http://ogp.me/ns/fb/githubog#">
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>unused argument(s) (new_device = FALSE)  · Issue #400 · yihui/knitr · GitHub</title>
+    <link rel="search" type="application/opensearchdescription+xml" href="/opensearch.xml" title="GitHub" />
+    <link rel="fluid-icon" href="https://github.com/fluidicon.png" title="GitHub" />
+    <link rel="apple-touch-icon-precomposed" sizes="57x57" href="apple-touch-icon-114.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="apple-touch-icon-114.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="apple-touch-icon-144.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="apple-touch-icon-144.png" />
+    <meta name="msapplication-TileImage" content="/windows-tile.png">
+    <meta name="msapplication-TileColor" content="#ffffff">
+
+    
+    
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+
+    <meta content="authenticity_token" name="csrf-param" />
+<meta content="6hkqWiOLIa8jn+Bjy439DnVtmkaeQBawfAETfgGRzLI=" name="csrf-token" />
+
+    <link href="https://a248.e.akamai.net/assets.github.com/assets/github-cfca8eb8e80a2c3bce67464f1c85defd532c0afd.css" media="screen" rel="stylesheet" type="text/css" />
+    <link href="https://a248.e.akamai.net/assets.github.com/assets/github2-37f887f5d0cc1ca1790f28b826acc90e7bf52a62.css" media="screen" rel="stylesheet" type="text/css" />
+    
+
+
+    <script src="https://a248.e.akamai.net/assets.github.com/assets/frameworks-eee761b9d5e06efb064aaaf528c44ef8e1601e71.js" type="text/javascript"></script>
+    <script src="https://a248.e.akamai.net/assets.github.com/assets/github-e37bfdbbcd6bc4520fd7e2ebfb33db3b5a09c985.js" type="text/javascript"></script>
+    
+
+          <meta property="og:title" content="knitr"/>
+    <meta property="og:type" content="githubog:gitrepository"/>
+    <meta property="og:url" content="https://github.com/yihui/knitr"/>
+    <meta property="og:image" content="https://secure.gravatar.com/avatar/fd6964ed425d626628bd057abbe6a85b?s=420&amp;d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png"/>
+    <meta property="og:site_name" content="GitHub"/>
+    <meta property="og:description" content="Hi,
+
+I just upgraded my github version of knitr and whenever I try to compile a document I'm getting:
+
+Error in process_file(text, output) : 
+  Quitting from lines 9-10: (a.Rnw) Error in evaluate(code, envir = env, new_device = FALSE) : 
+  unused argument(s) (new_device = FALSE)
+Calls: knit -&gt; process_file
+
+
+here's my sample file:
+
+\documentclass[a4paper]{article}
+
+\begin{document}
+
+
+\title{Test}
+
+\section{Test}
+&lt;&lt;&gt;&gt;=
+a = 1
+@  
+
+\end{document}
+
+
+
+here's my sessionInfo:
+
+&gt; require(knitr)
+Loading required ..."/>
+
+    <meta name="description" content="Hi,
+
+I just upgraded my github version of knitr and whenever I try to compile a document I'm getting:
+
+Error in process_file(text, output) : 
+  Quitting from lines 9-10: (a.Rnw) Error in evaluate(code, envir = env, new_device = FALSE) : 
+  unused argument(s) (new_device = FALSE)
+Calls: knit -&gt; process_file
+
+
+here's my sample file:
+
+\documentclass[a4paper]{article}
+
+\begin{document}
+
+
+\title{Test}
+
+\section{Test}
+&lt;&lt;&gt;&gt;=
+a = 1
+@  
+
+\end{document}
+
+
+
+here's my sessionInfo:
+
+&gt; require(knitr)
+Loading required ..." />
+
+  <link href="https://github.com/yihui/knitr/commits/master.atom" rel="alternate" title="Recent Commits to knitr:master" type="application/atom+xml" />
+
+  </head>
+
+
+  <body class="logged_out   vis-public env-production ">
+    <div id="wrapper">
+
+      
+
+      
+
+      
+
+
+        <div class="header header-logged-out">
+          <div class="container clearfix">
+
+            <a class="header-logo-wordmark" href="https://github.com/">
+              <img alt="GitHub" class="github-logo-4x" height="30" src="https://a248.e.akamai.net/assets.github.com/images/modules/header/logov7@4x.png?1340659530" />
+              <img alt="GitHub" class="github-logo-4x-hover" height="30" src="https://a248.e.akamai.net/assets.github.com/images/modules/header/logov7@4x-hover.png?1340659530" />
+            </a>
+
+              
+<ul class="top-nav">
+    <li class="explore"><a href="https://github.com/explore">Explore GitHub</a></li>
+  <li class="search"><a href="https://github.com/search">Search</a></li>
+  <li class="features"><a href="https://github.com/features">Features</a></li>
+    <li class="blog"><a href="https://github.com/blog">Blog</a></li>
+</ul>
+
+
+            <div class="header-actions">
+                <a class="button primary classy" href="https://github.com/signup">Sign up for free</a>
+              <a class="button classy" href="https://github.com/login?return_to=%2Fyihui%2Fknitr%2Fissues%2F400">Sign in</a>
+            </div>
+
+          </div>
+        </div>
+
+
+      
+
+      
+
+
+            <div class="site hfeed" itemscope itemtype="http://schema.org/WebPage">
+      <div class="hentry">
+        
+        <div class="pagehead repohead instapaper_ignore readability-menu">
+          <div class="container">
+            <div class="title-actions-bar">
+              
+
+
+                  <ul class="pagehead-actions">
+
+
+          <li>
+            <span class="star-button"><a href="/login?return_to=%2Fyihui%2Fknitr" class="minibutton js-toggler-target entice tooltipped leftwards" title="You must be signed in to use this feature" rel="nofollow"><span class="mini-icon mini-icon-star"></span>Star</a><a class="social-count js-social-count" href="/yihui/knitr/stargazers">308</a></span>
+          </li>
+          <li>
+            <a href="/login?return_to=%2Fyihui%2Fknitr" class="minibutton js-toggler-target fork-button entice tooltipped leftwards"  title="You must be signed in to fork a repository" rel="nofollow"><span class="mini-icon mini-icon-fork"></span>Fork</a><a href="/yihui/knitr/network" class="social-count">85</a>
+          </li>
+    </ul>
+
+              <h1 itemscope itemtype="http://data-vocabulary.org/Breadcrumb" class="entry-title public">
+                <span class="repo-label"><span>public</span></span>
+                <span class="mega-icon mega-icon-public-repo"></span>
+                <span class="author vcard">
+                  <a href="/yihui" class="url fn" itemprop="url" rel="author">
+                  <span itemprop="title">yihui</span>
+                  </a></span> /
+                <strong><a href="/yihui/knitr" class="js-current-repository">knitr</a></strong>
+              </h1>
+            </div>
+
+            
+
+  <ul class="tabs">
+    <li><a href="/yihui/knitr" highlight="repo_sourcerepo_downloadsrepo_commitsrepo_tagsrepo_branches">Code</a></li>
+    <li><a href="/yihui/knitr/network" highlight="repo_network">Network</a></li>
+    <li><a href="/yihui/knitr/pulls" highlight="repo_pulls">Pull Requests <span class='counter'>0</span></a></li>
+
+      <li><a href="/yihui/knitr/issues" class="selected" highlight="repo_issues">Issues <span class='counter'>35</span></a></li>
+
+      <li><a href="/yihui/knitr/wiki" highlight="repo_wiki">Wiki</a></li>
+
+
+    <li><a href="/yihui/knitr/graphs" highlight="repo_graphsrepo_contributors">Graphs</a></li>
+
+
+  </ul>
+  
+  
+  
+  
+
+
+            
+          </div>
+        </div><!-- /.repohead -->
+
+        <div id="js-repo-pjax-container" class="container context-loader-container" data-pjax-container>
+          
+<style type="text/css" media="screen">
+  span.labelstyle-e10c02, .labelstyle-e10c02.selected {  background:#e80c02 !important;filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr='#e80c02', endColorstr='#d90b01') !important;background:-webkit-gradient(linear, left top, left bottom, from(#e80c02), to(#d90b01)) !important;background:-moz-linear-gradient(top,  #e80c02,  #d90b01) !important;  color: #FFFFFF !important;  text-shadow:-1px -1px 0 rgba(0,0,0,0.2);}
+
+span.labelstyle-02d7e1, .labelstyle-02d7e1.selected {  background:#02c4e8 !important;filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr='#02c4e8', endColorstr='#01d9ca') !important;background:-webkit-gradient(linear, left top, left bottom, from(#02c4e8), to(#01d9ca)) !important;background:-moz-linear-gradient(top,  #02c4e8,  #01d9ca) !important;  color: #006166 !important;  text-shadow:1px 1px 0 rgba(255,255,255,0.3);}
+
+span.labelstyle-02e10c, .labelstyle-02e10c.selected {  background:#02e81d !important;filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr='#02e81d', endColorstr='#08d901') !important;background:-webkit-gradient(linear, left top, left bottom, from(#02e81d), to(#08d901)) !important;background:-moz-linear-gradient(top,  #02e81d,  #08d901) !important;  color: #006605 !important;  text-shadow:1px 1px 0 rgba(255,255,255,0.3);}
+
+span.labelstyle-0b02e1, .labelstyle-0b02e1.selected {  background:#2d02e8 !important;filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr='#2d02e8', endColorstr='#0119d9') !important;background:-webkit-gradient(linear, left top, left bottom, from(#2d02e8), to(#0119d9)) !important;background:-moz-linear-gradient(top,  #2d02e8,  #0119d9) !important;  color: #FFFFFF !important;  text-shadow:-1px -1px 0 rgba(0,0,0,0.2);}
+</style>
+
+
+
+<div id="issues_next">
+  <div class="tabnav">
+    <div class="tabnav-right">
+      <div class="tabnav-widget search ">
+        <form accept-charset="UTF-8" action="/yihui/knitr/issues/search" method="get">
+            <a href="/yihui/knitr/issues/search" class="search-link">Search:</a>
+          <span class="fieldwrap">
+            <input type="text" name="q" id="js-issues-quicksearch" value=""
+              placeholder="Issues &amp; Milestones&hellip;"
+              data-hotkey="/"
+              tabindex="1"
+              autocapitalize="off"
+              data-url="/yihui/knitr/issues/quicksearch" /><button
+                type="submit" class="minibutton empty-icon"><span class="mini-icon mini-icon-search-input"></span></button>
+          </span>
+          <div class="autocomplete-results"></div>
+          <div class="quicksearch-loading" style="display: none">
+            <a class="selected initial autocomplete-header autocomplete-item" href="/yihui/knitr/issues/search">
+              See all results
+            </a>
+          </div>
+</form>      </div>
+      <div class="tabnav-widget ">
+        <a href="/yihui/knitr/issues/new" class="minibutton bigger js-new-issue-button" data-hotkey="c">New Issue</a>
+      </div>
+    </div>
+
+    <ul class="tabnav-tabs">
+      <li><a href="/yihui/knitr/issues" class="tabnav-tab selected">Browse Issues</a></li>
+      <li><a href="/yihui/knitr/issues/milestones" class="tabnav-tab ">Milestones</a></li>
+    </ul>
+  </div>
+
+    <div id="show_issue">
+
+    <div class="issue-head clearfix">
+      <span class="back">
+        <span class="mini-icon mini-icon-arr-left"></span>
+        <a href="/yihui/knitr/issues" data-hotkey="u" id="to_isssues_list">Back to issue list</a>
+      </span>
+
+      <span class="number">
+        Issue <strong>#400</strong>
+      </span>
+    </div><!-- /.issue-head -->
+
+    <div id="discussion_bucket" class="tab-content">
+      <div class="discussion-sidebar">
+        <div class="discussion-stats">
+  
+
+<span class="state-indicator closed">
+  Closed
+</span>
+
+<p>
+  <strong>1</strong>
+  comment
+</p>
+
+<time id="js-discussion-last-modified" datetime="Mon, 15 Oct 2012 18:01:58 GMT"></time>
+<span class="js-socket-channel js-comment-channel" data-channel="issue:7597395" data-url="/yihui/knitr/issues/400/poll"></span>
+
+
+</div>
+
+<hr />
+
+<div class="discussion-labels">
+  <div class="label-manager">
+
+  <span>Labels</span>
+</div>
+
+<ul class="color-label-list filter-list small">
+  
+</ul>
+
+</div>
+
+      </div>
+
+      <div class="discussion-timeline">
+
+        <div class="js-discussion">
+
+          <div class="discussion-bubble js-comment-container">
+            <img class="discussion-bubble-avatar" height="48" src="https://secure.gravatar.com/avatar/790a4208730b60820198e0d532127626?s=140&amp;d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png" width="48" />
+
+            <div class="discussion-bubble-content bubble">
+              <div class="discussion-bubble-inner">
+                <div class="js-comment comment discussion-topic starting-comment" id="issue-7597395">
+
+
+                  <div class="discussion-topic-header">
+                    <span class="discussion-topic-author"><a href="/cmmp">cmmp</a> opened this issue <time class="js-relative-date" datetime="2012-10-15T09:11:06-07:00" title="2012-10-15 09:11:06">October 15, 2012</time></span>
+                    <h2 class="discussion-topic-title">unused argument(s) (new_device = FALSE) </h2>
+                  </div> <!-- /.topic-comment-header -->
+
+                  <div class="discusion-topic-infobar js-infobar">
+                    <div class="milestone infobar-widget">
+  <span class="text js-milestone-infobar-item-wrapper">
+    
+  Milestone:
+  <a title="v0.9" href="/yihui/knitr/issues?milestone=11&amp;state=closed">v0.9</a>
+  <span class="progress-bar"><span class="progress" style="width: 100.0%">&nbsp;</span></span>
+
+  </span>
+
+</div>
+
+<form accept-charset="UTF-8" action="/yihui/knitr/issues/400" class="edit_issue" data-remote="true" id="edit_issue_7597395" method="post"><div style="margin:0;padding:0;display:inline"><input name="_method" type="hidden" value="put" /><input name="authenticity_token" type="hidden" value="6hkqWiOLIa8jn+Bjy439DnVtmkaeQBawfAETfgGRzLI=" /></div>
+  
+
+<div class="assignee js-context-menu infobar-widget">
+  <span class="text js-context-button">
+      No one is assigned
+  </span>
+
+</div>
+
+</form>
+                  </div> <!-- /.discusion-topic-infobar -->
+
+                  <div class="comment-content">
+
+                    <div class="edit-comment-hide">
+                      <div class="js-comment-body comment-body markdown-body markdown-format" data-body-version="f4e0374bd90d695f9a8a6eb23669f483">
+                          <p>Hi,</p>
+
+<p>I just upgraded my github version of knitr and whenever I try to compile a document I'm getting:</p>
+
+<pre><code>Error in process_file(text, output) : 
+  Quitting from lines 9-10: (a.Rnw) Error in evaluate(code, envir = env, new_device = FALSE) : 
+  unused argument(s) (new_device = FALSE)
+Calls: knit -&gt; process_file
+</code></pre>
+
+<p>here's my sample file:</p>
+
+<div class="highlight"><pre><span class="k">\documentclass</span><span class="na">[a4paper]</span><span class="nb">{</span>article<span class="nb">}</span>
+
+<span class="k">\begin</span><span class="nb">{</span>document<span class="nb">}</span>
+
+
+<span class="k">\title</span><span class="nb">{</span>Test<span class="nb">}</span>
+
+<span class="k">\section</span><span class="nb">{</span>Test<span class="nb">}</span>
+&lt;&lt;&gt;&gt;=
+a = 1
+@  
+
+<span class="k">\end</span><span class="nb">{</span>document<span class="nb">}</span>
+
+</pre></div>
+
+<p>here's my sessionInfo:</p>
+
+<pre><code>&gt; require(knitr)
+Loading required package: knitr
+&gt; sessionInfo()
+R version 2.15.1 (2012-06-22)
+Platform: x86_64-pc-linux-gnu (64-bit)
+
+locale:
+ [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C              
+ [3] LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8    
+ [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8   
+ [7] LC_PAPER=C                 LC_NAME=C                 
+ [9] LC_ADDRESS=C               LC_TELEPHONE=C            
+[11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+other attached packages:
+[1] knitr_0.8.6
+
+loaded via a namespace (and not attached):
+[1] digest_0.5.2   evaluate_0.4.2 formatR_0.6    plyr_1.7.1     stringr_0.6.1 
+[6] tools_2.15.1  
+
+</code></pre>
+                      </div>
+                    </div>
+
+                  </div> <!-- /.comment-content -->
+                </div>
+              </div> <!-- /.discussion-bubble-inner -->
+            </div> <!-- /.discussion-bubble-content -->
+          </div> <!-- /.discussion-bubble -->
+
+          <div class="pull-participation">
+  <p class="quickstat"><a href="#pr_contributors_box" rel="facebox"><strong>2</strong> participants</a></p>
+
+    <a class="avatar tooltipped downwards" title="cmmp" href="/cmmp"><img height="24" src="https://secure.gravatar.com/avatar/790a4208730b60820198e0d532127626?s=140&amp;d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png" width="24" /></a>
+    <a class="avatar tooltipped downwards" title="yihui" href="/yihui"><img height="24" src="https://secure.gravatar.com/avatar/fd6964ed425d626628bd057abbe6a85b?s=140&amp;d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png" width="24" /></a>
+</div>
+
+<div id="pr_contributors_box" style="display:none">
+  <h2>People who have participated in this issue</h2>
+  <ul class="facebox-user-list">
+    <li>
+      <img height="24" src="https://secure.gravatar.com/avatar/790a4208730b60820198e0d532127626?s=140&amp;d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png" width="24" />
+      <a href="/cmmp">cmmp</a>
+    </li>
+    <li>
+      <img height="24" src="https://secure.gravatar.com/avatar/fd6964ed425d626628bd057abbe6a85b?s=140&amp;d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png" width="24" />
+      <a href="/yihui">yihui</a>
+    </li>
+  </ul>
+</div>
+
+
+          
+    <div class="discussion-bubble js-comment-container">
+    <img class="discussion-bubble-avatar" height="48" src="https://secure.gravatar.com/avatar/fd6964ed425d626628bd057abbe6a85b?s=140&amp;d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png" width="48" />
+    <div class="discussion-bubble-content bubble">
+      <div class="discussion-bubble-inner">
+        
+<div id="issuecomment-9454949" class="js-comment comment">
+  <div class="comment-header normal-comment-header">
+        <a href="#issuecomment-9454949" class="comment-type-icon mini-icon mini-icon-commit-comment"></a>
+    <a href="/yihui" class="comment-header-author">yihui</a>
+    <span class='comment-header-action-text'>
+      <a href="#issuecomment-9454949">
+      commented
+      </a>
+    </span>
+
+    <span class="comment-header-right">
+      <a href="#issuecomment-9454949" class="comment-header-date"><time class="js-relative-date" datetime="2012-10-15T11:01:58-07:00" title="2012-10-15 11:01:58">October 15, 2012</time></a>
+    </span>
+  </div> <!-- /.comment-header -->
+
+
+  <div class="comment-content">
+    <div class="edit-comment-hide">
+      <div class="js-comment-body comment-body markdown-body markdown-format" data-body-version="628227a215cf06d49abaf4f12668a2ad">
+          <p>see <a href="https://github.com/yihui/knitr/issues/398" class="issue-link" title="Installation Error for 0.8.6">#398</a></p>
+      </div>
+    </div>
+  </div> <!-- /.comment-content -->
+</div> <!-- /.comment -->
+
+      </div>
+    </div>
+  </div><!-- /.discussion-bubble -->
+
+
+  
+  
+
+
+  <div class="action-bubble">
+    <span class="action">
+      <span class="state-indicator closed">Closed</span>
+    </span>
+    <div class="bubble">
+      <p>
+      <strong><span class="avatar"><img height="24" src="https://secure.gravatar.com/avatar/fd6964ed425d626628bd057abbe6a85b?s=140&amp;d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png" width="24" /></span>
+        <a href="/yihui">yihui</a></strong>
+        closed the issue
+        <time class="js-relative-date" datetime="2012-10-15T11:01:58-07:00" title="2012-10-15 11:01:58">October 15, 2012</time>
+      </p>
+    </div><!-- /.bubble -->
+  </div><!-- /.action-bubble -->
+
+  <div class="closed-banner"></div>
+
+
+
+
+
+
+        </div>
+
+          <div class="signed-out-comment">
+	<a href="/signup/free" class="minibutton btn-default green" rel="nofollow">Sign up for free</a>
+	<strong>to join this discussion on GitHub</strong>.
+	Already have an account?
+	<a href="/login?return_to=%2Fyihui%2Fknitr%2Fissues%2F400" rel="nofollow">Sign in to comment</a>
+</div>
+
+
+        
+
+
+      </div><!-- /.discussion-timeline -->
+
+    </div><!-- /#discussion_bucket -->
+    <div class="clear"></div>
+  </div>
+
+</div>
+
+
+        </div>
+      </div>
+      <div class="context-overlay"></div>
+    </div>
+
+      <div id="footer-push"></div><!-- hack for sticky footer -->
+    </div><!-- end of wrapper - hack for sticky footer -->
+
+      <!-- footer -->
+      <div id="footer">
+  <div class="container clearfix">
+
+      <dl class="footer_nav">
+        <dt>GitHub</dt>
+        <dd><a href="https://github.com/about">About us</a></dd>
+        <dd><a href="https://github.com/blog">Blog</a></dd>
+        <dd><a href="https://github.com/contact">Contact &amp; support</a></dd>
+        <dd><a href="http://enterprise.github.com/">GitHub Enterprise</a></dd>
+        <dd><a href="http://status.github.com/">Site status</a></dd>
+      </dl>
+
+      <dl class="footer_nav">
+        <dt>Applications</dt>
+        <dd><a href="http://mac.github.com/">GitHub for Mac</a></dd>
+        <dd><a href="http://windows.github.com/">GitHub for Windows</a></dd>
+        <dd><a href="http://eclipse.github.com/">GitHub for Eclipse</a></dd>
+        <dd><a href="http://mobile.github.com/">GitHub mobile apps</a></dd>
+      </dl>
+
+      <dl class="footer_nav">
+        <dt>Services</dt>
+        <dd><a href="http://get.gaug.es/">Gauges: Web analytics</a></dd>
+        <dd><a href="http://speakerdeck.com">Speaker Deck: Presentations</a></dd>
+        <dd><a href="https://gist.github.com">Gist: Code snippets</a></dd>
+        <dd><a href="http://jobs.github.com/">Job board</a></dd>
+      </dl>
+
+      <dl class="footer_nav">
+        <dt>Documentation</dt>
+        <dd><a href="http://help.github.com/">GitHub Help</a></dd>
+        <dd><a href="http://developer.github.com/">Developer API</a></dd>
+        <dd><a href="http://github.github.com/github-flavored-markdown/">GitHub Flavored Markdown</a></dd>
+        <dd><a href="http://pages.github.com/">GitHub Pages</a></dd>
+      </dl>
+
+      <dl class="footer_nav">
+        <dt>More</dt>
+        <dd><a href="http://training.github.com/">Training</a></dd>
+        <dd><a href="https://github.com/edu">Students &amp; teachers</a></dd>
+        <dd><a href="http://shop.github.com">The Shop</a></dd>
+        <dd><a href="/plans">Plans &amp; pricing</a></dd>
+        <dd><a href="http://octodex.github.com/">The Octodex</a></dd>
+      </dl>
+
+      <hr class="footer-divider">
+
+
+    <p class="right">&copy; 2012 <span title="0.08819s from fe17.rs.github.com">GitHub</span> Inc. All rights reserved.</p>
+    <a class="left" href="https://github.com/">
+      <span class="mega-icon mega-icon-invertocat"></span>
+    </a>
+    <ul id="legal">
+        <li><a href="https://github.com/site/terms">Terms of Service</a></li>
+        <li><a href="https://github.com/site/privacy">Privacy</a></li>
+        <li><a href="https://github.com/security">Security</a></li>
+    </ul>
+
+  </div><!-- /.container -->
+
+</div><!-- /.#footer -->
+
+
+    
+
+<div id="keyboard_shortcuts_pane" class="instapaper_ignore readability-extra" style="display:none">
+  <h2>Keyboard Shortcuts <small><a href="#" class="js-see-all-keyboard-shortcuts">(see all)</a></small></h2>
+
+  <div class="columns threecols">
+    <div class="column first">
+      <h3>Site wide shortcuts</h3>
+      <dl class="keyboard-mappings">
+        <dt>s</dt>
+        <dd>Focus command bar</dd>
+      </dl>
+      <dl class="keyboard-mappings">
+        <dt>?</dt>
+        <dd>Bring up this help dialog</dd>
+      </dl>
+    </div><!-- /.column.first -->
+
+    <div class="column middle" style='display:none'>
+      <h3>Commit list</h3>
+      <dl class="keyboard-mappings">
+        <dt>j</dt>
+        <dd>Move selection down</dd>
+      </dl>
+      <dl class="keyboard-mappings">
+        <dt>k</dt>
+        <dd>Move selection up</dd>
+      </dl>
+      <dl class="keyboard-mappings">
+        <dt>c <em>or</em> o <em>or</em> enter</dt>
+        <dd>Open commit</dd>
+      </dl>
+      <dl class="keyboard-mappings">
+        <dt>y</dt>
+        <dd>Expand URL to its canonical form</dd>
+      </dl>
+    </div><!-- /.column.first -->
+
+    <div class="column last js-hidden-pane" style='display:none'>
+      <h3>Pull request list</h3>
+      <dl class="keyboard-mappings">
+        <dt>j</dt>
+        <dd>Move selection down</dd>
+      </dl>
+      <dl class="keyboard-mappings">
+        <dt>k</dt>
+        <dd>Move selection up</dd>
+      </dl>
+      <dl class="keyboard-mappings">
+        <dt>o <em>or</em> enter</dt>
+        <dd>Open issue</dd>
+      </dl>
+      <dl class="keyboard-mappings">
+        <dt><span class="platform-mac">⌘</span><span class="platform-other">ctrl</span> <em>+</em> enter</dt>
+        <dd>Submit comment</dd>
+      </dl>
+      <dl class="keyboard-mappings">
+        <dt><span class="platform-mac">⌘</span><span class="platform-other">ctrl</span> <em>+</em> shift p</dt>
+        <dd>Preview comment</dd>
+      </dl>
+    </div><!-- /.columns.last -->
+
+  </div><!-- /.columns.equacols -->
+
+  <div class="js-hidden-pane" >
+    <div class="rule"></div>
+
+    <h3>Issues</h3>
+
+    <div class="columns threecols">
+      <div class="column first">
+        <dl class="keyboard-mappings">
+          <dt>j</dt>
+          <dd>Move selection down</dd>
+        </dl>
+        <dl class="keyboard-mappings">
+          <dt>k</dt>
+          <dd>Move selection up</dd>
+        </dl>
+        <dl class="keyboard-mappings">
+          <dt>x</dt>
+          <dd>Toggle selection</dd>
+        </dl>
+        <dl class="keyboard-mappings">
+          <dt>o <em>or</em> enter</dt>
+          <dd>Open issue</dd>
+        </dl>
+        <dl class="keyboard-mappings">
+          <dt><span class="platform-mac">⌘</span><span class="platform-other">ctrl</span> <em>+</em> enter</dt>
+          <dd>Submit comment</dd>
+        </dl>
+        <dl class="keyboard-mappings">
+          <dt><span class="platform-mac">⌘</span><span class="platform-other">ctrl</span> <em>+</em> shift p</dt>
+          <dd>Preview comment</dd>
+        </dl>
+      </div><!-- /.column.first -->
+      <div class="column last">
+        <dl class="keyboard-mappings">
+          <dt>c</dt>
+          <dd>Create issue</dd>
+        </dl>
+        <dl class="keyboard-mappings">
+          <dt>l</dt>
+          <dd>Create label</dd>
+        </dl>
+        <dl class="keyboard-mappings">
+          <dt>i</dt>
+          <dd>Back to inbox</dd>
+        </dl>
+        <dl class="keyboard-mappings">
+          <dt>u</dt>
+          <dd>Back to issues</dd>
+        </dl>
+        <dl class="keyboard-mappings">
+          <dt>/</dt>
+          <dd>Focus issues search</dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+
+  <div class="js-hidden-pane" style='display:none'>
+    <div class="rule"></div>
+
+    <h3>Issues Dashboard</h3>
+
+    <div class="columns threecols">
+      <div class="column first">
+        <dl class="keyboard-mappings">
+          <dt>j</dt>
+          <dd>Move selection down</dd>
+        </dl>
+        <dl class="keyboard-mappings">
+          <dt>k</dt>
+          <dd>Move selection up</dd>
+        </dl>
+        <dl class="keyboard-mappings">
+          <dt>o <em>or</em> enter</dt>
+          <dd>Open issue</dd>
+        </dl>
+      </div><!-- /.column.first -->
+    </div>
+  </div>
+
+  <div class="js-hidden-pane" style='display:none'>
+    <div class="rule"></div>
+
+    <h3>Network Graph</h3>
+    <div class="columns equacols">
+      <div class="column first">
+        <dl class="keyboard-mappings">
+          <dt><span class="badmono">←</span> <em>or</em> h</dt>
+          <dd>Scroll left</dd>
+        </dl>
+        <dl class="keyboard-mappings">
+          <dt><span class="badmono">→</span> <em>or</em> l</dt>
+          <dd>Scroll right</dd>
+        </dl>
+        <dl class="keyboard-mappings">
+          <dt><span class="badmono">↑</span> <em>or</em> k</dt>
+          <dd>Scroll up</dd>
+        </dl>
+        <dl class="keyboard-mappings">
+          <dt><span class="badmono">↓</span> <em>or</em> j</dt>
+          <dd>Scroll down</dd>
+        </dl>
+        <dl class="keyboard-mappings">
+          <dt>t</dt>
+          <dd>Toggle visibility of head labels</dd>
+        </dl>
+      </div><!-- /.column.first -->
+      <div class="column last">
+        <dl class="keyboard-mappings">
+          <dt>shift <span class="badmono">←</span> <em>or</em> shift h</dt>
+          <dd>Scroll all the way left</dd>
+        </dl>
+        <dl class="keyboard-mappings">
+          <dt>shift <span class="badmono">→</span> <em>or</em> shift l</dt>
+          <dd>Scroll all the way right</dd>
+        </dl>
+        <dl class="keyboard-mappings">
+          <dt>shift <span class="badmono">↑</span> <em>or</em> shift k</dt>
+          <dd>Scroll all the way up</dd>
+        </dl>
+        <dl class="keyboard-mappings">
+          <dt>shift <span class="badmono">↓</span> <em>or</em> shift j</dt>
+          <dd>Scroll all the way down</dd>
+        </dl>
+      </div><!-- /.column.last -->
+    </div>
+  </div>
+
+  <div class="js-hidden-pane" style='display:none'>
+    <div class="rule"></div>
+    <div class="columns threecols">
+      <div class="column first js-hidden-pane" style='display:none'>
+        <h3>Source Code Browsing</h3>
+        <dl class="keyboard-mappings">
+          <dt>t</dt>
+          <dd>Activates the file finder</dd>
+        </dl>
+        <dl class="keyboard-mappings">
+          <dt>l</dt>
+          <dd>Jump to line</dd>
+        </dl>
+        <dl class="keyboard-mappings">
+          <dt>w</dt>
+          <dd>Switch branch/tag</dd>
+        </dl>
+        <dl class="keyboard-mappings">
+          <dt>y</dt>
+          <dd>Expand URL to its canonical form</dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+
+  <div class="js-hidden-pane" style='display:none'>
+    <div class="rule"></div>
+    <div class="columns threecols">
+      <div class="column first">
+        <h3>Browsing Commits</h3>
+        <dl class="keyboard-mappings">
+          <dt><span class="platform-mac">⌘</span><span class="platform-other">ctrl</span> <em>+</em> enter</dt>
+          <dd>Submit comment</dd>
+        </dl>
+        <dl class="keyboard-mappings">
+          <dt>escape</dt>
+          <dd>Close form</dd>
+        </dl>
+        <dl class="keyboard-mappings">
+          <dt>p</dt>
+          <dd>Parent commit</dd>
+        </dl>
+        <dl class="keyboard-mappings">
+          <dt>o</dt>
+          <dd>Other parent commit</dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+
+  <div class="js-hidden-pane" style='display:none'>
+    <div class="rule"></div>
+    <h3>Notifications</h3>
+
+    <div class="columns threecols">
+      <div class="column first">
+        <dl class="keyboard-mappings">
+          <dt>j</dt>
+          <dd>Move selection down</dd>
+        </dl>
+        <dl class="keyboard-mappings">
+          <dt>k</dt>
+          <dd>Move selection up</dd>
+        </dl>
+        <dl class="keyboard-mappings">
+          <dt>o <em>or</em> enter</dt>
+          <dd>Open notification</dd>
+        </dl>
+      </div><!-- /.column.first -->
+
+      <div class="column second">
+        <dl class="keyboard-mappings">
+          <dt>e <em>or</em> shift i <em>or</em> y</dt>
+          <dd>Mark as read</dd>
+        </dl>
+        <dl class="keyboard-mappings">
+          <dt>shift m</dt>
+          <dd>Mute thread</dd>
+        </dl>
+      </div><!-- /.column.first -->
+    </div>
+  </div>
+
+</div>
+
+    <div id="markdown-help" class="instapaper_ignore readability-extra">
+  <h2>Markdown Cheat Sheet</h2>
+
+  <div class="cheatsheet-content">
+
+  <div class="mod">
+    <div class="col">
+      <h3>Format Text</h3>
+      <p>Headers</p>
+      <pre>
+# This is an &lt;h1&gt; tag
+## This is an &lt;h2&gt; tag
+###### This is an &lt;h6&gt; tag</pre>
+     <p>Text styles</p>
+     <pre>
+*This text will be italic*
+_This will also be italic_
+**This text will be bold**
+__This will also be bold__
+
+*You **can** combine them*
+</pre>
+    </div>
+    <div class="col">
+      <h3>Lists</h3>
+      <p>Unordered</p>
+      <pre>
+* Item 1
+* Item 2
+  * Item 2a
+  * Item 2b</pre>
+     <p>Ordered</p>
+     <pre>
+1. Item 1
+2. Item 2
+3. Item 3
+   * Item 3a
+   * Item 3b</pre>
+    </div>
+    <div class="col">
+      <h3>Miscellaneous</h3>
+      <p>Images</p>
+      <pre>
+![GitHub Logo](/images/logo.png)
+Format: ![Alt Text](url)
+</pre>
+     <p>Links</p>
+     <pre>
+http://github.com - automatic!
+[GitHub](http://github.com)</pre>
+<p>Blockquotes</p>
+     <pre>
+As Kanye West said:
+
+> We're living the future so
+> the present is our past.
+</pre>
+    </div>
+  </div>
+  <div class="rule"></div>
+
+  <h3>Code Examples in Markdown</h3>
+  <div class="col">
+      <p>Syntax highlighting with <a href="http://github.github.com/github-flavored-markdown/" title="GitHub Flavored Markdown" target="_blank">GFM</a></p>
+      <pre>
+```javascript
+function fancyAlert(arg) {
+  if(arg) {
+    $.facebox({div:'#foo'})
+  }
+}
+```</pre>
+    </div>
+    <div class="col">
+      <p>Or, indent your code 4 spaces</p>
+      <pre>
+Here is a Python code example
+without syntax highlighting:
+
+    def foo:
+      if not bar:
+        return true</pre>
+    </div>
+    <div class="col">
+      <p>Inline code for comments</p>
+      <pre>
+I think you should use an
+`&lt;addr&gt;` element here instead.</pre>
+    </div>
+  </div>
+
+  </div>
+</div>
+
+
+    <div id="ajax-error-message" class="flash flash-error">
+      <span class="mini-icon mini-icon-exclamation"></span>
+      Something went wrong with that request. Please try again.
+      <a href="#" class="mini-icon mini-icon-remove-close ajax-error-dismiss"></a>
+    </div>
+
+    
+    
+    <span id='server_response_time' data-time='0.09113' data-host='fe17'></span>
+    
+  </body>
+</html>
+

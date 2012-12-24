@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="client-nojs">
+<head>
+<title>Laptop Mode Tools - ArchWiki</title>
+<meta charset="UTF-8" />
+<meta name="generator" content="MediaWiki 1.19.3" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="search" type="application/opensearchdescription+xml" href="/opensearch_desc.php" title="ArchWiki (en)" />
+<link rel="EditURI" type="application/rsd+xml" href="https://wiki.archlinux.org/api.php?action=rsd" />
+<link rel="copyright" href="http://www.gnu.org/copyleft/fdl.html" />
+<link rel="alternate" type="application/atom+xml" title="ArchWiki Atom feed" href="/index.php?title=Special:RecentChanges&amp;feed=atom" />
+<link rel="stylesheet" href="https://wiki.archlinux.org/load.php?debug=false&amp;lang=en&amp;modules=mediawiki.legacy.commonPrint%2Cshared%7Cskins.archlinux&amp;only=styles&amp;skin=archlinux&amp;*" />
+<!--[if IE 6]><link rel="stylesheet" href="/skins/archlinux/IE60Fixes.css?303" media="screen" /><![endif]-->
+<!--[if IE 7]><link rel="stylesheet" href="/skins/archlinux/IE70Fixes.css?303" media="screen" /><![endif]--><meta name="ResourceLoaderDynamicStyles" content="" />
+
+<script src="https://wiki.archlinux.org/load.php?debug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=archlinux&amp;*"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Laptop_Mode_Tools","wgTitle":"Laptop Mode Tools","wgCurRevisionId":240327,"wgArticleId":5386,"wgIsArticle":true,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Laptops","Power management"],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgRelevantPageName":"Laptop_Mode_Tools","wgRestrictionEdit":[],"wgRestrictionMove":[]});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function($){mw.user.options.set({"ccmeonemails":0,"cols":80,"date":"default","diffonly":0,"disablemail":0,"disablesuggest":0,"editfont":"default","editondblclick":0,"editsection":1,"editsectiononrightclick":0,"enotifminoredits":0,"enotifrevealaddr":0,"enotifusertalkpages":1,"enotifwatchlistpages":0,"extendwatchlist":0,"externaldiff":0,"externaleditor":0,"fancysig":0,"forceeditsummary":0,"gender":"unknown","hideminor":0,"hidepatrolled":0,"highlightbroken":1,"imagesize":2,"justify":0,"math":1,"minordefault":0,"newpageshidepatrolled":0,"nocache":0,"noconvertlink":0,"norollbackdiff":0,"numberheadings":0,"previewonfirst":0,"previewontop":1,"quickbar":5,"rcdays":7,"rclimit":50,"rememberpassword":0,"rows":25,"searchlimit":20,"showhiddencats":0,"showjumplinks":1,"shownumberswatching":1,"showtoc":1,"showtoolbar":1,"skin":"archlinux","stubthreshold":0,"thumbsize":2,"underline":2,"uselivepreview":0,"usenewrc":0,"watchcreations":0,"watchdefault":0,"watchdeletion"
+:0,"watchlistdays":3,"watchlisthideanons":0,"watchlisthidebots":0,"watchlisthideliu":0,"watchlisthideminor":0,"watchlisthideown":0,"watchlisthidepatrolled":0,"watchmoves":0,"wllimit":250,"variant":"en","language":"en","searchNs0":true,"searchNs1":false,"searchNs2":false,"searchNs3":false,"searchNs4":false,"searchNs5":false,"searchNs6":false,"searchNs7":false,"searchNs8":false,"searchNs9":false,"searchNs10":false,"searchNs11":false,"searchNs12":false,"searchNs13":false,"searchNs14":false,"searchNs15":false});;},{},{});mw.loader.implement("user.tokens",function($){mw.user.tokens.set({"editToken":"+\\","watchToken":false});;},{},{});
+
+/* cache key: archwiki:resourceloader:filter:minify-js:7:789e73e7868a9c0b6be7e25913e3565b */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax"]);
+}</script>
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-Laptop_Mode_Tools skin-archlinux action-view">
+
+<div id="archnavbar"><!-- Arch Linux global navigation bar -->
+	<div id="archnavbarlogo">
+		<p><a id="logo" href="http://www.archlinux.org/"></a></p>
+	</div>
+	<div id="archnavbarmenu">
+		<ul id="archnavbarlist">
+			<li id="anb-home"><a href="http://www.archlinux.org/">Home</a></li><li id="anb-packages"><a href="http://www.archlinux.org/packages/">Packages</a></li><li id="anb-forums"><a href="https://bbs.archlinux.org/">Forums</a></li><li id="anb-wiki" class="anb-selected"><a href="https://wiki.archlinux.org/">Wiki</a></li><li id="anb-bugs"><a href="https://bugs.archlinux.org/">Bugs</a></li><li id="anb-aur"><a href="https://aur.archlinux.org/">AUR</a></li><li id="anb-download"><a href="http://www.archlinux.org/download/">Download</a></li>		</ul>
+	</div>
+</div><!-- #archnavbar -->
+
+<div id="globalWrapper">
+<div id="column-content"><div id="content">
+	<a id="top"></a>
+	
+	<h1 id="firstHeading" class="firstHeading"><span dir="auto">Laptop Mode Tools</span></h1>
+	<div id="bodyContent" class="mw-body">
+		<div id="siteSub">From ArchWiki</div>
+		<div id="contentSub"></div>
+		<div id="jump-to-nav" class="mw-jump">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>
+		<!-- start content -->
+<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><table style="margin-left: 5px; padding: 5px; border-spacing: 0px 4px; float: right; clear: right; width: 25%;" cellpadding="0">
+
+<tr style="text-align: center; border-bottom: 5px #08c solid;">
+<th style="background: #333; color: white; padding: 3px;"> <b>Summary</b>
+</th></tr>
+<tr>
+<td style="text-align: left; padding: 3px"> Overview of the Laptop Mode Tools power management suite for notebooks.
+</td></tr>
+<tr style="text-align: center; height: 1.5em; border-bottom: 5px #08c solid;">
+<th style="background: #333; color: white; padding: 2px;"> <b>Related</b>
+</th></tr>
+<tr>
+<td style="text-align: left; padding: 3px"> <a href="/index.php/Acpid" title="Acpid">acpid</a>
+</td></tr>
+<tr>
+<td style="text-align: left; padding: 3px"> <a href="/index.php/Cpufrequtils" title="Cpufrequtils" class="mw-redirect">cpufrequtils</a>
+</td></tr>
+<tr>
+<td style="text-align: left; padding: 3px"> <a href="/index.php/Pm-utils" title="Pm-utils">pm-utils</a>
+</td></tr>
+<tr>
+<td style="text-align: left; padding: 3px"> <a href="/index.php/Laptop" title="Laptop">Laptop</a>
+</td></tr>
+<tr style="text-align: center; height: 1.5em; border-bottom: 5px #08c solid;">
+<th style="background: #333; color: white; padding: 2px;"> <b>Resources</b>
+</th></tr>
+<tr>
+<td style="text-align: left; padding: 3px"> <a rel="nofollow" class="external text" href="http://samwel.tk/laptop_mode/">Laptop Mode Tools</a>
+</td></tr>
+<tr>
+<td style="text-align: left; padding: 3px"> <a rel="nofollow" class="external text" href="http://mailman.samwel.tk/pipermail/laptop-mode/">Mailing List Archives</a>
+</td></tr>
+<tr>
+<td style="text-align: left; padding: 3px"> <a rel="nofollow" class="external text" href="http://www.lesswatts.org/index.php">Less Watts - Official Site</a>
+</td></tr></table>
+<p><i><a rel="nofollow" class="external text" href="http://samwel.tk/laptop_mode/">Laptop Mode Tools</a> is a laptop power saving package for Linux systems. It is the primary way to enable the Laptop Mode feature of the Linux kernel, which lets your hard drive spin down. In addition, it allows you to tweak a number of other power-related settings using a simple configuration file.</i>
+</p><p>Combined with <a href="/index.php/Acpid" title="Acpid">acpid</a>, <a href="/index.php/CPU_Frequency_Scaling" title="CPU Frequency Scaling">CPU frequency scaling</a>, and <a href="/index.php/Pm-utils" title="Pm-utils">pm-utils</a>, LMT provides most users with a complete notebook power management suite.
+</p>
+<table id="toc" class="toc"><tr><td><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Installation"><span class="tocnumber">1</span> <span class="toctext">Installation</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Configuration"><span class="tocnumber">2</span> <span class="toctext">Configuration</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="#Hard_disks"><span class="tocnumber">2.1</span> <span class="toctext">Hard disks</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="#CPU_frequency"><span class="tocnumber">2.2</span> <span class="toctext">CPU frequency</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Device_and_bus"><span class="tocnumber">2.3</span> <span class="toctext">Device and bus</span></a>
+<ul>
+<li class="toclevel-3 tocsection-6"><a href="#Intel_SATA"><span class="tocnumber">2.3.1</span> <span class="toctext">Intel SATA</span></a></li>
+<li class="toclevel-3 tocsection-7"><a href="#USB_autosuspend"><span class="tocnumber">2.3.2</span> <span class="toctext">USB autosuspend</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-8"><a href="#Display_and_graphics"><span class="tocnumber">2.4</span> <span class="toctext">Display and graphics</span></a>
+<ul>
+<li class="toclevel-3 tocsection-9"><a href="#LCD_brightness"><span class="tocnumber">2.4.1</span> <span class="toctext">LCD brightness</span></a>
+<ul>
+<li class="toclevel-4 tocsection-10"><a href="#ThinkPad_T40.2FT42"><span class="tocnumber">2.4.1.1</span> <span class="toctext">ThinkPad T40/T42</span></a></li>
+<li class="toclevel-4 tocsection-11"><a href="#ThinkPad_T60"><span class="tocnumber">2.4.1.2</span> <span class="toctext">ThinkPad T60</span></a></li>
+</ul>
+</li>
+<li class="toclevel-3 tocsection-12"><a href="#Terminal_blanking"><span class="tocnumber">2.4.2</span> <span class="toctext">Terminal blanking</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-13"><a href="#Networking"><span class="tocnumber">2.5</span> <span class="toctext">Networking</span></a>
+<ul>
+<li class="toclevel-3 tocsection-14"><a href="#Ethernet"><span class="tocnumber">2.5.1</span> <span class="toctext">Ethernet</span></a></li>
+<li class="toclevel-3 tocsection-15"><a href="#Wireless_LAN"><span class="tocnumber">2.5.2</span> <span class="toctext">Wireless LAN</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-16"><a href="#Audio"><span class="tocnumber">2.6</span> <span class="toctext">Audio</span></a>
+<ul>
+<li class="toclevel-3 tocsection-17"><a href="#AC97"><span class="tocnumber">2.6.1</span> <span class="toctext">AC97</span></a></li>
+<li class="toclevel-3 tocsection-18"><a href="#Intel_HDA"><span class="tocnumber">2.6.2</span> <span class="toctext">Intel HDA</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-19"><a href="#Tips_and_tricks"><span class="tocnumber">3</span> <span class="toctext">Tips and tricks</span></a>
+<ul>
+<li class="toclevel-2 tocsection-20"><a href="#Aliases"><span class="tocnumber">3.1</span> <span class="toctext">Aliases</span></a></li>
+<li class="toclevel-2 tocsection-21"><a href="#lm-profiler"><span class="tocnumber">3.2</span> <span class="toctext">lm-profiler</span></a></li>
+<li class="toclevel-2 tocsection-22"><a href="#Disabling"><span class="tocnumber">3.3</span> <span class="toctext">Disabling</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-23"><a href="#Troubleshooting"><span class="tocnumber">4</span> <span class="toctext">Troubleshooting</span></a>
+<ul>
+<li class="toclevel-2 tocsection-24"><a href="#Laptop-mode-tools_is_not_picking_up_events"><span class="tocnumber">4.1</span> <span class="toctext">Laptop-mode-tools is not picking up events</span></a></li>
+<li class="toclevel-2 tocsection-25"><a href="#Laptop-mode-tools_does_not_disable_on_AC"><span class="tocnumber">4.2</span> <span class="toctext">Laptop-mode-tools does not disable on AC</span></a></li>
+</ul>
+</li>
+</ul>
+</td></tr></table>
+<h2> <span class="mw-headline" id="Installation">Installation</span></h2>
+<p><span style="font-family: monospace"><a rel="nofollow" class="external text" href="https://www.archlinux.org/packages/?name=laptop-mode-tools">laptop-mode-tools</a></span> can be <a href="/index.php/Pacman" title="Pacman">installed</a> from the <a href="/index.php/Official_Repositories" title="Official Repositories">official repositories</a>.
+</p>
+<h2> <span class="mw-headline" id="Configuration">Configuration</span></h2>
+<p>Add <code style="display:inline-block; padding: 0.1em 0.3em;">laptop-mode</code> to the <code style="display:inline-block; padding: 0.1em 0.3em;">DAEMONS</code> array in <code style="display:inline-block; padding: 0.1em 0.3em;">/etc/rc.conf</code>:
+</p>
+<pre>DAEMONS=(...laptop-mode...)
+</pre>
+<p>For systemd users run:
+</p>
+<pre>systemctl enable laptop-mode.service
+</pre>
+<p>Configuration is handled through:
+</p>
+<ul><li> <code style="display:inline-block; padding: 0.1em 0.3em;">/etc/laptop-mode/laptop-mode.conf</code> - primary configuration file
+</li><li> <code style="display:inline-block; padding: 0.1em 0.3em;">/etc/laptop-mode/conf.d/*</code> - dozens of feature-specific "modules". 
+</li></ul>
+<p>Each module can be explicitly enabled/disabled by changing the <code style="display:inline-block; padding: 0.1em 0.3em;">CONTROL_*</code> value in the individual settings file found in <code style="display:inline-block; padding: 0.1em 0.3em;">conf.d/*</code>.
+</p><p>If <code style="display:inline-block; padding: 0.1em 0.3em;">ENABLE_AUTO_MODULES</code> is set in <code style="display:inline-block; padding: 0.1em 0.3em;">/etc/laptop-mode/laptop-mode.conf</code>, LMT will automatically enable any modules where <code style="display:inline-block; padding: 0.1em 0.3em;">CONTROL_*</code> is set to <code style="display:inline-block; padding: 0.1em 0.3em;">auto</code>.
+</p><p>If you want to check which modules are enabled, disabled or auto, run:
+</p>
+<pre>grep -r '^\(CONTROL\&#124;ENABLE\)_' /etc/laptop-mode/conf.d</pre>
+<div style="padding: 5px; margin: 0.50em 0; background-color: #DDDDFF; border: thin solid #BBBBDD; overflow: hidden;"><strong> Note: </strong> <code style="display:inline-block; padding: 0.1em 0.3em;">auto-hibernate.conf</code> and <code style="display:inline-block; padding: 0.1em 0.3em;">battery-level-polling.conf</code> are an exception and use an <code style="display:inline-block; padding: 0.1em 0.3em;">ENABLE_*</code> variable instead of <code style="display:inline-block; padding: 0.1em 0.3em;">CONTROL_*</code>.</div>
+<h3> <span class="mw-headline" id="Hard_disks"> Hard disks </span></h3>
+<p>For this you need to have hdparm and/or sdparm installed. See <a href="/index.php/Hdparm" title="Hdparm">Hdparm</a>.
+</p><p>Spinning down the hard drive through <code style="display:inline-block; padding: 0.1em 0.3em;">hdparm -S</code> values saves power and makes everything a lot more quiet. By using the readahead function you can allow the drives to spin down more often even though you are using the computer. LMT can also establish <code style="display:inline-block; padding: 0.1em 0.3em;">hdparm -B</code> values. The maximum hard drive power saving is 1 and the minimum is 254. Set this value to 254 when on AC and 1 when on battery. If you find that normal activity hangs often while waiting for the disk to spin up, it might be a good idea to set it to a higher value (eg. 128) which will make it spin down less often. <code style="display:inline-block; padding: 0.1em 0.3em;">hdparm -S</code> and <code style="display:inline-block; padding: 0.1em 0.3em;">hdparm -B</code> values are configured in <code style="display:inline-block; padding: 0.1em 0.3em;">/etc/laptop-mode/laptop-mode.conf</code>.
+</p>
+<div style="text-align: center; margin-bottom: 1em; overflow:hidden;">
+<table class="notice noprint toc" id="translateme" style="background: &#123;&#123;&#123;backgroundcolor}}}; border-color: &#123;&#123;&#123;bordercolor}}}; width: 100%">
+<tr>
+<td style="background-color: &#123;&#123;&#123;signalcolor}}}; width: 100px"> <a href="/index.php/File:Tango-view-fullscreen.png" class="image"><img alt="Tango-view-fullscreen.png" src="/images/3/38/Tango-view-fullscreen.png" width="48" height="48" /></a>
+</td>
+<td>  <b>This article or section needs expansion.</b> <div style="font-size: 90%"><b>Reason:</b> Please can someone add info on how to treat SSD disks with laptommode-tools? As, to my knowledge, readahead is useless for them (zero read time, just does wear out), and spin down most likely as well. (<a href="/index.php/Talk:Laptop_Mode_Tools" title="Talk:Laptop Mode Tools">Discuss</a>)</div>
+</td>
+<td style="background-color: &#123;&#123;&#123;signalcolor}}}; width: 100px"> <a href="/index.php/File:Tango-view-fullscreen.png" class="image"><img alt="Tango-view-fullscreen.png" src="/images/3/38/Tango-view-fullscreen.png" width="48" height="48" /></a>
+</td></tr></table>
+</div>
+<p>With the CONTROL_MOUNT_OPTIONS variable (default on), laptop-mode-tools automatically remounts your partitions, appending 'commit=600,noatime' in the mount options. This keeps the journaling program jbd2 from accessing your disc every few seconds, instead the disc journal gets updated every 10 minutes (BEWARE: with this setting you could lose up to 10 minutes of work). Also be sure not to use the <code style="display:inline-block; padding: 0.1em 0.3em;">atime</code> mount option, use <code style="display:inline-block; padding: 0.1em 0.3em;">noatime</code> or <code style="display:inline-block; padding: 0.1em 0.3em;">relatime</code> instead.
+</p>
+<div style="padding: 5px; margin: 0.50em 0; background-color: #DDDDFF; border: thin solid #BBBBDD; overflow: hidden;"><strong> Note: </strong>CONTROL_MOUNT_OPTIONS should not be turned on with nilfs2 partitions (see this thread on the forum <a rel="nofollow" class="external free" href="https://bbs.archlinux.org/viewtopic.php?id=134656">https://bbs.archlinux.org/viewtopic.php?id=134656</a>)</div>
+<h3> <span class="mw-headline" id="CPU_frequency"> CPU frequency </span></h3>
+<p>For this you need to have a CPU frequency driver installed. See <a href="/index.php/CPU_Frequency_Scaling" title="CPU Frequency Scaling">CPU Frequency Scaling</a>.
+</p>
+<pre># cpufreq.conf
+# ThinkPad T40/T42/T60 Example
+#
+CONTROL_CPU_FREQUENCY=1
+BATT_CPU_MAXFREQ=fastest
+BATT_CPU_MINFREQ=slowest
+BATT_CPU_GOVERNOR=ondemand
+BATT_CPU_IGNORE_NICE_LOAD=1
+LM_AC_CPU_MAXFREQ=fastest
+LM_AC_CPU_MINFREQ=slowest
+LM_AC_CPU_GOVERNOR=ondemand
+LM_AC_CPU_IGNORE_NICE_LOAD=1
+NOLM_AC_CPU_MAXFREQ=fastest
+NOLM_AC_CPU_MINFREQ=slowest
+NOLM_AC_CPU_GOVERNOR=ondemand
+NOLM_AC_CPU_IGNORE_NICE_LOAD=0
+CONTROL_CPU_THROTTLING=0
+</pre>
+<h3> <span class="mw-headline" id="Device_and_bus">Device and bus</span></h3>
+<h4> <span class="mw-headline" id="Intel_SATA">Intel SATA</span></h4>
+<ul><li> Enable the Intel SATA AHCI controller Aggressive Link Power Management feature to set the disk link into a very low power mode in the absence of disk IO.
+</li></ul>
+<pre># intel-sata-powermgmt.conf
+# ThinkPad T40/T42/T60 Example
+#
+DEBUG=0
+CONTROL_INTEL_SATA_POWER=1
+BATT_ACTIVATE_SATA_POWER=1
+LM_AC_ACTIVATE_SATA_POWER=1
+NOLM_AC_ACTIVATE_SATA_POWER=0
+</pre>
+<div style="padding: 5px; margin: 0.50em 0; background-color: #DDDDFF; border: thin solid #BBBBDD; overflow: hidden;"><strong> Note: </strong>Review the well-documented <code style="display:inline-block; padding: 0.1em 0.3em;">/etc/laptop-mode/conf.d/intel-sata-powermgmt.conf</code> file for additional configuration details.</div>
+<h4> <span class="mw-headline" id="USB_autosuspend">USB autosuspend</span></h4>
+<pre># usb-autosuspend.conf
+# ThinkPad T40/T42/T60 Example
+#
+DEBUG=0
+CONTROL_USB_AUTOSUSPEND=1
+BATT_SUSPEND_USB=1
+LM_AC_SUSPEND_USB=1
+NOLM_AC_SUSPEND_USB=0
+AUTOSUSPEND_TIMEOUT=2
+</pre>
+<div style="padding: 5px; margin: 0.50em 0; background-color: #DDDDFF; border: thin solid #BBBBDD; overflow: hidden;"><strong> Note: </strong>Review the well-documented <code style="display:inline-block; padding: 0.1em 0.3em;">/etc/laptop-mode/conf.d/usb-autosuspend.conf</code> file for additional configuration details. If you have an USB tool you always use (like an USB mouse), blacklisting them would stop them from suspending.</div>
+<h3> <span class="mw-headline" id="Display_and_graphics">Display and graphics</span></h3>
+<h4> <span class="mw-headline" id="LCD_brightness">LCD brightness</span></h4>
+<ul><li> Available brightness values for certain laptops can can be obtained by running following command:
+</li></ul>
+<pre>$ cat /proc/acpi/video/VID/LCD/brightness
+</pre>
+<h5> <span class="mw-headline" id="ThinkPad_T40.2FT42"> ThinkPad T40/T42 </span></h5>
+<p>For <a rel="nofollow" class="external text" href="http://en.wikipedia.org/wiki/ThinkPad">ThinkPad</a> T40/T42 notebooks, minimum and maximum brightness values can be obtained by running:
+</p>
+<pre>$ cat /sys/class/backlight/acpi_video0/brightness
+$ cat /sys/class/backlight/acpi_video0/max_brightness
+</pre>
+<pre># lcd-brightness.conf
+# ThinkPad T40/T42 Example
+#
+DEBUG=0
+CONTROL_BRIGHTNESS=1
+BATT_BRIGHTNESS_COMMAND="echo 0"
+LM_AC_BRIGHTNESS_COMMAND="echo 7"
+NOLM_AC_BRIGHTNESS_COMMAND="echo 7"
+BRIGHTNESS_OUTPUT="/sys/class/backlight/thinkpad_screen/brightness"
+</pre>
+<h5> <span class="mw-headline" id="ThinkPad_T60"> ThinkPad T60 </span></h5>
+<ul><li> For <a rel="nofollow" class="external text" href="http://en.wikipedia.org/wiki/ThinkPad">ThinkPad</a> T60 notebooks, minimum and maximum brightness values can be obtained by running:
+</li></ul>
+<pre>$ cat /sys/class/backlight/thinkpad_screen/max_brightness
+$ cat /sys/class/backlight/thinkpad_screen/brightness
+</pre>
+<pre># lcd-brightness.conf
+# ThinkPad T60 Example
+#
+DEBUG=0
+CONTROL_BRIGHTNESS=1
+BATT_BRIGHTNESS_COMMAND="echo 0"
+LM_AC_BRIGHTNESS_COMMAND="echo 7"
+NOLM_AC_BRIGHTNESS_COMMAND="echo 7"
+BRIGHTNESS_OUTPUT="/sys/class/backlight/acpi_video0/brightness"
+</pre>
+<div style="padding: 5px; margin: 0.50em 0; background-color: #DDDDFF; border: thin solid #BBBBDD; overflow: hidden;"><strong> Note: </strong>Review the well-documented <code style="display:inline-block; padding: 0.1em 0.3em;">/etc/laptop-mode/conf.d/lcd-brightness.conf</code> file for additional configuration details.</div>
+<h4> <span class="mw-headline" id="Terminal_blanking">Terminal blanking</span></h4>
+<pre># terminal-blanking.conf
+# ThinkPad T40/T42/T60 Example
+#
+DEBUG=0
+CONTROL_TERMINAL=1
+TERMINALS="/dev/tty1"
+BATT_TERMINAL_BLANK_MINUTES=1
+BATT_TERMINAL_POWERDOWN_MINUTES=2
+LM_AC_TERMINAL_BLANK_MINUTES=10
+LM_AC_TERMINAL_POWERDOWN_MINUTES=10
+NOLM_AC_TERMINAL_BLANK_MINUTES=10
+NOLM_AC_TERMINAL_POWERDOWN_MINUTES=10
+</pre>
+<div style="padding: 5px; margin: 0.50em 0; background-color: #DDDDFF; border: thin solid #BBBBDD; overflow: hidden;"><strong> Note: </strong>Review the well-documented <code style="display:inline-block; padding: 0.1em 0.3em;">/etc/laptop-mode/conf.d/terminal-blanking.conf</code> file for additional configuration details.</div>
+<h3> <span class="mw-headline" id="Networking">Networking</span></h3>
+<h4> <span class="mw-headline" id="Ethernet">Ethernet</span></h4>
+<pre># ethernet.conf
+# ThinkPad T40/T42/T60 Example
+#
+DEBUG=0
+CONTROL_ETHERNET=1
+LM_AC_THROTTLE_ETHERNET=0
+NOLM_AC_THROTTLE_ETHERNET=0
+DISABLE_WAKEUP_ON_LAN=1
+DISABLE_ETHERNET_ON_BATTERY=1
+ETHERNET_DEVICES="eth0"
+</pre>
+<h4> <span class="mw-headline" id="Wireless_LAN">Wireless LAN</span></h4>
+<p>Wireless interface power management settings are hardware-dependent, and thus a bit trickier to configure. Depending on the wireless chipset, the settings are managed in one of the following three files:
+</p>
+<ol><li><code style="display:inline-block; padding: 0.1em 0.3em;">/etc/laptop-mode/conf.d/wireless-power.conf</code> for a generic method of saving power (using "iwconfig wlan0 power on/off"). This applies to most chipsets (that is, anything but Intel chipsets listed below).
+</li><li><code style="display:inline-block; padding: 0.1em 0.3em;">/etc/laptop-mode/conf.d/wireless-ipw-power.conf</code> for Intel chipsets driven by the old ipw driver. This apply to IPW3945, IPW2200 and IPW2100. It currently (as of LMT 1.55-1) uses iwpriv for IPW3945, and a combination of iwconfig and iwpriv settings for IPW2100 and IPW220. See <code style="display:inline-block; padding: 0.1em 0.3em;">/usr/share/laptop-mode-tools/modules/wireless-ipw-power</code> for details. (note that the ipw3945 is not used anymore, see below)
+</li><li><code style="display:inline-block; padding: 0.1em 0.3em;">/etc/laptop-mode/conf.d/wireless-iwl-power.conf</code> for Intel chipsets driven by modules iwl4965, iwl3945 and iwlagn (this latter supports chipsets 4965, 5100, 5300, 5350, 5150, 1000, and 6000)
+</li></ol>
+<p>Note that activating the three of them should not be much of a problem, since LMT detects the module used by the interface and acts accordingly.
+</p><p>The supported modules for each configuration file, indicated above, are taken directly from LMT. However, this seems to be a bit out-of-date, since the current 2.6.34 kernel does not provide the ipw3945 and iwl4965 modules anymore (3945 chipset uses iwl3945 instead, and 4965 uses the generic module iwlagn). This is only brought here for information, as this does not (or should not) affect the way LMT works.
+</p><p>There is a known issue with some chipsets running with the iwlagn module (namely, the 5300 chipset, and maybe others). On those chipsets, the following settings of <code style="display:inline-block; padding: 0.1em 0.3em;">/etc/laptop-mode/conf.d/wireless-iwl-power.conf</code>&#160;:
+</p>
+<pre>IWL_AC_POWER
+IWL_BATT_POWER
+</pre>
+<p>are ignored, because the <code style="display:inline-block; padding: 0.1em 0.3em;">/sys/class/net/wlan*/device/power_level</code> file does not exist. Instead, the standard method (with "iwconfig wlan0 power on/off") is automatically used.
+</p>
+<h3> <span class="mw-headline" id="Audio">Audio</span></h3>
+<h4> <span class="mw-headline" id="AC97">AC97</span></h4>
+<pre># ac97-powersave.conf
+# ThinkPad T40/T42/T60 Example
+#
+DEBUG=0
+CONTROL_AC97_POWER=1
+</pre>
+<h4> <span class="mw-headline" id="Intel_HDA">Intel HDA</span></h4>
+<pre># intel-hda-powersave.conf
+# ThinkPad T40/T42/T60 Example
+#
+DEBUG=0
+CONTROL_INTEL_HDA_POWER=1
+BATT_INTEL_HDA_POWERSAVE=1
+LM_AC_INTEL_HDA_POWERSAVE=1
+NOLM_AC_INTEL_HDA_POWERSAVE=0
+INTEL_HDA_DEVICE_TIMEOUT=10
+INTEL_HDA_DEVICE_CONTROLLER=0
+</pre>
+<h2> <span class="mw-headline" id="Tips_and_tricks">Tips and tricks</span></h2>
+<h3> <span class="mw-headline" id="Aliases">Aliases</span></h3>
+<h3> <span class="mw-headline" id="lm-profiler">lm-profiler</span></h3>
+<h3> <span class="mw-headline" id="Disabling">Disabling</span></h3>
+<h2> <span class="mw-headline" id="Troubleshooting">Troubleshooting</span></h2>
+<h3> <span class="mw-headline" id="Laptop-mode-tools_is_not_picking_up_events">Laptop-mode-tools is not picking up events</span></h3>
+<p>You need to install and enable <a href="/index.php/Acpid" title="Acpid">acpid</a>. Add <code style="display:inline-block; padding: 0.1em 0.3em;">acpid</code> to your DAEMONS list in <code style="display:inline-block; padding: 0.1em 0.3em;">/etc/rc.conf</code>:
+</p>
+<pre>DAEMONS=(... acpid ...)
+</pre>
+<p>If that does not help, go through the laptop-mode configuration files and make sure that the service you want to enable is set to 1. Many services (including cpufreq control) are by default set to "auto", which may not enable them.
+</p><p>I have experienced issues with bluetooth not working if i boot up with battery, and i fixed it with disabling runtime-pm.
+</p>
+<h3> <span class="mw-headline" id="Laptop-mode-tools_does_not_disable_on_AC">Laptop-mode-tools does not disable on AC</span></h3>
+<p>It is possible if you have both laptop-mode-tools and pm-utils installed, they can conflict with each other, causing laptop-mode-tools to not properly set its state.
+</p><p>This can be fixed by disabling scripts with duplicate functionality in pm-utils. The main cause of this particular issue is the laptop-mode script located in <code style="display:inline-block; padding: 0.1em 0.3em;">/usr/lib/pm-utils/power.d</code>. You can stop any unwanted hooks from running by creating a dummy file in <code style="display:inline-block; padding: 0.1em 0.3em;">/etc/pm/power.d</code> with the same name as the corresponding <code style="display:inline-block; padding: 0.1em 0.3em;">/usr/lib/pm-utils/power.d</code> hook. For example if you want to disable the laptop-mode hook:
+</p>
+<pre># touch /etc/pm/power.d/laptop.mode
+</pre>
+<p>Note: Do not set the executable bit on that dummy-hook.
+</p><p>Its recommended to disable any hook that has equivalent functionality in LMT.
+</p>
+<!-- 
+NewPP limit report
+Preprocessor node count: 682/1000000
+Post-expand include size: 13109/2097152 bytes
+Template argument size: 6050/2097152 bytes
+Expensive parser function count: 0/100
+-->
+
+<!-- Saved in parser cache with key archwiki:pcache:idhash:5386-0!*!0!!en!2!* and timestamp 20121214215334 -->
+</div><div class="printfooter">
+Retrieved from "<a href="https://wiki.archlinux.org/index.php?title=Laptop_Mode_Tools&amp;oldid=240327">https://wiki.archlinux.org/index.php?title=Laptop_Mode_Tools&amp;oldid=240327</a>"</div>
+		<div id='catlinks' class='catlinks'><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="/index.php/Special:Categories" title="Special:Categories">Categories</a>: <ul><li><a href="/index.php/Category:Laptops" title="Category:Laptops">Laptops</a></li><li><a href="/index.php/Category:Power_management" title="Category:Power management">Power management</a></li></ul></div></div>		<!-- end content -->
+				<div class="visualClear"></div>
+	</div>
+</div></div>
+<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<div class="pBody">
+			<ul>
+				<li id="ca-nstab-main" class="selected"><a href="/index.php/Laptop_Mode_Tools" primary="1" context="subject" title="View the content page [c]" accesskey="c">Page</a></li>
+				<li id="ca-talk"><a href="/index.php/Talk:Laptop_Mode_Tools" primary="1" context="talk" title="Discussion about the content page [t]" accesskey="t">Discussion</a></li>
+				<li id="ca-viewsource"><a href="/index.php?title=Laptop_Mode_Tools&amp;action=edit" primary="1" title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></li>
+				<li id="ca-history"><a href="/index.php?title=Laptop_Mode_Tools&amp;action=history" rel="archives" title="Past revisions of this page [h]" accesskey="h">History</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-personal">
+		<h5>Personal tools</h5>
+		<div class="pBody">
+			<ul>
+				<li id="pt-login"><a href="/index.php?title=Special:UserLogin&amp;returnto=Laptop+Mode+Tools" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in / create account</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-logo">
+<a href="/index.php/Main_Page" style="background-image: url(/skins/archlinux/archlogo.png);" title="Visit the main page"></a>
+	</div>
+	<div class="generated-sidebar portlet" id="p-navigation">
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage-description"><a href="/index.php/Main_Page" title="Visit the main page [z]" accesskey="z">Main page</a></li>
+				<li id="n-Table-of-Contents"><a href="/index.php/Table_of_Contents">Table of Contents</a></li>
+				<li id="n-portal"><a href="/index.php/Getting_Involved" title="Various ways Archers can contribute to the community">Getting Involved</a></li>
+				<li id="n-currentevents"><a href="/index.php/ArchWiki:News" title="The latest lowdown on the wiki">Wiki News</a></li>
+				<li id="n-recentchanges"><a href="/index.php/Special:RecentChanges" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li>
+				<li id="n-randompage"><a href="/index.php/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li>
+				<li id="n-help"><a href="/index.php/Help:Contents" title="Wiki navigation, reading, and editing help">Help</a></li>
+			</ul>
+		</div>
+	</div>
+	<div id="p-search" class="portlet">
+		<h5><label for="searchInput">Search</label></h5>
+		<div id="searchBody" class="pBody">
+			<form action="/index.php" id="searchform">
+				<input type='hidden' name="title" value="Special:Search"/>
+				<input type="search" name="search" title="Search ArchWiki [f]" accesskey="f" id="searchInput" />
+				<input type="submit" name="go" value="Go" title="Go to a page with this exact name if exists" id="searchGoButton" class="searchButton" />&#160;
+				<input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton" />
+			</form>
+		</div>
+	</div>
+	<div class="portlet" id="p-tb">
+		<h5>Toolbox</h5>
+		<div class="pBody">
+			<ul>
+				<li id="t-whatlinkshere"><a href="/index.php/Special:WhatLinksHere/Laptop_Mode_Tools" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+				<li id="t-recentchangeslinked"><a href="/index.php/Special:RecentChangesLinked/Laptop_Mode_Tools" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+				<li id="t-specialpages"><a href="/index.php/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li>
+				<li><a href="/index.php?title=Laptop_Mode_Tools&amp;printable=yes" rel="alternate">Printable version</a></li>
+				<li id="t-permalink"><a href="/index.php?title=Laptop_Mode_Tools&amp;oldid=240327" title="Permanent link to this revision of the page">Permanent link</a></li>
+			</ul>
+		</div>
+	</div>
+	<div id="p-lang" class="portlet">
+		<h5>In other languages</h5>
+		<div class="pBody">
+			<ul>
+				<li class="interwiki-de"><a href="https://wiki.archlinux.de/title/Laptop_Mode_Tools" title="Laptop Mode Tools" lang="de" hreflang="de">Deutsch</a></li>
+				<li class="interwiki-fr"><a href="http://wiki.archlinux.fr/Laptop_Mode_Tools" title="Laptop Mode Tools" lang="fr" hreflang="fr">Français</a></li>
+				<li class="interwiki-it"><a href="https://wiki.archlinux.org/index.php/Laptop_Mode_Tools_(Italiano)" title="Laptop Mode Tools" lang="it" hreflang="it">Italiano</a></li>
+				<li class="interwiki-ru"><a href="https://wiki.archlinux.org/index.php/Laptop_Mode_Tools_(%D0%A0%D1%83%D1%81%D1%81%D0%BA%D0%B8%D0%B9)" title="Laptop Mode Tools" lang="ru" hreflang="ru">Русский</a></li>
+				<li class="interwiki-zh-cn"><a href="https://wiki.archlinux.org/index.php/Laptop_Mode_Tools_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)" title="Laptop Mode Tools" lang="zh-cn" hreflang="zh-cn">‪中文(中国大陆)‬</a></li>
+			</ul>
+		</div>
+	</div>
+</div><!-- end of the left (by default at least) column -->
+<div class="visualClear"></div>
+<div id="footer">
+	<ul id="f-list">
+		<li id="lastmod"> This page was last modified on 14 December 2012, at 21:53.</li>
+		<li id="copyright">Content is available under <a class="external" href="http://www.gnu.org/copyleft/fdl.html">GNU Free Documentation License 1.3 or later</a>.</li>
+		<li id="privacy"><a href="/index.php/ArchWiki:Privacy_policy" title="ArchWiki:Privacy policy">Privacy policy</a></li>
+		<li id="about"><a href="/index.php/ArchWiki:About" title="ArchWiki:About">About ArchWiki</a></li>
+		<li id="disclaimer"><a href="/index.php/ArchWiki:General_disclaimer" title="ArchWiki:General disclaimer">Disclaimers</a></li>
+	</ul>
+</div>
+</div>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.user","mediawiki.page.ready"], null, true);
+}</script>
+<!-- Served in 0.034 secs. --></body><!-- Cached/compressed 20121214215931 -->
+</html>

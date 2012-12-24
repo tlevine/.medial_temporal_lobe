@@ -1,0 +1,303 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN""http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>Clocks and synchronization in GStreamer</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79;charset=UTF-8"><LINK
+REL="HOME"
+TITLE="GStreamer Application Development Manual (1.0.3)"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Advanced GStreamer concepts"
+HREF="part-advanced.html"><LINK
+REL="PREVIOUS"
+TITLE="The Video Overlay interface"
+HREF="section-interfaces-videooverlay.html"><LINK
+REL="NEXT"
+TITLE="Buffer running-time"
+HREF="section-buffer-running-time.html"></HEAD
+><BODY
+CLASS="chapter"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+><SPAN
+CLASS="application"
+>GStreamer</SPAN
+> Application Development Manual (1.0.3)</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="section-interfaces-videooverlay.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="section-buffer-running-time.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="chapter"
+><H1
+><A
+NAME="chapter-clocks"
+></A
+>Chapter 14. Clocks and synchronization in <SPAN
+CLASS="application"
+>GStreamer</SPAN
+></H1
+><P
+>&#13;    When playing complex media, each sound and video sample must be played in a
+    specific order at a specific time. For this purpose, GStreamer provides a
+    synchronization mechanism.
+  </P
+><P
+>&#13;    <SPAN
+CLASS="application"
+>GStreamer</SPAN
+> provides support for the following use cases:
+    <P
+></P
+><UL
+><LI
+><P
+>&#13;          Non-live sources with access faster than playback rate. This is
+          the case where one is reading media from a file and playing it
+          back in a synchronized fashion. In this case, multiple streams need
+          to be synchronized, like audio, video and subtitles.
+        </P
+></LI
+><LI
+><P
+>&#13;          Capture and synchronized muxing/mixing of media from multiple live
+          sources. This is a typical use case where you record audio and
+          video from a microphone/camera and mux it into a file for 
+          storage.
+        </P
+></LI
+><LI
+><P
+>&#13;          Streaming from (slow) network streams with buffering. This is the
+          typical web streaming case where you access content from a streaming
+          server with http.
+        </P
+></LI
+><LI
+><P
+>&#13;          Capture from live source and and playback to live source with
+          configurable latency. This is used when, for example, capture from
+          a camera, apply an effect and display the result. It is also used
+          when streaming low latency content over a network with UDP.
+        </P
+></LI
+><LI
+><P
+>&#13;          Simultaneous live capture and playback from prerecorded content.
+          This is used in audio recording cases where you play a previously
+          recorded audio and record new samples, the purpose is to have the
+          new audio perfectly in sync with the previously recorded data.
+        </P
+></LI
+></UL
+>
+  </P
+><P
+>&#13;    <SPAN
+CLASS="application"
+>GStreamer</SPAN
+> uses a <CODE
+CLASS="classname"
+>GstClock</CODE
+> object, buffer
+    timestamps and a SEGMENT event to synchronize streams in a pipeline
+    as we will see in the next sections.
+  </P
+><DIV
+CLASS="sect1"
+><H1
+CLASS="sect1"
+><A
+NAME="section-clock-time-types"
+>14.1. Clock running-time</A
+></H1
+><P
+>&#13;      In a typical computer, there are many sources that can be used as a
+      time source, e.g., the system time, soundcards, CPU performance
+      counters, ... For this reason, there are many
+      <CODE
+CLASS="classname"
+>GstClock</CODE
+> implementations available in <SPAN
+CLASS="application"
+>GStreamer</SPAN
+>.
+      The clock time doesn't always start from 0 or from some known value.
+      Some clocks start counting from some known start date, other clocks start
+      counting since last reboot, etc...
+    </P
+><P
+>&#13;      A <CODE
+CLASS="classname"
+>GstClock</CODE
+> returns the
+      <SPAN
+CLASS="strong"
+><B
+CLASS="emphasis"
+>absolute-time</B
+></SPAN
+>
+      according to that clock with <CODE
+CLASS="function"
+>gst_clock_get_time ()</CODE
+>.
+      The absolute-time (or clock time) of a clock is monotonically increasing.
+      From the absolute-time is a <SPAN
+CLASS="strong"
+><B
+CLASS="emphasis"
+>running-time</B
+></SPAN
+>
+      calculated, which is simply the difference between a previous snapshot
+      of the absolute-time called the <SPAN
+CLASS="strong"
+><B
+CLASS="emphasis"
+>base-time</B
+></SPAN
+>.
+      So:
+    </P
+><P
+>&#13;      running-time = absolute-time - base-time
+    </P
+><P
+>&#13;      A <SPAN
+CLASS="application"
+>GStreamer</SPAN
+> <CODE
+CLASS="classname"
+>GstPipeline</CODE
+> object maintains a
+      <CODE
+CLASS="classname"
+>GstClock</CODE
+> object and a base-time when it goes
+      to the PLAYING state.  The pipeline gives a handle to the selected
+      <CODE
+CLASS="classname"
+>GstClock</CODE
+> to each element in the pipeline along
+      with selected base-time. The pipeline will select a base-time in such
+      a way that the running-time reflects the total time spent in the
+      PLAYING state. As a result, when the pipeline is PAUSED, the
+      running-time stands still.
+    </P
+><P
+>&#13;      Because all objects in the pipeline have the same clock and base-time,
+      they can thus all calculate the running-time according to the pipeline
+      clock.
+    </P
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="section-interfaces-videooverlay.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="section-buffer-running-time.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>The Video Overlay interface</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="part-advanced.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Buffer running-time</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

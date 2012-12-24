@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US">
+<head>
+<meta charset="UTF-8" />
+<title> Data Community DC</title>
+<meta name="google-site-verification" content="DDyi9vAGTPPCBn4It1bTOg2DUN18nm-MAtDQkhz_HO8" />
+
+<meta name="keywords" content="" />
+<link rel="shortcut icon" href="http://datacommunitydc.org/blog/wp-content/themes/blogolife/images/favicon.ico" />
+<link rel="apple-touch-icon" href="http://datacommunitydc.org/blog/wp-content/themes/blogolife/images/apple-touch-icon.png" />
+<link rel="stylesheet" href="http://datacommunitydc.org/blog/wp-content/themes/blogolife/style.css?1349924731" type="text/css" media="screen, projection" />
+<!-- <link rel="stylesheet" type="text/css" media="all" href="http://datacommunitydc.org/blog/wp-content/themes/blogolife/style.css" /> -->
+<link rel="alternate" type="application/rss+xml" title="Data Community DC &raquo; Feed" href="http://datacommunitydc.org/blog/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Data Community DC &raquo; Comments Feed" href="http://datacommunitydc.org/blog/comments/feed/" />
+
+			<script type="text/javascript">//<![CDATA[
+			// Google Analytics for WordPress by Yoast v4.2.8 | http://yoast.com/wordpress/google-analytics/
+			var _gaq = _gaq || [];
+			_gaq.push(['_setAccount', 'UA-34036746-1']);
+							_gaq.push(['_trackPageview']);
+			(function () {
+				var ga = document.createElement('script');
+				ga.type = 'text/javascript';
+				ga.async = true;
+				ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+				var s = document.getElementsByTagName('script')[0];
+				s.parentNode.insertBefore(ga, s);
+			})();
+			//]]></script>
+			<link rel='stylesheet' id='validate-engine-css-css'  href='http://datacommunitydc.org/blog/wp-content/plugins/wysija-newsletters/css/validationEngine.jquery.css?ver=2.1.6' type='text/css' media='all' />
+<link rel='stylesheet' id='oswald-css'  href='http://fonts.googleapis.com/css?family=Oswald&#038;v2&#038;ver=3.4.2' type='text/css' media='all' />
+<link rel='stylesheet' id='stripe-payment-css-css'  href='http://datacommunitydc.org/blog/wp-content/plugins/wp-stripe/css/wp-stripe-display.css?ver=3.4.2' type='text/css' media='all' />
+<link rel='stylesheet' id='stripe-widget-css-css'  href='http://datacommunitydc.org/blog/wp-content/plugins/wp-stripe/css/wp-stripe-widget.css?ver=3.4.2' type='text/css' media='all' />
+<link rel='stylesheet' id='stripe-thickbox-css'  href='http://datacommunitydc.org/blog/wp-content/plugins/wp-stripe/css/wp-stripe-thickbox.css?ver=3.4.2' type='text/css' media='all' />
+<script type='text/javascript' src='http://datacommunitydc.org/blog/wp-includes/js/jquery/jquery.js?ver=1.7.2'></script>
+<script type='text/javascript' src='http://html5shim.googlecode.com/svn/trunk/html5.js?ver=3.4.2'></script>
+<script type='text/javascript' src='http://js.stripe.com/v1/?ver=3.4.2'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var wpstripekey = [""];
+var ajaxurl = "http:\/\/datacommunitydc.org\/blog\/wp-admin\/admin-ajax.php";
+/* ]]> */
+</script>
+<script type='text/javascript' src='http://datacommunitydc.org/blog/wp-content/plugins/wp-stripe/js/wp-stripe.js?ver=3.4.2'></script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://datacommunitydc.org/blog/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://datacommunitydc.org/blog/wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 3.4.2" />
+<link rel="stylesheet" href="http://datacommunitydc.org/blog/wp-content/plugins/digg-digg/include/../css/diggdigg-style.css?ver=5.2.9" type="text/css" media="screen" />	<style type="text/css">
+			#site-title a,
+		#site-description {
+			color: #666 !important;
+		}
+		</style>
+	<style type="text/css" id="custom-background-css">
+body.custom-background { background-color: #f3f3f3; background-image: url('http://datacommunitydc.org/blog/wp-content/themes/blogolife/images/bg.png'); background-repeat: repeat; background-position: top left; background-attachment: fixed; }
+</style>
+	</head>
+<body class="home blog custom-background two-column right-sidebar">
+<div id="page">
+	<header id="branding">
+<hgroup class="fleft">
+<a href="http://datacommunitydc.org/blog/" title="Data Community DC - supporting the analytics community with events and more" rel="home">
+<img src="http://datacommunitydc.org/blog/wp-content/uploads/2012/08/DC2logo-cluster-name-100px.png" class="dc2-icon" style = "float: left;  margin-right: 10px; " alt="Group Icon"></a>
+<!--	<h1 id="site-title"><a href="http://datacommunitydc.org/blog/" title="Data Community DC - supporting the analytics community with events and more" rel="home">Data Community DC</a></h1>
+	<h2 id="site-description">supporting the analytics community with events and more</h2> -->
+</hgroup>
+<div class="header-desc fright"><p></p></div>
+<div class="clear"></div>
+<div class= "fleft">
+<h2 id="site-description">supporting the analytics community with events and more</h2>
+</div>
+<div class="social-icons fright">
+
+	
+	
+</div><div class="clear"></div>
+</header>
+
+<nav>
+	<div class="menu-wplook-main-menu-container"><ul id="menu-wplook-main-menu" class="menu"><li id="menu-item-94" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-94"><a href="http://datacommunitydc.org/blog/about/" >About</a></li>
+<li id="menu-item-92" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-92"><a href="http://datacommunitydc.org/blog/r-users-dc/" >R Users DC</a></li>
+<li id="menu-item-93" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-93"><a href="http://datacommunitydc.org/blog/data-science-dc/" >Data Science DC</a></li>
+<li id="menu-item-117" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-117"><a href="http://datacommunitydc.org/blog/data-business-dc/" >Data Business DC</a></li>
+<li id="menu-item-91" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-91"><a href="http://datacommunitydc.org/blog/subscribe/" >Newsletter</a></li>
+<li id="menu-item-90" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-90"><a href="http://events.datacommunitydc.org/" >Events</a></li>
+<li id="menu-item-191" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-191"><a href="http://datacommunitydc.org/blog/jobs/" >Jobs</a></li>
+</ul></div>	<div class="left-corner"></div>
+	<div class="right-corner"></div>
+</nav>
+
+<div id="header-image">	
+			<a href="http://datacommunitydc.org/blog/">
+									<img src="http://datacommunitydc.org/blog/wp-content/uploads/2012/07/cropped-2230160930_41520206c7_o1.jpg" width="959" height="200" alt="Data Community DC - supporting the analytics community with events and more" />
+				
+			</a>
+						</div>
+<div id="main"><div class="primary">
+	<div id="content">
+					<article id="post-565" class="post-565 post type-post status-publish format-standard hentry category-databusiness category-guestpost">
+	<div class="col1 fleft"><div class="postformat"><div class="format-icon"></div><div class="left-corner"></div></div></div>
+	<div class="col2 fright">
+		<header class="entry-header"><h1 class="entry-title"><a href="http://datacommunitydc.org/blog/2012/12/big-data-is-like-a-turkey/" title="Permalink to Big Data is like a turkey &#8230;" rel="bookmark">Big Data is like a turkey &#8230;</a></h1></header>
+			
+		<div class="entry-content">
+			<p>We are very fortunate to have a pithy holiday post from an amazing guest cross-columnist: Dan Gordon (<a href="https://twitter.com/pipik" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://twitter.com']);">@pipik</a>).</p>
+<blockquote><p>Since a lot of people grumble about the &#8220;Big Data&#8221; meme &#8212; &#8220;what is this _big_ data anyhow&#8221; &#8212; I thought an analogy might help.</p>
+<p>Big Data:Data::turkeys:chickens</p>
+<p>A turkey is &#8220;really&#8221; just a big chicken. Same limbs. Same white and dark meat, same spices and herbs, similar taste.</p>
+<p>But the scale of the turkey introduces new problems and requires new solutions:</p>
+<p> <a href="http://datacommunitydc.org/blog/2012/12/big-data-is-like-a-turkey/#more-565"  class="more-link">Continue reading <span class="meta-nav">&rarr;</span></a></p></blockquote>
+			<div class="clear"></div>
+		</div><!-- .entry-content -->
+			
+		<footer class="entry-meta">
+			<div class="date-i fleft"><a href="http://datacommunitydc.org/blog/2012/12/big-data-is-like-a-turkey/" title="Permalink to Big Data is like a turkey &#8230;" rel="nofollow">December 24, 2012 at 12:00 pm</a></div>
+						<div class="comment-i fleft"><a href="http://datacommunitydc.org/blog/2012/12/big-data-is-like-a-turkey/#respond" class="comments-link"  title="Comment on Big Data is like a turkey &#8230;">No comments</a></div>
+						<div class="author-i fleft">	<span class="vcard"><a class="url fn n" href="http://datacommunitydc.org/blog/author/sean/">Sean</a></span>
+</div>
+						<div class="clear"></div>
+		</footer>
+	</div>
+	<div class="clear"></div>
+</article>				<article id="post-537" class="post-537 post type-post status-publish format-standard hentry category-roundups">
+	<div class="col1 fleft"><div class="postformat"><div class="format-icon"></div><div class="left-corner"></div></div></div>
+	<div class="col2 fright">
+		<header class="entry-header"><h1 class="entry-title"><a href="http://datacommunitydc.org/blog/2012/12/weekly-round-up-data-driven-processes-products-smb-big-data-telling-stories-and-fighting-bullying/" title="Permalink to Weekly Round-Up: Data-Driven Processes &amp; Products, SMB Big Data, Telling Stories, and Fighting Bullying" rel="bookmark">Weekly Round-Up: Data-Driven Processes &#038; Products, SMB Big Data, Telling Stories, and Fighting Bullying</a></h1></header>
+			
+		<div class="entry-content">
+			<p>For this week&#8217;s round-up of the most interesting data articles and blog posts from around the web, we have several articles ranging in topics from using big data in small and medium sized businesses to using machine learning to combat bullying. </p>
+<p>In this week&#8217;s round-up:</p>
+<ul>
+<li>So I&#8217;ve got Big Data. Now What?</li>
+<li>How small and mid-sized businesses can tap the power of big data</li>
+<li>The key to data science? Telling stories</li>
+<li>Fighting bullying with machine learning</li>
+</ul>
+<p> <a href="http://datacommunitydc.org/blog/2012/12/weekly-round-up-data-driven-processes-products-smb-big-data-telling-stories-and-fighting-bullying/#more-537"  class="more-link">Continue reading <span class="meta-nav">&rarr;</span></a></p>
+			<div class="clear"></div>
+		</div><!-- .entry-content -->
+			
+		<footer class="entry-meta">
+			<div class="date-i fleft"><a href="http://datacommunitydc.org/blog/2012/12/weekly-round-up-data-driven-processes-products-smb-big-data-telling-stories-and-fighting-bullying/" title="Permalink to Weekly Round-Up: Data-Driven Processes &amp; Products, SMB Big Data, Telling Stories, and Fighting Bullying" rel="nofollow">December 23, 2012 at 9:48 am</a></div>
+						<div class="comment-i fleft"><a href="http://datacommunitydc.org/blog/2012/12/weekly-round-up-data-driven-processes-products-smb-big-data-telling-stories-and-fighting-bullying/#respond" class="comments-link"  title="Comment on Weekly Round-Up: Data-Driven Processes &amp; Products, SMB Big Data, Telling Stories, and Fighting Bullying">No comments</a></div>
+						<div class="author-i fleft">	<span class="vcard"><a class="url fn n" href="http://datacommunitydc.org/blog/author/tony/">Tony</a></span>
+</div>
+						<div class="clear"></div>
+		</footer>
+	</div>
+	<div class="clear"></div>
+</article>				<article id="post-333" class="post-333 post type-post status-publish format-standard hentry category-databusiness category-events category-reviews">
+	<div class="col1 fleft"><div class="postformat"><div class="format-icon"></div><div class="left-corner"></div></div></div>
+	<div class="col2 fright">
+		<header class="entry-header"><h1 class="entry-title"><a href="http://datacommunitydc.org/blog/2012/12/event-review-money-for-nothing-productizing-government-data/" title="Permalink to Event Review: Money for Nothing &#8211; Productizing Government Data" rel="bookmark">Event Review: Money for Nothing &#8211; Productizing Government Data</a></h1></header>
+			
+		<div class="entry-content">
+			<p>Some companies are increasingly closing their APIs and locking down their data with the aim to figure out how to monetize it (see twitter for instance). The government, however, is doing the opposite. It&#8217;s actively creating API&#8217;s to make government more transparent and accessible. This is creating new opportunities for businesses who are willing to make sense of and transform the data into something valuable for a particular market. These new opportunities and the lessons learned by those in the trenches was the theme for <a href="http://www.meetup.com/Data-Business-DC/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.meetup.com']);">Data Business DC</a>&#8216;s (DBDC&#8217;s) second meetup <a href="http://www.meetup.com/Data-Business-DC/events/90627012/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.meetup.com']);" target="_blank">Money For Nothing &#8212; Productizing Government Data</a>. Presenters ranged from the small, one-person startup using government data as the foundation of the business <a href="http://datacommunitydc.org/blog/wp-content/uploads/2012/12/IMAG3096.jpg" ><img class="size-medium wp-image-356 alignright" src="http://datacommunitydc.org/blog/wp-content/uploads/2012/12/IMAG3096-300x179.jpg" alt="Josh Hurd of Fedalytics Presents" width="300" height="179" /></a> to a senior government official talking about the challenges, successes, and opportunities of using government data.</p>
+<p> <a href="http://datacommunitydc.org/blog/2012/12/event-review-money-for-nothing-productizing-government-data/#more-333"  class="more-link">Continue reading <span class="meta-nav">&rarr;</span></a></p>
+			<div class="clear"></div>
+		</div><!-- .entry-content -->
+			
+		<footer class="entry-meta">
+			<div class="date-i fleft"><a href="http://datacommunitydc.org/blog/2012/12/event-review-money-for-nothing-productizing-government-data/" title="Permalink to Event Review: Money for Nothing &#8211; Productizing Government Data" rel="nofollow">December 18, 2012 at 3:05 pm</a></div>
+						<div class="comment-i fleft"><a href="http://datacommunitydc.org/blog/2012/12/event-review-money-for-nothing-productizing-government-data/#respond" class="comments-link"  title="Comment on Event Review: Money for Nothing &#8211; Productizing Government Data">No comments</a></div>
+						<div class="author-i fleft">	<span class="vcard"><a class="url fn n" href="http://datacommunitydc.org/blog/author/robert/">Robert</a></span>
+</div>
+						<div class="clear"></div>
+		</footer>
+	</div>
+	<div class="clear"></div>
+</article>				<article id="post-504" class="post-504 post type-post status-publish format-standard hentry category-roundups">
+	<div class="col1 fleft"><div class="postformat"><div class="format-icon"></div><div class="left-corner"></div></div></div>
+	<div class="col2 fright">
+		<header class="entry-header"><h1 class="entry-title"><a href="http://datacommunitydc.org/blog/2012/12/weekly-round-up-kurzweil-google-big-data-obstacles-human-intelligence-data-strategy-and-premature-babies/" title="Permalink to Weekly Round-Up: Kurzweil &amp; Google, Big Data Obstacles, Human Intelligence, Data Strategy, and Premature Babies" rel="bookmark">Weekly Round-Up: Kurzweil &#038; Google, Big Data Obstacles, Human Intelligence, Data Strategy, and Premature Babies</a></h1></header>
+			
+		<div class="entry-content">
+			<p>This past week was an exciting one in data. There were a lot of good articles published and we found several of them interesting enough to include in this week&#8217;s round-up.</p>
+<p>In this week&#8217;s round-up:</p>
+<ul>
+<li>Kurzweil joins Google</li>
+<li>Big Data&#8217;s Biggest Obstacles</li>
+<li>Operations, machine learning and premature babies</li>
+<li>How To Augment Predictive Analytics with Human Intelligence</li>
+<li>Define your big data strategy with these key steps</li>
+</ul>
+<p> <a href="http://datacommunitydc.org/blog/2012/12/weekly-round-up-kurzweil-google-big-data-obstacles-human-intelligence-data-strategy-and-premature-babies/#more-504"  class="more-link">Continue reading <span class="meta-nav">&rarr;</span></a></p>
+			<div class="clear"></div>
+		</div><!-- .entry-content -->
+			
+		<footer class="entry-meta">
+			<div class="date-i fleft"><a href="http://datacommunitydc.org/blog/2012/12/weekly-round-up-kurzweil-google-big-data-obstacles-human-intelligence-data-strategy-and-premature-babies/" title="Permalink to Weekly Round-Up: Kurzweil &amp; Google, Big Data Obstacles, Human Intelligence, Data Strategy, and Premature Babies" rel="nofollow">December 17, 2012 at 8:41 am</a></div>
+						<div class="comment-i fleft"><a href="http://datacommunitydc.org/blog/2012/12/weekly-round-up-kurzweil-google-big-data-obstacles-human-intelligence-data-strategy-and-premature-babies/#respond" class="comments-link"  title="Comment on Weekly Round-Up: Kurzweil &amp; Google, Big Data Obstacles, Human Intelligence, Data Strategy, and Premature Babies">No comments</a></div>
+						<div class="author-i fleft">	<span class="vcard"><a class="url fn n" href="http://datacommunitydc.org/blog/author/tony/">Tony</a></span>
+</div>
+						<div class="clear"></div>
+		</footer>
+	</div>
+	<div class="clear"></div>
+</article>				<article id="post-338" class="post-338 post type-post status-publish format-standard hentry category-community category-projects tag-hackathons">
+	<div class="col1 fleft"><div class="postformat"><div class="format-icon"></div><div class="left-corner"></div></div></div>
+	<div class="col2 fright">
+		<header class="entry-header"><h1 class="entry-title"><a href="http://datacommunitydc.org/blog/2012/12/hackmeat-or-data-community-dc-members-go-to-nyc/" title="Permalink to Hack//Meat or Data Community DC Members go to NYC" rel="bookmark">Hack//Meat or Data Community DC Members go to NYC</a></h1></header>
+			
+		<div class="entry-content">
+			<p>This past weekend, five intrepid souls (<a href="http://www.linkedin.com/pub/robert-vesco/4/270/768" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.linkedin.com']);">Robert Vesco</a>, <a href="http://www.linkedin.com/in/valeriecoffman" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.linkedin.com']);">Valerie Coffman</a>, <a href="http://www.linkedin.com/in/harlanharris" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.linkedin.com']);">Harlan Harris</a>, <a href="http://www.linkedin.com/pub/octavian-geagla/34/191/b93" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.linkedin.com']);">Octavian Geagla</a>, <a href="http://www.linkedin.com/in/seanpatrickmurphy1" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.linkedin.com']);">Sean Patrick Murphy</a>) from <a href="http://datacommunitydc.org" >Data Community DC</a> converged on New York City for the first <a href="http://events.foodtechconnect.com/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://events.foodtechconnect.com']);">Hack//Meat</a>.<a href="http://datacommunitydc.org/blog/wp-content/uploads/2012/12/hackmeatgroup.jpg" ><img class="alignnone size-full wp-image-349" title="Hashmeat DC contingent" src="http://datacommunitydc.org/blog/wp-content/uploads/2012/12/hackmeatgroup.jpg" alt="" width="642" height="362" /></a></p>
+<p>So, what is Hack//Meat? An effort to bring</p>
+<blockquote><p>&#8220;together technologists, entrepreneurs, creatives, policy experts, non-profit leaders and industry executives to develop technologies and tools that help democratize meat. Over the course of the weekend, “steakholders” will work with teams to rapidly prototype innovative solutions to business or consumer education challenges in the way meat is produced, processed, distributed, sold and consumed.&#8221;</p></blockquote>
+<p>From Friday night to Sunday at 4pm, the team slaved away (with special technical awards going to Octavian and Valerie), first brainstorming solutions to the problem of data communication and then building out a prototype, <a href="hashmeat.org">HashMeat.org</a>. Overall, we left NYC well stuffed with meat and having had a fantastic time. Keep reading if you would like a few more details on our project.</p>
+<hr />
+<h4>The Problem: Meat Monopolies</h4>
+<p>While everyone knows about the obvious monopolies (duopolies or oligopolies) such as Comcast and Verizon in the cable industry, many may not know of the radical consolidation that has occurred in the meat industry. The team&#8217;s challenge was to unlock public policy results and data too often buried in PDF files and rarely-read glossy reports.</p>
+<h4>The Solution: <a href="hashmeat.org">#HashMeat</a></h4>
+<p>Telling a story to motivate activism is crucial. Transitioning that story telling from the cramped confines of PDFs and Powerpoints to the dynamic possibilities of the web and low-barrier activism is the key to kickstarting viral loops via social networks.</p>
+<p><a href="hashmeat.org">HashMeat.org</a> is an HTML 5 website powered by JQuery and Twitter that provides a framework for rapidly deploying relevant infographics while drastically reducing the friction for engaged citizens to challenge their government representatives to affect change.</p>
+<p>Using HTML 5&#8242;s geolocation functionality, #HashMeat uses your latitude and longitude (and <a href="http://services.sunlightlabs.com/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://services.sunlightlabs.com']);">Sunlight Lab&#8217;s services</a>) to identify appropriate Senators and Representatives. With each unique infographic, #HashMeat allows the civic minded viewer to tweat context-sensitive tweets to these representatives, calling for change. Instrumental to HashMeat is the leaderboard (still under develoment) that visualizes the individual&#8217;s influence via the use of a global leaderboard.</p>
+<h4>The Future:</h4>
+<p>This advocacy story is only the beginning. The site serves as a possible design concept for different advocacy movements without a voice. The gaps this solution has helped to bridge can serve as an example to other campaigns that are struggling to maintain a social presence or lack provisions with which their audience can take meaningful political action.</p>
+			<div class="clear"></div>
+		</div><!-- .entry-content -->
+			
+		<footer class="entry-meta">
+			<div class="date-i fleft"><a href="http://datacommunitydc.org/blog/2012/12/hackmeat-or-data-community-dc-members-go-to-nyc/" title="Permalink to Hack//Meat or Data Community DC Members go to NYC" rel="nofollow">December 12, 2012 at 4:11 pm</a></div>
+						<div class="comment-i fleft"><a href="http://datacommunitydc.org/blog/2012/12/hackmeat-or-data-community-dc-members-go-to-nyc/#respond" class="comments-link"  title="Comment on Hack//Meat or Data Community DC Members go to NYC">No comments</a></div>
+						<div class="author-i fleft">	<span class="vcard"><a class="url fn n" href="http://datacommunitydc.org/blog/author/sean/">Sean</a></span>
+</div>
+						<div class="clear"></div>
+		</footer>
+	</div>
+	<div class="clear"></div>
+</article>				<article id="post-299" class="post-299 post type-post status-publish format-standard hentry category-roundups">
+	<div class="col1 fleft"><div class="postformat"><div class="format-icon"></div><div class="left-corner"></div></div></div>
+	<div class="col2 fright">
+		<header class="entry-header"><h1 class="entry-title"><a href="http://datacommunitydc.org/blog/2012/12/weekly-round-up-big-data-busines-models-cloudera-bi-trends-and-cool-visualizations/" title="Permalink to Weekly Round-Up: Big Data Business Models, Cloudera, BI Trends, and Cool Visualizations" rel="bookmark">Weekly Round-Up: Big Data Business Models, Cloudera, BI Trends, and Cool Visualizations</a></h1></header>
+			
+		<div class="entry-content">
+			<p>This week, we continue our data round-up series containing the most interesting data science, machine learning, statistics, and analytics articles we&#8217;ve come across.  We found several great articles this week with topics spanning from big data to business intelligence with some interesting data visualizations sprinkled in there.</p>
+<p>In this week&#8217;s round-up:</p>
+<ul>
+<li><fontsize ="3> What a Big Data Business Model Looks Like</fontsize></li>
+<li><fontsize ="3> Mapping Twitter&#8217;s Python and Data Science Communities</fontsize></li>
+<li><fontsize ="3> Big Data Leader Cloudera Raises $65M to Fuel Further Hadoop Adoption</fontsize></li>
+<li><fontsize ="3> Infographic: Google&#8217;s Flu Map Might Predict the Next Big Epidemic</fontsize></li>
+<li><fontsize ="3> Top 10 Trends for Business Intelligence</fontsize></li>
+</ul>
+<p> <a href="http://datacommunitydc.org/blog/2012/12/weekly-round-up-big-data-busines-models-cloudera-bi-trends-and-cool-visualizations/#more-299"  class="more-link">Continue reading <span class="meta-nav">&rarr;</span></a></p>
+			<div class="clear"></div>
+		</div><!-- .entry-content -->
+			
+		<footer class="entry-meta">
+			<div class="date-i fleft"><a href="http://datacommunitydc.org/blog/2012/12/weekly-round-up-big-data-busines-models-cloudera-bi-trends-and-cool-visualizations/" title="Permalink to Weekly Round-Up: Big Data Business Models, Cloudera, BI Trends, and Cool Visualizations" rel="nofollow">December 10, 2012 at 8:19 am</a></div>
+						<div class="comment-i fleft"><a href="http://datacommunitydc.org/blog/2012/12/weekly-round-up-big-data-busines-models-cloudera-bi-trends-and-cool-visualizations/#respond" class="comments-link"  title="Comment on Weekly Round-Up: Big Data Business Models, Cloudera, BI Trends, and Cool Visualizations">No comments</a></div>
+						<div class="author-i fleft">	<span class="vcard"><a class="url fn n" href="http://datacommunitydc.org/blog/author/tony/">Tony</a></span>
+</div>
+						<div class="clear"></div>
+		</footer>
+	</div>
+	<div class="clear"></div>
+</article>				<article id="post-291" class="post-291 post type-post status-publish format-standard hentry category-events category-reviews">
+	<div class="col1 fleft"><div class="postformat"><div class="format-icon"></div><div class="left-corner"></div></div></div>
+	<div class="col2 fright">
+		<header class="entry-header"><h1 class="entry-title"><a href="http://datacommunitydc.org/blog/2012/12/implicit-sentiment-mining-review/" title="Permalink to Data Science DC Event Review: Implicit Sentiment Mining in Twitter Streams" rel="bookmark">Data Science DC Event Review: Implicit Sentiment Mining in Twitter Streams</a></h1></header>
+			
+		<div class="entry-content">
+			<p>Geoff Moes wrote a great, comprehensive writeup of our most recent Data Science DC event, &#8220;<a href="http://www.meetup.com/Data-Science-DC/events/75041762/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.meetup.com']);">Implicit Sentiment Mining in Twitter Streams</a>&#8221; by Maksim (Max) Tsvetovat. Geoff is a seasoned software developer and math enthusiast, with an interest in applying analytics to software engineering problems. He blogs about his thoughts at <a href="http://www.elegantcoding.com/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.elegantcoding.com']);" target="_blank">Elegant Coding</a>. Here&#8217;s an excerpt (pardon the language in the example):</p>
+<p style="padding-left: 30px;">The field of <a href="http://en.wikipedia.org/wiki/Computational_linguistics" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://en.wikipedia.org']);">computational linguistics</a> has developed a number of techniques to handle some the complexity issues&#8230; by parsing text using <a href="http://en.wikipedia.org/wiki/Part_of_speech" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://en.wikipedia.org']);">POS (parts-of-speech)</a> identification which helps with homonyms and some ambiguity. [Max] gives the following example:</p>
+<div style="padding-left: 30px;">
+<p style="padding-left: 30px;">Create rules with amplifier words and inverter words:</p>
+<ul style="padding-left: 30px;">
+<em></p>
+<li style="padding-left: 30px;">This concert (np) was (v) f**ing (AMP) awesome (+1) = +2</li>
+<li style="padding-left: 30px;">But the opening act (np) was (v) not (INV) great (+1) = -1</li>
+<li style="padding-left: 30px;">My car (np) got (v) rear-ended (v)! F**ing (AMP) awesome (+1) = +2??</li>
+<p></em>
+</ul>
+</div>
+<p style="padding-left: 30px;">Here he introduces two concepts which modify the sentiment, which might fall under the concept of sentiment &#8220;polarity classification&#8221; or detection.  One idea is of an amplifier (AMP) which makes the sentiment stronger and an inverter (INV) which creates an opposite sentiment.  I found this idea of &#8220;sentiment modification&#8221; intriguing and did a little searching and came across a paper called &#8220;<a href="http://www.win.tue.nl/~mpechen/projects/pdfs/Tromp2011.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.win.tue.nl/~mpechen/projects/pdfs/Tromp2011.pdf']);">Multilingual Sentiment Analysis on Social Media</a>&#8221; which describes these ideas [page 12] and a few more including an attenuator which is the opposite of an amplifier.  It also describes some other modifiers that control sentiment flow in the text, pretty interesting concepts, actually the paper looks quite interesting,</p>
+<p><a href="http://www.elegantcoding.com/2012/12/data-science-dc-implicit-sentiment.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.elegantcoding.com']);" target="_blank">Read the rest on Geoff&#8217;s blog&#8230;</a></p>
+<p>&nbsp;</p>
+			<div class="clear"></div>
+		</div><!-- .entry-content -->
+			
+		<footer class="entry-meta">
+			<div class="date-i fleft"><a href="http://datacommunitydc.org/blog/2012/12/implicit-sentiment-mining-review/" title="Permalink to Data Science DC Event Review: Implicit Sentiment Mining in Twitter Streams" rel="nofollow">December 4, 2012 at 8:05 pm</a></div>
+						<div class="comment-i fleft"><a href="http://datacommunitydc.org/blog/2012/12/implicit-sentiment-mining-review/#respond" class="comments-link"  title="Comment on Data Science DC Event Review: Implicit Sentiment Mining in Twitter Streams">No comments</a></div>
+						<div class="author-i fleft">	<span class="vcard"><a class="url fn n" href="http://datacommunitydc.org/blog/author/harlan/">Harlan</a></span>
+</div>
+						<div class="clear"></div>
+		</footer>
+	</div>
+	<div class="clear"></div>
+</article>				<article id="post-279" class="post-279 post type-post status-publish format-standard hentry category-roundups">
+	<div class="col1 fleft"><div class="postformat"><div class="format-icon"></div><div class="left-corner"></div></div></div>
+	<div class="col2 fright">
+		<header class="entry-header"><h1 class="entry-title"><a href="http://datacommunitydc.org/blog/2012/12/weekly-round-up-managing-data-teams-algorithms-vs-more-data-and-data-oil-comparison/" title="Permalink to Weekly Round-Up: Managing Data Teams, Algorithms vs. More Data, and Data Oil Comparison" rel="bookmark">Weekly Round-Up: Managing Data Teams, Algorithms vs. More Data, and Data Oil Comparison</a></h1></header>
+			
+		<div class="entry-content">
+			<p>We are excited to announce that we are kicking off a new series on the DC2 blog: a weekly round-up of the most interesting data science, machine learning, statistics, and analytics articles we&#8217;ve come across. There&#8217;s a ton being written about data, so we figured we&#8217;d share the most interesting with you every week here on our blog.</p>
+<p>Now, without further ado, here are the articles that made our list for this week!</p>
+<p> <a href="http://datacommunitydc.org/blog/2012/12/weekly-round-up-managing-data-teams-algorithms-vs-more-data-and-data-oil-comparison/#more-279"  class="more-link">Continue reading <span class="meta-nav">&rarr;</span></a></p>
+			<div class="clear"></div>
+		</div><!-- .entry-content -->
+			
+		<footer class="entry-meta">
+			<div class="date-i fleft"><a href="http://datacommunitydc.org/blog/2012/12/weekly-round-up-managing-data-teams-algorithms-vs-more-data-and-data-oil-comparison/" title="Permalink to Weekly Round-Up: Managing Data Teams, Algorithms vs. More Data, and Data Oil Comparison" rel="nofollow">December 2, 2012 at 12:38 am</a></div>
+						<div class="comment-i fleft"><a href="http://datacommunitydc.org/blog/2012/12/weekly-round-up-managing-data-teams-algorithms-vs-more-data-and-data-oil-comparison/#respond" class="comments-link"  title="Comment on Weekly Round-Up: Managing Data Teams, Algorithms vs. More Data, and Data Oil Comparison">No comments</a></div>
+						<div class="author-i fleft">	<span class="vcard"><a class="url fn n" href="http://datacommunitydc.org/blog/author/tony/">Tony</a></span>
+</div>
+						<div class="clear"></div>
+		</footer>
+	</div>
+	<div class="clear"></div>
+</article>				<article id="post-256" class="post-256 post type-post status-publish format-standard hentry category-announcements category-community category-events">
+	<div class="col1 fleft"><div class="postformat"><div class="format-icon"></div><div class="left-corner"></div></div></div>
+	<div class="col2 fright">
+		<header class="entry-header"><h1 class="entry-title"><a href="http://datacommunitydc.org/blog/2012/11/meet-hadoop-creator-doug-cutting/" title="Permalink to Meet Hadoop Creator Doug Cutting" rel="bookmark">Meet Hadoop Creator Doug Cutting</a></h1></header>
+			
+		<div class="entry-content">
+			<p>Although I would much prefer you come to the next <a href="http://www.meetup.com/Data-Business-DC/events/90627012/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.meetup.com']);" title="Money for Nothing" target="_blank">DataBusinessDC event</a>, there is another event, away far away in Columbia, MD that some might prefer.  Details below.</p>
+<hr/>
+<strong>When:</strong><br />
+Wed, Dec 5, 2012<br />
+6 &#8211; 8:00 PM</p>
+<hr/>
+<p><strong>Location:</strong><br />
+Johns Hopkins University Applied Physics Laboratory<br />
+<a href="https://maps.google.com/?q=11100+Johns+Hopkins+Road,+Laurel,+MD" target="_blank">11100 Johns Hopkins Road, Laurel, MD 20723<br />
+</a>Building 200, Room E100 </p>
+<hr/>
+<strong>Session Abstract</strong><br />
+<em>Beyond Batch: Hadoop started as an offline, batch-processing system. It made it practical to store and process much larger datasets than before. Subsequently, more interactive, online systems emerged, integrating with Hadoop. First among these was HBase, the key/value store. Now scalable interactive query engines are beginning to join the Hadoop ecosystem. Realtime is gradually becoming a viable peer to batch in big data.</em><br />
+<em><strong><a href="http://info.cloudera.com/beyond-batch-doug-cutting-presentation-registration.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://info.cloudera.com']);" target="_blank">Please register here!</a></strong></em></p>
+			<div class="clear"></div>
+		</div><!-- .entry-content -->
+			
+		<footer class="entry-meta">
+			<div class="date-i fleft"><a href="http://datacommunitydc.org/blog/2012/11/meet-hadoop-creator-doug-cutting/" title="Permalink to Meet Hadoop Creator Doug Cutting" rel="nofollow">November 26, 2012 at 4:18 pm</a></div>
+						<div class="author-i fleft">	<span class="vcard"><a class="url fn n" href="http://datacommunitydc.org/blog/author/sean/">Sean</a></span>
+</div>
+						<div class="clear"></div>
+		</footer>
+	</div>
+	<div class="clear"></div>
+</article>				<article id="post-245" class="post-245 post type-post status-publish format-standard hentry category-databusiness category-guestpost">
+	<div class="col1 fleft"><div class="postformat"><div class="format-icon"></div><div class="left-corner"></div></div></div>
+	<div class="col2 fright">
+		<header class="entry-header"><h1 class="entry-title"><a href="http://datacommunitydc.org/blog/2012/11/3-ways-youre-ruining-your-ga-data-and-how-to-stop-tips-from-a-data-scientist/" title="Permalink to 3 Ways You’re Ruining Your GA Data, and How to Stop: Tips from a Data Scientist" rel="bookmark">3 Ways You’re Ruining Your GA Data, and How to Stop: Tips from a Data Scientist</a></h1></header>
+			
+		<div class="entry-content">
+			<p><em>This is a cross post by <a href="http://www.linkedin.com/in/seanpatrickmurphy1" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.linkedin.com']);" title="Linkedin Profile">Sean Patrick Murphy</a> (@sayhitosean), who runs the DataBusinessDC meetup. Finish reading over at Spinnakr&#8217;s blog.</em></p>
+<p><strong>Marketers who want to be more data-driven</strong> often start with Google Analytics. It’s ubiquitous, free, and comparatively easy to use.  It’s also the first client data I have access to in many of my consulting projects. Since I see it all the time, I’ve noticed that most companies’ GA is afflicted with serious hygiene problems.</p>
+<p>To learn more about three of the common issues ruining the usability of GA data, and instructions for fixing them, keep reading <a href="http://spinnakr.com/blog/data-2/2012/11/3-ways-youre-ruining-your-ga-data-and-how-to-stop-tips-from-a-data-scientist/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://spinnakr.com']);">here</a>.</p>
+			<div class="clear"></div>
+		</div><!-- .entry-content -->
+			
+		<footer class="entry-meta">
+			<div class="date-i fleft"><a href="http://datacommunitydc.org/blog/2012/11/3-ways-youre-ruining-your-ga-data-and-how-to-stop-tips-from-a-data-scientist/" title="Permalink to 3 Ways You’re Ruining Your GA Data, and How to Stop: Tips from a Data Scientist" rel="nofollow">November 15, 2012 at 3:12 pm</a></div>
+						<div class="author-i fleft">	<span class="vcard"><a class="url fn n" href="http://datacommunitydc.org/blog/author/sean/">Sean</a></span>
+</div>
+						<div class="clear"></div>
+		</footer>
+	</div>
+	<div class="clear"></div>
+</article>					<nav id="nav-below">
+			<div class="nav-previous fleft"><a href="http://datacommunitydc.org/blog/page/2/" ><span class="meta-nav">&larr;</span> Older posts</a></div>
+			<div class="nav-next fright"></div>
+			<div class="left-corner"></div>
+			<div class="clear"></div>
+		</nav><!-- #nav-above -->
+	</div><!-- #content -->
+</div><!-- #primary --><div id="secondary" class="widget-area" role="complementary">
+	<aside id="search-2" class="widget widget_search"><form role="search" method="get" id="searchform" action="http://datacommunitydc.org/blog/" >
+	<div><label class="screen-reader-text" for="s">Search for:</label>
+	<input type="text" value="" name="s" id="s" />
+	<input type="submit" id="searchsubmit" value="Search" />
+	</div>
+	</form></aside><aside id="wysija-2" class="widget widget_wysija"><div class="widget-title"><h3>Subscribe to our Newsletter</h3><div class="right-corner"></div></div><div class="widget_wysija_cont"><div id="msg-form-wysija-2" class="wysija-msg ajax"></div><form id="form-wysija-2" method="post" action="#wysija" class="widget_wysija form-valid-sub"><p class="wysija-instruct">To get new content via newsletter simply type in your email below. A confirmation email will be sent to you!</p><p class="wysija-p-firstname"><input type="text" id="form-wysija-2-firstname" title="First name" class="defaultlabels wysija-firstname validate[required]" name="wysija[user][firstname]" /></p><p class="wysija-p-lastname"><input type="text" id="form-wysija-2-lastname" title="Last name" class="defaultlabels wysija-lastname validate[required]" name="wysija[user][lastname]" /></p><p class="wysija-p-email"><input type="text" id="form-wysija-2-wysija-to" title="Email" class="defaultlabels wysija-email validate[required,custom[email]]" name="wysija[user][email]" /></p><span class="wysija-p-firstname abs-req"><input type="text" id="form-wysija-2-abs-firstname" value="" class="defaultlabels validated[abs][req]" name="wysija[user][abs][firstname]" /></span><span class="wysija-p-lastname abs-req"><input type="text" id="form-wysija-2-abs-lastname" value="" class="defaultlabels validated[abs][req]" name="wysija[user][abs][lastname]" /></span><span class="wysija-p-email abs-req"><input type="text" id="form-wysija-2-abs-email" value="" class="defaultlabels validated[abs][email]" name="wysija[user][abs][email]" /></span><div class="wysija_lists"><p class="wysija_list_check">
+                        <label for="form-wysija-2_list_id_1"><input id="form-wysija-2_list_id_1" class="validate[minCheckbox[1]] checkbox checklists" type="checkbox" name="wysija[user_list][list_id][]" value="1" checked="checked" /> Data Community DC </label>
+                            </p></div><input type="submit"  class="wysija-submit wysija-submit-field" name="submit" value="Subscribe!"/><input type="hidden" name="formid" value="form-wysija-2" />
+                    <input type="hidden" name="action" value="save" />
+                
+                <input type="hidden" name="message_success" value="You&#039;ve successfully subscribed. Check your inbox now to confirm your subscription." />
+                <input type="hidden" name="controller" value="subscribers" /><input type="hidden" value="1" name="wysija-page" /></form></div></aside><aside id="text-2" class="widget widget_text"><div class="widget-title"><h3>Join Us</h3><div class="right-corner"></div></div>			<div class="textwidget">Want to meet up with our amazing members face to face? Join one or more of our meetups!
+<ol>
+<li><a href="http://www.meetup.com/Data-Business-DC/" onclick="javascript:_gaq.push(['_trackEvent','outbound-widget','http://www.meetup.com']);">Data Business DC</a>
+</li>
+<li><a href="http://www.meetup.com/Data-Science-DC/" onclick="javascript:_gaq.push(['_trackEvent','outbound-widget','http://www.meetup.com']);">Data Science DC</a></li>
+<li><a href="http://www.meetup.com/R-users-DC/" onclick="javascript:_gaq.push(['_trackEvent','outbound-widget','http://www.meetup.com']);">R Users DC</a></li>
+</ol>
+</div>
+		</aside><!--WP Widget Cache 0.25.5 Begin -->
+<aside id="vsmeetlistwidget-6" class="widget widget_vsmeetlistwidget"><div class="widget-title"><h3>Data Science DC</h3><div class="right-corner"></div></div><ul class='meetup_list'></ul></aside><!-- WP Widget Cached vsmeetlistwidget-6 For 300 second(s)-->
+<!--WP Widget Cache End -->
+<!--WP Widget Cache 0.25.5 Begin -->
+<aside id="vsmeetlistwidget-7" class="widget widget_vsmeetlistwidget"><div class="widget-title"><h3>R Users DC</h3><div class="right-corner"></div></div><ul class='meetup_list'><li><a href='http://www.meetup.com/R-users-DC/events/95903742/'>Analyze US Government Survey Data with R</a>; Jan 10, 6:30pm</li></ul></aside><!-- WP Widget Cached vsmeetlistwidget-7 For 300 second(s)-->
+<!--WP Widget Cache End -->
+<!--WP Widget Cache 0.25.5 Begin -->
+<aside id="vsmeetlistwidget-8" class="widget widget_vsmeetlistwidget"><div class="widget-title"><h3>Data Business DC</h3><div class="right-corner"></div></div><ul class='meetup_list'></ul></aside><!-- WP Widget Cached vsmeetlistwidget-8 For 3600 second(s)-->
+<!--WP Widget Cache End -->
+<aside id="reallysimpletwitterwidget-2" class="widget widget_reallysimpletwitterwidget"><div class="widget-title"><h3><a href="http://twitter.com/datacommunitydc" class="twitter_title_link"  target="_blank" >Last Tweets</a></h3><div class="right-corner"></div></div><ul class="really_simple_twitter_widget"><li><a href="http://twitter.com/HealthDataGov" class="twitter-user"  target="_blank" >@HealthDataGov</a> Yes, have seen it's upcoming! Would be interesting to plan some sort of joint event? <a href="http://twitter.com/#!/datacommunitydc/status/281532382295760896" class="twitter-link"  target="_blank" >#</a><span class="rstw_comma">,</span>  <span class="twitter-timestamp"><abbr title="2012/12/19 22:52:05">2012/12/19</abbr></span></li></ul></aside><aside id="html_javascript_adder-2" class="widget widget_html_javascript_adder">
+
+<!-- Start - HTML Javascript Adder plugin v3.6 -->
+<div class="widget-title"><h3>Tweets About Us</h3><div class="right-corner"></div></div>
+<div class="hjawidget textwidget">
+<a class="twitter-timeline" href="https://twitter.com/search?q=%23datacommunitydc+OR+@datacommunitydc+OR+%23datadc+OR+%23dsdc+OR+%23dbdc+OR+%23rusersdc" data-widget-id="273891285025300480">Tweets about "#datacommunitydc OR #datadc OR #dsdc OR #dbdc OR #rusersdc"</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+</div>
+<!-- End - HTML Javascript Adder plugin v3.6 -->
+
+</aside><aside id="linkcat-6" class="widget widget_links"><div class="widget-title"><h3>Sponsors</h3><div class="right-corner"></div></div>
+	<ul class='xoxo blogroll'>
+<li><a href="mailto:info@datacommunitydc.org" title="Sponsor Us!" target="_blank" onclick="javascript:_gaq.push(['_trackEvent','outbound-blogroll','mailto:info@datacommunitydc.org']);">Reach thousands of DC-area data and analytical practitioners!</a>
+Sponsor Us!</li>
+
+	</ul>
+</aside>
+		<aside id="recent-posts-2" class="widget widget_recent_entries">		<div class="widget-title"><h3>Recent Posts</h3><div class="right-corner"></div></div>		<ul>
+				<li><a href="http://datacommunitydc.org/blog/2012/12/big-data-is-like-a-turkey/" title="Big Data is like a turkey &#8230;">Big Data is like a turkey &#8230;</a></li>
+				<li><a href="http://datacommunitydc.org/blog/2012/12/weekly-round-up-data-driven-processes-products-smb-big-data-telling-stories-and-fighting-bullying/" title="Weekly Round-Up: Data-Driven Processes &amp; Products, SMB Big Data, Telling Stories, and Fighting Bullying">Weekly Round-Up: Data-Driven Processes &#038; Products, SMB Big Data, Telling Stories, and Fighting Bullying</a></li>
+				<li><a href="http://datacommunitydc.org/blog/2012/12/event-review-money-for-nothing-productizing-government-data/" title="Event Review: Money for Nothing &#8211; Productizing Government Data">Event Review: Money for Nothing &#8211; Productizing Government Data</a></li>
+				<li><a href="http://datacommunitydc.org/blog/2012/12/weekly-round-up-kurzweil-google-big-data-obstacles-human-intelligence-data-strategy-and-premature-babies/" title="Weekly Round-Up: Kurzweil &amp; Google, Big Data Obstacles, Human Intelligence, Data Strategy, and Premature Babies">Weekly Round-Up: Kurzweil &#038; Google, Big Data Obstacles, Human Intelligence, Data Strategy, and Premature Babies</a></li>
+				<li><a href="http://datacommunitydc.org/blog/2012/12/hackmeat-or-data-community-dc-members-go-to-nyc/" title="Hack//Meat or Data Community DC Members go to NYC">Hack//Meat or Data Community DC Members go to NYC</a></li>
+				</ul>
+		</aside><aside id="archives-2" class="widget widget_archive"><div class="widget-title"><h3>Archives</h3><div class="right-corner"></div></div>		<ul>
+			<li><a href='http://datacommunitydc.org/blog/2012/12/' title='December 2012'>December 2012</a></li>
+	<li><a href='http://datacommunitydc.org/blog/2012/11/' title='November 2012'>November 2012</a></li>
+	<li><a href='http://datacommunitydc.org/blog/2012/10/' title='October 2012'>October 2012</a></li>
+	<li><a href='http://datacommunitydc.org/blog/2012/09/' title='September 2012'>September 2012</a></li>
+	<li><a href='http://datacommunitydc.org/blog/2012/08/' title='August 2012'>August 2012</a></li>
+	<li><a href='http://datacommunitydc.org/blog/2012/07/' title='July 2012'>July 2012</a></li>
+		</ul>
+</aside><aside id="meta-2" class="widget widget_meta"><div class="widget-title"><h3>Meta</h3><div class="right-corner"></div></div>			<ul>
+						<li><a href="http://datacommunitydc.org/blog/wp-login.php">Log in</a></li>
+			<li><a href="http://datacommunitydc.org/blog/feed/" title="Syndicate this site using RSS 2.0">Entries <abbr title="Really Simple Syndication">RSS</abbr></a></li>
+			<li><a href="http://datacommunitydc.org/blog/comments/feed/" title="The latest comments to all posts in RSS">Comments <abbr title="Really Simple Syndication">RSS</abbr></a></li>
+			<li><a href="http://wordpress.org/" title="Powered by WordPress, state-of-the-art semantic personal publishing platform.">WordPress.org</a></li>
+						</ul>
+</aside></div><!-- #secondary .widget-area -->
+<div class="clear"></div></div>
+	</div>
+			<!-- It is completely optional, but if you like the Theme I would appreciate it if you keep the credit link at the bottom. -->
+	<footer id="copy">
+		<p>Proudly powered by <a href="http://wordpress.org" target="_blank">WordPress</a>. Design by  <a href="http://wplook.com/blogolifewpo" title="WPlook" target="_blank">WPlook</a></p>
+		<span id="top"><a href="#"  title="Top"><img src="http://datacommunitydc.org/blog/wp-content/themes/blogolife/images/top.png" width="7" height="16" /></a></span>
+	</footer>
+	<!-- MathJax Latex Plugin installed: Disabled as no shortcodes on this page --><script type="text/javascript">
+	var tb_pathToImage = "http://datacommunitydc.org/blog/wp-includes/js/thickbox/loadingAnimation.gif";
+	var tb_closeImage = "http://datacommunitydc.org/blog/wp-content/plugins/wp-stripe/images/thickbox_close.png";
+</script>
+<script type='text/javascript' src='http://datacommunitydc.org/blog/wp-content/plugins/wysija-newsletters/js/validate/languages/jquery.validationEngine-en.js?ver=2.1.6'></script>
+<script type='text/javascript' src='http://datacommunitydc.org/blog/wp-content/plugins/wysija-newsletters/js/validate/jquery.validationEngine.js?ver=2.1.6'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var wysijaAJAX = {"action":"wysija_ajax","controller":"subscribers","ajaxurl":"http:\/\/datacommunitydc.org\/blog\/wp-admin\/admin-ajax.php","loadingTrans":"Loading..."};
+/* ]]> */
+</script>
+<script type='text/javascript' src='http://datacommunitydc.org/blog/wp-content/plugins/wysija-newsletters/js/front-subscribers.js?ver=2.1.6'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var thickboxL10n = {"next":"Next >","prev":"< Prev","image":"Image","of":"of","close":"Close","noiframes":"This feature requires inline frames. You have iframes disabled or your browser does not support them.","loadingAnimation":"http:\/\/datacommunitydc.org\/blog\/wp-includes\/js\/thickbox\/loadingAnimation.gif","closeImage":"http:\/\/datacommunitydc.org\/blog\/wp-includes\/js\/thickbox\/tb-close.png"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='http://datacommunitydc.org/blog/wp-includes/js/thickbox/thickbox.js?ver=3.1-20111117'></script>
+	</body>
+</html>

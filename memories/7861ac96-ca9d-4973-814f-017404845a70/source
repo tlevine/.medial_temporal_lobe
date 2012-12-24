@@ -1,0 +1,1223 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html dir='ltr' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
+<head>
+<meta content='text/html; charset=UTF-8' http-equiv='Content-Type'/>
+<script type="text/javascript">(function() { var a=window,b="jstiming",d="tick";var e=function(c){this.t={};this.tick=function(c,p,h){h=void 0!=h?h:(new Date).getTime();this.t[c]=[h,p]};this[d]("start",null,c)},f=new e;a.jstiming={Timer:e,load:f};if(a.performance&&a.performance.timing){var g=a.performance.timing,j=a[b].load,k=g.navigationStart,l=g.responseStart;0<k&&l>=k&&(j[d]("_wtsrt",void 0,k),j[d]("wtsrt_","_wtsrt",l),j[d]("tbsd_","wtsrt_"))}
+try{var m=null;a.chrome&&a.chrome.csi&&(m=Math.floor(a.chrome.csi().pageT),j&&0<k&&(j[d]("_tbnd",void 0,a.chrome.csi().startE),j[d]("tbnd_","_tbnd",k)));null==m&&a.gtbExternal&&(m=a.gtbExternal.pageT());null==m&&a.external&&(m=a.external.pageT,j&&0<k&&(j[d]("_tbnd",void 0,a.external.startE),j[d]("tbnd_","_tbnd",k)));m&&(a[b].pt=m)}catch(n){};a.tickAboveFold=function(c){var i=0;if(c.offsetParent){do i+=c.offsetTop;while(c=c.offsetParent)}c=i;750>=c&&a[b].load[d]("aft")};var q=!1;function r(){q||(q=!0,a[b].load[d]("firstScrollTime"))}a.addEventListener?a.addEventListener("scroll",r,!1):a.attachEvent("onscroll",r);
+ })();</script>
+<meta content='true' name='MSSmartTagsPreventParsing'/>
+<meta content='blogger' name='generator'/>
+<link href='http://www.valuedlessons.com/favicon.ico' rel='icon' type='image/x-icon'/>
+<link href='http://www.valuedlessons.com/2008/01/monads-in-python-with-nice-syntax.html' rel='canonical'/>
+<link rel="alternate" type="application/atom+xml" title="Valued Lessons - Atom" href="http://www.valuedlessons.com/feeds/posts/default" />
+<link rel="alternate" type="application/rss+xml" title="Valued Lessons - RSS" href="http://www.valuedlessons.com/feeds/posts/default?alt=rss" />
+<link rel="service.post" type="application/atom+xml" title="Valued Lessons - Atom" href="http://www.blogger.com/feeds/1700157236206200597/posts/default" />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://www.blogger.com/rsd.g?blogID=1700157236206200597" />
+<link rel="alternate" type="application/atom+xml" title="Valued Lessons - Atom" href="http://www.valuedlessons.com/feeds/6799472260664409462/comments/default" />
+<!--[if IE]> <script> (function() { var html5 = ("abbr,article,aside,audio,canvas,datalist,details," + "figure,footer,header,hgroup,mark,menu,meter,nav,output," + "progress,section,time,video").split(','); for (var i = 0; i < html5.length; i++) { document.createElement(html5[i]); } try { document.execCommand('BackgroundImageCache', false, true); } catch(e) {} })(); </script> <![endif]-->
+<title>Valued Lessons: Monads in Python (with nice syntax!)</title>
+<link type='text/css' rel='stylesheet' href='//www.blogger.com/static/v1/widgets/1937454905-widget_css_bundle.css' />
+<link type="text/css" rel="stylesheet" href="//www.blogger.com/dyn-css/authorization.css?targetBlogID=1700157236206200597&zx=df0d832d-9973-4607-908f-b5b0ba0571da"/>
+<style id='page-skin-1' type='text/css'><!--
+/*
+* Blogger Template Style
+*
+* Simple II
+* by Jason Sutter
+*/
+/* Variable definitions
+====================
+<Variable name="bgcolor" description="Page Background Color"
+type="color" default="#fff">
+<Variable name="textcolor" description="Text Color"
+type="color" default="#000">
+<Variable name="pagetitlecolor" description="Blog Title Color"
+type="color" default="#000">
+<Variable name="titlecolor" description="Post Title Color"
+type="color" default="#000">
+<Variable name="footercolor" description="Date and Footer Color"
+type="color" default="#555">
+<Variable name="linkcolor" description="Link Color"
+type="color" default="#58a">
+<Variable name="visitedlinkcolor" description="Visited Link Color"
+type="color" default="#999"> Used to be #969
+<Variable name="bordercolor" description="Border Color"
+type="color" default="#999">
+<Variable name="bodyfont" description="Text Font"
+type="font" default="normal normal 100% Georgia,Serif;">
+<Variable name="pagetitlefont" description="Blog Title Font"
+type="font"
+default="normal bold 200% Georgia,Serif">
+<Variable name="startSide" description="Start side in blog language"
+type="automatic" default="left">
+<Variable name="endSide" description="End side in blog language"
+type="automatic" default="right">
+*/
+body {
+margin:0;
+font:normal normal 100% Georgia,Serif;;
+background:#ffffff;
+color:#000000;
+}
+a:link {
+color:#5588aa;
+text-decoration:none;
+}
+a:visited {
+color:#999999;
+text-decoration:none;
+}
+a:hover {
+color:#000000;
+text-decoration:underline;
+}
+a img {
+border-width:0;
+}
+#outer-wrapper {
+margin-top: 0px;
+margin-right: 3em;
+margin-bottom: 0;
+margin-left: 3em;
+}
+h1 {
+border-bottom:dotted 1px #999999;
+margin-bottom:0px;
+color: #000000;
+font: normal bold 200% Georgia,Serif;
+}
+h1 a, h1 a:link, h1 a:visited {
+color: #000000;
+}
+h2 {
+margin:0px;
+padding: 0px;
+}
+#main .widget {
+padding-bottom:10px;
+margin-bottom:20px;
+border-bottom:dotted 1px #999999;
+clear: both;
+}
+#main .Header {
+border-bottom-width: 0px;
+}
+h2.date-header {
+padding-top:15px;
+color:#555555;
+padding-bottom:0px;
+margin-bottom:0px;
+font-size: 90%;
+}
+h3.post-title {
+font-size: 140%;
+color: #000000;
+}
+.post {
+padding-left:5%;
+padding-right:10%;
+}
+.post-footer {
+color:#555555;
+}
+#comments {
+padding-top:30px;
+color:#000000;
+padding-bottom:0px;
+margin-bottom:0px;
+font-weight:bold;
+}
+#comments .comment-footer {
+font-size:1em;
+font-weight:normal;
+color:#555555;
+margin-right:10px;
+display:inline;
+}
+.comment-author {
+margin-top: 3%;
+}
+.comment-body {
+font-size:1em;
+font-weight:normal;
+}
+.deleted-comment {
+font-style:italic;
+color:gray;
+}
+.comment-link {
+margin-left:.6em;
+}
+.feed-links {
+clear: both;
+line-height: 2.5em;
+}
+#blog-pager-newer-link {
+float: left;
+}
+#blog-pager-older-link {
+float: right;
+}
+#blog-pager {
+text-align: center;
+}
+.clear {
+clear: both;
+}
+.profile-img {
+float: left;
+margin-top: 0;
+margin-right: 5px;
+margin-bottom: 5px;
+margin-left: 0;
+}
+.code{
+background:lightyellow none repeat scroll 0 0;
+border:1px inset orange;
+/*height:150px;*/
+margin:10px;
+overflow:auto;
+padding:6px;
+text-align:left;
+}
+body#layout #outer-wrapper {
+margin-top: 0px;
+margin-right: 50px;
+margin-bottom: 0;
+margin-left: 50px;
+}
+
+--></style>
+<script type="text/javascript">var a=navigator,b="userAgent",c="indexOf",f="&m=1",g="(^|&)m=",h="?",i="?m=1";function j(){var d=window.location.href,e=d.split(h);switch(e.length){case 1:return d+i;case 2:return 0<=e[1].search(g)?null:d+f;default:return null}}if(-1!=a[b][c]("Mobile")&&-1!=a[b][c]("WebKit")&&-1==a[b][c]("iPad")||-1!=a[b][c]("Opera Mini")||-1!=a[b][c]("IEMobile")){var k=j();k&&window.location.replace(k)};
+</script><script type="text/javascript">
+if (window.jstiming) window.jstiming.load.tick('headEnd');
+</script></head>
+<body>
+<div class='navbar section' id='navbar'><div class='widget Navbar' id='Navbar1'><script type="text/javascript">
+    function setAttributeOnload(object, attribute, val) {
+      if(window.addEventListener) {
+        window.addEventListener('load',
+          function(){ object[attribute] = val; }, false);
+      } else {
+        window.attachEvent('onload', function(){ object[attribute] = val; });
+      }
+    }
+  </script>
+<div id="navbar-iframe-container"></div>
+<script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+<script type="text/javascript">
+        gapi.load("iframes-styles-bubble", function() {
+          if (window.iframes && iframes.open) {
+            iframes.open(
+                '//www.blogger.com/navbar.g?targetBlogID\0751700157236206200597\46blogName\75Valued+Lessons\46publishMode\75PUBLISH_MODE_HOSTED\46navbarType\75TAN\46layoutType\75LAYOUTS\46searchRoot\75http://www.valuedlessons.com/search\46blogLocale\75en_US\46v\0752\46homepageUrl\75http://www.valuedlessons.com/\46targetPostID\0756799472260664409462\46blogPostOrPageUrl\75http://www.valuedlessons.com/2008/01/monads-in-python-with-nice-syntax.html\46vt\75-669203916617364996',
+                {
+                  container: "navbar-iframe-container",
+                  id: "navbar-iframe"
+                },
+                {
+                });
+          }
+        });
+      </script><script type="text/javascript">
+(function() {
+var script = document.createElement('script');
+script.type = 'text/javascript';
+script.src = '//pagead2.googlesyndication.com/pagead/js/google_top_exp.js';
+var head = document.getElementsByTagName('head')[0];
+if (head) {
+head.appendChild(script);
+}})();
+</script>
+</div></div>
+<div id='outer-wrapper'>
+<div class='main section' id='main'><div class='widget Header' id='Header1'>
+<div id='header-inner'>
+<div class='titlewrapper'>
+<h1 class='title'>
+<a href='http://www.valuedlessons.com/'>Valued Lessons</a>
+</h1>
+</div>
+<div class='descriptionwrapper'>
+<p class='description'><span>I've learned.  I'll share.</span></p>
+</div>
+</div>
+</div><div class='widget Blog' id='Blog1'>
+<div class='blog-posts hfeed'>
+<!-- google_ad_section_start(name=default) -->
+
+          <div class="date-outer">
+        
+<h2 class='date-header'><span>January 7, 2008</span></h2>
+
+          <div class="date-posts">
+        
+<div class='post-outer'>
+<div class='post hentry'>
+<a name='6799472260664409462'></a>
+<h3 class='post-title entry-title'>
+<a href='http://www.valuedlessons.com/2008/01/monads-in-python-with-nice-syntax.html'>Monads in Python (with nice syntax!)</a>
+</h3>
+<div class='post-header-line-1'></div>
+<div class='post-body entry-content'>
+<p><p>
+<span style="font-weight: bold;">Update:</span> I've been informed that I didn't clearly explain what monads are and what the code examples are supposed to do.  Sorry.  I guess I assumed too much preexposure to monads.  If you're no familiar with them, there are already so many tutorials on monads that I'll simply direct you to two of my favorites: <a href="http://www.loria.fr/%7Ekow/monads/index.html">spacesuits</a> and <a href="http://en.wikipedia.org/wiki/Monads_in_functional_programming">wikipedia</a>.  I've also added more explanations of what the code snippets are supposed to do.  I hope that helps.
+<p>
+<span style="font-weight: bold;">Update 2: </span>By popular demand, I'm including some code that you can actually run :).  See the bottom of the article.
+<p>
+Recently, I used monads in production code for a soon-to-be-publically-released application.  Although many think they are strange, estoric, and perhaps useless, monads were the best way to solve the problem.  My code is not in Haskell; it's in Python.  I'm not doing anything wierd like IO in a purely functional way; I'm just parsing a file.
+<p>
+The crazy, unexpected conclusion I came to is that <span style="font-weight: bold;">you can and should use monads in your   code in almost any programming language.   </span>There are two   parts to this: "can" and "should".  I think I'll save "should" for another article. Right now, I'm excited to show you how you can.
+<p>
+As a preview for "should", please consider that you may be using monads already without knowing it.  <a href="http://www.google.com/url?sa=t&amp;ct=res&amp;cd=1&amp;url=http%3A%2F%2Fresearch.microsoft.com%2F%7Eemeijer%2FPapers%2FLINQ20.pdf&amp;ei=RYiCR8DJO5HEgwPei8GCBw&amp;usg=AFQjCNE8AG_VXzu_tHYeXDy7Jw85eWUcig&amp;sig2=SLBcZbWmgDnnAwaEygDrCA">LINQ in C# is a monad (pdf)</a>, so if you've ever used it, you've used a monad. The C# guys used monads for queries for the same reason I'm using for them for parsing: they're the right tool for the job.  But unlike them, I can't change the syntax of the programming language.
+<p>
+The biggest challange with using monads in a "normal" programming language is that monads involve lots of closures. This is exactly the same problem you run into with <a href="http://blogs.msdn.com/wesdyer/archive/2007/12/22/continuation-passing-style.aspx">CPS</a>, which isn't surprising since a monad's "bind" operator is CPS and since continuations can be implemented with monads.  By the way, if your programming laungage doesn't have closures (meaning you are stuck programming in C, C++, or Java), then monads are probably out of the question.   Assuming you have closures and use them with monads directly, you end up with code like the following.  It's python using the <a href="http://en.wikipedia.org/wiki/Monads_in_functional_programming#Maybe_monad">Maybe monad</a>  to handle divide by zero errors.  I'm using ">>" (__rshift__) overloaded to mean "bind".
+
+<pre class="code">
+def mdiv(a, b):
+    if b == 0:
+        return Nothing
+    else:
+        return Something(a / b)
+
+def with_maybe():
+    return \
+    mdiv(2.0, 2.0)    >> (lambda val1 :
+    mdiv(3.0, 0.0)    >> (lambda val2 :
+    mdiv(val1, val2)  >> (lambda val3 :
+    Something(val3))))                       
+</pre>
+<p>
+That's not very pretty.   We need a way to clean that up.  How we can do so depends on the programming language.  Haskell has "do" syntax built-in, which makes monadic code look like an impertive language or even a list comprehension.  Ruby and Scheme have call/cc which makes it trivial to wrap a bind call with a continuation to make any monadic code look "normal".  C# has LINQ, which is practically Haskell's do notation with funny names.
+<p>
+But I'm using python.  What does python have?  Luckily for me, in python 2.5 they added bidirectional generators, and I found a way to use them to make something like "do" notation.   Now we can write the above code like this (@do and mreturn are defined later):
+
+<pre class="code">
+@do(Maybe)
+def with_maybe(first_divisor):
+    val1 = yield mdiv(2.0, 2.0)
+    val2 = yield mdiv(3.0, 0.0)
+    val3 = yield mdiv(val1, val2)
+    mreturn(val3)
+</pre>
+<p>
+I even copied the names "do" and "return" from Haskell, although I had to spell "return" as "mreturn".  All you really have to remember is that "yield" means "bind" and that the end result is a monad.  There are limitations to this technique, but it's working very well for me so far.  I've implemented the Maybe monad, the Error monad, the StateChanger monad, and the Continuation monad (which will require another article to explain).  I particularly like the continuation monad because it allows me to write callcc, which lets me do threadless actors (message passing) in python:
+
+
+<pre class="code">
+from collections import deque
+
+class Mailbox:
+    def __init__(self):
+        self.messages = deque()
+        self.handlers = deque()
+
+    def send(self, message):
+        if self.handlers:
+            handler = self.handlers.popleft()
+            handler(message)()
+        else:
+            self.messages.append(message)
+
+    def receive(self):
+        return callcc(self.react)
+
+    @do(ContinuationMonad)
+    def react(self, handler):
+        if self.messages:
+            message = self.messages.popleft()
+            yield handler(message)
+        else:
+            self.handlers.append(handler)
+           done(ContinuationMonad.zero())
+
+@do(ContinuationMonad)
+def insert(mb, values):
+    for val in values:
+        mb.send(val)
+
+@do(ContinuationMonad)
+def multiply(mbin, mbout, factor):
+    while True:
+        val = (yield mbin.receive())
+        mbout.send(val * factor)
+
+@do(ContinuationMonad)
+def print_all(mb):
+    while True:
+        print (yield mb.receive())
+
+original   = Mailbox()
+multiplied = Mailbox()
+
+print_all(multiplied)()
+multiply(original, multiplied, 2)()
+insert(original, [1, 2, 3])()
+</pre>
+<p>
+A few months ago, I wrote a similar implementation of threadless actors in python.  It used generators in a similar way, but it was 10 times as much code.   I was shocked at how short this implementation ended up being.   You might think that it's because the continuation monad implementation is big.  Nope.  It's just as short (Monad defined later, and Record defined <a href="http://www.valuedlessons.com/2007/12/immutable-data-in-python-record-or.html">here</a>):
+
+<pre class="code">
+class ContinuationMonad(Record("run"), Monad):
+    def __call__(self, cont = lambda a : a):
+        return self.run(cont)
+
+    def bind(self, bindee):
+        return ContinuationMonad(lambda cont : self.run(lambda val : bindee(val).run(cont)))
+
+    @classmethod
+    def unit(cls, val):
+       return cls(lambda cont : cont(val))
+
+    @classmethod
+    def zero(cls):
+        return cls(lambda cont : None)
+
+def callcc(usecc):
+ return ContinuationMonad(lambda cont : usecc(lambda val : ContinuationMonad(lambda _ : cont(val))).run(cont))
+
+</pre>So, you can use monads with elegant syntax in any language that has closures and any of the following:
+<ul>
+<li>do syntax (Haskell, C#)</li>
+<li>call/cc (Scheme, Ruby)</li>
+<li>bidirectional generators (Python 2.5, a future JavaScript?)</li>
+<li>coroutines (Lua, Io)</li>
+</ul>
+<p>
+The only think I haven't shown you is the implementation of Monad, @do, mreturn, and done.  It has a few nasty details related to using generators and decorators in python, but here's the gist of it:
+
+<pre class="code">
+class Monad:
+    def bind(self, func):
+        raise NotImplementedError
+
+    def __rshift__(self, bindee):
+        return self.bind(bindee)
+
+    def __add__(self, bindee_without_arg):
+        return self.bind(lambda _ : bindee_without_arg())
+
+
+@decorator_with_args
+def do(func, func_args, func_kargs, Monad):
+    itr = func(*func_args, **func_kargs)
+
+    def send(val):
+        try:
+            monad = itr.send(val)
+            return monad.bind(send)
+        except MonadReturn, ret:
+            return Monad.unit(ret.value)
+        except Done, done:
+            return done.monad
+
+     return send(None)
+
+def mreturn(val):
+    raise MonadReturn(val)
+
+def done(val):
+    raise Done(val)
+
+</pre>
+
+<p>That's it.  If you've made it all the way to the end of this long article, I hope you've found inspiration for using monads in your own applications, especially if you are coding in python.  If so, here's some code that you can run:
+
+
+<pre class="code">
+import types
+
+###### Base Monad and @do syntax#########
+
+class Monad:
+    def bind(self, func):
+        raise NotImplementedError
+
+    def __rshift__(self, bindee):
+        return self.bind(bindee)
+
+    def __add__(self, bindee_without_arg):
+        return self.bind(lambda _ : bindee_without_arg())
+
+def make_decorator(func, *dec_args):
+    def decorator(undecorated):
+        def decorated(*args, **kargs):
+            return func(undecorated, args, kargs, *dec_args) 
+        
+        decorated.__name__ = undecorated.__name__
+        return decorated
+    
+    decorator.__name__ = func.__name__
+    return decorator
+
+def make_decorator_with_args(func):
+    def decorator_with_args(*dec_args):
+        return make_decorator(func, *dec_args)
+    return decorator_with_args
+
+decorator           = make_decorator
+decorator_with_args = make_decorator_with_args
+
+@decorator_with_args
+def do(func, func_args, func_kargs, Monad):
+    @handle_monadic_throws(Monad)
+    def run_maybe_iterator():
+        itr = func(*func_args, **func_kargs)
+
+        if isinstance(itr, types.GeneratorType):
+            @handle_monadic_throws(Monad)
+            def send(val):
+                try:
+                    # here's the real magic
+                    monad = itr.send(val) 
+                    return monad.bind(send)
+                except StopIteration:
+                    return Monad.unit(None)
+                
+            return send(None)
+        else:
+            #not really a generator
+            if itr is None:
+                return Monad.unit(None)
+            else:
+                return itr
+
+    return run_maybe_iterator()
+
+@decorator_with_args
+def handle_monadic_throws(func, func_args, func_kargs, Monad):
+    try:
+        return func(*func_args, **func_kargs)
+    except MonadReturn, ret:
+        return Monad.unit(ret.value)
+    except Done, done:
+        assert isinstance(done.monad, Monad)
+        return done.monad
+
+class MonadReturn(Exception):
+    def __init__(self, value):
+        self.value = value
+        Exception.__init__(self, value)
+
+class Done(Exception):
+    def __init__(self, monad):
+        self.monad = monad
+        Exception.__init__(self, monad)
+
+def mreturn(val):
+    raise MonadReturn(val)
+
+def done(val):
+    raise Done(val)
+
+def fid(val):
+    return val
+
+##### Failable Monad ######
+
+class Failable(Monad):
+    def __init__(self, value, success):
+        self.value   = value
+        self.success = success
+
+    def __repr__(self):
+        if self.success:
+            return "Success(%r)" % (self.value,)
+        else:
+            return "Failure(%r)" % (self.value,)    
+
+    def bind(self, bindee):
+        if self.success:
+            return bindee(self.value)
+        else:
+            return self
+
+    @classmethod
+    def unit(cls, val):
+        return cls(val, True)
+
+class Success(Failable):
+    def __init__(self, value):
+        Failable.__init__(self, value, True)
+
+class Failure(Failable):
+    def __init__(self, value):
+        Failable.__init__(self, value, False)
+
+def failable_monad_examle():
+    def fdiv(a, b):
+        if b == 0:
+            return Failure("cannot divide by zero")
+        else:
+            return Success(a / b)
+
+    @do(Failable)
+    def with_failable(first_divisor):
+        val1 = yield fdiv(2.0, first_divisor)
+        val2 = yield fdiv(3.0, 1.0)
+        val3 = yield fdiv(val1, val2)
+        mreturn(val3)
+
+    print with_failable(0.0)
+    print with_failable(1.0)
+
+###### StateChanger Monad #########
+
+class StateChanger(Monad):
+    def __init__(self, run):
+        self.run = run
+
+    def bind(self, bindee):
+        run0 = self.run
+
+        def run1(state0):
+            (result, state1) = run0(state0)
+            return bindee(result).run(state1)
+
+        return StateChanger(run1)
+
+    @classmethod
+    def unit(cls, val):
+        return cls(lambda state : (val, state))
+
+def get_state(view = fid):
+    return change_state(fid, view)
+
+def change_state(changer, view = fid):
+    def make_new_state(old_state):
+        new_state    = changer(old_state)
+        viewed_state = view(old_state)
+        return (viewed_state, new_state)
+    return StateChanger(make_new_state)
+
+
+def state_changer_monad_example():
+    @do(StateChanger)
+    def dict_state_copy(key1, key2):
+        val = yield dict_state_get(key1)
+        yield dict_state_set(key2, val)
+        mreturn(val)
+
+    @do(StateChanger)
+    def dict_state_get(key, default = None):
+        dct = yield get_state()
+        val = dct.get(key, default)
+        mreturn(val)
+
+    @do(StateChanger)
+    def dict_state_set(key, val):
+        def dict_set(dct, key, val):
+            dct[key] = val
+            return dct
+
+        new_state = yield change_state(lambda dct: dict_set(dct, key, val))
+        mreturn(val)
+
+    @do(StateChanger)
+    def with_dict_state():
+        val2 = yield dict_state_set("a", 2)
+        yield dict_state_copy("a", "b")
+        state = yield get_state()
+        mreturn(val2)
+
+    print with_dict_state().run({}) # (2, {"a" : 2, "b" : 2})
+
+###### Continuation Monad #########
+
+class ContinuationMonad(Monad):
+    def __init__(self, run):
+        self.run = run
+
+    def __call__(self, cont = fid):
+        return self.run(cont)        
+
+    def bind(self, bindee):
+        return ContinuationMonad(lambda cont : self.run(lambda val : bindee(val).run(cont)))
+
+    @classmethod
+    def unit(cls, val):
+        return cls(lambda cont : cont(val))
+
+    @classmethod
+    def zero(cls):
+        return cls(lambda cont : None)
+    
+def callcc(usecc):
+    return ContinuationMonad(lambda cont : usecc(lambda val : ContinuationMonad(lambda _ : cont(val))).run(cont))
+    
+def continuation_monad_example():
+    from collections import deque
+
+    class Mailbox:
+        def __init__(self):
+            self.messages = deque()
+            self.handlers = deque()
+
+        def send(self, message):
+            if self.handlers:
+                handler = self.handlers.popleft()
+                handler(message)()
+            else:
+                self.messages.append(message)
+
+        def receive(self):
+            return callcc(self.react)
+
+        @do(ContinuationMonad)
+        def react(self, handler):
+            if self.messages:
+                message = self.messages.popleft()
+                yield handler(message)
+            else:
+                self.handlers.append(handler)
+                done(ContinuationMonad.zero())
+
+    @do(ContinuationMonad)
+    def insert(mb, values):
+        for val in values:
+            mb.send(val)
+
+    @do(ContinuationMonad)
+    def multiply(mbin, mbout, factor):
+        while True:
+            val = (yield mbin.receive())
+            mbout.send(val * factor)
+
+    @do(ContinuationMonad)
+    def print_all(mb):
+        while True:
+            print (yield mb.receive())
+
+    original   = Mailbox()
+    multiplied = Mailbox()
+
+    print_all(multiplied)()
+    multiply(original, multiplied, 2)()
+    insert(original, [1, 2, 3])()
+
+if __name__ == "__main__":
+    failable_monad_examle()
+    state_changer_monad_example()
+    continuation_monad_example()
+
+</pre></p>
+<div style='clear: both;'></div>
+</div>
+<div class='post-footer'>
+<p class='post-footer-line post-footer-line-1'><span class='post-comment-link'>
+</span>
+<span class='post-icons'>
+<span class='item-control blog-admin pid-1638056106'>
+<a href='http://www.blogger.com/post-edit.g?blogID=1700157236206200597&postID=6799472260664409462&from=pencil' title='Edit Post'>
+<img alt='' class='icon-action' height='18' src='http://img2.blogblog.com/img/icon18_edit_allbkg.gif' width='18'/>
+</a>
+</span>
+</span>
+</p>
+<p class='post-footer-line post-footer-line-2'><span class='post-labels'>
+Labels:
+<a href='http://www.valuedlessons.com/search/label/actor' rel='tag'>actor</a>,
+<a href='http://www.valuedlessons.com/search/label/continuation' rel='tag'>continuation</a>,
+<a href='http://www.valuedlessons.com/search/label/generator' rel='tag'>generator</a>,
+<a href='http://www.valuedlessons.com/search/label/haskell' rel='tag'>haskell</a>,
+<a href='http://www.valuedlessons.com/search/label/linq' rel='tag'>linq</a>,
+<a href='http://www.valuedlessons.com/search/label/message-passing' rel='tag'>message-passing</a>,
+<a href='http://www.valuedlessons.com/search/label/monad' rel='tag'>monad</a>,
+<a href='http://www.valuedlessons.com/search/label/programming' rel='tag'>programming</a>,
+<a href='http://www.valuedlessons.com/search/label/python' rel='tag'>python</a>
+</span>
+</p>
+<p class='post-footer-line post-footer-line-3'></p>
+</div>
+</div>
+<div class='comments' id='comments'>
+<a name='comments'></a>
+<h4>17 comments:</h4>
+<div class='comments-content'>
+<script async='async' src='//www.blogblog.com/dynamicviews/4224c15c4e7c9321/js/comments.js' type='text/javascript'></script>
+<script type='text/javascript'>
+    (function() {
+      var items = [{'id': '191795277195126632', 'body': 'Holy moly! \74BR/\76\74BR/\76This is a really nice way of doing it.\74BR/\76\74BR/\76I\47ve been interested in using Monads in my Python code for some time (for parsing) and I think that I\47m definitely going to use your approach.', 'timestamp': '1199766900000', 'permalink': 'http://www.valuedlessons.com/2008/01/monads-in-python-with-nice-syntax.html?showComment\0751199766900000#c191795277195126632', 'author': {'name': 'Winterstream', 'avatarUrl': 'http://img2.blogblog.com/img/b16-rounded.gif', 'profileUrl': 'http://www.blogger.com/profile/04982097826539673880'}, 'displayTime': 'January 7, 2008 8:35 PM', 'deleteclass': 'item-control blog-admin pid-1878716360'}, {'id': '5269919909086235441', 'body': 'I\47m dying to know the should... all this functional stuff is quite confusing... I get the idea that I need to learn it, just need to make the jump (and it seems like a big one).', 'timestamp': '1199794140000', 'permalink': 'http://www.valuedlessons.com/2008/01/monads-in-python-with-nice-syntax.html?showComment\0751199794140000#c5269919909086235441', 'author': {'name': 'Stu', 'avatarUrl': 'http://img2.blogblog.com/img/b16-rounded.gif', 'profileUrl': 'http://www.blogger.com/profile/08755227063937859112'}, 'displayTime': 'January 8, 2008 4:09 AM', 'deleteclass': 'item-control blog-admin pid-1102025346'}, {'id': '2684148385796457981', 'body': 'Can\47t you show full runnable source file? It will be a great help to know about the subject.\74BR/\76Thanks in advance.', 'timestamp': '1199800080000', 'permalink': 'http://www.valuedlessons.com/2008/01/monads-in-python-with-nice-syntax.html?showComment\0751199800080000#c2684148385796457981', 'author': {'name': '_winnie', 'avatarUrl': 'http://img2.blogblog.com/img/b16-rounded.gif', 'profileUrl': 'http://www.blogger.com/profile/04382725998308329157'}, 'displayTime': 'January 8, 2008 5:48 AM', 'deleteclass': 'item-control blog-admin pid-778113817'}, {'id': '7105007358116833613', 'body': 'I\47ve added fully runnable source to the bottom of the article.', 'timestamp': '1199811600000', 'permalink': 'http://www.valuedlessons.com/2008/01/monads-in-python-with-nice-syntax.html?showComment\0751199811600000#c7105007358116833613', 'author': {'name': 'Peter Thatcher', 'avatarUrl': 'http://img2.blogblog.com/img/b16-rounded.gif', 'profileUrl': 'http://www.blogger.com/profile/01092342988993218446'}, 'displayTime': 'January 8, 2008 9:00 AM', 'deleteclass': 'item-control blog-admin pid-1638056106'}, {'id': '1666897293268707345', 'body': 'In Monad.make_decorator, you\47re using the comparison (\75\75) operator when I think you mean to use the assignment operator (\75). \42decorated.__name__ \75\75 undecorated.__name__\42 and \42decorator.__name__ \75\75 func.__name__\42 should both be assignment.', 'timestamp': '1199818500000', 'permalink': 'http://www.valuedlessons.com/2008/01/monads-in-python-with-nice-syntax.html?showComment\0751199818500000#c1666897293268707345', 'author': {'name': 'theokayplus', 'avatarUrl': 'http://img1.blogblog.com/img/blank.gif', 'profileUrl': ''}, 'displayTime': 'January 8, 2008 10:55 AM', 'deleteclass': 'item-control blog-admin pid-1847305294'}, {'id': '3205815827801769775', 'body': 'Thanks.  I fixed it.', 'timestamp': '1199821380000', 'permalink': 'http://www.valuedlessons.com/2008/01/monads-in-python-with-nice-syntax.html?showComment\0751199821380000#c3205815827801769775', 'author': {'name': 'Peter Thatcher', 'avatarUrl': 'http://img2.blogblog.com/img/b16-rounded.gif', 'profileUrl': 'http://www.blogger.com/profile/01092342988993218446'}, 'displayTime': 'January 8, 2008 11:43 AM', 'deleteclass': 'item-control blog-admin pid-1638056106'}, {'id': '5536184610333024166', 'body': 'Hi peter,\74BR/\76\74BR/\76Neat!  I\47m still going through the monad code, but I was interested in the use of Maybe and Failure.  How easy is it to add these to unsafe code?  And what sort of debugging output is attached to them?  I guess I\47m basically curious as to how functional programming does debugging.\74BR/\76\74BR/\76BTW, it inspired me to use a Python exception handling framework to get most of the benefits of the Maybe monad.  The post is \74A HREF\75\42http://ndanger.org/blog/2008/01/16/error-handling-in-python-monads-are-too-much-for-me/\42 REL\75\42nofollow\42\76here\74/A\76.\74BR/\76\74BR/\76Looking forward to the should to know more.', 'timestamp': '1200512700000', 'permalink': 'http://www.valuedlessons.com/2008/01/monads-in-python-with-nice-syntax.html?showComment\0751200512700000#c5536184610333024166', 'author': {'name': 'Dave', 'avatarUrl': 'http://img1.blogblog.com/img/openid16-rounded.gif', 'profileUrl': 'http://ndanger.org/blog/'}, 'displayTime': 'January 16, 2008 11:45 AM', 'deleteclass': 'item-control blog-admin pid-275069575'}, {'id': '7869834350741766021', 'body': 'You can not raise a NotImplementedError in code that is meant to demonstrate a proof-of-principle to be read on a blogpost.', 'timestamp': '1203129420000', 'permalink': 'http://www.valuedlessons.com/2008/01/monads-in-python-with-nice-syntax.html?showComment\0751203129420000#c7869834350741766021', 'author': {'name': 'Brian', 'avatarUrl': 'http://img1.blogblog.com/img/blank.gif', 'profileUrl': ''}, 'displayTime': 'February 15, 2008 6:37 PM', 'deleteclass': 'item-control blog-admin pid-1942348294'}, {'id': '8798490618346617812', 'body': 'brian: Abstract Base Classes.  Google.  Go now, you can make it.', 'timestamp': '1205933520000', 'permalink': 'http://www.valuedlessons.com/2008/01/monads-in-python-with-nice-syntax.html?showComment\0751205933520000#c8798490618346617812', 'author': {'name': 'Anonymous', 'avatarUrl': 'http://img1.blogblog.com/img/blank.gif', 'profileUrl': ''}, 'displayTime': 'March 19, 2008 6:32 AM', 'deleteclass': 'item-control blog-admin pid-744291158'}, {'id': '2012214161747287799', 'body': 'hi, i just found this after implementing monads in python myself.  i\47d be interested in hearing what you think of my code.  i took a completely different approach and i am not even sure i am \42really\42 implementing monads - i don\47t try to use lambdas to bind the values, for example.  on the other hand, it\47s a *lot* simpler :o)\74BR/\76\74BR/\76i don\47t completely understand what you\47ve done, but when i have a spare moment i am going to go step-by-step through the details (i am returning to python after not using much for several years and generators are pretty much new to me).\74BR/\76\74BR/\76cheers,\74BR/\76andrew\74BR/\76\74BR/\76ps http://acooke.org/cute/MonadsinPy0.html', 'timestamp': '1209903600000', 'permalink': 'http://www.valuedlessons.com/2008/01/monads-in-python-with-nice-syntax.html?showComment\0751209903600000#c2012214161747287799', 'author': {'name': 'Anonymous', 'avatarUrl': 'http://img1.blogblog.com/img/blank.gif', 'profileUrl': ''}, 'displayTime': 'May 4, 2008 5:20 AM', 'deleteclass': 'item-control blog-admin pid-1569093347'}, {'id': '8567372348184954711', 'body': 'Thank your for this great stuff!\74BR/\76\74BR/\76I\47m writing a monad tutorial with examples in various languages. I would like to use your code to have the do-notation in the examples in python. Would you allow it ? And if yes, under which licence ?', 'timestamp': '1213740060000', 'permalink': 'http://www.valuedlessons.com/2008/01/monads-in-python-with-nice-syntax.html?showComment\0751213740060000#c8567372348184954711', 'author': {'name': 'GTof', 'avatarUrl': 'http://img1.blogblog.com/img/blank.gif', 'profileUrl': ''}, 'displayTime': 'June 17, 2008 3:01 PM', 'deleteclass': 'item-control blog-admin pid-1921555726'}, {'id': '5006814456841238204', 'body': 'I played a bit with your code and unfortunately yields are not good for all cases, for example it doesn\47t work with the List Monad.\74BR/\76\74BR/\76When you bind the monad \47m\47 with the function \47f\47. \47f\47 can be called several times, this tipically the case with the List Monad.\74BR/\76\74BR/\76But with yields, the code:\74BR/\76x \75 yield a\74BR/\76y \75 yield b\74BR/\76c\74BR/\76Which should be equivalant to :\74BR/\76a \76\76\75 (lambda x : b \76\76\75 (lambda y : c))\74BR/\76\74BR/\76So let\47s call \47f\47 \75 (lambda x : b \76\76\75 (lambda y : c)) . With the List monad, \47f\47 has to be called as many times as elements in a, which means \47x\47 has to take as many values as elements in \47a\47. But the second time we use \42send\42 to give a value to \47x\47 through the yield, it won\47t be another value to \47x\47 but the value to \47y\47.\74BR/\76\74BR/\76So your code works well for monads where the binding fonction is called once and exactly once, otherwise you won\47t call the right yield.\74BR/\76\74BR/\76\74BR/\76A solution would be to fork the generator as many time as values to give to \47x\47 but i couldn\47t get the library to work.\74BR/\76\74BR/\76Aanand uses a very nice approach in Ruby, it transform the abstract syntax tree at run time to replace the do-notations assginments by plain calls to bind. I tried to port it to python but ast is python looks to complex !! And i don\47t even now if it\47s possible to access the AST of an object what is needed to deal with alpha-conversion and avoid name capture.\74BR/\76\74BR/\76 What would be great would be a python preprocessor, but i didn\47t find any.', 'timestamp': '1214258220000', 'permalink': 'http://www.valuedlessons.com/2008/01/monads-in-python-with-nice-syntax.html?showComment\0751214258220000#c5006814456841238204', 'author': {'name': 'GTof', 'avatarUrl': 'http://img1.blogblog.com/img/blank.gif', 'profileUrl': ''}, 'displayTime': 'June 23, 2008 2:57 PM', 'deleteclass': 'item-control blog-admin pid-847637107'}, {'id': '2253186197420846762', 'body': 'I\47ve done something. It works in the simple examples i\47ve tried but i\47m very new to python so it might be only these examples. I encode a do-bloc as a string of the form\74BR/\76\74BR/\76\42\42\42\74BR/\76x \74- a_expresion\74BR/\76another_expression\74BR/\76y \74- again_one\74BR/\76...\74BR/\76last_expression\74BR/\76\42\42\42\74BR/\76\74BR/\76And build the expression with bind from it and then evaluate it.\74BR/\76\74BR/\76I had a strange problem: if i use a do-block in a fonctoin which takes an argument, it can only be seen in the first statement of the do block :\74BR/\76\74BR/\76def test(x):\74BR/\76  return eval(\42mreturn(x)\42)\74BR/\76\74BR/\76will work, but :\74BR/\76\74BR/\76def test(x):\74BR/\76  return eval(\42mreturn(1).bind(lambda y : mreturn(x)\42)\74BR/\76\74BR/\76will fail saying \42NameError: global name \47x\47 is not defined\42\74BR/\76\74BR/\76I has to build a closure to the expression from the list of local names.\74BR/\76Here is my code : \74BR/\76\74BR/\76\74BR/\76\74BR/\76\74BR/\76#\74BR/\76# MONAD LIST\74BR/\76#\74BR/\76\74BR/\76def concat(x) :\74BR/\76  res \75 []\74BR/\76  for y in x :\74BR/\76    res.extend(y)\74BR/\76  return res\74BR/\76\74BR/\76\74BR/\76class Monad:\74BR/\76    value\75None\74BR/\76    def __init__(self,val):\74BR/\76        self.value\75val\74BR/\76\74BR/\76    @staticmethod\74BR/\76    def mreturn(self,val):\74BR/\76        raise NotImplementedError\74BR/\76\74BR/\76    def bind(self, func):\74BR/\76        raise NotImplementedError\74BR/\76\74BR/\76    def __ge__(self, bindee):\74BR/\76        return self.bind(bindee)\74BR/\76\74BR/\76    # THE \76\76 Haskell operator\74BR/\76    def __rshift__(self, bindee_without_arg):\74BR/\76        return self.bind(lambda _ : bindee_without_arg)\74BR/\76\74BR/\76\74BR/\76class Liste(Monad):\74BR/\76    @staticmethod\74BR/\76    def mreturn(val) :\74BR/\76        return Liste([val])\74BR/\76\74BR/\76    def bind(self,func):\74BR/\76        def fval(x):\74BR/\76           return func(x).value\74BR/\76\74BR/\76        return Liste(concat(map(fval,self.value)))\74BR/\76\74BR/\76    @staticmethod\74BR/\76    def zero():\74BR/\76        return Liste([])\74BR/\76\74BR/\76    def run(self):\74BR/\76        return self.value\74BR/\76\74BR/\76\74BR/\76#\74BR/\76# THE DO NOTATION\74BR/\76#\74BR/\76\74BR/\76import re\74BR/\76import compiler\74BR/\76\74BR/\76\74BR/\76# PARSE ASSIGNMENT \42x \74- m\42\74BR/\76doasgn \75 re.compile(r\42^\\s*(\\w)+\\s*\74-\\s*(.*)\42)\74BR/\76# PARSE NON EMPTY LINES\74BR/\76dostmt \75 re.compile(r\42\\S.*\\S?\42)\74BR/\76\74BR/\76\74BR/\76# BUILD THE BIND EXPRESSION FROM OF LIST OF DO-STATEMENTs\74BR/\76def dolist(l):\74BR/\76  if len(l) \75\75 1 :\74BR/\76    return l[0]\74BR/\76  else :\74BR/\76    mre \75 doasgn.match(l[0])\74BR/\76    if mre :\74BR/\76       g \75 mre.groups()\74BR/\76       return (\42(\42 + g[1] + \42).bind(lambda \42 + g[0] + \42 : \42 + dolist(l[1:]) + \42)\42)\74BR/\76    else :\74BR/\76       return (\42(\42 + l[0] + \42) \76\76 (\42 + dolist(l[1:]) + \42)\42)\74BR/\76\74BR/\76\74BR/\76# TRANSORM A DO BLOCK INTO A BIND EXPRESSION\74BR/\76do    \75 lambda s : dolist(dostmt.findall(s))\74BR/\76# COMPILE A DO BLOCK INTO A CODE EXPRESSION\74BR/\76cdo   \75 lambda s : compiler.compile(do(s),\47compiledo.py\47,\47eval\47)\74BR/\76\74BR/\76# PYTHON HAS PROBLEMS TO SEE LOCAL VARIABLES  WHEN EVALUATING :\74BR/\76#\74BR/\76# def test(x) :\74BR/\76#   return eval(do(\42\42\42\74BR/\76#       List.mreturn(x)\74BR/\76#       \42\42\42)\74BR/\76#\74BR/\76# print test(5).run()\74BR/\76#\74BR/\76# Will give the good result but :\74BR/\76#\74BR/\76# def test(x) :\74BR/\76#   return eval(do(\42\42\42\74BR/\76#       y \74- .....\74BR/\76#       List.mreturn(x)\74BR/\76#       \42\42\42)\74BR/\76#\74BR/\76# print test(5).run()\74BR/\76#\74BR/\76# Will give the error : NameError: global name \47x\47 is not defined\74BR/\76# To avoid that, we build a closure from the list of local variables\74BR/\76# with (lambda x : ...)(locals()[\42x\42])\74BR/\76# So x is in the context of the expression with the good value in locals\74BR/\76\74BR/\76def closure(v,m):\74BR/\76  l \75 v\74BR/\76  for x in m.keys() :\74BR/\76   l \75 \42((lambda \42 + x + \42 : \42 + l + \42)(m[\\\42\42 + x + \42\\\42]))\42\74BR/\76  return \42(lambda m : \42 + l + \42)\42\74BR/\76\74BR/\76# JUST TO EVALUATE THE BLOCK\74BR/\76def rundo(g,l,s):\74BR/\76  return eval(closure(do(s),l),g,l)(l)\74BR/\76\74BR/\76\74BR/\76# A TEST :\74BR/\76# Liste([a,.....]) will lift the list [a,....] into the monad\74BR/\76def toto(x,y,z,d):\74BR/\76  l \75 test.rundo(globals(),locals(),\42\42\42\74BR/\76    a \74- Liste([x , x + 1 ])\74BR/\76    b \74- Liste([y , y + 1 ])\74BR/\76    c \74- Liste([z , z + 1 ])\74BR/\76    Liste.mreturn(x + y + z + a + b + c + d)\74BR/\76    \42\42\42)\74BR/\76  return l.run()\74BR/\76\74BR/\76\74BR/\76print toto(1,10,100,1000)\74BR/\76# WILL GIVE : [1222, 1223, 1223, 1224, 1223, 1224, 1224, 1225]', 'timestamp': '1214316240000', 'permalink': 'http://www.valuedlessons.com/2008/01/monads-in-python-with-nice-syntax.html?showComment\0751214316240000#c2253186197420846762', 'author': {'name': 'GTof', 'avatarUrl': 'http://img1.blogblog.com/img/blank.gif', 'profileUrl': ''}, 'displayTime': 'June 24, 2008 7:04 AM', 'deleteclass': 'item-control blog-admin pid-398786481'}, {'id': '3762555239898984274', 'body': 'Good Work. Keep it up.', 'timestamp': '1289313561356', 'permalink': 'http://www.valuedlessons.com/2008/01/monads-in-python-with-nice-syntax.html?showComment\0751289313561356#c3762555239898984274', 'author': {'name': 'ComputerTutorials', 'avatarUrl': 'http://img1.blogblog.com/img/blank.gif', 'profileUrl': 'http://pickatutorial.com'}, 'displayTime': 'November 9, 2010 6:39 AM', 'deleteclass': 'item-control blog-admin pid-163439918'}, {'id': '613876258188310180', 'body': 'My blog has opened so many doors for me and has helped me land quite a few jobs. By being immersed in writing and showing initiative, having a blog has been a great platform and portfolio. And I would recommend to anyone looking to start or build a portfolio to have a blog. \74a href\75\42http://www.e-saglik.tc\42 rel\75\42nofollow\42\76e sağlık\74/a\076', 'timestamp': '1307114673198', 'permalink': 'http://www.valuedlessons.com/2008/01/monads-in-python-with-nice-syntax.html?showComment\0751307114673198#c613876258188310180', 'author': {'name': 'Bitki Dünyası', 'avatarUrl': 'http://img2.blogblog.com/img/b16-rounded.gif', 'profileUrl': 'http://www.blogger.com/profile/10694115851289926218'}, 'displayTime': 'June 3, 2011 8:24 AM', 'deleteclass': 'item-control blog-admin pid-329158995'}, {'id': '1284975331837539336', 'parentId': '5006814456841238204', 'body': 'Use for...in : relevant stack overflow article http://stackoverflow.com/questions/2657068/idiomatic-python-times-loop', 'timestamp': '1356285348048', 'permalink': 'http://www.valuedlessons.com/2008/01/monads-in-python-with-nice-syntax.html?showComment\0751356285348048#c1284975331837539336', 'author': {'name': 'Anonymous', 'avatarUrl': 'http://img1.blogblog.com/img/blank.gif', 'profileUrl': ''}, 'displayTime': 'December 23, 2012 9:55 AM', 'deleteclass': 'item-control blog-admin pid-1505052505'}, {'id': '5208232728233866243', 'body': 'You should use functools.wrap or update_wrapper for your decoraters instead of manually playing with __name__', 'timestamp': '1356297190214', 'permalink': 'http://www.valuedlessons.com/2008/01/monads-in-python-with-nice-syntax.html?showComment\0751356297190214#c5208232728233866243', 'author': {'name': 'Anonymous', 'avatarUrl': 'http://img1.blogblog.com/img/blank.gif', 'profileUrl': ''}, 'displayTime': 'December 23, 2012 1:13 PM', 'deleteclass': 'item-control blog-admin pid-1553417742'}];
+      var msgs = {'loadMore': 'Load more...', 'loading': 'Loading...', 'loaded': 'No more!', 'addComment': 'Add comment', 'reply': 'Reply', 'delete': 'Delete'};
+      var config = {'blogId': '1700157236206200597', 'postId': '6799472260664409462', 'feed': 'http://www.valuedlessons.com/feeds/6799472260664409462/comments/default', 'authorName': 'Peter Thatcher', 'authorUrl': 'http://www.blogger.com/profile/01092342988993218446', 'baseUri': 'http://www.blogger.com', 'maxThreadDepth': 2};
+
+// <![CDATA[
+      var cursor = null;
+      if (items && items.length > 0) {
+        cursor = parseInt(items[items.length - 1].timestamp) + 1;
+      }
+
+      var bodyFromEntry = function(entry) {
+        if (entry.gd$extendedProperty) {
+          for (var k in entry.gd$extendedProperty) {
+            if (entry.gd$extendedProperty[k].name == 'blogger.contentRemoved') {
+              return '<span class="deleted-comment">' + entry.content.$t + '</span>';
+            }
+          }
+        }
+        return entry.content.$t;
+      }
+
+      var parse = function(data) {
+        cursor = null;
+        var comments = [];
+        if (data && data.feed && data.feed.entry) {
+          for (var i = 0, entry; entry = data.feed.entry[i]; i++) {
+            var comment = {};
+            // comment ID, parsed out of the original id format
+            var id = /blog-(\d+).post-(\d+)/.exec(entry.id.$t);
+            comment.id = id ? id[2] : null;
+            comment.body = bodyFromEntry(entry);
+            comment.timestamp = Date.parse(entry.published.$t) + '';
+            if (entry.author && entry.author.constructor === Array) {
+              var auth = entry.author[0];
+              if (auth) {
+                comment.author = {
+                  name: (auth.name ? auth.name.$t : undefined),
+                  profileUrl: (auth.uri ? auth.uri.$t : undefined),
+                  avatarUrl: (auth.gd$image ? auth.gd$image.src : undefined)
+                };
+              }
+            }
+            if (entry.link) {
+              if (entry.link[2]) {
+                comment.link = comment.permalink = entry.link[2].href;
+              }
+              if (entry.link[3]) {
+                var pid = /.*comments\/default\/(\d+)\?.*/.exec(entry.link[3].href);
+                if (pid && pid[1]) {
+                  comment.parentId = pid[1];
+                }
+              }
+            }
+            comment.deleteclass = 'item-control blog-admin';
+            if (entry.gd$extendedProperty) {
+              for (var k in entry.gd$extendedProperty) {
+                if (entry.gd$extendedProperty[k].name == 'blogger.itemClass') {
+                  comment.deleteclass += ' ' + entry.gd$extendedProperty[k].value;
+                } else if (entry.gd$extendedProperty[k].name == 'blogger.displayTime') {
+                  comment.displayTime = entry.gd$extendedProperty[k].value;
+                }
+              }
+            }
+            comments.push(comment);
+          }
+        }
+        return comments;
+      };
+
+      var paginator = function(callback) {
+        if (hasMore()) {
+          var url = config.feed + '?alt=json&v=2&orderby=published&reverse=false&max-results=50';
+          if (cursor) {
+            url += '&published-min=' + new Date(cursor).toISOString();
+          }
+          window.bloggercomments = function(data) {
+            var parsed = parse(data);
+            cursor = parsed.length < 50 ? null
+                : parseInt(parsed[parsed.length - 1].timestamp) + 1
+            callback(parsed);
+            window.bloggercomments = null;
+          }
+          url += '&callback=bloggercomments';
+          var script = document.createElement('script');
+          script.type = 'text/javascript';
+          script.src = url;
+          document.getElementsByTagName('head')[0].appendChild(script);
+        }
+      };
+      var hasMore = function() {
+        return !!cursor;
+      };
+      var getMeta = function(key, comment) {
+        if ('iswriter' == key) {
+          var matches = !!comment.author
+              && comment.author.name == config.authorName
+              && comment.author.profileUrl == config.authorUrl;
+          return matches ? 'true' : '';
+        } else if ('deletelink' == key) {
+          return config.baseUri + '/delete-comment.g?blogID='
+               + config.blogId + '&postID=' + comment.id;
+        } else if ('deleteclass' == key) {
+          return comment.deleteclass;
+        }
+        return '';
+      };
+
+      var replybox = null;
+      var replyUrlParts = null;
+      var replyParent = undefined;
+
+      var onReply = function(commentId, domId) {
+        if (replybox == null) {
+          // lazily cache replybox, and adjust to suit this style:
+          replybox = document.getElementById('comment-editor');
+          if (replybox != null) {
+            replybox.height = '250px';
+            replybox.style.display = 'block';
+            replyUrlParts = replybox.src.split('#');
+          }
+        }
+        if (replybox && (commentId !== replyParent)) {
+          document.getElementById(domId).insertBefore(replybox, null);
+          replybox.src = replyUrlParts[0]
+              + (commentId ? '&parentID=' + commentId : '')
+              + '#' + replyUrlParts[1];
+          replyParent = commentId;
+        }
+      };
+
+      var hash = (window.location.hash || '#').substring(1);
+      var startThread, targetComment;
+      if (/^comment-form_/.test(hash)) {
+        startThread = hash.substring('comment-form_'.length);
+      } else if (/^c[0-9]+$/.test(hash)) {
+        targetComment = hash.substring(1);
+      }
+
+      // Configure commenting API:
+      var configJso = {
+        'maxDepth': config.maxThreadDepth
+      };
+      var provider = {
+        'id': config.postId,
+        'data': items,
+        'loadNext': paginator,
+        'hasMore': hasMore,
+        'getMeta': getMeta,
+        'onReply': onReply,
+        'rendered': true,
+        'initComment': targetComment,
+        'initReplyThread': startThread,
+        'config': configJso,
+        'messages': msgs
+      };
+
+      var render = function() {
+        if (window.goog && window.goog.comments) {
+          var holder = document.getElementById('comment-holder');
+          window.goog.comments.render(holder, provider);
+        }
+      };
+
+      // render now, or queue to render when library loads:
+      if (window.goog && window.goog.comments) {
+        render();
+      } else {
+        window.goog = window.goog || {};
+        window.goog.comments = window.goog.comments || {};
+        window.goog.comments.loadQueue = window.goog.comments.loadQueue || [];
+        window.goog.comments.loadQueue.push(render);
+      }
+    })();
+// ]]>
+</script>
+<div id='comment-holder'>
+<div id='bc_0_18C' kind='c'><div id='bc_0_18CT'><div id='bc_0_17T' class='comment-thread' kind='r'  t='0' u='0'><ol id='bc_0_17TB'><li id='bc_0_0B' class='comment' kind='b'><div class='avatar-image-container'><img src='http://img2.blogblog.com/img/b36-rounded.png'></img></div><div id='c191795277195126632' class='comment-block'><div id='bc_0_0M' class='comment-header' kind='m'><cite class='user'><a rel='nofollow' href='http://www.blogger.com/profile/04982097826539673880'>Winterstream</a></cite><span class='icon user'></span><span class='datetime secondary-text'><a rel='nofollow' href='http://www.valuedlessons.com/2008/01/monads-in-python-with-nice-syntax.html?showComment=1199766900000#c191795277195126632'>January 7, 2008 8:35 PM</a></span></div><p id='bc_0_0MC' class='comment-content'>Holy moly! <BR/><BR/>This is a really nice way of doing it.<BR/><BR/>I've been interested in using Monads in my Python code for some time (for parsing) and I think that I'm definitely going to use your approach.</p><span id='bc_0_0MN' class='comment-actions secondary-text' kind='m'><a kind='i' href='javascript:;' target='_self' o='r'>Reply</a><span class='item-control blog-admin pid-1878716360'><a o='d' target='_self' href='http://www.blogger.com/delete-comment.g?blogID=1700157236206200597&amp;postID=191795277195126632'>Delete</a></span></span></div><div id='bc_0_0BR' class='comment-replies'></div><div id='bc_0_0B_box' class='comment-replybox-single'></div></li><li id='bc_0_1B' class='comment' kind='b'><div class='avatar-image-container'><img src='http://img2.blogblog.com/img/b36-rounded.png'></img></div><div id='c5269919909086235441' class='comment-block'><div id='bc_0_1M' class='comment-header' kind='m'><cite class='user'><a rel='nofollow' href='http://www.blogger.com/profile/08755227063937859112'>Stu</a></cite><span class='icon user'></span><span class='datetime secondary-text'><a rel='nofollow' href='http://www.valuedlessons.com/2008/01/monads-in-python-with-nice-syntax.html?showComment=1199794140000#c5269919909086235441'>January 8, 2008 4:09 AM</a></span></div><p id='bc_0_1MC' class='comment-content'>I'm dying to know the should... all this functional stuff is quite confusing... I get the idea that I need to learn it, just need to make the jump (and it seems like a big one).</p><span id='bc_0_1MN' class='comment-actions secondary-text' kind='m'><a kind='i' href='javascript:;' target='_self' o='r'>Reply</a><span class='item-control blog-admin pid-1102025346'><a o='d' target='_self' href='http://www.blogger.com/delete-comment.g?blogID=1700157236206200597&amp;postID=5269919909086235441'>Delete</a></span></span></div><div id='bc_0_1BR' class='comment-replies'></div><div id='bc_0_1B_box' class='comment-replybox-single'></div></li><li id='bc_0_2B' class='comment' kind='b'><div class='avatar-image-container'><img src='http://img2.blogblog.com/img/b36-rounded.png'></img></div><div id='c2684148385796457981' class='comment-block'><div id='bc_0_2M' class='comment-header' kind='m'><cite class='user'><a rel='nofollow' href='http://www.blogger.com/profile/04382725998308329157'>_winnie</a></cite><span class='icon user'></span><span class='datetime secondary-text'><a rel='nofollow' href='http://www.valuedlessons.com/2008/01/monads-in-python-with-nice-syntax.html?showComment=1199800080000#c2684148385796457981'>January 8, 2008 5:48 AM</a></span></div><p id='bc_0_2MC' class='comment-content'>Can't you show full runnable source file? It will be a great help to know about the subject.<BR/>Thanks in advance.</p><span id='bc_0_2MN' class='comment-actions secondary-text' kind='m'><a kind='i' href='javascript:;' target='_self' o='r'>Reply</a><span class='item-control blog-admin pid-778113817'><a o='d' target='_self' href='http://www.blogger.com/delete-comment.g?blogID=1700157236206200597&amp;postID=2684148385796457981'>Delete</a></span></span></div><div id='bc_0_2BR' class='comment-replies'></div><div id='bc_0_2B_box' class='comment-replybox-single'></div></li><li id='bc_0_3B' class='comment' kind='b'><div class='avatar-image-container'><img src='http://img2.blogblog.com/img/b36-rounded.png'></img></div><div id='c7105007358116833613' class='comment-block'><div id='bc_0_3M' class='comment-header' kind='m'><cite class='user blog-author'><a rel='nofollow' href='http://www.blogger.com/profile/01092342988993218446'>Peter Thatcher</a></cite><span class='icon user blog-author'></span><span class='datetime secondary-text'><a rel='nofollow' href='http://www.valuedlessons.com/2008/01/monads-in-python-with-nice-syntax.html?showComment=1199811600000#c7105007358116833613'>January 8, 2008 9:00 AM</a></span></div><p id='bc_0_3MC' class='comment-content'>I've added fully runnable source to the bottom of the article.</p><span id='bc_0_3MN' class='comment-actions secondary-text' kind='m'><a kind='i' href='javascript:;' target='_self' o='r'>Reply</a><span class='item-control blog-admin pid-1638056106'><a o='d' target='_self' href='http://www.blogger.com/delete-comment.g?blogID=1700157236206200597&amp;postID=7105007358116833613'>Delete</a></span></span></div><div id='bc_0_3BR' class='comment-replies'></div><div id='bc_0_3B_box' class='comment-replybox-single'></div></li><li id='bc_0_4B' class='comment' kind='b'><div class='avatar-image-container'><img src='http://img1.blogblog.com/img/anon36.png'></img></div><div id='c1666897293268707345' class='comment-block'><div id='bc_0_4M' class='comment-header' kind='m'><cite class='user'>theokayplus</cite><span class='icon user'></span><span class='datetime secondary-text'><a rel='nofollow' href='http://www.valuedlessons.com/2008/01/monads-in-python-with-nice-syntax.html?showComment=1199818500000#c1666897293268707345'>January 8, 2008 10:55 AM</a></span></div><p id='bc_0_4MC' class='comment-content'>In Monad.make_decorator, you're using the comparison (==) operator when I think you mean to use the assignment operator (=). "decorated.__name__ == undecorated.__name__" and "decorator.__name__ == func.__name__" should both be assignment.</p><span id='bc_0_4MN' class='comment-actions secondary-text' kind='m'><a kind='i' href='javascript:;' target='_self' o='r'>Reply</a><span class='item-control blog-admin pid-1847305294'><a o='d' target='_self' href='http://www.blogger.com/delete-comment.g?blogID=1700157236206200597&amp;postID=1666897293268707345'>Delete</a></span></span></div><div id='bc_0_4BR' class='comment-replies'></div><div id='bc_0_4B_box' class='comment-replybox-single'></div></li><li id='bc_0_5B' class='comment' kind='b'><div class='avatar-image-container'><img src='http://img2.blogblog.com/img/b36-rounded.png'></img></div><div id='c3205815827801769775' class='comment-block'><div id='bc_0_5M' class='comment-header' kind='m'><cite class='user blog-author'><a rel='nofollow' href='http://www.blogger.com/profile/01092342988993218446'>Peter Thatcher</a></cite><span class='icon user blog-author'></span><span class='datetime secondary-text'><a rel='nofollow' href='http://www.valuedlessons.com/2008/01/monads-in-python-with-nice-syntax.html?showComment=1199821380000#c3205815827801769775'>January 8, 2008 11:43 AM</a></span></div><p id='bc_0_5MC' class='comment-content'>Thanks.  I fixed it.</p><span id='bc_0_5MN' class='comment-actions secondary-text' kind='m'><a kind='i' href='javascript:;' target='_self' o='r'>Reply</a><span class='item-control blog-admin pid-1638056106'><a o='d' target='_self' href='http://www.blogger.com/delete-comment.g?blogID=1700157236206200597&amp;postID=3205815827801769775'>Delete</a></span></span></div><div id='bc_0_5BR' class='comment-replies'></div><div id='bc_0_5B_box' class='comment-replybox-single'></div></li><li id='bc_0_6B' class='comment' kind='b'><div class='avatar-image-container'><img src='http://img1.blogblog.com/img/openid36-rounded.png'></img></div><div id='c5536184610333024166' class='comment-block'><div id='bc_0_6M' class='comment-header' kind='m'><cite class='user'><a rel='nofollow' href='http://ndanger.org/blog/'>Dave</a></cite><span class='icon user'></span><span class='datetime secondary-text'><a rel='nofollow' href='http://www.valuedlessons.com/2008/01/monads-in-python-with-nice-syntax.html?showComment=1200512700000#c5536184610333024166'>January 16, 2008 11:45 AM</a></span></div><p id='bc_0_6MC' class='comment-content'>Hi peter,<BR/><BR/>Neat!  I'm still going through the monad code, but I was interested in the use of Maybe and Failure.  How easy is it to add these to unsafe code?  And what sort of debugging output is attached to them?  I guess I'm basically curious as to how functional programming does debugging.<BR/><BR/>BTW, it inspired me to use a Python exception handling framework to get most of the benefits of the Maybe monad.  The post is <A HREF="http://ndanger.org/blog/2008/01/16/error-handling-in-python-monads-are-too-much-for-me/" REL="nofollow">here</A>.<BR/><BR/>Looking forward to the should to know more.</p><span id='bc_0_6MN' class='comment-actions secondary-text' kind='m'><a kind='i' href='javascript:;' target='_self' o='r'>Reply</a><span class='item-control blog-admin pid-275069575'><a o='d' target='_self' href='http://www.blogger.com/delete-comment.g?blogID=1700157236206200597&amp;postID=5536184610333024166'>Delete</a></span></span></div><div id='bc_0_6BR' class='comment-replies'></div><div id='bc_0_6B_box' class='comment-replybox-single'></div></li><li id='bc_0_7B' class='comment' kind='b'><div class='avatar-image-container'><img src='http://img1.blogblog.com/img/anon36.png'></img></div><div id='c7869834350741766021' class='comment-block'><div id='bc_0_7M' class='comment-header' kind='m'><cite class='user'>Brian</cite><span class='icon user'></span><span class='datetime secondary-text'><a rel='nofollow' href='http://www.valuedlessons.com/2008/01/monads-in-python-with-nice-syntax.html?showComment=1203129420000#c7869834350741766021'>February 15, 2008 6:37 PM</a></span></div><p id='bc_0_7MC' class='comment-content'>You can not raise a NotImplementedError in code that is meant to demonstrate a proof-of-principle to be read on a blogpost.</p><span id='bc_0_7MN' class='comment-actions secondary-text' kind='m'><a kind='i' href='javascript:;' target='_self' o='r'>Reply</a><span class='item-control blog-admin pid-1942348294'><a o='d' target='_self' href='http://www.blogger.com/delete-comment.g?blogID=1700157236206200597&amp;postID=7869834350741766021'>Delete</a></span></span></div><div id='bc_0_7BR' class='comment-replies'></div><div id='bc_0_7B_box' class='comment-replybox-single'></div></li><li id='bc_0_8B' class='comment' kind='b'><div class='avatar-image-container'><img src='http://img1.blogblog.com/img/anon36.png'></img></div><div id='c8798490618346617812' class='comment-block'><div id='bc_0_8M' class='comment-header' kind='m'><cite class='user'>Anonymous</cite><span class='icon user'></span><span class='datetime secondary-text'><a rel='nofollow' href='http://www.valuedlessons.com/2008/01/monads-in-python-with-nice-syntax.html?showComment=1205933520000#c8798490618346617812'>March 19, 2008 6:32 AM</a></span></div><p id='bc_0_8MC' class='comment-content'>brian: Abstract Base Classes.  Google.  Go now, you can make it.</p><span id='bc_0_8MN' class='comment-actions secondary-text' kind='m'><a kind='i' href='javascript:;' target='_self' o='r'>Reply</a><span class='item-control blog-admin pid-744291158'><a o='d' target='_self' href='http://www.blogger.com/delete-comment.g?blogID=1700157236206200597&amp;postID=8798490618346617812'>Delete</a></span></span></div><div id='bc_0_8BR' class='comment-replies'></div><div id='bc_0_8B_box' class='comment-replybox-single'></div></li><li id='bc_0_9B' class='comment' kind='b'><div class='avatar-image-container'><img src='http://img1.blogblog.com/img/anon36.png'></img></div><div id='c2012214161747287799' class='comment-block'><div id='bc_0_9M' class='comment-header' kind='m'><cite class='user'>Anonymous</cite><span class='icon user'></span><span class='datetime secondary-text'><a rel='nofollow' href='http://www.valuedlessons.com/2008/01/monads-in-python-with-nice-syntax.html?showComment=1209903600000#c2012214161747287799'>May 4, 2008 5:20 AM</a></span></div><p id='bc_0_9MC' class='comment-content'>hi, i just found this after implementing monads in python myself.  i'd be interested in hearing what you think of my code.  i took a completely different approach and i am not even sure i am "really" implementing monads - i don't try to use lambdas to bind the values, for example.  on the other hand, it's a *lot* simpler :o)<BR/><BR/>i don't completely understand what you've done, but when i have a spare moment i am going to go step-by-step through the details (i am returning to python after not using much for several years and generators are pretty much new to me).<BR/><BR/>cheers,<BR/>andrew<BR/><BR/>ps http://acooke.org/cute/MonadsinPy0.html</p><span id='bc_0_9MN' class='comment-actions secondary-text' kind='m'><a kind='i' href='javascript:;' target='_self' o='r'>Reply</a><span class='item-control blog-admin pid-1569093347'><a o='d' target='_self' href='http://www.blogger.com/delete-comment.g?blogID=1700157236206200597&amp;postID=2012214161747287799'>Delete</a></span></span></div><div id='bc_0_9BR' class='comment-replies'></div><div id='bc_0_9B_box' class='comment-replybox-single'></div></li><li id='bc_0_10B' class='comment' kind='b'><div class='avatar-image-container'><img src='http://img1.blogblog.com/img/anon36.png'></img></div><div id='c8567372348184954711' class='comment-block'><div id='bc_0_10M' class='comment-header' kind='m'><cite class='user'>GTof</cite><span class='icon user'></span><span class='datetime secondary-text'><a rel='nofollow' href='http://www.valuedlessons.com/2008/01/monads-in-python-with-nice-syntax.html?showComment=1213740060000#c8567372348184954711'>June 17, 2008 3:01 PM</a></span></div><p id='bc_0_10MC' class='comment-content'>Thank your for this great stuff!<BR/><BR/>I'm writing a monad tutorial with examples in various languages. I would like to use your code to have the do-notation in the examples in python. Would you allow it ? And if yes, under which licence ?</p><span id='bc_0_10MN' class='comment-actions secondary-text' kind='m'><a kind='i' href='javascript:;' target='_self' o='r'>Reply</a><span class='item-control blog-admin pid-1921555726'><a o='d' target='_self' href='http://www.blogger.com/delete-comment.g?blogID=1700157236206200597&amp;postID=8567372348184954711'>Delete</a></span></span></div><div id='bc_0_10BR' class='comment-replies'></div><div id='bc_0_10B_box' class='comment-replybox-single'></div></li><li id='bc_0_12B' class='comment' kind='b'><div class='avatar-image-container'><img src='http://img1.blogblog.com/img/anon36.png'></img></div><div id='c5006814456841238204' class='comment-block'><div id='bc_0_12M' class='comment-header' kind='m'><cite class='user'>GTof</cite><span class='icon user'></span><span class='datetime secondary-text'><a rel='nofollow' href='http://www.valuedlessons.com/2008/01/monads-in-python-with-nice-syntax.html?showComment=1214258220000#c5006814456841238204'>June 23, 2008 2:57 PM</a></span></div><p id='bc_0_12MC' class='comment-content'>I played a bit with your code and unfortunately yields are not good for all cases, for example it doesn't work with the List Monad.<BR/><BR/>When you bind the monad 'm' with the function 'f'. 'f' can be called several times, this tipically the case with the List Monad.<BR/><BR/>But with yields, the code:<BR/>x = yield a<BR/>y = yield b<BR/>c<BR/>Which should be equivalant to :<BR/>a >>= (lambda x : b >>= (lambda y : c))<BR/><BR/>So let's call 'f' = (lambda x : b >>= (lambda y : c)) . With the List monad, 'f' has to be called as many times as elements in a, which means 'x' has to take as many values as elements in 'a'. But the second time we use "send" to give a value to 'x' through the yield, it won't be another value to 'x' but the value to 'y'.<BR/><BR/>So your code works well for monads where the binding fonction is called once and exactly once, otherwise you won't call the right yield.<BR/><BR/><BR/>A solution would be to fork the generator as many time as values to give to 'x' but i couldn't get the library to work.<BR/><BR/>Aanand uses a very nice approach in Ruby, it transform the abstract syntax tree at run time to replace the do-notations assginments by plain calls to bind. I tried to port it to python but ast is python looks to complex !! And i don't even now if it's possible to access the AST of an object what is needed to deal with alpha-conversion and avoid name capture.<BR/><BR/> What would be great would be a python preprocessor, but i didn't find any.</p><span id='bc_0_12MN' class='comment-actions secondary-text' kind='m'><a kind='i' href='javascript:;' target='_self' o='r'>Reply</a><span class='item-control blog-admin pid-847637107'><a o='d' target='_self' href='http://www.blogger.com/delete-comment.g?blogID=1700157236206200597&amp;postID=5006814456841238204'>Delete</a></span></span></div><div id='bc_0_12BR' class='comment-replies'><span id='bc_0_12b+seedafoqD' kind='d'><div id='bc_0_11T' class='comment-thread inline-thread' kind='t'   t='0' u='0'><span id='bc_0_11TT' class='thread-toggle thread-expanded' kind='g'><span id='bc_0_11TA' class='thread-arrow'></span><span id='bc_0_11TN' class='thread-count'><span id='bc_0_11TNT' style='display: none;'></span><span id='bc_0_11TNU' style='display: none;'></span><a href='javascript:;' target='_self'>Replies</a><div id='bc_0_11TD' class='thread-dropContainer thread-expanded'><span class='thread-drop'></span></div></span></span><ol id='bc_0_11TC' class='thread-chrome thread-expanded'><div><li id='bc_0_11B' class='comment' kind='b'><div class='avatar-image-container'><img src='http://img1.blogblog.com/img/anon36.png'></img></div><div id='c1284975331837539336' class='comment-block'><div id='bc_0_11M' class='comment-header' kind='m'><cite class='user'>Anonymous</cite><span class='icon user'></span><span class='datetime secondary-text'><a rel='nofollow' href='http://www.valuedlessons.com/2008/01/monads-in-python-with-nice-syntax.html?showComment=1356285348048#c1284975331837539336'>December 23, 2012 9:55 AM</a></span></div><p id='bc_0_11MC' class='comment-content'>Use for...in : relevant stack overflow article http://stackoverflow.com/questions/2657068/idiomatic-python-times-loop</p><span id='bc_0_11MN' class='comment-actions secondary-text' kind='m'><span class='item-control blog-admin pid-1505052505'><a o='d' target='_self' href='http://www.blogger.com/delete-comment.g?blogID=1700157236206200597&amp;postID=1284975331837539336'>Delete</a></span></span></div><div id='bc_0_11BR' class='comment-replies'></div><div id='bc_0_11B_box' class='comment-replybox-single'></div></li></div><div id='bc_0_11I' class='continue' kind='ci'><a href='javascript:;' target='_self'>Reply</a></div></ol><div id='bc_0_11T_box' class='comment-replybox-thread'></div></div></span></div><div id='bc_0_12B_box' class='comment-replybox-single'></div></li><li id='bc_0_13B' class='comment' kind='b'><div class='avatar-image-container'><img src='http://img1.blogblog.com/img/anon36.png'></img></div><div id='c2253186197420846762' class='comment-block'><div id='bc_0_13M' class='comment-header' kind='m'><cite class='user'>GTof</cite><span class='icon user'></span><span class='datetime secondary-text'><a rel='nofollow' href='http://www.valuedlessons.com/2008/01/monads-in-python-with-nice-syntax.html?showComment=1214316240000#c2253186197420846762'>June 24, 2008 7:04 AM</a></span></div><p id='bc_0_13MC' class='comment-content'>I've done something. It works in the simple examples i've tried but i'm very new to python so it might be only these examples. I encode a do-bloc as a string of the form<BR/><BR/>"""<BR/>x <- a_expresion<BR/>another_expression<BR/>y <- again_one<BR/>...<BR/>last_expression<BR/>"""<BR/><BR/>And build the expression with bind from it and then evaluate it.<BR/><BR/>I had a strange problem: if i use a do-block in a fonctoin which takes an argument, it can only be seen in the first statement of the do block :<BR/><BR/>def test(x):<BR/>  return eval("mreturn(x)")<BR/><BR/>will work, but :<BR/><BR/>def test(x):<BR/>  return eval("mreturn(1).bind(lambda y : mreturn(x)")<BR/><BR/>will fail saying "NameError: global name 'x' is not defined"<BR/><BR/>I has to build a closure to the expression from the list of local names.<BR/>Here is my code : <BR/><BR/><BR/><BR/><BR/>#<BR/># MONAD LIST<BR/>#<BR/><BR/>def concat(x) :<BR/>  res = []<BR/>  for y in x :<BR/>    res.extend(y)<BR/>  return res<BR/><BR/><BR/>class Monad:<BR/>    value=None<BR/>    def __init__(self,val):<BR/>        self.value=val<BR/><BR/>    @staticmethod<BR/>    def mreturn(self,val):<BR/>        raise NotImplementedError<BR/><BR/>    def bind(self, func):<BR/>        raise NotImplementedError<BR/><BR/>    def __ge__(self, bindee):<BR/>        return self.bind(bindee)<BR/><BR/>    # THE >> Haskell operator<BR/>    def __rshift__(self, bindee_without_arg):<BR/>        return self.bind(lambda _ : bindee_without_arg)<BR/><BR/><BR/>class Liste(Monad):<BR/>    @staticmethod<BR/>    def mreturn(val) :<BR/>        return Liste([val])<BR/><BR/>    def bind(self,func):<BR/>        def fval(x):<BR/>           return func(x).value<BR/><BR/>        return Liste(concat(map(fval,self.value)))<BR/><BR/>    @staticmethod<BR/>    def zero():<BR/>        return Liste([])<BR/><BR/>    def run(self):<BR/>        return self.value<BR/><BR/><BR/>#<BR/># THE DO NOTATION<BR/>#<BR/><BR/>import re<BR/>import compiler<BR/><BR/><BR/># PARSE ASSIGNMENT "x <- m"<BR/>doasgn = re.compile(r"^\s*(\w)+\s*<-\s*(.*)")<BR/># PARSE NON EMPTY LINES<BR/>dostmt = re.compile(r"\S.*\S?")<BR/><BR/><BR/># BUILD THE BIND EXPRESSION FROM OF LIST OF DO-STATEMENTs<BR/>def dolist(l):<BR/>  if len(l) == 1 :<BR/>    return l[0]<BR/>  else :<BR/>    mre = doasgn.match(l[0])<BR/>    if mre :<BR/>       g = mre.groups()<BR/>       return ("(" + g[1] + ").bind(lambda " + g[0] + " : " + dolist(l[1:]) + ")")<BR/>    else :<BR/>       return ("(" + l[0] + ") >> (" + dolist(l[1:]) + ")")<BR/><BR/><BR/># TRANSORM A DO BLOCK INTO A BIND EXPRESSION<BR/>do    = lambda s : dolist(dostmt.findall(s))<BR/># COMPILE A DO BLOCK INTO A CODE EXPRESSION<BR/>cdo   = lambda s : compiler.compile(do(s),'compiledo.py','eval')<BR/><BR/># PYTHON HAS PROBLEMS TO SEE LOCAL VARIABLES  WHEN EVALUATING :<BR/>#<BR/># def test(x) :<BR/>#   return eval(do("""<BR/>#       List.mreturn(x)<BR/>#       """)<BR/>#<BR/># print test(5).run()<BR/>#<BR/># Will give the good result but :<BR/>#<BR/># def test(x) :<BR/>#   return eval(do("""<BR/>#       y <- .....<BR/>#       List.mreturn(x)<BR/>#       """)<BR/>#<BR/># print test(5).run()<BR/>#<BR/># Will give the error : NameError: global name 'x' is not defined<BR/># To avoid that, we build a closure from the list of local variables<BR/># with (lambda x : ...)(locals()["x"])<BR/># So x is in the context of the expression with the good value in locals<BR/><BR/>def closure(v,m):<BR/>  l = v<BR/>  for x in m.keys() :<BR/>   l = "((lambda " + x + " : " + l + ")(m[\"" + x + "\"]))"<BR/>  return "(lambda m : " + l + ")"<BR/><BR/># JUST TO EVALUATE THE BLOCK<BR/>def rundo(g,l,s):<BR/>  return eval(closure(do(s),l),g,l)(l)<BR/><BR/><BR/># A TEST :<BR/># Liste([a,.....]) will lift the list [a,....] into the monad<BR/>def toto(x,y,z,d):<BR/>  l = test.rundo(globals(),locals(),"""<BR/>    a <- Liste([x , x + 1 ])<BR/>    b <- Liste([y , y + 1 ])<BR/>    c <- Liste([z , z + 1 ])<BR/>    Liste.mreturn(x + y + z + a + b + c + d)<BR/>    """)<BR/>  return l.run()<BR/><BR/><BR/>print toto(1,10,100,1000)<BR/># WILL GIVE : [1222, 1223, 1223, 1224, 1223, 1224, 1224, 1225]</p><span id='bc_0_13MN' class='comment-actions secondary-text' kind='m'><a kind='i' href='javascript:;' target='_self' o='r'>Reply</a><span class='item-control blog-admin pid-398786481'><a o='d' target='_self' href='http://www.blogger.com/delete-comment.g?blogID=1700157236206200597&amp;postID=2253186197420846762'>Delete</a></span></span></div><div id='bc_0_13BR' class='comment-replies'></div><div id='bc_0_13B_box' class='comment-replybox-single'></div></li><li id='bc_0_14B' class='comment' kind='b'><div class='avatar-image-container'><img src='http://img1.blogblog.com/img/anon36.png'></img></div><div id='c3762555239898984274' class='comment-block'><div id='bc_0_14M' class='comment-header' kind='m'><cite class='user'><a rel='nofollow' href='http://pickatutorial.com'>ComputerTutorials</a></cite><span class='icon user'></span><span class='datetime secondary-text'><a rel='nofollow' href='http://www.valuedlessons.com/2008/01/monads-in-python-with-nice-syntax.html?showComment=1289313561356#c3762555239898984274'>November 9, 2010 6:39 AM</a></span></div><p id='bc_0_14MC' class='comment-content'>Good Work. Keep it up.</p><span id='bc_0_14MN' class='comment-actions secondary-text' kind='m'><a kind='i' href='javascript:;' target='_self' o='r'>Reply</a><span class='item-control blog-admin pid-163439918'><a o='d' target='_self' href='http://www.blogger.com/delete-comment.g?blogID=1700157236206200597&amp;postID=3762555239898984274'>Delete</a></span></span></div><div id='bc_0_14BR' class='comment-replies'></div><div id='bc_0_14B_box' class='comment-replybox-single'></div></li><li id='bc_0_15B' class='comment' kind='b'><div class='avatar-image-container'><img src='http://img2.blogblog.com/img/b36-rounded.png'></img></div><div id='c613876258188310180' class='comment-block'><div id='bc_0_15M' class='comment-header' kind='m'><cite class='user'><a rel='nofollow' href='http://www.blogger.com/profile/10694115851289926218'>Bitki Dünyası</a></cite><span class='icon user'></span><span class='datetime secondary-text'><a rel='nofollow' href='http://www.valuedlessons.com/2008/01/monads-in-python-with-nice-syntax.html?showComment=1307114673198#c613876258188310180'>June 3, 2011 8:24 AM</a></span></div><p id='bc_0_15MC' class='comment-content'>My blog has opened so many doors for me and has helped me land quite a few jobs. By being immersed in writing and showing initiative, having a blog has been a great platform and portfolio. And I would recommend to anyone looking to start or build a portfolio to have a blog. <a href="http://www.e-saglik.tc" rel="nofollow">e sağlık</a></p><span id='bc_0_15MN' class='comment-actions secondary-text' kind='m'><a kind='i' href='javascript:;' target='_self' o='r'>Reply</a><span class='item-control blog-admin pid-329158995'><a o='d' target='_self' href='http://www.blogger.com/delete-comment.g?blogID=1700157236206200597&amp;postID=613876258188310180'>Delete</a></span></span></div><div id='bc_0_15BR' class='comment-replies'></div><div id='bc_0_15B_box' class='comment-replybox-single'></div></li><li id='bc_0_16B' class='comment' kind='b'><div class='avatar-image-container'><img src='http://img1.blogblog.com/img/anon36.png'></img></div><div id='c5208232728233866243' class='comment-block'><div id='bc_0_16M' class='comment-header' kind='m'><cite class='user'>Anonymous</cite><span class='icon user'></span><span class='datetime secondary-text'><a rel='nofollow' href='http://www.valuedlessons.com/2008/01/monads-in-python-with-nice-syntax.html?showComment=1356297190214#c5208232728233866243'>December 23, 2012 1:13 PM</a></span></div><p id='bc_0_16MC' class='comment-content'>You should use functools.wrap or update_wrapper for your decoraters instead of manually playing with __name__</p><span id='bc_0_16MN' class='comment-actions secondary-text' kind='m'><a kind='i' href='javascript:;' target='_self' o='r'>Reply</a><span class='item-control blog-admin pid-1553417742'><a o='d' target='_self' href='http://www.blogger.com/delete-comment.g?blogID=1700157236206200597&amp;postID=5208232728233866243'>Delete</a></span></span></div><div id='bc_0_16BR' class='comment-replies'></div><div id='bc_0_16B_box' class='comment-replybox-single'></div></li></ol><div id='bc_0_17I' class='continue' kind='ci'><a href='javascript:;' target='_self'>Add comment</a></div><div id='bc_0_17T_box' class='comment-replybox-thread'></div><div id='bc_0_17L' class='loadmore loaded' kind='rb'><a href='javascript:;' target='_self'>Load more...</a></div></div></div></div>
+</div>
+</div>
+<p class='comment-footer'>
+<div class='comment-form'>
+<a name='comment-form'></a>
+<p>
+</p>
+<a href='http://www.blogger.com/comment-iframe.g?blogID=1700157236206200597&postID=6799472260664409462' id='comment-editor-src'></a>
+<iframe allowtransparency='true' class='blogger-iframe-colorize blogger-comment-from-post' frameborder='0' height='410' id='comment-editor' name='comment-editor' src='' width='100%'></iframe>
+<script type="text/javascript" src="//www.blogger.com/static/v1/jsbin/124404617-comment_from_post_iframe.js"></script>
+<script type='text/javascript'>
+      BLOG_CMT_createIframe('http://www.blogger.com/rpc_relay.html', '10042923872824416091');
+    </script>
+</div>
+</p>
+<div id='backlinks-container'>
+<div id='Blog1_backlinks-container'>
+<a name='links'></a><h4>
+</h4>
+<p class='comment-footer'>
+<a class='comment-link' href='' id='Blog1_backlinks-create-link' target='_blank'>
+</a>
+</p>
+</div>
+</div>
+</div>
+</div>
+
+        </div></div>
+      
+<!-- google_ad_section_end -->
+</div>
+<div class='blog-pager' id='blog-pager'>
+<span id='blog-pager-newer-link'>
+<a class='blog-pager-newer-link' href='http://www.valuedlessons.com/2008/01/monads-in-ruby-with-nice-syntax.html' id='Blog1_blog-pager-newer-link' title='Newer Post'>Newer Post</a>
+</span>
+<span id='blog-pager-older-link'>
+<a class='blog-pager-older-link' href='http://www.valuedlessons.com/2007/12/immutable-data-in-python-record-or.html' id='Blog1_blog-pager-older-link' title='Older Post'>Older Post</a>
+</span>
+<a class='home-link' href='http://www.valuedlessons.com/'>Home</a>
+</div>
+<div class='clear'></div>
+<div class='post-feeds'>
+<div class='feed-links'>
+Subscribe to:
+<a class='feed-link' href='http://www.valuedlessons.com/feeds/6799472260664409462/comments/default' target='_blank' type='application/atom+xml'>Post Comments (Atom)</a>
+</div>
+</div>
+</div><div class='widget BlogArchive' id='BlogArchive1'>
+<h2>Blog Archive</h2>
+<div class='widget-content'>
+<div id='ArchiveList'>
+<div id='BlogArchive1_ArchiveList'>
+<ul class='flat'>
+<li class='archivedate'>
+<a href='http://www.valuedlessons.com/2009_10_01_archive.html'>October</a> (1)
+      </li>
+<li class='archivedate'>
+<a href='http://www.valuedlessons.com/2009_08_01_archive.html'>August</a> (4)
+      </li>
+<li class='archivedate'>
+<a href='http://www.valuedlessons.com/2009_01_01_archive.html'>January</a> (1)
+      </li>
+<li class='archivedate'>
+<a href='http://www.valuedlessons.com/2008_11_01_archive.html'>November</a> (1)
+      </li>
+<li class='archivedate'>
+<a href='http://www.valuedlessons.com/2008_10_01_archive.html'>October</a> (3)
+      </li>
+<li class='archivedate'>
+<a href='http://www.valuedlessons.com/2008_06_01_archive.html'>June</a> (2)
+      </li>
+<li class='archivedate'>
+<a href='http://www.valuedlessons.com/2008_04_01_archive.html'>April</a> (2)
+      </li>
+<li class='archivedate'>
+<a href='http://www.valuedlessons.com/2008_03_01_archive.html'>March</a> (1)
+      </li>
+<li class='archivedate'>
+<a href='http://www.valuedlessons.com/2008_02_01_archive.html'>February</a> (2)
+      </li>
+<li class='archivedate'>
+<a href='http://www.valuedlessons.com/2008_01_01_archive.html'>January</a> (4)
+      </li>
+<li class='archivedate'>
+<a href='http://www.valuedlessons.com/2007_12_01_archive.html'>December</a> (1)
+      </li>
+</ul>
+</div>
+</div>
+<div class='clear'></div>
+<span class='widget-item-control'>
+<span class='item-control blog-admin'>
+<a class='quickedit' href='//www.blogger.com/rearrange?blogID=1700157236206200597&widgetType=BlogArchive&widgetId=BlogArchive1&action=editWidget&sectionId=main' onclick='return _WidgetManager._PopupConfig(document.getElementById("BlogArchive1"));' target='configBlogArchive1' title='Edit'>
+<img alt='' height='18' src='http://img1.blogblog.com/img/icon18_wrench_allbkg.png' width='18'/>
+</a>
+</span>
+</span>
+<div class='clear'></div>
+</div>
+</div><div class='widget Label' id='Label1'>
+<h2>Labels</h2>
+<div class='widget-content list-label-widget-content'>
+<ul>
+<li>
+<a dir='ltr' href='http://www.valuedlessons.com/search/label/actor'>actor</a>
+<span dir='ltr'>(3)</span>
+</li>
+<li>
+<a dir='ltr' href='http://www.valuedlessons.com/search/label/automation'>automation</a>
+<span dir='ltr'>(1)</span>
+</li>
+<li>
+<a dir='ltr' href='http://www.valuedlessons.com/search/label/bits'>bits</a>
+<span dir='ltr'>(1)</span>
+</li>
+<li>
+<a dir='ltr' href='http://www.valuedlessons.com/search/label/c%23'>c#</a>
+<span dir='ltr'>(3)</span>
+</li>
+<li>
+<a dir='ltr' href='http://www.valuedlessons.com/search/label/clojure'>clojure</a>
+<span dir='ltr'>(1)</span>
+</li>
+<li>
+<a dir='ltr' href='http://www.valuedlessons.com/search/label/concurrency'>concurrency</a>
+<span dir='ltr'>(4)</span>
+</li>
+<li>
+<a dir='ltr' href='http://www.valuedlessons.com/search/label/continuation'>continuation</a>
+<span dir='ltr'>(3)</span>
+</li>
+<li>
+<a dir='ltr' href='http://www.valuedlessons.com/search/label/decorator'>decorator</a>
+<span dir='ltr'>(1)</span>
+</li>
+<li>
+<a dir='ltr' href='http://www.valuedlessons.com/search/label/dtrace'>dtrace</a>
+<span dir='ltr'>(1)</span>
+</li>
+<li>
+<a dir='ltr' href='http://www.valuedlessons.com/search/label/enumerator'>enumerator</a>
+<span dir='ltr'>(1)</span>
+</li>
+<li>
+<a dir='ltr' href='http://www.valuedlessons.com/search/label/erlang'>erlang</a>
+<span dir='ltr'>(1)</span>
+</li>
+<li>
+<a dir='ltr' href='http://www.valuedlessons.com/search/label/events'>events</a>
+<span dir='ltr'>(3)</span>
+</li>
+<li>
+<a dir='ltr' href='http://www.valuedlessons.com/search/label/generator'>generator</a>
+<span dir='ltr'>(3)</span>
+</li>
+<li>
+<a dir='ltr' href='http://www.valuedlessons.com/search/label/haskell'>haskell</a>
+<span dir='ltr'>(1)</span>
+</li>
+<li>
+<a dir='ltr' href='http://www.valuedlessons.com/search/label/imagemagick'>imagemagick</a>
+<span dir='ltr'>(1)</span>
+</li>
+<li>
+<a dir='ltr' href='http://www.valuedlessons.com/search/label/iterator'>iterator</a>
+<span dir='ltr'>(1)</span>
+</li>
+<li>
+<a dir='ltr' href='http://www.valuedlessons.com/search/label/linq'>linq</a>
+<span dir='ltr'>(3)</span>
+</li>
+<li>
+<a dir='ltr' href='http://www.valuedlessons.com/search/label/manycore'>manycore</a>
+<span dir='ltr'>(1)</span>
+</li>
+<li>
+<a dir='ltr' href='http://www.valuedlessons.com/search/label/mediserve'>mediserve</a>
+<span dir='ltr'>(1)</span>
+</li>
+<li>
+<a dir='ltr' href='http://www.valuedlessons.com/search/label/message-passing'>message-passing</a>
+<span dir='ltr'>(3)</span>
+</li>
+<li>
+<a dir='ltr' href='http://www.valuedlessons.com/search/label/monad'>monad</a>
+<span dir='ltr'>(9)</span>
+</li>
+<li>
+<a dir='ltr' href='http://www.valuedlessons.com/search/label/mutability'>mutability</a>
+<span dir='ltr'>(1)</span>
+</li>
+<li>
+<a dir='ltr' href='http://www.valuedlessons.com/search/label/osx'>osx</a>
+<span dir='ltr'>(1)</span>
+</li>
+<li>
+<a dir='ltr' href='http://www.valuedlessons.com/search/label/parsing'>parsing</a>
+<span dir='ltr'>(3)</span>
+</li>
+<li>
+<a dir='ltr' href='http://www.valuedlessons.com/search/label/productivity'>productivity</a>
+<span dir='ltr'>(1)</span>
+</li>
+<li>
+<a dir='ltr' href='http://www.valuedlessons.com/search/label/programming'>programming</a>
+<span dir='ltr'>(14)</span>
+</li>
+<li>
+<a dir='ltr' href='http://www.valuedlessons.com/search/label/python'>python</a>
+<span dir='ltr'>(18)</span>
+</li>
+<li>
+<a dir='ltr' href='http://www.valuedlessons.com/search/label/reactive'>reactive</a>
+<span dir='ltr'>(3)</span>
+</li>
+<li>
+<a dir='ltr' href='http://www.valuedlessons.com/search/label/ruby'>ruby</a>
+<span dir='ltr'>(2)</span>
+</li>
+<li>
+<a dir='ltr' href='http://www.valuedlessons.com/search/label/rx'>rx</a>
+<span dir='ltr'>(1)</span>
+</li>
+<li>
+<a dir='ltr' href='http://www.valuedlessons.com/search/label/shareever'>shareever</a>
+<span dir='ltr'>(1)</span>
+</li>
+<li>
+<a dir='ltr' href='http://www.valuedlessons.com/search/label/sql'>sql</a>
+<span dir='ltr'>(1)</span>
+</li>
+<li>
+<a dir='ltr' href='http://www.valuedlessons.com/search/label/turing'>turing</a>
+<span dir='ltr'>(1)</span>
+</li>
+<li>
+<a dir='ltr' href='http://www.valuedlessons.com/search/label/wes'>wes</a>
+<span dir='ltr'>(2)</span>
+</li>
+</ul>
+<div class='clear'></div>
+<span class='widget-item-control'>
+<span class='item-control blog-admin'>
+<a class='quickedit' href='//www.blogger.com/rearrange?blogID=1700157236206200597&widgetType=Label&widgetId=Label1&action=editWidget&sectionId=main' onclick='return _WidgetManager._PopupConfig(document.getElementById("Label1"));' target='configLabel1' title='Edit'>
+<img alt='' height='18' src='http://img1.blogblog.com/img/icon18_wrench_allbkg.png' width='18'/>
+</a>
+</span>
+</span>
+<div class='clear'></div>
+</div>
+</div><div class='widget LinkList' id='LinkList1'>
+<h2>Friends</h2>
+<div class='widget-content'>
+<ul>
+<li><a href='http://mtrr.org/blog'>Stan Seibert</a></li>
+<li><a href='http://blogs.msdn.com/wesdyer/'>Wes Dyer</a></li>
+</ul>
+<div class='clear'></div>
+<span class='widget-item-control'>
+<span class='item-control blog-admin'>
+<a class='quickedit' href='//www.blogger.com/rearrange?blogID=1700157236206200597&widgetType=LinkList&widgetId=LinkList1&action=editWidget&sectionId=main' onclick='return _WidgetManager._PopupConfig(document.getElementById("LinkList1"));' target='configLinkList1' title='Edit'>
+<img alt='' height='18' src='http://img1.blogblog.com/img/icon18_wrench_allbkg.png' width='18'/>
+</a>
+</span>
+</span>
+<div class='clear'></div>
+</div>
+</div><div class='widget HTML' id='HTML1'>
+<h2 class='title'>Google Analytics</h2>
+<div class='widget-content'>
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-3362186-1");
+pageTracker._initData();
+pageTracker._trackPageview();
+</script>
+</div>
+<div class='clear'></div>
+<span class='widget-item-control'>
+<span class='item-control blog-admin'>
+<a class='quickedit' href='//www.blogger.com/rearrange?blogID=1700157236206200597&widgetType=HTML&widgetId=HTML1&action=editWidget&sectionId=main' onclick='return _WidgetManager._PopupConfig(document.getElementById("HTML1"));' target='configHTML1' title='Edit'>
+<img alt='' height='18' src='http://img1.blogblog.com/img/icon18_wrench_allbkg.png' width='18'/>
+</a>
+</span>
+</span>
+<div class='clear'></div>
+</div></div>
+</div>
+<script type="text/javascript">
+if (window.jstiming) window.jstiming.load.tick('widgetJsBefore');
+</script><script type="text/javascript" src="//www.blogger.com/static/v1/widgets/4127629733-widgets.js"></script>
+<script type='text/javascript'>
+if (typeof(BLOG_attachCsiOnload) != 'undefined' && BLOG_attachCsiOnload != null) { window['blogger_templates_experiment_id'] = "templatesV1";window['blogger_blog_id'] = '1700157236206200597';BLOG_attachCsiOnload('item_'); }_WidgetManager._Init('//www.blogger.com/rearrange?blogID\x3d1700157236206200597','//www.valuedlessons.com/2008/01/monads-in-python-with-nice-syntax.html','1700157236206200597');
+_WidgetManager._SetDataContext([{'name': 'blog', 'data': {'blogId': '1700157236206200597', 'bloggerUrl': 'http://www.blogger.com', 'title': 'Valued Lessons', 'pageType': 'item', 'url': 'http://www.valuedlessons.com/2008/01/monads-in-python-with-nice-syntax.html', 'canonicalUrl': 'http://www.valuedlessons.com/2008/01/monads-in-python-with-nice-syntax.html', 'canonicalHomepageUrl': 'http://www.valuedlessons.com/', 'homepageUrl': 'http://www.valuedlessons.com/', 'blogspotFaviconUrl': 'http://www.valuedlessons.com/favicon.ico', 'enabledCommentProfileImages': true, 'adultContent': false, 'disableAdSenseWidget': false, 'analyticsAccountNumber': '', 'searchLabel': '', 'searchQuery': '', 'pageName': 'Monads in Python (with nice syntax!)', 'pageTitle': 'Valued Lessons: Monads in Python (with nice syntax!)', 'encoding': 'UTF-8', 'locale': 'en-US', 'localeLanguage': 'en', 'isPrivate': false, 'isMobile': false, 'isMobileRequest': false, 'mobileClass': '', 'isPrivateBlog': false, 'languageDirection': 'ltr', 'feedLinks': '\74link rel\75\42alternate\42 type\75\42application/atom+xml\42 title\75\42Valued Lessons - Atom\42 href\75\42http://www.valuedlessons.com/feeds/posts/default\42 /\76\n\74link rel\75\42alternate\42 type\75\42application/rss+xml\42 title\75\42Valued Lessons - RSS\42 href\75\42http://www.valuedlessons.com/feeds/posts/default?alt\75rss\42 /\76\n\74link rel\75\42service.post\42 type\75\42application/atom+xml\42 title\75\42Valued Lessons - Atom\42 href\75\42http://www.blogger.com/feeds/1700157236206200597/posts/default\42 /\76\n\74link rel\75\42EditURI\42 type\75\42application/rsd+xml\42 title\75\42RSD\42 href\75\42http://www.blogger.com/rsd.g?blogID\0751700157236206200597\42 /\76\n\74link rel\75\42alternate\42 type\75\42application/atom+xml\42 title\75\42Valued Lessons - Atom\42 href\75\42http://www.valuedlessons.com/feeds/6799472260664409462/comments/default\42 /\76\n', 'meTag': '', 'openIdOpTag': '', 'imageSrcTag': '', 'latencyHeadScript': '\74script type\75\42text/javascript\42\76(function() { var a\75window,b\75\42jstiming\42,d\75\42tick\42;var e\75function(c){this.t\75{};this.tick\75function(c,p,h){h\75void 0!\75h?h:(new Date).getTime();this.t[c]\75[h,p]};this[d](\42start\42,null,c)},f\75new e;a.jstiming\75{Timer:e,load:f};if(a.performance\46\46a.performance.timing){var g\75a.performance.timing,j\75a[b].load,k\75g.navigationStart,l\75g.responseStart;0\74k\46\46l\76\75k\46\46(j[d](\42_wtsrt\42,void 0,k),j[d](\42wtsrt_\42,\42_wtsrt\42,l),j[d](\42tbsd_\42,\42wtsrt_\42))}\ntry{var m\75null;a.chrome\46\46a.chrome.csi\46\46(m\75Math.floor(a.chrome.csi().pageT),j\46\0460\74k\46\46(j[d](\42_tbnd\42,void 0,a.chrome.csi().startE),j[d](\42tbnd_\42,\42_tbnd\42,k)));null\75\75m\46\46a.gtbExternal\46\46(m\75a.gtbExternal.pageT());null\75\75m\46\46a.external\46\46(m\75a.external.pageT,j\46\0460\74k\46\46(j[d](\42_tbnd\42,void 0,a.external.startE),j[d](\42tbnd_\42,\42_tbnd\42,k)));m\46\46(a[b].pt\75m)}catch(n){};a.tickAboveFold\75function(c){var i\0750;if(c.offsetParent){do i+\75c.offsetTop;while(c\75c.offsetParent)}c\75i;750\76\75c\46\46a[b].load[d](\42aft\42)};var q\75!1;function r(){q||(q\75!0,a[b].load[d](\42firstScrollTime\42))}a.addEventListener?a.addEventListener(\42scroll\42,r,!1):a.attachEvent(\42onscroll\42,r);\n })();\74/script\076', 'mobileHeadScript': '', 'view': '', 'dynamicViewsCommentsSrc': '//www.blogblog.com/dynamicviews/4224c15c4e7c9321/js/comments.js', 'dynamicViewsScriptSrc': '//www.blogblog.com/dynamicviews/20497177ec370ede', 'plusOneApiSrc': 'https://apis.google.com/js/plusone.js'}}, {'name': 'skin', 'data': {'vars': {'bordercolor': '#999999', 'linkcolor': '#5588aa', 'titlecolor': '#000000', 'visitedlinkcolor': '#999999', 'textcolor': '#000000', 'pagetitlecolor': '#000000', 'bodyfont': 'normal normal 100% Georgia,Serif;', 'endSide': 'right', 'pagetitlefont': 'normal bold 200% Georgia,Serif', 'startSide': 'left', 'bgcolor': '#ffffff', 'footercolor': '#555555'}, 'override': ''}}, {'name': 'view', 'data': {'classic': {'name': 'classic', 'url': '/?view\75classic'}, 'flipcard': {'name': 'flipcard', 'url': '/?view\75flipcard'}, 'magazine': {'name': 'magazine', 'url': '/?view\75magazine'}, 'mosaic': {'name': 'mosaic', 'url': '/?view\75mosaic'}, 'sidebar': {'name': 'sidebar', 'url': '/?view\75sidebar'}, 'snapshot': {'name': 'snapshot', 'url': '/?view\75snapshot'}, 'timeslide': {'name': 'timeslide', 'url': '/?view\75timeslide'}}}]);
+_WidgetManager._RegisterWidget('_NavbarView', new _WidgetInfo('Navbar1', 'navbar', null, document.getElementById('Navbar1'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_HeaderView', new _WidgetInfo('Header1', 'main', null, document.getElementById('Header1'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_BlogView', new _WidgetInfo('Blog1', 'main', null, document.getElementById('Blog1'), {'cmtInteractionsEnabled': false, 'showBacklinks': true, 'postId': '6799472260664409462', 'lightboxEnabled': true, 'lightboxModuleUrl': '//www.blogger.com/static/v1/jsbin/223420870-lbx.js', 'lightboxCssUrl': '//www.blogger.com/static/v1/v-css/228702327-lightbox_bundle.css'}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_BlogArchiveView', new _WidgetInfo('BlogArchive1', 'main', null, document.getElementById('BlogArchive1'), {'languageDirection': 'ltr'}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_LabelView', new _WidgetInfo('Label1', 'main', null, document.getElementById('Label1'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_LinkListView', new _WidgetInfo('LinkList1', 'main', null, document.getElementById('LinkList1'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_HTMLView', new _WidgetInfo('HTML1', 'main', null, document.getElementById('HTML1'), {}, 'displayModeFull'));
+</script>
+</body>
+</html>
