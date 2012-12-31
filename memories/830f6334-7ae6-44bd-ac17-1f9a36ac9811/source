@@ -1,0 +1,3714 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+    <!--
+        ___                _   ___
+       / __|_ __  __ _ _ _| |_| __|  _ _ _
+       \__ \ '_ \/ _` | '_| / / _| || | ' \
+       |___/ .__/\__,_|_| |_\_\_| \_,_|_||_|
+           |_|
+
+      Url gurer, pbqr crrcre! Lbh zhfg or n erny areq!
+
+      Gb fubj bhe fhccbeg, hfr pbqr VFNJLBHEFBHEPR ng purpxbhg sbe 10% bss lbhe arkg beqre.
+      Qba'g gryy nalbar, jr jnag gb fnir guvf fcrpvny pbqr sbe fcrpvny crbcyr jub ivrj fbhepr :)
+
+      Unir n avpr ivfvg!
+    -->
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="google-site-verification" content="XUb2UlchrvwCWWyhXksBlqQy1STYtTEN_M0-tgQRHRs" />
+    <meta name="google-site-verification" content="gRUAvzBJ_533b-AGTmldOJfByU6TkojfUbWovB2wKJo" />
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@sparkfun">
+    <meta name="twitter:url" content="https://www.sparkfun.com/products/10438">
+    <meta name="twitter:title" content="Thermal Printer">
+    <meta name="twitter:description" content="This is a thermal printer like you would find on a cash register or adding machine. It will print simple strings passed to it via TTL serial, bitmap images (poorly) and it even generates several">
+        <meta name="twitter:image" content="https://dlnmh9ip6v2uc.cloudfront.net/images/products/1/0/4/3/8/10438-01b_l_th.jpg">
+        <title>Thermal Printer - SparkFun Electronics</title>
+    <link rel="stylesheet" href="/css/screen.css?rev=1356711619" type="text/css" media="screen" />
+    <link rel="stylesheet" href="/css/print.css?rev=1356711619" type="text/css" media="print" />
+    <link rel="stylesheet" href="/css/fancybox.css?rev=1356711619" type="text/css" media="screen" />
+    <!-- IE is the bane of my existence. -->
+    <!--[if IE]><link rel="stylesheet" href="/css/ie.css" type="text/css" media="screen" /><![endif]-->
+    <!--[if lte IE 7]><link rel="stylesheet" href="/css/ie7.css" type="text/css" media="screen" /><![endif]-->
+    <link rel="alternate" type="application/rss+xml" title="All News" href="http://www.sparkfun.com/feeds/news/" />
+    <link rel="alternate" type="application/rss+xml" title="New Products" href="http://www.sparkfun.com/feeds/products/" />
+    <link rel="alternate" type="application/rss+xml" title="All Product Changes" href="http://www.sparkfun.com/feeds/changes/" />
+    <link rel="alternate" type="application/rss+xml" title="All Comments" href="http://www.sparkfun.com/feeds/comments/" />
+    <link rel="alternate" type="application/rss+xml" title="Videos" href="http://gdata.youtube.com/feeds/base/users/sparkfun/uploads?alt=rss&v=2&orderby=published" />
+    <link rel="alternate" type="application/rss+xml" title="Products Comments" href="https://www.sparkfun.com/products/10438/comments.rss" /> 
+    <link rel="apple-touch-icon" href="/fanboy.png" />
+    <link rev="canonical" type="text/html" href="http://sfe.io/10438" /> 
+    <script>
+            var SFECONFIG = {
+        currencies: {"USD":{"code":"USD","title":"US Dollar","symbol_left":"$","symbol_right":"","decimal_point":".","thousands_point":",","decimal_places":"2","value":"1.0000"},"CAD":{"code":"CAD","title":"Canadian Dollar","symbol_left":"$","symbol_right":null,"decimal_point":".","thousands_point":",","decimal_places":"2","value":"1.0243"},"AUD":{"code":"AUD","title":"Australian Dollar","symbol_left":"$","symbol_right":null,"decimal_point":".","thousands_point":",","decimal_places":"2","value":"0.9936"},"GBP":{"code":"GBP","title":"British Pound","symbol_left":"&pound;","symbol_right":null,"decimal_point":".","thousands_point":",","decimal_places":"2","value":"0.6417"},"EUR":{"code":"EUR","title":"Euro","symbol_left":"&euro;","symbol_right":null,"decimal_point":".","thousands_point":",","decimal_places":"2","value":"0.7954"}},
+        preferred_currency: 'USD',
+        http_server: 'http://www.sparkfun.com',
+        https_server: 'https://www.sparkfun.com',
+        http_static: 'https://dlnmh9ip6v2uc.cloudfront.net',
+        base_url: '/',
+        url: '/',
+        controller: 'products',
+        action: 'view',
+        entity_id: '10438',
+        auth: false,
+        customers_id: 0,
+        customers_name: "",
+        customers_email: "",
+        sparkrev: '1356711619'
+      };
+
+    </script>
+    <script src="/js/require-jquery.js"></script>
+    <script type="text/javascript">
+      require.config({
+        paths: {
+          'sfe': '/js/sfe-built',
+          'jqueryui': 'https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min'
+        },
+        baseUrl: '/js/',
+        urlArgs: "sparkrev=" + SFECONFIG.sparkrev
+      });
+      require(['sfe', 'jqueryui'], function() {
+        $.sfe();
+      });
+
+      $(document).bind('loaded', function() {
+        $('*[data="fancybox"]').fancybox('fancybox', { speedIn: 10, speedOut: 10 });
+        $("img.lazyload").lazyload('lazyload', { placeholder: "https://dlnmh9ip6v2uc.cloudfront.net/images/framework/blank.gif" });
+      });
+    </script>
+  </head>
+  <body class="no-type">
+
+    <div id=user class=clearfix>
+  <div class="inner">
+      <div class=header-menu-item id=cart-menu-item title="Shopping Cart">
+      <a href="https://www.sparkfun.com/cart">
+        <span class=cart> </span>
+        <span id=items_in_cart>0</span> items in cart
+      </a>
+    </div>
+
+    
+    <input type=hidden id=preferred_currency value="USD" />
+    <div class=header-menu-item id=currency-menu>
+      <a href="https://www.sparkfun.com/account/currencies" onclick="$(this).next('.header-sub-menu').toggle(); $(this).parent().toggleClass('active'); return false;">$ USD</a>
+      <ul style="display:none;" id=currency_menu_list class=header-sub-menu>
+                  <li>
+            <a id="currency_USD" onclick="$('#airlock').currency('change', 'USD'); return(false);" href="#">
+                          <img src="https://dlnmh9ip6v2uc.cloudfront.net/images/framework/icon_radio_checked.gif" />
+                        US Dollar            </a>
+        </li>
+                  <li>
+            <a id="currency_CAD" onclick="$('#airlock').currency('change', 'CAD'); return(false);" href="#">
+                          <img src="https://dlnmh9ip6v2uc.cloudfront.net/images/framework/icon_radio_unchecked.gif" />
+                        Canadian Dollar            </a>
+        </li>
+                  <li>
+            <a id="currency_AUD" onclick="$('#airlock').currency('change', 'AUD'); return(false);" href="#">
+                          <img src="https://dlnmh9ip6v2uc.cloudfront.net/images/framework/icon_radio_unchecked.gif" />
+                        Australian Dollar            </a>
+        </li>
+                  <li>
+            <a id="currency_GBP" onclick="$('#airlock').currency('change', 'GBP'); return(false);" href="#">
+                          <img src="https://dlnmh9ip6v2uc.cloudfront.net/images/framework/icon_radio_unchecked.gif" />
+                        British Pound            </a>
+        </li>
+                  <li>
+            <a id="currency_EUR" onclick="$('#airlock').currency('change', 'EUR'); return(false);" href="#">
+                          <img src="https://dlnmh9ip6v2uc.cloudfront.net/images/framework/icon_radio_unchecked.gif" />
+                        Euro            </a>
+        </li>
+                <li><a href="https://www.sparkfun.com/account/currencies">More Currencies...</a></li>
+      </ul>
+    </div>
+
+    <div class=header-menu-item>
+      <a href="https://www.sparkfun.com/wish_lists">Wish Lists</a>    </div>
+
+    <div class=header-display-item>
+      You are <b>not</b> logged in.
+    </div>
+
+    <div class=header-menu-item>
+      <a id=btn_show_login_form
+         href="https://www.sparkfun.com/account/login" onclick="$(this).next('.header-sub-menu').toggle(); $(this).parent().toggleClass('active');; $('#user_login').focus(); return false;">log in</a>
+      <div class="header-sub-menu login-form" id=login-form style="display: none;">
+        <form action="https://www.sparkfun.com/account/login" id=login method=post>
+          <div class=row>
+            <label for=user_login>email</label><br>
+            <input id=user_login type=text tabindex=1 name=user><br>
+          </div>
+          <div class=row>
+            <label for=user_password>password</label><br>
+            <input id=user_password type=password tabindex=2 name=passwd><br>
+          </div>
+          <div class=row>
+            <p class=right><input type=submit value="log in" class=button></p>
+          </div>
+          <div class=row>
+            <p>
+              <a href="https://www.sparkfun.com/account/forgot_password">Forgot your password</a>?
+            </p><p>
+              No account? <a id="btn_register_account" href="https://www.sparkfun.com/account/make">Register one</a>!
+            </p>
+          </div>
+        </form>
+      </div>
+    </div>
+    </div>
+</div>
+
+    <div id="airlock" class="clearfix">
+      
+<div id=header>
+  <a href="https://www.sparkfun.com/" id=logo class=hidetext><span>SparkFun Electronics</span></a>
+
+  <a href="#products_menu" class=skip><span>Skip to products menu</span></a>
+  <a href="#content" class=skip><span>Skip to content</span></a>
+
+    <div id="banner" class=clearfix>
+    <div id=banner-nav style="display: none;">
+      <div class=sprites id=banner-goprev style="height: 23px; width: 23px; background-position: -23px -0px;">&nbsp;</div>
+      <a href="/banners/"><div class=sprites id=banner-all style="height: 23px; width: 23px; background-position: -0px -0px;">&nbsp;</div></a>
+      <div class=sprites id=banner-gonext style="height: 23px; width: 23px; background-position: -46px -0px;">&nbsp;</div>
+    </div>
+    <a id=banner-link href="https://www.sparkfun.com/products/11032" onclick="$(this).sfeutil('track_link', this,'Banners','clicked','banner-77');return false;">
+      <img width=978 height=105 id=banner-img src="https://dlnmh9ip6v2uc.cloudfront.net/images/banners/SFE03.0003.Banners-ProtoSnap-LP-E-SewingKit-01.jpg" alt="">
+    </a>
+  </div>
+  <script type="text/javascript">
+    $('#airlock').bind('loaded', function() {
+      $(this).banner({id: 77});
+    });
+  </script>
+
+  <div id=header-menu>
+    <ul>
+      <li class="first  active"><a href="https://www.sparkfun.com/categories">Products</a></li>
+      <li><a href="https://www.sparkfun.com/static/customer_service">Support</a></li>
+      <li><a href="https://www.sparkfun.com/tutorials">Tutorials</a></li>
+      <li><a href="https://www.sparkfun.com/distributors">Distributors</a></li>
+      <li><a href="https://www.sparkfun.com/static/about">About Us</a></li>
+      <li><a href="https://www.sparkfun.com/static/contact">Contact</a></li>
+      <li class=last>
+        <form class=search style="display: block" action="https://www.sparkfun.com/search/results" id=search_form method=get>
+          <div class=ui-widget>
+            <input name=term id=global-search class=search-term type=text results=5 autosave=sfe_product_search value="" placeholder="search..." />
+          </div>
+          <input type=hidden name=what value=products />
+          <input type=submit value=Go id="search-go" />
+        </form>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class=site-notices>
+  </div>
+
+      <div id="left">
+        <h2 class="sidebar sidebar-bottom" id="products_menu">Categories</h2>
+        
+<ul id="category_menu_list" class="sidebar sidebar-bottom" style="display: block">
+  <li id="menu_category_new_products"><span class="arrow"></span><a href="https://www.sparkfun.com/categories/new_products" >New Products</a></li>
+  <li id="menu_category_top"><span class="arrow"></span><a href="https://www.sparkfun.com/categories/top" >Top Sellers</a></li>
+  <li id="menu_category_featured"><span class="arrow"></span><a href="https://www.sparkfun.com/categories/featured" >Staff Picks</a></li>
+    <li id="menu_category_gift_certificates"><span class="arrow"></span><a href="https://www.sparkfun.com/gift_certificates" >Gift Certificates</a></li>
+  <li id="menu_category_events"><span class="arrow"></span><a href="http://learn.sparkfun.com/events">Classes &amp; Events</a></li>
+  <li><hr /></li>
+  <li id="menu_category_176"><span class="arrow"></span><a href="https://www.sparkfun.com/categories/176" >Books</a></li><li id="menu_category_20"><span class="arrow"></span><a href="https://www.sparkfun.com/categories/20" >Breakout Boards</a></li><li id="menu_category_70"><span class="arrow">&#9658;</span><a href="https://www.sparkfun.com/categories/70" >Cables</a><ul style="display:none;"><li id="menu_category_140"><a href="https://www.sparkfun.com/categories/140" >Audio</a></li><li id="menu_category_150"><a href="https://www.sparkfun.com/categories/150" >Ethernet</a></li><li id="menu_category_72"><a href="https://www.sparkfun.com/categories/72" >Hook Up</a></li><li id="menu_category_75"><a href="https://www.sparkfun.com/categories/75" >Parallel</a></li><li id="menu_category_74"><a href="https://www.sparkfun.com/categories/74" >Serial</a></li><li id="menu_category_71"><a href="https://www.sparkfun.com/categories/71" >USB</a></li><li id="menu_category_234"><a href="https://www.sparkfun.com/categories/234" >Video</a></li></ul></li><li id="menu_category_66"><span class="arrow">&#9658;</span><a href="https://www.sparkfun.com/categories/66" >Cellular</a><ul style="display:none;"><li id="menu_category_67"><a href="https://www.sparkfun.com/categories/67" >Antennas</a></li><li id="menu_category_69"><a href="https://www.sparkfun.com/categories/69" >Eval Boards</a></li><li id="menu_category_68"><a href="https://www.sparkfun.com/categories/68" >Modules</a></li></ul></li><li id="menu_category_51"><span class="arrow">&#9660;</span><a href="https://www.sparkfun.com/categories/51" class="current">Components</a><ul><li id="menu_category_21"><a href="https://www.sparkfun.com/categories/21" >AVR Microcontrollers</a></li><li id="menu_category_145"><a href="https://www.sparkfun.com/categories/145" >Buttons/Switches</a></li><li id="menu_category_226"><a href="https://www.sparkfun.com/categories/226" >EL</a></li><li id="menu_category_60"><span class="arrow"></span><a href="https://www.sparkfun.com/categories/60" class="current">General</a></li><li id="menu_category_90"><a href="https://www.sparkfun.com/categories/90" >General ICs</a></li><li id="menu_category_89"><a href="https://www.sparkfun.com/categories/89" >LEDs</a><ul><li id="menu_category_173"><a href="https://www.sparkfun.com/categories/173" >10mm</a></li><li id="menu_category_171"><a href="https://www.sparkfun.com/categories/171" >3mm</a></li><li id="menu_category_172"><a href="https://www.sparkfun.com/categories/172" >5mm</a></li><li id="menu_category_170"><a href="https://www.sparkfun.com/categories/170" >7-Segment</a></li><li id="menu_category_175"><a href="https://www.sparkfun.com/categories/175" >Other</a></li><li id="menu_category_174"><a href="https://www.sparkfun.com/categories/174" >SMD</a></li></ul></li><li id="menu_category_88"><a href="https://www.sparkfun.com/categories/88" >Oscillators</a></li><li id="menu_category_22"><a href="https://www.sparkfun.com/categories/22" >PIC Microcontrollers</a></li><li id="menu_category_124"><a href="https://www.sparkfun.com/categories/124" >PICAXE Microcontrollers</a></li><li id="menu_category_29"><a href="https://www.sparkfun.com/categories/29" >SMD ICs</a></li></ul></li><li id="menu_category_2"><span class="arrow">&#9658;</span><a href="https://www.sparkfun.com/categories/2" >Development Tools</a><ul style="display:none;"><li id="menu_category_184"><a href="https://www.sparkfun.com/categories/184" >.NET</a></li><li id="menu_category_93"><a href="https://www.sparkfun.com/categories/93" >ADuC</a></li><li id="menu_category_218"><a href="https://www.sparkfun.com/categories/218" >Android</a></li><li id="menu_category_103"><a href="https://www.sparkfun.com/categories/103" >Arduino</a></li><li id="menu_category_219"><a href="https://www.sparkfun.com/categories/219" >ARM</a></li><li id="menu_category_10"><a href="https://www.sparkfun.com/categories/10" >AVR</a></li><li id="menu_category_164"><a href="https://www.sparkfun.com/categories/164" >Beagle</a></li><li id="menu_category_187"><a href="https://www.sparkfun.com/categories/187" >Chumby</a></li><li id="menu_category_136"><a href="https://www.sparkfun.com/categories/136" >FPGA</a></li><li id="menu_category_235"><a href="https://www.sparkfun.com/categories/235" >Gadgeteer</a></li><li id="menu_category_101"><a href="https://www.sparkfun.com/categories/101" >iPod</a></li><li id="menu_category_25"><a href="https://www.sparkfun.com/categories/25" >LPC</a></li><li id="menu_category_230"><a href="https://www.sparkfun.com/categories/230" >mbed</a></li><li id="menu_category_11"><a href="https://www.sparkfun.com/categories/11" >MSP</a></li><li id="menu_category_9"><a href="https://www.sparkfun.com/categories/9" >PIC</a></li><li id="menu_category_125"><a href="https://www.sparkfun.com/categories/125" >PICAXE</a></li><li id="menu_category_137"><a href="https://www.sparkfun.com/categories/137" >PSoC</a></li><li id="menu_category_233"><a href="https://www.sparkfun.com/categories/233" >Raspberry Pi</a></li><li id="menu_category_104"><a href="https://www.sparkfun.com/categories/104" >Roomba</a></li><li id="menu_category_94"><a href="https://www.sparkfun.com/categories/94" >SAM</a></li><li id="menu_category_95"><a href="https://www.sparkfun.com/categories/95" >ST</a></li><li id="menu_category_167"><a href="https://www.sparkfun.com/categories/167" >STAMP</a></li><li id="menu_category_107"><a href="https://www.sparkfun.com/categories/107" >Wiring</a></li><li id="menu_category_169"><a href="https://www.sparkfun.com/categories/169" >WIZnet</a></li><li id="menu_category_142"><a href="https://www.sparkfun.com/categories/142" >Zune</a></li></ul></li><li id="menu_category_100"><span class="arrow"></span><a href="https://www.sparkfun.com/categories/100" >Dings and Dents</a></li><li id="menu_category_204"><span class="arrow">&#9658;</span><a href="https://www.sparkfun.com/categories/204" >E-Textiles</a><ul style="display:none;"><li id="menu_category_205"><a href="https://www.sparkfun.com/categories/205" >Aniomagic</a></li><li id="menu_category_210"><a href="https://www.sparkfun.com/categories/210" >fabrickit</a></li><li id="menu_category_135"><a href="https://www.sparkfun.com/categories/135" >LilyPad</a></li><li id="menu_category_206"><a href="https://www.sparkfun.com/categories/206" >Materials</a></li></ul></li><li id="menu_category_232"><span class="arrow"></span><a href="https://www.sparkfun.com/categories/232" >Educators</a></li><li id="menu_category_4"><span class="arrow">&#9658;</span><a href="https://www.sparkfun.com/categories/4" >GPS</a><ul style="display:none;"><li id="menu_category_18"><a href="https://www.sparkfun.com/categories/18" >Antennas</a></li><li id="menu_category_86"><a href="https://www.sparkfun.com/categories/86" >Eval Boards</a></li><li id="menu_category_17"><a href="https://www.sparkfun.com/categories/17" >Modules</a></li></ul></li><li id="menu_category_157"><span class="arrow"></span><a href="https://www.sparkfun.com/categories/157" >Kits</a></li><li id="menu_category_76"><span class="arrow">&#9658;</span><a href="https://www.sparkfun.com/categories/76" >LCDs</a><ul style="display:none;"><li id="menu_category_147"><a href="https://www.sparkfun.com/categories/147" >Color</a></li><li id="menu_category_148"><a href="https://www.sparkfun.com/categories/148" >Monochrome</a></li></ul></li><li id="menu_category_96"><span class="arrow"></span><a href="https://www.sparkfun.com/categories/96" >Port-O-Rotary</a></li><li id="menu_category_1"><span class="arrow">&#9658;</span><a href="https://www.sparkfun.com/categories/1" >Programmers</a><ul style="display:none;"><li id="menu_category_26"><a href="https://www.sparkfun.com/categories/26" >ARM</a></li><li id="menu_category_7"><a href="https://www.sparkfun.com/categories/7" >AVR</a></li><li id="menu_category_37"><a href="https://www.sparkfun.com/categories/37" >MAXQ</a></li><li id="menu_category_6"><a href="https://www.sparkfun.com/categories/6" >PIC</a></li><li id="menu_category_126"><a href="https://www.sparkfun.com/categories/126" >PICAXE</a></li></ul></li><li id="menu_category_53"><span class="arrow">&#9658;</span><a href="https://www.sparkfun.com/categories/53" >Prototyping</a><ul style="display:none;"><li id="menu_category_54"><a href="https://www.sparkfun.com/categories/54" >Batteries</a></li><li id="menu_category_149"><a href="https://www.sparkfun.com/categories/149" >Boards</a></li><li id="menu_category_91"><a href="https://www.sparkfun.com/categories/91" >Connectors</a></li><li id="menu_category_182"><a href="https://www.sparkfun.com/categories/182" >Enclosures</a></li><li id="menu_category_55"><a href="https://www.sparkfun.com/categories/55" >General</a></li><li id="menu_category_155"><a href="https://www.sparkfun.com/categories/155" >Hardware</a></li><li id="menu_category_92"><a href="https://www.sparkfun.com/categories/92" >Sockets</a></li><li id="menu_category_116"><a href="https://www.sparkfun.com/categories/116" >Solar</a></li><li id="menu_category_141"><a href="https://www.sparkfun.com/categories/141" >Wire</a></li></ul></li><li id="menu_category_207"><span class="arrow">&#9658;</span><a href="https://www.sparkfun.com/categories/207" >Retail</a><ul style="display:none;"><li id="menu_category_212"><a href="https://www.sparkfun.com/categories/212" >Arduino</a></li><li id="menu_category_216"><a href="https://www.sparkfun.com/categories/216" >Components</a></li><li id="menu_category_213"><a href="https://www.sparkfun.com/categories/213" >Kits</a></li><li id="menu_category_211"><a href="https://www.sparkfun.com/categories/211" >Materials</a></li><li id="menu_category_215"><a href="https://www.sparkfun.com/categories/215" >Prototyping</a></li><li id="menu_category_214"><a href="https://www.sparkfun.com/categories/214" >Sensors</a></li><li id="menu_category_217"><a href="https://www.sparkfun.com/categories/217" >Tools</a></li><li id="menu_category_220"><a href="https://www.sparkfun.com/categories/220" >Wireless</a></li></ul></li><li id="menu_category_134"><span class="arrow">&#9658;</span><a href="https://www.sparkfun.com/categories/134" >Retired</a><ul style="display:none;"><li id="menu_category_231"><a href="https://www.sparkfun.com/categories/231" >Books</a></li><li id="menu_category_194"><a href="https://www.sparkfun.com/categories/194" >Breakout Boards</a></li><li id="menu_category_203"><a href="https://www.sparkfun.com/categories/203" >Cables</a></li><li id="menu_category_228"><a href="https://www.sparkfun.com/categories/228" >Cellular</a></li><li id="menu_category_200"><a href="https://www.sparkfun.com/categories/200" >Classes</a></li><li id="menu_category_192"><a href="https://www.sparkfun.com/categories/192" >Components</a></li><li id="menu_category_191"><a href="https://www.sparkfun.com/categories/191" >Development Tools</a></li><li id="menu_category_225"><a href="https://www.sparkfun.com/categories/225" >Ding and Dent</a></li><li id="menu_category_227"><a href="https://www.sparkfun.com/categories/227" >E-Textiles</a></li><li id="menu_category_188"><a href="https://www.sparkfun.com/categories/188" >GPS</a></li><li id="menu_category_190"><a href="https://www.sparkfun.com/categories/190" >Kits</a></li><li id="menu_category_196"><a href="https://www.sparkfun.com/categories/196" >LCD</a></li><li id="menu_category_201"><a href="https://www.sparkfun.com/categories/201" >Programmers</a></li><li id="menu_category_195"><a href="https://www.sparkfun.com/categories/195" >Prototyping</a></li><li id="menu_category_197"><a href="https://www.sparkfun.com/categories/197" >Robotics</a></li><li id="menu_category_189"><a href="https://www.sparkfun.com/categories/189" >Sensors</a></li><li id="menu_category_208"><a href="https://www.sparkfun.com/categories/208" >SFE Widgets</a></li><li id="menu_category_198"><a href="https://www.sparkfun.com/categories/198" >Swag</a></li><li id="menu_category_193"><a href="https://www.sparkfun.com/categories/193" >Tools</a></li><li id="menu_category_199"><a href="https://www.sparkfun.com/categories/199" >Wireless</a></li></ul></li><li id="menu_category_31"><span class="arrow">&#9658;</span><a href="https://www.sparkfun.com/categories/31" >Robotics</a><ul style="display:none;"><li id="menu_category_179"><a href="https://www.sparkfun.com/categories/179" >Drivers</a></li><li id="menu_category_181"><a href="https://www.sparkfun.com/categories/181" >Kits</a></li><li id="menu_category_178"><a href="https://www.sparkfun.com/categories/178" >Motors</a></li><li id="menu_category_202"><a href="https://www.sparkfun.com/categories/202" >Other</a></li><li id="menu_category_180"><a href="https://www.sparkfun.com/categories/180" >Wheels</a></li></ul></li><li id="menu_category_185"><span class="arrow"></span><a href="https://www.sparkfun.com/categories/185" >Sale</a></li><li id="menu_category_23"><span class="arrow">&#9658;</span><a href="https://www.sparkfun.com/categories/23" >Sensors</a><ul style="display:none;"><li id="menu_category_80"><a href="https://www.sparkfun.com/categories/80" >Accelerometers</a><ul><li id="menu_category_161"><a href="https://www.sparkfun.com/categories/161" >1-axis</a></li><li id="menu_category_163"><a href="https://www.sparkfun.com/categories/163" >3-axis</a></li></ul></li><li id="menu_category_146"><a href="https://www.sparkfun.com/categories/146" >Biometrics</a></li><li id="menu_category_117"><a href="https://www.sparkfun.com/categories/117" >Capacitive</a></li><li id="menu_category_151"><a href="https://www.sparkfun.com/categories/151" >Current</a></li><li id="menu_category_143"><a href="https://www.sparkfun.com/categories/143" >Flex / Force</a></li><li id="menu_category_85"><a href="https://www.sparkfun.com/categories/85" >Gyros</a><ul><li id="menu_category_159"><a href="https://www.sparkfun.com/categories/159" >2-axis</a></li><li id="menu_category_183"><a href="https://www.sparkfun.com/categories/183" >3-axis</a></li></ul></li><li id="menu_category_144"><a href="https://www.sparkfun.com/categories/144" >ID</a></li><li id="menu_category_160"><a href="https://www.sparkfun.com/categories/160" >IMU</a></li><li id="menu_category_139"><a href="https://www.sparkfun.com/categories/139" >Infrared</a></li><li id="menu_category_102"><a href="https://www.sparkfun.com/categories/102" >Light / Imaging</a></li><li id="menu_category_83"><a href="https://www.sparkfun.com/categories/83" >Magneto</a></li><li id="menu_category_84"><a href="https://www.sparkfun.com/categories/84" >Proximity</a></li><li id="menu_category_165"><a href="https://www.sparkfun.com/categories/165" >Radiation</a></li><li id="menu_category_186"><a href="https://www.sparkfun.com/categories/186" >Sound</a></li><li id="menu_category_82"><a href="https://www.sparkfun.com/categories/82" >Temperature</a></li><li id="menu_category_152"><a href="https://www.sparkfun.com/categories/152" >Weather</a></li></ul></li><li id="menu_category_130"><span class="arrow"></span><a href="https://www.sparkfun.com/categories/130" >Swag</a></li><li id="menu_category_46"><span class="arrow">&#9658;</span><a href="https://www.sparkfun.com/categories/46" >Tools</a><ul style="display:none;"><li id="menu_category_47"><a href="https://www.sparkfun.com/categories/47" >Hand Tools</a></li><li id="menu_category_48"><a href="https://www.sparkfun.com/categories/48" >Hot-Air Rework</a></li><li id="menu_category_177"><a href="https://www.sparkfun.com/categories/177" >Instruments</a></li><li id="menu_category_221"><a href="https://www.sparkfun.com/categories/221" >Organization</a></li><li id="menu_category_28"><a href="https://www.sparkfun.com/categories/28" >Power Supplies</a></li><li id="menu_category_49"><a href="https://www.sparkfun.com/categories/49" >Soldering</a></li></ul></li><li id="menu_category_97"><span class="arrow"></span><a href="https://www.sparkfun.com/categories/97" >Widgets</a></li><li id="menu_category_16"><span class="arrow">&#9658;</span><a href="https://www.sparkfun.com/categories/16" >Wireless</a><ul style="display:none;"><li id="menu_category_78"><a href="https://www.sparkfun.com/categories/78" >Antennas</a></li><li id="menu_category_115"><a href="https://www.sparkfun.com/categories/115" >Bluetooth</a></li><li id="menu_category_79"><a href="https://www.sparkfun.com/categories/79" >General</a></li><li id="menu_category_113"><a href="https://www.sparkfun.com/categories/113" >Modem</a></li><li id="menu_category_114"><a href="https://www.sparkfun.com/categories/114" >Nordic</a></li><li id="menu_category_112"><a href="https://www.sparkfun.com/categories/112" >WiFi</a></li><li id="menu_category_111"><a href="https://www.sparkfun.com/categories/111" >ZigBee & 802.15.4</a><ul><li id="menu_category_222"><a href="https://www.sparkfun.com/categories/222" >900MHz</a></li><li id="menu_category_223"><a href="https://www.sparkfun.com/categories/223" >Series 1 (802.15.4)</a></li><li id="menu_category_224"><a href="https://www.sparkfun.com/categories/224" >Series 2 (ZigBee)</a></li></ul></li></ul></li></ul>
+      </div>
+
+      <div id=center-left>
+
+        
+        <a name="content" id="content"></a>
+        <h1 class=red-header>
+    <a href="https://www.sparkfun.com/">Home</a>  <span class=breadcrumb-separator> | </span>  <a href="https://www.sparkfun.com/categories">Product Categories</a>  <span class=breadcrumb-separator> | </span>  <a href="https://www.sparkfun.com/categories/60">General</a>  <span class=breadcrumb-separator> | </span>  COM-10438  <span class="link fr" title="a machine-readable representation of this product (CSV)">
+    <a href="https://www.sparkfun.com/products/10438.csv"><img src="https://dlnmh9ip6v2uc.cloudfront.net/images/framework/icon_spreadsheet_black.png" alt="CSV"/></a>  </span>
+  <span class="link fr" title="a machine-readable representation of this product (JSON)">
+    <a href="https://www.sparkfun.com/products/10438.json"><img src="https://dlnmh9ip6v2uc.cloudfront.net/images/framework/json.png" alt="JSON"/></a>  </span>
+</h1>
+
+<div class="product clearfix">
+
+  <div class=images>
+    <div class=main>
+            <a id=default_image_link data="fancybox" rel="product" href="https://dlnmh9ip6v2uc.cloudfront.net/images/products/1/0/4/3/8/10438-01b.jpg"><img id=default_image src="https://dlnmh9ip6v2uc.cloudfront.net/images/products/1/0/4/3/8/10438-01b_i_ma.jpg" width=188 height=188 /></a>
+      <p><img class=enlarge src="https://dlnmh9ip6v2uc.cloudfront.net/images/framework/cc.png" /> <small>images are <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" target="new">CC BY-NC-SA 3.0</a></small></p>
+    </div>
+    <div class=thumbs>
+      <img onclick="javascript: $(this).product('toggle_product_image', '13174')" class="first thumbnail" src="https://dlnmh9ip6v2uc.cloudfront.net/images/products/1/0/4/3/8/10438-01b_i_th.jpg" /><a id="product_image_large_13174" href="https://dlnmh9ip6v2uc.cloudfront.net/images/products/1/0/4/3/8/10438-01b.jpg"><img width=188 id="product_image_medium_13174" style="display: none" class="first thumbnail" src="https://dlnmh9ip6v2uc.cloudfront.net/images/products/1/0/4/3/8/10438-01b_i_ma.jpg" /></a><img onclick="javascript: $(this).product('toggle_product_image', '13173')" class="thumbnail" src="https://dlnmh9ip6v2uc.cloudfront.net/images/products/1/0/4/3/8/10438-02b_i_th.jpg" /><a id="product_image_large_13173" href="https://dlnmh9ip6v2uc.cloudfront.net/images/products/1/0/4/3/8/10438-02b.jpg" data="fancybox" rel="product"><img id="product_image_medium_13173" style="display: none" class="thumbnail" src="https://dlnmh9ip6v2uc.cloudfront.net/images/products/1/0/4/3/8/10438-02b_i_ma.jpg" /></a><img onclick="javascript: $(this).product('toggle_product_image', '13172')" class="thumbnail" src="https://dlnmh9ip6v2uc.cloudfront.net/images/products/1/0/4/3/8/10438-03_i_th.jpg" /><a id="product_image_large_13172" href="https://dlnmh9ip6v2uc.cloudfront.net/images/products/1/0/4/3/8/10438-03.jpg" data="fancybox" rel="product"><img id="product_image_medium_13172" style="display: none" class="thumbnail" src="https://dlnmh9ip6v2uc.cloudfront.net/images/products/1/0/4/3/8/10438-03_i_ma.jpg" /></a><img onclick="javascript: $(this).product('toggle_product_image', '13171')" class="first thumbnail" src="https://dlnmh9ip6v2uc.cloudfront.net/images/products/1/0/4/3/8/10438-04_i_th.jpg" /><a id="product_image_large_13171" href="https://dlnmh9ip6v2uc.cloudfront.net/images/products/1/0/4/3/8/10438-04.jpg" data="fancybox" rel="product"><img id="product_image_medium_13171" style="display: none" class="first thumbnail" src="https://dlnmh9ip6v2uc.cloudfront.net/images/products/1/0/4/3/8/10438-04_i_ma.jpg" /></a><img onclick="javascript: $(this).product('toggle_product_image', '13200')" class="thumbnail" src="https://dlnmh9ip6v2uc.cloudfront.net/images/products/1/0/4/3/8/10438-06_i_th.jpg" /><a id="product_image_large_13200" href="https://dlnmh9ip6v2uc.cloudfront.net/images/products/1/0/4/3/8/10438-06.jpg" data="fancybox" rel="product"><img id="product_image_medium_13200" style="display: none" class="thumbnail" src="https://dlnmh9ip6v2uc.cloudfront.net/images/products/1/0/4/3/8/10438-06_i_ma.jpg" /></a>    </div>
+  </div>
+
+  <div class="product-right">
+    
+    <div class="pricing">
+      <form action="https://www.sparkfun.com/cart/add" method="post" onsubmit="$(this).cart('add', 10438, $('add_qty_10438').val()); return false;">
+        <input type=hidden name=id value="10438" />
+
+        
+          <h3 class=final-price>
+            <span class=price>49.95</span>
+          </h3>
+
+          <p class=add-buttons>
+                          <input class=button type=submit value="Add to Cart" onclick="_gaq.push(['_trackEvent', 'Cart', 'add_product_page', 'product 10438']);" />
+                      </p>
+
+          <p id="added_to_cart_10438" class=added_to_cart style="display: none;">
+            added <span id="added_qty_10438"></span> to your <a href="https://www.sparkfun.com/cart">cart</a>          </p>
+
+          <div class=quantity-discounts>
+            <table class=price-list>
+
+              
+                <tr class=stock-row>
+                  <td class=price-cell>
+                    <input type=text name=qty id="add_qty_10438" class=add_qty value=1 />
+                  </td>
+                  <td>
+                    quantity
+                  </td>
+                </tr>
+
+                <tr class=stock-row>
+                  <td class=price-cell>
+                      <a data="fancybox" href="https://www.sparkfun.com/static/bubbles/" class="bubble bubble-in hidetext" title="in stock"><span>In stock</span></a>
+                  </td>
+                  <td>
+                    <span class=stock>
+                                              189 in stock
+                                          </span>
+                  </td>
+                </tr>
+              
+                              <tr>
+                  <td class=price-cell><b><span class=price>49.95</span></b></td>
+                  <td><b>price</b></td>
+                </tr>
+                                                  <tr>
+                  <td class=price-cell><span class=price>44.96</span></td>
+                  <td>10+ units<td>
+                  </tr>
+                                  <tr>
+                  <td class=price-cell><span class=price>39.96</span></td>
+                  <td>100+ units<td>
+                  </tr>
+                
+              
+            </table>
+          </div>
+
+          <p class=add-wishlist><br>
+                          <a data="fancybox" class=button href="https://www.sparkfun.com/static/wishlist?redirect=%2Fproducts%2F10438">Add to Wish List</a>
+                      </p>
+
+        <p>
+                  </p>
+
+        
+        <p id="added_to_wish_list_10438" class=added_to_cart style="display: none;">
+          added <span id="wl_added_qty_10438"></span> to <a id="wl_link_10438"></a>
+        </p>
+
+        
+      </form>
+    </div>
+  </div>
+  <h2>
+    Thermal Printer<br>
+
+    <span class=sku>
+      COM-10438      
+    </span>
+
+  </h2>
+
+  <div class=description>
+    <p>
+	<strong>Description:</strong> This is a thermal printer like you would find on a cash register or adding machine. It will print simple strings passed to it via TTL serial, bitmap images (poorly) and it even generates several different formats of barcodes!</p>
+<p>
+	The thermal printer takes 2.25&quot; (57mm) wide thermal paper with a max roll diameter of 1.5&quot; (39mm). Thermal paper is inexpensive and commonly found in most office supply stores in 85ft lengths. You may have to remove some paper from these rolls in order for it to fit into the printer. But, you can always use the excess paper in the printer, since you don&#39;t need to have a &#39;core&#39; in the paper for it to work.</p>
+<p>
+	The back panel has 2 3-pin connectors; one for power and one for serial communications. The thermal printer ships with default 19200bps baud rate. If you&#39;re using this printer in conjunction with an Arduino, you&#39;re going to need to connect it to the &quot;Vin&quot; pin and attach an external power supply, as the printer will draw more current than USB is capable of delivering. We&#39;ve found that these printers can draw about 1.5A because they need to generate heat, the best supply for the job is our laptop-style power supply (see related products below)</p>
+<p>
+	The print head has a rated life of 50km! That means this printer can handle a marathon&#39;s distance (~30 miles) of printing before the head hits its rated limit.</p>
+<p>
+	Use this printer in any project where you need a hard-copy of the output, or in an art project where you want to keep the output to stick on your fridge, or to build a DIY cash register for your lemonade stand!</p>
+<p>
+	<strong>Documents:</strong></p>
+<ul>
+	<li>
+		<a href="http://www.sparkfun.com/datasheets/Components/General/cashino%20thermal%20printer%20a2.pdf" target="_blank">Product Sheet</a></li>
+	<li>
+		<a href="http://www.sparkfun.com/datasheets/Components/General/A2-user%20manual-1.pdf" target="_blank">User Manual</a></li>
+	<li>
+		<a href="http://www.sparkfun.com/datasheets/Components/General/Driver%20board.pdf" target="_blank">Command Set</a></li>
+	<li>
+		<a href="http://www.sparkfun.com/datasheets/Components/General/ThermalPrinter_Example.zip">Example Code</a></li>
+	<li>
+		<a href="http://tronixstuff.wordpress.com/2011/07/08/tutorial-arduino-and-a-thermal-printer//" target="_blank">Tronixstuff Tutorial</a></li>
+	<li>
+		<a href="http://bildr.org/2011/08/thermal-printer-arduino/" target="_blank">Bildr Tutorial</a></li>
+</ul>
+  </div>
+
+</div>
+
+<div id=comments_container>
+  
+<h2 id="comments_header" class="collapsible grey big">
+  <span class="arrow"></span>Comments
+  <span class="count">
+    110 comments     <a href="https://www.sparkfun.com/products/10438/comments.rss"><img src="https://dlnmh9ip6v2uc.cloudfront.net/images/framework/rss.gif" style="vertical-align: top; margin-top: -1px;" /></a>  </span>
+</h2>
+<div id="comments" class="collapsible white">
+  <div>  <div class="login text-center padtwenty">
+    <b>
+      <a href="/account/login" class=toggle-login>Login</a> or
+      <a href="/account/make">register</a> to post comments.
+    </b>
+  </div>
+</div>
+  <div id="comment-reply-form" style="display: none">  <div class="text-center padtwenty">
+    <b>
+      <a href="/account/login" class=toggle-login>Login</a> or
+      <a href="/account/make">register</a> to post comments.
+    </b>
+  </div>
+</div>
+  <div id="comment-edit-form" style="display: none">  <div style="text-align: center">
+    <b><a href="https://www.sparkfun.com/account/login">Log in</a> to post comments.</b>
+  </div>
+</div>
+  <ul class=comments>
+    <li id="comment-4eaad84f757b7fd351007c26" class=" comment">
+<div class="clearfix tagline">
+
+  <div class="comment-info">
+    <img class="avatar" src="https://dlnmh9ip6v2uc.cloudfront.net/images/framework/anon.png" />            <a href="http://www.sparkfun.com/users/37945">ddegn</a>
+    <span class="wide">|</span>
+    <span title="Friday, 11-Mar-11 07:45:14 MST" class="date"><a href="https://www.sparkfun.com/products/10438#comment-4eaad84f757b7fd351007c26">about 2 years ago</a></span>
+    
+    <span class="rating-star">
+              <span title="Please login to up-vote comments" class=star-dark> </span>
+          </span>
+
+    <span class="rating" id="comment-rating-4eaad84f757b7fd351007c26">
+      <a class="text-grey" data="fancybox" href="http://www.sparkfun.com/static/comment_help">3</a>
+    </span>
+  </div>
+
+  <div class="actions">
+      </div>
+
+</div>
+
+<div class="comment-text">
+  <p>Most 5V TTL devices I&rsquo;ve used will read a 3.3V input.  Could you guys check if a 3.3V signal will work with this device.<br/>
+This is pretty cool.  I think I need one to &ldquo;thoroughly remove uncommon words of anguish&rdquo; in my life.  (The manual is entertaining.)<br/>
+I notice there is a tx connection as well as a rx.  I couldn&rsquo;t find any reference to what the device might transmit.  Does it ouput anything?  I suppose it might just echo the rx line.<br/>
+Could a slot be cut in one of the sides or bottom of the device to allow it to use larger rolls of paper?</p></div>
+<ul class=comments><li id="comment-4eaad84f757b7fd351007c93" class=" comment">
+<div class="clearfix tagline">
+
+  <div class="comment-info">
+    <img class="avatar" src="https://dlnmh9ip6v2uc.cloudfront.net/images/framework/anon.png" />            <a href="http://www.sparkfun.com/users/8715">rwizard</a>
+    <span class="wide">|</span>
+    <span title="Saturday, 12-Mar-11 21:07:11 MST" class="date"><a href="https://www.sparkfun.com/products/10438#comment-4eaad84f757b7fd351007c93">about 2 years ago</a></span>
+    
+    <span class="rating-star">
+              <span title="Please login to up-vote comments" class=star-dark> </span>
+          </span>
+
+    <span class="rating" id="comment-rating-4eaad84f757b7fd351007c93">
+      <a class="text-grey" data="fancybox" href="http://www.sparkfun.com/static/comment_help">1</a>
+    </span>
+  </div>
+
+  <div class="actions">
+      </div>
+
+</div>
+
+<div class="comment-text">
+  <p>Possibly the TX is for support of XON/XOFF.  I have two on the way, and will let you know when they get here and can check.</p></div>
+</li><li id="comment-4eaad858757b7fd35100b37c" class=" comment">
+<div class="clearfix tagline">
+
+  <div class="comment-info">
+    <img class="avatar" src="https://dlnmh9ip6v2uc.cloudfront.net/images/framework/anon.png" />            <a href="http://www.sparkfun.com/users/37945">ddegn</a>
+    <span class="wide">|</span>
+    <span title="Friday, 09-Sep-11 11:35:41 MDT" class="date"><a href="https://www.sparkfun.com/products/10438#comment-4eaad858757b7fd35100b37c">about a year ago</a></span>
+    
+    <span class="rating-star">
+              <span title="Please login to up-vote comments" class=star-dark> </span>
+          </span>
+
+    <span class="rating" id="comment-rating-4eaad858757b7fd35100b37c">
+      <a class="text-grey" data="fancybox" href="http://www.sparkfun.com/static/comment_help">1</a>
+    </span>
+  </div>
+
+  <div class="actions">
+      </div>
+
+</div>
+
+<div class="comment-text">
+  <p>I just tested mine out.  (I&rsquo;ve had it for several months without using it.)  It works fine with a 3.3V signal.  I was surprised to see the unit transmits at 3.3V.</p></div>
+</li></ul></li><li id="comment-4eaad859757b7fd35100b884" class=" comment">
+<div class="clearfix tagline">
+
+  <div class="comment-info">
+    <img class="avatar" src="https://static.sparkfun.com/avatar/297f4e5750f5c66518e3f422bd075489?d=retro&s=30&r=pg" />            <a href="http://www.sparkfun.com/users/255271">oryx</a>
+    <span class="wide">|</span>
+    <span title="Thursday, 29-Sep-11 15:54:51 MDT" class="date"><a href="https://www.sparkfun.com/products/10438#comment-4eaad859757b7fd35100b884">about a year ago</a></span>
+     *
+    <span class="rating-star">
+              <span title="Please login to up-vote comments" class=star-dark> </span>
+          </span>
+
+    <span class="rating" id="comment-rating-4eaad859757b7fd35100b884">
+      <a class="text-grey" data="fancybox" href="http://www.sparkfun.com/static/comment_help">3</a>
+    </span>
+  </div>
+
+  <div class="actions">
+      </div>
+
+</div>
+
+<div class="comment-text">
+  <p>For those who like VB.NET or C#, I made a small library to use this printer with your computer and a FTDI breakout board.<br/>
+You can find it on my blog : http://wp.me/p1TgKg-8</p></div>
+<ul class=comments><li id="comment-4fca6c73ce395f946c000001" class=" comment">
+<div class="clearfix tagline">
+
+  <div class="comment-info">
+    <img class="avatar" src="https://static.sparkfun.com/avatar/477f0b28f660d499aa47bb4543053384?d=retro&s=30&r=pg" />            <a href="http://www.sparkfun.com/users/192315">jpmanson</a>
+    <span class="wide">|</span>
+    <span title="Saturday, 02-Jun-12 13:41:39 MDT" class="date"><a href="https://www.sparkfun.com/products/10438#comment-4fca6c73ce395f946c000001">about 8 months ago</a></span>
+    
+    <span class="rating-star">
+              <span title="Please login to up-vote comments" class=star-dark> </span>
+          </span>
+
+    <span class="rating" id="comment-rating-4fca6c73ce395f946c000001">
+      <a class="text-grey" data="fancybox" href="http://www.sparkfun.com/static/comment_help">1</a>
+    </span>
+  </div>
+
+  <div class="actions">
+      </div>
+
+</div>
+
+<div class="comment-text">
+  <p>Thanks to you. Here is ported to NET MF: https://github.com/jpmanson/ThermalPrinterNetMFLib</p></div>
+</li></ul></li><li id="comment-4eaad84f757b7fd351007b75" class=" comment">
+<div class="clearfix tagline">
+
+  <div class="comment-info">
+    <img class="avatar" src="https://dlnmh9ip6v2uc.cloudfront.net/images/framework/anon.png" />            <a href="http://www.sparkfun.com/users/56801">jdesbonnet</a>
+    <span class="wide">|</span>
+    <span title="Wednesday, 09-Mar-11 17:50:44 MST" class="date"><a href="https://www.sparkfun.com/products/10438#comment-4eaad84f757b7fd351007b75">about 2 years ago</a></span>
+    
+    <span class="rating-star">
+              <span title="Please login to up-vote comments" class=star-dark> </span>
+          </span>
+
+    <span class="rating" id="comment-rating-4eaad84f757b7fd351007b75">
+      <a class="text-grey" data="fancybox" href="http://www.sparkfun.com/static/comment_help">2</a>
+    </span>
+  </div>
+
+  <div class="actions">
+      </div>
+
+</div>
+
+<div class="comment-text">
+  <p>Can you include a scan/photo of a sample print from the device?</p></div>
+</li><li id="comment-4eaad84f757b7fd351007b85" class=" comment">
+<div class="clearfix tagline">
+
+  <div class="comment-info">
+    <img class="avatar" src="https://dlnmh9ip6v2uc.cloudfront.net/images/framework/anon.png" />            <a href="http://www.sparkfun.com/users/94057">SlyVixsky</a>
+    <span class="wide">|</span>
+    <span title="Wednesday, 09-Mar-11 22:25:23 MST" class="date"><a href="https://www.sparkfun.com/products/10438#comment-4eaad84f757b7fd351007b85">about 2 years ago</a></span>
+    
+    <span class="rating-star">
+              <span title="Please login to up-vote comments" class=star-dark> </span>
+          </span>
+
+    <span class="rating" id="comment-rating-4eaad84f757b7fd351007b85">
+      <a class="text-grey" data="fancybox" href="http://www.sparkfun.com/static/comment_help">1</a>
+    </span>
+  </div>
+
+  <div class="actions">
+      </div>
+
+</div>
+
+<div class="comment-text">
+  <p>actually this looks alot like a thermal printer i saw once on an aircraft, just not A4 width :)</p></div>
+</li><li id="comment-4eaad84f757b7fd351007baa" class=" comment">
+<div class="clearfix tagline">
+
+  <div class="comment-info">
+    <img class="avatar" src="https://dlnmh9ip6v2uc.cloudfront.net/images/framework/anon.png" />            <a href="http://www.sparkfun.com/users/46202">Jason</a>
+    <span class="wide">|</span>
+    <span title="Thursday, 10-Mar-11 09:26:09 MST" class="date"><a href="https://www.sparkfun.com/products/10438#comment-4eaad84f757b7fd351007baa">about 2 years ago</a></span>
+    
+    <span class="rating-star">
+              <span title="Please login to up-vote comments" class=star-dark> </span>
+          </span>
+
+    <span class="rating" id="comment-rating-4eaad84f757b7fd351007baa">
+      <a class="text-grey" data="fancybox" href="http://www.sparkfun.com/static/comment_help">1</a>
+    </span>
+  </div>
+
+  <div class="actions">
+      </div>
+
+</div>
+
+<div class="comment-text">
+  <p>Will you guys carry the print head?</p></div>
+<ul class=comments><li id="comment-4eaad84f757b7fd351007c97" class=" comment">
+<div class="clearfix tagline">
+
+  <div class="comment-info">
+    <img class="avatar" src="https://dlnmh9ip6v2uc.cloudfront.net/images/framework/anon.png" />            <a href="http://www.sparkfun.com/users/8715">rwizard</a>
+    <span class="wide">|</span>
+    <span title="Saturday, 12-Mar-11 21:38:11 MST" class="date"><a href="https://www.sparkfun.com/products/10438#comment-4eaad84f757b7fd351007c97">about 2 years ago</a></span>
+    
+    <span class="rating-star">
+              <span title="Please login to up-vote comments" class=star-dark> </span>
+          </span>
+
+    <span class="rating" id="comment-rating-4eaad84f757b7fd351007c97">
+      <a class="text-grey" data="fancybox" href="http://www.sparkfun.com/static/comment_help">2</a>
+    </span>
+  </div>
+
+  <div class="actions">
+      </div>
+
+</div>
+
+<div class="comment-text">
+  <p>Why would you bother to replace the printhead in a $50 printer?  By the time the head wears out, the printer is probably getting worn out too.  So you&rsquo;ll spend $20 to $30 for a printhead, and put it in a printer that craps out a month later?  The smart move is to just spend $50, get a new printhead, and a new printer too.  Your time is worth more than that.  If it were a $4500 Fargo thermal label printer repairs would make sense, but not on these little jewels.</p></div>
+</li><li id="comment-4eaad84f757b7fd351007bcb" class=" comment">
+<div class="clearfix tagline">
+
+  <div class="comment-info">
+    <img class="avatar" src="https://static.sparkfun.com/avatar/cc799970820c51f39b1a41ae63c21896?d=retro&s=30&r=pg" />    <span class=comment-internal title="SFE Employee"> </span>        <a href="http://www.sparkfun.com/users/93309">RobertC.</a>
+    <span class="wide">|</span>
+    <span title="Thursday, 10-Mar-11 12:22:21 MST" class="date"><a href="https://www.sparkfun.com/products/10438#comment-4eaad84f757b7fd351007bcb">about 2 years ago</a></span>
+    
+    <span class="rating-star">
+              <span title="Please login to up-vote comments" class=star-dark> </span>
+          </span>
+
+    <span class="rating" id="comment-rating-4eaad84f757b7fd351007bcb">
+      <a class="text-grey" data="fancybox" href="http://www.sparkfun.com/static/comment_help">1</a>
+    </span>
+  </div>
+
+  <div class="actions">
+      </div>
+
+</div>
+
+<div class="comment-text">
+  <p>no, sorry, just the printer.</p></div>
+</li></ul></li><li id="comment-4eaad84f757b7fd351007baf" class=" comment">
+<div class="clearfix tagline">
+
+  <div class="comment-info">
+    <img class="avatar" src="https://dlnmh9ip6v2uc.cloudfront.net/images/framework/anon.png" />            <a href="http://www.sparkfun.com/users/30386">OldFar-SeeingArt</a>
+    <span class="wide">|</span>
+    <span title="Thursday, 10-Mar-11 09:33:52 MST" class="date"><a href="https://www.sparkfun.com/products/10438#comment-4eaad84f757b7fd351007baf">about 2 years ago</a></span>
+    
+    <span class="rating-star">
+              <span title="Please login to up-vote comments" class=star-dark> </span>
+          </span>
+
+    <span class="rating" id="comment-rating-4eaad84f757b7fd351007baf">
+      <a class="text-grey" data="fancybox" href="http://www.sparkfun.com/static/comment_help">1</a>
+    </span>
+  </div>
+
+  <div class="actions">
+      </div>
+
+</div>
+
+<div class="comment-text">
+  <p>Paper source?</p></div>
+<ul class=comments><li id="comment-4eaad84f757b7fd351007bb2" class=" comment">
+<div class="clearfix tagline">
+
+  <div class="comment-info">
+    <img class="avatar" src="https://static.sparkfun.com/avatar/cc799970820c51f39b1a41ae63c21896?d=retro&s=30&r=pg" />    <span class=comment-internal title="SFE Employee"> </span>        <a href="http://www.sparkfun.com/users/93309">RobertC.</a>
+    <span class="wide">|</span>
+    <span title="Thursday, 10-Mar-11 10:03:22 MST" class="date"><a href="https://www.sparkfun.com/products/10438#comment-4eaad84f757b7fd351007bb2">about 2 years ago</a></span>
+    
+    <span class="rating-star">
+              <span title="Please login to up-vote comments" class=star-dark> </span>
+          </span>
+
+    <span class="rating" id="comment-rating-4eaad84f757b7fd351007bb2">
+      <a class="text-grey" data="fancybox" href="http://www.sparkfun.com/static/comment_help">1</a>
+    </span>
+  </div>
+
+  <div class="actions">
+      </div>
+
+</div>
+
+<div class="comment-text">
+  <p>We&rsquo;re checking into it, but ANY office supply store (office max, office depot) and even wal-mart and such have paper.  It&rsquo;s very common.</p></div>
+</li></ul></li><li id="comment-4eaad84f757b7fd351007bb5" class=" comment">
+<div class="clearfix tagline">
+
+  <div class="comment-info">
+    <img class="avatar" src="https://static.sparkfun.com/avatar/09351a794a44431a7d21608c227d78c1?d=retro&s=30&r=pg" />            <a href="http://www.sparkfun.com/users/23267">Nogginboink</a>
+    <span class="wide">|</span>
+    <span title="Thursday, 10-Mar-11 10:15:06 MST" class="date"><a href="https://www.sparkfun.com/products/10438#comment-4eaad84f757b7fd351007bb5">about 2 years ago</a></span>
+    
+    <span class="rating-star">
+              <span title="Please login to up-vote comments" class=star-dark> </span>
+          </span>
+
+    <span class="rating" id="comment-rating-4eaad84f757b7fd351007bb5">
+      <a class="text-grey" data="fancybox" href="http://www.sparkfun.com/static/comment_help">1</a>
+    </span>
+  </div>
+
+  <div class="actions">
+      </div>
+
+</div>
+
+<div class="comment-text">
+  <p>Very cool product. Lots of interesting ideas come to mind. An Arduino that prints out all the tweets on my Twitter feed? Pointless, I know, but just the kind of project I&rsquo;d build.</p></div>
+<ul class=comments><li id="comment-4eaad84f757b7fd351007be8" class=" comment">
+<div class="clearfix tagline">
+
+  <div class="comment-info">
+    <img class="avatar" src="https://dlnmh9ip6v2uc.cloudfront.net/images/framework/anon.png" />            <a href="http://www.sparkfun.com/users/12681">pudding</a>
+    <span class="wide">|</span>
+    <span title="Thursday, 10-Mar-11 14:58:57 MST" class="date"><a href="https://www.sparkfun.com/products/10438#comment-4eaad84f757b7fd351007be8">about 2 years ago</a></span>
+    
+    <span class="rating-star">
+              <span title="Please login to up-vote comments" class=star-dark> </span>
+          </span>
+
+    <span class="rating" id="comment-rating-4eaad84f757b7fd351007be8">
+      <a class="text-grey" data="fancybox" href="http://www.sparkfun.com/static/comment_help">1</a>
+    </span>
+  </div>
+
+  <div class="actions">
+      </div>
+
+</div>
+
+<div class="comment-text">
+  <p>Was think the same thing! It also be cool if you could use the hot side of a Thermoelectric Cooler to &ldquo;erase&rdquo; the paper.</p></div>
+<ul class=comments><li id="comment-4eaad84f757b7fd351007c13" class=" comment">
+<div class="clearfix tagline">
+
+  <div class="comment-info">
+    <img class="avatar" src="https://static.sparkfun.com/avatar/6ce44f6430f58699463f3ae0b60006c1?d=retro&s=30&r=pg" />            <a href="http://www.sparkfun.com/users/119776">Bunk</a>
+    <span class="wide">|</span>
+    <span title="Thursday, 10-Mar-11 21:17:41 MST" class="date"><a href="https://www.sparkfun.com/products/10438#comment-4eaad84f757b7fd351007c13">about 2 years ago</a></span>
+    
+    <span class="rating-star">
+              <span title="Please login to up-vote comments" class=star-dark> </span>
+          </span>
+
+    <span class="rating" id="comment-rating-4eaad84f757b7fd351007c13">
+      <a class="text-grey" data="fancybox" href="http://www.sparkfun.com/static/comment_help">1</a>
+    </span>
+  </div>
+
+  <div class="actions">
+      </div>
+
+</div>
+
+<div class="comment-text">
+  <p>Is this even possible? Would it turn it completely black or white again?</p></div>
+<ul class=comments><li id="comment-4eaad84f757b7fd351007c1e" class=" comment">
+<div class="clearfix tagline">
+
+  <div class="comment-info">
+    <img class="avatar" src="https://dlnmh9ip6v2uc.cloudfront.net/images/framework/anon.png" />            <a href="http://www.sparkfun.com/users/8715">rwizard</a>
+    <span class="wide">|</span>
+    <span title="Friday, 11-Mar-11 01:08:00 MST" class="date"><a href="https://www.sparkfun.com/products/10438#comment-4eaad84f757b7fd351007c1e">about 2 years ago</a></span>
+     *
+    <span class="rating-star">
+              <span title="Please login to up-vote comments" class=star-dark> </span>
+          </span>
+
+    <span class="rating" id="comment-rating-4eaad84f757b7fd351007c1e">
+      <a class="text-grey" data="fancybox" href="http://www.sparkfun.com/static/comment_help">1</a>
+    </span>
+  </div>
+
+  <div class="actions">
+      </div>
+
+</div>
+
+<div class="comment-text">
+  <p>Ummm, no.<br/>
+Take a look at the wikipedia article on thermal paper.</p></div>
+<ul class=comments><li id="comment-4eaad84f757b7fd351007c70" class=" comment">
+<div class="clearfix tagline">
+
+  <div class="comment-info">
+    <img class="avatar" src="https://dlnmh9ip6v2uc.cloudfront.net/images/framework/anon.png" />            <a href="http://www.sparkfun.com/users/165685">jma89</a>
+    <span class="wide">|</span>
+    <span title="Saturday, 12-Mar-11 01:36:25 MST" class="date"><a href="https://www.sparkfun.com/products/10438#comment-4eaad84f757b7fd351007c70">about 2 years ago</a></span>
+    
+    <span class="rating-star">
+              <span title="Please login to up-vote comments" class=star-dark> </span>
+          </span>
+
+    <span class="rating" id="comment-rating-4eaad84f757b7fd351007c70">
+      <a class="text-grey" data="fancybox" href="http://www.sparkfun.com/static/comment_help">1</a>
+    </span>
+  </div>
+
+  <div class="actions">
+      </div>
+
+</div>
+
+<div class="comment-text">
+  <p>You can, however, heat it up further and turn it fully black. :&ndash;)</p></div>
+<ul class=comments><li id="comment-4eaad84f757b7fd351007c92" class=" comment">
+<div class="clearfix tagline">
+
+  <div class="comment-info">
+    <img class="avatar" src="https://dlnmh9ip6v2uc.cloudfront.net/images/framework/anon.png" />            <a href="http://www.sparkfun.com/users/8715">rwizard</a>
+    <span class="wide">|</span>
+    <span title="Saturday, 12-Mar-11 21:03:27 MST" class="date"><a href="https://www.sparkfun.com/products/10438#comment-4eaad84f757b7fd351007c92">about 2 years ago</a></span>
+    
+    <span class="rating-star">
+              <span title="Please login to up-vote comments" class=star-dark> </span>
+          </span>
+
+    <span class="rating" id="comment-rating-4eaad84f757b7fd351007c92">
+      <a class="text-grey" data="fancybox" href="http://www.sparkfun.com/static/comment_help">1</a>
+    </span>
+  </div>
+
+  <div class="actions">
+      </div>
+
+</div>
+
+<div class="comment-text">
+  <p>Yeah, or leave it in sunlight for a couple of weeks, and then use it with a Sharpie.<br/>
+Personally, I plan on saving all of the output from it until I have enough to build myself a paper-mâché house, or perhaps an invincible paper-mâché exo-skeleton.<br/>
+Ohh, wait, even better, I&rsquo;ll just use the thing as intended.  I&rsquo;ll print stuff, and when I don&rsquo;t need it anymore I&rsquo;ll throw it away.  Eureka!</p></div>
+</li></ul></li></ul></li></ul></li></ul></li></ul></li><li id="comment-4eaad84f757b7fd351007bbb" class=" comment">
+<div class="clearfix tagline">
+
+  <div class="comment-info">
+    <img class="avatar" src="https://dlnmh9ip6v2uc.cloudfront.net/images/framework/anon.png" />            <a href="http://www.sparkfun.com/users/43945">EvanT</a>
+    <span class="wide">|</span>
+    <span title="Thursday, 10-Mar-11 11:09:07 MST" class="date"><a href="https://www.sparkfun.com/products/10438#comment-4eaad84f757b7fd351007bbb">about 2 years ago</a></span>
+    
+    <span class="rating-star">
+              <span title="Please login to up-vote comments" class=star-dark> </span>
+          </span>
+
+    <span class="rating" id="comment-rating-4eaad84f757b7fd351007bbb">
+      <a class="text-grey" data="fancybox" href="http://www.sparkfun.com/static/comment_help">1</a>
+    </span>
+  </div>
+
+  <div class="actions">
+      </div>
+
+</div>
+
+<div class="comment-text">
+  <p>You guys plan on making an arduino shield?</p></div>
+<ul class=comments><li id="comment-4eaad84f757b7fd351007bf1" class=" comment">
+<div class="clearfix tagline">
+
+  <div class="comment-info">
+    <img class="avatar" src="https://static.sparkfun.com/avatar/1ff6ad39b8c242a14296a76845e116cd?d=retro&s=30&r=pg" />    <span class=comment-internal title="SFE Employee"> </span>        <a href="http://www.sparkfun.com/users/7185">Nate</a>
+    <span class="wide">|</span>
+    <span title="Thursday, 10-Mar-11 15:46:20 MST" class="date"><a href="https://www.sparkfun.com/products/10438#comment-4eaad84f757b7fd351007bf1">about 2 years ago</a></span>
+    
+    <span class="rating-star">
+              <span title="Please login to up-vote comments" class=star-dark> </span>
+          </span>
+
+    <span class="rating" id="comment-rating-4eaad84f757b7fd351007bf1">
+      <a class="text-grey" data="fancybox" href="http://www.sparkfun.com/static/comment_help">1</a>
+    </span>
+  </div>
+
+  <div class="actions">
+      </div>
+
+</div>
+
+<div class="comment-text">
+  <p>Yes, I&rsquo;ll call it &lsquo;wires&rsquo;.<br/>
+But really, I just shoved wires from my Arduino into the included connectors. Male headers from a protoshield would also work.</p></div>
+<ul class=comments><li id="comment-4eaad84f757b7fd351007df8" class=" comment">
+<div class="clearfix tagline">
+
+  <div class="comment-info">
+    <img class="avatar" src="https://dlnmh9ip6v2uc.cloudfront.net/images/framework/anon.png" />            <a href="http://www.sparkfun.com/users/43945">EvanT</a>
+    <span class="wide">|</span>
+    <span title="Wednesday, 16-Mar-11 19:42:36 MDT" class="date"><a href="https://www.sparkfun.com/products/10438#comment-4eaad84f757b7fd351007df8">about 2 years ago</a></span>
+    
+    <span class="rating-star">
+              <span title="Please login to up-vote comments" class=star-dark> </span>
+          </span>
+
+    <span class="rating" id="comment-rating-4eaad84f757b7fd351007df8">
+      <a class="text-grey" data="fancybox" href="http://www.sparkfun.com/static/comment_help">1</a>
+    </span>
+  </div>
+
+  <div class="actions">
+      </div>
+
+</div>
+
+<div class="comment-text">
+  <p>Well I was thinking something that could also power it</p></div>
+</li></ul></li></ul></li><li id="comment-4eaad84f757b7fd351007bbc" class=" comment">
+<div class="clearfix tagline">
+
+  <div class="comment-info">
+    <img class="avatar" src="https://dlnmh9ip6v2uc.cloudfront.net/images/framework/anon.png" />            <a href="http://www.sparkfun.com/users/37960">jmjordan</a>
+    <span class="wide">|</span>
+    <span title="Thursday, 10-Mar-11 11:13:19 MST" class="date"><a href="https://www.sparkfun.com/products/10438#comment-4eaad84f757b7fd351007bbc">about 2 years ago</a></span>
+    
+    <span class="rating-star">
+              <span title="Please login to up-vote comments" class=star-dark> </span>
+          </span>
+
+    <span class="rating" id="comment-rating-4eaad84f757b7fd351007bbc">
+      <a class="text-grey" data="fancybox" href="http://www.sparkfun.com/static/comment_help">1</a>
+    </span>
+  </div>
+
+  <div class="actions">
+      </div>
+
+</div>
+
+<div class="comment-text">
+  <p>I&rsquo;ve wanting to use one of these in a project for a long time! You guys are awesome.<br/>
+Any plans to sell a printer with a built-in cutting blade?</p></div>
+<ul class=comments><li id="comment-4eaad84f757b7fd351007c95" class=" comment">
+<div class="clearfix tagline">
+
+  <div class="comment-info">
+    <img class="avatar" src="https://dlnmh9ip6v2uc.cloudfront.net/images/framework/anon.png" />            <a href="http://www.sparkfun.com/users/8715">rwizard</a>
+    <span class="wide">|</span>
+    <span title="Saturday, 12-Mar-11 21:14:47 MST" class="date"><a href="https://www.sparkfun.com/products/10438#comment-4eaad84f757b7fd351007c95">about 2 years ago</a></span>
+    
+    <span class="rating-star">
+              <span title="Please login to up-vote comments" class=star-dark> </span>
+          </span>
+
+    <span class="rating" id="comment-rating-4eaad84f757b7fd351007c95">
+      <a class="text-grey" data="fancybox" href="http://www.sparkfun.com/static/comment_help">3</a>
+    </span>
+  </div>
+
+  <div class="actions">
+      </div>
+
+</div>
+
+<div class="comment-text">
+  <p>Since I assume Sparkfun is just buying these from someone they may not have a lot of say about the design, but adding a tear-bar to whatever enclosure you use seems pretty simple.  For those who want a quick and dirty solution, go steal the tear-bar off of a box of aluminum foil, and fasten it to the printer by means of your favorite diabolical attachment method (duct tape, epoxy, &frac14;-20 stainless bolts, tig welding, making your children hold it in place when you want to print, etc.)</p></div>
+</li><li id="comment-4eaad84f757b7fd351007c57" class=" comment">
+<div class="clearfix tagline">
+
+  <div class="comment-info">
+    <img class="avatar" src="https://dlnmh9ip6v2uc.cloudfront.net/images/framework/anon.png" />            <a href="http://www.sparkfun.com/users/79813">Tw34k</a>
+    <span class="wide">|</span>
+    <span title="Friday, 11-Mar-11 17:26:52 MST" class="date"><a href="https://www.sparkfun.com/products/10438#comment-4eaad84f757b7fd351007c57">about 2 years ago</a></span>
+    
+    <span class="rating-star">
+              <span title="Please login to up-vote comments" class=star-dark> </span>
+          </span>
+
+    <span class="rating" id="comment-rating-4eaad84f757b7fd351007c57">
+      <a class="text-grey" data="fancybox" href="http://www.sparkfun.com/static/comment_help">1</a>
+    </span>
+  </div>
+
+  <div class="actions">
+      </div>
+
+</div>
+
+<div class="comment-text">
+  <p>Yeah, even just a perforated line would be awesome. I noticed in the video he had a little trouble tearing it properly.</p></div>
+</li></ul></li><li id="comment-4eaad84f757b7fd351007bc5" class=" comment">
+<div class="clearfix tagline">
+
+  <div class="comment-info">
+    <img class="avatar" src="https://static.sparkfun.com/avatar/7a204d6ab1314a8602c614b85a8d5f3d?d=retro&s=30&r=pg" />            <a href="http://www.sparkfun.com/users/150611">DMKitsch</a>
+    <span class="wide">|</span>
+    <span title="Thursday, 10-Mar-11 12:09:35 MST" class="date"><a href="https://www.sparkfun.com/products/10438#comment-4eaad84f757b7fd351007bc5">about 2 years ago</a></span>
+    
+    <span class="rating-star">
+              <span title="Please login to up-vote comments" class=star-dark> </span>
+          </span>
+
+    <span class="rating" id="comment-rating-4eaad84f757b7fd351007bc5">
+      <a class="text-grey" data="fancybox" href="http://www.sparkfun.com/static/comment_help">1</a>
+    </span>
+  </div>
+
+  <div class="actions">
+      </div>
+
+</div>
+
+<div class="comment-text">
+  <p>I&rsquo;m gonna use this in my next project. Its gonna be a news ticker with weather updates with an alarm for me too get up</p></div>
+</li><li id="comment-4eaad84f757b7fd351007bdd" class=" comment">
+<div class="clearfix tagline">
+
+  <div class="comment-info">
+    <img class="avatar" src="https://dlnmh9ip6v2uc.cloudfront.net/images/framework/anon.png" />            <a href="http://www.sparkfun.com/users/9543">benedetoula</a>
+    <span class="wide">|</span>
+    <span title="Thursday, 10-Mar-11 14:03:15 MST" class="date"><a href="https://www.sparkfun.com/products/10438#comment-4eaad84f757b7fd351007bdd">about 2 years ago</a></span>
+    
+    <span class="rating-star">
+              <span title="Please login to up-vote comments" class=star-dark> </span>
+          </span>
+
+    <span class="rating" id="comment-rating-4eaad84f757b7fd351007bdd">
+      <a class="text-grey" data="fancybox" href="http://www.sparkfun.com/static/comment_help">1</a>
+    </span>
+  </div>
+
+  <div class="actions">
+      </div>
+
+</div>
+
+<div class="comment-text">
+  <p>Sometimes I wonder what Chinese street market you guys find things&hellip; I have been looking for this for 3 months now! Of course here it is! :&ndash;) Gonna buy many soon for a project we just finished developing. Thanks!!!!!!</p></div>
+</li><li id="comment-4eaad84f757b7fd351007bec" class=" comment">
+<div class="clearfix tagline">
+
+  <div class="comment-info">
+    <img class="avatar" src="https://static.sparkfun.com/avatar/7a204d6ab1314a8602c614b85a8d5f3d?d=retro&s=30&r=pg" />            <a href="http://www.sparkfun.com/users/150611">DMKitsch</a>
+    <span class="wide">|</span>
+    <span title="Thursday, 10-Mar-11 15:21:16 MST" class="date"><a href="https://www.sparkfun.com/products/10438#comment-4eaad84f757b7fd351007bec">about 2 years ago</a></span>
+    
+    <span class="rating-star">
+              <span title="Please login to up-vote comments" class=star-dark> </span>
+          </span>
+
+    <span class="rating" id="comment-rating-4eaad84f757b7fd351007bec">
+      <a class="text-grey" data="fancybox" href="http://www.sparkfun.com/static/comment_help">1</a>
+    </span>
+  </div>
+
+  <div class="actions">
+      </div>
+
+</div>
+
+<div class="comment-text">
+  <p>typo,<br/>
+than USB in capable of delivering should be<br/>
+than USB <em>is</em> capable of delivering</p></div>
+<ul class=comments><li id="comment-4eaad84f757b7fd351007bfc" class=" comment">
+<div class="clearfix tagline">
+
+  <div class="comment-info">
+    <img class="avatar" src="https://static.sparkfun.com/avatar/aa6b677007b9e4c987f193bae1e7611f?d=retro&s=30&r=pg" />    <span class=comment-internal title="SFE Employee"> </span>        <a href="http://www.sparkfun.com/users/20716">stilldavid</a>
+    <span class="wide">|</span>
+    <span title="Thursday, 10-Mar-11 17:24:55 MST" class="date"><a href="https://www.sparkfun.com/products/10438#comment-4eaad84f757b7fd351007bfc">about 2 years ago</a></span>
+    
+    <span class="rating-star">
+              <span title="Please login to up-vote comments" class=star-dark> </span>
+          </span>
+
+    <span class="rating" id="comment-rating-4eaad84f757b7fd351007bfc">
+      <a class="text-grey" data="fancybox" href="http://www.sparkfun.com/static/comment_help">1</a>
+    </span>
+  </div>
+
+  <div class="actions">
+      </div>
+
+</div>
+
+<div class="comment-text">
+  <p>Thanks, fixed!</p></div>
+</li></ul></li><li id="comment-4eaad84f757b7fd351007bf9" class=" comment">
+<div class="clearfix tagline">
+
+  <div class="comment-info">
+    <img class="avatar" src="https://dlnmh9ip6v2uc.cloudfront.net/images/framework/anon.png" />            <a href="http://www.sparkfun.com/users/1965">Nab</a>
+    <span class="wide">|</span>
+    <span title="Thursday, 10-Mar-11 17:01:51 MST" class="date"><a href="https://www.sparkfun.com/products/10438#comment-4eaad84f757b7fd351007bf9">about 2 years ago</a></span>
+    
+    <span class="rating-star">
+              <span title="Please login to up-vote comments" class=star-dark> </span>
+          </span>
+
+    <span class="rating" id="comment-rating-4eaad84f757b7fd351007bf9">
+      <a class="text-grey" data="fancybox" href="http://www.sparkfun.com/static/comment_help">1</a>
+    </span>
+  </div>
+
+  <div class="actions">
+      </div>
+
+</div>
+
+<div class="comment-text">
+  <p>Make sure you get thermal paper without BPA just to be safe. http://en.wikipedia.org/wiki/Thermal_printer#Health_concerns</p></div>
+</li><li id="comment-4eaad84f757b7fd351007c16" class=" comment">
+<div class="clearfix tagline">
+
+  <div class="comment-info">
+    <img class="avatar" src="https://dlnmh9ip6v2uc.cloudfront.net/images/framework/anon.png" />            <a href="http://www.sparkfun.com/users/94045">Grand Archer</a>
+    <span class="wide">|</span>
+    <span title="Thursday, 10-Mar-11 22:13:08 MST" class="date"><a href="https://www.sparkfun.com/products/10438#comment-4eaad84f757b7fd351007c16">about 2 years ago</a></span>
+    
+    <span class="rating-star">
+              <span title="Please login to up-vote comments" class=star-dark> </span>
+          </span>
+
+    <span class="rating" id="comment-rating-4eaad84f757b7fd351007c16">
+      <a class="text-grey" data="fancybox" href="http://www.sparkfun.com/static/comment_help">1</a>
+    </span>
+  </div>
+
+  <div class="actions">
+      </div>
+
+</div>
+
+<div class="comment-text">
+  <p>Is the bitmap print function fine enough for 3d barcode? Could be killet geochache box that prints every visitor proof to take to another location to scan.</p></div>
+<ul class=comments><li id="comment-500da7bf757b7f1841000002" class=" comment">
+<div class="clearfix tagline">
+
+  <div class="comment-info">
+    <img class="avatar" src="https://static.sparkfun.com/avatar/1dafce253c8629ff025a8e3f7191318f?d=retro&s=30&r=pg" />            <a href="http://www.sparkfun.com/users/30640">Madbodger</a>
+    <span class="wide">|</span>
+    <span title="Monday, 23-Jul-12 13:36:31 MDT" class="date"><a href="https://www.sparkfun.com/products/10438#comment-500da7bf757b7f1841000002">about 6 months ago</a></span>
+    
+    <span class="rating-star">
+              <span title="Please login to up-vote comments" class=star-dark> </span>
+          </span>
+
+    <span class="rating" id="comment-rating-500da7bf757b7f1841000002">
+      <a class="text-grey" data="fancybox" href="http://www.sparkfun.com/static/comment_help">1</a>
+    </span>
+  </div>
+
+  <div class="actions">
+      </div>
+
+</div>
+
+<div class="comment-text">
+  <p>A 2-D barcode might be possible, but 3-D?  You&rsquo;d need to find some clear thermal paper to start with&hellip;</p></div>
+<ul class=comments><li id="comment-506beb24757b7f4a60000002" class=" comment">
+<div class="clearfix tagline">
+
+  <div class="comment-info">
+    <img class="avatar" src="https://dlnmh9ip6v2uc.cloudfront.net/images/framework/anon.png" />            <a href="http://www.sparkfun.com/users/366112">Member #366112</a>
+    <span class="wide">|</span>
+    <span title="Wednesday, 03-Oct-12 01:37:08 MDT" class="date"><a href="https://www.sparkfun.com/products/10438#comment-506beb24757b7f4a60000002">about 3 months ago</a></span>
+    
+    <span class="rating-star">
+              <span title="Please login to up-vote comments" class=star-dark> </span>
+          </span>
+
+    <span class="rating" id="comment-rating-506beb24757b7f4a60000002">
+      <a class="text-grey" data="fancybox" href="http://www.sparkfun.com/static/comment_help">1</a>
+    </span>
+  </div>
+
+  <div class="actions">
+      </div>
+
+</div>
+
+<div class="comment-text">
+  <p>I believe what he means is a QR code, not a code on multiple planes.</p></div>
+</li></ul></li></ul></li><li id="comment-4eaad84f757b7fd351007c18" class=" comment">
+<div class="clearfix tagline">
+
+  <div class="comment-info">
+    <img class="avatar" src="https://dlnmh9ip6v2uc.cloudfront.net/images/framework/anon.png" />            <a href="http://www.sparkfun.com/users/57699">fluxTreme</a>
+    <span class="wide">|</span>
+    <span title="Thursday, 10-Mar-11 22:44:27 MST" class="date"><a href="https://www.sparkfun.com/products/10438#comment-4eaad84f757b7fd351007c18">about 2 years ago</a></span>
+    
+    <span class="rating-star">
+              <span title="Please login to up-vote comments" class=star-dark> </span>
+          </span>
+
+    <span class="rating" id="comment-rating-4eaad84f757b7fd351007c18">
+      <a class="text-grey" data="fancybox" href="http://www.sparkfun.com/static/comment_help">1</a>
+    </span>
+  </div>
+
+  <div class="actions">
+      </div>
+
+</div>
+
+<div class="comment-text">
+  <p>I had to order this when I saw it&hellip;.probably gonna make something that generates barcodes as a sort of &ldquo;key&rdquo; for a project. Now all you guys need to get is a fixed barcode scanner something like this<br/>
+http://www.carolinabarcode.com/images/ArticleImages/RunMyStore/BarcodeScanner2.jpg<br/>
+On a more technical note<br/>
+If I use a 9v power supply instead of a 5v do I have to use a level shifter on the serial? In the example code it said 9v power supply and nothing about level shifting. So I am assuming not but just wanted to double check!<br/>
+Keep the awesome products coming Sparkfun!</p></div>
+<ul class=comments><li id="comment-4eaad858757b7fd35100b37b" class=" comment">
+<div class="clearfix tagline">
+
+  <div class="comment-info">
+    <img class="avatar" src="https://dlnmh9ip6v2uc.cloudfront.net/images/framework/anon.png" />            <a href="http://www.sparkfun.com/users/37945">ddegn</a>
+    <span class="wide">|</span>
+    <span title="Friday, 09-Sep-11 11:31:58 MDT" class="date"><a href="https://www.sparkfun.com/products/10438#comment-4eaad858757b7fd35100b37b">about a year ago</a></span>
+    
+    <span class="rating-star">
+              <span title="Please login to up-vote comments" class=star-dark> </span>
+          </span>
+
+    <span class="rating" id="comment-rating-4eaad858757b7fd35100b37b">
+      <a class="text-grey" data="fancybox" href="http://www.sparkfun.com/static/comment_help">1</a>
+    </span>
+  </div>
+
+  <div class="actions">
+      </div>
+
+</div>
+
+<div class="comment-text">
+  <p>I just checked this.  When powered with 9V the tx line idles at 3.3V.  It must have 3.3V controller.</p></div>
+</li></ul></li><li id="comment-4eaad84f757b7fd351007c1c" class=" comment">
+<div class="clearfix tagline">
+
+  <div class="comment-info">
+    <img class="avatar" src="https://dlnmh9ip6v2uc.cloudfront.net/images/framework/anon.png" />            <a href="http://www.sparkfun.com/users/129486">intranick</a>
+    <span class="wide">|</span>
+    <span title="Thursday, 10-Mar-11 23:40:51 MST" class="date"><a href="https://www.sparkfun.com/products/10438#comment-4eaad84f757b7fd351007c1c">about 2 years ago</a></span>
+    
+    <span class="rating-star">
+              <span title="Please login to up-vote comments" class=star-dark> </span>
+          </span>
+
+    <span class="rating" id="comment-rating-4eaad84f757b7fd351007c1c">
+      <a class="text-grey" data="fancybox" href="http://www.sparkfun.com/static/comment_help">1</a>
+    </span>
+  </div>
+
+  <div class="actions">
+      </div>
+
+</div>
+
+<div class="comment-text">
+  <p>is there some sort of sticky-back thermal paper you could print with this, for example if you wanted to make a barcode sticker for something..?</p></div>
+<ul class=comments><li id="comment-4eaad84f757b7fd351007c64" class=" comment">
+<div class="clearfix tagline">
+
+  <div class="comment-info">
+    <img class="avatar" src="https://dlnmh9ip6v2uc.cloudfront.net/images/framework/anon.png" />            <a href="http://www.sparkfun.com/users/92604">clever</a>
+    <span class="wide">|</span>
+    <span title="Friday, 11-Mar-11 21:24:41 MST" class="date"><a href="https://www.sparkfun.com/products/10438#comment-4eaad84f757b7fd351007c64">about 2 years ago</a></span>
+    
+    <span class="rating-star">
+              <span title="Please login to up-vote comments" class=star-dark> </span>
+          </span>
+
+    <span class="rating" id="comment-rating-4eaad84f757b7fd351007c64">
+      <a class="text-grey" data="fancybox" href="http://www.sparkfun.com/static/comment_help">1</a>
+    </span>
+  </div>
+
+  <div class="actions">
+      </div>
+
+</div>
+
+<div class="comment-text">
+  <p>have a look at the old gameboy printer paper, might have some trouble since its not as wide, but it does have a sticky backing</p></div>
+</li><li id="comment-4eaad855757b7fd35100a08d" class=" comment">
+<div class="clearfix tagline">
+
+  <div class="comment-info">
+    <img class="avatar" src="https://dlnmh9ip6v2uc.cloudfront.net/images/framework/anon.png" />            <a href="http://www.sparkfun.com/users/183788">swort</a>
+    <span class="wide">|</span>
+    <span title="Saturday, 02-Jul-11 10:55:02 MDT" class="date"><a href="https://www.sparkfun.com/products/10438#comment-4eaad855757b7fd35100a08d">about 2 years ago</a></span>
+    
+    <span class="rating-star">
+              <span title="Please login to up-vote comments" class=star-dark> </span>
+          </span>
+
+    <span class="rating" id="comment-rating-4eaad855757b7fd35100a08d">
+      <a class="text-grey" data="fancybox" href="http://www.sparkfun.com/static/comment_help">1</a>
+    </span>
+  </div>
+
+  <div class="actions">
+      </div>
+
+</div>
+
+<div class="comment-text">
+  <p>Sparkfun? will there be sticky paper in the future?</p></div>
+</li><li id="comment-4eaad857757b7fd35100b1b9" class=" comment">
+<div class="clearfix tagline">
+
+  <div class="comment-info">
+    <img class="avatar" src="https://static.sparkfun.com/avatar/57761bc7760ece1b9f730c7fab5ddcb1?d=retro&s=30&r=pg" />            <a href="http://www.sparkfun.com/users/248395">dthorpe</a>
+    <span class="wide">|</span>
+    <span title="Wednesday, 31-Aug-11 14:20:04 MDT" class="date"><a href="https://www.sparkfun.com/products/10438#comment-4eaad857757b7fd35100b1b9">about a year ago</a></span>
+    
+    <span class="rating-star">
+              <span title="Please login to up-vote comments" class=star-dark> </span>
+          </span>
+
+    <span class="rating" id="comment-rating-4eaad857757b7fd35100b1b9">
+      <a class="text-grey" data="fancybox" href="http://www.sparkfun.com/static/comment_help">1</a>
+    </span>
+  </div>
+
+  <div class="actions">
+      </div>
+
+</div>
+
+<div class="comment-text">
+  <p>Yes, there is.  It&rsquo;s called thermal printer address labels, such as for Dymo label printers. Just search for thermal labels. There are hundreds of vendors and tons of label shapes and sizes.</p></div>
+</li></ul></li><li id="comment-4eaad84f757b7fd351007c30" class=" comment">
+<div class="clearfix tagline">
+
+  <div class="comment-info">
+    <img class="avatar" src="https://static.sparkfun.com/avatar/1ac9bd6fa229bd464d45109541cfdf9f?d=retro&s=30&r=pg" />            <a href="http://www.sparkfun.com/users/22832">SirCastor</a>
+    <span class="wide">|</span>
+    <span title="Friday, 11-Mar-11 10:13:16 MST" class="date"><a href="https://www.sparkfun.com/products/10438#comment-4eaad84f757b7fd351007c30">about 2 years ago</a></span>
+    
+    <span class="rating-star">
+              <span title="Please login to up-vote comments" class=star-dark> </span>
+          </span>
+
+    <span class="rating" id="comment-rating-4eaad84f757b7fd351007c30">
+      <a class="text-grey" data="fancybox" href="http://www.sparkfun.com/static/comment_help">1</a>
+    </span>
+  </div>
+
+  <div class="actions">
+      </div>
+
+</div>
+
+<div class="comment-text">
+  <p>Could you potentially print a QR-Code from this?<br/>
+For anyone wondering, most modern black and white label printers use this technology. Also, you&rsquo;ve likely seen it if you eat at fast food. Receipt printers use it as well. In the case of the fast food, you might see part of your receipt blackened from sitting next to a hot element for too long.</p></div>
+<ul class=comments><li id="comment-4eaad857757b7fd35100b1bc" class=" comment">
+<div class="clearfix tagline">
+
+  <div class="comment-info">
+    <img class="avatar" src="https://static.sparkfun.com/avatar/57761bc7760ece1b9f730c7fab5ddcb1?d=retro&s=30&r=pg" />            <a href="http://www.sparkfun.com/users/248395">dthorpe</a>
+    <span class="wide">|</span>
+    <span title="Wednesday, 31-Aug-11 14:24:06 MDT" class="date"><a href="https://www.sparkfun.com/products/10438#comment-4eaad857757b7fd35100b1bc">about a year ago</a></span>
+    
+    <span class="rating-star">
+              <span title="Please login to up-vote comments" class=star-dark> </span>
+          </span>
+
+    <span class="rating" id="comment-rating-4eaad857757b7fd35100b1bc">
+      <a class="text-grey" data="fancybox" href="http://www.sparkfun.com/static/comment_help">1</a>
+    </span>
+  </div>
+
+  <div class="actions">
+      </div>
+
+</div>
+
+<div class="comment-text">
+  <p>Yes, it should be able to print a QR-Code.  You&rsquo;ll need software to generate the QR-Code bitmap and software to transmit the bitmap to the printer in line chunks small enough for the printer&rsquo;s buffer to handle.  Check out the command codes doc for the bitmap print commands. It looks pretty straightforward.</p></div>
+</li><li id="comment-4f3fc9b1757b7f2a3c000000" class=" comment">
+<div class="clearfix tagline">
+
+  <div class="comment-info">
+    <img class="avatar" src="https://dlnmh9ip6v2uc.cloudfront.net/images/framework/anon.png" />            <a href="http://www.sparkfun.com/users/302668">brickeymouse</a>
+    <span class="wide">|</span>
+    <span title="Saturday, 18-Feb-12 08:54:25 MST" class="date"><a href="https://www.sparkfun.com/products/10438#comment-4f3fc9b1757b7f2a3c000000">about 11 months ago</a></span>
+    
+    <span class="rating-star">
+              <span title="Please login to up-vote comments" class=star-dark> </span>
+          </span>
+
+    <span class="rating" id="comment-rating-4f3fc9b1757b7f2a3c000000">
+      <a class="text-grey" data="fancybox" href="http://www.sparkfun.com/static/comment_help">1</a>
+    </span>
+  </div>
+
+  <div class="actions">
+      </div>
+
+</div>
+
+<div class="comment-text">
+  <p>This guy did it with the same printer &ndash; even looks like he has his code on the link.  I&rsquo;m going to be doing something similar but i haven&rsquo;t gotten into it yet.</p>
+
+<p>http://hackaday.com/tag/thermal-printer/</p></div>
+</li></ul></li><li id="comment-4eaad84f757b7fd351007c46" class=" comment">
+<div class="clearfix tagline">
+
+  <div class="comment-info">
+    <img class="avatar" src="https://dlnmh9ip6v2uc.cloudfront.net/images/framework/anon.png" />            <a href="http://www.sparkfun.com/users/160512">R4D4R</a>
+    <span class="wide">|</span>
+    <span title="Friday, 11-Mar-11 13:10:08 MST" class="date"><a href="https://www.sparkfun.com/products/10438#comment-4eaad84f757b7fd351007c46">about 2 years ago</a></span>
+    
+    <span class="rating-star">
+              <span title="Please login to up-vote comments" class=star-dark> </span>
+          </span>
+
+    <span class="rating" id="comment-rating-4eaad84f757b7fd351007c46">
+      <a class="text-grey" data="fancybox" href="http://www.sparkfun.com/static/comment_help">1</a>
+    </span>
+  </div>
+
+  <div class="actions">
+      </div>
+
+</div>
+
+<div class="comment-text">
+  <p>Is this RS-232 and TTL or just TTL Serial?  The documentation refers to both.</p></div>
+<ul class=comments><li id="comment-4eea2361ce395f1303000000" class=" comment">
+<div class="clearfix tagline">
+
+  <div class="comment-info">
+    <img class="avatar" src="https://dlnmh9ip6v2uc.cloudfront.net/images/framework/anon.png" />            <a href="http://www.sparkfun.com/users/37945">ddegn</a>
+    <span class="wide">|</span>
+    <span title="Thursday, 15-Dec-11 09:42:09 MST" class="date"><a href="https://www.sparkfun.com/products/10438#comment-4eea2361ce395f1303000000">about a year ago</a></span>
+    
+    <span class="rating-star">
+              <span title="Please login to up-vote comments" class=star-dark> </span>
+          </span>
+
+    <span class="rating" id="comment-rating-4eea2361ce395f1303000000">
+      <a class="text-grey" data="fancybox" href="http://www.sparkfun.com/static/comment_help">1</a>
+    </span>
+  </div>
+
+  <div class="actions">
+      </div>
+
+</div>
+
+<div class="comment-text">
+  <p>I know it transmits and receives with 3.3V logic levels.
+I doubt it would work with RS-232 levels but I haven&rsquo;t tested this (and don&rsquo;t plan to).</p></div>
+</li></ul></li><li id="comment-4eaad84f757b7fd351007c96" class=" comment">
+<div class="clearfix tagline">
+
+  <div class="comment-info">
+    <img class="avatar" src="https://dlnmh9ip6v2uc.cloudfront.net/images/framework/anon.png" />            <a href="http://www.sparkfun.com/users/8715">rwizard</a>
+    <span class="wide">|</span>
+    <span title="Saturday, 12-Mar-11 21:27:40 MST" class="date"><a href="https://www.sparkfun.com/products/10438#comment-4eaad84f757b7fd351007c96">about 2 years ago</a></span>
+    
+    <span class="rating-star">
+              <span title="Please login to up-vote comments" class=star-dark> </span>
+          </span>
+
+    <span class="rating" id="comment-rating-4eaad84f757b7fd351007c96">
+      <a class="text-grey" data="fancybox" href="http://www.sparkfun.com/static/comment_help">1</a>
+    </span>
+  </div>
+
+  <div class="actions">
+      </div>
+
+</div>
+
+<div class="comment-text">
+  <p>Question for SF.  How reliably can you supply these things?  I&rsquo;ve got two coming to play with, but if they pan out, I am considering them for a commercial project I am developing.</p></div>
+</li><li id="comment-4eaad84f757b7fd351007ca8" class=" comment">
+<div class="clearfix tagline">
+
+  <div class="comment-info">
+    <img class="avatar" src="https://dlnmh9ip6v2uc.cloudfront.net/images/framework/anon.png" />            <a href="http://www.sparkfun.com/users/107565">Chris Ward</a>
+    <span class="wide">|</span>
+    <span title="Sunday, 13-Mar-11 08:28:36 MDT" class="date"><a href="https://www.sparkfun.com/products/10438#comment-4eaad84f757b7fd351007ca8">about 2 years ago</a></span>
+    
+    <span class="rating-star">
+              <span title="Please login to up-vote comments" class=star-dark> </span>
+          </span>
+
+    <span class="rating" id="comment-rating-4eaad84f757b7fd351007ca8">
+      <a class="text-grey" data="fancybox" href="http://www.sparkfun.com/static/comment_help">1</a>
+    </span>
+  </div>
+
+  <div class="actions">
+      </div>
+
+</div>
+
+<div class="comment-text">
+  <p>Do these come with paper, or the cables as shown in the images?</p></div>
+<ul class=comments><li id="comment-50817379ce395f4357000000" class=" comment">
+<div class="clearfix tagline">
+
+  <div class="comment-info">
+    <img class="avatar" src="https://dlnmh9ip6v2uc.cloudfront.net/images/framework/anon.png" />            <a href="http://www.sparkfun.com/users/37945">ddegn</a>
+    <span class="wide">|</span>
+    <span title="Friday, 19-Oct-12 09:36:25 MDT" class="date"><a href="https://www.sparkfun.com/products/10438#comment-50817379ce395f4357000000">about 3 months ago</a></span>
+    
+    <span class="rating-star">
+              <span title="Please login to up-vote comments" class=star-dark> </span>
+          </span>
+
+    <span class="rating" id="comment-rating-50817379ce395f4357000000">
+      <a class="text-grey" data="fancybox" href="http://www.sparkfun.com/static/comment_help">1</a>
+    </span>
+  </div>
+
+  <div class="actions">
+      </div>
+
+</div>
+
+<div class="comment-text">
+  <p>Yes it come with the cables but it does not come with paper. You can buy paper from SparkFun or from an office supply store. As you&rsquo;d expect, the paper is a lot less expensive if you buy a bunch at once from an office supply store.</p></div>
+</li></ul></li><li id="comment-4eaad84f757b7fd351007d15" class=" comment">
+<div class="clearfix tagline">
+
+  <div class="comment-info">
+    <img class="avatar" src="https://dlnmh9ip6v2uc.cloudfront.net/images/framework/anon.png" />            <a href="http://www.sparkfun.com/users/62279">Saul</a>
+    <span class="wide">|</span>
+    <span title="Monday, 14-Mar-11 18:53:59 MDT" class="date"><a href="https://www.sparkfun.com/products/10438#comment-4eaad84f757b7fd351007d15">about 2 years ago</a></span>
+    
+    <span class="rating-star">
+              <span title="Please login to up-vote comments" class=star-dark> </span>
+          </span>
+
+    <span class="rating" id="comment-rating-4eaad84f757b7fd351007d15">
+      <a class="text-grey" data="fancybox" href="http://www.sparkfun.com/static/comment_help">1</a>
+    </span>
+  </div>
+
+  <div class="actions">
+      </div>
+
+</div>
+
+<div class="comment-text">
+  <p>I need one piece for integrate in prototype design please confirm the stock for buyed<br/>
+Regards</p></div>
+<ul class=comments><li id="comment-4eaad84f757b7fd351007d3c" class=" comment">
+<div class="clearfix tagline">
+
+  <div class="comment-info">
+    <img class="avatar" src="https://dlnmh9ip6v2uc.cloudfront.net/images/framework/anon.png" />            <a href="http://www.sparkfun.com/users/8715">rwizard</a>
+    <span class="wide">|</span>
+    <span title="Tuesday, 15-Mar-11 05:30:09 MDT" class="date"><a href="https://www.sparkfun.com/products/10438#comment-4eaad84f757b7fd351007d3c">about 2 years ago</a></span>
+    
+    <span class="rating-star">
+              <span title="Please login to up-vote comments" class=star-dark> </span>
+          </span>
+
+    <span class="rating" id="comment-rating-4eaad84f757b7fd351007d3c">
+      <a class="text-grey" data="fancybox" href="http://www.sparkfun.com/static/comment_help">1</a>
+    </span>
+  </div>
+
+  <div class="actions">
+      </div>
+
+</div>
+
+<div class="comment-text">
+  <p>Saul,<br/>
+Stock levels are shown right underneath &ldquo;Pricing&rdquo;, and appear to be kept up to date in real time.  If it says 10 units are in stock, and you order 5, it will immediately update the stock level to show 5.    I ordered the last unit of an item yesterday, and when I went back to look at the data sheet it already showed out of stock, so I think you can rely on the numbers shown.<br/>
+Unfortunately, the little printers are showing out of stock at the moment.  I happened to be on here Thursday when they were announced and quickly ordered two of them.  Four to five days later they were all sold out.<br/>
+The good news is you can click on &ldquo;Autonotify&rdquo; and they will let you know when they are back in stock.</p></div>
+</li></ul></li><li id="comment-4eaad84f757b7fd351007d81" class=" comment">
+<div class="clearfix tagline">
+
+  <div class="comment-info">
+    <img class="avatar" src="https://dlnmh9ip6v2uc.cloudfront.net/images/framework/anon.png" />            <a href="http://www.sparkfun.com/users/127099">arduino1324</a>
+    <span class="wide">|</span>
+    <span title="Tuesday, 15-Mar-11 17:30:09 MDT" class="date"><a href="https://www.sparkfun.com/products/10438#comment-4eaad84f757b7fd351007d81">about 2 years ago</a></span>
+    
+    <span class="rating-star">
+              <span title="Please login to up-vote comments" class=star-dark> </span>
+          </span>
+
+    <span class="rating" id="comment-rating-4eaad84f757b7fd351007d81">
+      <a class="text-grey" data="fancybox" href="http://www.sparkfun.com/static/comment_help">1</a>
+    </span>
+  </div>
+
+  <div class="actions">
+      </div>
+
+</div>
+
+<div class="comment-text">
+  <p>http://www.walmart.com/search/search-ng.do?search_query=thermal+paper&amp;ic=48_0&amp;Find=Find&amp;search_constraint=0</p></div>
+<ul class=comments><li id="comment-4eaad850757b7fd351007e47" class=" comment">
+<div class="clearfix tagline">
+
+  <div class="comment-info">
+    <img class="avatar" src="https://dlnmh9ip6v2uc.cloudfront.net/images/framework/anon.png" />            <a href="http://www.sparkfun.com/users/8715">rwizard</a>
+    <span class="wide">|</span>
+    <span title="Thursday, 17-Mar-11 12:11:56 MDT" class="date"><a href="https://www.sparkfun.com/products/10438#comment-4eaad850757b7fd351007e47">about 2 years ago</a></span>
+    
+    <span class="rating-star">
+              <span title="Please login to up-vote comments" class=star-dark> </span>
+          </span>
+
+    <span class="rating" id="comment-rating-4eaad850757b7fd351007e47">
+      <a class="text-grey" data="fancybox" href="http://www.sparkfun.com/static/comment_help">1</a>
+    </span>
+  </div>
+
+  <div class="actions">
+      </div>
+
+</div>
+
+<div class="comment-text">
+  <p>Thanks for posting this, but I couldn&rsquo;t get the link to display any results.  A search at their site for thermal paper only yields one result, and it doesn&rsquo;t list dimensions for it.</p></div>
+</li></ul></li><li id="comment-4eaad850757b7fd351007e0b" class=" comment">
+<div class="clearfix tagline">
+
+  <div class="comment-info">
+    <img class="avatar" src="https://dlnmh9ip6v2uc.cloudfront.net/images/framework/anon.png" />            <a href="http://www.sparkfun.com/users/29897">MaxB</a>
+    <span class="wide">|</span>
+    <span title="Wednesday, 16-Mar-11 23:46:57 MDT" class="date"><a href="https://www.sparkfun.com/products/10438#comment-4eaad850757b7fd351007e0b">about 2 years ago</a></span>
+    
+    <span class="rating-star">
+              <span title="Please login to up-vote comments" class=star-dark> </span>
+          </span>
+
+    <span class="rating" id="comment-rating-4eaad850757b7fd351007e0b">
+      <a class="text-grey" data="fancybox" href="http://www.sparkfun.com/static/comment_help">1</a>
+    </span>
+  </div>
+
+  <div class="actions">
+      </div>
+
+</div>
+
+<div class="comment-text">
+  <p>I got mine today :D<br/>
+Should be noted that for 5v operation you need a REALLY BEEFY supply, I have a 2A switch mode PSU that I was using and it was having a hard time running the printer.<br/>
+With my own testing it pulls approx 1.5-2A whilst on 5v<br/>
+With a decent 5v supply you can pretty easily use factory defaults and it prints quite fast.<br/>
+One negative is this thing is so addictive to play with you&rsquo;ll be burried alive under receipt paper xD</p></div>
+<ul class=comments><li id="comment-4eaad850757b7fd351008006" class=" comment">
+<div class="clearfix tagline">
+
+  <div class="comment-info">
+    <img class="avatar" src="https://dlnmh9ip6v2uc.cloudfront.net/images/framework/anon.png" />            <a href="http://www.sparkfun.com/users/7836">gmonk</a>
+    <span class="wide">|</span>
+    <span title="Wednesday, 23-Mar-11 18:11:30 MDT" class="date"><a href="https://www.sparkfun.com/products/10438#comment-4eaad850757b7fd351008006">about 2 years ago</a></span>
+    
+    <span class="rating-star">
+              <span title="Please login to up-vote comments" class=star-dark> </span>
+          </span>
+
+    <span class="rating" id="comment-rating-4eaad850757b7fd351008006">
+      <a class="text-grey" data="fancybox" href="http://www.sparkfun.com/static/comment_help">1</a>
+    </span>
+  </div>
+
+  <div class="actions">
+      </div>
+
+</div>
+
+<div class="comment-text">
+  <p>That&rsquo;s nuts, can anybody else confirm this? At that current you wouldn&rsquo;t be able to use the recommended wall adapter.<br/>
+There is no mention of current draw in any of the documentation as far as I can tell.</p></div>
+</li></ul></li><li id="comment-4eaad850757b7fd351007e44" class=" comment">
+<div class="clearfix tagline">
+
+  <div class="comment-info">
+    <img class="avatar" src="https://dlnmh9ip6v2uc.cloudfront.net/images/framework/anon.png" />            <a href="http://www.sparkfun.com/users/8715">rwizard</a>
+    <span class="wide">|</span>
+    <span title="Thursday, 17-Mar-11 12:03:50 MDT" class="date"><a href="https://www.sparkfun.com/products/10438#comment-4eaad850757b7fd351007e44">about 2 years ago</a></span>
+     *
+    <span class="rating-star">
+              <span title="Please login to up-vote comments" class=star-dark> </span>
+          </span>
+
+    <span class="rating" id="comment-rating-4eaad850757b7fd351007e44">
+      <a class="text-grey" data="fancybox" href="http://www.sparkfun.com/static/comment_help">1</a>
+    </span>
+  </div>
+
+  <div class="actions">
+      </div>
+
+</div>
+
+<div class="comment-text">
+  <p>QUEST FOR PAPER:<br/>
+Office Depot Item # 109-317 seems to fit width wise (57mm), but the roll is too big.  I had to strip about half of it off to get it in the printer.  So far, this has been the smallest diameter roll I have found.  Caveat &ndash; I have not tried printing on it yet, but as it is thermal paper, I assume it will work.<br/>
+UPDATE:  The printer will print on this paper, however, it is slightly too wide, and causes feed problems.  I would not recommend its use and suggest waiting for the Sparkfun paper.  I hope they ordered a ton of it.<br/>
+One clarification to the manual while I am here.  To invoke the self-test you must hold the feed button down and then apply power.  The self-test begins as soon as you release the button.<br/>
+ The manual is misleading when it says &ldquo;Powe on, press the [feed ]key, for a while , relax the key, it will print out one testing sample .&rdquo;[sic]</p></div>
+</li><li id="comment-4eaad850757b7fd351007e4d" class=" comment">
+<div class="clearfix tagline">
+
+  <div class="comment-info">
+    <img class="avatar" src="https://static.sparkfun.com/avatar/cc799970820c51f39b1a41ae63c21896?d=retro&s=30&r=pg" />    <span class=comment-internal title="SFE Employee"> </span>        <a href="http://www.sparkfun.com/users/93309">RobertC.</a>
+    <span class="wide">|</span>
+    <span title="Thursday, 17-Mar-11 12:31:43 MDT" class="date"><a href="https://www.sparkfun.com/products/10438#comment-4eaad850757b7fd351007e4d">about 2 years ago</a></span>
+    
+    <span class="rating-star">
+              <span title="Please login to up-vote comments" class=star-dark> </span>
+          </span>
+
+    <span class="rating" id="comment-rating-4eaad850757b7fd351007e4d">
+      <a class="text-grey" data="fancybox" href="http://www.sparkfun.com/static/comment_help">1</a>
+    </span>
+  </div>
+
+  <div class="actions">
+      </div>
+
+</div>
+
+<div class="comment-text">
+  <p>Wow, a lot of comments on this page!  Good news, we have a source for paper and should have it in soon.  Give us a week or so and we should have some listed.</p></div>
+<ul class=comments><li id="comment-4eaad850757b7fd351007efe" class=" comment">
+<div class="clearfix tagline">
+
+  <div class="comment-info">
+    <img class="avatar" src="https://dlnmh9ip6v2uc.cloudfront.net/images/framework/anon.png" />            <a href="http://www.sparkfun.com/users/8715">rwizard</a>
+    <span class="wide">|</span>
+    <span title="Sunday, 20-Mar-11 05:39:04 MDT" class="date"><a href="https://www.sparkfun.com/products/10438#comment-4eaad850757b7fd351007efe">about 2 years ago</a></span>
+    
+    <span class="rating-star">
+              <span title="Please login to up-vote comments" class=star-dark> </span>
+          </span>
+
+    <span class="rating" id="comment-rating-4eaad850757b7fd351007efe">
+      <a class="text-grey" data="fancybox" href="http://www.sparkfun.com/static/comment_help">1</a>
+    </span>
+  </div>
+
+  <div class="actions">
+      </div>
+
+</div>
+
+<div class="comment-text">
+  <p>How about offering a power and data cable?  Thanks.</p></div>
+</li></ul></li><li id="comment-4eaad850757b7fd351007ff7" class=" comment">
+<div class="clearfix tagline">
+
+  <div class="comment-info">
+    <img class="avatar" src="https://dlnmh9ip6v2uc.cloudfront.net/images/framework/anon.png" />            <a href="http://www.sparkfun.com/users/211133">Member #211133</a>
+    <span class="wide">|</span>
+    <span title="Wednesday, 23-Mar-11 15:46:21 MDT" class="date"><a href="https://www.sparkfun.com/products/10438#comment-4eaad850757b7fd351007ff7">about 2 years ago</a></span>
+    
+    <span class="rating-star">
+              <span title="Please login to up-vote comments" class=star-dark> </span>
+          </span>
+
+    <span class="rating" id="comment-rating-4eaad850757b7fd351007ff7">
+      <a class="text-grey" data="fancybox" href="http://www.sparkfun.com/static/comment_help">1</a>
+    </span>
+  </div>
+
+  <div class="actions">
+      </div>
+
+</div>
+
+<div class="comment-text">
+  <p>Is this printer RS232 level or TTL level serial?</p></div>
+<ul class=comments><li id="comment-508173ff757b7fb75b000002" class=" comment">
+<div class="clearfix tagline">
+
+  <div class="comment-info">
+    <img class="avatar" src="https://dlnmh9ip6v2uc.cloudfront.net/images/framework/anon.png" />            <a href="http://www.sparkfun.com/users/37945">ddegn</a>
+    <span class="wide">|</span>
+    <span title="Friday, 19-Oct-12 09:38:39 MDT" class="date"><a href="https://www.sparkfun.com/products/10438#comment-508173ff757b7fb75b000002">about 3 months ago</a></span>
+    
+    <span class="rating-star">
+              <span title="Please login to up-vote comments" class=star-dark> </span>
+          </span>
+
+    <span class="rating" id="comment-rating-508173ff757b7fb75b000002">
+      <a class="text-grey" data="fancybox" href="http://www.sparkfun.com/static/comment_help">1</a>
+    </span>
+  </div>
+
+  <div class="actions">
+      </div>
+
+</div>
+
+<div class="comment-text">
+  <p>It&rsquo;s 3.3V level serial.</p></div>
+</li></ul></li><li id="comment-4eaad850757b7fd351007ff8" class=" comment">
+<div class="clearfix tagline">
+
+  <div class="comment-info">
+    <img class="avatar" src="https://dlnmh9ip6v2uc.cloudfront.net/images/framework/anon.png" />            <a href="http://www.sparkfun.com/users/211133">Member #211133</a>
+    <span class="wide">|</span>
+    <span title="Wednesday, 23-Mar-11 15:47:05 MDT" class="date"><a href="https://www.sparkfun.com/products/10438#comment-4eaad850757b7fd351007ff8">about 2 years ago</a></span>
+    
+    <span class="rating-star">
+              <span title="Please login to up-vote comments" class=star-dark> </span>
+          </span>
+
+    <span class="rating" id="comment-rating-4eaad850757b7fd351007ff8">
+      <a class="text-grey" data="fancybox" href="http://www.sparkfun.com/static/comment_help">1</a>
+    </span>
+  </div>
+
+  <div class="actions">
+      </div>
+
+</div>
+
+<div class="comment-text">
+  <p>Never mind, the sticker on the bottom photo shows it as TTL :)</p></div>
+<ul class=comments><li id="comment-50817431757b7f745b000001" class=" comment">
+<div class="clearfix tagline">
+
+  <div class="comment-info">
+    <img class="avatar" src="https://dlnmh9ip6v2uc.cloudfront.net/images/framework/anon.png" />            <a href="http://www.sparkfun.com/users/37945">ddegn</a>
+    <span class="wide">|</span>
+    <span title="Friday, 19-Oct-12 09:39:29 MDT" class="date"><a href="https://www.sparkfun.com/products/10438#comment-50817431757b7f745b000001">about 3 months ago</a></span>
+    
+    <span class="rating-star">
+              <span title="Please login to up-vote comments" class=star-dark> </span>
+          </span>
+
+    <span class="rating" id="comment-rating-50817431757b7f745b000001">
+      <a class="text-grey" data="fancybox" href="http://www.sparkfun.com/static/comment_help">1</a>
+    </span>
+  </div>
+
+  <div class="actions">
+      </div>
+
+</div>
+
+<div class="comment-text">
+  <p>TTL implies 5V so technically it&rsquo;s incorrect. The printer uses 3.3V logic.</p></div>
+</li></ul></li><li id="comment-4eaad850757b7fd3510083f5" class=" comment">
+<div class="clearfix tagline">
+
+  <div class="comment-info">
+    <img class="avatar" src="https://dlnmh9ip6v2uc.cloudfront.net/images/framework/anon.png" />            <a href="http://www.sparkfun.com/users/184400">mkotlhar</a>
+    <span class="wide">|</span>
+    <span title="Sunday, 03-Apr-11 10:00:42 MDT" class="date"><a href="https://www.sparkfun.com/products/10438#comment-4eaad850757b7fd3510083f5">about 2 years ago</a></span>
+    
+    <span class="rating-star">
+              <span title="Please login to up-vote comments" class=star-dark> </span>
+          </span>
+
+    <span class="rating" id="comment-rating-4eaad850757b7fd3510083f5">
+      <a class="text-grey" data="fancybox" href="http://www.sparkfun.com/static/comment_help">1</a>
+    </span>
+  </div>
+
+  <div class="actions">
+      </div>
+
+</div>
+
+<div class="comment-text">
+  <p>Hey, i&rsquo;m new to all of this and just started building my first arduino project. I&rsquo;m having a very hard time understanding how to print a bitmap image to a thermal printer. I looked at your example code and got more confused. It just prints a grid of strange symbols. How do you actually call up the image file? I know this is prob not the right place for this but any help would really be appreciated.<br/>
+Thanks a lot!</p></div>
+</li><li id="comment-4eaad851757b7fd35100893e" class=" comment">
+<div class="clearfix tagline">
+
+  <div class="comment-info">
+    <img class="avatar" src="https://dlnmh9ip6v2uc.cloudfront.net/images/framework/anon.png" />            <a href="http://www.sparkfun.com/users/219852">morls</a>
+    <span class="wide">|</span>
+    <span title="Tuesday, 19-Apr-11 20:29:48 MDT" class="date"><a href="https://www.sparkfun.com/products/10438#comment-4eaad851757b7fd35100893e">about 2 years ago</a></span>
+    
+    <span class="rating-star">
+              <span title="Please login to up-vote comments" class=star-dark> </span>
+          </span>
+
+    <span class="rating" id="comment-rating-4eaad851757b7fd35100893e">
+      <a class="text-grey" data="fancybox" href="http://www.sparkfun.com/static/comment_help">1</a>
+    </span>
+  </div>
+
+  <div class="actions">
+      </div>
+
+</div>
+
+<div class="comment-text">
+  <p>Does it come with a software? Otherwise how am i going to print alphanumeric lines?</p></div>
+<ul class=comments><li id="comment-508174c4ce395fca56000002" class=" comment">
+<div class="clearfix tagline">
+
+  <div class="comment-info">
+    <img class="avatar" src="https://dlnmh9ip6v2uc.cloudfront.net/images/framework/anon.png" />            <a href="http://www.sparkfun.com/users/37945">ddegn</a>
+    <span class="wide">|</span>
+    <span title="Friday, 19-Oct-12 09:41:56 MDT" class="date"><a href="https://www.sparkfun.com/products/10438#comment-508174c4ce395fca56000002">about 3 months ago</a></span>
+    
+    <span class="rating-star">
+              <span title="Please login to up-vote comments" class=star-dark> </span>
+          </span>
+
+    <span class="rating" id="comment-rating-508174c4ce395fca56000002">
+      <a class="text-grey" data="fancybox" href="http://www.sparkfun.com/static/comment_help">1</a>
+    </span>
+  </div>
+
+  <div class="actions">
+      </div>
+
+</div>
+
+<div class="comment-text">
+  <p>The printers firmware accepts ASCII characters. Just send the few command bytes needed and then send data as if it were a serial terminal.</p></div>
+</li></ul></li><li id="comment-4eaad852757b7fd351008fa8" class=" comment">
+<div class="clearfix tagline">
+
+  <div class="comment-info">
+    <img class="avatar" src="https://dlnmh9ip6v2uc.cloudfront.net/images/framework/anon.png" />            <a href="http://www.sparkfun.com/users/93666">tapius</a>
+    <span class="wide">|</span>
+    <span title="Tuesday, 10-May-11 09:52:34 MDT" class="date"><a href="https://www.sparkfun.com/products/10438#comment-4eaad852757b7fd351008fa8">about 2 years ago</a></span>
+    
+    <span class="rating-star">
+              <span title="Please login to up-vote comments" class=star-dark> </span>
+          </span>
+
+    <span class="rating" id="comment-rating-4eaad852757b7fd351008fa8">
+      <a class="text-grey" data="fancybox" href="http://www.sparkfun.com/static/comment_help">1</a>
+    </span>
+  </div>
+
+  <div class="actions">
+      </div>
+
+</div>
+
+<div class="comment-text">
+  <p>Has anyone used this with a Netduino Plus?<br/>
+I&rsquo;d like to make a program which reads in twitter posts, or a web http POST and print out the string to this printer.</p></div>
+</li><li id="comment-4eaad852757b7fd351009088" class=" comment">
+<div class="clearfix tagline">
+
+  <div class="comment-info">
+    <img class="avatar" src="https://dlnmh9ip6v2uc.cloudfront.net/images/framework/anon.png" />            <a href="http://www.sparkfun.com/users/122104">Jeremy1998</a>
+    <span class="wide">|</span>
+    <span title="Thursday, 12-May-11 21:49:37 MDT" class="date"><a href="https://www.sparkfun.com/products/10438#comment-4eaad852757b7fd351009088">about 2 years ago</a></span>
+    
+    <span class="rating-star">
+              <span title="Please login to up-vote comments" class=star-dark> </span>
+          </span>
+
+    <span class="rating" id="comment-rating-4eaad852757b7fd351009088">
+      <a class="text-grey" data="fancybox" href="http://www.sparkfun.com/static/comment_help">1</a>
+    </span>
+  </div>
+
+  <div class="actions">
+      </div>
+
+</div>
+
+<div class="comment-text">
+  <p>Can you maybe make a very simple breakout, like just the 2 plugs to 5 0.1 inch headers?</p></div>
+<ul class=comments><li id="comment-4eaad852757b7fd351009094" class=" comment">
+<div class="clearfix tagline">
+
+  <div class="comment-info">
+    <img class="avatar" src="https://static.sparkfun.com/avatar/cc799970820c51f39b1a41ae63c21896?d=retro&s=30&r=pg" />    <span class=comment-internal title="SFE Employee"> </span>        <a href="http://www.sparkfun.com/users/93309">RobertC.</a>
+    <span class="wide">|</span>
+    <span title="Friday, 13-May-11 08:28:17 MDT" class="date"><a href="https://www.sparkfun.com/products/10438#comment-4eaad852757b7fd351009094">about 2 years ago</a></span>
+    
+    <span class="rating-star">
+              <span title="Please login to up-vote comments" class=star-dark> </span>
+          </span>
+
+    <span class="rating" id="comment-rating-4eaad852757b7fd351009094">
+      <a class="text-grey" data="fancybox" href="http://www.sparkfun.com/static/comment_help">1</a>
+    </span>
+  </div>
+
+  <div class="actions">
+      </div>
+
+</div>
+
+<div class="comment-text">
+  <p>We won&rsquo;t be making a breakout.  It comes with pre-terminated wires with the connectors.</p></div>
+</li></ul></li><li id="comment-4eaad852757b7fd35100913d" class=" comment">
+<div class="clearfix tagline">
+
+  <div class="comment-info">
+    <img class="avatar" src="https://dlnmh9ip6v2uc.cloudfront.net/images/framework/anon.png" />            <a href="http://www.sparkfun.com/users/122104">Jeremy1998</a>
+    <span class="wide">|</span>
+    <span title="Sunday, 15-May-11 22:45:56 MDT" class="date"><a href="https://www.sparkfun.com/products/10438#comment-4eaad852757b7fd35100913d">about 2 years ago</a></span>
+    
+    <span class="rating-star">
+              <span title="Please login to up-vote comments" class=star-dark> </span>
+          </span>
+
+    <span class="rating" id="comment-rating-4eaad852757b7fd35100913d">
+      <a class="text-grey" data="fancybox" href="http://www.sparkfun.com/static/comment_help">1</a>
+    </span>
+  </div>
+
+  <div class="actions">
+      </div>
+
+</div>
+
+<div class="comment-text">
+  <p>How many characters wide is the printout? As in if I wanted to display the text on an LCD, how wide does the LCD need to be?</p></div>
+</li><li id="comment-4eaad854757b7fd35100990e" class=" comment">
+<div class="clearfix tagline">
+
+  <div class="comment-info">
+    <img class="avatar" src="https://static.sparkfun.com/avatar/f89e8ec856e7492c8b41b10cc4810db9?d=retro&s=30&r=pg" />            <a href="http://www.sparkfun.com/users/38797">dustinandrews</a>
+    <span class="wide">|</span>
+    <span title="Tuesday, 07-Jun-11 13:36:19 MDT" class="date"><a href="https://www.sparkfun.com/products/10438#comment-4eaad854757b7fd35100990e">about 2 years ago</a></span>
+    
+    <span class="rating-star">
+              <span title="Please login to up-vote comments" class=star-dark> </span>
+          </span>
+
+    <span class="rating" id="comment-rating-4eaad854757b7fd35100990e">
+      <a class="text-grey" data="fancybox" href="http://www.sparkfun.com/static/comment_help">1</a>
+    </span>
+  </div>
+
+  <div class="actions">
+      </div>
+
+</div>
+
+<div class="comment-text">
+  <p>Please use caution with thermal paper. Is a source of BPA. The same (proven to mimic estrogen) stuff that used to be in plastic water bottles. See: http://www.sciencenews.org/view/generic/id/61764/title/Receipts_a_large<em>%E2%80%94_and_largely_ignored</em>%E2%80%94_source_of_BPA</p></div>
+<ul class=comments><li id="comment-4eaad855757b7fd351009f29" class=" comment">
+<div class="clearfix tagline">
+
+  <div class="comment-info">
+    <img class="avatar" src="https://dlnmh9ip6v2uc.cloudfront.net/images/framework/anon.png" />            <a href="http://www.sparkfun.com/users/188605">Ortzinator</a>
+    <span class="wide">|</span>
+    <span title="Monday, 27-Jun-11 13:10:06 MDT" class="date"><a href="https://www.sparkfun.com/products/10438#comment-4eaad855757b7fd351009f29">about 2 years ago</a></span>
+    
+    <span class="rating-star">
+              <span title="Please login to up-vote comments" class=star-dark> </span>
+          </span>
+
+    <span class="rating" id="comment-rating-4eaad855757b7fd351009f29">
+      <a class="text-grey" data="fancybox" href="http://www.sparkfun.com/static/comment_help">2</a>
+    </span>
+  </div>
+
+  <div class="actions">
+      </div>
+
+</div>
+
+<div class="comment-text">
+  <p>How do you suggest I &ldquo;use caution&rdquo; other than not use it?</p></div>
+<ul class=comments><li id="comment-4eaad857757b7fd35100b1bd" class=" comment">
+<div class="clearfix tagline">
+
+  <div class="comment-info">
+    <img class="avatar" src="https://static.sparkfun.com/avatar/57761bc7760ece1b9f730c7fab5ddcb1?d=retro&s=30&r=pg" />            <a href="http://www.sparkfun.com/users/248395">dthorpe</a>
+    <span class="wide">|</span>
+    <span title="Wednesday, 31-Aug-11 14:27:38 MDT" class="date"><a href="https://www.sparkfun.com/products/10438#comment-4eaad857757b7fd35100b1bd">about a year ago</a></span>
+    
+    <span class="rating-star">
+              <span title="Please login to up-vote comments" class=star-dark> </span>
+          </span>
+
+    <span class="rating" id="comment-rating-4eaad857757b7fd35100b1bd">
+      <a class="text-grey" data="fancybox" href="http://www.sparkfun.com/static/comment_help">4</a>
+    </span>
+  </div>
+
+  <div class="actions">
+      </div>
+
+</div>
+
+<div class="comment-text">
+  <p>Do-not-eat.  :P</p></div>
+</li></ul></li><li id="comment-5098c7bcce395f4e12000001" class=" comment">
+<div class="clearfix tagline">
+
+  <div class="comment-info">
+    <img class="avatar" src="https://dlnmh9ip6v2uc.cloudfront.net/images/framework/anon.png" />            <a href="http://www.sparkfun.com/users/197750">Member #197750</a>
+    <span class="wide">|</span>
+    <span title="Tuesday, 06-Nov-12 01:18:04 MST" class="date"><a href="https://www.sparkfun.com/products/10438#comment-5098c7bcce395f4e12000001">about 2 months ago</a></span>
+    
+    <span class="rating-star">
+              <span title="Please login to up-vote comments" class=star-dark> </span>
+          </span>
+
+    <span class="rating" id="comment-rating-5098c7bcce395f4e12000001">
+      <a class="text-grey" data="fancybox" href="http://www.sparkfun.com/static/comment_help">2</a>
+    </span>
+  </div>
+
+  <div class="actions">
+      </div>
+
+</div>
+
+<div class="comment-text">
+  <p>Also, please remember not to insert body parts into 120V outlets, and that playing with matches whilst doused in gasoline can prove hazardous to your health.</p></div>
+</li></ul></li><li id="comment-4eaad855757b7fd35100a222" class=" comment">
+<div class="clearfix tagline">
+
+  <div class="comment-info">
+    <img class="avatar" src="https://dlnmh9ip6v2uc.cloudfront.net/images/framework/anon.png" />            <a href="http://www.sparkfun.com/users/126048">JohnBoxall</a>
+    <span class="wide">|</span>
+    <span title="Thursday, 07-Jul-11 18:03:37 MDT" class="date"><a href="https://www.sparkfun.com/products/10438#comment-4eaad855757b7fd35100a222">about a year ago</a></span>
+    
+    <span class="rating-star">
+              <span title="Please login to up-vote comments" class=star-dark> </span>
+          </span>
+
+    <span class="rating" id="comment-rating-4eaad855757b7fd35100a222">
+      <a class="text-grey" data="fancybox" href="http://www.sparkfun.com/static/comment_help">1</a>
+    </span>
+  </div>
+
+  <div class="actions">
+      </div>
+
+</div>
+
+<div class="comment-text">
+  <p>If anyone is interested I have deconstructed the example code and written a beginners' tutorial about this printer &ndash; http://wp.me/pQmjR-1LD</p></div>
+</li><li id="comment-4eaad855757b7fd35100a237" class=" comment">
+<div class="clearfix tagline">
+
+  <div class="comment-info">
+    <img class="avatar" src="https://dlnmh9ip6v2uc.cloudfront.net/images/framework/anon.png" />            <a href="http://www.sparkfun.com/users/32087">Iandp</a>
+    <span class="wide">|</span>
+    <span title="Friday, 08-Jul-11 01:33:55 MDT" class="date"><a href="https://www.sparkfun.com/products/10438#comment-4eaad855757b7fd35100a237">about a year ago</a></span>
+    
+    <span class="rating-star">
+              <span title="Please login to up-vote comments" class=star-dark> </span>
+          </span>
+
+    <span class="rating" id="comment-rating-4eaad855757b7fd35100a237">
+      <a class="text-grey" data="fancybox" href="http://www.sparkfun.com/static/comment_help">1</a>
+    </span>
+  </div>
+
+  <div class="actions">
+      </div>
+
+</div>
+
+<div class="comment-text">
+  <p>Has anyone killed one yet? After about two weeks of printing a Twitter feed the printing is light and the paper isn&rsquo;t feeding properly. It also seems to lose some lines. I added a bunch of delays, but it still acts funny. I certainly got the goodie out of it, not complaining, just wondered if this is an expected failure mode, or if I handled it poorly.</p></div>
+</li><li id="comment-4eaad856757b7fd35100a791" class=" comment">
+<div class="clearfix tagline">
+
+  <div class="comment-info">
+    <img class="avatar" src="https://dlnmh9ip6v2uc.cloudfront.net/images/framework/anon.png" />            <a href="http://www.sparkfun.com/users/17419">chrisspurgeon</a>
+    <span class="wide">|</span>
+    <span title="Saturday, 23-Jul-11 17:20:35 MDT" class="date"><a href="https://www.sparkfun.com/products/10438#comment-4eaad856757b7fd35100a791">about a year ago</a></span>
+    
+    <span class="rating-star">
+              <span title="Please login to up-vote comments" class=star-dark> </span>
+          </span>
+
+    <span class="rating" id="comment-rating-4eaad856757b7fd35100a791">
+      <a class="text-grey" data="fancybox" href="http://www.sparkfun.com/static/comment_help">1</a>
+    </span>
+  </div>
+
+  <div class="actions">
+      </div>
+
+</div>
+
+<div class="comment-text">
+  <p>Just wondering, in the Chinese manual it shows two places to connect power&hellip;pin 2 for variable power, and pin 3 for I believe 5V only (the manual&rsquo;s English translation says this&hellip;<br/>
++5V,输入电源 input voltage (一般情况下只用+5V,VH 不输入 gerneral<br/>
+condition,only use +5Vm VH not input    )<br/>
+&hellip;which is confusing only to me, being an English only reader and speaker. So, if you have a 5V power supply is one pin better than the other? (the cable you&rsquo;ve provided uses pin 3).</p></div>
+</li><li id="comment-4eaad856757b7fd35100a795" class=" comment">
+<div class="clearfix tagline">
+
+  <div class="comment-info">
+    <img class="avatar" src="https://dlnmh9ip6v2uc.cloudfront.net/images/framework/anon.png" />            <a href="http://www.sparkfun.com/users/17419">chrisspurgeon</a>
+    <span class="wide">|</span>
+    <span title="Saturday, 23-Jul-11 18:22:06 MDT" class="date"><a href="https://www.sparkfun.com/products/10438#comment-4eaad856757b7fd35100a795">about a year ago</a></span>
+    
+    <span class="rating-star">
+              <span title="Please login to up-vote comments" class=star-dark> </span>
+          </span>
+
+    <span class="rating" id="comment-rating-4eaad856757b7fd35100a795">
+      <a class="text-grey" data="fancybox" href="http://www.sparkfun.com/static/comment_help">1</a>
+    </span>
+  </div>
+
+  <div class="actions">
+      </div>
+
+</div>
+
+<div class="comment-text">
+  <p>A second question&hellip;<br/>
+I picked up a 5V 2AMP power adapter and that extra amperage made all of the difference, it&rsquo;s now printing like a champ!<br/>
+But that leads me to a power supply question.<br/>
+I&rsquo;m going to be driving the printer with an Arduino UNO with an Arduino ethernet shield on it. I would love it if I could drive everything with just this one power adapter. My question is, if I use this power adapter on the Arduino and just connect the printer to the Arduino VIN pin, will I be OK? Can the Arduino handle up to 2 AMPS going through it? Will the big current changes that I imagine the printer causes when it goes from printing to not printing and vice versa be OK? Or should I play it safe and use two separate power supplies, one for the printer, and another for the Arduino?</p></div>
+</li><li id="comment-4eaad856757b7fd35100ab54" class=" comment">
+<div class="clearfix tagline">
+
+  <div class="comment-info">
+    <img class="avatar" src="https://static.sparkfun.com/avatar/19e93a6c2bd64207475360dd423f7a12?d=retro&s=30&r=pg" />            <a href="http://www.sparkfun.com/users/138808">dqm</a>
+    <span class="wide">|</span>
+    <span title="Saturday, 06-Aug-11 08:50:11 MDT" class="date"><a href="https://www.sparkfun.com/products/10438#comment-4eaad856757b7fd35100ab54">about a year ago</a></span>
+     *
+    <span class="rating-star">
+              <span title="Please login to up-vote comments" class=star-dark> </span>
+          </span>
+
+    <span class="rating" id="comment-rating-4eaad856757b7fd35100ab54">
+      <a class="text-grey" data="fancybox" href="http://www.sparkfun.com/static/comment_help">1</a>
+    </span>
+  </div>
+
+  <div class="actions">
+      </div>
+
+</div>
+
+<div class="comment-text">
+  <p>So I&rsquo;m having trouble getting this going.<br/>
+My configuration is<br/>
+Wires-<br/>
+Printer: Arduino<br/>
+Green: Digital 2<br/>
+Yellow: Digital 3<br/>
+Black: Gnd (the gnd next to VIN)<br/>
+Red: VIN<br/>
+Black: Gnd (the other gnd next to VIN)<br/>
+Power-<br/>
+I&rsquo;ve plugged a 9V 1000mA supply and a 4-5.5V 2.6-2.3A supply into the arduino and got the same results.<br/>
+Arduino Code-<br/>
+I ran the sample code but get nothing (not even in the serial monitor)<br/>
+Results-<br/>
+The LED on the printer lights up, flashes twice strongly then settles to an intermittent weak flash. If I press line feed the paper advances &frac12;", I don&rsquo;t get demo mode at all.<br/>
+The Arduino is a Duemilanove which works (blink test runs fine).<br/>
+Anyone got any ideas? I suspect my problems lie on the Arduino side (since I see nothing in the serial monitor) and the printer side (is my power supply insuffic.? or something else?<br/>
+Cheers</p></div>
+<ul class=comments><li id="comment-4eaad859757b7fd35100bae7" class=" comment">
+<div class="clearfix tagline">
+
+  <div class="comment-info">
+    <img class="avatar" src="https://dlnmh9ip6v2uc.cloudfront.net/images/framework/anon.png" />            <a href="http://www.sparkfun.com/users/216123">Bone Cracker</a>
+    <span class="wide">|</span>
+    <span title="Thursday, 06-Oct-11 17:30:23 MDT" class="date"><a href="https://www.sparkfun.com/products/10438#comment-4eaad859757b7fd35100bae7">about a year ago</a></span>
+    
+    <span class="rating-star">
+              <span title="Please login to up-vote comments" class=star-dark> </span>
+          </span>
+
+    <span class="rating" id="comment-rating-4eaad859757b7fd35100bae7">
+      <a class="text-grey" data="fancybox" href="http://www.sparkfun.com/static/comment_help">1</a>
+    </span>
+  </div>
+
+  <div class="actions">
+      </div>
+
+</div>
+
+<div class="comment-text">
+  <p>I had some trouble too, I mixed up the RX and TX, so I defined it correctly in the software. Mine prints from the arduino and still has the weak flashes from the led. I assume you have the new soft serial as well. Also, I had the baud settings wrong. Check the printer defauld baud rate by holding the button on the printer down while plugging the power in. Make sure this is the same value in the software, and on the serial monitor. Hope this helps,</p></div>
+</li></ul></li><li id="comment-4eaad857757b7fd35100abe0" class=" comment">
+<div class="clearfix tagline">
+
+  <div class="comment-info">
+    <img class="avatar" src="https://static.sparkfun.com/avatar/73769e3c9680da76423dd4d60233c610?d=retro&s=30&r=pg" />            <a href="http://www.sparkfun.com/users/10452">devin122</a>
+    <span class="wide">|</span>
+    <span title="Monday, 08-Aug-11 13:49:26 MDT" class="date"><a href="https://www.sparkfun.com/products/10438#comment-4eaad857757b7fd35100abe0">about a year ago</a></span>
+    
+    <span class="rating-star">
+              <span title="Please login to up-vote comments" class=star-dark> </span>
+          </span>
+
+    <span class="rating" id="comment-rating-4eaad857757b7fd35100abe0">
+      <a class="text-grey" data="fancybox" href="http://www.sparkfun.com/static/comment_help">1</a>
+    </span>
+  </div>
+
+  <div class="actions">
+      </div>
+
+</div>
+
+<div class="comment-text">
+  <p>Gotta love the engrish in the manual.<br/>
+&ldquo;Printer control panel built-in GB18030 Chinese character, thoroughly remove the uncommon words of anguish&rdquo;</p></div>
+<ul class=comments><li id="comment-50817599ce395f1b58000000" class=" comment">
+<div class="clearfix tagline">
+
+  <div class="comment-info">
+    <img class="avatar" src="https://dlnmh9ip6v2uc.cloudfront.net/images/framework/anon.png" />            <a href="http://www.sparkfun.com/users/37945">ddegn</a>
+    <span class="wide">|</span>
+    <span title="Friday, 19-Oct-12 09:45:29 MDT" class="date"><a href="https://www.sparkfun.com/products/10438#comment-50817599ce395f1b58000000">about 3 months ago</a></span>
+    
+    <span class="rating-star">
+              <span title="Please login to up-vote comments" class=star-dark> </span>
+          </span>
+
+    <span class="rating" id="comment-rating-50817599ce395f1b58000000">
+      <a class="text-grey" data="fancybox" href="http://www.sparkfun.com/static/comment_help">1</a>
+    </span>
+  </div>
+
+  <div class="actions">
+      </div>
+
+</div>
+
+<div class="comment-text">
+  <p>Ever since getting mine, I&rsquo;ve only used common words of anguish, so I guess they&rsquo;re right.</p></div>
+</li></ul></li><li id="comment-4eaad857757b7fd35100ae85" class=" comment">
+<div class="clearfix tagline">
+
+  <div class="comment-info">
+    <img class="avatar" src="https://dlnmh9ip6v2uc.cloudfront.net/images/framework/anon.png" />            <a href="http://www.sparkfun.com/users/245569">1AM</a>
+    <span class="wide">|</span>
+    <span title="Thursday, 18-Aug-11 10:01:41 MDT" class="date"><a href="https://www.sparkfun.com/products/10438#comment-4eaad857757b7fd35100ae85">about a year ago</a></span>
+    
+    <span class="rating-star">
+              <span title="Please login to up-vote comments" class=star-dark> </span>
+          </span>
+
+    <span class="rating" id="comment-rating-4eaad857757b7fd35100ae85">
+      <a class="text-grey" data="fancybox" href="http://www.sparkfun.com/static/comment_help">1</a>
+    </span>
+  </div>
+
+  <div class="actions">
+      </div>
+
+</div>
+
+<div class="comment-text">
+  <p>Has anyone managed to define their own character? According to the manual defining a black square instead of an exclamation mark (ASCII # = 33) it should be as easy as:</p>
+
+<pre><code>Thermal.print(27,BYTE);  
+Thermal.print(38,BYTE);  
+Thermal.print(3,BYTE);  //s  
+Thermal.print(33,BYTE); //n  
+Thermal.print(3,BYTE); //w  
+Thermal.print(34,BYTE); //m  
+for( int i = 0 ; i &lt; 3*3 ; i++ ){  
+    Thermal.print(255,BYTE);  
+}  
+//Enable user defined characters  
+Thermal.print(27,BYTE);  
+Thermal.print(37,BYTE);  
+Thermal.print(1,BYTE);  
+</code></pre>
+
+<p>But it doesn&rsquo;t work at all. I always get the exclamation mark and i&rsquo;m kind of stuck. I don&rsquo;t live in any of the regions covered by predefined character sets and i need to make some funky custom characters.</p></div>
+</li><li id="comment-4eaad858757b7fd35100b3fe" class=" comment">
+<div class="clearfix tagline">
+
+  <div class="comment-info">
+    <img class="avatar" src="https://dlnmh9ip6v2uc.cloudfront.net/images/framework/anon.png" />            <a href="http://www.sparkfun.com/users/92748">Eran</a>
+    <span class="wide">|</span>
+    <span title="Monday, 12-Sep-11 06:35:49 MDT" class="date"><a href="https://www.sparkfun.com/products/10438#comment-4eaad858757b7fd35100b3fe">about a year ago</a></span>
+    
+    <span class="rating-star">
+              <span title="Please login to up-vote comments" class=star-dark> </span>
+          </span>
+
+    <span class="rating" id="comment-rating-4eaad858757b7fd35100b3fe">
+      <a class="text-grey" data="fancybox" href="http://www.sparkfun.com/static/comment_help">1</a>
+    </span>
+  </div>
+
+  <div class="actions">
+      </div>
+
+</div>
+
+<div class="comment-text">
+  <p>Can it print other languages? (say &ndash; hebrew?..)</p></div>
+</li><li id="comment-4eaad858757b7fd35100b3ff" class=" comment">
+<div class="clearfix tagline">
+
+  <div class="comment-info">
+    <img class="avatar" src="https://dlnmh9ip6v2uc.cloudfront.net/images/framework/anon.png" />            <a href="http://www.sparkfun.com/users/92748">Eran</a>
+    <span class="wide">|</span>
+    <span title="Monday, 12-Sep-11 06:38:02 MDT" class="date"><a href="https://www.sparkfun.com/products/10438#comment-4eaad858757b7fd35100b3ff">about a year ago</a></span>
+    
+    <span class="rating-star">
+              <span title="Please login to up-vote comments" class=star-dark> </span>
+          </span>
+
+    <span class="rating" id="comment-rating-4eaad858757b7fd35100b3ff">
+      <a class="text-grey" data="fancybox" href="http://www.sparkfun.com/static/comment_help">1</a>
+    </span>
+  </div>
+
+  <div class="actions">
+      </div>
+
+</div>
+
+<div class="comment-text">
+  <p>Cant it print hebrew fonts?</p></div>
+<ul class=comments><li id="comment-4eaad858757b7fd35100b594" class=" comment">
+<div class="clearfix tagline">
+
+  <div class="comment-info">
+    <img class="avatar" src="https://dlnmh9ip6v2uc.cloudfront.net/images/framework/anon.png" />            <a href="http://www.sparkfun.com/users/245569">1AM</a>
+    <span class="wide">|</span>
+    <span title="Sunday, 18-Sep-11 10:48:46 MDT" class="date"><a href="https://www.sparkfun.com/products/10438#comment-4eaad858757b7fd35100b594">about a year ago</a></span>
+    
+    <span class="rating-star">
+              <span title="Please login to up-vote comments" class=star-dark> </span>
+          </span>
+
+    <span class="rating" id="comment-rating-4eaad858757b7fd35100b594">
+      <a class="text-grey" data="fancybox" href="http://www.sparkfun.com/static/comment_help">1</a>
+    </span>
+  </div>
+
+  <div class="actions">
+      </div>
+
+</div>
+
+<div class="comment-text">
+  <p>i had no success with defining custom font faces. don&rsquo;t recall seeing predefined hebrew characters either in the test printout nor the manual.</p></div>
+</li></ul></li><li id="comment-4eaad859757b7fd35100be86" class=" comment">
+<div class="clearfix tagline">
+
+  <div class="comment-info">
+    <img class="avatar" src="https://dlnmh9ip6v2uc.cloudfront.net/images/framework/anon.png" />            <a href="http://www.sparkfun.com/users/260531">Zarcov</a>
+    <span class="wide">|</span>
+    <span title="Friday, 21-Oct-11 08:38:00 MDT" class="date"><a href="https://www.sparkfun.com/products/10438#comment-4eaad859757b7fd35100be86">about a year ago</a></span>
+    
+    <span class="rating-star">
+              <span title="Please login to up-vote comments" class=star-dark> </span>
+          </span>
+
+    <span class="rating" id="comment-rating-4eaad859757b7fd35100be86">
+      <a class="text-grey" data="fancybox" href="http://www.sparkfun.com/static/comment_help">1</a>
+    </span>
+  </div>
+
+  <div class="actions">
+      </div>
+
+</div>
+
+<div class="comment-text">
+  <p>I downloaded the example code, but could not find<br/>
+NewSoftSerial.h. Any help?<br/>
+Thanks<br/>
+Zarcov</p></div>
+<ul class=comments><li id="comment-4eaad85a757b7fd35100bf3e" class=" comment">
+<div class="clearfix tagline">
+
+  <div class="comment-info">
+    <img class="avatar" src="https://dlnmh9ip6v2uc.cloudfront.net/images/framework/anon.png" />            <a href="http://www.sparkfun.com/users/260531">Zarcov</a>
+    <span class="wide">|</span>
+    <span title="Sunday, 23-Oct-11 07:58:30 MDT" class="date"><a href="https://www.sparkfun.com/products/10438#comment-4eaad85a757b7fd35100bf3e">about a year ago</a></span>
+    
+    <span class="rating-star">
+              <span title="Please login to up-vote comments" class=star-dark> </span>
+          </span>
+
+    <span class="rating" id="comment-rating-4eaad85a757b7fd35100bf3e">
+      <a class="text-grey" data="fancybox" href="http://www.sparkfun.com/static/comment_help">1</a>
+    </span>
+  </div>
+
+  <div class="actions">
+      </div>
+
+</div>
+
+<div class="comment-text">
+  <p>I found the library myself. Here is the link, just in case&hellip;<br/>
+http://arduiniana.org/NewSoftSerial/NewSoftSerial10c.zip</p></div>
+</li></ul></li><li id="comment-4ec99dae757b7fe105000000" class=" comment">
+<div class="clearfix tagline">
+
+  <div class="comment-info">
+    <img class="avatar" src="https://dlnmh9ip6v2uc.cloudfront.net/images/framework/anon.png" />            <a href="http://www.sparkfun.com/users/248894">Member #248894</a>
+    <span class="wide">|</span>
+    <span title="Sunday, 20-Nov-11 17:39:10 MST" class="date"><a href="https://www.sparkfun.com/products/10438#comment-4ec99dae757b7fe105000000">about a year ago</a></span>
+    
+    <span class="rating-star">
+              <span title="Please login to up-vote comments" class=star-dark> </span>
+          </span>
+
+    <span class="rating" id="comment-rating-4ec99dae757b7fe105000000">
+      <a class="text-grey" data="fancybox" href="http://www.sparkfun.com/static/comment_help">1</a>
+    </span>
+  </div>
+
+  <div class="actions">
+      </div>
+
+</div>
+
+<div class="comment-text">
+  <p>what protocol use? 8 bit or 9 bit (8 data bit + 1 parity bit)</p></div>
+<ul class=comments><li id="comment-4ef3fa1b757b7f9e2a000000" class=" comment">
+<div class="clearfix tagline">
+
+  <div class="comment-info">
+    <img class="avatar" src="https://dlnmh9ip6v2uc.cloudfront.net/images/framework/anon.png" />            <a href="http://www.sparkfun.com/users/37945">ddegn</a>
+    <span class="wide">|</span>
+    <span title="Thursday, 22-Dec-11 20:48:43 MST" class="date"><a href="https://www.sparkfun.com/products/10438#comment-4ef3fa1b757b7f9e2a000000">about a year ago</a></span>
+    
+    <span class="rating-star">
+              <span title="Please login to up-vote comments" class=star-dark> </span>
+          </span>
+
+    <span class="rating" id="comment-rating-4ef3fa1b757b7f9e2a000000">
+      <a class="text-grey" data="fancybox" href="http://www.sparkfun.com/static/comment_help">1</a>
+    </span>
+  </div>
+
+  <div class="actions">
+      </div>
+
+</div>
+
+<div class="comment-text">
+  <p>It uses the very common 8 bit data, no parity, 1 stop bit.</p></div>
+</li></ul></li><li id="comment-4f099c07757b7f3635000000" class=" comment">
+<div class="clearfix tagline">
+
+  <div class="comment-info">
+    <img class="avatar" src="https://dlnmh9ip6v2uc.cloudfront.net/images/framework/anon.png" />            <a href="http://www.sparkfun.com/users/261205">Member #261205</a>
+    <span class="wide">|</span>
+    <span title="Sunday, 08-Jan-12 06:37:11 MST" class="date"><a href="https://www.sparkfun.com/products/10438#comment-4f099c07757b7f3635000000">last year</a></span>
+    
+    <span class="rating-star">
+              <span title="Please login to up-vote comments" class=star-dark> </span>
+          </span>
+
+    <span class="rating" id="comment-rating-4f099c07757b7f3635000000">
+      <a class="text-grey" data="fancybox" href="http://www.sparkfun.com/static/comment_help">1</a>
+    </span>
+  </div>
+
+  <div class="actions">
+      </div>
+
+</div>
+
+<div class="comment-text">
+  <p>Hi, I have an arduino uno board. Unfortunately I can not print properly. I can only print random characters that are not what I wrote.</p>
+
+<p>Anyone can help me?
+Thanks in advance</p></div>
+</li><li id="comment-4f319900757b7f861a000000" class=" comment">
+<div class="clearfix tagline">
+
+  <div class="comment-info">
+    <img class="avatar" src="https://dlnmh9ip6v2uc.cloudfront.net/images/framework/anon.png" />            <a href="http://www.sparkfun.com/users/204704">Member #204704</a>
+    <span class="wide">|</span>
+    <span title="Tuesday, 07-Feb-12 14:34:56 MST" class="date"><a href="https://www.sparkfun.com/products/10438#comment-4f319900757b7f861a000000">last year</a></span>
+    
+    <span class="rating-star">
+              <span title="Please login to up-vote comments" class=star-dark> </span>
+          </span>
+
+    <span class="rating" id="comment-rating-4f319900757b7f861a000000">
+      <a class="text-grey" data="fancybox" href="http://www.sparkfun.com/static/comment_help">1</a>
+    </span>
+  </div>
+
+  <div class="actions">
+      </div>
+
+</div>
+
+<div class="comment-text">
+  <p>It seems the printer connectors/wires are not compatible with an arduino sensor shield connector. Do you have a cable converter? Would I like to change the mc-side connector of the provided cable, which connector &amp; tool shoud I buy ?</p></div>
+</li><li id="comment-4f3199bdce395f147b000000" class=" comment">
+<div class="clearfix tagline">
+
+  <div class="comment-info">
+    <img class="avatar" src="https://dlnmh9ip6v2uc.cloudfront.net/images/framework/anon.png" />            <a href="http://www.sparkfun.com/users/204704">Member #204704</a>
+    <span class="wide">|</span>
+    <span title="Tuesday, 07-Feb-12 14:38:05 MST" class="date"><a href="https://www.sparkfun.com/products/10438#comment-4f3199bdce395f147b000000">last year</a></span>
+    
+    <span class="rating-star">
+              <span title="Please login to up-vote comments" class=star-dark> </span>
+          </span>
+
+    <span class="rating" id="comment-rating-4f3199bdce395f147b000000">
+      <a class="text-grey" data="fancybox" href="http://www.sparkfun.com/static/comment_help">1</a>
+    </span>
+  </div>
+
+  <div class="actions">
+      </div>
+
+</div>
+
+<div class="comment-text">
+  <p>Do you have converter cables able to connect the printer to an arduino sensor shield ? Connectors and tools needed in case of manual interventin?
+Thanks</p></div>
+</li><li id="comment-4f4781a9757b7fb813000000" class=" comment">
+<div class="clearfix tagline">
+
+  <div class="comment-info">
+    <img class="avatar" src="https://dlnmh9ip6v2uc.cloudfront.net/images/framework/anon.png" />            <a href="http://www.sparkfun.com/users/110954">mezelve</a>
+    <span class="wide">|</span>
+    <span title="Friday, 24-Feb-12 05:25:13 MST" class="date"><a href="https://www.sparkfun.com/products/10438#comment-4f4781a9757b7fb813000000">about 11 months ago</a></span>
+    
+    <span class="rating-star">
+              <span title="Please login to up-vote comments" class=star-dark> </span>
+          </span>
+
+    <span class="rating" id="comment-rating-4f4781a9757b7fb813000000">
+      <a class="text-grey" data="fancybox" href="http://www.sparkfun.com/static/comment_help">1</a>
+    </span>
+  </div>
+
+  <div class="actions">
+      </div>
+
+</div>
+
+<div class="comment-text">
+  <p>Does anyone know how to print these unicode characters?
+\u2591 \u2592 \u2593
+They&rsquo;re part of the default character set.</p></div>
+</li><li id="comment-4f86aff8ce395faf61000000" class=" comment">
+<div class="clearfix tagline">
+
+  <div class="comment-info">
+    <img class="avatar" src="https://static.sparkfun.com/avatar/acd62030df551952268e84c8fff26a5b?d=retro&s=30&r=pg" />            <a href="http://www.sparkfun.com/users/215284">Member #215284</a>
+    <span class="wide">|</span>
+    <span title="Thursday, 12-Apr-12 04:35:36 MDT" class="date"><a href="https://www.sparkfun.com/products/10438#comment-4f86aff8ce395faf61000000">about 9 months ago</a></span>
+    
+    <span class="rating-star">
+              <span title="Please login to up-vote comments" class=star-dark> </span>
+          </span>
+
+    <span class="rating" id="comment-rating-4f86aff8ce395faf61000000">
+      <a class="text-grey" data="fancybox" href="http://www.sparkfun.com/static/comment_help">1</a>
+    </span>
+  </div>
+
+  <div class="actions">
+      </div>
+
+</div>
+
+<div class="comment-text">
+  <p>We have just released an open-source, distributed software system for connecting printers like this to the internet, and making it <strong>really easy</strong> to produce great-looking (graphic!) content for them using normal web-design tools. Check it out &ndash; <a href="http://gofreerange.com/printer">http://gofreerange.com/printer</a> &ndash; <a href="http://github.com/freerange/printer">source code here</a> including the server and the arduino sketch.</p></div>
+</li><li id="comment-4f984d4a757b7ff85c000000" class=" comment">
+<div class="clearfix tagline">
+
+  <div class="comment-info">
+    <img class="avatar" src="https://dlnmh9ip6v2uc.cloudfront.net/images/framework/anon.png" />            <a href="http://www.sparkfun.com/users/95290">jchalo99</a>
+    <span class="wide">|</span>
+    <span title="Wednesday, 25-Apr-12 13:15:22 MDT" class="date"><a href="https://www.sparkfun.com/products/10438#comment-4f984d4a757b7ff85c000000">about 9 months ago</a></span>
+    
+    <span class="rating-star">
+              <span title="Please login to up-vote comments" class=star-dark> </span>
+          </span>
+
+    <span class="rating" id="comment-rating-4f984d4a757b7ff85c000000">
+      <a class="text-grey" data="fancybox" href="http://www.sparkfun.com/static/comment_help">1</a>
+    </span>
+  </div>
+
+  <div class="actions">
+      </div>
+
+</div>
+
+<div class="comment-text">
+  <p>has anyone actually measured the current draw of one of these? i need to figure out how to power it with a battery.</p></div>
+</li><li id="comment-4fb10514757b7f257a000002" class=" comment">
+<div class="clearfix tagline">
+
+  <div class="comment-info">
+    <img class="avatar" src="https://dlnmh9ip6v2uc.cloudfront.net/images/framework/anon.png" />            <a href="http://www.sparkfun.com/users/324447">MartijnK1</a>
+    <span class="wide">|</span>
+    <span title="Monday, 14-May-12 07:13:56 MDT" class="date"><a href="https://www.sparkfun.com/products/10438#comment-4fb10514757b7f257a000002">about 8 months ago</a></span>
+    
+    <span class="rating-star">
+              <span title="Please login to up-vote comments" class=star-dark> </span>
+          </span>
+
+    <span class="rating" id="comment-rating-4fb10514757b7f257a000002">
+      <a class="text-grey" data="fancybox" href="http://www.sparkfun.com/static/comment_help">1</a>
+    </span>
+  </div>
+
+  <div class="actions">
+      </div>
+
+</div>
+
+<div class="comment-text">
+  <p>The manual says its possible to use the printer to print Chinese characters but I can&rsquo;t seem to find out how I can do this :(. IF anyone knows how, awesome!</p></div>
+</li><li id="comment-4fca6c36757b7f7f68000000" class=" comment">
+<div class="clearfix tagline">
+
+  <div class="comment-info">
+    <img class="avatar" src="https://static.sparkfun.com/avatar/477f0b28f660d499aa47bb4543053384?d=retro&s=30&r=pg" />            <a href="http://www.sparkfun.com/users/192315">jpmanson</a>
+    <span class="wide">|</span>
+    <span title="Saturday, 02-Jun-12 13:40:38 MDT" class="date"><a href="https://www.sparkfun.com/products/10438#comment-4fca6c36757b7f7f68000000">about 8 months ago</a></span>
+    
+    <span class="rating-star">
+              <span title="Please login to up-vote comments" class=star-dark> </span>
+          </span>
+
+    <span class="rating" id="comment-rating-4fca6c36757b7f7f68000000">
+      <a class="text-grey" data="fancybox" href="http://www.sparkfun.com/static/comment_help">1</a>
+    </span>
+  </div>
+
+  <div class="actions">
+      </div>
+
+</div>
+
+<div class="comment-text">
+  <p>Here is a library for .NET Micro Framework (For Netduino or Fez Panda, Cobra, etc.): https://github.com/jpmanson/ThermalPrinterNetMFLib</p></div>
+</li><li id="comment-4fcf961ace395f7114000000" class=" comment">
+<div class="clearfix tagline">
+
+  <div class="comment-info">
+    <img class="avatar" src="https://dlnmh9ip6v2uc.cloudfront.net/images/framework/anon.png" />            <a href="http://www.sparkfun.com/users/329714">Member #329714</a>
+    <span class="wide">|</span>
+    <span title="Wednesday, 06-Jun-12 11:40:42 MDT" class="date"><a href="https://www.sparkfun.com/products/10438#comment-4fcf961ace395f7114000000">about 7 months ago</a></span>
+    
+    <span class="rating-star">
+              <span title="Please login to up-vote comments" class=star-dark> </span>
+          </span>
+
+    <span class="rating" id="comment-rating-4fcf961ace395f7114000000">
+      <a class="text-grey" data="fancybox" href="http://www.sparkfun.com/static/comment_help">1</a>
+    </span>
+  </div>
+
+  <div class="actions">
+      </div>
+
+</div>
+
+<div class="comment-text">
+  <p>Does anyone know why the sample file with arduino 1 is not possible to compile because of error.
+ thanks</p></div>
+</li><li id="comment-4fe1770e757b7f0c6a000000" class=" comment">
+<div class="clearfix tagline">
+
+  <div class="comment-info">
+    <img class="avatar" src="https://dlnmh9ip6v2uc.cloudfront.net/images/framework/anon.png" />            <a href="http://www.sparkfun.com/users/233592">ryansw</a>
+    <span class="wide">|</span>
+    <span title="Wednesday, 20-Jun-12 01:09:02 MDT" class="date"><a href="https://www.sparkfun.com/products/10438#comment-4fe1770e757b7f0c6a000000">about 7 months ago</a></span>
+    
+    <span class="rating-star">
+              <span title="Please login to up-vote comments" class=star-dark> </span>
+          </span>
+
+    <span class="rating" id="comment-rating-4fe1770e757b7f0c6a000000">
+      <a class="text-grey" data="fancybox" href="http://www.sparkfun.com/static/comment_help">1</a>
+    </span>
+  </div>
+
+  <div class="actions">
+      </div>
+
+</div>
+
+<div class="comment-text">
+  <p>I would like to know a supplier for the actual printer.
+like <a href="http://www.digikey.com/product-detail/en/EPL1702S3/">this</a>
+Though this printer would work for my project, i need the actual &ldquo;Printer&rdquo; so i can run the paper through a second stage of lamination,
+followed by a serrated edge where it comes out.  So that would mean this wont work.  I would get the one on digikey (linked above,) but it is to expensive.  I need it under $50.00
+That is why, I would like to know the supplier and part number for the printer used in this product.</p></div>
+</li><li id="comment-5006b688757b7f8c39000000" class=" comment">
+<div class="clearfix tagline">
+
+  <div class="comment-info">
+    <img class="avatar" src="https://dlnmh9ip6v2uc.cloudfront.net/images/framework/anon.png" />            <a href="http://www.sparkfun.com/users/338976">mimil</a>
+    <span class="wide">|</span>
+    <span title="Wednesday, 18-Jul-12 07:13:44 MDT" class="date"><a href="https://www.sparkfun.com/products/10438#comment-5006b688757b7f8c39000000">about 6 months ago</a></span>
+    
+    <span class="rating-star">
+              <span title="Please login to up-vote comments" class=star-dark> </span>
+          </span>
+
+    <span class="rating" id="comment-rating-5006b688757b7f8c39000000">
+      <a class="text-grey" data="fancybox" href="http://www.sparkfun.com/static/comment_help">1</a>
+    </span>
+  </div>
+
+  <div class="actions">
+      </div>
+
+</div>
+
+<div class="comment-text">
+  <p>I ported the arduino library to mbed platform, it is available at <a href="http://mbed.org/users/mimil/code/Thermal/">Thermal mbed page</a> and <a href="http://mbed.org/users/mimil/code/ThermalSample/">Thermal Sample mbed page</a> for the sample program.</p></div>
+</li><li id="comment-50074559757b7f4555000000" class=" comment">
+<div class="clearfix tagline">
+
+  <div class="comment-info">
+    <img class="avatar" src="https://dlnmh9ip6v2uc.cloudfront.net/images/framework/anon.png" />            <a href="http://www.sparkfun.com/users/330824">kjmccarx</a>
+    <span class="wide">|</span>
+    <span title="Wednesday, 18-Jul-12 17:23:05 MDT" class="date"><a href="https://www.sparkfun.com/products/10438#comment-50074559757b7f4555000000">about 6 months ago</a></span>
+    
+    <span class="rating-star">
+              <span title="Please login to up-vote comments" class=star-dark> </span>
+          </span>
+
+    <span class="rating" id="comment-rating-50074559757b7f4555000000">
+      <a class="text-grey" data="fancybox" href="http://www.sparkfun.com/static/comment_help">1</a>
+    </span>
+  </div>
+
+  <div class="actions">
+      </div>
+
+</div>
+
+<div class="comment-text">
+  <p>What happens when you send it a &ldquo;\033[F&rdquo; character? Lol.</p></div>
+</li><li id="comment-50339620ce395f5906000000" class=" comment">
+<div class="clearfix tagline">
+
+  <div class="comment-info">
+    <img class="avatar" src="https://dlnmh9ip6v2uc.cloudfront.net/images/framework/anon.png" />            <a href="http://www.sparkfun.com/users/354400">VE2YMV</a>
+    <span class="wide">|</span>
+    <span title="Tuesday, 21-Aug-12 08:07:28 MDT" class="date"><a href="https://www.sparkfun.com/products/10438#comment-50339620ce395f5906000000">about 5 months ago</a></span>
+    
+    <span class="rating-star">
+              <span title="Please login to up-vote comments" class=star-dark> </span>
+          </span>
+
+    <span class="rating" id="comment-rating-50339620ce395f5906000000">
+      <a class="text-grey" data="fancybox" href="http://www.sparkfun.com/static/comment_help">1</a>
+    </span>
+  </div>
+
+  <div class="actions">
+      </div>
+
+</div>
+
+<div class="comment-text">
+  <p>I spotted a command to set Bluetooth parameters (bit rate and password, if I remember well&hellip;) in the Command Set document. Does the printer really have a built-in Bluetooth radio? That would be awesome&hellip;</p></div>
+</li><li id="comment-505759a9757b7f2f28000001" class=" comment">
+<div class="clearfix tagline">
+
+  <div class="comment-info">
+    <img class="avatar" src="https://dlnmh9ip6v2uc.cloudfront.net/images/framework/anon.png" />            <a href="http://www.sparkfun.com/users/362079">theboxmaker</a>
+    <span class="wide">|</span>
+    <span title="Monday, 17-Sep-12 11:11:05 MDT" class="date"><a href="https://www.sparkfun.com/products/10438#comment-505759a9757b7f2f28000001">about 4 months ago</a></span>
+    
+    <span class="rating-star">
+              <span title="Please login to up-vote comments" class=star-dark> </span>
+          </span>
+
+    <span class="rating" id="comment-rating-505759a9757b7f2f28000001">
+      <a class="text-grey" data="fancybox" href="http://www.sparkfun.com/static/comment_help">1</a>
+    </span>
+  </div>
+
+  <div class="actions">
+      </div>
+
+</div>
+
+<div class="comment-text">
+  <p>Could I make this work as a USB printer with one of <a href="https://www.sparkfun.com/products/718">these</a> (+ external power source)? I can write the (Linux) software to address the USB port, but I don&rsquo;t know much about low level hardware.</p></div>
+<ul class=comments><li id="comment-508176dd757b7fdf5a000001" class=" comment">
+<div class="clearfix tagline">
+
+  <div class="comment-info">
+    <img class="avatar" src="https://dlnmh9ip6v2uc.cloudfront.net/images/framework/anon.png" />            <a href="http://www.sparkfun.com/users/37945">ddegn</a>
+    <span class="wide">|</span>
+    <span title="Friday, 19-Oct-12 09:50:53 MDT" class="date"><a href="https://www.sparkfun.com/products/10438#comment-508176dd757b7fdf5a000001">about 3 months ago</a></span>
+    
+    <span class="rating-star">
+              <span title="Please login to up-vote comments" class=star-dark> </span>
+          </span>
+
+    <span class="rating" id="comment-rating-508176dd757b7fdf5a000001">
+      <a class="text-grey" data="fancybox" href="http://www.sparkfun.com/static/comment_help">2</a>
+    </span>
+  </div>
+
+  <div class="actions">
+      </div>
+
+</div>
+
+<div class="comment-text">
+  <p>Yes, that should work fine. You&rsquo;d need to have the computer send the appropriate command codes to set the printer up before sending text to print.</p></div>
+</li></ul></li><li id="comment-50886cfd757b7fdb79000000" class=" comment">
+<div class="clearfix tagline">
+
+  <div class="comment-info">
+    <img class="avatar" src="https://static.sparkfun.com/avatar/d01469da8237ed6ccaafea55e85ff822?d=retro&s=30&r=pg" />            <a href="http://www.sparkfun.com/users/371143">Member #371143</a>
+    <span class="wide">|</span>
+    <span title="Wednesday, 24-Oct-12 16:34:37 MDT" class="date"><a href="https://www.sparkfun.com/products/10438#comment-50886cfd757b7fdb79000000">about 2 months ago</a></span>
+    
+    <span class="rating-star">
+              <span title="Please login to up-vote comments" class=star-dark> </span>
+          </span>
+
+    <span class="rating" id="comment-rating-50886cfd757b7fdb79000000">
+      <a class="text-grey" data="fancybox" href="http://www.sparkfun.com/static/comment_help">1</a>
+    </span>
+  </div>
+
+  <div class="actions">
+      </div>
+
+</div>
+
+<div class="comment-text">
+  <p>For those still looking for paper for this, U-Line (uline.com) sells a somewhat affordable box of 50 rolls for around 20 bucks. I have the printer, and I have confirmed the rolls fit perfectly inside. I assume this is where sparkfun sources their rolls from that they sell on this site. Look up model/part number S-18644 on uline&rsquo;s site.</p></div>
+</li><li id="comment-50982e74ce395fbd4e000001" class=" comment">
+<div class="clearfix tagline">
+
+  <div class="comment-info">
+    <img class="avatar" src="https://dlnmh9ip6v2uc.cloudfront.net/images/framework/anon.png" />            <a href="http://www.sparkfun.com/users/322568">kay_mainz</a>
+    <span class="wide">|</span>
+    <span title="Monday, 05-Nov-12 14:24:04 MST" class="date"><a href="https://www.sparkfun.com/products/10438#comment-50982e74ce395fbd4e000001">about 2 months ago</a></span>
+    
+    <span class="rating-star">
+              <span title="Please login to up-vote comments" class=star-dark> </span>
+          </span>
+
+    <span class="rating" id="comment-rating-50982e74ce395fbd4e000001">
+      <a class="text-grey" data="fancybox" href="http://www.sparkfun.com/static/comment_help">1</a>
+    </span>
+  </div>
+
+  <div class="actions">
+      </div>
+
+</div>
+
+<div class="comment-text">
+  <p>wow&hellip; wasn&rsquo;t it $10 less last week? Is there a shortage of black plastics?</p></div>
+<ul class=comments><li id="comment-50b40c0cce395fed5e000002" class=" comment">
+<div class="clearfix tagline">
+
+  <div class="comment-info">
+    <img class="avatar" src="https://dlnmh9ip6v2uc.cloudfront.net/images/framework/anon.png" />            <a href="http://www.sparkfun.com/users/165685">jma89</a>
+    <span class="wide">|</span>
+    <span title="Monday, 26-Nov-12 17:40:44 MST" class="date"><a href="https://www.sparkfun.com/products/10438#comment-50b40c0cce395fed5e000002">about a month ago</a></span>
+    
+    <span class="rating-star">
+              <span title="Please login to up-vote comments" class=star-dark> </span>
+          </span>
+
+    <span class="rating" id="comment-rating-50b40c0cce395fed5e000002">
+      <a class="text-grey" data="fancybox" href="http://www.sparkfun.com/static/comment_help">1</a>
+    </span>
+  </div>
+
+  <div class="actions">
+      </div>
+
+</div>
+
+<div class="comment-text">
+  <p>Still $50 here.. Not sure if that&rsquo;s what you saw, but they&rsquo;ve been $50 ever since they first started carrying them IIRC.</p></div>
+</li></ul></li><li id="comment-50d22424757b7f0403000000" class=" comment">
+<div class="clearfix tagline">
+
+  <div class="comment-info">
+    <img class="avatar" src="https://dlnmh9ip6v2uc.cloudfront.net/images/framework/anon.png" />            <a href="http://www.sparkfun.com/users/391292">Member #391292</a>
+    <span class="wide">|</span>
+    <span title="Wednesday, 19-Dec-12 13:31:32 MST" class="date"><a href="https://www.sparkfun.com/products/10438#comment-50d22424757b7f0403000000">about 2 weeks ago</a></span>
+    
+    <span class="rating-star">
+              <span title="Please login to up-vote comments" class=star-dark> </span>
+          </span>
+
+    <span class="rating" id="comment-rating-50d22424757b7f0403000000">
+      <a class="text-grey" data="fancybox" href="http://www.sparkfun.com/static/comment_help">1</a>
+    </span>
+  </div>
+
+  <div class="actions">
+      </div>
+
+</div>
+
+<div class="comment-text">
+  <p>Hi, is this printer compatible with Raspberry PI?</p></div>
+</li>  </ul>
+</div>
+<br />
+
+</div>
+
+<div class=related-products>
+  <h2 class="collapsible grey big"><span class="arrow"></span> Related Products</h2>
+
+  <div>
+          
+<h2 class=clearfix>Customers also purchased</h2>
+<ul class="products tight" style="border-top: none; padding-top: 5px;">
+  
+<div class="product-tile ">
+  <li class="product ">
+
+    <a href="https://www.sparkfun.com/products/10560">
+      <img class="lazyload" src="https://dlnmh9ip6v2uc.cloudfront.net/images/products/1/0/5/6/0/10560-01_l_th.jpg" /><br>
+      <span class="products_name">Thermal Printer Paper - 34'</span>
+    </a>
+    <br>
+
+      <a data="fancybox" href="https://www.sparkfun.com/static/bubbles/" class="bubble bubble-low hidetext" title="25 available"><span>25 available</span></a>
+    <span class=sku>COM-10560</span><br>
+
+          <span class=price>
+      1.95002      </span>
+      </li>
+
+  <div class="product-overlay">
+    <a href="https://www.sparkfun.com/products/10560">
+      <img src="https://dlnmh9ip6v2uc.cloudfront.net/images/products/1/0/5/6/0/10560-01_l_th.jpg" /><br>
+      <span class="products_name">Thermal Printer Paper - 34'</span>
+    </a>
+
+    <p>
+      
+	Description: This is a 34&#39; roll of thermal printing paper for use with our thermal &hellip;    </p>
+
+    <p>
+      <a href="https://www.sparkfun.com/products/10560" class=red>
+        <em>Read Full Description</em>
+      </a>
+    </p>
+
+      <a data="fancybox" href="https://www.sparkfun.com/static/bubbles/" class="bubble bubble-low hidetext" title="25 available"><span>25 available</span></a>
+    <span class=sku>COM-10560</span>
+          <span class=price>
+        1.95002      </span>
+      <br>
+      <br>
+
+      <div class="actions">
+        <form action="https://www.sparkfun.com/cart/add" method="post" onsubmit="$(this).cart('add_tile', 10560, $('add_qty_10560').val()); return false;">
+          <input type=hidden name=id value="10560" />
+          <input type=hidden name=qty value="1" />
+
+                      <input class=button type=submit id="add_button_10560" value="Add to Cart" />
+          
+                      <a data="fancybox" class=button href="https://www.sparkfun.com/static/wishlist?redirect=%2Fproducts%2F10438">Add to Wish List</a>
+                  </form>
+
+        <div class=added-to-cart id="added_to_cart_10560" style="display: none;">
+          <hr>
+          <p>
+            Added <span id="added_qty_10560"></span> to your <a href="https://www.sparkfun.com/cart">cart</a>!<br>
+          </p>
+          <p>
+            <a href="https://www.sparkfun.com/orders/make">Proceed to checkout &rarr;</a>
+          </p>
+        </div>
+
+        <p id="ask_which_wish_list_10560" class="ask-which-wish-list" style="display: none;">
+        </p>
+
+        <p class=added-to-cart id="added_to_wish_list_10560" style="display: none;">
+          added <span id="wl_added_qty_10560"></span> to <a id="wl_link_10560"></a>
+        </p>
+      </div>
+
+      </div>
+
+</div>
+
+
+<div class="product-tile ">
+  <li class="product ">
+
+    <a href="https://www.sparkfun.com/products/8269">
+      <img class="lazyload" src="https://dlnmh9ip6v2uc.cloudfront.net/images/products/8/2/6/9/08269-01_l_th.jpg" /><br>
+      <span class="products_name">Wall Adapter Power Supply - 5VDC 1A</span>
+    </a>
+    <br>
+
+      <a data="fancybox" href="https://www.sparkfun.com/static/bubbles/" class="bubble bubble-in hidetext" title="in stock"><span>In stock</span></a>
+    <span class=sku>TOL-08269</span><br>
+
+          <span class=price>
+      5.95002      </span>
+      </li>
+
+  <div class="product-overlay">
+    <a href="https://www.sparkfun.com/products/8269">
+      <img src="https://dlnmh9ip6v2uc.cloudfront.net/images/products/8/2/6/9/08269-01_l_th.jpg" /><br>
+      <span class="products_name">Wall Adapter Power Supply - 5VDC 1A</span>
+    </a>
+
+    <p>
+      
+	Description: High quality switching &#39;wall wart&#39; AC to DC 5V 1000mA wall power s&hellip;    </p>
+
+    <p>
+      <a href="https://www.sparkfun.com/products/8269" class=red>
+        <em>Read Full Description</em>
+      </a>
+    </p>
+
+      <a data="fancybox" href="https://www.sparkfun.com/static/bubbles/" class="bubble bubble-in hidetext" title="in stock"><span>In stock</span></a>
+    <span class=sku>TOL-08269</span>
+          <span class=price>
+        5.95002      </span>
+      <br>
+      <br>
+
+      <div class="actions">
+        <form action="https://www.sparkfun.com/cart/add" method="post" onsubmit="$(this).cart('add_tile', 8269, $('add_qty_8269').val()); return false;">
+          <input type=hidden name=id value="8269" />
+          <input type=hidden name=qty value="1" />
+
+                      <input class=button type=submit id="add_button_8269" value="Add to Cart" />
+          
+                      <a data="fancybox" class=button href="https://www.sparkfun.com/static/wishlist?redirect=%2Fproducts%2F10438">Add to Wish List</a>
+                  </form>
+
+        <div class=added-to-cart id="added_to_cart_8269" style="display: none;">
+          <hr>
+          <p>
+            Added <span id="added_qty_8269"></span> to your <a href="https://www.sparkfun.com/cart">cart</a>!<br>
+          </p>
+          <p>
+            <a href="https://www.sparkfun.com/orders/make">Proceed to checkout &rarr;</a>
+          </p>
+        </div>
+
+        <p id="ask_which_wish_list_8269" class="ask-which-wish-list" style="display: none;">
+        </p>
+
+        <p class=added-to-cart id="added_to_wish_list_8269" style="display: none;">
+          added <span id="wl_added_qty_8269"></span> to <a id="wl_link_8269"></a>
+        </p>
+      </div>
+
+      </div>
+
+</div>
+
+
+<div class="product-tile ">
+  <li class="product ">
+
+    <a href="https://www.sparkfun.com/products/8745">
+      <img class="lazyload" src="https://dlnmh9ip6v2uc.cloudfront.net/images/products/8/7/4/5/08745-03-L_l_th.jpg" /><br>
+      <span class="products_name">Logic Level Converter</span>
+    </a>
+    <br>
+
+      <a data="fancybox" href="https://www.sparkfun.com/static/bubbles/" class="bubble bubble-in hidetext" title="in stock"><span>In stock</span></a>
+    <span class=sku>BOB-08745</span><br>
+
+          <span class=price>
+      1.95002      </span>
+      </li>
+
+  <div class="product-overlay">
+    <a href="https://www.sparkfun.com/products/8745">
+      <img src="https://dlnmh9ip6v2uc.cloudfront.net/images/products/8/7/4/5/08745-03-L_l_th.jpg" /><br>
+      <span class="products_name">Logic Level Converter</span>
+    </a>
+
+    <p>
+      
+	Description: If you&#39;ve ever tried to connect a 3.3V device to a 5V system, you know&hellip;    </p>
+
+    <p>
+      <a href="https://www.sparkfun.com/products/8745" class=red>
+        <em>Read Full Description</em>
+      </a>
+    </p>
+
+      <a data="fancybox" href="https://www.sparkfun.com/static/bubbles/" class="bubble bubble-in hidetext" title="in stock"><span>In stock</span></a>
+    <span class=sku>BOB-08745</span>
+          <span class=price>
+        1.95002      </span>
+      <br>
+      <br>
+
+      <div class="actions">
+        <form action="https://www.sparkfun.com/cart/add" method="post" onsubmit="$(this).cart('add_tile', 8745, $('add_qty_8745').val()); return false;">
+          <input type=hidden name=id value="8745" />
+          <input type=hidden name=qty value="1" />
+
+                      <input class=button type=submit id="add_button_8745" value="Add to Cart" />
+          
+                      <a data="fancybox" class=button href="https://www.sparkfun.com/static/wishlist?redirect=%2Fproducts%2F10438">Add to Wish List</a>
+                  </form>
+
+        <div class=added-to-cart id="added_to_cart_8745" style="display: none;">
+          <hr>
+          <p>
+            Added <span id="added_qty_8745"></span> to your <a href="https://www.sparkfun.com/cart">cart</a>!<br>
+          </p>
+          <p>
+            <a href="https://www.sparkfun.com/orders/make">Proceed to checkout &rarr;</a>
+          </p>
+        </div>
+
+        <p id="ask_which_wish_list_8745" class="ask-which-wish-list" style="display: none;">
+        </p>
+
+        <p class=added-to-cart id="added_to_wish_list_8745" style="display: none;">
+          added <span id="wl_added_qty_8745"></span> to <a id="wl_link_8745"></a>
+        </p>
+      </div>
+
+      </div>
+
+</div>
+
+
+<div class="product-tile ">
+  <li class="product ">
+
+    <a href="https://www.sparkfun.com/products/10267">
+      <img class="lazyload" src="https://dlnmh9ip6v2uc.cloudfront.net/images/products/1/0/2/6/7/10267-01b_l_th.jpg" /><br>
+      <span class="products_name">EasyDriver Stepper Motor Driver</span>
+    </a>
+    <br>
+
+      <a data="fancybox" href="https://www.sparkfun.com/static/bubbles/" class="bubble bubble-in hidetext" title="in stock"><span>In stock</span></a>
+    <span class=sku>ROB-10267</span><br>
+
+          <span class=price>
+      14.95002      </span>
+      </li>
+
+  <div class="product-overlay">
+    <a href="https://www.sparkfun.com/products/10267">
+      <img src="https://dlnmh9ip6v2uc.cloudfront.net/images/products/1/0/2/6/7/10267-01b_l_th.jpg" /><br>
+      <span class="products_name">EasyDriver Stepper Motor Driver</span>
+    </a>
+
+    <p>
+      
+	Description:&nbsp;The EasyDriver is a simple to use stepper motor driver, compatible wi&hellip;    </p>
+
+    <p>
+      <a href="https://www.sparkfun.com/products/10267" class=red>
+        <em>Read Full Description</em>
+      </a>
+    </p>
+
+      <a data="fancybox" href="https://www.sparkfun.com/static/bubbles/" class="bubble bubble-in hidetext" title="in stock"><span>In stock</span></a>
+    <span class=sku>ROB-10267</span>
+          <span class=price>
+        14.95002      </span>
+      <br>
+      <br>
+
+      <div class="actions">
+        <form action="https://www.sparkfun.com/cart/add" method="post" onsubmit="$(this).cart('add_tile', 10267, $('add_qty_10267').val()); return false;">
+          <input type=hidden name=id value="10267" />
+          <input type=hidden name=qty value="1" />
+
+                      <input class=button type=submit id="add_button_10267" value="Add to Cart" />
+          
+                      <a data="fancybox" class=button href="https://www.sparkfun.com/static/wishlist?redirect=%2Fproducts%2F10438">Add to Wish List</a>
+                  </form>
+
+        <div class=added-to-cart id="added_to_cart_10267" style="display: none;">
+          <hr>
+          <p>
+            Added <span id="added_qty_10267"></span> to your <a href="https://www.sparkfun.com/cart">cart</a>!<br>
+          </p>
+          <p>
+            <a href="https://www.sparkfun.com/orders/make">Proceed to checkout &rarr;</a>
+          </p>
+        </div>
+
+        <p id="ask_which_wish_list_10267" class="ask-which-wish-list" style="display: none;">
+        </p>
+
+        <p class=added-to-cart id="added_to_wish_list_10267" style="display: none;">
+          added <span id="wl_added_qty_10267"></span> to <a id="wl_link_10267"></a>
+        </p>
+      </div>
+
+      </div>
+
+</div>
+
+
+<div class="product-tile  last">
+  <li class="product  last">
+
+    <a href="https://www.sparkfun.com/products/8687">
+      <img class="lazyload" src="https://dlnmh9ip6v2uc.cloudfront.net/images/products/8/6/8/7/08687-01b_l_th.jpg" /><br>
+      <span class="products_name">XBee Explorer USB</span>
+    </a>
+    <br>
+
+      <a data="fancybox" href="https://www.sparkfun.com/static/bubbles/" class="bubble bubble-in hidetext" title="in stock"><span>In stock</span></a>
+    <span class=sku>WRL-08687</span><br>
+
+          <span class=price>
+      24.95002      </span>
+      </li>
+
+  <div class="product-overlay">
+    <a href="https://www.sparkfun.com/products/8687">
+      <img src="https://dlnmh9ip6v2uc.cloudfront.net/images/products/8/6/8/7/08687-01b_l_th.jpg" /><br>
+      <span class="products_name">XBee Explorer USB</span>
+    </a>
+
+    <p>
+      
+	Description: This is a simple to use, USB to serial base unit for the XBee line. This u&hellip;    </p>
+
+    <p>
+      <a href="https://www.sparkfun.com/products/8687" class=red>
+        <em>Read Full Description</em>
+      </a>
+    </p>
+
+      <a data="fancybox" href="https://www.sparkfun.com/static/bubbles/" class="bubble bubble-in hidetext" title="in stock"><span>In stock</span></a>
+    <span class=sku>WRL-08687</span>
+          <span class=price>
+        24.95002      </span>
+      <br>
+      <br>
+
+      <div class="actions">
+        <form action="https://www.sparkfun.com/cart/add" method="post" onsubmit="$(this).cart('add_tile', 8687, $('add_qty_8687').val()); return false;">
+          <input type=hidden name=id value="8687" />
+          <input type=hidden name=qty value="1" />
+
+                      <input class=button type=submit id="add_button_8687" value="Add to Cart" />
+          
+                      <a data="fancybox" class=button href="https://www.sparkfun.com/static/wishlist?redirect=%2Fproducts%2F10438">Add to Wish List</a>
+                  </form>
+
+        <div class=added-to-cart id="added_to_cart_8687" style="display: none;">
+          <hr>
+          <p>
+            Added <span id="added_qty_8687"></span> to your <a href="https://www.sparkfun.com/cart">cart</a>!<br>
+          </p>
+          <p>
+            <a href="https://www.sparkfun.com/orders/make">Proceed to checkout &rarr;</a>
+          </p>
+        </div>
+
+        <p id="ask_which_wish_list_8687" class="ask-which-wish-list" style="display: none;">
+        </p>
+
+        <p class=added-to-cart id="added_to_wish_list_8687" style="display: none;">
+          added <span id="wl_added_qty_8687"></span> to <a id="wl_link_8687"></a>
+        </p>
+      </div>
+
+      </div>
+
+</div>
+
+</ul>
+<div class=clearfix></div>
+    
+          <h2>Selected by our staff</h2>
+        <ul class="products tight" style="border-top: none; padding-top: 5px;">
+      
+<div class="product-tile ">
+  <li class="product ">
+
+    <a href="https://www.sparkfun.com/products/10560">
+      <img class="lazyload" src="https://dlnmh9ip6v2uc.cloudfront.net/images/products/1/0/5/6/0/10560-01_l_th.jpg" /><br>
+      <span class="products_name">Thermal Printer Paper - 34'</span>
+    </a>
+    <br>
+
+      <a data="fancybox" href="https://www.sparkfun.com/static/bubbles/" class="bubble bubble-low hidetext" title="25 available"><span>25 available</span></a>
+    <span class=sku>COM-10560</span><br>
+
+          <span class=price>
+      1.95002      </span>
+      </li>
+
+  <div class="product-overlay">
+    <a href="https://www.sparkfun.com/products/10560">
+      <img src="https://dlnmh9ip6v2uc.cloudfront.net/images/products/1/0/5/6/0/10560-01_l_th.jpg" /><br>
+      <span class="products_name">Thermal Printer Paper - 34'</span>
+    </a>
+
+    <p>
+      
+	Description: This is a 34&#39; roll of thermal printing paper for use with our thermal &hellip;    </p>
+
+    <p>
+      <a href="https://www.sparkfun.com/products/10560" class=red>
+        <em>Read Full Description</em>
+      </a>
+    </p>
+
+      <a data="fancybox" href="https://www.sparkfun.com/static/bubbles/" class="bubble bubble-low hidetext" title="25 available"><span>25 available</span></a>
+    <span class=sku>COM-10560</span>
+          <span class=price>
+        1.95002      </span>
+      <br>
+      <br>
+
+      <div class="actions">
+        <form action="https://www.sparkfun.com/cart/add" method="post" onsubmit="$(this).cart('add_tile', 10560, $('add_qty_10560').val()); return false;">
+          <input type=hidden name=id value="10560" />
+          <input type=hidden name=qty value="1" />
+
+                      <input class=button type=submit id="add_button_10560" value="Add to Cart" />
+          
+                      <a data="fancybox" class=button href="https://www.sparkfun.com/static/wishlist?redirect=%2Fproducts%2F10438">Add to Wish List</a>
+                  </form>
+
+        <div class=added-to-cart id="added_to_cart_10560" style="display: none;">
+          <hr>
+          <p>
+            Added <span id="added_qty_10560"></span> to your <a href="https://www.sparkfun.com/cart">cart</a>!<br>
+          </p>
+          <p>
+            <a href="https://www.sparkfun.com/orders/make">Proceed to checkout &rarr;</a>
+          </p>
+        </div>
+
+        <p id="ask_which_wish_list_10560" class="ask-which-wish-list" style="display: none;">
+        </p>
+
+        <p class=added-to-cart id="added_to_wish_list_10560" style="display: none;">
+          added <span id="wl_added_qty_10560"></span> to <a id="wl_link_10560"></a>
+        </p>
+      </div>
+
+      </div>
+
+</div>
+
+
+<div class="product-tile ">
+  <li class="product ">
+
+    <a href="https://www.sparkfun.com/products/11021">
+      <img class="lazyload" src="https://dlnmh9ip6v2uc.cloudfront.net/images/products/1/1/0/2/1/11021-01a_l_th.jpg" /><br>
+      <span class="products_name">Arduino Uno - R3</span>
+    </a>
+    <br>
+
+      <a data="fancybox" href="https://www.sparkfun.com/static/bubbles/" class="bubble bubble-in hidetext" title="in stock"><span>In stock</span></a>
+    <span class=sku>DEV-11021</span><br>
+
+          <span class=price>
+      29.95002      </span>
+      </li>
+
+  <div class="product-overlay">
+    <a href="https://www.sparkfun.com/products/11021">
+      <img src="https://dlnmh9ip6v2uc.cloudfront.net/images/products/1/1/0/2/1/11021-01a_l_th.jpg" /><br>
+      <span class="products_name">Arduino Uno - R3</span>
+    </a>
+
+    <p>
+      
+	Description: This is the new Arduino Uno R3. In addition to all the features of the pre&hellip;    </p>
+
+    <p>
+      <a href="https://www.sparkfun.com/products/11021" class=red>
+        <em>Read Full Description</em>
+      </a>
+    </p>
+
+      <a data="fancybox" href="https://www.sparkfun.com/static/bubbles/" class="bubble bubble-in hidetext" title="in stock"><span>In stock</span></a>
+    <span class=sku>DEV-11021</span>
+          <span class=price>
+        29.95002      </span>
+      <br>
+      <br>
+
+      <div class="actions">
+        <form action="https://www.sparkfun.com/cart/add" method="post" onsubmit="$(this).cart('add_tile', 11021, $('add_qty_11021').val()); return false;">
+          <input type=hidden name=id value="11021" />
+          <input type=hidden name=qty value="1" />
+
+                      <input class=button type=submit id="add_button_11021" value="Add to Cart" />
+          
+                      <a data="fancybox" class=button href="https://www.sparkfun.com/static/wishlist?redirect=%2Fproducts%2F10438">Add to Wish List</a>
+                  </form>
+
+        <div class=added-to-cart id="added_to_cart_11021" style="display: none;">
+          <hr>
+          <p>
+            Added <span id="added_qty_11021"></span> to your <a href="https://www.sparkfun.com/cart">cart</a>!<br>
+          </p>
+          <p>
+            <a href="https://www.sparkfun.com/orders/make">Proceed to checkout &rarr;</a>
+          </p>
+        </div>
+
+        <p id="ask_which_wish_list_11021" class="ask-which-wish-list" style="display: none;">
+        </p>
+
+        <p class=added-to-cart id="added_to_wish_list_11021" style="display: none;">
+          added <span id="wl_added_qty_11021"></span> to <a id="wl_link_11021"></a>
+        </p>
+      </div>
+
+      </div>
+
+</div>
+
+
+<div class="product-tile ">
+  <li class="product ">
+
+    <a href="https://www.sparkfun.com/products/11296">
+      <img class="lazyload" src="https://dlnmh9ip6v2uc.cloudfront.net/images/products/1/1/2/9/6/11296-01a_small.jpg" /><br>
+      <span class="products_name">Power Supply - 12V/5V (2A)</span>
+    </a>
+    <br>
+
+      <a data="fancybox" href="https://www.sparkfun.com/static/bubbles/" class="bubble bubble-in hidetext" title="in stock"><span>In stock</span></a>
+    <span class=sku>TOL-11296</span><br>
+
+          <span class=price>
+      9.95002      </span>
+      </li>
+
+  <div class="product-overlay">
+    <a href="https://www.sparkfun.com/products/11296">
+      <img src="https://dlnmh9ip6v2uc.cloudfront.net/images/products/1/1/2/9/6/11296-01a_small.jpg" /><br>
+      <span class="products_name">Power Supply - 12V/5V (2A)</span>
+    </a>
+
+    <p>
+      
+	Description: Does your project need a little more *umph* than our wall wart adapters ca&hellip;    </p>
+
+    <p>
+      <a href="https://www.sparkfun.com/products/11296" class=red>
+        <em>Read Full Description</em>
+      </a>
+    </p>
+
+      <a data="fancybox" href="https://www.sparkfun.com/static/bubbles/" class="bubble bubble-in hidetext" title="in stock"><span>In stock</span></a>
+    <span class=sku>TOL-11296</span>
+          <span class=price>
+        9.95002      </span>
+      <br>
+      <br>
+
+      <div class="actions">
+        <form action="https://www.sparkfun.com/cart/add" method="post" onsubmit="$(this).cart('add_tile', 11296, $('add_qty_11296').val()); return false;">
+          <input type=hidden name=id value="11296" />
+          <input type=hidden name=qty value="1" />
+
+                      <input class=button type=submit id="add_button_11296" value="Add to Cart" />
+          
+                      <a data="fancybox" class=button href="https://www.sparkfun.com/static/wishlist?redirect=%2Fproducts%2F10438">Add to Wish List</a>
+                  </form>
+
+        <div class=added-to-cart id="added_to_cart_11296" style="display: none;">
+          <hr>
+          <p>
+            Added <span id="added_qty_11296"></span> to your <a href="https://www.sparkfun.com/cart">cart</a>!<br>
+          </p>
+          <p>
+            <a href="https://www.sparkfun.com/orders/make">Proceed to checkout &rarr;</a>
+          </p>
+        </div>
+
+        <p id="ask_which_wish_list_11296" class="ask-which-wish-list" style="display: none;">
+        </p>
+
+        <p class=added-to-cart id="added_to_wish_list_11296" style="display: none;">
+          added <span id="wl_added_qty_11296"></span> to <a id="wl_link_11296"></a>
+        </p>
+      </div>
+
+      </div>
+
+</div>
+
+    </ul>
+
+  </div>
+</div>
+      </div>
+    </div>
+
+    <div id=footer class=clearfix>
+
+  <div class="clearfix">
+    <div id=sharing-ingenuity class=hidetext><span>Sharing Ingenuity</span></div>
+    <div id=social-spew>
+      <ul>
+        <li class=github><a href="http://www.github.com/sparkfun" target="_blank" class=hidetext><span>GitHub</span></a></li>
+        <li class=youtube><a href="http://www.youtube.com/sparkfun" target="_blank" class=hidetext><span>YouTube</span></a></li>
+        <li class=vimeo><a href="http://www.vimeo.com/sparkfun" target="_blank" class=hidetext><span>Vimeo</span></a></li>
+        <li class=gplus><a href="https://plus.google.com/106084846822083498483/" target="_blank" class=hidetext><span>Google Plus</span></a></li>
+        <li class=facebook><a href="http://www.facebook.com/SparkFun" target="_blank" class=hidetext><span>Facebook</span></a></li>
+        <li class=flickr><a href="http://www.flickr.com/photos/sparkfun/" target="_blank" class=hidetext><span>Flickr</span></a></li>
+        <li class=twitter><a href="https://twitter.com/#!/sparkfun" target="_blank" class=hidetext><span>Twitter</span></a></li>
+        <li class=rss><a href="https://www.sparkfun.com/feeds" class=hidetext><span>RSS</span></a></li>
+      </ul>
+    </div>
+  </div>
+
+</div>
+
+  <div id=subfooter>
+    <div class=clearfix id=footer-cols>
+      <div class=col>
+        <h2>SparkFun?</h2>
+        <p>
+          SparkFun is an online retail store that sells the bits and pieces to
+          make your electronics projects possible. Whether it's a robot that can
+          cook your breakfast or a GPS cat tracking device, our products and
+          resources are designed to make the world of electronics more accessible
+          to the average person. In addition to products, SparkFun also offers
+          classes and a number of online tutorials designed to help educate
+          individuals in the wonderful world of embedded electronics.
+        </p>
+      </div>
+      <div class=col>
+        <h2>Resources</h2>
+        <ul class="resources">
+          <li>
+            <a title="RSS Feeds" href="https://www.sparkfun.com/feeds">Feeds</a><img src="https://dlnmh9ip6v2uc.cloudfront.net/images/icons/rss-noborder.png" />
+          </li>
+          <li><a href="http://forum.sparkfun.com/">Forum</a></li>
+          <li><a href="http://learn.sparkfun.com/">SparkFun Education</a></li>
+          <li><a href="http://www.sparkfun.com/news/263">SparkFun IRC Channel</a></li>
+          <li><a href="http://www.batchpcb.com/" title="Custom PCB fabrication">BatchPCB</a></li>
+          <li><a href="https://www.sparkfun.com/jobs">Jobs @ SparkFun</a></li>
+          <li><a href="https://www.sparkfun.com/tutorials/315">Sell Your Widget on SparkFun</a></li>
+          <li><a href="https://www.sparkfun.com/distributors/apply">Become a SparkFun Distributor</a></li>
+          <li><a href="https://www.sparkfun.com/sponsor/index">Request SparkFun Sponsorship</a></li>
+          <li><a href="https://www.sparkfun.com/quiz">Take the SparkFun Quiz</a></li>
+          <li><a href="https://www.sparkfun.com/project_calls">Tell us about a project</a></li>
+          <li><a href="http://www.kickstarter.com/pages/sparkfun">SparkFun Kickstarter Projects</a></li>
+                  </ul>
+      </div>
+      <div class="col col-wide">
+        <h2>Feedback</h2>
+        <form id="feedback" action="/feedback/mind.json" method="POST">
+  <input type="hidden" name="sparkaptcha" id="sparkaptcha" value="0">
+  <div class="error" id="error_feedback" style="display: none; color: #F03528; font-weight: bold; margin-bottom: 5px;"></div>
+  <label for="feedback_textarea" style="font-weight: bold">What's on your mind?</label>
+  <br />
+  <textarea id="feedback_textarea" name="feedback_text"></textarea>
+  <div class="error" id="error_feedback_text" style="display: none; color: #F03528; font-weight: bold; padding-left: 2px;"></div>
+  <br />
+  <label for="dest">For which department?</label><br/>
+  <select name="dest" id="feedback_dest" style="width: 99%">
+    <option value="general">General</option>
+    <option value="cust">Customer Service</option>
+    <option value="tech">Tech Support</option>
+  </select>
+  <br/><br/>
+  <label for="feedback_email">Please include your email address if you'd like us to respond to a specific question.</label>
+  <br />
+  <br />
+  <input type="text" id="feedback_email" name="email" />
+  <div class="error" id="error_feedback_email" style="display: none; color: #F03528; font-weight: bold; padding-left: 2px; margin-bottom: 5px;"></div>
+  <input onclick="$(this).sfeutil('mind_feedback'); return(false);" type="button" class="button" value="Submit" />
+</form>
+<script>
+  $(document).bind('loaded', function() {
+    $('#sparkaptcha').val(1);
+  });
+</script>
+      </div>
+    </div>
+  </div>
+
+<div id=copyleft>
+  <p>
+    SparkFun Electronics <a href="https://www.sparkfun.com/news/300">&reg;</a>    <span class="wide">|</span>
+    <a href="http://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=6175+Longbow+Dr,+Boulder,+CO+80301&sll=40.006234,-105.224915&sspn=0.012113,0.020192&ie=UTF8&hq=&hnear=6175+Longbow+Dr,+Boulder,+Colorado+80301&t=h&z=16">Boulder, Colorado</a>
+    <span class="wide">|</span>
+    <a href="https://www.sparkfun.com/static/customer_service">Customer Service</a>
+  </p>
+</div>
+
+        <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-3404365-1']);
+      _gaq.push(['_trackPageview']);
+      _gaq.push(['_trackPageLoadTime']);
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+    
+    <script data-cfasync="false" type='text/javascript'>/*{literal}<![CDATA[*/
+    window.olark||(function(c){var f=window,d=document,l=f.location.protocol=="https:"?"https:":"http:",z=c.name,r="load";var nt=function(){f[z]=function(){(a.s=a.s||[]).push(arguments)};var a=f[z]._={},q=c.methods.length;while(q--){(function(n){f[z][n]=function(){f[z]("call",n,arguments)}})(c.methods[q])}a.l=c.loader;a.i=nt;a.p={0:+new Date};a.P=function(u){a.p[u]=new Date-a.p[0]};function s(){a.P(r);f[z](r)}f.addEventListener?f.addEventListener(r,s,false):f.attachEvent("on"+r,s);var ld=function(){function p(hd){hd="head";return["<",hd,"></",hd,"><",i,' onl' + 'oad="var d=',g,";d.getElementsByTagName('head')[0].",j,"(d.",h,"('script')).",k,"='",l,"//",a.l,"'",'"',"></",i,">"].join("")}var i="body",m=d[i];if(!m){return setTimeout(ld,100)}a.P(1);var j="appendChild",h="createElement",k="src",n=d[h]("div"),v=n[j](d[h](z)),b=d[h]("iframe"),g="document",e="domain",o;n.style.display="none";m.insertBefore(n,m.firstChild).id=z;b.frameBorder="0";b.id=z+"-loader";if(/MSIE[ ]+6/.test(navigator.userAgent)){b.src="javascript:false"}b.allowTransparency="true";v[j](b);try{b.contentWindow[g].open()}catch(w){c[e]=d[e];o="javascript:var d="+g+".open();d.domain='"+d.domain+"';";b[k]=o+"void(0);"}try{var t=b.contentWindow[g];t.write(p());t.close()}catch(x){b[k]=o+'d.write("'+p().replace(/"/g,String.fromCharCode(92)+'"')+'");d.close();'}a.P(2)};ld()};nt()})({loader: "static.olark.com/jsclient/loader0.js",name:"olark",methods:["configure","extend","declare","identify"]});
+    olark.identify('4728-501-10-9212');/*]]>{/literal}*/</script><noscript><a href="https://www.olark.com/site/4728-501-10-9212/contact" title="Contact us" target="_blank">Questions? Feedback?</a> powered by <a href="http://www.olark.com?welcome" title="Olark live chat software">Olark live chat software</a></noscript>
+
+  </body>
+</html>
+
