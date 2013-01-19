@@ -1,0 +1,414 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><link rel="shortcut icon" href="/favicon.ico" /><link rel="search" type="application/opensearchdescription+xml" href="/haskellwiki/opensearch_desc.php" title="HaskellWiki (English)" /><link title="Creative Commons" type="application/rdf+xml" href="/haskellwiki/index.php?title=QuickCheck_as_a_test_set_generator&amp;action=creativecommons" rel="meta" /><link rel="copyright" href="/haskellwiki/HaskellWiki:Copyrights" /><link rel="alternate" type="application/rss+xml" title="HaskellWiki RSS Feed" href="http://www.haskell.org/haskellwiki/index.php?title=Special:Recentchanges&amp;feed=rss" /><link rel="alternate" type="application/atom+xml" title="HaskellWiki Atom Feed" href="http://www.haskell.org/haskellwiki/index.php?title=Special:Recentchanges&amp;feed=atom" /><title>QuickCheck as a test set generator - HaskellWiki</title> <style type="text/css" media="screen, projection">/**/@import"/wikistatic/skins//common/shared.css?116";@import"/wikistatic/skins//hawiki/main.css?116";/**/</style> <link rel="stylesheet" type="text/css" media="print" href="/wikistatic/skins//common/commonPrint.css?116" /><!--[if lt IE 5.5000]><style type="text/css">@import"/wikistatic/skins//hawiki/IE50Fixes.css?116";</style><![endif]--> <!--[if IE 5.5000]><style type="text/css">@import"/wikistatic/skins//hawiki/IE55Fixes.css?116";</style><![endif]--> <!--[if IE 6]><style type="text/css">@import"/wikistatic/skins//hawiki/IE60Fixes.css?116";</style><![endif]--> <!--[if IE 7]><style type="text/css">@import"/wikistatic/skins//hawiki/IE70Fixes.css?116";</style><![endif]--> <!--[if lte IE 7]><script type="text/javascript" src="/wikistatic/skins//hawiki/IEFixes.js?116"></script> <meta http-equiv="imagetoolbar" content="no" /><![endif]--><script type="text/javascript">var isMSIE55 = (window.showModalDialog && window.clipboardData && window.createPopup); /*alert("test: " + isMSIE55);*/</script> <script type="text/javascript">/*<![CDATA[*/
+var skin = "hawiki";
+var stylepath = "/wikistatic/skins/";
+var wgArticlePath = "/haskellwiki/$1";
+var wgScriptPath = "/haskellwiki";
+var wgScript = "/haskellwiki/index.php";
+var wgServer = "http://www.haskell.org";
+var wgCanonicalNamespace = "";
+var wgCanonicalSpecialPageName = false;
+var wgNamespaceNumber = 0;
+var wgPageName = "QuickCheck_as_a_test_set_generator";
+var wgTitle = "QuickCheck as a test set generator";
+var wgAction = "view";
+var wgRestrictionEdit = [];
+var wgRestrictionMove = [];
+var wgArticleId = "1490";
+var wgIsArticle = true;
+var wgUserName = null;
+var wgUserGroups = null;
+var wgUserLanguage = "en";
+var wgContentLanguage = "en";
+var wgBreakFrames = false;
+var wgCurRevisionId = "42761";
+var wgVersion = "1.12.0";
+var wgEnableAPI = true;
+var wgEnableWriteAPI = false;
+/*]]>*/</script> <script type="text/javascript" src="/wikistatic/skins//common/wikibits.js?116"><!-- --></script>
+		<!-- Head Scripts -->
+		<script type="text/javascript" src="/wikistatic/skins//common/ajax.js?116"></script>
+<style type="text/css">/*<![CDATA[*/
+.source-haskell {line-height: normal;}
+.source-haskell li {line-height: normal;}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for haskell
+ * CSS class: source-haskell, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.source-haskell .de1, .source-haskell .de2 {font-family: 'Courier New', Courier, monospace; font-weight: normal; font-style: normal;}
+.source-haskell  {}
+.source-haskell .head {}
+.source-haskell .foot {}
+.source-haskell .imp {font-weight: bold; color: red;}
+.source-haskell li, .source-haskell li.li1 {font-weight: normal;}
+.source-haskell li.li2 {font-weight: bold;}
+.source-haskell .kw1 {color: #06c; font-weight: bold;}
+.source-haskell .kw2 {color: #06c; font-weight: bold;}
+.source-haskell .kw3 {font-weight: bold;}
+.source-haskell .kw4 {color: #cccc00; font-weight: bold;}
+.source-haskell .kw5 {color: maroon;}
+.source-haskell .co1 {color: #5d478b; font-style: italic;}
+.source-haskell .co2 {color: #339933; font-weight: bold;}
+.source-haskell .coMULTI {color: #5d478b; font-style: italic;}
+.source-haskell .es0 {background-color: #3cb371; font-weight: bold;}
+.source-haskell .br0 {color: green;}
+.source-haskell .sy0 {color: #339933; font-weight: bold;}
+.source-haskell .st0 {background-color: #3cb371;}
+.source-haskell .nu0 {color: red;}
+.source-haskell .me1 {color: #060;}
+.source-haskell .ln-xtra, .source-haskell li.ln-xtra, .source-haskell div.ln-xtra {color: #cc0; background-color: #ffc;}
+
+/*]]>*/
+</style>
+<style type="text/css">/*<![CDATA[*/
+@import "/haskellwiki/index.php?title=MediaWiki:Geshi.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=18000";
+/*]]>*/
+</style>		<script type="text/javascript" src="/haskellwiki/index.php?title=-&amp;action=raw&amp;gen=js&amp;useskin=hawiki"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "/haskellwiki/index.php?title=MediaWiki:Common.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=18000";
+@import "/haskellwiki/index.php?title=MediaWiki:Hawiki.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=18000";
+@import "/haskellwiki/index.php?title=-&action=raw&gen=css&maxage=18000&useskin=hawiki";
+/*]]>*/</style>
+	</head>
+<body class="mediawiki ltr page-QuickCheck_as_a_test_set_generator ">
+   <div id="topbar" class="noprint">
+	<div class="portlet noprint" id="p-personal">
+		<h5>Personal tools</h5>
+		<div class="pBody">
+			<ul><li><a class="homebutton" href="/haskellwiki/Haskell">Home</a></li>
+				<li id="pt-login"><a href="/haskellwiki/index.php?title=Special:Userlogin&amp;returnto=QuickCheck_as_a_test_set_generator" title="You are encouraged to log in, it is not mandatory however. [o]" accesskey="o">Log in / create account</a></li>
+			</ul>
+		</div>
+	</div>
+        	  <div id="p-search">
+	    <div id="searchBody" class="pBody">
+	       <form action="/haskellwiki/index.php" id="searchform"><div>
+	          <input type='hidden' name="title" value=""/>
+	          <input id="searchInput" name="search" type="text" title="Search HaskellWiki [f]" accesskey="f" value="" />
+				<input type='submit' name="go" class="searchButton" id="searchGoButton"	value="Go" title="Go to a page with this exact name if exists" />&nbsp;
+				<input type='submit' name="fulltext" class="searchButton" id="mw-searchButton" value="Search" title="Search the pages for this text" />
+
+	         </div></form>
+	    </div>
+	  </div>
+   </div>
+	<div id="globalWrapper">
+	<div class="portlet" id="p-logo">
+		<a style="background-image: url(/wikistatic/haskellwiki_logo.png);" href="/haskellwiki/Haskell" title="Main Page"></a>
+	</div>
+	<div id="column-content">
+        <div id="notice-area" class="noprint">
+        <!-- ?php $this->data['sitenotice'] = 'This is a test instance.  Do not edit, your changes will be lost.'; ? -->
+			        </div>
+        <div id="content-wrapper">
+	<div id="p-cactions" class="portlet noprint">
+		<h5>Views</h5>
+		<div class="pBody">
+			<ul>
+	
+				 <li id="ca-nstab-main" class="selected"><a href="/haskellwiki/QuickCheck_as_a_test_set_generator" title="View the content page [c]" accesskey="c">Page</a></li>
+				 <li id="ca-talk" class="new"><a href="/haskellwiki/index.php?title=Talk:QuickCheck_as_a_test_set_generator&amp;action=edit" title="Discussion about the content page [t]" accesskey="t">Discussion</a></li>
+				 <li id="ca-viewsource"><a href="/haskellwiki/index.php?title=QuickCheck_as_a_test_set_generator&amp;action=edit" title="This page is protected. You can view its source. [e]" accesskey="e">View source</a></li>
+				 <li id="ca-history"><a href="/haskellwiki/index.php?title=QuickCheck_as_a_test_set_generator&amp;action=history" title="Past versions of this page. [h]" accesskey="h">History</a></li>			</ul>
+		</div>
+	</div>
+                        <div id="content">
+		<a name="top" id="top"></a>
+                        <h1 id="firstHeading" class="firstHeading">QuickCheck as a test set generator</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From HaskellWiki</h3>
+			<div id="contentSub"></div>
+			<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<center><span style="font-size:xx-large; font-weight:bold">Haskell as an ultimate "smoke testing" tool </span><p>OR</p> <p><span style="font-size:x-large; font-weight:bold">Using QuickCheck as a DIY test data generator</span></p></center>
+<table id="toc" class="toc" summary="Contents"><tr><td><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1"><a href="#Preface"><span class="tocnumber">1</span> <span class="toctext">Preface</span></a></li>
+<li class="toclevel-1"><a href="#The_fame_of_Quick_Check"><span class="tocnumber">2</span> <span class="toctext">The fame of Quick Check</span></a></li>
+<li class="toclevel-1"><a href="#Concept_of_the_Variant"><span class="tocnumber">3</span> <span class="toctext">Concept of the Variant</span></a></li>
+<li class="toclevel-1"><a href="#Helper_tools"><span class="tocnumber">4</span> <span class="toctext">Helper tools</span></a></li>
+<li class="toclevel-1"><a href="#Producing_test_data"><span class="tocnumber">5</span> <span class="toctext">Producing test data</span></a></li>
+<li class="toclevel-1"><a href="#Deriving_Variant_instances_automagically"><span class="tocnumber">6</span> <span class="toctext">Deriving Variant instances automagically</span></a></li>
+</ul>
+</td></tr></table><script type="text/javascript"> if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } </script>
+<a name="Preface"></a><h2> <span class="mw-headline">1  Preface </span></h2>
+<p>Recently, my wife approached me with the following problem: they had to
+test their re-implementation (in Java) of the part of the huge
+software system previously written in C++. The original system is poorly
+documented and only a small part of the sources were available.
+</p><p>Among other things, they had to write a parser for home-brewn DSL
+designed to describe data structures. The DSL is a mix of ASN.1 and BNF
+grammars, describes a structure of some data records and simple
+business rules relevant to processing of said record. The DSL is not
+Turing-complete, but allows user to define it's own functions,
+specify math and boolean expression on fields and was designed as
+"ASN.1 on steroids".
+</p><p>Problem is, that their implementation (in JavaCC) on this DSL parser
+was based on the single available description of the DSL grammar,
+which was presumably incomplete. They tested implementation on several
+examples available, but the question remained how to test the parser on a
+large subset of data in order to be fairly sure that "everything
+works"
+</p>
+<a name="The_fame_of_Quick_Check"></a><h2> <span class="mw-headline">2  The fame of Quick Check </span></h2>
+<p>My wife observed me during the last (2005) ICFP contest and was amazed
+at the ease with which our team has tested our protocol parser and
+printer using Quick Check. So, she asked me whether it is possible to
+generate pseudo-random test data in the similar manner for use
+"outside" of Haskell?
+</p><p>"Why not?" I thought. After all, I found it quite easy to generate
+instances of 'Arbitrary' for quite complex data structures.
+</p>
+<a name="Concept_of_the_Variant"></a><h2> <span class="mw-headline">3  Concept of the <b>Variant</b> </span></h2>
+<p>The task was formulated as follows:
+</p>
+<ul><li> The task is to generate test datasets for the external program. Each dataset consists of several files, each containing 1 "record"
+</li></ul>
+<ul><li> A "record" is essentially a Haskell data type
+</li></ul>
+<ul><li> We must be able to generate pseudo-random "valid" and "invalid" data, to test that external program consumes all "valid" samples and fails to consume all "invalid" ones. Deviation from this behavior signifies an error in external program.
+</li></ul>
+<p>Lets capture this notion of "valid" and "invalid" data in a type
+class:
+</p>
+<div dir="ltr" style="text-align: left;"><pre class="source-haskell"><span class="kw1">module</span> Variant <span class="kw1">where</span>
+&nbsp;
+<span class="kw1">import</span> Control<span class="sy0">.</span><span class="kw4">Monad</span>
+<span class="kw1">import</span> Test<span class="sy0">.</span>QuickCheck
+&nbsp;
+<span class="kw1">class</span> Variant a <span class="kw1">where</span>
+  valid   <span class="sy0">::</span> Gen a
+  invalid <span class="sy0">::</span> Gen a</pre></div>  
+<p>So, in order to make a set of test data of some type, the user must
+provide means to generate "valid" and "invalid" data of this type.
+</p><p>If we can make a "valid" Foo (for suitable "data Foo = ...") and
+"invalid" Foo, then we should also be able to make a "random" Foo:
+</p>
+<div dir="ltr" style="text-align: left;"><pre class="source-haskell"><span class="kw1">instance</span> Variant a <span class="sy0">=&gt;</span> Arbitrary a <span class="kw1">where</span>
+  arbitrary   <span class="sy0">=</span> oneof <span class="br0">&#91;</span>valid<span class="sy0">,</span> invalid<span class="br0">&#93;</span></pre></div>
+<p>Thus, taking for example the following definition for our
+"data-to-test":
+</p>
+<div dir="ltr" style="text-align: left;"><pre class="source-haskell"><span class="kw1">data</span> Record     <span class="sy0">=</span> InputRecord Name Number
+                 <span class="sy0">|</span> OutputRecord Name Number OutputType <span class="kw1">deriving</span> <span class="kw4">Show</span>
+ <span class="kw1">data</span> Number     <span class="sy0">=</span> Number <span class="kw4">String</span>                       <span class="kw1">deriving</span> <span class="kw4">Show</span>
+ <span class="kw1">data</span> Name       <span class="sy0">=</span> Name <span class="kw4">String</span>                         <span class="kw1">deriving</span> <span class="kw4">Show</span>
+ <span class="kw1">data</span> OutputType <span class="sy0">=</span> OutputType <span class="kw4">String</span>                   <span class="kw1">deriving</span> <span class="kw4">Show</span></pre></div>
+<p>we could produce the following instances of the class "Variant":
+</p>
+<div dir="ltr" style="text-align: left;"><pre class="source-haskell"><span class="co1">-- For definition of `neStringOf` see below, for now it is sufficient</span>
+<span class="co1">-- to say that `neStringOf first next` produces non-empty string whose</span>
+<span class="co1">-- first character is taken from `first` and all subsequent - from</span>
+<span class="co1">-- `next`</span>
+garbledString <span class="sy0">=</span> neStringOf <span class="st0">&quot;.,_+-&quot;</span> <span class="st0">&quot;abc0!@#$%^&amp;*().&quot;</span>
+<span class="kw1">instance</span> Variant Number <span class="kw1">where</span>
+  valid   <span class="sy0">=</span> liftM Number <span class="sy0">$</span> resize <span class="nu0">4</span> <span class="sy0">$</span> neStringOf <span class="st0">&quot;123456789&quot;</span> <span class="st0">&quot;0123456789&quot;</span>
+  invalid <span class="sy0">=</span> liftM Number <span class="sy0">$</span> resize <span class="nu0">4</span> <span class="sy0">$</span> garbledString
+<span class="kw1">instance</span> Variant Name <span class="kw1">where</span>
+  valid   <span class="sy0">=</span> liftM Name <span class="sy0">$</span> elements <span class="br0">&#91;</span> <span class="st0">&quot;foo&quot;</span><span class="sy0">,</span> <span class="st0">&quot;bar&quot;</span><span class="sy0">,</span> <span class="st0">&quot;baz&quot;</span> <span class="br0">&#93;</span>
+  invalid <span class="sy0">=</span> liftM Name garbledString
+<span class="kw1">instance</span> Variant OutputType <span class="kw1">where</span>
+  valid   <span class="sy0">=</span> liftM OutputType <span class="sy0">$</span> elements <span class="br0">&#91;</span> <span class="st0">&quot;Binary&quot;</span><span class="sy0">,</span> <span class="st0">&quot;Ascii&quot;</span> <span class="br0">&#93;</span>
+  invalid <span class="sy0">=</span> liftM OutputType garbledString
+&nbsp;
+<span class="kw1">instance</span> Variant Record <span class="kw1">where</span>
+  valid   <span class="sy0">=</span> oneof <span class="br0">&#91;</span> liftM2 InputRecord  valid   valid
+                  <span class="sy0">,</span> liftM3 OutputRecord valid   valid   valid <span class="br0">&#93;</span>
+  invalid <span class="sy0">=</span> oneof <span class="br0">&#91;</span> liftM2 InputRecord  valid   invalid
+                  <span class="sy0">,</span> liftM2 InputRecord  invalid valid
+                  <span class="sy0">,</span> liftM2 InputRecord  invalid invalid
+                  <span class="sy0">,</span> liftM3 OutputRecord invalid valid   valid 
+                  <span class="sy0">,</span> liftM3 OutputRecord valid   invalid valid 
+                  <span class="sy0">,</span> liftM3 OutputRecord valid   valid   invalid
+                  <span class="sy0">,</span> liftM3 OutputRecord invalid invalid valid 
+                  <span class="sy0">,</span> liftM3 OutputRecord valid   invalid invalid 
+                  <span class="sy0">,</span> liftM3 OutputRecord invalid valid   invalid
+                  <span class="sy0">,</span> liftM3 OutputRecord invalid invalid invalid
+                  <span class="br0">&#93;</span></pre></div>
+<p>The careful reader will have already spotted that once we hand-coded the instances of 'Variant' for a few "basic" types (like 'Name', 'Number', 'OutputType' etc), defining instances of Variant for more complex datatypes becomes easy, though quite a tedious job. We call to the rescue a set of simple helpers to facilitate this task
+</p>
+<a name="Helper_tools"></a><h2> <span class="mw-headline">4  Helper tools </span></h2>
+<p>It could easily be seen that we consider an instance of a data type to be "invalid" if at least one of the arguments to the constructor is "invalid", whereas a "valid" instance should have all arguments to data type constructor to be "valid". This calls for some permutations:
+</p>
+<div dir="ltr" style="text-align: left;"><pre class="source-haskell">proper1 f <span class="sy0">=</span> liftM  f valid
+proper2 f <span class="sy0">=</span> liftM2 f valid valid
+proper3 f <span class="sy0">=</span> liftM3 f valid valid valid
+proper4 f <span class="sy0">=</span> liftM4 f valid valid valid valid
+proper5 f <span class="sy0">=</span> liftM5 f valid valid valid valid valid
+&nbsp;
+bad1 f <span class="sy0">=</span> liftM f invalid
+bad2 f <span class="sy0">=</span> oneof <span class="sy0">$</span> <span class="kw3">tail</span> <span class="br0">&#91;</span> liftM2 f g1 g2 <span class="sy0">|</span> g1<span class="sy0">&lt;-</span><span class="br0">&#91;</span>valid<span class="sy0">,</span> invalid<span class="br0">&#93;</span><span class="sy0">,</span> g2<span class="sy0">&lt;-</span><span class="br0">&#91;</span>valid<span class="sy0">,</span> invalid<span class="br0">&#93;</span> <span class="br0">&#93;</span>
+bad3 f <span class="sy0">=</span> oneof <span class="sy0">$</span> <span class="kw3">tail</span> <span class="br0">&#91;</span> liftM3 f g1 g2 g3 <span class="sy0">|</span> g1<span class="sy0">&lt;-</span><span class="br0">&#91;</span>valid<span class="sy0">,</span> invalid<span class="br0">&#93;</span><span class="sy0">,</span> g2<span class="sy0">&lt;-</span><span class="br0">&#91;</span>valid<span class="sy0">,</span> invalid<span class="br0">&#93;</span><span class="sy0">,</span> g3<span class="sy0">&lt;-</span><span class="br0">&#91;</span>valid<span class="sy0">,</span> invalid<span class="br0">&#93;</span> <span class="br0">&#93;</span>
+bad4 f <span class="sy0">=</span> oneof <span class="sy0">$</span> <span class="kw3">tail</span> <span class="br0">&#91;</span> liftM4 f g1 g2 g3 g4 <span class="sy0">|</span> g1<span class="sy0">&lt;-</span><span class="br0">&#91;</span>valid<span class="sy0">,</span> invalid<span class="br0">&#93;</span><span class="sy0">,</span> g2<span class="sy0">&lt;-</span><span class="br0">&#91;</span>valid<span class="sy0">,</span> invalid<span class="br0">&#93;</span><span class="sy0">,</span> g3<span class="sy0">&lt;-</span><span class="br0">&#91;</span>valid<span class="sy0">,</span> invalid<span class="br0">&#93;</span><span class="sy0">,</span> g4<span class="sy0">&lt;-</span><span class="br0">&#91;</span>valid<span class="sy0">,</span> invalid<span class="br0">&#93;</span> <span class="br0">&#93;</span>
+bad5 f <span class="sy0">=</span> oneof <span class="sy0">$</span> <span class="kw3">tail</span> <span class="br0">&#91;</span> liftM5 f g1 g2 g3 g4 g5 <span class="sy0">|</span> g1<span class="sy0">&lt;-</span><span class="br0">&#91;</span>valid<span class="sy0">,</span> invalid<span class="br0">&#93;</span><span class="sy0">,</span> g2<span class="sy0">&lt;-</span><span class="br0">&#91;</span>valid<span class="sy0">,</span> invalid<span class="br0">&#93;</span><span class="sy0">,</span> g3<span class="sy0">&lt;-</span><span class="br0">&#91;</span>valid<span class="sy0">,</span> invalid<span class="br0">&#93;</span><span class="sy0">,</span> g4<span class="sy0">&lt;-</span><span class="br0">&#91;</span>valid<span class="sy0">,</span> invalid<span class="br0">&#93;</span><span class="sy0">,</span> g5<span class="sy0">&lt;-</span><span class="br0">&#91;</span>valid<span class="sy0">,</span> invalid<span class="br0">&#93;</span> <span class="br0">&#93;</span></pre></div>
+<p>With those helper definitions we could rewrite our Record instance as follows:
+</p>
+<div dir="ltr" style="text-align: left;"><pre class="source-haskell"><span class="kw1">instance</span> Variant Record <span class="kw1">where</span>
+  valid   <span class="sy0">=</span> oneof <span class="br0">&#91;</span> proper2 InputRecord
+                  <span class="sy0">,</span> proper3 OutputRecord <span class="br0">&#93;</span>
+  invalid <span class="sy0">=</span> oneof <span class="br0">&#91;</span> bad2 InputRecord
+                  <span class="sy0">,</span> bad3 OutputRecord <span class="br0">&#93;</span></pre></div>
+<p>Note the drastic decrease in the size of the declaration!
+</p><p>Oh, almost forgot to include the code for "neStringOf":
+</p>
+<div dir="ltr" style="text-align: left;"><pre class="source-haskell">neStringOf chars<span class="sy0">_</span>start chars<span class="sy0">_</span>rest <span class="sy0">=</span>
+  <span class="kw1">do</span> s <span class="sy0">&lt;-</span> elements chars<span class="sy0">_</span>start
+     r <span class="sy0">&lt;-</span> listOf' <span class="sy0">$</span> elements chars<span class="sy0">_</span>rest
+     <span class="kw3">return</span> <span class="br0">&#40;</span>s:r<span class="br0">&#41;</span>
+&nbsp;
+listOf' <span class="sy0">::</span> Gen a <span class="sy0">-&gt;</span> Gen <span class="br0">&#91;</span>a<span class="br0">&#93;</span>
+listOf' gen <span class="sy0">=</span> sized <span class="sy0">$</span> \n <span class="sy0">-&gt;</span>
+  <span class="kw1">do</span> k <span class="sy0">&lt;-</span> choose <span class="br0">&#40;</span><span class="nu0">0</span><span class="sy0">,</span>n<span class="br0">&#41;</span>
+     vectorOf' k gen
+&nbsp;
+vectorOf' <span class="sy0">::</span> <span class="kw4">Int</span> <span class="sy0">-&gt;</span> Gen a <span class="sy0">-&gt;</span> Gen <span class="br0">&#91;</span>a<span class="br0">&#93;</span>
+vectorOf' k gen <span class="sy0">=</span> <span class="kw3">sequence</span> <span class="br0">&#91;</span> gen <span class="sy0">|</span> <span class="sy0">_</span> <span class="sy0">&lt;-</span> <span class="br0">&#91;</span><span class="nu0">1</span><span class="sy0">..</span>k<span class="br0">&#93;</span> <span class="br0">&#93;</span></pre></div>
+<a name="Producing_test_data"></a><h2> <span class="mw-headline">5  Producing test data </span></h2>
+<p>OK, but how to use all those fancy declarations to actually produce some test data?
+</p><p>Let's take a look at the following code:
+</p>
+<div dir="ltr" style="text-align: left;"><pre class="source-haskell"><span class="kw1">import</span> Control<span class="sy0">.</span><span class="kw4">Monad</span>
+<span class="kw1">import</span> System<span class="sy0">.</span><span class="kw4">IO</span>
+<span class="kw1">import</span> Test<span class="sy0">.</span>QuickCheck
+&nbsp;
+<span class="kw1">data</span> DataDefinition <span class="sy0">=</span> DataDefinition Name Record
+&nbsp;
+main <span class="sy0">=</span> 
+  <span class="kw1">do</span> <span class="kw1">let</span> num <span class="sy0">=</span> <span class="nu0">200</span>       <span class="co1">-- Number of test cases in each dataset.</span>
+     <span class="kw1">let</span> config <span class="sy0">=</span>        <span class="co1">-- Describe several test datasets for &quot;DataDefinition&quot;</span>
+                         <span class="co1">-- by defining how we want each component of DataDefinition</span>
+                         <span class="co1">-- for each particular dataset - valid, invalid or random</span>
+           <span class="br0">&#91;</span> <span class="br0">&#40;</span><span class="st0">&quot;All_Valid&quot;</span><span class="sy0">,</span>       <span class="st0">&quot;txt&quot;</span><span class="sy0">,</span>  num<span class="sy0">,</span> <span class="br0">&#40;</span>valid<span class="sy0">,</span>     valid    <span class="br0">&#41;</span><span class="br0">&#41;</span>
+           <span class="sy0">,</span> <span class="br0">&#40;</span><span class="st0">&quot;Invalid_Name&quot;</span><span class="sy0">,</span>    <span class="st0">&quot;txt&quot;</span><span class="sy0">,</span>  num<span class="sy0">,</span> <span class="br0">&#40;</span>invalid<span class="sy0">,</span>   valid    <span class="br0">&#41;</span><span class="br0">&#41;</span>
+           <span class="sy0">,</span> <span class="br0">&#40;</span><span class="st0">&quot;Invalid_Record&quot;</span> <span class="sy0">,</span> <span class="st0">&quot;txt&quot;</span> <span class="sy0">,</span> num<span class="sy0">,</span> <span class="br0">&#40;</span>valid<span class="sy0">,</span>     invalid  <span class="br0">&#41;</span><span class="br0">&#41;</span>
+           <span class="sy0">,</span> <span class="br0">&#40;</span><span class="st0">&quot;Random&quot;</span><span class="sy0">,</span>          <span class="st0">&quot;txt&quot;</span><span class="sy0">,</span>  num<span class="sy0">,</span> <span class="br0">&#40;</span>arbitrary<span class="sy0">,</span> arbitrary<span class="br0">&#41;</span><span class="br0">&#41;</span>
+           <span class="br0">&#93;</span>
+     <span class="kw3">mapM_</span> create<span class="sy0">_</span>test<span class="sy0">_</span>set config
+&nbsp;
+create<span class="sy0">_</span>test<span class="sy0">_</span>set <span class="br0">&#40;</span>fname<span class="sy0">,</span> ext<span class="sy0">,</span> count<span class="sy0">,</span> gens<span class="br0">&#41;</span> <span class="sy0">=</span>
+  <span class="kw1">do</span> test<span class="sy0">_</span>set <span class="sy0">&lt;-</span> sample' <span class="sy0">$</span> vectorOf count <span class="br0">&#40;</span>mkDataDef gens<span class="br0">&#41;</span>
+     zipWithM<span class="sy0">_</span> <span class="br0">&#40;</span>writeToFile fname ext<span class="br0">&#41;</span> <span class="br0">&#91;</span><span class="nu0">1</span><span class="sy0">..</span><span class="br0">&#93;</span> test<span class="sy0">_</span>set 
+  <span class="kw1">where</span>
+  mkDataDef <span class="br0">&#40;</span>gen<span class="sy0">_</span>name<span class="sy0">,</span> gen<span class="sy0">_</span>rec<span class="br0">&#41;</span> <span class="sy0">=</span> liftM2 DataDefinition gen<span class="sy0">_</span>name gen<span class="sy0">_</span>rec
+&nbsp;
+writeToFile name<span class="sy0">_</span>prefix suffix n x <span class="sy0">=</span>
+  <span class="kw1">do</span> h <span class="sy0">&lt;-</span> openFile <span class="br0">&#40;</span>name<span class="sy0">_</span>prefix <span class="sy0">++</span> <span class="st0">&quot;_&quot;</span> <span class="sy0">++</span> pad n <span class="sy0">++</span> <span class="st0">&quot;.&quot;</span> <span class="sy0">++</span> suffix<span class="br0">&#41;</span> WriteMode 
+     hPutStrLn h <span class="sy0">$</span> <span class="kw3">show</span> x
+     hClose h 
+  <span class="kw1">where</span> pad n <span class="sy0">=</span> <span class="kw3">reverse</span> <span class="sy0">$</span> <span class="kw3">take</span> <span class="nu0">4</span> <span class="sy0">$</span> <span class="br0">&#40;</span><span class="kw3">reverse</span> <span class="sy0">$</span> <span class="kw3">show</span> n<span class="br0">&#41;</span> <span class="sy0">++</span> <span class="br0">&#40;</span><span class="kw3">repeat</span> '<span class="nu0">0</span>'<span class="br0">&#41;</span></pre></div>
+<p>You see that we could control size, nature and destination of each test dataset. This approach was taken to produce test datasets for the task I described earlier. The final Haskell module had definitions for 40 Haskell datatypes, and the topmost datatype had a single constructor with 9 fields. 
+</p><p>This proved to be A Whole Lot Of Code(tm), and declaration of "instance Variant ..." proved to be a good 30% of total amount. Since most of them were variations of the "oneof [proper Foo, proper2 Bar, proper4 Baz]" theme, I started looking for a way so simplify/automate generation of such instances.
+</p>
+<a name="Deriving_Variant_instances_automagically"></a><h2> <span class="mw-headline">6  Deriving Variant instances automagically </span></h2>
+<p>I took a a post made by Bulat Ziganshin on TemplateHaskell mailing list to show how to derive instances of 'Show' automatically, and hacked it to be able to derive instances of "Variant" in much the same way:
+</p>
+<div dir="ltr" style="text-align: left;"><pre class="source-haskell"><span class="kw1">import</span> Language<span class="sy0">.</span>Haskell<span class="sy0">.</span>TH
+<span class="kw1">import</span> Language<span class="sy0">.</span>Haskell<span class="sy0">.</span>TH<span class="sy0">.</span>Syntax
+&nbsp;
+<span class="kw1">data</span> T3 <span class="sy0">=</span> T3 <span class="kw4">String</span>
+&nbsp;
+deriveVariant t <span class="sy0">=</span> <span class="kw1">do</span>
+  <span class="co1">-- Get list of constructors for type t</span>
+  TyConI <span class="br0">&#40;</span>DataD <span class="sy0">_</span> <span class="sy0">_</span> <span class="sy0">_</span> constructors <span class="sy0">_</span><span class="br0">&#41;</span>  <span class="sy0">&lt;-</span>  reify t
+&nbsp;
+  <span class="co1">-- Make `valid` or `invalid` clause for one constructor:</span>
+  <span class="co1">--   for &quot;(A x1 x2)&quot; makes &quot;Variant.proper2 A&quot;</span>
+  <span class="kw1">let</span> mkClause f <span class="br0">&#40;</span>NormalC name fields<span class="br0">&#41;</span> <span class="sy0">=</span> 
+        appE <span class="br0">&#40;</span>varE <span class="br0">&#40;</span>mkName <span class="br0">&#40;</span><span class="st0">&quot;Variant.&quot;</span><span class="sy0">++</span>f<span class="sy0">++</span><span class="kw3">show</span><span class="br0">&#40;</span><span class="kw3">length</span> fields<span class="br0">&#41;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="br0">&#40;</span>conE name<span class="br0">&#41;</span>
+&nbsp;
+  <span class="co1">-- Make body for functions `valid` and `invalid`:</span>
+  <span class="co1">--   valid = oneof [ proper2 A | proper1 C]</span>
+  <span class="co1">--   or</span>
+  <span class="co1">--   valid = proper3 B, depending on the number of constructors</span>
+  validBody <span class="sy0">&lt;-</span> <span class="kw1">case</span> constructors <span class="kw1">of</span>
+                    <span class="br0">&#91;</span>c<span class="br0">&#93;</span> <span class="sy0">-&gt;</span> normalB <span class="br0">&#91;</span><span class="sy0">|</span> <span class="sy0">$</span><span class="br0">&#40;</span>mkClause <span class="st0">&quot;proper&quot;</span> c<span class="br0">&#41;</span> <span class="sy0">|</span><span class="br0">&#93;</span>
+                    cs  <span class="sy0">-&gt;</span> normalB <span class="br0">&#91;</span><span class="sy0">|</span> oneof <span class="sy0">$</span><span class="br0">&#40;</span>listE <span class="br0">&#40;</span><span class="kw3">map</span> <span class="br0">&#40;</span>mkClause <span class="st0">&quot;proper&quot;</span><span class="br0">&#41;</span> cs<span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="sy0">|</span><span class="br0">&#93;</span>
+  invalidBody <span class="sy0">&lt;-</span> <span class="kw1">case</span> constructors <span class="kw1">of</span>
+                      <span class="br0">&#91;</span>c<span class="br0">&#93;</span> <span class="sy0">-&gt;</span> normalB <span class="br0">&#91;</span><span class="sy0">|</span> <span class="sy0">$</span><span class="br0">&#40;</span>mkClause <span class="st0">&quot;bad&quot;</span> c<span class="br0">&#41;</span> <span class="sy0">|</span><span class="br0">&#93;</span>
+                      cs  <span class="sy0">-&gt;</span> normalB <span class="br0">&#91;</span><span class="sy0">|</span> oneof <span class="sy0">$</span><span class="br0">&#40;</span>listE <span class="br0">&#40;</span><span class="kw3">map</span> <span class="br0">&#40;</span>mkClause <span class="st0">&quot;bad&quot;</span><span class="br0">&#41;</span> cs<span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="sy0">|</span><span class="br0">&#93;</span>
+&nbsp;
+  <span class="co1">-- Generate template instance declaration and replace type name (T1)</span>
+  <span class="co1">--   and function body (x = &quot;text&quot;) with our data</span>
+  d <span class="sy0">&lt;-</span> <span class="br0">&#91;</span>d<span class="sy0">|</span> <span class="kw1">instance</span> Variant T3 <span class="kw1">where</span>
+             valid   <span class="sy0">=</span> liftM T3 valid
+             invalid <span class="sy0">=</span> liftM T3 invalid
+       <span class="sy0">|</span><span class="br0">&#93;</span>
+  <span class="kw1">let</span>    <span class="br0">&#91;</span>InstanceD <span class="br0">&#91;</span><span class="br0">&#93;</span> <span class="br0">&#40;</span>AppT showt <span class="br0">&#40;</span>ConT <span class="sy0">_</span>T3<span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="br0">&#91;</span> ValD validf <span class="sy0">_</span>valid <span class="br0">&#91;</span><span class="br0">&#93;</span><span class="sy0">,</span> ValD invalidf <span class="sy0">_</span>invalid <span class="br0">&#91;</span><span class="br0">&#93;</span> <span class="br0">&#93;</span><span class="br0">&#93;</span> <span class="sy0">=</span> d
+  <span class="kw3">return</span> <span class="br0">&#91;</span>InstanceD <span class="br0">&#91;</span><span class="br0">&#93;</span> <span class="br0">&#40;</span>AppT showt <span class="br0">&#40;</span>ConT t  <span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="br0">&#91;</span> ValD validf validBody <span class="br0">&#91;</span><span class="br0">&#93;</span><span class="sy0">,</span> ValD invalidf invalidBody <span class="br0">&#91;</span><span class="br0">&#93;</span> <span class="br0">&#93;</span><span class="br0">&#93;</span>
+&nbsp;
+<span class="co1">-- Usage:</span>
+<span class="sy0">$</span><span class="br0">&#40;</span>deriveVariant ''Record<span class="br0">&#41;</span></pre></div>
+<p><a href="/haskellwiki/User:Adept" title="User:Adept">Adept</a>
+</p>
+<!-- 
+NewPP limit report
+Preprocessor node count: 39/1000000
+Post-expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+-->
+
+<!-- Saved in parser cache with key wikidb:pcache:idhash:1490-0!1!0!1!en!2!edit=0 and timestamp 20130116063428 -->
+<div class="printfooter">
+Retrieved from "<a href="http://www.haskell.org/haskellwiki/QuickCheck_as_a_test_set_generator">http://www.haskell.org/haskellwiki/QuickCheck_as_a_test_set_generator</a>"</div>
+			<p class='catlinks'><a href="/haskellwiki/Special:Categories" title="Special:Categories">Category</a>: <span dir='ltr'><a href="/haskellwiki/Category:Idioms" title="Category:Idioms">Idioms</a></span></p>			<!-- end content -->
+						<div class="visualClear"></div>
+		</div>
+	</div>
+		</div></div>
+		<div id="column-one">
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+	<div class='generated-sidebar portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage"><a href="/haskellwiki/Haskell" title="Visit the Main Page [z]" accesskey="z">Haskell</a></li>
+				<li id="n-portal"><a href="/haskellwiki/HaskellWiki:Community" title="About the project, what you can do, where to find things">Wiki community</a></li>
+				<li id="n-recentchanges"><a href="/haskellwiki/Special:Recentchanges" title="The list of recent changes in the wiki. [r]" accesskey="r">Recent changes</a></li>
+				<li id="n-randompage"><a href="/haskellwiki/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-tb">
+		<h5>Toolbox</h5>
+		<div class="pBody">
+			<ul>
+				<li id="t-whatlinkshere"><a href="/haskellwiki/Special:Whatlinkshere/QuickCheck_as_a_test_set_generator" title="List of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+				<li id="t-recentchangeslinked"><a href="/haskellwiki/Special:Recentchangeslinked/QuickCheck_as_a_test_set_generator" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+<li id="t-upload"><a href="/haskellwiki/Special:Upload" title="Upload files [u]" accesskey="u">Upload file</a></li>
+<li id="t-specialpages"><a href="/haskellwiki/Special:Specialpages" title="List of all special pages [q]" accesskey="q">Special pages</a></li>
+				<li id="t-print"><a href="/haskellwiki/index.php?title=QuickCheck_as_a_test_set_generator&amp;printable=yes" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>				<li id="t-permalink"><a href="/haskellwiki/index.php?title=QuickCheck_as_a_test_set_generator&amp;oldid=42761" title="Permanent link to this version of the page">Permanent link</a></li>			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="/wikistatic/skins//common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>
+			<ul id="f-list">
+					<li id="lastmod"> This page was last modified 15:56, 5 November 2011.</li>
+					<li id="viewcount">This page has been accessed 24,462 times.</li>
+					<li id="copyright">Recent content is available under <a href="/haskellwiki/HaskellWiki:Copyrights" title="HaskellWiki:Copyrights">a simple permissive license</a>.</li>
+					<li id="privacy"><a href="/haskellwiki/HaskellWiki:Privacy_policy" title="HaskellWiki:Privacy policy">Privacy policy</a></li>
+					<li id="about"><a href="/haskellwiki/HaskellWiki:About" title="HaskellWiki:About">About HaskellWiki</a></li>
+					<li id="disclaimer"><a href="/haskellwiki/HaskellWiki:General_disclaimer" title="HaskellWiki:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+</div>
+
+		<script type="text/javascript">if (window.runOnloadHook) runOnloadHook();</script>
+<!-- Served in 0.144 secs. --><script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-15375175-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</body></html>

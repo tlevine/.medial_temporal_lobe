@@ -1,0 +1,352 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><link rel="shortcut icon" href="/favicon.ico" /><link rel="search" type="application/opensearchdescription+xml" href="/haskellwiki/opensearch_desc.php" title="HaskellWiki (English)" /><link title="Creative Commons" type="application/rdf+xml" href="/haskellwiki/index.php?title=Introduction_to_QuickCheck1&amp;action=creativecommons" rel="meta" /><link rel="copyright" href="/haskellwiki/HaskellWiki:Copyrights" /><link rel="alternate" type="application/rss+xml" title="HaskellWiki RSS Feed" href="http://www.haskell.org/haskellwiki/index.php?title=Special:Recentchanges&amp;feed=rss" /><link rel="alternate" type="application/atom+xml" title="HaskellWiki Atom Feed" href="http://www.haskell.org/haskellwiki/index.php?title=Special:Recentchanges&amp;feed=atom" /><title>Introduction to QuickCheck1 - HaskellWiki</title> <style type="text/css" media="screen, projection">/**/@import"/wikistatic/skins//common/shared.css?116";@import"/wikistatic/skins//hawiki/main.css?116";/**/</style> <link rel="stylesheet" type="text/css" media="print" href="/wikistatic/skins//common/commonPrint.css?116" /><!--[if lt IE 5.5000]><style type="text/css">@import"/wikistatic/skins//hawiki/IE50Fixes.css?116";</style><![endif]--> <!--[if IE 5.5000]><style type="text/css">@import"/wikistatic/skins//hawiki/IE55Fixes.css?116";</style><![endif]--> <!--[if IE 6]><style type="text/css">@import"/wikistatic/skins//hawiki/IE60Fixes.css?116";</style><![endif]--> <!--[if IE 7]><style type="text/css">@import"/wikistatic/skins//hawiki/IE70Fixes.css?116";</style><![endif]--> <!--[if lte IE 7]><script type="text/javascript" src="/wikistatic/skins//hawiki/IEFixes.js?116"></script> <meta http-equiv="imagetoolbar" content="no" /><![endif]--><script type="text/javascript">var isMSIE55=(window.showModalDialog&&window.clipboardData&&window.createPopup);</script> <script type="text/javascript">/*<![CDATA[*/
+var skin="hawiki";var stylepath="/wikistatic/skins/";var wgArticlePath="/haskellwiki/$1";var wgScriptPath="/haskellwiki";var wgScript="/haskellwiki/index.php";var wgServer="http://www.haskell.org";var wgCanonicalNamespace="";var wgCanonicalSpecialPageName=false;var wgNamespaceNumber=0;var wgPageName="Introduction_to_QuickCheck1";var wgTitle="Introduction to QuickCheck1";var wgAction="view";var wgRestrictionEdit=[];var wgRestrictionMove=[];var wgArticleId="1990";var wgIsArticle=true;var wgUserName=null;var wgUserGroups=null;var wgUserLanguage="en";var wgContentLanguage="en";var wgBreakFrames=false;var wgCurRevisionId="55249";var wgVersion="1.12.0";var wgEnableAPI=true;var wgEnableWriteAPI=false;/*]]>*/</script> <script type="text/javascript" src="/wikistatic/skins//common/wikibits.js?116"><!-- --></script>
+		<!-- Head Scripts -->
+		<script type="text/javascript" src="/wikistatic/skins//common/ajax.js?116"></script>
+<style type="text/css">/*<![CDATA[*/
+.source-haskell {line-height: normal;}
+.source-haskell li {line-height: normal;}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for haskell
+ * CSS class: source-haskell, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.source-haskell .de1, .source-haskell .de2 {font-family: 'Courier New', Courier, monospace; font-weight: normal; font-style: normal;}
+.source-haskell  {}
+.source-haskell .head {}
+.source-haskell .foot {}
+.source-haskell .imp {font-weight: bold; color: red;}
+.source-haskell li, .source-haskell li.li1 {font-weight: normal;}
+.source-haskell li.li2 {font-weight: bold;}
+.source-haskell .kw1 {color: #06c; font-weight: bold;}
+.source-haskell .kw2 {color: #06c; font-weight: bold;}
+.source-haskell .kw3 {font-weight: bold;}
+.source-haskell .kw4 {color: #cccc00; font-weight: bold;}
+.source-haskell .kw5 {color: maroon;}
+.source-haskell .co1 {color: #5d478b; font-style: italic;}
+.source-haskell .co2 {color: #339933; font-weight: bold;}
+.source-haskell .coMULTI {color: #5d478b; font-style: italic;}
+.source-haskell .es0 {background-color: #3cb371; font-weight: bold;}
+.source-haskell .br0 {color: green;}
+.source-haskell .sy0 {color: #339933; font-weight: bold;}
+.source-haskell .st0 {background-color: #3cb371;}
+.source-haskell .nu0 {color: red;}
+.source-haskell .me1 {color: #060;}
+.source-haskell .ln-xtra, .source-haskell li.ln-xtra, .source-haskell div.ln-xtra {color: #cc0; background-color: #ffc;}
+
+/*]]>*/
+</style>
+<style type="text/css">/*<![CDATA[*/
+@import "/haskellwiki/index.php?title=MediaWiki:Geshi.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=18000";
+/*]]>*/
+</style>		<script type="text/javascript" src="/haskellwiki/index.php?title=-&amp;action=raw&amp;gen=js&amp;useskin=hawiki"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "/haskellwiki/index.php?title=MediaWiki:Common.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=18000";
+@import "/haskellwiki/index.php?title=MediaWiki:Hawiki.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=18000";
+@import "/haskellwiki/index.php?title=-&action=raw&gen=css&maxage=18000&useskin=hawiki";
+/*]]>*/</style>
+	</head>
+<body class="mediawiki ltr page-Introduction_to_QuickCheck1 ">
+   <div id="topbar" class="noprint">
+	<div class="portlet noprint" id="p-personal">
+		<h5>Personal tools</h5>
+		<div class="pBody">
+			<ul><li><a class="homebutton" href="/haskellwiki/Haskell">Home</a></li>
+				<li id="pt-login"><a href="/haskellwiki/index.php?title=Special:Userlogin&amp;returnto=Introduction_to_QuickCheck1" title="You are encouraged to log in, it is not mandatory however. [o]" accesskey="o">Log in / create account</a></li>
+			</ul>
+		</div>
+	</div>
+        	  <div id="p-search">
+	    <div id="searchBody" class="pBody">
+	       <form action="/haskellwiki/index.php" id="searchform"><div>
+	          <input type='hidden' name="title" value=""/>
+	          <input id="searchInput" name="search" type="text" title="Search HaskellWiki [f]" accesskey="f" value="" />
+				<input type='submit' name="go" class="searchButton" id="searchGoButton"	value="Go" title="Go to a page with this exact name if exists" />&nbsp;
+				<input type='submit' name="fulltext" class="searchButton" id="mw-searchButton" value="Search" title="Search the pages for this text" />
+
+	         </div></form>
+	    </div>
+	  </div>
+   </div>
+	<div id="globalWrapper">
+	<div class="portlet" id="p-logo">
+		<a style="background-image: url(/wikistatic/haskellwiki_logo.png);" href="/haskellwiki/Haskell" title="Main Page"></a>
+	</div>
+	<div id="column-content">
+        <div id="notice-area" class="noprint">
+        <!-- ?php $this->data['sitenotice'] = 'This is a test instance.  Do not edit, your changes will be lost.'; ? -->
+			        </div>
+        <div id="content-wrapper">
+	<div id="p-cactions" class="portlet noprint">
+		<h5>Views</h5>
+		<div class="pBody">
+			<ul>
+	
+				 <li id="ca-nstab-main" class="selected"><a href="/haskellwiki/Introduction_to_QuickCheck1" title="View the content page [c]" accesskey="c">Page</a></li>
+				 <li id="ca-talk"><a href="/haskellwiki/Talk:Introduction_to_QuickCheck1" title="Discussion about the content page [t]" accesskey="t">Discussion</a></li>
+				 <li id="ca-viewsource"><a href="/haskellwiki/index.php?title=Introduction_to_QuickCheck1&amp;action=edit" title="This page is protected. You can view its source. [e]" accesskey="e">View source</a></li>
+				 <li id="ca-history"><a href="/haskellwiki/index.php?title=Introduction_to_QuickCheck1&amp;action=history" title="Past versions of this page. [h]" accesskey="h">History</a></li>			</ul>
+		</div>
+	</div>
+                        <div id="content">
+		<a name="top" id="top"></a>
+                        <h1 id="firstHeading" class="firstHeading">Introduction to QuickCheck1</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From HaskellWiki</h3>
+			<div id="contentSub">(Redirected from <a href="/haskellwiki/index.php?title=Introduction_to_QuickCheck&amp;redirect=no" title="Introduction to QuickCheck">Introduction to QuickCheck</a>)</div>
+			<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<p>A quick introduction to QuickCheck, and testing Haskell code. See <a href="/haskellwiki/Introduction_to_QuickCheck2" title="Introduction to QuickCheck2"> Introduction to QuickCheck2</a> for the QC2 version
+</p>
+<table id="toc" class="toc" summary="Contents"><tr><td><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1"><a href="#Motivation"><span class="tocnumber">1</span> <span class="toctext">Motivation</span></a></li>
+<li class="toclevel-1"><a href="#Keeping_things_pure"><span class="tocnumber">2</span> <span class="toctext">Keeping things pure</span></a></li>
+<li class="toclevel-1"><a href="#Testing_with_QuickCheck"><span class="tocnumber">3</span> <span class="toctext">Testing with QuickCheck</span></a></li>
+<li class="toclevel-1"><a href="#Testing_take5"><span class="tocnumber">4</span> <span class="toctext">Testing take5</span></a></li>
+<li class="toclevel-1"><a href="#Another_property"><span class="tocnumber">5</span> <span class="toctext">Another property</span></a></li>
+<li class="toclevel-1"><a href="#Coverage"><span class="tocnumber">6</span> <span class="toctext">Coverage</span></a></li>
+<li class="toclevel-1"><a href="#Going_further"><span class="tocnumber">7</span> <span class="toctext">Going further</span></a></li>
+</ul>
+</td></tr></table><script type="text/javascript"> if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } </script>
+<a name="Motivation"></a><h2> <span class="mw-headline">1  Motivation </span></h2>
+<p>In September 2006, Bruno Martínez
+<a href="http://www.haskell.org/pipermail/haskell-cafe/2006-September/018302.html" class="external text" title="http://www.haskell.org/pipermail/haskell-cafe/2006-September/018302.html" rel="nofollow">asked</a> 
+the following question:
+</p>
+<div dir="ltr" style="text-align: left;"><pre class="source-haskell"><span class="co1">-- I've written a function that looks similar to this one</span>
+&nbsp;
+getList <span class="sy0">=</span> find <span class="nu0">5</span> <span class="kw1">where</span>
+     find <span class="nu0">0</span> <span class="sy0">=</span> <span class="kw3">return</span> <span class="br0">&#91;</span><span class="br0">&#93;</span>
+     find n <span class="sy0">=</span> <span class="kw1">do</span>
+       ch <span class="sy0">&lt;-</span> <span class="kw3">getChar</span>
+       <span class="kw1">if</span> ch `<span class="kw3">elem</span>` <span class="br0">&#91;</span>'a'<span class="sy0">..</span>'e'<span class="br0">&#93;</span> <span class="kw1">then</span> <span class="kw1">do</span>
+             tl <span class="sy0">&lt;-</span> find <span class="br0">&#40;</span>n<span class="nu0">-1</span><span class="br0">&#41;</span>
+             <span class="kw3">return</span> <span class="br0">&#40;</span>ch&nbsp;: tl<span class="br0">&#41;</span> <span class="kw1">else</span>
+           find n
+&nbsp;
+<span class="co1">-- I want to test this function, without hitting the filesystem.  In C++ I</span>
+<span class="co1">-- would use a istringstream.  I couldn't find a function that returns a</span>
+<span class="co1">-- Handle from a String.  The closer thing that may work that I could find</span>
+<span class="co1">-- was making a pipe and converting the file descriptor.  Can I simplify</span>
+<span class="co1">-- that function to take it out of the IO monad?</span></pre></div>
+<p>So the problem is: how to effectively test this function in Haskell? The
+solution we turn to is refactoring and QuickCheck.
+</p>
+<a name="Keeping_things_pure"></a><h2> <span class="mw-headline">2  Keeping things pure </span></h2>
+<p>The reason your getList is hard to test, is that the side effecting monadic code 
+is mixed in with the pure computation, making it difficult to test
+without moving entirely into a "black box" IO-based testing model.
+Such a mixture is not good for reasoning about code.
+</p><p>Let's untangle that, and then test the referentially transparent
+parts simply with QuickCheck. We can take advantage of lazy IO firstly,
+to avoid all the unpleasant low-level IO handling. 
+</p><p>So the first step is to factor out the IO part of the function into a
+thin "skin" layer:
+</p>
+<div dir="ltr" style="text-align: left;"><pre class="source-haskell"><span class="co1">-- A thin monadic skin layer</span>
+getList <span class="sy0">::</span> <span class="kw4">IO</span> <span class="br0">&#91;</span><span class="kw4">Char</span><span class="br0">&#93;</span>
+getList <span class="sy0">=</span> <span class="kw3">fmap</span> take5 <span class="kw3">getContents</span>
+&nbsp;
+<span class="co1">-- The actual worker</span>
+take5 <span class="sy0">::</span> <span class="br0">&#91;</span><span class="kw4">Char</span><span class="br0">&#93;</span> <span class="sy0">-&gt;</span> <span class="br0">&#91;</span><span class="kw4">Char</span><span class="br0">&#93;</span>
+take5 <span class="sy0">=</span> <span class="kw3">take</span> <span class="nu0">5</span> <span class="sy0">.</span> <span class="kw3">filter</span> <span class="br0">&#40;</span>`<span class="kw3">elem</span>` <span class="br0">&#91;</span>'a'<span class="sy0">..</span>'e'<span class="br0">&#93;</span><span class="br0">&#41;</span></pre></div>
+<a name="Testing_with_QuickCheck"></a><h2> <span class="mw-headline">3  Testing with QuickCheck </span></h2>
+<p>Now we can test the 'guts' of the algorithm, the take5 function, in
+isolation. Let's use QuickCheck. First we need an Arbitrary instance for
+the Char type -- this takes care of generating random Chars for us to
+test with. I'll restrict it to a range of nice chars just for
+simplicity:
+</p>
+<div dir="ltr" style="text-align: left;"><pre class="source-haskell"><span class="kw1">import</span> Data<span class="sy0">.</span><span class="kw4">Char</span>
+<span class="kw1">import</span> Test<span class="sy0">.</span>QuickCheck
+&nbsp;
+<span class="kw1">instance</span> Arbitrary <span class="kw4">Char</span> <span class="kw1">where</span>
+    arbitrary     <span class="sy0">=</span> choose <span class="br0">&#40;</span>'\<span class="nu0">32</span>'<span class="sy0">,</span> '\<span class="nu0">128</span>'<span class="br0">&#41;</span>
+    coarbitrary c <span class="sy0">=</span> variant <span class="br0">&#40;</span>ord c `<span class="kw3">rem</span>` <span class="nu0">4</span><span class="br0">&#41;</span></pre></div>
+<p>Let's fire up GHCi (or Hugs) and try some generic properties (its nice
+that we can use the QuickCheck testing framework directly from the
+Haskell prompt). An easy one first, a [Char] is equal to itself:
+</p>
+<div dir="ltr" style="text-align: left;"><pre class="source-haskell"><span class="sy0">*</span>A<span class="sy0">&gt;</span> quickCheck <span class="br0">&#40;</span><span class="br0">&#40;</span>\s <span class="sy0">-&gt;</span> s <span class="sy0">==</span> s<span class="br0">&#41;</span> <span class="sy0">::</span> <span class="br0">&#91;</span><span class="kw4">Char</span><span class="br0">&#93;</span> <span class="sy0">-&gt;</span> <span class="kw4">Bool</span><span class="br0">&#41;</span>
+OK<span class="sy0">,</span> passed <span class="nu0">100</span> tests<span class="sy0">.</span></pre></div>
+<p>What just happened? QuickCheck generated 100 random [Char] values, and
+applied our property, checking the result was True for all cases.
+QuickCheck <i>generated the test sets for us</i>!
+</p><p>A more interesting property now: reversing twice is the identity:
+</p>
+<div dir="ltr" style="text-align: left;"><pre class="source-haskell"><span class="sy0">*</span>A<span class="sy0">&gt;</span> quickCheck <span class="br0">&#40;</span><span class="br0">&#40;</span>\s <span class="sy0">-&gt;</span> <span class="br0">&#40;</span><span class="kw3">reverse</span><span class="sy0">.</span><span class="kw3">reverse</span><span class="br0">&#41;</span> s <span class="sy0">==</span> s<span class="br0">&#41;</span> <span class="sy0">::</span> <span class="br0">&#91;</span><span class="kw4">Char</span><span class="br0">&#93;</span> <span class="sy0">-&gt;</span> <span class="kw4">Bool</span><span class="br0">&#41;</span>
+OK<span class="sy0">,</span> passed <span class="nu0">100</span> tests<span class="sy0">.</span></pre></div>
+<p>Great!
+</p>
+<a name="Testing_take5"></a><h2> <span class="mw-headline">4  Testing take5 </span></h2>
+<p>The first step to testing with QuickCheck is to work out some properties
+that are true of the function, for all inputs. That is, we need to find
+<i>invariants</i>.
+</p><p>A simple invariant might be:
+</p>
+<pre>   <img class="tex" alt="\forall~s~.~length~(take5~s)~=~5" src="/wikiupload/math/2/0/6/2062cf01d45d4d8ba433855120fd6bb6.png" />
+</pre>
+<p>So let's write that as a QuickCheck property:
+</p>
+<div dir="ltr" style="text-align: left;"><pre class="source-haskell">\s <span class="sy0">-&gt;</span> <span class="kw3">length</span> <span class="br0">&#40;</span>take5 s<span class="br0">&#41;</span> <span class="sy0">==</span> <span class="nu0">5</span></pre></div>
+<p>Which we can then run in QuickCheck as:
+</p>
+<div dir="ltr" style="text-align: left;"><pre class="source-haskell"><span class="sy0">*</span>A<span class="sy0">&gt;</span> quickCheck <span class="br0">&#40;</span>\s <span class="sy0">-&gt;</span> <span class="kw3">length</span> <span class="br0">&#40;</span>take5 s<span class="br0">&#41;</span> <span class="sy0">==</span> <span class="nu0">5</span><span class="br0">&#41;</span>
+Falsifiable<span class="sy0">,</span> after <span class="nu0">0</span> tests:
+<span class="st0">&quot;&quot;</span></pre></div>
+<p>Ah! QuickCheck caught us out. If the input string contains less than 5
+filterable characters, the resulting string will be less than 5
+characters long. So let's weaken the property a bit:
+</p>
+<pre>   <img class="tex" alt="\forall~s~.~length~(take5~s)~\le~5" src="/wikiupload/math/c/7/d/c7db5f9426ce140a68602b3c88cd5a7a.png" />
+</pre>
+<p>That is, take5 returns a string of at most 5 characters long. Let's test
+this:    
+</p>
+<div dir="ltr" style="text-align: left;"><pre class="source-haskell"><span class="sy0">*</span>A<span class="sy0">&gt;</span> quickCheck <span class="br0">&#40;</span>\s <span class="sy0">-&gt;</span> <span class="kw3">length</span> <span class="br0">&#40;</span>take5 s<span class="br0">&#41;</span> <span class="sy0">&lt;=</span> <span class="nu0">5</span><span class="br0">&#41;</span>
+OK<span class="sy0">,</span> passed <span class="nu0">100</span> tests<span class="sy0">.</span></pre></div>
+<p>Good!
+</p>
+<a name="Another_property"></a><h2> <span class="mw-headline">5  Another property </span></h2>
+<p>Another thing to check would be that the correct characters are
+returned. That is, for all returned characters, those characters are
+members of the set ['a','b','c','d','e'].
+</p><p>We can specify that as:
+<img class="tex" alt="\forall~s~.~\forall~e~.~e~\in~take5~s~\to~e~\in~[abcde] " src="/wikiupload/math/7/e/b/7eb8ff5925e69011e8cc29bcf30d5671.png" />
+</p><p>And in QuickCheck:
+</p>
+<div dir="ltr" style="text-align: left;"><pre class="source-haskell"><span class="sy0">*</span>A<span class="sy0">&gt;</span> quickCheck <span class="br0">&#40;</span>\s <span class="sy0">-&gt;</span> <span class="kw3">all</span> <span class="br0">&#40;</span>`<span class="kw3">elem</span>` <span class="br0">&#91;</span>'a'<span class="sy0">..</span>'e'<span class="br0">&#93;</span><span class="br0">&#41;</span> <span class="br0">&#40;</span>take5 s<span class="br0">&#41;</span><span class="br0">&#41;</span>
+OK<span class="sy0">,</span> passed <span class="nu0">100</span> tests<span class="sy0">.</span></pre></div>
+<p>Excellent. So we can have some confidence that the function neither
+returns strings that are too long, nor includes invalid characters.
+</p>
+<a name="Coverage"></a><h2> <span class="mw-headline">6  Coverage </span></h2>
+<p>One issue with the default QuickCheck configuration, when testing
+[Char], is that the standard 100 tests isn't enough for our situation.
+In fact, QuickCheck never generates a String greater than 5 characters
+long, when using the supplied Arbitrary instance for Char! We can confirm
+this:
+</p>
+<div dir="ltr" style="text-align: left;"><pre class="source-haskell"><span class="sy0">*</span>A<span class="sy0">&gt;</span> quickCheck <span class="br0">&#40;</span>\s <span class="sy0">-&gt;</span> <span class="kw3">length</span> <span class="br0">&#40;</span>take5 s<span class="br0">&#41;</span> <span class="sy0">&lt;</span> <span class="nu0">5</span><span class="br0">&#41;</span>
+OK<span class="sy0">,</span> passed <span class="nu0">100</span> tests<span class="sy0">.</span></pre></div>
+<p>QuickCheck wastes its time generating different Chars, when what we
+really need is longer strings. One solution to this is to modify
+QuickCheck's default configuration to test deeper:
+</p>
+<div dir="ltr" style="text-align: left;"><pre class="source-haskell">deepCheck p <span class="sy0">=</span> check <span class="br0">&#40;</span>defaultConfig <span class="br0">&#123;</span> configMaxTest <span class="sy0">=</span> <span class="nu0">10000</span><span class="br0">&#125;</span><span class="br0">&#41;</span> p</pre></div>
+<p>This instructs the system to find at least 10000 test cases before
+concluding that all is well. Let's check that it is generating longer
+strings:
+</p>
+<div dir="ltr" style="text-align: left;"><pre class="source-haskell"><span class="sy0">*</span>A<span class="sy0">&gt;</span> deepCheck <span class="br0">&#40;</span>\s <span class="sy0">-&gt;</span> <span class="kw3">length</span> <span class="br0">&#40;</span>take5 s<span class="br0">&#41;</span> <span class="sy0">&lt;</span> <span class="nu0">5</span><span class="br0">&#41;</span>
+Falsifiable<span class="sy0">,</span> after <span class="nu0">125</span> tests:
+<span class="st0">&quot;;:iD^*NNi~Y<span class="es0">\\</span>RegMob<span class="es0">\D</span>EL@krsx/=dcf7kub|EQi<span class="es0">\D</span>ELD*&quot;</span></pre></div>
+<p>We can check the test data QuickCheck is generating using the
+'verboseCheck' hook. Here, testing on integers lists:
+</p>
+<div dir="ltr" style="text-align: left;"><pre class="source-haskell"><span class="sy0">*</span>A<span class="sy0">&gt;</span> verboseCheck <span class="br0">&#40;</span>\s <span class="sy0">-&gt;</span> <span class="kw3">length</span> s <span class="sy0">&lt;</span> <span class="nu0">5</span><span class="br0">&#41;</span>
+<span class="nu0">0</span>: <span class="br0">&#91;</span><span class="br0">&#93;</span>
+<span class="nu0">1</span>: <span class="br0">&#91;</span><span class="nu0">0</span><span class="br0">&#93;</span>
+<span class="nu0">2</span>: <span class="br0">&#91;</span><span class="br0">&#93;</span>
+<span class="nu0">3</span>: <span class="br0">&#91;</span><span class="br0">&#93;</span>
+<span class="nu0">4</span>: <span class="br0">&#91;</span><span class="br0">&#93;</span>
+<span class="nu0">5</span>: <span class="br0">&#91;</span><span class="nu0">1</span><span class="sy0">,</span><span class="nu0">2</span><span class="sy0">,</span><span class="nu0">1</span><span class="sy0">,</span><span class="nu0">1</span><span class="br0">&#93;</span>
+<span class="nu0">6</span>: <span class="br0">&#91;</span><span class="nu0">2</span><span class="br0">&#93;</span>
+<span class="nu0">7</span>: <span class="br0">&#91;</span><span class="nu0">-2</span><span class="sy0">,</span><span class="nu0">4</span><span class="sy0">,</span><span class="nu0">-4</span><span class="sy0">,</span><span class="nu0">0</span><span class="sy0">,</span><span class="nu0">0</span><span class="br0">&#93;</span>
+Falsifiable<span class="sy0">,</span> after <span class="nu0">7</span> tests:
+<span class="br0">&#91;</span><span class="nu0">-2</span><span class="sy0">,</span><span class="nu0">4</span><span class="sy0">,</span><span class="nu0">-4</span><span class="sy0">,</span><span class="nu0">0</span><span class="sy0">,</span><span class="nu0">0</span><span class="br0">&#93;</span></pre></div>
+<a name="Going_further"></a><h2> <span class="mw-headline">7  Going further </span></h2>
+<p>QuickCheck is effectively an embedded domain specific language for
+testing Haskell code, and allows for much more complex properties than
+those you've seen here to be tested. Some sources for further reading
+are:
+</p>
+<ul><li> <a href="http://code.haskell.org/QuickCheck/stable/Test/" class="external text" title="http://code.haskell.org/QuickCheck/stable/Test/" rel="nofollow">The QuickCheck source</a>
+</li><li> <a href="http://hackage.haskell.org/package/QuickCheck-2.4.2" class="external text" title="http://hackage.haskell.org/package/QuickCheck-2.4.2" rel="nofollow">QuickCheck Library documentation</a>
+</li><li> <a href="http://www.cse.chalmers.se/~rjmh/QuickCheck/manual.html" class="external text" title="http://www.cse.chalmers.se/~rjmh/QuickCheck/manual.html" rel="nofollow">QuickCheck v1 Manual</a>
+</li><li> <a href="http://hackage.haskell.org/trac/ghc/browser/libraries/bytestring/tests?rev=bc96abdb6d3777bdc4eaaccf37494f535405d4e1" class="external text" title="http://hackage.haskell.org/trac/ghc/browser/libraries/bytestring/tests?rev=bc96abdb6d3777bdc4eaaccf37494f535405d4e1" rel="nofollow">A large testsuite of QuickCheck code</a>
+</li><li> Tutorial: <a href="/haskellwiki/QuickCheck_as_a_test_set_generator" title="QuickCheck as a test set generator">QuickCheck as a test set generator</a>
+</li><li> Tutorial: <a href="/haskellwiki/QuickCheck_/_GADT" title="QuickCheck / GADT">QuickCheck / GADT</a>
+</li><li> More <a href="/haskellwiki/Research_papers/Testing_and_correctness" title="Research papers/Testing and correctness"> research on correctness and testing</a> in Haskell
+</li></ul>
+<ul><li> 2012 Blog article: <a href="http://ics.p.lodz.pl/~stolarek/blog/2012/10/code-testing-in-haskell/" class="external text" title="http://ics.p.lodz.pl/~stolarek/blog/2012/10/code-testing-in-haskell/" rel="nofollow">Code testing in Haskell</a>
+</li><li> 2009 Blog article: <a href="http://koweycode.blogspot.com/2009/07/some-ideas-for-practical-quickcheck.html" class="external text" title="http://koweycode.blogspot.com/2009/07/some-ideas-for-practical-quickcheck.html" rel="nofollow">some ideas for practical QuickCheck</a>
+</li><li> 2004 Paper <a href="http://dl.acm.org/citation.cfm?doid=351240.351266" class="external text" title="http://dl.acm.org/citation.cfm?doid=351240.351266" rel="nofollow">QuickCheck: Specification-based Random Testing</a>, Koen Claessen. Presentation at Summer Institute on Trends in Testing: Theory, Techniques and Tools, August 2004.
+</li><li> 2003 Paper <a href="http://www.cs.utexas.edu/~ragerdl/fmcad11/slides/tutorial-a.pdf" class="external text" title="http://www.cs.utexas.edu/~ragerdl/fmcad11/slides/tutorial-a.pdf" rel="nofollow">Specification Based Testing with QuickCheck</a>, Koen Claessen and John Hughes. In Jeremy Gibbons and Oege de Moor (eds.), The Fun of Programming, Cornerstones of Computing, pp. 17--40, Palgrave, 2003.
+</li><li> 2002 Paper <a href="http://www.cse.chalmers.se/~rjmh/Papers/QuickCheckST.ps" class="external text" title="http://www.cse.chalmers.se/~rjmh/Papers/QuickCheckST.ps" rel="nofollow">Testing Monadic Programs with QuickCheck</a>, Koen Claessen, John Hughes. SIGPLAN Notices 37(12): 47-59 (2002):
+</li><li> 2000 Paper <a href="http://www.eecs.northwestern.edu/~robby/courses/395-495-2009-fall/quick.pdf" class="external text" title="http://www.eecs.northwestern.edu/~robby/courses/395-495-2009-fall/quick.pdf" rel="nofollow">QuickCheck: A Lightweight Tool for Random Testing of Haskell Programs</a>,  Koen Claessen and John Hughes. In Proc. of International Conference on Functional Programming (ICFP), ACM SIGPLAN, 2000.
+</li></ul>
+<p>Note, QuickCheck doesn't need to just be an embedded domain specific language for testing <i>Haskell</i> code.  By making instances of Arbitrary for FFI types you can use Haskell and QuickCheck to check code in other languages.
+</p>
+<!-- 
+NewPP limit report
+Preprocessor node count: 56/1000000
+Post-expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+-->
+
+<!-- Saved in parser cache with key wikidb:pcache:idhash:1990-0!1!0!1!en!2!edit=0 and timestamp 20130115212508 -->
+<div class="printfooter">
+Retrieved from "<a href="http://www.haskell.org/haskellwiki/Introduction_to_QuickCheck1">http://www.haskell.org/haskellwiki/Introduction_to_QuickCheck1</a>"</div>
+			<p class='catlinks'><a href="/haskellwiki/Special:Categories" title="Special:Categories">Category</a>: <span dir='ltr'><a href="/haskellwiki/Category:Tutorials" title="Category:Tutorials">Tutorials</a></span></p>			<!-- end content -->
+						<div class="visualClear"></div>
+		</div>
+	</div>
+		</div></div>
+		<div id="column-one">
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+	<div class='generated-sidebar portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage"><a href="/haskellwiki/Haskell" title="Visit the Main Page [z]" accesskey="z">Haskell</a></li>
+				<li id="n-portal"><a href="/haskellwiki/HaskellWiki:Community" title="About the project, what you can do, where to find things">Wiki community</a></li>
+				<li id="n-recentchanges"><a href="/haskellwiki/Special:Recentchanges" title="The list of recent changes in the wiki. [r]" accesskey="r">Recent changes</a></li>
+				<li id="n-randompage"><a href="/haskellwiki/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-tb">
+		<h5>Toolbox</h5>
+		<div class="pBody">
+			<ul>
+				<li id="t-whatlinkshere"><a href="/haskellwiki/Special:Whatlinkshere/Introduction_to_QuickCheck1" title="List of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+				<li id="t-recentchangeslinked"><a href="/haskellwiki/Special:Recentchangeslinked/Introduction_to_QuickCheck1" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+<li id="t-upload"><a href="/haskellwiki/Special:Upload" title="Upload files [u]" accesskey="u">Upload file</a></li>
+<li id="t-specialpages"><a href="/haskellwiki/Special:Specialpages" title="List of all special pages [q]" accesskey="q">Special pages</a></li>
+				<li id="t-print"><a href="/haskellwiki/index.php?title=Introduction_to_QuickCheck1&amp;printable=yes" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>				<li id="t-permalink"><a href="/haskellwiki/index.php?title=Introduction_to_QuickCheck1&amp;oldid=55249" title="Permanent link to this version of the page">Permanent link</a></li>			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="/wikistatic/skins//common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>
+			<ul id="f-list">
+					<li id="lastmod"> This page was last modified 19:54, 13 January 2013.</li>
+					<li id="viewcount">This page has been accessed 80,149 times.</li>
+					<li id="copyright">Recent content is available under <a href="/haskellwiki/HaskellWiki:Copyrights" title="HaskellWiki:Copyrights">a simple permissive license</a>.</li>
+					<li id="privacy"><a href="/haskellwiki/HaskellWiki:Privacy_policy" title="HaskellWiki:Privacy policy">Privacy policy</a></li>
+					<li id="about"><a href="/haskellwiki/HaskellWiki:About" title="HaskellWiki:About">About HaskellWiki</a></li>
+					<li id="disclaimer"><a href="/haskellwiki/HaskellWiki:General_disclaimer" title="HaskellWiki:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+</div>
+
+		<script type="text/javascript">if (window.runOnloadHook) runOnloadHook();</script>
+<!-- Served in 0.104 secs. --><script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-15375175-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</body></html>

@@ -1,0 +1,596 @@
+<!DOCTYPE html><html lang="en" dir="ltr" class="client-nojs"><head><title>Haskell/Testing - Wikibooks, open books for an open world</title> <meta charset="UTF-8" /><meta name="generator" content="MediaWiki 1.21wmf7" /><link rel="alternate" type="application/x-wiki" title="Edit" href="/w/index.php?title=Haskell/Testing&amp;action=edit" /><link rel="edit" title="Edit" href="/w/index.php?title=Haskell/Testing&amp;action=edit" /><link rel="shortcut icon" href="/favicon.ico" /><link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikibooks (en)" /><link rel="EditURI" type="application/rsd+xml" href="//en.wikibooks.org/w/api.php?action=rsd" /><link rel="copyright" href="//creativecommons.org/licenses/by-sa/3.0/" /><link rel="alternate" type="application/atom+xml" title="Wikibooks Atom feed" href="/w/index.php?title=Special:RecentChanges&amp;feed=atom" /><link rel="stylesheet" href="//bits.wikimedia.org/en.wikibooks.org/load.php?debug=false&amp;lang=en&amp;modules=ext.flaggedRevs.basic%7Cext.gadget.extlinks%7Cext.geshi.local%7Cext.wikihiero%7Cmediawiki.legacy.commonPrint%2Cshared%7Cmw.PopUpMediaTransform%7Cskins.vector&amp;only=styles&amp;skin=vector&amp;*" /><link rel="stylesheet" href="//bits.wikimedia.org/static-1.21wmf7/extensions/ReaderFeedback/readerfeedback.css?1" /><meta name="ResourceLoaderDynamicStyles" content="" /><link rel="stylesheet" href="//bits.wikimedia.org/en.wikibooks.org/load.php?debug=false&amp;lang=en&amp;modules=site&amp;only=styles&amp;skin=vector&amp;*" /><style>a:lang(ar),a:lang(ckb),a:lang(fa),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}
+/* cache key: enwikibooks:resourceloader:filter:minify-css:7:7e437ef773c7cbb07b329889319b1d5c */</style> <script src="//bits.wikimedia.org/en.wikibooks.org/load.php?debug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=vector&amp;*"></script> <script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Haskell/Testing","wgTitle":"Haskell/Testing","wgCurRevisionId":2148905,"wgArticleId":94231,"wgIsArticle":true,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Haskell/Stubs","Haskell"],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"Haskell/Testing","wgRestrictionEdit":[],"wgRestrictionMove":[],"wgVectorEnabledModules":{"collapsiblenav":true,"collapsibletabs":true,"editwarning":true,"expandablesearch":false,"footercleanup":false,"sectioneditlinks":false,"experiments":true},"wgWikiEditorEnabledModules":{"toolbar":true,"dialogs":true,"hidesig":true,"templateEditor":false,"templates":false,"preview":false,"previewDialog":false,"publish":false,"toc":false},"wgFeedbackParams":{"tags":{"reliability":3,"completeness":2,"npov":2,"presentation":1}},"wgAjaxFeedback":{"sendingMsg":"Submitting …","sentMsg":"Thank you!"},"wgFlaggedRevsParams":{"tags":{"value":{"levels":3,"quality":2,"pristine":3}}},"wgStableRevisionId":0,"wgCategoryTreePageCategoryOptions":"{\"mode\":0,\"hideprefix\":20,\"showcount\":true,\"namespaces\":false}","Geo":{"city":"","country":""},"wgNoticeProject":"wikibooks"});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function(){mw.user.options.set({"ccmeonemails":0,"cols":80,"date":"default","diffonly":0,"disablemail":0,"disablesuggest":0,"editfont":"default","editondblclick":0,"editsection":1,"editsectiononrightclick":0,"enotifminoredits":0,"enotifrevealaddr":0,"enotifusertalkpages":1,"enotifwatchlistpages":0,"extendwatchlist":0,"externaldiff":0,"externaleditor":0,"fancysig":0,"forceeditsummary":0,"gender":"unknown","hideminor":0,"hidepatrolled":0,"imagesize":2,"justify":0,"math":0,"minordefault":0,"newpageshidepatrolled":0,"nocache":0,"noconvertlink":0,"norollbackdiff":0,"numberheadings":0,"previewonfirst":0,"previewontop":1,"quickbar":5,"rcdays":7,"rclimit":50,"rememberpassword":0,"rows":25,"searchlimit":20,"showhiddencats":false,"showjumplinks":1,"shownumberswatching":1,"showtoc":1,"showtoolbar":1,"skin":"vector","stubthreshold":0,"thumbsize":4,"underline":2,"uselivepreview":0,"usenewrc":0,"watchcreations":1,"watchdefault":0,"watchdeletion":0,"watchlistdays":3
+,"watchlisthideanons":0,"watchlisthidebots":0,"watchlisthideliu":0,"watchlisthideminor":0,"watchlisthideown":0,"watchlisthidepatrolled":0,"watchmoves":0,"wllimit":250,"flaggedrevssimpleui":0,"flaggedrevsstable":0,"flaggedrevseditdiffs":true,"flaggedrevsviewdiffs":false,"vector-simplesearch":1,"useeditwarning":1,"vector-collapsiblenav":1,"usebetatoolbar":1,"usebetatoolbar-cgd":1,"variant":"en","language":"en","searchNs0":true,"searchNs1":false,"searchNs2":false,"searchNs3":false,"searchNs4":true,"searchNs5":false,"searchNs6":false,"searchNs7":false,"searchNs8":false,"searchNs9":false,"searchNs10":false,"searchNs11":false,"searchNs12":false,"searchNs13":false,"searchNs14":false,"searchNs15":false,"searchNs102":false,"searchNs103":false,"searchNs108":false,"searchNs109":false,"searchNs110":false,"searchNs111":false,"searchNs112":true,"searchNs113":false,"gadget-extlinks":1,"gadget-commons-file":1,"gadget-toolboxcompat":1});;},{},{});mw.loader.implement("user.tokens",function(){mw.user.
+tokens.set({"editToken":"+\\","patrolToken":false,"watchToken":false});;},{},{});
+/* cache key: enwikibooks:resourceloader:filter:minify-js:7:71d2543b236ad98d29cc1ed0e44b8b72 */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax","ext.centralNotice.bannerController"]);
+}</script>
+<style type="text/css">/*<![CDATA[*/
+.source-haskell {line-height: normal;}
+.source-haskell li, .source-haskell pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for haskell
+ * CSS class: source-haskell, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.haskell.source-haskell .de1, .haskell.source-haskell .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;}
+.haskell.source-haskell  {font-family:monospace;}
+.haskell.source-haskell .imp {font-weight: bold; color: red;}
+.haskell.source-haskell li, .haskell.source-haskell .li1 {font-weight: normal; vertical-align:top;}
+.haskell.source-haskell .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.haskell.source-haskell .li2 {font-weight: bold; vertical-align:top;}
+.haskell.source-haskell .kw1 {color: #06c; font-weight: bold;}
+.haskell.source-haskell .kw2 {color: #06c; font-weight: bold;}
+.haskell.source-haskell .kw3 {font-weight: bold;}
+.haskell.source-haskell .kw4 {color: #cccc00; font-weight: bold;}
+.haskell.source-haskell .kw5 {color: maroon;}
+.haskell.source-haskell .co1 {color: #5d478b; font-style: italic;}
+.haskell.source-haskell .co2 {color: #339933; font-weight: bold;}
+.haskell.source-haskell .co3 {color: #5d478b; font-style: italic;}
+.haskell.source-haskell .coMULTI {color: #5d478b; font-style: italic;}
+.haskell.source-haskell .es0 {background-color: #3cb371; font-weight: bold;}
+.haskell.source-haskell .br0 {color: green;}
+.haskell.source-haskell .sy0 {color: #339933; font-weight: bold;}
+.haskell.source-haskell .st0 {background-color: #3cb371;}
+.haskell.source-haskell .nu0 {color: red;}
+.haskell.source-haskell .me1 {color: #060;}
+.haskell.source-haskell .ln-xtra, .haskell.source-haskell li.ln-xtra, .haskell.source-haskell div.ln-xtra {background-color: #ffc;}
+.haskell.source-haskell span.xtra { display:block; }
+
+/*]]>*/
+</style><script src="//bits.wikimedia.org/geoiplookup"></script><link rel="dns-prefetch" href="//meta.wikimedia.org" /><!--[if lt IE 7]><style type="text/css">body{behavior:url("/w/skins-1.21wmf7/vector/csshover.min.htc")}</style><![endif]--></head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-Haskell_Testing skin-vector action-view vector-animateLayout">
+		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<!-- content -->
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+			<div id="mw-js-message" style="display:none;"></div>
+						<!-- sitenotice -->
+			<div id="siteNotice"><!-- CentralNotice --><script>
+	mw.loader.using( 'ext.centralNotice.bannerController', function() { mw.centralNotice.initialize(); } );
+</script>
+</div>
+			<!-- /sitenotice -->
+						<!-- firstHeading -->
+			<h1 id="firstHeading" class="firstHeading" lang="en"><span dir="auto">Haskell/Testing</span></h1>
+			<!-- /firstHeading -->
+			<!-- bodyContent -->
+			<div id="bodyContent">
+								<!-- tagline -->
+				<div id="siteSub">From Wikibooks, open books for an open world</div>
+				<!-- /tagline -->
+								<!-- subtitle -->
+				<div id="contentSub"><span class="subpages">&lt; <a href="/wiki/Haskell" title="Haskell">Haskell</a></span><div id="mw-fr-revisiontag" class="flaggedrevs_notice plainlinks noprint"><img class="flaggedrevs-icon" src="//bits.wikimedia.org/static-1.21wmf7/extensions/FlaggedRevs/frontend/modules/img/1.png" alt="Unreviewed changes are displayed on this page" title="Unreviewed changes are displayed on this page" />This page may need to be <a href="/wiki/Wikibooks:REVIEW" title="Wikibooks:REVIEW" class="mw-redirect">reviewed</a> for quality.</div>
+</div>
+				<!-- /subtitle -->
+																<!-- jumpto -->
+				<div id="jump-to-nav" class="mw-jump">
+					Jump to:					<a href="#mw-head">navigation</a>, 					<a href="#p-search">search</a>
+				</div>
+				<!-- /jumpto -->
+								<!-- bodycontent -->
+				<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="noprint">
+<table cellpadding="1" style="float: right; clear: right; border: 1px solid #8888aa; background: #f7f8ff; padding: 5px; font-size: 95%; margin: 0 15px 0 15px;">
+<tr>
+<td style="background: #ccf; text-align: center;"><b>Testing</b> (<a href="/w/index.php?title=Haskell/Solutions/Testing&amp;action=edit&amp;redlink=1" class="new" title="Haskell/Solutions/Testing (does not exist)">Solutions</a>)</td>
+</tr>
+<tr>
+<td>
+<table id="toc" class="toc">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Quickcheck"><span class="tocnumber">1</span> <span class="toctext">Quickcheck</span></a>
+<ul>
+<li class="toclevel-2 tocsection-2"><a href="#Keeping_things_pure"><span class="tocnumber">1.1</span> <span class="toctext">Keeping things pure</span></a></li>
+<li class="toclevel-2 tocsection-3"><a href="#Testing_with_QuickCheck"><span class="tocnumber">1.2</span> <span class="toctext">Testing with QuickCheck</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="#Testing_take5"><span class="tocnumber">1.3</span> <span class="toctext">Testing take5</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Another_property"><span class="tocnumber">1.4</span> <span class="toctext">Another property</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Coverage"><span class="tocnumber">1.5</span> <span class="toctext">Coverage</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="#More_information_on_QuickCheck"><span class="tocnumber">1.6</span> <span class="toctext">More information on QuickCheck</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-8"><a href="#HUnit"><span class="tocnumber">2</span> <span class="toctext">HUnit</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td style="background: #ccf; text-align: center;"><b>General Practices</b></td>
+</tr>
+<tr>
+<td>
+<p><a href="/wiki/Haskell/Applications" title="Haskell/Applications">Building a standalone application</a><br />
+<a href="/wiki/Haskell/Debugging" title="Haskell/Debugging">Debugging</a><br />
+<strong class="selflink">Testing</strong><br />
+<a href="/wiki/Haskell/Packaging" title="Haskell/Packaging">Packaging your software (Cabal)</a><br />
+<a href="/wiki/Haskell/FFI" title="Haskell/FFI">Using the Foreign Function Interface (FFI)</a><br />
+<a href="/wiki/Haskell/SYB" title="Haskell/SYB">Generic Programming : Scrap your boilerplate</a></p>
+<div style="clear:both;"><small class="noprint"><a class="external text" href="//en.wikibooks.org/w/index.php?title=Template:Haskell_chapter/General_Practices&amp;action=edit">edit this chapter</a></small></div>
+</td>
+</tr>
+</table>
+</div>
+<h2><span class="editsection">[<a href="/w/index.php?title=Haskell/Testing&amp;action=edit&amp;section=1" title="Edit section: Quickcheck">edit</a>]</span> <span class="mw-headline" id="Quickcheck">Quickcheck</span></h2>
+<p>Consider the following function:</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr">
+<div class="haskell source-haskell">
+<pre class="de1">
+getList <span class="sy0">=</span> find <span class="nu0">5</span> <span class="kw1">where</span>
+     find <span class="nu0">0</span> <span class="sy0">=</span> <span class="kw3">return</span> <span class="br0">[</span><span class="br0">]</span>
+     find n <span class="sy0">=</span> <span class="kw1">do</span>
+       ch <span class="sy0">&lt;-</span> <span class="kw3">getChar</span>
+       <span class="kw1">if</span> ch `<span class="kw3">elem</span>` <span class="br0">[</span><span class="st0">'a'</span><span class="sy0">..</span><span class="st0">'e'</span><span class="br0">]</span> <span class="kw1">then</span> <span class="kw1">do</span>
+             tl <span class="sy0">&lt;-</span> find <span class="br0">(</span>n<span class="sy0">-</span><span class="nu0">1</span><span class="br0">)</span>
+             <span class="kw3">return</span> <span class="br0">(</span>ch : tl<span class="br0">)</span> <span class="kw1">else</span>
+           find n
+</pre></div>
+</div>
+<p>How would we effectively test this function in Haskell? The solution we turn to is refactoring and QuickCheck.</p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Haskell/Testing&amp;action=edit&amp;section=2" title="Edit section: Keeping things pure">edit</a>]</span> <span class="mw-headline" id="Keeping_things_pure">Keeping things pure</span></h3>
+<p>The reason your getList is hard to test, is that the side effecting monadic code is mixed in with the pure computation, making it difficult to test without moving entirely into a "black box" IO-based testing model. Such a mixture is not good for reasoning about code.</p>
+<p>Let's untangle that, and then test the referentially transparent parts simply with QuickCheck. We can take advantage of lazy IO firstly, to avoid all the unpleasant low-level IO handling.</p>
+<p>So the first step is to factor out the IO part of the function into a thin "skin" layer:</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr">
+<div class="haskell source-haskell">
+<pre class="de1">
+<span class="co1">-- A thin monadic skin layer</span>
+getList <span class="sy0">::</span> <span class="kw4">IO</span> <span class="br0">[</span><span class="kw4">Char</span><span class="br0">]</span>
+getList <span class="sy0">=</span> <span class="kw3">fmap</span> take5 <span class="kw3">getContents</span>
+ 
+<span class="co1">-- The actual worker</span>
+take5 <span class="sy0">::</span> <span class="br0">[</span><span class="kw4">Char</span><span class="br0">]</span> <span class="sy0">-&gt;</span> <span class="br0">[</span><span class="kw4">Char</span><span class="br0">]</span>
+take5 <span class="sy0">=</span> <span class="kw3">take</span> <span class="nu0">5</span> <span class="sy0">.</span> <span class="kw3">filter</span> <span class="br0">(</span>`<span class="kw3">elem</span>` <span class="br0">[</span><span class="st0">'a'</span><span class="sy0">..</span><span class="st0">'e'</span><span class="br0">]</span><span class="br0">)</span>
+</pre></div>
+</div>
+<h3><span class="editsection">[<a href="/w/index.php?title=Haskell/Testing&amp;action=edit&amp;section=3" title="Edit section: Testing with QuickCheck">edit</a>]</span> <span class="mw-headline" id="Testing_with_QuickCheck">Testing with QuickCheck</span></h3>
+<p>Now we can test the 'guts' of the algorithm, the take5 function, in isolation. Let's use QuickCheck. First we need an Arbitrary instance for the Char type -- this takes care of generating random Chars for us to test with. I'll restrict it to a range of nice chars just for simplicity:</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr">
+<div class="haskell source-haskell">
+<pre class="de1">
+<span class="kw1">import</span> Data<span class="sy0">.</span><span class="kw4">Char</span>
+<span class="kw1">import</span> Test<span class="sy0">.</span>QuickCheck
+ 
+<span class="kw1">instance</span> Arbitrary <span class="kw4">Char</span> <span class="kw1">where</span>
+    arbitrary     <span class="sy0">=</span> choose <span class="br0">(</span><span class="st0">'<span class="es0">\3</span>2'</span><span class="sy0">,</span> <span class="st0">'<span class="es0">\1</span>28'</span><span class="br0">)</span>
+    coarbitrary c <span class="sy0">=</span> variant <span class="br0">(</span>ord c `<span class="kw3">rem</span>` <span class="nu0">4</span><span class="br0">)</span>
+</pre></div>
+</div>
+<p>Let's fire up GHCi (or Hugs) and try some generic properties (it's nice that we can use the QuickCheck testing framework directly from the Haskell REPL). An easy one first, a [Char] is equal to itself:</p>
+<pre>
+*A&gt; quickCheck ((\s -&gt; s == s) :: [Char] -&gt; Bool)
+OK, passed 100 tests.
+</pre>
+<p>What just happened? QuickCheck generated 100 random [Char] values, and applied our property, checking the result was True for all cases. QuickCheck <i>generated the test sets for us</i>!</p>
+<p>A more interesting property now: reversing twice is the identity:</p>
+<pre>
+*A&gt; quickCheck ((\s -&gt; (reverse.reverse) s == s) :: [Char] -&gt; Bool)
+OK, passed 100 tests.
+</pre>
+<p>Great!</p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Haskell/Testing&amp;action=edit&amp;section=4" title="Edit section: Testing take5">edit</a>]</span> <span class="mw-headline" id="Testing_take5">Testing take5</span></h3>
+<p>The first step to testing with QuickCheck is to work out some properties that are true of the function, for all inputs. That is, we need to find <i>invariants</i>.</p>
+<p>A simple invariant might be: <img class="tex" alt="\forall s.\; \mathit{length} (\mathit{take}5\; s) = 5" src="//upload.wikimedia.org/math/2/a/2/2a2ea85c77183cf7bb4e8c4f0b434874.png" /></p>
+<p>So let's write that as a QuickCheck property:</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr">
+<div class="haskell source-haskell">
+<pre class="de1">
+\s <span class="sy0">-&gt;</span> <span class="kw3">length</span> <span class="br0">(</span>take5 s<span class="br0">)</span> <span class="sy0">==</span> <span class="nu0">5</span>
+</pre></div>
+</div>
+<p>Which we can then run in QuickCheck as:</p>
+<pre>
+*A&gt; quickCheck (\s -&gt; length (take5 s) == 5)
+Falsifiable, after 0 tests:
+""
+</pre>
+<p>Ah! QuickCheck caught us out. If the input string contains less than 5 filterable characters, the resulting string will be no more than 5 characters long. So let's weaken the property a bit: <img class="tex" alt="\forall s.\; \mathit{length} (\mathit{take}5\; s) \le 5" src="//upload.wikimedia.org/math/1/b/e/1be617f7d8e9b937860ae9d243c7379f.png" /></p>
+<p>That is, take5 returns a string of at most 5 characters long. Let's test this:</p>
+<pre>
+*A&gt; quickCheck (\s -&gt; length (take5 s) &lt;= 5)
+OK, passed 100 tests.
+</pre>
+<p>Good!</p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Haskell/Testing&amp;action=edit&amp;section=5" title="Edit section: Another property">edit</a>]</span> <span class="mw-headline" id="Another_property">Another property</span></h3>
+<p>Another thing to check would be that the correct characters are returned. That is, for all returned characters, those characters are members of the set ['a','b','c','d','e'].</p>
+<p>We can specify that as: <img class="tex" alt="\forall s. \forall e. (e \in take5\; s) \Rightarrow (e \in \{a, b, c, d, e\}) " src="//upload.wikimedia.org/math/b/0/3/b03e1442201c756cf78a4d823ba30878.png" /></p>
+<p>And in QuickCheck:</p>
+<pre>
+*A&gt; quickCheck (\s -&gt; all (`elem` ['a'..'e']) (take5 s))
+OK, passed 100 tests.
+</pre>
+<p>Excellent. So we can have some confidence that the function neither returns strings that are too long, nor includes invalid characters.</p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Haskell/Testing&amp;action=edit&amp;section=6" title="Edit section: Coverage">edit</a>]</span> <span class="mw-headline" id="Coverage">Coverage</span></h3>
+<p>One issue with the default QuickCheck configuration, when testing [Char], is that the standard 100 tests isn't enough for our situation. In fact, QuickCheck never generates a String greater than 5 characters long, when using the supplied Arbitrary instance for Char! We can confirm this:</p>
+<pre>
+*A&gt; quickCheck (\s -&gt; length (take5 s) &lt; 5)
+OK, passed 100 tests.
+</pre>
+<p>QuickCheck wastes its time generating different Chars, when what we really need is longer strings. One solution to this is to modify QuickCheck's default configuration to test deeper:</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr">
+<div class="haskell source-haskell">
+<pre class="de1">
+deepCheck p <span class="sy0">=</span> check <span class="br0">(</span>defaultConfig <span class="br0">{</span> configMaxTest <span class="sy0">=</span> <span class="nu0">10000</span><span class="br0">}</span><span class="br0">)</span> p
+</pre></div>
+</div>
+<p>This instructs the system to find at least 10000 test cases before concluding that all is well. Let's check that it is generating longer strings:</p>
+<pre>
+*A&gt; deepCheck (\s -&gt; length (take5 s) &lt; 5)
+Falsifiable, after 125 tests:
+";:iD^*NNi~Y\\RegMob\DEL@krsx/=dcf7kub|EQi\DELD*"
+</pre>
+<p>We can check the test data QuickCheck is generating using the 'verboseCheck' hook. Here, testing on integers lists:</p>
+<pre>
+*A&gt; verboseCheck (\s -&gt; length s &lt; 5)
+0: []
+1: [0]
+2: []
+3: []
+4: []
+5: [1,2,1,1]
+6: [2]
+7: [-2,4,-4,0,0]
+Falsifiable, after 7 tests:
+[-2,4,-4,0,0]
+</pre>
+<h3><span class="editsection">[<a href="/w/index.php?title=Haskell/Testing&amp;action=edit&amp;section=7" title="Edit section: More information on QuickCheck">edit</a>]</span> <span class="mw-headline" id="More_information_on_QuickCheck">More information on QuickCheck</span></h3>
+<ul>
+<li><a rel="nofollow" class="external free" href="http://haskell.org/haskellwiki/Introduction_to_QuickCheck">http://haskell.org/haskellwiki/Introduction_to_QuickCheck</a></li>
+<li><a rel="nofollow" class="external free" href="http://haskell.org/haskellwiki/QuickCheck_as_a_test_set_generator">http://haskell.org/haskellwiki/QuickCheck_as_a_test_set_generator</a></li>
+</ul>
+<h2><span class="editsection">[<a href="/w/index.php?title=Haskell/Testing&amp;action=edit&amp;section=8" title="Edit section: HUnit">edit</a>]</span> <span class="mw-headline" id="HUnit">HUnit</span></h2>
+<p>Sometimes it is easier to give an example for a test than to define one from a general rule. HUnit provides a unit testing framework which helps you to do just this. You could also abuse QuickCheck by providing a general rule which just so happens to fit your example; but it's probably less work in that case to just use HUnit.</p>
+<dl>
+<dd><i>TODO: give an example of HUnit test, and a small tour of it</i></dd>
+</dl>
+<p>More details for working with HUnit can be found in its <a rel="nofollow" class="external text" href="http://hunit.sourceforge.net/HUnit-1.0/Guide.html">user's guide</a>.</p>
+<table class="metadata plainlinks ambox ambox-content" style="">
+<tr>
+<td class="mbox-image">
+<div style="width: 52px;"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/9/91/Book_important2.svg/40px-Book_important2.svg.png" width="40" height="40" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/9/91/Book_important2.svg/60px-Book_important2.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/9/91/Book_important2.svg/80px-Book_important2.svg.png 2x" /></div>
+</td>
+<td class="mbox-text" style=""><i>This section is a <a href="/wiki/Help:Stub" title="Help:Stub" class="mw-redirect">stub</a>. You can help <a href="/wiki/Haskell" title="Haskell">Haskell</a> by <a class="external text" href="//en.wikibooks.org/w/index.php?title=Haskell/Testing&amp;action=edit">expanding it</a>.</i></td>
+</tr>
+</table>
+<hr />
+<table class="metadata plainlinks ambox ambox-notice" style="">
+<tr>
+<td class="mbox-image">
+<div style="width: 52px;"><a href="/wiki/File:Information_icon.svg" class="image" title="Information"><img alt="Information" src="//upload.wikimedia.org/wikipedia/commons/thumb/3/35/Information_icon.svg/32px-Information_icon.svg.png" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/3/35/Information_icon.svg/48px-Information_icon.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/3/35/Information_icon.svg/64px-Information_icon.svg.png 2x" /></a></div>
+</td>
+<td class="mbox-text" style="">At least part of this page was imported from the Haskell wiki article <a rel="nofollow" class="external text" href="http://www.haskell.org/haskellwiki/Introduction_to_QuickCheck">Introduction to QuickCheck</a>, in accordance to its Simple Permissive License. If you wish to modify this page and if your changes will also be useful on that wiki, you might consider modifying that source page instead of this one, as changes from that page may propagate here, but not the other way around. Alternately, you can explicitly dual license your contributions under the Simple Permissive License.</td>
+</tr>
+</table>
+<p><br style="clear:both;" /></p>
+<div class="noprint">
+<center>
+<table cellpadding="1" style="border: 1px solid #8888aa; background: #f7f8ff; padding: 5px; font-size: 95%; margin: 0 15px 0 15px;">
+<tr>
+<td style="background: #ccf; text-align: center;"><b>Testing</b></td>
+</tr>
+<tr>
+<td style="text-align:center"><a href="/w/index.php?title=Haskell/Solutions/Testing&amp;action=edit&amp;redlink=1" class="new" title="Haskell/Solutions/Testing (does not exist)">Solutions to exercises</a></td>
+</tr>
+<tr>
+<td style="background: #ccf; text-align: center;"><b>General Practices</b></td>
+</tr>
+<tr>
+<td style="text-align:center">
+<p><a href="/wiki/Haskell/Applications" title="Haskell/Applications">Building a standalone application</a> &#160;&gt;&gt;&#160;<a href="/wiki/Haskell/Debugging" title="Haskell/Debugging">Debugging</a> &#160;&gt;&gt;&#160;<strong class="selflink">Testing</strong> &#160;&gt;&gt;&#160;<a href="/wiki/Haskell/Packaging" title="Haskell/Packaging">Packaging your software (Cabal)</a> &#160;&gt;&gt;&#160;<a href="/wiki/Haskell/FFI" title="Haskell/FFI">Using the Foreign Function Interface (FFI)</a> &#160;&gt;&gt;&#160;<a href="/wiki/Haskell/SYB" title="Haskell/SYB">Generic Programming : Scrap your boilerplate</a></p>
+<div style="clear:both;"><small class="noprint"><a class="external text" href="//en.wikibooks.org/w/index.php?title=Template:Haskell_chapter/General_Practices&amp;action=edit">edit this chapter</a></small></div>
+<p><br /></p>
+</td>
+</tr>
+<tr>
+<td style="background: #ccf; text-align: center;"><b><a href="/wiki/Haskell" title="Haskell">Haskell</a></b></td>
+</tr>
+<tr>
+<td style="text-align:center">
+<p><a href="/wiki/Haskell/Haskell_Basics" title="Haskell/Haskell Basics" class="mw-redirect">Haskell Basics</a> &gt;&gt; <a href="/wiki/Haskell/Elementary_Haskell" title="Haskell/Elementary Haskell" class="mw-redirect">Elementary Haskell</a> &gt;&gt; <a href="/wiki/Haskell/Intermediate_Haskell" title="Haskell/Intermediate Haskell" class="mw-redirect">Intermediate Haskell</a> &gt;&gt; <a href="/wiki/Haskell/Monads" title="Haskell/Monads" class="mw-redirect">Monads</a><br />
+<a href="/wiki/Haskell/Advanced_Haskell" title="Haskell/Advanced Haskell" class="mw-redirect">Advanced Haskell</a> &gt;&gt; <a href="/wiki/Haskell/Fun_with_Types" title="Haskell/Fun with Types" class="mw-redirect">Fun with Types</a> &gt;&gt; <a href="/wiki/Haskell/Wider_Theory" title="Haskell/Wider Theory" class="mw-redirect">Wider Theory</a> &gt;&gt; <a href="/wiki/Haskell/Haskell_Performance" title="Haskell/Haskell Performance" class="mw-redirect">Haskell Performance</a><br /></p>
+<hr />
+<p><a href="/wiki/Haskell/Libraries_Reference" title="Haskell/Libraries Reference" class="mw-redirect">Libraries Reference</a> &gt;&gt; <a href="/wiki/Haskell/General_Practices" title="Haskell/General Practices" class="mw-redirect">General Practices</a> &gt;&gt; <a href="/wiki/Haskell/Specialised_Tasks" title="Haskell/Specialised Tasks" class="mw-redirect">Specialised Tasks</a></p>
+<div style="float:right;"><small><small class="noprint"><a class="external text" href="//en.wikibooks.org/w/index.php?title=Template:Haskell_navigation&amp;action=edit">edit book structure</a></small></small></div>
+</td>
+</tr>
+</table>
+</center>
+</div>
+
+
+<!-- 
+NewPP limit report
+Preprocessor visited node count: 563/1000000
+Preprocessor generated node count: 3388/1500000
+Post-expand include size: 11585/2048000 bytes
+Template argument size: 2978/2048000 bytes
+Highest expansion depth: 11/40
+Expensive parser function count: 0/500
+-->
+
+<!-- Saved in parser cache with key enwikibooks:pcache:idhash:94231-0!0!0!default!!en!4!* and timestamp 20130113075637 -->
+</div>				<!-- /bodycontent -->
+								<!-- printfooter -->
+				<div class="printfooter">
+				Retrieved from "<a href="http://en.wikibooks.org/w/index.php?title=Haskell/Testing&amp;oldid=2148905">http://en.wikibooks.org/w/index.php?title=Haskell/Testing&amp;oldid=2148905</a>"				</div>
+				<!-- /printfooter -->
+												<!-- catlinks -->
+				<div id='catlinks' class='catlinks'><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="/wiki/Special:Categories" title="Special:Categories">Categories</a>: <ul><li><a href="/wiki/Category:Haskell/Stubs" title="Category:Haskell/Stubs">Haskell/Stubs</a></li><li><a href="/wiki/Category:Haskell" title="Category:Haskell">Haskell</a></li></ul></div></div>				<!-- /catlinks -->
+												<!-- dataAfterContent -->
+				<div id='mw-data-after-content'>
+	<form method="post" action="/w/index.php?title=Special:ReaderFeedback&amp;action=submit" id="mw-feedbackform"><fieldset class="feedback_reviewform noprint"><legend><strong>What do you think of this page?</strong></legend>
+<p><i>Please take a moment to rate this page below. Your feedback is valuable and helps us improve our website.</i>
+</p><span id="mw-feedbackselects"><b><label for="wpreliability">Reliability</label>:</b>&#160;<select name="wpreliability" id="wpreliability" onchange="updateFeedbackForm()"><option class="rfb-rating-option-4" value="4">Excellent</option>
+<option class="rfb-rating-option-3" value="3">High</option>
+<option class="rfb-rating-option-2" value="2">Fair</option>
+<option class="rfb-rating-option-1" value="1">Low</option>
+<option class="rfb-rating-option-0" value="0">Poor</option>
+<option value="-1" selected="">(unsure)</option>
+</select>
+<b><label for="wpcompleteness">Completeness</label>:</b>&#160;<select name="wpcompleteness" id="wpcompleteness" onchange="updateFeedbackForm()"><option class="rfb-rating-option-4" value="4">Excellent</option>
+<option class="rfb-rating-option-3" value="3">High</option>
+<option class="rfb-rating-option-2" value="2">Fair</option>
+<option class="rfb-rating-option-1" value="1">Low</option>
+<option class="rfb-rating-option-0" value="0">Poor</option>
+<option value="-1" selected="">(unsure)</option>
+</select>
+<b><label for="wpnpov">Neutrality</label>:</b>&#160;<select name="wpnpov" id="wpnpov" onchange="updateFeedbackForm()"><option class="rfb-rating-option-4" value="4">Excellent</option>
+<option class="rfb-rating-option-3" value="3">High</option>
+<option class="rfb-rating-option-2" value="2">Fair</option>
+<option class="rfb-rating-option-1" value="1">Low</option>
+<option class="rfb-rating-option-0" value="0">Poor</option>
+<option value="-1" selected="">(unsure)</option>
+</select>
+<b><label for="wppresentation">Presentation</label>:</b>&#160;<select name="wppresentation" id="wppresentation" onchange="updateFeedbackForm()"><option class="rfb-rating-option-4" value="4">Excellent</option>
+<option class="rfb-rating-option-3" value="3">High</option>
+<option class="rfb-rating-option-2" value="2">Fair</option>
+<option class="rfb-rating-option-1" value="1">Low</option>
+<option class="rfb-rating-option-0" value="0">Poor</option>
+<option value="-1" selected="">(unsure)</option>
+</select>
+</span><input type="submit" value="Submit" id="submitfeedback" accesskey="b" title="Submit review [b]" /><input type="hidden" value="Special:ReaderFeedback" name="title" />
+<input type="hidden" value="Haskell/Testing" name="target" />
+<input type="hidden" value="2148905" name="oldid" />
+<input type="hidden" value="26b9e4254e77cccdd3b947e45f980208" name="validatedParams" /><input type="hidden" value="submit" name="action" />
+<input type="hidden" value="+\" name="wpEditToken" />
+<input name="commentary" size="12" value="" style="display:none;" />
+</fieldset></form>
+</div>
+				<!-- /dataAfterContent -->
+								<div class="visualClear"></div>
+				<!-- debughtml -->
+								<!-- /debughtml -->
+			</div>
+			<!-- /bodyContent -->
+		</div>
+		<!-- /content -->
+		<div id="mw-navigation">
+			<h2>Navigation menu</h2>
+			<!-- header -->
+			<div id="mw-head" class="noprint">
+				
+<!-- 0 -->
+<div id="p-personal" role="navigation" class="">
+	<h3>Personal tools</h3>
+	<ul>
+<li id="pt-createaccount"><a href="/w/index.php?title=Special:UserLogin&amp;returnto=Haskell%2FTesting&amp;type=signup">Create account</a></li><li id="pt-login"><a href="/w/index.php?title=Special:UserLogin&amp;returnto=Haskell%2FTesting" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li>	</ul>
+</div>
+
+<!-- /0 -->
+				<div id="left-navigation">
+					
+<!-- 0 -->
+<div id="p-namespaces" role="navigation" class="vectorTabs">
+	<h3>Namespaces</h3>
+	<ul>
+					<li  id="ca-nstab-main" class="selected"><span><a href="/wiki/Haskell/Testing"  title="View the content page [c]" accesskey="c">Book</a></span></li>
+					<li  id="ca-talk"><span><a href="/wiki/Talk:Haskell/Testing"  title="Discussion about the content page [t]" accesskey="t">Discussion</a></span></li>
+			</ul>
+</div>
+
+<!-- /0 -->
+
+<!-- 1 -->
+<div id="p-variants" role="navigation" class="vectorMenu emptyPortlet">
+	<h3 id="mw-vector-current-variant">
+		</h3>
+	<h3><span>Variants</span><a href="#"></a></h3>
+	<div class="menu">
+		<ul>
+					</ul>
+	</div>
+</div>
+
+<!-- /1 -->
+				</div>
+				<div id="right-navigation">
+					
+<!-- 0 -->
+<div id="p-views" role="navigation" class="vectorTabs">
+	<h3>Views</h3>
+	<ul>
+					<li id="ca-view" class="selected"><span><a href="/wiki/Haskell/Testing" >Read</a></span></li>
+					<li id="ca-edit"><span><a href="/w/index.php?title=Haskell/Testing&amp;action=edit"  title="You can edit this page. Please use the preview button before saving [e]" accesskey="e">Edit</a></span></li>
+					<li id="ca-history" class="collapsible"><span><a href="/w/index.php?title=Haskell/Testing&amp;action=history"  title="Past revisions of this page [h]" accesskey="h">View history</a></span></li>
+			</ul>
+</div>
+
+<!-- /0 -->
+
+<!-- 1 -->
+<div id="p-cactions" role="navigation" class="vectorMenu emptyPortlet">
+	<h3><span>Actions</span><a href="#"></a></h3>
+	<div class="menu">
+		<ul>
+					</ul>
+	</div>
+</div>
+
+<!-- /1 -->
+
+<!-- 2 -->
+<div id="p-search" role="search">
+	<h3><label for="searchInput">Search</label></h3>
+	<form action="/w/index.php" id="searchform">
+				<div id="simpleSearch">
+						<input name="search" title="Search Wikibooks [f]" accesskey="f" id="searchInput" />						<button type="submit" name="button" title="Search the pages for this text" id="searchButton"><img src="//bits.wikimedia.org/static-1.21wmf7/skins/vector/images/search-ltr.png?303-4" alt="Search" width="12" height="13" /></button>								<input type='hidden' name="title" value="Special:Search"/>
+		</div>
+	</form>
+</div>
+
+<!-- /2 -->
+				</div>
+			</div>
+			<!-- /header -->
+			<!-- panel -->
+			<div id="mw-panel" class="noprint">
+				<!-- logo -->
+					<div id="p-logo" role="banner"><a style="background-image: url(//upload.wikimedia.org/wikibooks/en/b/bc/Wiki.png);" href="/wiki/Main_Page"  title="Visit the main page"></a></div>
+				<!-- /logo -->
+				
+<!-- Navigation -->
+<div class="portal" role="navigation" id='p-Navigation'>
+	<h3>Navigation</h3>
+	<div class="body">
+		<ul>
+			<li id="n-mainpage"><a href="/wiki/Main_Page" title="Visit the main page [z]" accesskey="z">Main Page</a></li>
+			<li id="n-help"><a href="/wiki/Help:Contents" title="Find help on how to use and edit Wikibooks">Help</a></li>
+			<li id="n-Browse"><a href="/wiki/Wikibooks:Card_Catalog_Office" title="Check out what Wikibooks has to offer">Browse</a></li>
+			<li id="n-Cookbook"><a href="/wiki/Cookbook:Table_of_Contents" title="Learn recipes from around the world">Cookbook</a></li>
+			<li id="n-Wikijunior"><a href="/wiki/Wikijunior" title="Books for children">Wikijunior</a></li>
+			<li id="n-Featured-books"><a href="/wiki/Wikibooks:Featured_books" title="The best of Wikibooks">Featured books</a></li>
+			<li id="n-recentchanges"><a href="/wiki/Special:RecentChanges" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li>
+			<li id="n-sitesupport"><a href="//donate.wikimedia.org/wiki/Special:FundraiserRedirector?utm_source=donate&amp;utm_medium=sidebar&amp;utm_campaign=C12_en.wikibooks.org&amp;uselang=en" title="Support Wikibooks">Donations</a></li>
+			<li id="n-randomrootpage"><a href="/wiki/Special:Randomrootpage">Random book</a></li>
+		</ul>
+	</div>
+</div>
+
+<!-- /Navigation -->
+
+<!-- SEARCH -->
+
+<!-- /SEARCH -->
+
+<!-- Community -->
+<div class="portal" role="navigation" id='p-Community'>
+	<h3>Community</h3>
+	<div class="body">
+		<ul>
+			<li id="n-Reading-room"><a href="/wiki/Wikibooks:Reading_room" title="Discuss Wikibooks-related questions and concerns with others">Reading room</a></li>
+			<li id="n-portal"><a href="/wiki/Wikibooks:Community_Portal" title="Find your way around the Wikibooks community">Community portal</a></li>
+			<li id="n-currentevents"><a href="/wiki/Wikibooks:Reading_room/Bulletin_Board" title="Important community news">Bulletin Board</a></li>
+			<li id="n-maintenance"><a href="/wiki/Wikibooks:Maintenance" title="Frequent tasks that you can help with">Help out!</a></li>
+			<li id="n-Policies-and-guidelines"><a href="/wiki/Wikibooks:Policies_and_guidelines" title="Pages detailing important rules and procedures">Policies and guidelines</a></li>
+			<li id="n-contact"><a href="/wiki/Wikibooks:Contact_us" title="Alternative methods of communication">Contact us</a></li>
+		</ul>
+	</div>
+</div>
+
+<!-- /Community -->
+
+<!-- TOOLBOX -->
+<div class="portal" role="navigation" id='p-tb'>
+	<h3>Toolbox</h3>
+	<div class="body">
+		<ul>
+			<li id="t-whatlinkshere"><a href="/wiki/Special:WhatLinksHere/Haskell/Testing" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+			<li id="t-recentchangeslinked"><a href="/wiki/Special:RecentChangesLinked/Haskell/Testing" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+			<li id="t-upload"><a href="//commons.wikimedia.org/wiki/Commons:Upload" title="Upload files [u]" accesskey="u">Upload file</a></li>
+			<li id="t-specialpages"><a href="/wiki/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li>
+			<li id="t-permalink"><a href="/w/index.php?title=Haskell/Testing&amp;oldid=2148905" title="Permanent link to this revision of the page">Permanent link</a></li>
+			<li id="t-info"><a href="/w/index.php?title=Haskell/Testing&amp;action=info">Page information</a></li>
+<li id="t-cite"><a href="/w/index.php?title=Special:Cite&amp;page=Haskell%2FTesting&amp;id=2148905" title="Information on how to cite this page">Cite this page</a></li><li id="t-rating"><a href="/w/index.php?title=Special:RatingHistory&amp;target=Haskell/Testing">Page rating</a></li>		</ul>
+	</div>
+</div>
+
+<!-- /TOOLBOX -->
+
+<!-- LANGUAGES -->
+
+<!-- /LANGUAGES -->
+
+<!-- Sister projects -->
+<div class="portal" role="navigation" id='p-Sister_projects'>
+	<h3>Sister projects</h3>
+	<div class="body">
+		<ul>
+			<li id="n-Wikipedia"><a href="//en.wikipedia.org/wiki/Main_Page">Wikipedia</a></li>
+			<li id="n-Wikiversity"><a href="//en.wikiversity.org/wiki/Wikiversity:Main_Page">Wikiversity</a></li>
+			<li id="n-Wiktionary"><a href="//en.wiktionary.org/wiki/Wiktionary:Main_Page">Wiktionary</a></li>
+			<li id="n-Wikiquote"><a href="//en.wikiquote.org/wiki/Main_Page">Wikiquote</a></li>
+			<li id="n-Wikisource"><a href="//en.wikisource.org/wiki/Main_Page">Wikisource</a></li>
+			<li id="n-Wikinews"><a href="//en.wikinews.org/wiki/Main_Page">Wikinews</a></li>
+			<li id="n-Commons"><a href="//commons.wikimedia.org/wiki/Main_Page">Commons</a></li>
+		</ul>
+	</div>
+</div>
+
+<!-- /Sister projects -->
+
+<!-- coll-print_export -->
+<div class="portal" role="navigation" id='p-coll-print_export'>
+	<h3>Print/export</h3>
+	<div class="body">
+		<ul id="collectionPortletList"><li id="coll-create_a_book"><a href="/w/index.php?title=Special:Book&amp;bookcmd=book_creator&amp;referer=Haskell%2FTesting" title="Create a book or page collection" rel="nofollow">Create a collection</a></li><li id="coll-download-as-rl"><a href="/w/index.php?title=Special:Book&amp;bookcmd=render_article&amp;arttitle=Haskell%2FTesting&amp;oldid=2148905&amp;writer=rl" title="Download a PDF version of this wiki page" rel="nofollow">Download as PDF</a></li><li id="t-print"><a href="/w/index.php?title=Haskell/Testing&amp;printable=yes" title="Printable version of this page [p]" accesskey="p">Printable version</a></li></ul>	</div>
+</div>
+
+<!-- /coll-print_export -->
+			</div>
+			<!-- /panel -->
+		</div>
+		<!-- footer -->
+		<div id="footer" role="contentinfo">
+							<ul id="footer-info">
+											<li id="footer-info-lastmod"> This page was last modified on 24 July 2011, at 16:41.</li>
+											<li id="footer-info-copyright">Text is available under the <a rel="license" href="//en.wikibooks.org/wiki/Wikibooks:Creative_Commons_Attribution-ShareAlike_3.0_Unported_License">Creative Commons Attribution-ShareAlike License</a><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/" style="display:none;"></a>;
+additional terms may apply. See <a href="//wikimediafoundation.org/wiki/Terms_of_Use">Terms of Use</a> for details.</li>
+									</ul>
+							<ul id="footer-places">
+											<li id="footer-places-privacy"><a href="//wikimediafoundation.org/wiki/Privacy_policy" title="wikimedia:Privacy policy">Privacy policy</a></li>
+											<li id="footer-places-about"><a href="/wiki/Wikibooks:Welcome" title="Wikibooks:Welcome">About Wikibooks</a></li>
+											<li id="footer-places-disclaimer"><a href="/wiki/Wikibooks:General_disclaimer" title="Wikibooks:General disclaimer">Disclaimers</a></li>
+											<li id="footer-places-mobileview"><a href="http://en.m.wikibooks.org/wiki/Haskell/Testing" class="noprint stopMobileRedirectToggle">Mobile view</a></li>
+									</ul>
+										<ul id="footer-icons" class="noprint">
+					<li id="footer-copyrightico">
+						<a href="//wikimediafoundation.org/"><img src="//bits.wikimedia.org/images/wikimedia-button.png" width="88" height="31" alt="Wikimedia Foundation"/></a>
+					</li>
+					<li id="footer-poweredbyico">
+						<a href="//www.mediawiki.org/"><img src="//bits.wikimedia.org/static-1.21wmf7/skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" width="88" height="31" /></a>
+					</li>
+				</ul>
+						<div style="clear:both"></div>
+		</div>
+		<!-- /footer -->
+		<script>if(window.mw){
+mw.loader.state({"site":"loading","user":"ready","user.groups":"ready"});
+}</script>
+<script src="//bits.wikimedia.org/en.wikibooks.org/load.php?debug=false&amp;lang=en&amp;modules=skins.vector&amp;only=scripts&amp;skin=vector&amp;*"></script>
+<script>if(window.mw){
+mw.loader.load(["mobile.desktop","mediawiki.user","mediawiki.page.ready","mediawiki.searchSuggest","mediawiki.hidpi","ext.gadget.extlinks","mw.MwEmbedSupport.style","ext.vector.collapsibleNav","ext.vector.collapsibleTabs","ext.vector.editWarning","mw.PopUpMediaTransform","ext.flaggedRevs.advanced"], null, true);
+}</script>
+<script src="/w/index.php?title=MediaWiki:Gadget-commons-file.js&amp;action=raw&amp;ctype=text/javascript&amp;2172780"></script>
+<script src="/w/index.php?title=MediaWiki:Gadget-toolboxcompat.js&amp;action=raw&amp;ctype=text/javascript&amp;2161931"></script>
+<script src="//bits.wikimedia.org/static-1.21wmf7/extensions/ReaderFeedback/readerfeedback.js?1&amp;303-4"></script>
+<script src="//bits.wikimedia.org/en.wikibooks.org/load.php?debug=false&amp;lang=en&amp;modules=site&amp;only=scripts&amp;skin=vector&amp;*"></script>
+<!-- Served by mw37 in 0.176 secs. -->
+	</body>
+</html>
