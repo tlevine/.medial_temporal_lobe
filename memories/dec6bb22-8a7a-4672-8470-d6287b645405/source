@@ -1,0 +1,366 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:og="http://ogp.me/ns#" lang="en">
+<head xmlns:og="http://ogp.me/ns#">
+<title>Wget Trick to Download from Restrictive Sites</title>
+<link rel="stylesheet" type="text/css" media="all" href="/t/style-01359050.css" />
+<meta name="description" content="Wget Trick to Download from Restrictive Sites" /><meta name="keywords" content="Wget,Trick,Download,Restrictive,linux,wget,header,bash" /><script type="text/javascript">var isc_js_debug=false;</script><link rel="alternate" type="application/rss+xml" title="AskApache &raquo; Wget Trick to Download from Restrictive Sites Comments Feed" href="http://www.askapache.com/linux/wget-header-trick.html/feed/" />
+<link rel='prev' title='Speed Tips: Turn On Compression' href='http://www.askapache.com/htaccess/apache-speed-compression.html' />
+<link rel='next' title='Firefox, Firebug, and yslow are REQUIRED' href='http://www.askapache.com/software/firefox-firebug-yslow.html' />
+<link rel='canonical' href='http://www.askapache.com/linux/wget-header-trick.html' />
+<meta name="DC.title" content="Wget Trick to Download from Restrictive Sites" /><meta name="DC.description" content="Wget Trick to Download from Restrictive Sites" />
+<meta name="DC.subject" content="linux" /><meta name="DC.date" content="2013-01-24" />
+<meta name="DC.publisher" content="AskApache Web Development" /><meta name="DC.author" content="AskApache Webmaster" /><meta name="DC.format" content="text/html" /><meta name="DC.language" content="en" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="Content-Language" content="en" /><link rel="alternate" type="application/rss+xml" href="http://feeds.askapache.com/apache/htaccess" title="AskApache Web Fire" />
+<link rel="pingback" href="/xmlrpc.php" />
+<link href="/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+<link href="/" rel="home" title="Home" />
+<link href="/search/" rel="search" title="Search" />
+<link href="/about/site-map/" rel="index" title="Site-Map" />
+<link href="/about/glossary/" rel="glossary" title="Glossary" />
+<link href="/about/disclaimer-and-license/" rel="copyright" title="Copyright" />
+<link href="/about/" rel="about" title="About" />
+<link href="/about/contact/" rel="Help" title="Help" />
+<link rel="alternate" type="application/opensearchdescription+xml" href="/opensearch.xml" title="AskApache Search" /><script type="text/javascript">var b="32153-7",_gaq=_gaq||[];_gaq.push(['_setAccount','UA-7'+b]);_gaq.push(['_setDomainName','.askapache.com']);_gaq.push(['_setAllowLinker',true]);_gaq.push(['_trackPageview']);</script>
+<link rel="copyright" href="//creativecommons.org/licenses/by/3.0/" />
+</head>
+<body class="withsidebar single single-post postid-293 single-format-standard">
+<div id="GlobalW"><div id="HW" title="The Net is vast and infinite..."><p><a id="logo" href="/" title="AskApache Web Development" accesskey="1"></a>FREE THOUGHT &middot; FREE SOFTWARE &middot; FREE WORLD</p></div><div id="NationalW"><div id="MW">
+
+<p id="breadc"><a href="http://www.askapache.com/" rel="home" class="bc-begin">Home</a> <span class="bc-sep">&raquo;</span> <a href="http://www.askapache.com/category/linux/" title="Linux">Linux</a> <span class="bc-sep">&raquo;</span> Wget Trick to Download from Restrictive Sites</p>
+<h1 id="theph1">Wget Trick to Download from Restrictive Sites</h1><p id="authorbyline">by Charles Torvalds <span id="myclink"><a href="http://www.askapache.com/linux/wget-header-trick.html#comments" title="Comment on Wget Trick to Download from Restrictive Sites">13 comments</a></span></p>
+<div><a id="rss" href="/feed/" title="AskApache.com Feed"></a><a id="fsfassoc" rel="me" href="http://www.fsf.org/register_form?referrer=7511" title="AskApache is an FSF Associate Member"></a></div>
+
+<p id="sbshowhide" class="S">[hide]</p><div id="google300x200"><script type="text/javascript">/* <![CDATA[ */google_ad_client = "ca-pub-4356884677303281";google_ad_slot="4853533964";google_ad_width=300;google_ad_height=250;//]]></script><script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script></div>
+<div id="ContentW" class="post">
+<p class="npl"><span><a href="http://www.askapache.com/htaccess/apache-speed-compression.html" rel="prev">&laquo; Speed Tips: Turn On Compression</a></span><a href="http://www.askapache.com/software/firefox-firebug-yslow.html" rel="next">Firefox, Firebug, and yslow are REQUIRED &raquo;</a></p>
+
+
+
+<div id="TocW" class="shown"><h2 id="toctitle" title="Table of Contents">Contents <span id="tocshowhide">[hide]</span></h2>
+<ul id="toc" class="S">
+<li><a href="#Testing_Wget_Trick">Testing Wget Trick</a></li>
+<li><a href="#Wget_Function">Wget Function</a></li>
+<li><a href="#Wget_alias">Wget alias</a></li>
+<li><a href="#custom_wgetrc">Using custom .wgetrc</a></li>
+<li><a href="#command_line">Other command line</a></li>
+<li><a href="#Wget_Alternative">Wget Alternative</a></li>
+
+</ul>
+</div>
+<p><span class="IFL"><strong>Before</strong><br /><a rel="lb" href='http://uploads.askapache.com/2007/09/wget-trick-before.png' title='wget 403 Forbidden'><img src='http://uploads.askapache.com/2007/09/wget-trick-before.thumbnail.png' alt='wget 403 Forbidden' title="wget trick before.thumbnail linux" /></a>
+<strong>After trick</strong><br /><a rel="lb" href='http://uploads.askapache.com/2007/09/wget-trick-after.png' title='wget bypassing restrictions'><img src='http://uploads.askapache.com/2007/09/wget-trick-after.thumbnail.png' alt='wget bypassing restrictions' title="wget trick after.thumbnail linux" /></a></span><strong>I am often logged in to my servers via SSH</strong>, and I need to download a file like a WordPress plugin.  I've noticed many sites now employ a means of blocking robots like wget from accessing their files.  Most of the time they use <a href="http://www.askapache.com/htaccess/htaccess.html">.htaccess</a> to do this.  So a permanent workaround has wget mimick a normal browser.<br class="C" /></p>
+<hr />
+
+<h2><a id="Testing_Wget_Trick" href="#Testing_Wget_Trick">Testing Wget Trick</a></h2>
+<p>Just add the <code>-d</code> option.  Like: <kbd>$ wget -O/dev/null -d http://www.askapache.com</kbd></p>
+<pre>GET / HTTP/1.1
+Referer: http://www.askapache.com/
+User-Agent: Mozilla/5.0 (Windows NT 5.1; rv:10.0.2) Gecko/20100101 Firefox/10.0.2
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Host: www.askapache.com
+Connection: keep-alive
+Accept-Language: en-us,en;q=0.5</pre>
+
+
+<h2><a id="Wget_Function" href="#Wget_Function">Wget Function</a></h2>
+<p>Rename to wget to replace wget.</p>
+<pre>function wgets()
+{
+  local H=&#039;--header&#039;
+  wget $H=&#039;Accept-Language: en-us,en;q=0.5&#039; $H=&#039;Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8&#039; $H=&#039;Connection: keep-alive&#039; -U &#039;Mozilla/5.0 (Windows NT 5.1; rv:10.0.2) Gecko/20100101 Firefox/10.0.2&#039; --referer=http://www.askapache.com/ "$@";
+}</pre>
+
+
+<h2><a id="Wget_alias" href="#Wget_alias">Wget alias</a></h2>
+<p>Add this to your .bash_profile or other shell startup script, or just type it at the prompt.  Now just run wget from the command line as usual, i.e. <code>wget -dnv http://www.askapache.com/sitemap.xml</code>.</p>
+<pre>alias wgets=&#039;H="--header"; wget $H="Accept-Language: en-us,en;q=0.5" $H="Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8" $H="Connection: keep-alive" -U "Mozilla/5.0 (Windows NT 5.1; rv:10.0.2) Gecko/20100101 Firefox/10.0.2" --referer=http://www.askapache.com/ &#039;</pre>
+
+
+<h2><a id="custom_wgetrc" href="#custom_wgetrc">Using custom .wgetrc</a></h2>
+<p>Alternatively, and probably the best way, you could instead just create or modify your <code>$HOME/.wgetrc</code> file like this. Or download and rename to <code>.wgetrc</code><a href='http://uploads.askapache.com/2007/09/wgetrc.txt' title='Custom .wgetrc for bypassing download restrictions'>.wgetrc</a>.  Now just run wget from the command line as usual, i.e. <code>wget -dnv http://www.askapache.com/sitemap.xml</code>.</p>
+<pre>### Sample Wget initialization file .wgetrc by http://www.askapache.com
+## Local settings (for a user to set in his $HOME/.wgetrc).  It is
+## *highly* undesirable to put these settings in the global file, since
+## they are potentially dangerous to "normal" users.
+##
+## Even when setting up your own ~/.wgetrc, you should know what you
+## are doing before doing so.
+header = Accept-Language: en-us,en;q=0.5
+header = Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+header = Connection: keep-alive
+user_agent = Mozilla/5.0 (Windows NT 5.1; rv:10.0.2) Gecko/20100101 Firefox/10.0.2
+referer = http://www.askapache.com/
+robots = off</pre>
+
+
+<h2><a id="command_line" href="#command_line">Other command line</a></h2>
+<pre>wget --referer="http://www.google.com" --user-agent="Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.8.1.6) Gecko/20070725 Firefox/2.0.0.6" --header="Accept:
+text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5" --header="Accept-Language: en-us,en;q=0.5" --header="Accept-Encoding: gzip,deflate"
+--header="Accept-Charset: ISO-8859-1,utf-8;q=0.7,*;q=0.7" --header="Keep-Alive: 300" -dnv http://www.askapache.com/sitemap.xml</pre>
+
+<h2><a id="Wget_Alternative" href="#Wget_Alternative">Wget Alternative</a></h2>
+<p>Once you get tired of how basic wget is, start using curl, which is 100x better.</p><hr class="C" />
+<p class="H">September 6th, 2007</p>
+
+<div id="MetaW"><ul class="ULmeta"><li><a href='http://www.askapache.com/linux/wget-header-trick.html/feed/'>Feed for this Entry</a></li><li><a rel="trackback" href="http://www.askapache.com/linux/wget-header-trick.html/trackback/">Trackback</a></li><li><a href="/search/php+.htaccess" title="php .htaccess" rel="nofollow">php .htaccess</a></li>
+</ul></div><!-- MetaW -->
+<div id="CommentW">
+<h2><a id="addcomment" rel="bookmark" title="Add Your Thought about Wget Trick to Download from Restrictive Sites"></a>Please Comment!</h2>
+
+
+ 
+  
+									<div id="respond">
+				<h3 id="reply-title"><a id="addcomment-293"></a> <small><a rel="nofollow" id="cancel-comment-reply-link" href="/linux/wget-header-trick.html#respond" style="display:none;">Cancel reply</a></small></h3>
+									<form action="http://www.askapache.com/wp-comments-post.php" method="post" id="cf2">
+																			<p class="comment-notes">Your email address is not saved.</p>							<p class="psm"><label for="author"><input type="text" name="author" id="author" class="input" value="Name" size="25" /></label></p>
+<p class="psm"><label for="email"><input type="text" name="email" id="email" class="input" value="Email" size="25" /></label></p>
+<p class="psm"><label for="url"><input type="text" name="url" id="url" class="input" value="URL" size="25" /></label></p>
+												<div id="qtcont1"><div id="quicktags"></div><textarea name="comment" id="comment" cols="40" rows="10"></textarea></div>						<p class="form-allowed-tags"></p>						<p class="form-submit">
+							<input name="submit" type="submit" id="submit" value="Post Comment" />
+							<input type='hidden' name='comment_post_ID' value='293' id='comment_post_ID' />
+<input type='hidden' name='comment_parent' id='comment_parent' value='0' />
+						</p>
+						<p style="display: none;"><input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="2ae14a5772" /></p>					</form>
+							</div><!-- #respond -->
+						
+
+<h2><a id="comments" rel="bookmark" title="Reader Comments about Wget Trick to Download from Restrictive Sites"></a>Reader Comments</h2>
+
+<ol id="clist">
+				  <li class="comment even thread-even depth-1" id="comment-5275">
+    <div class="comment-body">
+      <div class="comment-author vcard"><cite>yotam ~<small>January 19, 2013 @ 1:02 am</small></cite></div>
+      Your example with
+<pre>--header="Keep-Alive: 300"</pre>
+
+helped me download successfully from Diino(dot)com.
+Thanks!    </div>
+  </li>  <li class="comment odd alt thread-odd thread-alt depth-1" id="comment-1142">
+    <div class="comment-body">
+      <div class="comment-author vcard"><cite>palamin ~<small>June 1, 2012 @ 2:54 pm</small></cite></div>
+      Everyone says that wget is sooooo basic, but it can do recursive download. Can curl do that? It might be offtopic here but if anyone knows how, please let me know.    </div>
+  </li>  <li class="comment even thread-even depth-1" id="comment-1145">
+    <div class="comment-body">
+      <div class="comment-author vcard"><cite>Darrius ~<small>April 8, 2012 @ 3:34 am</small></cite></div>
+      This also used to work using download managers that could manually set referrers, but in doing some security testing today I am seeing that is failing.  Did Apache get smarter? (not complaining)    </div>
+  </li>  <li class="comment odd alt thread-odd thread-alt depth-1" id="comment-1143">
+    <div class="comment-body">
+      <div class="comment-author vcard"><cite>Swagnik Mitra ~<small>January 29, 2012 @ 5:22 pm</small></cite></div>
+      You will have to keep changing your Gecko details every 2-3 times. The server side bot identifies there's something wrong with the incoming wget request and then 403's it.
+
+Any smart solution for this?    </div>
+  </li>  <li class="comment even thread-even depth-1" id="comment-1141">
+    <div class="comment-body">
+      <div class="comment-author vcard"><cite>Abhishek D ~<small>December 20, 2011 @ 8:03 pm</small></cite></div>
+      Awesome !!    </div>
+  </li>  <li class="comment odd alt thread-odd thread-alt depth-1" id="comment-1138">
+    <div class="comment-body">
+      <div class="comment-author vcard"><cite>tim ~<small>December 11, 2011 @ 9:09 pm</small></cite></div>
+      When I use this, I get an error:
+
+<blockquote><code>--header=Accept-Charset: ISO-8859-1,utf-8;q=0.7,*;q=0.7: command not found</code></blockquote>
+
+Any idea why that might be happening?    </div>
+  </li>  <li class="comment even thread-even depth-1" id="comment-1137">
+    <div class="comment-body">
+      <div class="comment-author vcard"><cite>R Raman ~<small>November 2, 2010 @ 10:04 pm</small></cite></div>
+      Thanks a TON for the very detailed examples.  Not only was I able to get my error page (403 Forbidden page) using the command line example, but .wgetrc also worked like a charm.    </div>
+  </li>  <li class="comment odd alt thread-odd thread-alt depth-1" id="comment-1135">
+    <div class="comment-body">
+      <div class="comment-author vcard"><cite>clutkin ~<small>August 18, 2010 @ 1:30 pm</small></cite></div>
+      Advanced examples have existed for years on wget wikipedia.  These examples are great, please update any errors if there are any.  This website is now a reference wikipedia link Advanced Examples.  PLEASE DO NOT BREAK THE LINKS BY RENAMING/MOVING THIS WEB PAGE. {tjc}    </div>
+  </li>  <li class="comment even thread-even depth-1" id="comment-1125">
+    <div class="comment-body">
+      <div class="comment-author vcard"><cite>Tensigh ~<small>February 24, 2010 @ 9:37 am</small></cite></div>
+      Didn't work for me -- the "Accept" lines returned errors. *SIGH*    </div>
+  </li>  <li class="comment byuser comment-author-askapache bypostauthor odd alt thread-odd thread-alt depth-1" id="comment-1124">
+    <div class="comment-body">
+      <div class="comment-author vcard"><cite>AskApache ~<small>September 21, 2009 @ 11:11 pm</small></cite></div>
+      <strong>@ lien</strong>
+
+<p>Nice idea there, haven't tried that yet, but I plan on it..</p>    </div>
+  </li>  <li class="comment even thread-even depth-1" id="comment-1123">
+    <div class="comment-body">
+      <div class="comment-author vcard"><cite>lien ~<small>September 5, 2009 @ 2:03 pm</small></cite></div>
+      This can also be used to see if competitors web sites are feeding google spider food. <strong>Just set your user agent to googlebot</strong>.    </div>
+  </li>  <li class="comment odd alt thread-odd thread-alt depth-1" id="comment-1122">
+    <div class="comment-body">
+      <div class="comment-author vcard"><cite>Deserio ~<small>May 1, 2009 @ 7:41 pm</small></cite></div>
+      I was looking for "user agent", works great for me, specially with rapidshare.    </div>
+  </li>  <li class="comment even thread-even depth-1" id="comment-1121">
+    <div class="comment-body">
+      <div class="comment-author vcard"><cite>Torrid Luna ~<small>February 25, 2009 @ 10:07 pm</small></cite></div>
+      There's an uncommented feature "<code>robots=off</code>", if all else fails, you could add that to your list.
+
+
+Cheers,
+Torrid    </div>
+  </li></ol>
+
+</div>
+</div><!-- ContentW -->
+
+<div id="SideW" class="S">
+<p class="H"><a id="technologies" rel="bookmark" title="Web Technology"></a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="freedm" style="display:none;"></div>
+
+
+<h5>My Picks</h5>
+<ul>
+<li><a href="http://www.askapache.com/linux/bash_profile-functions-advanced-shell.html" title="AskApache .bash_profile" id="id20"><br /><br /></a><br /></li>
+<li><a href="http://www.askapache.com/htaccess/htaccess.html" title=".htaccess tutorial and detailed htaccess guide">THE Ultimate Htaccess</a></li>
+<li><a href="http://www.askapache.com/linux/fast-vimrc.html" title="Optimized Vimrc with 256 Colorscheme">My Awesome Super-Fast .vimrc</a></li>
+<li><a href="http://www.askapache.com/htaccess/mod_rewrite-tips-and-tricks.html" title="htaccess rewrite">Mod_Rewrite Tips and Tricks</a></li>
+<li><a href="http://www.askapache.com/htaccess/crazy-advanced-mod_rewrite-tutorial.html">Crazy Advanced Mod_Rewrite</a></li>
+<li><a href="http://www.askapache.com/htaccess/mod_rewrite-variables-cheatsheet.html">THE Mod_Rewrite Cheatsheet</a></li>
+<li><a href="http://www.askapache.com/security/mod_rewrite.html">Advanced Mod_Rewrite Security</a></li>
+<li><a href="http://www.askapache.com/linux/linux-debugging.html" title="Linux Debugging using a Bootloader with Kernel Parameters">Debugging Linux with Kernel Parameters</a></li>
+<li><a href="http://www.askapache.com/htaccess/apache-status-code-headers-errordocument.html" title="HTTP Status Codes and Htaccess ErrorDocuments">HTTP Status Codes &amp; ErrorDocuments</a></li>
+<li><a href="http://www.askapache.com/php/custom-phpini-tips-and-tricks.html">Custom php.ini Tips</a></li>
+<li><a href="http://www.askapache.com/php/fsockopen-socket.html">Fsockopen: PHP Socket-Level</a></li>
+<li><a href="http://www.askapache.com/security/hacking-vlan-switched-networks.html">Hacking VLAN Networks</a></li>
+</ul>
+
+
+
+
+<p><a href="http://www.gnu.org/philosophy/free-sw.html" title="The Free Software Definition"><img src="data:;base64,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" alt="AskApache Liberty Policy" width="180" height="292" /></a></p>
+
+
+
+
+
+
+<hr class="HR0" />
+<h5>Related Articles</h5>
+<ul><li><a href="http://www.askapache.com/htaccess/htaccess-trick-to-show-alternate-css-file-based-on-ip.html" title=".htaccess trick to show Alternate CSS file based on IP">.htaccess trick to show Alternate CSS file based on IP</a></li><li><a href="http://www.askapache.com/htaccess/apache-speed-last-modified.html" title="Speed Tips: Remove Last-Modified Header">Speed Tips: Remove Last-Modified Header</a></li><li><a href="http://www.askapache.com/google/faster-google-analytics-local-urchinjs.html" title="Speed Up Google Analytics with urchin.js">Speed Up Google Analytics with urchin.js</a></li><li><a href="http://www.askapache.com/htaccess/apache-authentication-in-htaccess.html" title="Apache Authentication in htaccess">Apache Authentication in htaccess</a></li><li><a href="http://www.askapache.com/optimize/wp-cache-speed-hack.html" title="Hack WP-Cache for Maximum Speed">Hack WP-Cache for Maximum Speed</a></li><li><a href="http://www.askapache.com/php/php-errordocument.html" title="PHP to handle HTTP Status Codes for ErrorDocument">PHP to handle HTTP Status Codes for ErrorDocument</a></li><li><a href="http://www.askapache.com/linux/linux-debugging.html" title="Linux Debugging using a Bootloader with Kernel Parameters">Linux Debugging using a Bootloader with Kernel Parameters</a></li><li><a href="http://www.askapache.com/htaccess/apache-speed-expires.html" title="Speed Tips: Add Future Expires Headers">Speed Tips: Add Future Expires Headers</a></li><li><a href="http://www.askapache.com/software/firefox-firebug-yslow.html" title="Firefox, Firebug, and yslow are REQUIRED">Firefox, Firebug, and yslow are REQUIRED</a></li><li><a href="http://www.askapache.com/wordpress/crazy-cache-wordpress-plugin.html" title="Crazy Cache WordPress Plugin Released">Crazy Cache WordPress Plugin Released</a></li><li><a href="http://www.askapache.com/shellscript/custom-webmaster-shell-environment.html" title="Custom Webmaster Shell Environment">Custom Webmaster Shell Environment</a></li><li><a href="http://www.askapache.com/linux/bash_profile-functions-advanced-shell.html" title="Custom bash_profile for Advanced Shell Users">Custom bash_profile for Advanced Shell Users</a></li><li><a href="http://www.askapache.com/javascript/serve-external-javascript-files-locally-for-increased-speed.html" title="Serve External Javascript Files locally for Increased Speed">Serve External Javascript Files locally for Increased Speed</a></li></ul>
+
+
+
+<h5>Newest Posts</h5>
+<ul>
+<li><a href="/seo/get-alexa-toolbar.html">Get The Alexa Toolbar</a></li>
+<li><a href="/hacking/hacker-manifesto.html">The Conscience of a Hacker &#8211; Hacker Manifesto</a></li>
+<li><a href="/wordpress/basic-wordpress-theme-guide.html">Basic WordPress Theme Guide</a></li>
+<li><a href="/hosting/before-buying-web-hosting.html">Questions I Ask Web Hosting Companies, Before Buying</a></li>
+<li><a href="/hacking/computer-prison.html">The Right to Read</a></li>
+</ul>
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<hr class="HR0" />
+
+
+<h5>WordPress Development / Hosting</h5>
+<p><a id="insourcecodewordpress" title="WordPress Development, Enterprise Hosting, Plugin and Theme Development" href="http://insourcecode.com/">inSourceCode</a></p>
+
+
+
+</div><!--SideW-->
+
+</div><!--MW-->
+
+<div id="theplusone"></div><!--theplusone--></div><!-- NationalW -->
+
+
+<div id="NavMS"></div><!--NavMS-->
+<ul id="NavM">
+  <li><a rel="start" href="/" class="off" id="s0">AskApache</a>
+    <ul class="H" id="sm0">
+      <li><a rel="help" href="/about/contact/">Contact</a></li>
+      <li><a rel="help" href="/about/">About</a></li>
+      <li><a rel="search" href="/search/">Search</a></li>
+      <li><a href="/about/site-map/" title="AskApache.com Site Map" accesskey="3">Site Map</a></li>
+      <li><a href="http://tldp.askapache.com/" title="The Linux Documentation Project">TLDP - Documentation</a></li>
+      <li><a href="/cse/" title="Google Htaccess CSE">Htaccess Search</a></li>
+      <li><a rel="nofollow" href="/about/hire/" title="$225/hr">Hire AskApache</a></li>
+      <li><a href="http://wireshark.askapache.com/" title="WireShark">WireShark</a></li>
+      <li><a href="http://nongnu.askapache.com/" title="Savannah Non-gnu free software">Non-GNU</a></li>
+      <li><a href="http://tor.askapache.com/" title="Tor Project">Tor Project</a></li>
+    </ul>
+  </li>
+  <li><a href="/about/site-map/" id="s1" class="off">Categories</a>
+    <ul class="H" id="sm1">
+      <li><a href="/category/css/" title="CSS (Cascading Style Sheets) Articles">CSS</a></li>
+      <li><a href="/category/google/" title="Google Articles">Google</a></li>
+      <li><a href="/category/hacking/" title="Code hacking, networking debugging, creative detours">Hacking</a></li>
+      <li><a href="/category/hosting/" title="Hosting Recommendations and Host Reviews">Hosting</a></li>
+      <li><a href="/category/htaccess/" title=".htaccess file tutorials and htaccess articles">Htaccess</a></li>
+      <li><a href="/category/javascript/" title="JavaScript Articles">Javascript</a></li>
+      <li><a href="/category/linux/" title="UNIX / LINUX / BSD Articles">Linux</a></li>
+      <li><a href="/category/optimize/" title="Site Speed and Optimization, Caching">Optimization</a></li>
+      <li><a href="/category/php/" title="PHP (PHP: Hypertext Preprocessor) Articles">PHP</a></li>
+      <li><a href="/category/security/" title="Network / Computer Security Articles">Security</a></li>
+      <li><a href="/category/seo/" title="SEO (Search Engine Optimization) Articles">SEO</a></li>
+      <li><a href="/category/shellscript/" title="Shell Scripting Articles">Shell Scripting</a></li>
+      <li><a href="/category/software/" title="Tools and Software Articles">Software</a></li>
+      <li><a href="/category/design/" title="Web Development and Design">Web Design</a></li>
+      <li><a href="/category/windows/" title="Microsoft Windows Articles">Windows</a></li>
+      <li><a href="/category/wordpress/" title="WordPress Blogging Software Articles">WordPress</a></li>
+    </ul>
+  </li>
+  <li class="last oli"><a rel="index" title="Online Web Development Tools" href="/online-tools/" class="off" style="background-color:#BF0C0C" id="s2">Online Tools</a>
+    <ul class="H" id="sm2">
+      <li><a href="/online-tools/http-headers-tool/">Raw HTTP Header Debugger</a></li>
+      <li><a href="/online-tools/figlet-ascii/">Graphical ASCII Text Generator</a></li>
+      <li><a href="/online-tools/htpasswd-generator/">.htpasswd file Generator</a></li>
+      <li><a href="/online-tools/whoami/">Who Am I &#8211; Your IP Information</a></li>
+      <li><a href="/online-tools/base64-image-converter/">Base64 Image Converter</a></li>
+      <li><a href="/online-tools/javascript-beauty/">JavaScript Source Code Beautifier</a></li>
+      <li><a href="/online-tools/compress-css/">Compress CSS</a></li>
+      <li><a href="/online-tools/mac-lookup/">Mac Address Vendor Lookup</a></li>
+      <li><a href="/online-tools/dns-trace/">DNS Tracer</a></li>
+      <li><a href="/online-tools/p3p-privacy-generator/">P3P Privacy Generator</a></li>
+      <li><a href="/online-tools/request-method-scanner/">Request Method Security Scanner</a></li>
+    </ul>
+  </li>
+</ul>
+<!--NavM--> 
+
+<form class="flef" id="searchForm" action="http://www.google.com/search" method="get"><p><label class="H" for="as_q"><a id="search" rel="bookmark" accesskey="4">Search</a></label><input id="as_q" name="as_q" type="text" class="text" size="17" value="" /><input type="hidden" name="as_sitesearch" value="www.askapache.com" /><input type="submit" style="float:left;" id="searchSubmit" value="&nbsp;" /><br class="C" /></p></form>
+
+
+<div id="FootW">
+	<blockquote cite="http://en.wikipedia.org/wiki/Bill_Joy"><p>It's very simple - you read the protocol and write the code. -<cite>Bill Joy</cite></p></blockquote>
+    <p id="validat"></p>
+	<p id="asfnotices">Except where otherwise noted, content on this site is licensed under a <a rel="cc-license nofollow" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 License</a>, just credit with a link.<br />This site is not supported or endorsed by The Apache Software Foundation (<acronym title="Apache Software Foundation">ASF</acronym>). All software and documentation produced by The ASF is licensed. "Apache" is a trademark of The ASF. <a href="http://hoohoo.ncsa.illinois.edu/" title="HTTPD based on NCSA"><acronym title="National Center for Supercomputing Applications">NCSA</acronym> HTTPd</a>. <br />UNIX &reg; is a registered Trademark of <a href="http://www.opengroup.org/">The Open Group</a>.  POSIX &reg; is a registered Trademark of The <a href="http://standards.ieee.org/">IEEE</a>.</p>	<p id="googleauthor"><a href="https://plus.google.com/101616558702207714980" rel="author">Charles Torvalds</a></p>	<address><a rel="help" href="/about/site-map/" title="AskApache.com Site Map" accesskey="3">Site Map</a> | <a rel="nofollow" id="contactwebmaster" href="/about/contact/" accesskey="9" title="Contact Page for AskApache Webmaster">Contact Webmaster</a> | <a rel="nofollow" href="/about/disclaimer-and-license/">License and Disclaimer</a> | <a rel="nofollow" href="/about/statements/" accesskey="8">Terms of Service</a></address>	<p id="f1"><a rel="nofollow" href="#logo" id="tLk" title="Top">&uarr; TOP</a><a rel="nofollow" href="#ContentW" id="tMk" title="Main">Main</a></p>
+</div><!--FootW--></div><!-- GlobalW -->
+
+<script type="text/javascript" src="/t/style-01359050.js"></script>
+
+<script type="text/javascript">/* <![CDATA[ */(function(){var a=document.createElement("script");a.type="text/javascript";a.async=!0;a.src=("https:"==document.location.protocol?"https://ssl":"http://www")+".google-analytics.com/ga.js";var b=document.getElementsByTagName("script")[0];b.parentNode.insertBefore(a,b)})();/* ]]> */</script><noscript><img src="//pixel.quantserve.com/pixel/p-5e44cjdXWaqOA.gif" height="1" width="1" alt="Quantcast" /><img src="//d5nxst8fruw4z.cloudfront.net/atrk.gif?account=5lp0h1agYe00Gc" height="1" width="1" alt="Alexa" /></noscript>
+<!-- 67 queries. 0.278 seconds. -->
+</body>
+</html>
