@@ -1,0 +1,1109 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en" itemscope itemtype="http://schema.org/Product"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en" itemscope itemtype="http://schema.org/Product"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en" itemscope itemtype="http://schema.org/Product"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" itemscope itemtype="http://schema.org/Product"> <!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Access google translate from a terminal. (Page 1) / Tips, Tricks &amp; Scripts / CrunchBang Linux Forums</title>
+<meta property="og:title" content="Access google translate from a terminal. / Tips, Tricks &amp; Scripts / CrunchBang Linux Forums"/>
+<meta property="og:site_name" content="CrunchBang Linux Forums"/>
+<meta property="og:image" content="http://crunchbang.org/opengraph-image.png">
+<link rel="shortcut icon" href="http://crunchbang.org/favicon.ico">
+<link href='http://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'>
+<script src="http://crunchbang.org/js/modernizr-2.0.6.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+<script src="http://crunchbang.org/js/jquery.cookie.js"></script>
+<script src="http://crunchbang.org/forums/script.js?v=4"></script>
+<script src="http://crunchbang.org/js/site-search.js?v=2"></script>
+<link rel="stylesheet" type="text/css" href="style/Air.css?v=5" />
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-73021-9']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+<link rel="stylesheet" type="text/css" href="style/imports/pms.css" /><!--[if lte IE 6]><script type="text/javascript" src="style/imports/minmax.js"></script><![endif]-->
+<link rel="alternate" type="application/atom+xml" href="extern.php?action=feed&amp;tid=17034&amp;type=atom" title="Atom topic feed" />
+</head>
+
+<body>
+
+<div id="masthead">
+<h1><a id="logo" class="ir" href="http://crunchbang.org/" title="CrunchBang Linux">CrunchBang Linux</a></h1>
+<ul id="sitemenu">
+<li><a class="siteabout std" href="http://crunchbang.org/about/" title="About CrunchBang Linux">About</a></li>
+<li><a class="std" href="http://crunchbang.org/download/" title="Download CrunchBang Linux">Download</a></li>
+<li><a class="std" href="http://crunchbang.org/forums/" title="CrunchBang Forums">Community</a></li>
+<li><a class="std" href="http://crunchbang.org/donate/" title="Help Fund CrunchBang">Donate</a></li>
+<li><a class="showmenu ir" href="http://crunchbang.org/" title="Menu">Menu</a></li>
+<li><a class="live sitesearch ir" href="http://crunchbang.org/search/" title="Search the CrunchBang site">Search</a></li>
+</ul>
+	<div id="mobmenu" class="drop"><!--mobmenu --></div>
+	<div id="livesearch" class="drop">
+		<h3>SEARCH</h3>
+		<form id="searchForm" method="post" autocomplete="on">
+				<fieldset>
+		           	<input id="s" type="text" />
+		            <input type="hidden" value="fubar" id="fubar" />
+		            <input type="submit" value="Search" id="submitButton" />
+		        </fieldset>
+		</form>
+		<div id="searchresults">Enter your search query in the box above ^,
+		 or use the <a href="http://crunchbang.org/forums/search.php" title="Use the forum search tool.">forum search tool</a>.
+		</div>
+	</div>
+</div>
+
+<div id="punviewtopic" class="pun">
+<div class="punwrap">
+
+<div class="community_info">
+	<div class="irc">
+	<h4><span class="darklight">Internet Relay Chat</span></h4>
+	<p>Get live help and chat with other CrunchBang users in the official #! Freenode IRC channels.</p>
+	</div>
+	<div class="twitter">
+	<h4><span class="darklight">Follow @CrunchBang</span></h4>
+	<p>Follow the CrunchBang Twitter account for news, development updates and more.</p>
+	</div>
+	<a href="#" title="close" class="community_info_close ir">close</a>
+</div>
+
+
+<div id="brdheader" class="block">
+	<div class="box">
+		<div id="brdmenu" class="inbox"><a id="brdmenubutton" href="http://crunchbang.org/forums/">Forum Menu</a>
+			<ul>
+				<li id="navindex" class="isactive"><a href="index.php">Index</a></li>
+				<li id="navuserlist"><a href="userlist.php">User list</a></li>
+				<li id="navrules"><a href="misc.php?action=rules">Rules</a></li>
+				<li id="navsearch"><a href="search.php">Search</a></li>
+				<li id="navregister"><a href="register.php">Register</a></li>
+				<li id="navlogin"><a href="login.php">Login</a></li>
+			</ul>
+		</div>
+		<div id="brdwelcome" class="inbox">
+			<p class="conl">You are not logged in.</p>
+			<ul class="conr">
+				<li><span>Topics: <a href="search.php?action=show_recent" title="Find topics with recent posts.">Active</a> | <a href="search.php?action=show_unanswered" title="Find topics with no replies.">Unanswered</a></span></li>
+			</ul>
+			<div class="clearer"></div>
+		</div>
+	</div>
+</div>
+
+
+
+<div id="brdmain">
+<div class="linkst">
+	<div class="inbox crumbsplus">
+		<ul class="crumbs">
+			<li><a href="index.php">Index</a></li>
+			<li><span>»&#160;</span><a href="viewforum.php?id=8">Tips, Tricks &amp; Scripts</a></li>
+			<li><span>»&#160;</span><a href="viewtopic.php?id=17034"><strong>Access google translate from a terminal.</strong></a></li>
+		</ul>
+		<div class="pagepost">
+			<p class="pagelink conl"><span class="pages-label">Pages: </span><strong class="item1">1</strong></p>
+		</div>
+		<div class="clearer"></div>
+	</div>
+</div>
+
+<div id="p176917" class="blockpost rowodd firstpost blockpost1">
+	<h2><span><span class="conr">#1</span> <a class="datetimeposted" href="viewtopic.php?pid=176917#p176917">2012-01-06 17:43:02</a></span></h2>
+	<div class="box">
+		<div class="inbox">
+			<div class="postbody">
+				<div class="postleft">
+					<dl>
+						<dt><strong><a href="profile.php?id=353">johnraff</a></strong></dt>
+						<dd class="usertitle"><strong>#!Drunkard</strong></dd>
+						<dd class="postavatar"><img src="http://crunchbang.org/forums/img/avatars/353.jpg?m=1332434399" width="60" height="53" alt="" /></dd>
+						<dd><span>From: Nagoya, Japan</span></dd>
+						<dd><span>Registered: 2009-01-07</span></dd>
+						<dd><span>Posts: 2,323</span></dd>
+						<dd class="usercontacts"><span class="website"><a href="http://asazuke.com">Website</a></span></dd>
+					</dl>
+				</div>
+				<div class="postright">
+					<h3>Access google translate from a terminal.</h3>
+					<div class="postmsg">
+						<p>Google shut down their web api for translation in December because it was being &quot;abused&quot; (auto-generation of web page content for black-hat SEO?). Now there&#039;s a free web page for browsers and a fee-paying api. Here&#039;s a script that lets you send in a query to that web page from a terminal. Examples:</p><div class="codebox"><pre><code>john@raffles3:~$ translate chien
+dog
+john@raffles3:~$ translate legs fr
+jambes
+john@raffles3:~$ translate legs fr en
+legacy
+john@raffles3:~$ translate 手紙
+Letter
+john@raffles3:~$ translate 手紙 zh-TW en
+Toilet paper
+john@raffles3:~$ translate --help
+translate &lt;text&gt; [[&lt;source language&gt;] &lt;target language&gt;]
+if target missing, use DEFAULT_TARGET_LANG
+if source missing, use auto</code></pre></div><p>You can set DEFAULT_TARGET_LANG to taste.<br />Make a symlink in ~/bin called translate pointing to translate.sh, or add a bash alias.<br />You might need to install curl and html2text.<br />Here&#039;s the script:</p><div class="codebox"><pre class="vscroll"><code>#!/bin/bash
+# access translate.google.com from terminal
+
+help=&#039;translate &lt;text&gt; [[&lt;source language&gt;] &lt;target language&gt;]
+if target missing, use DEFAULT_TARGET_LANG
+if source missing, use auto&#039;
+
+# adjust to taste
+DEFAULT_TARGET_LANG=en
+
+if [[ $1 = -h || $1 = --help ]]
+then
+    echo &quot;$help&quot;
+    exit
+fi
+
+if [[ $3 ]]; then
+    source=&quot;$2&quot;
+    target=&quot;$3&quot;
+elif [[ $2 ]]; then
+    source=auto
+    target=&quot;$2&quot;
+else
+    source=auto
+    target=&quot;$DEFAULT_TARGET_LANG&quot;
+fi
+
+result=$(curl -s -i --user-agent &quot;&quot; -d &quot;sl=$source&quot; -d &quot;tl=$target&quot; --data-urlencode &quot;text=$1&quot; http://translate.google.com)
+encoding=$(awk &#039;/Content-Type: .* charset=/ {sub(/^.*charset=[&quot;&#039;\&#039;&#039;]?/,&quot;&quot;); sub(/[ &quot;&#039;\&#039;&#039;].*$/,&quot;&quot;); print}&#039; &lt;&lt;&lt;&quot;$result&quot;)
+#iconv -f $encoding &lt;&lt;&lt;&quot;$result&quot; | awk &#039;BEGIN {RS=&quot;&lt;div&quot;};/&lt;span[^&gt;]* id=[&quot;&#039;\&#039;&#039;]?result_box[&quot;&#039;\&#039;&#039;]?/ {sub(/^.*id=[&quot;&#039;\&#039;&#039;]?result_box[&quot;&#039;\&#039;&#039;]?(&gt;| [^&gt;]*&gt;)([ \n\t]*&lt;[^&gt;]*&gt;)*/,&quot;&quot;);sub(/&lt;.*$/,&quot;&quot;);print}&#039; | html2text -utf8
+iconv -f $encoding &lt;&lt;&lt;&quot;$result&quot; |  awk &#039;BEGIN {RS=&quot;&lt;/div&gt;&quot;};/&lt;span[^&gt;]* id=[&quot;&#039;\&#039;&#039;]?result_box[&quot;&#039;\&#039;&#039;]?/&#039; | html2text -utf8
+exit</code></pre></div><p><strong>N.B.</strong> Google&#039;s terms of service refer to queries coming from a real user, and as long as we&#039;re using this to look up a word, phrase or passage from our desktop I don&#039;t see any problem. If someone started flooding the server from an automatic script they might block his IP, or make the web page harder to access, or even take it down, so please be nice! <img src="http://crunchbang.org/forums/plugins/ezbbc/style/smilies/smile.png" alt="smile" /></p><p>Tomorrow or so I&#039;ll post a bit on how this was figured out and put together, for anyone who&#039;d like to try with some other web page.</p><p><strong>edit:</strong> Tweaked the awk commands in the last line a bit. Probably makes no practical difference.<br /><strong>edit2:</strong> Hadn&#039;t noticed that when switching from grep to awk + html2text a lot of that regex stuff had become unnecessary. It&#039;s no faster now, but looks a bit simpler. (Left the old line in for comparison.)</p><p><strong>Note:</strong> This is just a hack - I tried to make the regular expressions as robust as possible, bit it will probably break eventually when Google change the code. If you notice a problem please post and we can try and fix it...</p>
+						<p class="postedit"><em>Last edited by johnraff (2012-01-10 16:39:50)</em></p>
+					</div>
+					<div class="postsignature postmsg"><hr /><p>John<br />--------------------<br />We are a nice, friendly community here and I hope we stay that way.<br />( a boring <a href="http://asazuke.com">Japan blog</a> , and idle <a href="https://twitter.com/john_raff">twitterings</a> )</p></div>
+				</div>
+			</div>
+		</div>
+		<div class="inbox">
+			<div class="postfoot clearb">
+				<div class="postfootleft"><p><span>Offline</span></p></div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="fortunes"><div class="fortune">Help fund CrunchBang, <a href="http://crunchbang.org/donate/" title="Make a donation and help fund CrunchBang!">donate to the project</a>!</div></div><div id="p176947" class="blockpost roweven">
+	<h2><span><span class="conr">#2</span> <a class="datetimeposted" href="viewtopic.php?pid=176947#p176947">2012-01-06 20:34:55</a></span></h2>
+	<div class="box">
+		<div class="inbox">
+			<div class="postbody">
+				<div class="postleft">
+					<dl>
+						<dt><strong><a href="profile.php?id=9110">rhowaldt</a></strong></dt>
+						<dd class="usertitle"><strong>#!*$%:)</strong></dd>
+						<dd class="postavatar"><img width="60" height="60" src="http://crunchbang.org/forums/img/default-avatar.gif" alt="" /></dd>
+						<dd><span>Registered: 2011-03-09</span></dd>
+						<dd><span>Posts: 4,396</span></dd>
+					</dl>
+				</div>
+				<div class="postright">
+					<h3>Re: Access google translate from a terminal.</h3>
+					<div class="postmsg">
+						<p>pretty cool johnraff, thanks!</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="inbox">
+			<div class="postfoot clearb">
+				<div class="postfootleft"><p><span>Offline</span></p></div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id="p177179" class="blockpost rowodd">
+	<h2><span><span class="conr">#3</span> <a class="datetimeposted" href="viewtopic.php?pid=177179#p177179">2012-01-07 17:35:14</a></span></h2>
+	<div class="box">
+		<div class="inbox">
+			<div class="postbody">
+				<div class="postleft">
+					<dl>
+						<dt><strong><a href="profile.php?id=353">johnraff</a></strong></dt>
+						<dd class="usertitle"><strong>#!Drunkard</strong></dd>
+						<dd class="postavatar"><img src="http://crunchbang.org/forums/img/avatars/353.jpg?m=1332434399" width="60" height="53" alt="" /></dd>
+						<dd><span>From: Nagoya, Japan</span></dd>
+						<dd><span>Registered: 2009-01-07</span></dd>
+						<dd><span>Posts: 2,323</span></dd>
+						<dd class="usercontacts"><span class="website"><a href="http://asazuke.com">Website</a></span></dd>
+					</dl>
+				</div>
+				<div class="postright">
+					<h3>Re: Access google translate from a terminal.</h3>
+					<div class="postmsg">
+						<p>Interacting with web pages is a nice hobby, and in case you want to try some yourself here are a few points on how this was put together.</p><p>You need a basic idea of, or willingness to learn, html, regular expressions, grep, sed and probably awk. A <em>basic</em> idea will go a long way. <img src="http://crunchbang.org/forums/plugins/ezbbc/style/smilies/cool.png" alt="cool" /></p><p>1) Have a look at the code. Your browser will show it. <a href="http://translate.google.com">http://translate.google.com</a> is a horrible porridge of html tags and lots of javascript, all packed into a mere 17 lines, broken apparently at random. I nearly gave up at this point, but try selecting the bit round the result box where the translated text appears and right-click &quot;View selection source&quot; (in Firefox anyway). That&#039;s more reasonable, though still huge:</p><div class="codebox"><pre><code>&lt;div id=&quot;gt-res-wrap&quot;&gt;&lt;div id=&quot;gt-res-content&quot; class=&quot;almost_half_cell&quot;&gt;&lt;div dir=&quot;ltr&quot; style=&quot;&quot;&gt;&lt;div id=&quot;tts_button&quot; style=&quot;&quot; class=&quot;&quot;&gt;&lt;div role=&quot;button&quot; tabindex=&quot;0&quot; dataattribute=&quot;http://www.gstatic.com/translate/sound_player2.swf&quot; title=&quot;http://www.gstatic.com/translate/sound_player2.swf&quot; style=&quot;background: url(&amp;quot;chrome://flashblock/content/flash.png&amp;quot;) no-repeat scroll center center transparent ! important; min-width: 32px ! important; min-height: 32px ! important; width: 32px; height: 32px; border: 1px solid rgb(223, 223, 223); cursor: pointer; overflow: hidden; display: inline-block; visibility: visible ! important; -moz-box-sizing: border-box;&quot; bgactive=&quot;url(chrome://flashblock/content/flashplay.png) no-repeat center&quot; bginactive=&quot;url(chrome://flashblock/content/flash.png) no-repeat center&quot;&gt;&lt;/div&gt;&lt;/div&gt;&lt;span id=&quot;result_box&quot; class=&quot;short_text&quot; lang=&quot;en&quot;&gt;&lt;span class=&quot;hps&quot;&gt;dog&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;div id=&quot;spell-place-holder&quot; style=&quot;height: 27px;&quot;&gt;&lt;/div&gt;</code></pre></div><p>The translation, &quot;dog&quot; in this case, is near the end of this section, inside a span with an id of &quot;result_box&quot;. That&#039;s good news because an id means nothing else on the page can share it - it&#039;s a unique identifier for our results. Hmm OK maybe it&#039;s possible.</p><p>2) Try it in a terminal. I used curl here, though wget is probably OK too. </p><div class="codebox"><pre><code>john@raffles3:~$ curl http://translate.google.com
+&lt;!DOCTYPE html&gt;&lt;html lang=en&gt;&lt;meta charset=utf-8&gt;&lt;title&gt;Error 403 (Forbidden)!!1&lt;/title&gt;&lt;style&gt;*{margin:0;padding:0}html,code{font:15px/22px arial,sans-serif}html{background:#fff;color:#222;padding:15px}body{background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKsAAADVCAMAAAAfHvCaAAAAGFBMVEVYn%2BH [i](lots and lots of this stuff - probably a base64 coded image)[/i] KJF%2FzufdnZtz7PrrevDZ03GPAaJDjbRA8dGsW6X6cgNmAhSEG%2FUiY%2Fsfiv02O7iVu1LunAAAAAElFTkSuQmCC);display:block;height:55px;margin:0 0 -7px;width:150px}* &gt; #g{margin-left:-2px}#g img{visibility:hidden}* html #g img{visibility:visible}*+html #g img{visibility:visible}&lt;/style&gt;&lt;a href=//www.google.com/ id=g&gt;&lt;img src=//www.google.com/images/logo_sm.gif alt=Google&gt;&lt;/a&gt;&lt;p&gt;&lt;b&gt;403.&lt;/b&gt; &lt;ins&gt;That’s an error.&lt;/ins&gt;&lt;p&gt;Your client does not have permission to get URL &lt;code&gt;/&lt;/code&gt; from this server.  (Client IP address: 61.211.133.253)&lt;br&gt;&lt;br&gt;
+  &lt;ins&gt;That’s all we know.&lt;/ins&gt;</code></pre></div><p>Anyway it&#039;s no good. It was OK in Firefox but Google don&#039;t like curl (or wget). Both of them are honest by default and tell the server who they are. We can fix it with the --user-agent option, just an empty string &quot;&quot; is enough, so </p><div class="codebox"><pre><code>curl --user-agent &quot;&quot; http://translate.google.com &gt; test.html</code></pre></div><p> will get us a local copy of the page to play with without hitting Google over and over.</p><p>3) How to send the request? There&#039;s a handy perl script called formfind.pl <a href="https://raw.github.com/bagder/curl/master/perl/contrib/formfind">here</a> from the curl people. Send it that Google porridge and it will tell you about the webform inside:</p><div class="codebox"><pre class="vscroll"><code>john@raffles3:~$ curl --user-agent &quot;&quot; http://translate.google.com | ./scripts/formfind.pl 
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100 37418    0 37418    0     0   217k      0 --:--:-- --:--:-- --:--:--  285k
+--- FORM report. Uses POST to URL &quot;/&quot;
+--- type: application/x-www-form-urlencoded
+Select: NAME=&quot;sl&quot;
+  Option VALUE=&quot;auto&quot; (SELECTED)
+  Option VALUE=&quot;separator&quot;
+  Option VALUE=&quot;af&quot;
+  Option VALUE=&quot;sq&quot;
+  Option VALUE=&quot;ar&quot;
+  Option VALUE=&quot;hy&quot;
+  Option VALUE=&quot;az&quot;
+  Option VALUE=&quot;eu&quot;
+  Option VALUE=&quot;be&quot;
+  Option VALUE=&quot;bn&quot;
+  Option VALUE=&quot;bg&quot;
+  Option VALUE=&quot;ca&quot;
+  Option VALUE=&quot;zh-CN&quot;
+  Option VALUE=&quot;hr&quot;
+  Option VALUE=&quot;cs&quot;
+  Option VALUE=&quot;da&quot;
+  Option VALUE=&quot;nl&quot;
+  Option VALUE=&quot;en&quot;
+  Option VALUE=&quot;et&quot;
+  Option VALUE=&quot;tl&quot;
+  Option VALUE=&quot;fi&quot;
+  Option VALUE=&quot;fr&quot;
+  Option VALUE=&quot;gl&quot;
+  Option VALUE=&quot;ka&quot;
+  Option VALUE=&quot;de&quot;
+  Option VALUE=&quot;el&quot;
+  Option VALUE=&quot;gu&quot;
+  Option VALUE=&quot;ht&quot;
+  Option VALUE=&quot;iw&quot;
+  Option VALUE=&quot;hi&quot;
+  Option VALUE=&quot;hu&quot;
+  Option VALUE=&quot;is&quot;
+  Option VALUE=&quot;id&quot;
+  Option VALUE=&quot;ga&quot;
+  Option VALUE=&quot;it&quot;
+  Option VALUE=&quot;ja&quot;
+  Option VALUE=&quot;kn&quot;
+  Option VALUE=&quot;ko&quot;
+  Option VALUE=&quot;la&quot;
+  Option VALUE=&quot;lv&quot;
+  Option VALUE=&quot;lt&quot;
+  Option VALUE=&quot;mk&quot;
+  Option VALUE=&quot;ms&quot;
+  Option VALUE=&quot;mt&quot;
+  Option VALUE=&quot;no&quot;
+  Option VALUE=&quot;fa&quot;
+  Option VALUE=&quot;pl&quot;
+  Option VALUE=&quot;pt&quot;
+  Option VALUE=&quot;ro&quot;
+  Option VALUE=&quot;ru&quot;
+  Option VALUE=&quot;sr&quot;
+  Option VALUE=&quot;sk&quot;
+  Option VALUE=&quot;sl&quot;
+  Option VALUE=&quot;es&quot;
+  Option VALUE=&quot;sw&quot;
+  Option VALUE=&quot;sv&quot;
+  Option VALUE=&quot;ta&quot;
+  Option VALUE=&quot;te&quot;
+  Option VALUE=&quot;th&quot;
+  Option VALUE=&quot;tr&quot;
+  Option VALUE=&quot;uk&quot;
+  Option VALUE=&quot;ur&quot;
+  Option VALUE=&quot;vi&quot;
+  Option VALUE=&quot;cy&quot;
+  Option VALUE=&quot;yi&quot;
+[end of select]
+Select: NAME=&quot;tl&quot;
+  Option VALUE=&quot;af&quot;
+  Option VALUE=&quot;sq&quot;
+  Option VALUE=&quot;ar&quot;
+  Option VALUE=&quot;hy&quot;
+  Option VALUE=&quot;az&quot;
+  Option VALUE=&quot;eu&quot;
+  Option VALUE=&quot;be&quot;
+  Option VALUE=&quot;bn&quot;
+  Option VALUE=&quot;bg&quot;
+  Option VALUE=&quot;ca&quot;
+  Option VALUE=&quot;zh-CN&quot;
+  Option VALUE=&quot;zh-TW&quot;
+  Option VALUE=&quot;hr&quot;
+  Option VALUE=&quot;cs&quot;
+  Option VALUE=&quot;da&quot;
+  Option VALUE=&quot;nl&quot;
+  Option VALUE=&quot;en&quot; (SELECTED)
+  Option VALUE=&quot;et&quot;
+  Option VALUE=&quot;tl&quot;
+  Option VALUE=&quot;fi&quot;
+  Option VALUE=&quot;fr&quot;
+  Option VALUE=&quot;gl&quot;
+  Option VALUE=&quot;ka&quot;
+  Option VALUE=&quot;de&quot;
+  Option VALUE=&quot;el&quot;
+  Option VALUE=&quot;gu&quot;
+  Option VALUE=&quot;ht&quot;
+  Option VALUE=&quot;iw&quot;
+  Option VALUE=&quot;hi&quot;
+  Option VALUE=&quot;hu&quot;
+  Option VALUE=&quot;is&quot;
+  Option VALUE=&quot;id&quot;
+  Option VALUE=&quot;ga&quot;
+  Option VALUE=&quot;it&quot;
+  Option VALUE=&quot;ja&quot;
+  Option VALUE=&quot;kn&quot;
+  Option VALUE=&quot;ko&quot;
+  Option VALUE=&quot;la&quot;
+  Option VALUE=&quot;lv&quot;
+  Option VALUE=&quot;lt&quot;
+  Option VALUE=&quot;mk&quot;
+  Option VALUE=&quot;ms&quot;
+  Option VALUE=&quot;mt&quot;
+  Option VALUE=&quot;no&quot;
+  Option VALUE=&quot;fa&quot;
+  Option VALUE=&quot;pl&quot;
+  Option VALUE=&quot;pt&quot;
+  Option VALUE=&quot;ro&quot;
+  Option VALUE=&quot;ru&quot;
+  Option VALUE=&quot;sr&quot;
+  Option VALUE=&quot;sk&quot;
+  Option VALUE=&quot;sl&quot;
+  Option VALUE=&quot;es&quot;
+  Option VALUE=&quot;sw&quot;
+  Option VALUE=&quot;sv&quot;
+  Option VALUE=&quot;ta&quot;
+  Option VALUE=&quot;te&quot;
+  Option VALUE=&quot;th&quot;
+  Option VALUE=&quot;tr&quot;
+  Option VALUE=&quot;uk&quot;
+  Option VALUE=&quot;ur&quot;
+  Option VALUE=&quot;vi&quot;
+  Option VALUE=&quot;cy&quot;
+  Option VALUE=&quot;yi&quot;
+[end of select]
+Button: &quot;Translate&quot; (SUBMIT)
+Input: NAME=&quot;js&quot; VALUE=&quot;n&quot; (HIDDEN)
+Input: NAME=&quot;prev&quot; VALUE=&quot;_t&quot; (HIDDEN)
+Input: NAME=&quot;hl&quot; VALUE=&quot;en&quot; (HIDDEN)
+Input: NAME=&quot;ie&quot; VALUE=&quot;ISO-8859-1&quot; (HIDDEN)
+Input: NAME=&quot;layout&quot; VALUE=&quot;2&quot; (HIDDEN)
+Input: NAME=&quot;eotf&quot; VALUE=&quot;1&quot; (HIDDEN)
+Textarea: NAME=&quot;text&quot;
+Input: NAME=&quot;file&quot; (FILE)
+--- end of FORM</code></pre></div><p>So it looks as if &quot;sl&quot; is &quot;source language&quot;, &quot;tl&quot; is &quot;target language&quot; and &quot;text&quot; might be our input. There are also some mysterious hidden values but I haven&#039;t found leaving them out seems to do any harm. If anyone knows what they&#039;re for, please share the info! Now we can send a request with curl something like: </p><div class="codebox"><pre><code>curl --user-agent &quot;&quot; -d &quot;sl=$source&quot; -d &quot;tl=$target&quot; --data-urlencode &quot;text=$1&quot; http://translate.google.com</code></pre></div><p>The text has to be sent with the --data-urlencode option because it might have spaces etc, or use multi-byte characters like Japanese. If you have problems with curl you can check what it&#039;s actually sending to the server by running netcat in a separate terminal </p><div class="codebox"><pre><code>nc -l -p 3333</code></pre></div><p> then substitute &#039;http://localhost:3333&#039; for the google url in your curl command.</p><p>4) Analyse what comes back. This is where those regular expressions come in, but I&#039;ll have to leave that a couple of days because it&#039;s time to crash and I&#039;ll be gone tomorrow.</p>
+					</div>
+					<div class="postsignature postmsg"><hr /><p>John<br />--------------------<br />We are a nice, friendly community here and I hope we stay that way.<br />( a boring <a href="http://asazuke.com">Japan blog</a> , and idle <a href="https://twitter.com/john_raff">twitterings</a> )</p></div>
+				</div>
+			</div>
+		</div>
+		<div class="inbox">
+			<div class="postfoot clearb">
+				<div class="postfootleft"><p><span>Offline</span></p></div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id="p177290" class="blockpost roweven">
+	<h2><span><span class="conr">#4</span> <a class="datetimeposted" href="viewtopic.php?pid=177290#p177290">2012-01-07 23:18:12</a></span></h2>
+	<div class="box">
+		<div class="inbox">
+			<div class="postbody">
+				<div class="postleft">
+					<dl>
+						<dt><strong><a href="profile.php?id=9110">rhowaldt</a></strong></dt>
+						<dd class="usertitle"><strong>#!*$%:)</strong></dd>
+						<dd class="postavatar"><img width="60" height="60" src="http://crunchbang.org/forums/img/default-avatar.gif" alt="" /></dd>
+						<dd><span>Registered: 2011-03-09</span></dd>
+						<dd><span>Posts: 4,396</span></dd>
+					</dl>
+				</div>
+				<div class="postright">
+					<h3>Re: Access google translate from a terminal.</h3>
+					<div class="postmsg">
+						<p>^ thanks johnraff, really nice of you to do such a detailed explanation. you are talking of a basic knowledge of this stuff, and i think i have a bit more than basic knowledge of at least html, but i still don&#039;t think i would&#039;ve nailed it as properly as you did. you would probably make a pretty good detective <img src="http://crunchbang.org/forums/plugins/ezbbc/style/smilies/smile.png" alt="smile" /></p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="inbox">
+			<div class="postfoot clearb">
+				<div class="postfootleft"><p><span>Offline</span></p></div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id="p177300" class="blockpost rowodd">
+	<h2><span><span class="conr">#5</span> <a class="datetimeposted" href="viewtopic.php?pid=177300#p177300">2012-01-07 23:47:53</a></span></h2>
+	<div class="box">
+		<div class="inbox">
+			<div class="postbody">
+				<div class="postleft">
+					<dl>
+						<dt><strong><a href="profile.php?id=12397">gensym</a></strong></dt>
+						<dd class="usertitle"><strong>#! Junkie</strong></dd>
+						<dd class="postavatar"><img src="http://crunchbang.org/forums/img/avatars/12397.jpg?m=1333112169" width="60" height="60" alt="" /></dd>
+						<dd><span>Registered: 2011-10-17</span></dd>
+						<dd><span>Posts: 422</span></dd>
+						<dd class="usercontacts"><span class="website"><a href="http:// http://thevogonpoet.wordpress.com/">Website</a></span></dd>
+					</dl>
+				</div>
+				<div class="postright">
+					<h3>Re: Access google translate from a terminal.</h3>
+					<div class="postmsg">
+						<p>Thanks for sharing this! I will definitely give this a go <img src="http://crunchbang.org/forums/plugins/ezbbc/style/smilies/smile.png" alt="smile" /></p><div class="quotebox"><cite>johnraff wrote:</cite><blockquote><div><p><strong>Note:</strong> This is just a hack - I tried to make the regular expressions as robust as possible, bit it will probably break eventually when Google change the code. If you notice a problem please post and we can try and fix it...</p></div></blockquote></div><p><a href="http://www.codinghorror.com/blog/2009/11/parsing-html-the-cthulhu-way.html">reminds me of this <img src="http://crunchbang.org/forums/plugins/ezbbc/style/smilies/smile.png" alt="smile" /></a></p>
+						<p class="postedit"><em>Last edited by gensym (2012-01-07 23:50:30)</em></p>
+					</div>
+					<div class="postsignature postmsg"><hr /><p><em>&#039;Multiple exclamation marks,&#039; he went on, shaking his head, &#039;are a sure sign of a diseased mind.&#039;, {Eric}</em></p></div>
+				</div>
+			</div>
+		</div>
+		<div class="inbox">
+			<div class="postfoot clearb">
+				<div class="postfootleft"><p><span>Offline</span></p></div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id="p177305" class="blockpost roweven">
+	<h2><span><span class="conr">#6</span> <a class="datetimeposted" href="viewtopic.php?pid=177305#p177305">2012-01-08 00:05:48</a></span></h2>
+	<div class="box">
+		<div class="inbox">
+			<div class="postbody">
+				<div class="postleft">
+					<dl>
+						<dt><strong><a href="profile.php?id=11351">el_koraco</a></strong></dt>
+						<dd class="usertitle"><strong>#!/loony/bun</strong></dd>
+						<dd class="postavatar"><img src="http://crunchbang.org/forums/img/avatars/11351.jpg?m=1353527480" width="60" height="59" alt="" /></dd>
+						<dd><span>From: inside Ed</span></dd>
+						<dd><span>Registered: 2011-07-25</span></dd>
+						<dd><span>Posts: 4,303</span></dd>
+					</dl>
+				</div>
+				<div class="postright">
+					<h3>Re: Access google translate from a terminal.</h3>
+					<div class="postmsg">
+						<p>This is awesome. Awesome.</p>
+					</div>
+					<div class="postsignature postmsg"><hr /><p><a href="http://crunchbanglinux.org/forums/topic/19411/the-monumental-lvm-guide/">LVM</a> | <a href="http://crunchbanglinux.org/forums/topic/17948/the-definitive-guide-to-proprietary-amd-graphics-drivers/">Catalyst</a> | <a href="http://crunchbanglinux.org/forums/topic/16624/howto-connect-and-roam-wifi-networks-with-wpasupplicant/">Wireless</a></p></div>
+				</div>
+			</div>
+		</div>
+		<div class="inbox">
+			<div class="postfoot clearb">
+				<div class="postfootleft"><p><span>Offline</span></p></div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id="p177999" class="blockpost rowodd">
+	<h2><span><span class="conr">#7</span> <a class="datetimeposted" href="viewtopic.php?pid=177999#p177999">2012-01-10 17:42:38</a></span></h2>
+	<div class="box">
+		<div class="inbox">
+			<div class="postbody">
+				<div class="postleft">
+					<dl>
+						<dt><strong><a href="profile.php?id=353">johnraff</a></strong></dt>
+						<dd class="usertitle"><strong>#!Drunkard</strong></dd>
+						<dd class="postavatar"><img src="http://crunchbang.org/forums/img/avatars/353.jpg?m=1332434399" width="60" height="53" alt="" /></dd>
+						<dd><span>From: Nagoya, Japan</span></dd>
+						<dd><span>Registered: 2009-01-07</span></dd>
+						<dd><span>Posts: 2,323</span></dd>
+						<dd class="usercontacts"><span class="website"><a href="http://asazuke.com">Website</a></span></dd>
+					</dl>
+				</div>
+				<div class="postright">
+					<h3>Re: Access google translate from a terminal.</h3>
+					<div class="postmsg">
+						<p>...continued from post 3.</p><p>4) Analyse what comes back. The first thing that comes up when playing with grep is that it doesn&#039;t work properly when the returned page&#039;s results are in Japanese. Turns out that instead of using UTF-8 for everything as you might expect, the translated page comes back with different encodings for each language - Shift_JIS for Japanese, ISOsomething for European... So the first job is to convert it to UTF-8 so we can work with it. &#039;iconv&#039; will do it, but needs to be told what encoding to convert from. The encoding is near the top of the html as eg &#039;&lt;meta content=&quot;text/html; charset=Shift_JIS&quot; http-equiv=&quot;content-type&quot;&gt;&#039; but I thought it would be cleaner to get it from the http headers sent by the server. Curl&#039;s -i option will add them to the top of the file, and grep will fetch the line we want: it starts &quot;Content-Type&quot; so this command will get it:</p><div class="codebox"><pre><code>encoding=$(grep -E -m1 -o &quot;Content-Type: .* charset=[[:alnum:]_-]+&quot; &lt;&lt;&lt;&quot;$result&quot;)</code></pre></div><p>(If the page is in $result.) </p><p>5) Now we can give iconv the right encoding to use:</p><div class="codebox"><pre><code>iconv -f $encoding &lt;&lt;&lt;&quot;$result&quot; | grep -E -o &quot;&lt;span[^&gt;]* id=([&#039;\&quot;]?)result_box\1 [^&gt;]*&gt;( *&lt;[^&gt;]*&gt;)*[^&lt;]*&quot; | html2text -utf8</code></pre></div><p>Looks bad, and it is, really. Grep&#039;s -E option lets us do away with some backslashes for readability, -o means just output the matched part. The key is the &#039;id=result_box&#039; bit in the html page code - id means it&#039;s unique on the page. Now attributes could also be enclosed in quotes, single or double, so Google could have written id=&quot;result_box&quot; or id=&#039;result_box&#039;. Any point in covering those possiblilities? Probably not, but I did anyway. </p><p>[^&gt;] is a handy construction. It means anything <em>except</em> a closing tag. (Likewise [^&quot;] for things in quotes.) <br />&lt;[^&gt;]*&gt; just means any tag at all, so ( *&lt;[^&gt;]*&gt;)* means zero or more tags, possibly preceded by spaces. Finally the bit we want is represented by [^&lt;]* . Sed could have been used to chop off all the tags after it, but there&#039;s also a need to convert html entities like &amp;#39; back to apostrophes. html2text will do that, and strip out all the tags too.</p><p>6) This now works, but awk turned out to be a lot faster. Set the Record Separator to &#039;&lt;/div&gt;&#039; instead of the default linebreaks and we break the file up into little chunks, and line breaks no longer matter. I didn&#039;t get it at first, but now all we need to do is search for the record matching the regex: </p><div class="codebox"><pre><code>&lt;span[^&gt;]* id=[&quot;&#039;\&#039;&#039;]?result_box[&quot;&#039;\&#039;&#039;]?</code></pre></div><p> and pass it to html2text. <img src="http://crunchbang.org/forums/plugins/ezbbc/style/smilies/smile.png" alt="smile" /></p>
+						<p class="postedit"><em>Last edited by johnraff (2012-01-11 17:55:06)</em></p>
+					</div>
+					<div class="postsignature postmsg"><hr /><p>John<br />--------------------<br />We are a nice, friendly community here and I hope we stay that way.<br />( a boring <a href="http://asazuke.com">Japan blog</a> , and idle <a href="https://twitter.com/john_raff">twitterings</a> )</p></div>
+				</div>
+			</div>
+		</div>
+		<div class="inbox">
+			<div class="postfoot clearb">
+				<div class="postfootleft"><p><span>Offline</span></p></div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id="p178002" class="blockpost roweven">
+	<h2><span><span class="conr">#8</span> <a class="datetimeposted" href="viewtopic.php?pid=178002#p178002">2012-01-10 17:47:19</a></span></h2>
+	<div class="box">
+		<div class="inbox">
+			<div class="postbody">
+				<div class="postleft">
+					<dl>
+						<dt><strong><a href="profile.php?id=353">johnraff</a></strong></dt>
+						<dd class="usertitle"><strong>#!Drunkard</strong></dd>
+						<dd class="postavatar"><img src="http://crunchbang.org/forums/img/avatars/353.jpg?m=1332434399" width="60" height="53" alt="" /></dd>
+						<dd><span>From: Nagoya, Japan</span></dd>
+						<dd><span>Registered: 2009-01-07</span></dd>
+						<dd><span>Posts: 2,323</span></dd>
+						<dd class="usercontacts"><span class="website"><a href="http://asazuke.com">Website</a></span></dd>
+					</dl>
+				</div>
+				<div class="postright">
+					<h3>Re: Access google translate from a terminal.</h3>
+					<div class="postmsg">
+						<p>@gensym Yes the topic keeps coming up - Real Coders don&#039;t do this kind of stuff. Probably true (can anyone recommend an html parser?) but no astronauts&#039; lives are at stake here...</p><p>@el_k You&#039;re too kind. This is just a quick mashup.</p>
+					</div>
+					<div class="postsignature postmsg"><hr /><p>John<br />--------------------<br />We are a nice, friendly community here and I hope we stay that way.<br />( a boring <a href="http://asazuke.com">Japan blog</a> , and idle <a href="https://twitter.com/john_raff">twitterings</a> )</p></div>
+				</div>
+			</div>
+		</div>
+		<div class="inbox">
+			<div class="postfoot clearb">
+				<div class="postfootleft"><p><span>Offline</span></p></div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id="p178009" class="blockpost rowodd">
+	<h2><span><span class="conr">#9</span> <a class="datetimeposted" href="viewtopic.php?pid=178009#p178009">2012-01-10 17:56:38</a></span></h2>
+	<div class="box">
+		<div class="inbox">
+			<div class="postbody">
+				<div class="postleft">
+					<dl>
+						<dt><strong><a href="profile.php?id=9110">rhowaldt</a></strong></dt>
+						<dd class="usertitle"><strong>#!*$%:)</strong></dd>
+						<dd class="postavatar"><img width="60" height="60" src="http://crunchbang.org/forums/img/default-avatar.gif" alt="" /></dd>
+						<dd><span>Registered: 2011-03-09</span></dd>
+						<dd><span>Posts: 4,396</span></dd>
+					</dl>
+				</div>
+				<div class="postright">
+					<h3>Re: Access google translate from a terminal.</h3>
+					<div class="postmsg">
+						<p>^ for stuff like this, which will probably just be used by you and some others from the forum etc, and not by anyone letting astronaut&#039;s lives depend on it, i think using regex to parse html is just fine. it can also be more fun. a couple of years ago when i started doing html, i wanted to do an animation. i didn&#039;t know Flash, which i probably should&#039;ve used. i did know html and animated gifs. so, i made an animated dude walking, and used a &#039;marquee&#039;-tag (scroll something along the screen) to scroll the animated gif at just the right speed so it looked like it was walking. it felt awesome and was lots of fun to make. and it Just Worked. most important thing of all, imo.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="inbox">
+			<div class="postfoot clearb">
+				<div class="postfootleft"><p><span>Offline</span></p></div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id="p178294" class="blockpost roweven">
+	<h2><span><span class="conr">#10</span> <a class="datetimeposted" href="viewtopic.php?pid=178294#p178294">2012-01-11 18:08:24</a></span></h2>
+	<div class="box">
+		<div class="inbox">
+			<div class="postbody">
+				<div class="postleft">
+					<dl>
+						<dt><strong><a href="profile.php?id=353">johnraff</a></strong></dt>
+						<dd class="usertitle"><strong>#!Drunkard</strong></dd>
+						<dd class="postavatar"><img src="http://crunchbang.org/forums/img/avatars/353.jpg?m=1332434399" width="60" height="53" alt="" /></dd>
+						<dd><span>From: Nagoya, Japan</span></dd>
+						<dd><span>Registered: 2009-01-07</span></dd>
+						<dd><span>Posts: 2,323</span></dd>
+						<dd class="usercontacts"><span class="website"><a href="http://asazuke.com">Website</a></span></dd>
+					</dl>
+				</div>
+				<div class="postright">
+					<h3>Re: Access google translate from a terminal.</h3>
+					<div class="postmsg">
+						<p>Wow! Sounds pretty neat. <img src="http://crunchbang.org/forums/plugins/ezbbc/style/smilies/cool.png" alt="cool" /><br />Pity a lot of people switch off marquees now. <a href="http://www.daysofleisure.com/animatedgifmuseum/index.htm">Animated gifs</a> don&#039;t get such a good press either...</p>
+					</div>
+					<div class="postsignature postmsg"><hr /><p>John<br />--------------------<br />We are a nice, friendly community here and I hope we stay that way.<br />( a boring <a href="http://asazuke.com">Japan blog</a> , and idle <a href="https://twitter.com/john_raff">twitterings</a> )</p></div>
+				</div>
+			</div>
+		</div>
+		<div class="inbox">
+			<div class="postfoot clearb">
+				<div class="postfootleft"><p><span>Offline</span></p></div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id="p178313" class="blockpost rowodd">
+	<h2><span><span class="conr">#11</span> <a class="datetimeposted" href="viewtopic.php?pid=178313#p178313">2012-01-11 19:10:29</a></span></h2>
+	<div class="box">
+		<div class="inbox">
+			<div class="postbody">
+				<div class="postleft">
+					<dl>
+						<dt><strong><a href="profile.php?id=9110">rhowaldt</a></strong></dt>
+						<dd class="usertitle"><strong>#!*$%:)</strong></dd>
+						<dd class="postavatar"><img width="60" height="60" src="http://crunchbang.org/forums/img/default-avatar.gif" alt="" /></dd>
+						<dd><span>Registered: 2011-03-09</span></dd>
+						<dd><span>Posts: 4,396</span></dd>
+					</dl>
+				</div>
+				<div class="postright">
+					<h3>Re: Access google translate from a terminal.</h3>
+					<div class="postmsg">
+						<p>^ yeah, i was so amazed i could actually get that idea to work. all the cool kids were doing flash, i was doing 10-frame walking-dude animated gifs moving across the screen through configured-to-death marquee-tags <img src="http://crunchbang.org/forums/plugins/ezbbc/style/smilies/wink.png" alt="wink" /> i just got a kick out of being able to do something like that just with, basically, native HTML, while all HTML was &#039;supposed to be&#039; was markup-language.</p><p>i can have the same kick building stuff with the tools at hand, regex and html in this case, instead of using something pre-build that is supposed to be &#039;better&#039;. i&#039;m sure these dudes know what they&#039;re talking about, but i am too non-conformist to not enjoy doing it my way anyway <img src="http://crunchbang.org/forums/plugins/ezbbc/style/smilies/big_smile.png" alt="big_smile" /></p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="inbox">
+			<div class="postfoot clearb">
+				<div class="postfootleft"><p><span>Offline</span></p></div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id="p178317" class="blockpost roweven">
+	<h2><span><span class="conr">#12</span> <a class="datetimeposted" href="viewtopic.php?pid=178317#p178317">2012-01-11 19:26:56</a></span></h2>
+	<div class="box">
+		<div class="inbox">
+			<div class="postbody">
+				<div class="postleft">
+					<dl>
+						<dt><strong><a href="profile.php?id=12397">gensym</a></strong></dt>
+						<dd class="usertitle"><strong>#! Junkie</strong></dd>
+						<dd class="postavatar"><img src="http://crunchbang.org/forums/img/avatars/12397.jpg?m=1333112169" width="60" height="60" alt="" /></dd>
+						<dd><span>Registered: 2011-10-17</span></dd>
+						<dd><span>Posts: 422</span></dd>
+						<dd class="usercontacts"><span class="website"><a href="http:// http://thevogonpoet.wordpress.com/">Website</a></span></dd>
+					</dl>
+				</div>
+				<div class="postright">
+					<h3>Re: Access google translate from a terminal.</h3>
+					<div class="postmsg">
+						<p>@johnraff,rhowaldt</p><p>You have a valid point there,&#160; nobodies life depends on it, it is safe and yet it gives a weird feeling a satisfaction (and in this particular case it&#039;s way more practical). I just don&#039;t like the idea of parsing a context free formal language with regular expressions, but that may be something personal as regexes in programming languages are not that &quot;reg&quot;. Regardless of this, I really like your script&#160; <img src="http://crunchbang.org/forums/plugins/ezbbc/style/smilies/smile.png" alt="smile" /></p><p>@parser<br />For python there is a <a href="http://docs.python.org/library/htmlparser.html">built in one</a>, for perl there are a bunch of them in cpan.</p>
+						<p class="postedit"><em>Last edited by gensym (2012-01-11 21:04:42)</em></p>
+					</div>
+					<div class="postsignature postmsg"><hr /><p><em>&#039;Multiple exclamation marks,&#039; he went on, shaking his head, &#039;are a sure sign of a diseased mind.&#039;, {Eric}</em></p></div>
+				</div>
+			</div>
+		</div>
+		<div class="inbox">
+			<div class="postfoot clearb">
+				<div class="postfootleft"><p><span>Offline</span></p></div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id="p178554" class="blockpost rowodd">
+	<h2><span><span class="conr">#13</span> <a class="datetimeposted" href="viewtopic.php?pid=178554#p178554">2012-01-12 16:25:50</a></span></h2>
+	<div class="box">
+		<div class="inbox">
+			<div class="postbody">
+				<div class="postleft">
+					<dl>
+						<dt><strong><a href="profile.php?id=353">johnraff</a></strong></dt>
+						<dd class="usertitle"><strong>#!Drunkard</strong></dd>
+						<dd class="postavatar"><img src="http://crunchbang.org/forums/img/avatars/353.jpg?m=1332434399" width="60" height="53" alt="" /></dd>
+						<dd><span>From: Nagoya, Japan</span></dd>
+						<dd><span>Registered: 2009-01-07</span></dd>
+						<dd><span>Posts: 2,323</span></dd>
+						<dd class="usercontacts"><span class="website"><a href="http://asazuke.com">Website</a></span></dd>
+					</dl>
+				</div>
+				<div class="postright">
+					<h3>Re: Access google translate from a terminal.</h3>
+					<div class="postmsg">
+						<p>@gensym You&#039;re right of course, but in this case we&#039;re not really into parsing html pages in general, just extracting a particular bit of data from a particular page. While in this script we&#039;re proof against minor html-compliant changes like extra line-breaks or different tag attributes, if Google changed the id of that span even a &quot;proper&quot; parser would fail. Anyway, thanks for that python link. Now I have to learn python! <strong>edit:</strong> Just ran into <a href="http://shallowsky.com/blog/programming/parsing-html-python.html">this</a> on a blog I follow, on parsing with python.</p><p>@rhowaldt Any chance of seeing that walking man?</p><p>@all A little wrapper script for translate.sh. Bind it to a keyboard shortcut and you can select a bit of text anywhere on your desktop and get a popup translation. (Select, then keyboard.)</p><div class="codebox"><pre><code>#!/bin/bash
+# translate-selection.sh - google translation of selected text
+# needs xsel to read from clipboard
+
+query=$(xsel)
+#notify-send &quot;Google Translate&quot; &quot;Query is ${query}&quot;
+translation=$($HOME/scripts/translate.sh &quot;$query&quot;)
+zenity --info --title &quot;Translation&quot; --text &quot;$translation&quot;
+exit</code></pre></div>
+						<p class="postedit"><em>Last edited by johnraff (2012-01-12 16:56:53)</em></p>
+					</div>
+					<div class="postsignature postmsg"><hr /><p>John<br />--------------------<br />We are a nice, friendly community here and I hope we stay that way.<br />( a boring <a href="http://asazuke.com">Japan blog</a> , and idle <a href="https://twitter.com/john_raff">twitterings</a> )</p></div>
+				</div>
+			</div>
+		</div>
+		<div class="inbox">
+			<div class="postfoot clearb">
+				<div class="postfootleft"><p><span>Offline</span></p></div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id="p178571" class="blockpost roweven">
+	<h2><span><span class="conr">#14</span> <a class="datetimeposted" href="viewtopic.php?pid=178571#p178571">2012-01-12 17:25:33</a></span></h2>
+	<div class="box">
+		<div class="inbox">
+			<div class="postbody">
+				<div class="postleft">
+					<dl>
+						<dt><strong><a href="profile.php?id=9110">rhowaldt</a></strong></dt>
+						<dd class="usertitle"><strong>#!*$%:)</strong></dd>
+						<dd class="postavatar"><img width="60" height="60" src="http://crunchbang.org/forums/img/default-avatar.gif" alt="" /></dd>
+						<dd><span>Registered: 2011-03-09</span></dd>
+						<dd><span>Posts: 4,396</span></dd>
+					</dl>
+				</div>
+				<div class="postright">
+					<h3>Re: Access google translate from a terminal.</h3>
+					<div class="postmsg">
+						<p>^ that popup-thingy is a nice addition to the script.</p><p>sadly, the walking man happened about 10 years ago, so no chance in hell of me having that lying around anywhere. i could show you some really nice animations i did from those days, if my HD hadn&#039;t crashed back then. oh, i can still remember the agony and anger i felt when that happened, my first HD crash. still not doing regular backups though. i&#039;m stupid sometimes <img src="http://crunchbang.org/forums/plugins/ezbbc/style/smilies/smile.png" alt="smile" /></p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="inbox">
+			<div class="postfoot clearb">
+				<div class="postfootleft"><p><span>Offline</span></p></div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id="p178738" class="blockpost rowodd">
+	<h2><span><span class="conr">#15</span> <a class="datetimeposted" href="viewtopic.php?pid=178738#p178738">2012-01-13 04:39:52</a></span></h2>
+	<div class="box">
+		<div class="inbox">
+			<div class="postbody">
+				<div class="postleft">
+					<dl>
+						<dt><strong><a href="profile.php?id=353">johnraff</a></strong></dt>
+						<dd class="usertitle"><strong>#!Drunkard</strong></dd>
+						<dd class="postavatar"><img src="http://crunchbang.org/forums/img/avatars/353.jpg?m=1332434399" width="60" height="53" alt="" /></dd>
+						<dd><span>From: Nagoya, Japan</span></dd>
+						<dd><span>Registered: 2009-01-07</span></dd>
+						<dd><span>Posts: 2,323</span></dd>
+						<dd class="usercontacts"><span class="website"><a href="http://asazuke.com">Website</a></span></dd>
+					</dl>
+				</div>
+				<div class="postright">
+					<h3>Re: Access google translate from a terminal.</h3>
+					<div class="postmsg">
+						<p><a href="http://ompldr.org/vYzg3dA"><span class="postimg"><img src="http://ompldr.org/tYzg3dA" alt="tYzg3dA" /></span></a> Even with a checker like this I still don&#039;t do it for another week or so. <img src="http://crunchbang.org/forums/plugins/ezbbc/style/smilies/roll.png" alt="roll" /></p>
+					</div>
+					<div class="postsignature postmsg"><hr /><p>John<br />--------------------<br />We are a nice, friendly community here and I hope we stay that way.<br />( a boring <a href="http://asazuke.com">Japan blog</a> , and idle <a href="https://twitter.com/john_raff">twitterings</a> )</p></div>
+				</div>
+			</div>
+		</div>
+		<div class="inbox">
+			<div class="postfoot clearb">
+				<div class="postfootleft"><p><span>Offline</span></p></div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id="p221744" class="blockpost roweven">
+	<h2><span><span class="conr">#16</span> <a class="datetimeposted" href="viewtopic.php?pid=221744#p221744">2012-05-21 11:13:47</a></span></h2>
+	<div class="box">
+		<div class="inbox">
+			<div class="postbody">
+				<div class="postleft">
+					<dl>
+						<dt><strong><a href="profile.php?id=16573">henrynott</a></strong></dt>
+						<dd class="usertitle"><strong>New Member</strong></dd>
+						<dd class="postavatar"><img width="60" height="60" src="http://crunchbang.org/forums/img/default-avatar.gif" alt="" /></dd>
+						<dd><span>Registered: 2012-05-21</span></dd>
+						<dd><span>Posts: 2</span></dd>
+					</dl>
+				</div>
+				<div class="postright">
+					<h3>Re: Access google translate from a terminal.</h3>
+					<div class="postmsg">
+						<p>It does not work..<br />In urxvt, after I pressed ENTER for &quot;. translate.sh chie&quot;, urxvt disappeared.</p>
+						<p class="postedit"><em>Last edited by henrynott (2012-05-21 11:15:13)</em></p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="inbox">
+			<div class="postfoot clearb">
+				<div class="postfootleft"><p><span>Offline</span></p></div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id="p222064" class="blockpost rowodd">
+	<h2><span><span class="conr">#17</span> <a class="datetimeposted" href="viewtopic.php?pid=222064#p222064">2012-05-22 05:09:30</a></span></h2>
+	<div class="box">
+		<div class="inbox">
+			<div class="postbody">
+				<div class="postleft">
+					<dl>
+						<dt><strong><a href="profile.php?id=353">johnraff</a></strong></dt>
+						<dd class="usertitle"><strong>#!Drunkard</strong></dd>
+						<dd class="postavatar"><img src="http://crunchbang.org/forums/img/avatars/353.jpg?m=1332434399" width="60" height="53" alt="" /></dd>
+						<dd><span>From: Nagoya, Japan</span></dd>
+						<dd><span>Registered: 2009-01-07</span></dd>
+						<dd><span>Posts: 2,323</span></dd>
+						<dd class="usercontacts"><span class="website"><a href="http://asazuke.com">Website</a></span></dd>
+					</dl>
+				</div>
+				<div class="postright">
+					<h3>Re: Access google translate from a terminal.</h3>
+					<div class="postmsg">
+						<p>Hmm... I don&#039;t know what that would be, henrynott. It&#039;s still working fine for me. </p><p>Have you tried it in a different terminal from urxvt? (I use urxvt though)<br />Try &#039;bash -x /path/to/translate.sh&#039; for more detailed output on what exactly is happening.</p><p>...and welcome to Crunchland!</p>
+						<p class="postedit"><em>Last edited by johnraff (2012-05-22 05:10:09)</em></p>
+					</div>
+					<div class="postsignature postmsg"><hr /><p>John<br />--------------------<br />We are a nice, friendly community here and I hope we stay that way.<br />( a boring <a href="http://asazuke.com">Japan blog</a> , and idle <a href="https://twitter.com/john_raff">twitterings</a> )</p></div>
+				</div>
+			</div>
+		</div>
+		<div class="inbox">
+			<div class="postfoot clearb">
+				<div class="postfootleft"><p><span>Offline</span></p></div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id="p222217" class="blockpost roweven">
+	<h2><span><span class="conr">#18</span> <a class="datetimeposted" href="viewtopic.php?pid=222217#p222217">2012-05-22 13:24:19</a></span></h2>
+	<div class="box">
+		<div class="inbox">
+			<div class="postbody">
+				<div class="postleft">
+					<dl>
+						<dt><strong><a href="profile.php?id=16573">henrynott</a></strong></dt>
+						<dd class="usertitle"><strong>New Member</strong></dd>
+						<dd class="postavatar"><img width="60" height="60" src="http://crunchbang.org/forums/img/default-avatar.gif" alt="" /></dd>
+						<dd><span>Registered: 2012-05-21</span></dd>
+						<dd><span>Posts: 2</span></dd>
+					</dl>
+				</div>
+				<div class="postright">
+					<h3>Re: Access google translate from a terminal.</h3>
+					<div class="postmsg">
+						<p>Update: By using &#039;./translate.sh&#039;, it works! Thank you, John!<br />--------------------<br />Thank you, johnraff, for teaching me how to use &#039;bash -x&#039; to find the problem. I find that my html2text does not have utf8 patch, thus I download a utf8 patch from <a href="http://www.mbayer.de/html2text/downloads/">http://www.mbayer.de/html2text/downloads/</a> along with the source (html2text-1.3.2a.tar.gz). (Because I am a newbie, if I do something wrong, please correct me <img src="http://crunchbang.org/forums/plugins/ezbbc/style/smilies/smile.png" alt="smile" />, ) cp the patch into extracted folder of the source, and type &#039;patch &lt; patch-utf8-html2text-1.3.2a.diff&#039;, the output:</p><div class="codebox"><pre><code>patching file Area.C
+patching file Area.h
+patching file format.C
+patching file html2text.C
+patching file html.h
+patching file sgml.C
+patching file table.C</code></pre></div><p>The compiling is successful but translate.sh does not work. (I&#039;ve tried html2text-1.3.2.tar.gz but the compiling failed.) Here is some of the output for &#039;bash -x /path/to/translate.sh&#039;:</p><div class="codebox"><pre class="vscroll"><code>bash -x translate.sh legs fr en
++ help=&#039;translate &lt;text&gt; [[&lt;source language&gt;] &lt;target language&gt;]
+if target missing, use DEFAULT_TARGET_LANG
+if source missing, use auto&#039;
++ DEFAULT_TARGET_LANG=en
++ [[ legs = -h ]]
++ [[ legs = --help ]]
++ [[ -n en ]]
++ source=fr
++ target=en
+++ curl -s -i --user-agent &#039;&#039; -d sl=fr -d tl=en --data-urlencode text=legs http://translate.google.com
++ result=&#039;HTTP/1.1 200 OK
+Date: Tue, 22 May 2012 13:14:57 GMT
+Expires: Fri, 01 Jan 1990 00:00:00 GMT
+Cache-Control: no-cache, must-revalidate
+Pragma: no-cache
+X-Frame-Options: SAMEORIGIN
+Content-Type: text/html; charset=ISO-8859-1
+Content-Language: en
+Set-Cookie: PREF=ID=e6ddc73d745d448e:TM=1337692497:LM=1337692497:S=A5-__lNuvHHhudtW; expires=Thu, 22-May-2014 13:14:57 GMT; path=/; domain=.google.com
+Set-Cookie: NID=60=ItPUe2C2ixOuzf481HIC5KaJLCGuI_WpN1mwylgnKGS5waLAIuX3cfUqs2YD4MNTiuRdkeaWgXO-ZIGHKf4aVmcPO6U7qArUTuY9DluMgl2HcL1mdN6kk8PEyUxC_7il; expires=Wed, 21-Nov-2012 13:14:57 GMT; path=/; domain=.google.com; HttpOnly
+P3P: CP=&quot;This is not a P3P policy! See http://www.google.com/support/accounts/bin/answer.py?hl=en&amp;answer=151657 for more info.&quot;
+X-Content-Type-Options: nosniff
+Server: HTTP server (unknown)
+X-XSS-Protection: 1; mode=block
+Transfer-Encoding: chunked
+
+&lt;!DOCTYPE html&gt;/very/long/&lt;/html&gt;&#039;
+++ awk &#039;/Content-Type: .* charset=/ {sub(/^.*charset=[&quot;&#039;\&#039;&#039;]?/,&quot;&quot;); sub(/[ &quot;&#039;\&#039;&#039;].*$/,&quot;&quot;); print}&#039;
++ encoding=$&#039;ISO-8859-1\r&#039;
++ html2text -utf8
++ awk &#039;BEGIN {RS=&quot;&lt;/div&gt;&quot;};/&lt;span[^&gt;]* id=[&quot;&#039;\&#039;&#039;]?result_box[&quot;&#039;\&#039;&#039;]?/&#039;
++ iconv -f $&#039;ISO-8859-1\r&#039;
+legacy
++ exit</code></pre></div><p>It did produce the result &#039;legacy&#039; but I cannot find errors in the output. When I type &#039;. translate.sh legs fr en&#039;, I still get my urxvtc shut down... I guess there&#039;s something wrong with my urxvt? But I don&#039;t know how... Thank you for your time!</p>
+						<p class="postedit"><em>Last edited by henrynott (2012-05-22 23:42:47)</em></p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="inbox">
+			<div class="postfoot clearb">
+				<div class="postfootleft"><p><span>Offline</span></p></div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id="p222282" class="blockpost rowodd">
+	<h2><span><span class="conr">#19</span> <a class="datetimeposted" href="viewtopic.php?pid=222282#p222282">2012-05-22 16:21:14</a></span></h2>
+	<div class="box">
+		<div class="inbox">
+			<div class="postbody">
+				<div class="postleft">
+					<dl>
+						<dt><strong><a href="profile.php?id=353">johnraff</a></strong></dt>
+						<dd class="usertitle"><strong>#!Drunkard</strong></dd>
+						<dd class="postavatar"><img src="http://crunchbang.org/forums/img/avatars/353.jpg?m=1332434399" width="60" height="53" alt="" /></dd>
+						<dd><span>From: Nagoya, Japan</span></dd>
+						<dd><span>Registered: 2009-01-07</span></dd>
+						<dd><span>Posts: 2,323</span></dd>
+						<dd class="usercontacts"><span class="website"><a href="http://asazuke.com">Website</a></span></dd>
+					</dl>
+				</div>
+				<div class="postright">
+					<h3>Re: Access google translate from a terminal.</h3>
+					<div class="postmsg">
+						<div class="quotebox"><cite>henrynott wrote:</cite><blockquote><div><p>When I type &#039;. translate.sh legs fr en&#039;, I still get my urxvtc shut down...</p></div></blockquote></div><p>Try typing &#039;./translate.sh legs fr en&#039; </p><p>btw I don&#039;t think there should have been any need to recompile html2text if you&#039;re running Debian stable. My version, from the repositories, is&#160; 1.3.2a-15</p>
+					</div>
+					<div class="postsignature postmsg"><hr /><p>John<br />--------------------<br />We are a nice, friendly community here and I hope we stay that way.<br />( a boring <a href="http://asazuke.com">Japan blog</a> , and idle <a href="https://twitter.com/john_raff">twitterings</a> )</p></div>
+				</div>
+			</div>
+		</div>
+		<div class="inbox">
+			<div class="postfoot clearb">
+				<div class="postfootleft"><p><span>Offline</span></p></div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id="p236942" class="blockpost roweven">
+	<h2><span><span class="conr">#20</span> <a class="datetimeposted" href="viewtopic.php?pid=236942#p236942">2012-06-24 22:25:58</a></span></h2>
+	<div class="box">
+		<div class="inbox">
+			<div class="postbody">
+				<div class="postleft">
+					<dl>
+						<dt><strong><a href="profile.php?id=834">wuy</a></strong></dt>
+						<dd class="usertitle"><strong>#! Member</strong></dd>
+						<dd class="postavatar"><img width="60" height="60" src="http://crunchbang.org/forums/img/default-avatar.gif" alt="" /></dd>
+						<dd><span>Registered: 2009-02-05</span></dd>
+						<dd><span>Posts: 76</span></dd>
+					</dl>
+				</div>
+				<div class="postright">
+					<h3>Re: Access google translate from a terminal.</h3>
+					<div class="postmsg">
+						<p>This is very handy. I use mainly the pop-up thingy.<br />In Chrome there&#039;s the <em>excellent</em> dictionary extension but for Firefox and else this one is great. Plus for a quick translation like in these post boxes while writing (if I know some word in a language I just type it and then translate it for the language I&#039;m typing).<br />I didn&#039;t have my back-up with me so I came to fetch the scripts and so I can thank belatedly johnraff.</p><p>Just a note: the first script has a commented line (#iconv -f $encoding....). It&#039;s no use, right (I can just delete it)?</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="inbox">
+			<div class="postfoot clearb">
+				<div class="postfootleft"><p><span>Offline</span></p></div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id="p237500" class="blockpost rowodd">
+	<h2><span><span class="conr">#21</span> <a class="datetimeposted" href="viewtopic.php?pid=237500#p237500">2012-06-26 16:19:03</a></span></h2>
+	<div class="box">
+		<div class="inbox">
+			<div class="postbody">
+				<div class="postleft">
+					<dl>
+						<dt><strong><a href="profile.php?id=353">johnraff</a></strong></dt>
+						<dd class="usertitle"><strong>#!Drunkard</strong></dd>
+						<dd class="postavatar"><img src="http://crunchbang.org/forums/img/avatars/353.jpg?m=1332434399" width="60" height="53" alt="" /></dd>
+						<dd><span>From: Nagoya, Japan</span></dd>
+						<dd><span>Registered: 2009-01-07</span></dd>
+						<dd><span>Posts: 2,323</span></dd>
+						<dd class="usercontacts"><span class="website"><a href="http://asazuke.com">Website</a></span></dd>
+					</dl>
+				</div>
+				<div class="postright">
+					<h3>Re: Access google translate from a terminal.</h3>
+					<div class="postmsg">
+						<p>Hi wuv, yes apart from the initial &quot;shebang&quot; (&#039;#!/bin/bash&#039;) any commented lines can be omitted. I left that #iconv... line in because it was in the original post and I wanted to show off how much shorter the replacement was... <img src="http://crunchbang.org/forums/plugins/ezbbc/style/smilies/roll.png" alt="roll" /></p>
+					</div>
+					<div class="postsignature postmsg"><hr /><p>John<br />--------------------<br />We are a nice, friendly community here and I hope we stay that way.<br />( a boring <a href="http://asazuke.com">Japan blog</a> , and idle <a href="https://twitter.com/john_raff">twitterings</a> )</p></div>
+				</div>
+			</div>
+		</div>
+		<div class="inbox">
+			<div class="postfoot clearb">
+				<div class="postfootleft"><p><span>Offline</span></p></div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="postlinksb">
+	<div class="inbox crumbsplus">
+		<div class="pagepost">
+			<p class="pagelink conl"><span class="pages-label">Pages: </span><strong class="item1">1</strong></p>
+		</div>
+		<ul class="crumbs">
+			<li><a href="index.php">Index</a></li>
+			<li><span>»&#160;</span><a href="viewforum.php?id=8">Tips, Tricks &amp; Scripts</a></li>
+			<li><span>»&#160;</span><a href="viewtopic.php?id=17034"><strong>Access google translate from a terminal.</strong></a></li>
+		</ul>
+		<div class="clearer"></div>
+	</div>
+</div>
+</div>
+
+<div id="brdfooter" class="block">
+	<h2><span>Board footer</span></h2>
+	<div class="box">
+		<div id="brdfooternav" class="inbox">
+			<div class="conl">
+				<form id="qjump" method="get" action="viewforum.php">
+					<div><label><span>Jump to<br /></span>
+					<select name="id" onchange="window.location=('viewforum.php?id='+this.options[this.selectedIndex].value)">
+						<optgroup label="General">
+							<option value="2">News &amp; Announcements</option>
+							<option value="3">Feedback &amp; Suggestions</option>
+							<option value="4">Help &amp; Support (Stable)</option>
+							<option value="14">Help &amp; Support (Testing/Unstable)</option>
+							<option value="10">CrunchBang Talk</option>
+						</optgroup>
+						<optgroup label="Userspace">
+							<option value="5">Introductions</option>
+							<option value="8" selected="selected">Tips, Tricks &amp; Scripts</option>
+							<option value="6">Artwork &amp; Screenshots</option>
+							<option value="9">WM/DE Talk</option>
+							<option value="7">Off Topic / General Chat</option>
+						</optgroup>
+						<optgroup label="Development">
+							<option value="15">Devel: CrunchBang 11 &quot;Waldorf&quot;</option>
+							<option value="13">Devel: CrunchBang 10 &quot;Statler&quot;</option>
+						</optgroup>
+					</select>
+					<input type="submit" value=" Go " accesskey="g" />
+					</label></div>
+				</form>
+			</div>
+			<div class="conr">
+				<p id="feedlinks"><span class="atom"><a href="extern.php?action=feed&amp;tid=17034&amp;type=atom">Atom topic feed</a></span></p>
+				<p id="poweredby">Powered by <a href="http://fluxbb.org/">FluxBB</a></p>
+			</div>
+			<div class="clearer"></div>
+		</div>
+	</div>
+</div>
+<pun_crunchbang_community_info_footer>
+</div>
+<div id="fini">
+<div id="footermenu">
+<ul>
+	<li><a href="http://crunchbang.org/about/" title="About CrunchBang Linux">About</a></li>
+	<li><a href="http://crunchbang.org/download/" title="Download CrunchBang Linux">Download</a></li>
+	<li><a href="http://crunchbang.org/forums/" title="CrunchBang Forums">Community</a></li>
+	<li><a href="http://crunchbang.org/donate/" title="Help Fund CrunchBang">Donate</a></li>
+</ul>
+</div>
+<p>Copyright &copy; 2012 <a href="http://crunchbang.org/" title="Go to the CrunchBang Linux homepage.">CrunchBang Linux</a>.<br />
+Proudly powered by <a href="http://www.debian.org/" title="Powered by Debian">Debian</a>. Hosted by <a href="http://www.linode.com/?r=d37cc8c4a3d1569564ed6520e4053df8b9da2388" title="Virtual Private Servers provided by Linode.">Linode</a>.<br />
+Debian is a registered <a href="http://www.debian.org/trademark" title="Debian Trademark">trademark</a> of <a class="nobr" href="http://www.spi-inc.org/" title="Software in the Public Interest, Inc">Software in the Public Interest, Inc</a>.</p>
+<a class="debian credit img" href="http://debian.org" title="Debian - The Universal Operating System." target="_blank"><img alt="Debian Logo" src="http://crunchbang.org/images/debian-logo.png"></a>
+</div>
+</div>
+
+</body>
+</html>
