@@ -1,0 +1,2001 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+    <!--
+        ___                _   ___
+       / __|_ __  __ _ _ _| |_| __|  _ _ _
+       \__ \ '_ \/ _` | '_| / / _| || | ' \
+       |___/ .__/\__,_|_| |_\_\_| \_,_|_||_|
+           |_|
+
+      Url gurer, pbqr crrcre! Lbh zhfg or n erny areq!
+
+      Gb fubj bhe fhccbeg, hfr pbqr VFNJLBHEFBHEPR ng purpxbhg sbe 10% bss lbhe arkg beqre.
+      Qba'g gryy nalbar, jr jnag gb fnir guvf fcrpvny pbqr sbe fcrpvny crbcyr jub ivrj fbhepr :)
+
+      Unir n avpr ivfvg!
+    -->
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="google-site-verification" content="XUb2UlchrvwCWWyhXksBlqQy1STYtTEN_M0-tgQRHRs" />
+    <meta name="google-site-verification" content="gRUAvzBJ_533b-AGTmldOJfByU6TkojfUbWovB2wKJo" />
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@sparkfun">
+    <meta name="twitter:url" content="https://www.sparkfun.com/products/9365">
+    <meta name="twitter:title" content="PCM1803A Analog to Digital Stereo Converter Breakout">
+    <meta name="twitter:description" content="The PCM1803A is a high-performance, low-cost, 24-bit stereo analog-to-digital converter that can sample as high as 96k. The PCM1803A is a great choice for a wide variety of applications where hig">
+        <meta name="twitter:image" content="https://dlnmh9ip6v2uc.cloudfront.net/images/products/9/3/6/5/09365-01_l_th.jpg">
+        <title>PCM1803A Analog to Digital Stereo Converter Breakout - SparkFun Electronics</title>
+    <link rel="stylesheet" href="/css/screen.css?rev=1359670769" type="text/css" media="screen" />
+    <link rel="stylesheet" href="/css/print.css?rev=1359670769" type="text/css" media="print" />
+    <link rel="stylesheet" href="/css/fancybox.css?rev=1359670769" type="text/css" media="screen" />
+    <!-- IE is the bane of my existence. -->
+    <!--[if IE]><link rel="stylesheet" href="/css/ie.css" type="text/css" media="screen" /><![endif]-->
+    <!--[if lte IE 7]><link rel="stylesheet" href="/css/ie7.css" type="text/css" media="screen" /><![endif]-->
+    <link rel="alternate" type="application/rss+xml" title="All News" href="http://www.sparkfun.com/feeds/news/" />
+    <link rel="alternate" type="application/rss+xml" title="New Products" href="http://www.sparkfun.com/feeds/products/" />
+    <link rel="alternate" type="application/rss+xml" title="All Product Changes" href="http://www.sparkfun.com/feeds/changes/" />
+    <link rel="alternate" type="application/rss+xml" title="All Comments" href="http://www.sparkfun.com/feeds/comments/" />
+    <link rel="alternate" type="application/rss+xml" title="Videos" href="http://gdata.youtube.com/feeds/base/users/sparkfun/uploads?alt=rss&v=2&orderby=published" />
+    <link rel="alternate" type="application/rss+xml" title="Products Comments" href="https://www.sparkfun.com/products/9365/comments.rss" /> 
+    <link rel="apple-touch-icon" href="/fanboy.png" />
+    <link rev="canonical" type="text/html" href="http://sfe.io/9365" /> 
+    <script>
+            var SFECONFIG = {
+        currencies: {"USD":{"code":"USD","title":"US Dollar","symbol_left":"$","symbol_right":"","decimal_point":".","thousands_point":",","decimal_places":"2","value":"1.0000"},"CAD":{"code":"CAD","title":"Canadian Dollar","symbol_left":"$","symbol_right":null,"decimal_point":".","thousands_point":",","decimal_places":"2","value":"1.0243"},"AUD":{"code":"AUD","title":"Australian Dollar","symbol_left":"$","symbol_right":null,"decimal_point":".","thousands_point":",","decimal_places":"2","value":"0.9936"},"GBP":{"code":"GBP","title":"British Pound","symbol_left":"&pound;","symbol_right":null,"decimal_point":".","thousands_point":",","decimal_places":"2","value":"0.6417"},"EUR":{"code":"EUR","title":"Euro","symbol_left":"&euro;","symbol_right":null,"decimal_point":".","thousands_point":",","decimal_places":"2","value":"0.7954"}},
+        preferred_currency: 'USD',
+        http_server: 'http://www.sparkfun.com',
+        https_server: 'https://www.sparkfun.com',
+        http_static: 'https://dlnmh9ip6v2uc.cloudfront.net',
+        base_url: '/',
+        url: '/',
+        controller: 'products',
+        action: 'view',
+        entity_id: '9365',
+        auth: false,
+        customers_id: 0,
+        customers_name: "",
+        customers_email: "",
+        sparkrev: '1359670769'
+      };
+
+    </script>
+    <script src="/js/require-jquery.js"></script>
+    <script type="text/javascript">
+      require.config({
+        paths: {
+          'sfe': '/js/sfe-built',
+          'jqueryui': 'https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min'
+        },
+        baseUrl: '/js/',
+        urlArgs: "sparkrev=" + SFECONFIG.sparkrev
+      });
+      require(['sfe', 'jqueryui'], function() {
+        $.sfe();
+      });
+
+      $(document).bind('loaded', function() {
+        $('*[data="fancybox"]').fancybox('fancybox', { speedIn: 10, speedOut: 10 });
+        $("img.lazyload").lazyload('lazyload', { placeholder: "https://dlnmh9ip6v2uc.cloudfront.net/images/framework/blank.gif" });
+      });
+    </script>
+  </head>
+  <body class="no-type">
+
+    <div id=user class=clearfix>
+  <div class="inner">
+      <div class=header-menu-item id=cart-menu-item title="Shopping Cart">
+      <a href="https://www.sparkfun.com/cart">
+        <span class=cart> </span>
+        <span id=items_in_cart>0</span> items in cart
+      </a>
+    </div>
+
+    
+    <input type=hidden id=preferred_currency value="USD" />
+    <div class=header-menu-item id=currency-menu>
+      <a href="https://www.sparkfun.com/account/currencies" onclick="$(this).next('.header-sub-menu').toggle(); $(this).parent().toggleClass('active'); return false;">$ USD</a>
+      <ul style="display:none;" id=currency_menu_list class=header-sub-menu>
+                  <li>
+            <a id="currency_USD" onclick="$('#airlock').currency('change', 'USD'); return(false);" href="#">
+                          <img src="https://dlnmh9ip6v2uc.cloudfront.net/images/framework/icon_radio_checked.gif" />
+                        US Dollar            </a>
+        </li>
+                  <li>
+            <a id="currency_CAD" onclick="$('#airlock').currency('change', 'CAD'); return(false);" href="#">
+                          <img src="https://dlnmh9ip6v2uc.cloudfront.net/images/framework/icon_radio_unchecked.gif" />
+                        Canadian Dollar            </a>
+        </li>
+                  <li>
+            <a id="currency_AUD" onclick="$('#airlock').currency('change', 'AUD'); return(false);" href="#">
+                          <img src="https://dlnmh9ip6v2uc.cloudfront.net/images/framework/icon_radio_unchecked.gif" />
+                        Australian Dollar            </a>
+        </li>
+                  <li>
+            <a id="currency_GBP" onclick="$('#airlock').currency('change', 'GBP'); return(false);" href="#">
+                          <img src="https://dlnmh9ip6v2uc.cloudfront.net/images/framework/icon_radio_unchecked.gif" />
+                        British Pound            </a>
+        </li>
+                  <li>
+            <a id="currency_EUR" onclick="$('#airlock').currency('change', 'EUR'); return(false);" href="#">
+                          <img src="https://dlnmh9ip6v2uc.cloudfront.net/images/framework/icon_radio_unchecked.gif" />
+                        Euro            </a>
+        </li>
+                <li><a href="https://www.sparkfun.com/account/currencies">More Currencies...</a></li>
+      </ul>
+    </div>
+
+    <div class=header-menu-item>
+      <a href="https://www.sparkfun.com/wish_lists">Wish Lists</a>    </div>
+
+    <div class=header-display-item>
+      You are <b>not</b> logged in.
+    </div>
+
+    <div class=header-menu-item>
+      <a id=btn_show_login_form
+         href="https://www.sparkfun.com/account/login" onclick="$(this).next('.header-sub-menu').toggle(); $(this).parent().toggleClass('active');; $('#user_login').focus(); return false;">log in</a>
+      <div class="header-sub-menu login-form" id=login-form style="display: none;">
+        <form action="https://www.sparkfun.com/account/login" id=login method=post>
+          <div class=row>
+            <label for=user_login>email</label><br>
+            <input id=user_login type=text tabindex=1 name=user><br>
+          </div>
+          <div class=row>
+            <label for=user_password>password</label><br>
+            <input id=user_password type=password tabindex=2 name=passwd><br>
+          </div>
+          <div class=row>
+            <p class=right><input type=submit value="log in" class=button></p>
+          </div>
+          <div class=row>
+            <p>
+              <a href="https://www.sparkfun.com/account/forgot_password">Forgot your password</a>?
+            </p><p>
+              No account? <a id="btn_register_account" href="https://www.sparkfun.com/account/make">Register one</a>!
+            </p>
+          </div>
+        </form>
+      </div>
+    </div>
+    </div>
+</div>
+
+    <div id="airlock" class="clearfix">
+      
+<div id=header>
+  <a href="https://www.sparkfun.com/" id=logo class=hidetext><span>SparkFun Electronics</span></a>
+
+  <a href="#products_menu" class=skip><span>Skip to products menu</span></a>
+  <a href="#content" class=skip><span>Skip to content</span></a>
+
+    <div id="banner" class=clearfix>
+    <div id=banner-nav style="display: none;">
+      <div class=sprites id=banner-goprev style="height: 23px; width: 23px; background-position: -23px -0px;">&nbsp;</div>
+      <a href="/banners/"><div class=sprites id=banner-all style="height: 23px; width: 23px; background-position: -0px -0px;">&nbsp;</div></a>
+      <div class=sprites id=banner-gonext style="height: 23px; width: 23px; background-position: -46px -0px;">&nbsp;</div>
+    </div>
+    <a id=banner-link href="http://www.sparkfun.com/products/10745" onclick="$(this).sfeutil('track_link', this,'Banners','clicked','banner-80');return false;">
+      <img width=978 height=105 id=banner-img src="https://dlnmh9ip6v2uc.cloudfront.net/images/banners/SFE03.0010.ADK-ElectricSheep-01.jpg" alt="">
+    </a>
+  </div>
+  <script type="text/javascript">
+    $('#airlock').bind('loaded', function() {
+      $(this).banner({id: 80});
+    });
+  </script>
+
+  <div id=header-menu>
+    <ul>
+      <li class="first  active"><a href="https://www.sparkfun.com/categories">Products</a></li>
+      <li><a href="https://www.sparkfun.com/static/customer_service">Support</a></li>
+      <li><a href="https://www.sparkfun.com/tutorials">Tutorials</a></li>
+      <li><a href="https://www.sparkfun.com/distributors">Distributors</a></li>
+      <li><a href="https://www.sparkfun.com/static/about">About Us</a></li>
+      <li><a href="https://www.sparkfun.com/static/contact">Contact</a></li>
+      <li class=last>
+        <form class=search style="display: block" action="https://www.sparkfun.com/search/results" id=search_form method=get>
+          <div class=ui-widget>
+            <input name=term id=global-search class=search-term type=text results=5 autosave=sfe_product_search value="" placeholder="search..." />
+          </div>
+          <input type=hidden name=what value=products />
+          <input type=submit value=Go id="search-go" />
+        </form>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class=site-notices>
+  </div>
+
+      <div id="left">
+        <h2 class="sidebar sidebar-bottom" id="products_menu">Categories</h2>
+        
+<ul id="category_menu_list" class="sidebar sidebar-bottom" style="display: block">
+  <li id="menu_category_new_products"><span class="arrow"></span><a href="https://www.sparkfun.com/categories/new_products" >New Products</a></li>
+  <li id="menu_category_top"><span class="arrow"></span><a href="https://www.sparkfun.com/categories/top" >Top Sellers</a></li>
+  <li id="menu_category_featured"><span class="arrow"></span><a href="https://www.sparkfun.com/categories/featured" >Staff Picks</a></li>
+    <li id="menu_category_gift_certificates"><span class="arrow"></span><a href="https://www.sparkfun.com/gift_certificates" >Gift Certificates</a></li>
+  <li id="menu_category_events"><span class="arrow"></span><a href="http://learn.sparkfun.com/events">Classes &amp; Events</a></li>
+  <li><hr /></li>
+  <li id="menu_category_176"><span class="arrow"></span><a href="https://www.sparkfun.com/categories/176" >Books</a></li><li id="menu_category_20"><span class="arrow"></span><a href="https://www.sparkfun.com/categories/20" class="current">Breakout Boards</a></li><li id="menu_category_70"><span class="arrow">&#9658;</span><a href="https://www.sparkfun.com/categories/70" >Cables</a><ul style="display:none;"><li id="menu_category_140"><a href="https://www.sparkfun.com/categories/140" >Audio</a></li><li id="menu_category_150"><a href="https://www.sparkfun.com/categories/150" >Ethernet</a></li><li id="menu_category_72"><a href="https://www.sparkfun.com/categories/72" >Hook Up</a></li><li id="menu_category_75"><a href="https://www.sparkfun.com/categories/75" >Parallel</a></li><li id="menu_category_74"><a href="https://www.sparkfun.com/categories/74" >Serial</a></li><li id="menu_category_71"><a href="https://www.sparkfun.com/categories/71" >USB</a></li><li id="menu_category_234"><a href="https://www.sparkfun.com/categories/234" >Video</a></li></ul></li><li id="menu_category_66"><span class="arrow">&#9658;</span><a href="https://www.sparkfun.com/categories/66" >Cellular</a><ul style="display:none;"><li id="menu_category_67"><a href="https://www.sparkfun.com/categories/67" >Antennas</a></li><li id="menu_category_69"><a href="https://www.sparkfun.com/categories/69" >Eval Boards</a></li><li id="menu_category_68"><a href="https://www.sparkfun.com/categories/68" >Modules</a></li></ul></li><li id="menu_category_51"><span class="arrow">&#9658;</span><a href="https://www.sparkfun.com/categories/51" >Components</a><ul style="display:none;"><li id="menu_category_21"><a href="https://www.sparkfun.com/categories/21" >AVR Microcontrollers</a></li><li id="menu_category_145"><a href="https://www.sparkfun.com/categories/145" >Buttons/Switches</a></li><li id="menu_category_226"><a href="https://www.sparkfun.com/categories/226" >EL</a></li><li id="menu_category_60"><a href="https://www.sparkfun.com/categories/60" >General</a></li><li id="menu_category_90"><a href="https://www.sparkfun.com/categories/90" >General ICs</a></li><li id="menu_category_89"><a href="https://www.sparkfun.com/categories/89" >LEDs</a><ul><li id="menu_category_173"><a href="https://www.sparkfun.com/categories/173" >10mm</a></li><li id="menu_category_171"><a href="https://www.sparkfun.com/categories/171" >3mm</a></li><li id="menu_category_172"><a href="https://www.sparkfun.com/categories/172" >5mm</a></li><li id="menu_category_170"><a href="https://www.sparkfun.com/categories/170" >7-Segment</a></li><li id="menu_category_175"><a href="https://www.sparkfun.com/categories/175" >Other</a></li><li id="menu_category_174"><a href="https://www.sparkfun.com/categories/174" >SMD</a></li></ul></li><li id="menu_category_88"><a href="https://www.sparkfun.com/categories/88" >Oscillators</a></li><li id="menu_category_22"><a href="https://www.sparkfun.com/categories/22" >PIC Microcontrollers</a></li><li id="menu_category_124"><a href="https://www.sparkfun.com/categories/124" >PICAXE Microcontrollers</a></li><li id="menu_category_29"><a href="https://www.sparkfun.com/categories/29" >SMD ICs</a></li></ul></li><li id="menu_category_2"><span class="arrow">&#9658;</span><a href="https://www.sparkfun.com/categories/2" >Development Tools</a><ul style="display:none;"><li id="menu_category_184"><a href="https://www.sparkfun.com/categories/184" >.NET</a></li><li id="menu_category_93"><a href="https://www.sparkfun.com/categories/93" >ADuC</a></li><li id="menu_category_218"><a href="https://www.sparkfun.com/categories/218" >Android</a></li><li id="menu_category_103"><a href="https://www.sparkfun.com/categories/103" >Arduino</a></li><li id="menu_category_219"><a href="https://www.sparkfun.com/categories/219" >ARM</a></li><li id="menu_category_10"><a href="https://www.sparkfun.com/categories/10" >AVR</a></li><li id="menu_category_164"><a href="https://www.sparkfun.com/categories/164" >Beagle</a></li><li id="menu_category_187"><a href="https://www.sparkfun.com/categories/187" >Chumby</a></li><li id="menu_category_136"><a href="https://www.sparkfun.com/categories/136" >FPGA</a></li><li id="menu_category_235"><a href="https://www.sparkfun.com/categories/235" >Gadgeteer</a></li><li id="menu_category_101"><a href="https://www.sparkfun.com/categories/101" >iPod</a></li><li id="menu_category_239"><a href="https://www.sparkfun.com/categories/239" >Java</a></li><li id="menu_category_25"><a href="https://www.sparkfun.com/categories/25" >LPC</a></li><li id="menu_category_230"><a href="https://www.sparkfun.com/categories/230" >mbed</a></li><li id="menu_category_11"><a href="https://www.sparkfun.com/categories/11" >MSP</a></li><li id="menu_category_9"><a href="https://www.sparkfun.com/categories/9" >PIC</a></li><li id="menu_category_125"><a href="https://www.sparkfun.com/categories/125" >PICAXE</a></li><li id="menu_category_238"><a href="https://www.sparkfun.com/categories/238" >Propeller</a></li><li id="menu_category_137"><a href="https://www.sparkfun.com/categories/137" >PSoC</a></li><li id="menu_category_233"><a href="https://www.sparkfun.com/categories/233" >Raspberry Pi</a></li><li id="menu_category_104"><a href="https://www.sparkfun.com/categories/104" >Roomba</a></li><li id="menu_category_94"><a href="https://www.sparkfun.com/categories/94" >SAM</a></li><li id="menu_category_95"><a href="https://www.sparkfun.com/categories/95" >ST</a></li><li id="menu_category_167"><a href="https://www.sparkfun.com/categories/167" >STAMP</a></li><li id="menu_category_107"><a href="https://www.sparkfun.com/categories/107" >Wiring</a></li><li id="menu_category_169"><a href="https://www.sparkfun.com/categories/169" >WIZnet</a></li></ul></li><li id="menu_category_100"><span class="arrow"></span><a href="https://www.sparkfun.com/categories/100" >Dings and Dents</a></li><li id="menu_category_204"><span class="arrow">&#9658;</span><a href="https://www.sparkfun.com/categories/204" >E-Textiles</a><ul style="display:none;"><li id="menu_category_205"><a href="https://www.sparkfun.com/categories/205" >Aniomagic</a></li><li id="menu_category_210"><a href="https://www.sparkfun.com/categories/210" >fabrickit</a></li><li id="menu_category_135"><a href="https://www.sparkfun.com/categories/135" >LilyPad</a></li><li id="menu_category_206"><a href="https://www.sparkfun.com/categories/206" >Materials</a></li></ul></li><li id="menu_category_232"><span class="arrow"></span><a href="https://www.sparkfun.com/categories/232" >Educators</a></li><li id="menu_category_4"><span class="arrow">&#9658;</span><a href="https://www.sparkfun.com/categories/4" >GPS</a><ul style="display:none;"><li id="menu_category_18"><a href="https://www.sparkfun.com/categories/18" >Antennas</a></li><li id="menu_category_86"><a href="https://www.sparkfun.com/categories/86" >Eval Boards</a></li><li id="menu_category_17"><a href="https://www.sparkfun.com/categories/17" >Modules</a></li></ul></li><li id="menu_category_157"><span class="arrow"></span><a href="https://www.sparkfun.com/categories/157" >Kits</a></li><li id="menu_category_76"><span class="arrow">&#9658;</span><a href="https://www.sparkfun.com/categories/76" >LCDs</a><ul style="display:none;"><li id="menu_category_147"><a href="https://www.sparkfun.com/categories/147" >Color</a></li><li id="menu_category_148"><a href="https://www.sparkfun.com/categories/148" >Monochrome</a></li></ul></li><li id="menu_category_96"><span class="arrow"></span><a href="https://www.sparkfun.com/categories/96" >Port-O-Rotary</a></li><li id="menu_category_1"><span class="arrow">&#9658;</span><a href="https://www.sparkfun.com/categories/1" >Programmers</a><ul style="display:none;"><li id="menu_category_26"><a href="https://www.sparkfun.com/categories/26" >ARM</a></li><li id="menu_category_7"><a href="https://www.sparkfun.com/categories/7" >AVR</a></li><li id="menu_category_37"><a href="https://www.sparkfun.com/categories/37" >MAXQ</a></li><li id="menu_category_6"><a href="https://www.sparkfun.com/categories/6" >PIC</a></li><li id="menu_category_126"><a href="https://www.sparkfun.com/categories/126" >PICAXE</a></li></ul></li><li id="menu_category_53"><span class="arrow">&#9658;</span><a href="https://www.sparkfun.com/categories/53" >Prototyping</a><ul style="display:none;"><li id="menu_category_54"><a href="https://www.sparkfun.com/categories/54" >Batteries</a></li><li id="menu_category_149"><a href="https://www.sparkfun.com/categories/149" >Boards</a></li><li id="menu_category_91"><a href="https://www.sparkfun.com/categories/91" >Connectors</a></li><li id="menu_category_182"><a href="https://www.sparkfun.com/categories/182" >Enclosures</a></li><li id="menu_category_55"><a href="https://www.sparkfun.com/categories/55" >General</a></li><li id="menu_category_155"><a href="https://www.sparkfun.com/categories/155" >Hardware</a></li><li id="menu_category_92"><a href="https://www.sparkfun.com/categories/92" >Sockets</a></li><li id="menu_category_116"><a href="https://www.sparkfun.com/categories/116" >Solar</a></li><li id="menu_category_141"><a href="https://www.sparkfun.com/categories/141" >Wire</a></li></ul></li><li id="menu_category_207"><span class="arrow">&#9658;</span><a href="https://www.sparkfun.com/categories/207" >Retail</a><ul style="display:none;"><li id="menu_category_212"><a href="https://www.sparkfun.com/categories/212" >Arduino</a></li><li id="menu_category_216"><a href="https://www.sparkfun.com/categories/216" >Components</a></li><li id="menu_category_213"><a href="https://www.sparkfun.com/categories/213" >Kits</a></li><li id="menu_category_211"><a href="https://www.sparkfun.com/categories/211" >Materials</a></li><li id="menu_category_215"><a href="https://www.sparkfun.com/categories/215" >Prototyping</a></li><li id="menu_category_214"><a href="https://www.sparkfun.com/categories/214" >Sensors</a></li><li id="menu_category_217"><a href="https://www.sparkfun.com/categories/217" >Tools</a></li><li id="menu_category_220"><a href="https://www.sparkfun.com/categories/220" >Wireless</a></li></ul></li><li id="menu_category_134"><span class="arrow">&#9658;</span><a href="https://www.sparkfun.com/categories/134" >Retired</a><ul style="display:none;"><li id="menu_category_231"><a href="https://www.sparkfun.com/categories/231" >Books</a></li><li id="menu_category_194"><a href="https://www.sparkfun.com/categories/194" >Breakout Boards</a></li><li id="menu_category_203"><a href="https://www.sparkfun.com/categories/203" >Cables</a></li><li id="menu_category_228"><a href="https://www.sparkfun.com/categories/228" >Cellular</a></li><li id="menu_category_200"><a href="https://www.sparkfun.com/categories/200" >Classes</a></li><li id="menu_category_192"><a href="https://www.sparkfun.com/categories/192" >Components</a></li><li id="menu_category_191"><a href="https://www.sparkfun.com/categories/191" >Development Tools</a></li><li id="menu_category_225"><a href="https://www.sparkfun.com/categories/225" >Ding and Dent</a></li><li id="menu_category_227"><a href="https://www.sparkfun.com/categories/227" >E-Textiles</a></li><li id="menu_category_188"><a href="https://www.sparkfun.com/categories/188" >GPS</a></li><li id="menu_category_190"><a href="https://www.sparkfun.com/categories/190" >Kits</a></li><li id="menu_category_196"><a href="https://www.sparkfun.com/categories/196" >LCD</a></li><li id="menu_category_201"><a href="https://www.sparkfun.com/categories/201" >Programmers</a></li><li id="menu_category_195"><a href="https://www.sparkfun.com/categories/195" >Prototyping</a></li><li id="menu_category_236"><a href="https://www.sparkfun.com/categories/236" >Retail</a></li><li id="menu_category_197"><a href="https://www.sparkfun.com/categories/197" >Robotics</a></li><li id="menu_category_189"><a href="https://www.sparkfun.com/categories/189" >Sensors</a></li><li id="menu_category_208"><a href="https://www.sparkfun.com/categories/208" >SFE Widgets</a></li><li id="menu_category_198"><a href="https://www.sparkfun.com/categories/198" >Swag</a></li><li id="menu_category_193"><a href="https://www.sparkfun.com/categories/193" >Tools</a></li><li id="menu_category_199"><a href="https://www.sparkfun.com/categories/199" >Wireless</a></li></ul></li><li id="menu_category_31"><span class="arrow">&#9658;</span><a href="https://www.sparkfun.com/categories/31" >Robotics</a><ul style="display:none;"><li id="menu_category_179"><a href="https://www.sparkfun.com/categories/179" >Drivers</a></li><li id="menu_category_181"><a href="https://www.sparkfun.com/categories/181" >Kits</a></li><li id="menu_category_178"><a href="https://www.sparkfun.com/categories/178" >Motors</a></li><li id="menu_category_202"><a href="https://www.sparkfun.com/categories/202" >Other</a></li><li id="menu_category_180"><a href="https://www.sparkfun.com/categories/180" >Wheels</a></li></ul></li><li id="menu_category_185"><span class="arrow"></span><a href="https://www.sparkfun.com/categories/185" >Sale</a></li><li id="menu_category_23"><span class="arrow">&#9658;</span><a href="https://www.sparkfun.com/categories/23" >Sensors</a><ul style="display:none;"><li id="menu_category_80"><a href="https://www.sparkfun.com/categories/80" >Accelerometers</a><ul><li id="menu_category_161"><a href="https://www.sparkfun.com/categories/161" >1-axis</a></li><li id="menu_category_163"><a href="https://www.sparkfun.com/categories/163" >3-axis</a></li></ul></li><li id="menu_category_146"><a href="https://www.sparkfun.com/categories/146" >Biometrics</a></li><li id="menu_category_117"><a href="https://www.sparkfun.com/categories/117" >Capacitive</a></li><li id="menu_category_151"><a href="https://www.sparkfun.com/categories/151" >Current</a></li><li id="menu_category_143"><a href="https://www.sparkfun.com/categories/143" >Flex / Force</a></li><li id="menu_category_85"><a href="https://www.sparkfun.com/categories/85" >Gyros</a><ul><li id="menu_category_159"><a href="https://www.sparkfun.com/categories/159" >2-axis</a></li><li id="menu_category_183"><a href="https://www.sparkfun.com/categories/183" >3-axis</a></li></ul></li><li id="menu_category_144"><a href="https://www.sparkfun.com/categories/144" >ID</a></li><li id="menu_category_160"><a href="https://www.sparkfun.com/categories/160" >IMU</a></li><li id="menu_category_139"><a href="https://www.sparkfun.com/categories/139" >Infrared</a></li><li id="menu_category_102"><a href="https://www.sparkfun.com/categories/102" >Light / Imaging</a></li><li id="menu_category_83"><a href="https://www.sparkfun.com/categories/83" >Magneto</a></li><li id="menu_category_84"><a href="https://www.sparkfun.com/categories/84" >Proximity</a></li><li id="menu_category_165"><a href="https://www.sparkfun.com/categories/165" >Radiation</a></li><li id="menu_category_186"><a href="https://www.sparkfun.com/categories/186" >Sound</a></li><li id="menu_category_82"><a href="https://www.sparkfun.com/categories/82" >Temperature</a></li><li id="menu_category_152"><a href="https://www.sparkfun.com/categories/152" >Weather</a></li></ul></li><li id="menu_category_130"><span class="arrow"></span><a href="https://www.sparkfun.com/categories/130" >Swag</a></li><li id="menu_category_46"><span class="arrow">&#9658;</span><a href="https://www.sparkfun.com/categories/46" >Tools</a><ul style="display:none;"><li id="menu_category_47"><a href="https://www.sparkfun.com/categories/47" >Hand Tools</a></li><li id="menu_category_48"><a href="https://www.sparkfun.com/categories/48" >Hot-Air Rework</a></li><li id="menu_category_177"><a href="https://www.sparkfun.com/categories/177" >Instruments</a></li><li id="menu_category_221"><a href="https://www.sparkfun.com/categories/221" >Organization</a></li><li id="menu_category_28"><a href="https://www.sparkfun.com/categories/28" >Power Supplies</a></li><li id="menu_category_49"><a href="https://www.sparkfun.com/categories/49" >Soldering</a></li></ul></li><li id="menu_category_97"><span class="arrow"></span><a href="https://www.sparkfun.com/categories/97" >Widgets</a></li><li id="menu_category_16"><span class="arrow">&#9658;</span><a href="https://www.sparkfun.com/categories/16" >Wireless</a><ul style="display:none;"><li id="menu_category_78"><a href="https://www.sparkfun.com/categories/78" >Antennas</a></li><li id="menu_category_115"><a href="https://www.sparkfun.com/categories/115" >Bluetooth</a></li><li id="menu_category_79"><a href="https://www.sparkfun.com/categories/79" >General</a></li><li id="menu_category_113"><a href="https://www.sparkfun.com/categories/113" >Modem</a></li><li id="menu_category_114"><a href="https://www.sparkfun.com/categories/114" >Nordic</a></li><li id="menu_category_112"><a href="https://www.sparkfun.com/categories/112" >WiFi</a></li><li id="menu_category_111"><a href="https://www.sparkfun.com/categories/111" >ZigBee & 802.15.4</a><ul><li id="menu_category_222"><a href="https://www.sparkfun.com/categories/222" >900MHz</a></li><li id="menu_category_223"><a href="https://www.sparkfun.com/categories/223" >Series 1 (802.15.4)</a></li><li id="menu_category_224"><a href="https://www.sparkfun.com/categories/224" >Series 2 (ZigBee)</a></li></ul></li></ul></li></ul>
+      </div>
+
+      <div id=center-left>
+
+        
+        <a name="content" id="content"></a>
+        <h1 class=red-header>
+    <a href="https://www.sparkfun.com/">Home</a>  <span class=breadcrumb-separator> | </span>  <a href="https://www.sparkfun.com/categories">Product Categories</a>  <span class=breadcrumb-separator> | </span>  <a href="https://www.sparkfun.com/categories/20">Breakout Boards</a>  <span class=breadcrumb-separator> | </span>  BOB-09365  <span class="link fr" title="a machine-readable representation of this product (CSV)">
+    <a href="https://www.sparkfun.com/products/9365.csv"><img src="https://dlnmh9ip6v2uc.cloudfront.net/images/framework/icon_spreadsheet_black.png" alt="CSV"/></a>  </span>
+  <span class="link fr" title="a machine-readable representation of this product (JSON)">
+    <a href="https://www.sparkfun.com/products/9365.json"><img src="https://dlnmh9ip6v2uc.cloudfront.net/images/framework/json.png" alt="JSON"/></a>  </span>
+</h1>
+
+<div class="product clearfix">
+
+  <div class=images>
+    <div class=main>
+            <a id=default_image_link data="fancybox" rel="product" href="https://dlnmh9ip6v2uc.cloudfront.net/images/products/9/3/6/5/09365-01.jpg"><img id=default_image src="https://dlnmh9ip6v2uc.cloudfront.net/images/products/9/3/6/5/09365-01_i_ma.jpg" width=188 height=188 /></a>
+      <p><img class=enlarge src="https://dlnmh9ip6v2uc.cloudfront.net/images/framework/cc.png" /> <small>images are <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" target="new">CC BY-NC-SA 3.0</a></small></p>
+    </div>
+    <div class=thumbs>
+      <img onclick="javascript: $(this).product('toggle_product_image', '9062')" class="first thumbnail" src="https://dlnmh9ip6v2uc.cloudfront.net/images/products/9/3/6/5/09365-01_i_th.jpg" /><a id="product_image_large_9062" href="https://dlnmh9ip6v2uc.cloudfront.net/images/products/9/3/6/5/09365-01.jpg"><img width=188 id="product_image_medium_9062" style="display: none" class="first thumbnail" src="https://dlnmh9ip6v2uc.cloudfront.net/images/products/9/3/6/5/09365-01_i_ma.jpg" /></a><img onclick="javascript: $(this).product('toggle_product_image', '9061')" class="thumbnail" src="https://dlnmh9ip6v2uc.cloudfront.net/images/products/9/3/6/5/09365-02_i_th.jpg" /><a id="product_image_large_9061" href="https://dlnmh9ip6v2uc.cloudfront.net/images/products/9/3/6/5/09365-02.jpg" data="fancybox" rel="product"><img id="product_image_medium_9061" style="display: none" class="thumbnail" src="https://dlnmh9ip6v2uc.cloudfront.net/images/products/9/3/6/5/09365-02_i_ma.jpg" /></a><img onclick="javascript: $(this).product('toggle_product_image', '9060')" class="thumbnail" src="https://dlnmh9ip6v2uc.cloudfront.net/images/products/9/3/6/5/09365-03_i_th.jpg" /><a id="product_image_large_9060" href="https://dlnmh9ip6v2uc.cloudfront.net/images/products/9/3/6/5/09365-03.jpg" data="fancybox" rel="product"><img id="product_image_medium_9060" style="display: none" class="thumbnail" src="https://dlnmh9ip6v2uc.cloudfront.net/images/products/9/3/6/5/09365-03_i_ma.jpg" /></a>    </div>
+  </div>
+
+  <div class="product-right">
+    
+    <div class="pricing">
+      <form action="https://www.sparkfun.com/cart/add" method="post" onsubmit="$(this).cart('add', 9365, $('add_qty_9365').val()); return false;">
+        <input type=hidden name=id value="9365" />
+
+        
+          <h3 class=final-price>
+            <span class=price>12.95</span>
+          </h3>
+
+          <p class=add-buttons>
+                          <input class=button type=submit value="Add to Cart" onclick="_gaq.push(['_trackEvent', 'Cart', 'add_product_page', 'product 9365']);" />
+                      </p>
+
+          <p id="added_to_cart_9365" class=added_to_cart style="display: none;">
+            added <span id="added_qty_9365"></span> to your <a href="https://www.sparkfun.com/cart">cart</a>          </p>
+
+          <div class=quantity-discounts>
+            <table class=price-list>
+
+              
+                <tr class=stock-row>
+                  <td class=price-cell>
+                    <input type=text name=qty id="add_qty_9365" class=add_qty value=1 />
+                  </td>
+                  <td>
+                    quantity
+                  </td>
+                </tr>
+
+                <tr class=stock-row>
+                  <td class=price-cell>
+                      <a data="fancybox" href="https://www.sparkfun.com/static/bubbles/" class="bubble bubble-low hidetext" title="only 14 left!"><span>Only 14 left!</span></a>
+                  </td>
+                  <td>
+                    <span class=stock>
+                                              14 in stock
+                                          </span>
+                  </td>
+                </tr>
+              
+                              <tr>
+                  <td class=price-cell><b><span class=price>12.95</span></b></td>
+                  <td><b>price</b></td>
+                </tr>
+                                                  <tr>
+                  <td class=price-cell><span class=price>11.66</span></td>
+                  <td>10+ units<td>
+                  </tr>
+                                  <tr>
+                  <td class=price-cell><span class=price>10.36</span></td>
+                  <td>100+ units<td>
+                  </tr>
+                
+              
+            </table>
+          </div>
+
+          <p class=add-wishlist><br>
+                          <a data="fancybox" class=button href="https://www.sparkfun.com/static/wishlist?redirect=%2Fproducts%2F9365">Add to Wish List</a>
+                      </p>
+
+        <p>
+                  </p>
+
+        
+        <p id="added_to_wish_list_9365" class=added_to_cart style="display: none;">
+          added <span id="wl_added_qty_9365"></span> to <a id="wl_link_9365"></a>
+        </p>
+
+        
+      </form>
+    </div>
+  </div>
+  <h2>
+    PCM1803A Analog to Digital Stereo Converter Breakout<br>
+
+    <span class=sku>
+      BOB-09365        <a data="fancybox" href="https://www.sparkfun.com/static/rohs/" class="product-icon rohs hidetext"><span>RoHS Compliant</span></a>
+
+    </span>
+
+  </h2>
+
+  <div class=description>
+    <p>
+	<span style="font-weight: bold;">Description:</span> The PCM1803A is a high-performance, low-cost, 24-bit stereo analog-to-digital converter that can sample as high as 96k. The PCM1803A is a great choice for a wide variety of applications where high performance is necessary. Such applications include AV amplifier receivers, CD recorders, electrical musical instruments, and high precision analog measurements.<br />
+	<br />
+	Communication with the PCM1803A is achieved through a serial interface called I2S, described in the datasheet below. Both master and slave communication modes are supported and four data formats are available. As recommended by the datasheet, the AGND and DGND are connected directly under the chip via a solder jumper.<br />
+	<br />
+	This board includes a number of the necessary components you&#39;ll need to get the PCM1803A up and running. Both 5V and 3.3VDC regulators are included to power the analog and digital sides, respectively. A 24.576MHz oscillator is included, allowing the PCM1803A to run at a number of different sampling frequencies. All pins of the PCM1803A are broken out to a pair of 0.1&quot; pitch headers, including a 3.3V output pin from the regulator.<br />
+	<br />
+	<span style="font-weight: bold;">Features:</span></p>
+<ul>
+	<li>
+		<br />
+		24-Bit Delta-Sigma Stereo A/D Converter</li>
+	<li>
+		Single-supply operation: 5-12VDC input on breakout board</li>
+	<li>
+		Oversampling Decimation Filter:
+		<ul>
+			<li>
+				Oversampling Frequency: ?64, ?128</li>
+			<li>
+				Pass-Band Ripple: ?0.05 dB</li>
+			<li>
+				Stop-Band Attenuation: -65 dB</li>
+			<li>
+				On-Chip High-Pass Filter: 0.84 Hz (44.1 kHz)</li>
+		</ul>
+	</li>
+	<li>
+		High-Performance:
+		<ul>
+			<li>
+				THD+N: -95 dB (Typically)</li>
+			<li>
+				SNR: 103 dB (Typically)</li>
+			<li>
+				Dynamic Range: 103 dB (Typically)</li>
+		</ul>
+	</li>
+	<li>
+		Sampling Rate: 16 kHz to 96 kHz</li>
+	<li>
+		System Clock: 256 f<sub>S</sub>, 384 f<sub>S</sub>, 512 f<sub>S</sub>, 768 f<sub>S</sub></li>
+	<li>
+		PCM Audio Interface:
+		<ul>
+			<li>
+				Master/Slave Mode Selectable</li>
+			<li>
+				Data Formats:
+				<ul>
+					<li>
+						24-Bit Left-Justified</li>
+					<li>
+						24-Bit I<sup>2</sup>S</li>
+					<li>
+						20-, 24-Bit Right-Justified</li>
+				</ul>
+			</li>
+		</ul>
+	</li>
+</ul>
+<p>
+	<br />
+	<span style="font-weight: bold;">Dimensions: </span>Board: 1.40x0.80&quot;<br />
+	<br />
+	<span style="font-weight: bold;">Documents:</span></p>
+<ul>
+	<li>
+		<a classname="" href="http://www.sparkfun.com/datasheets/BreakoutBoards/PCM1803A_Breakout-v11.pdf" name="" target="_blank"><br />
+		Schematic</a></li>
+	<li>
+		<a classname="" href="http://www.sparkfun.com/datasheets/BreakoutBoards/pcm1803a.pdf" name="" target="_blank">PCM1803A Datasheet</a></li>
+	<li>
+		<a classname="" href="http://www.sparkfun.com/datasheets/BreakoutBoards/PCM1803A_Example-v10.zip" name="" target="_blank">Example ATMega168 Code</a></li>
+	<li>
+		<a classname="" href="http://www.sparkfun.com/datasheets/BreakoutBoards/I2SBUS.pdf" name="" target="_blank">I2S Protocol</a></li>
+</ul>
+  </div>
+
+</div>
+
+<div id=comments_container>
+  
+<h2 id="comments_header" class="collapsible grey big">
+  <span class="arrow"></span>Comments
+  <span class="count">
+    16 comments     <a href="https://www.sparkfun.com/products/9365/comments.rss"><img src="https://dlnmh9ip6v2uc.cloudfront.net/images/framework/rss.gif" style="vertical-align: top; margin-top: -1px;" /></a>  </span>
+</h2>
+<div id="comments" class="collapsible white">
+  <div>  <div class="login text-center padtwenty">
+    <b>
+      <a href="/account/login" class=toggle-login>Login</a> or
+      <a href="/account/make">register</a> to post comments.
+    </b>
+  </div>
+</div>
+  <div id="comment-reply-form" style="display: none">  <div class="text-center padtwenty">
+    <b>
+      <a href="/account/login" class=toggle-login>Login</a> or
+      <a href="/account/make">register</a> to post comments.
+    </b>
+  </div>
+</div>
+  <div id="comment-edit-form" style="display: none">  <div style="text-align: center">
+    <b><a href="https://www.sparkfun.com/account/login">Log in</a> to post comments.</b>
+  </div>
+</div>
+  <ul class=comments>
+    <li id="comment-4eaad842757b7fd35100254c" class=" comment">
+<div class="clearfix tagline">
+
+  <div class="comment-info">
+    <img class="avatar" src="https://dlnmh9ip6v2uc.cloudfront.net/images/framework/anon.png" />            <a href="http://www.sparkfun.com/users/15669">malem</a>
+    <span class="wide">|</span>
+    <span title="Thursday, 14-Jan-10 09:04:08 MST" class="date"><a href="https://www.sparkfun.com/products/9365#comment-4eaad842757b7fd35100254c">about 3 years ago</a></span>
+    
+    <span class="rating-star">
+              <span title="Please login to up-vote comments" class=star-dark> </span>
+          </span>
+
+    <span class="rating" id="comment-rating-4eaad842757b7fd35100254c">
+      <a class="text-grey" data="fancybox" href="http://www.sparkfun.com/static/comment_help">2</a>
+    </span>
+  </div>
+
+  <div class="actions">
+      </div>
+
+</div>
+
+<div class="comment-text">
+  <p>Fromthe  specssheet I read that this device comply to TTL standard, so it can be interfaced with 0/5V  logic levels, but the digital suppply is 3.3V. Can you confirm the device need no voltge converters for use with a 5V MCU?<br/>
+What  about a  3.3V MCU?<br/>
+Thanks</p></div>
+</li><li id="comment-4eaad841757b7fd351001cdc" class=" comment">
+<div class="clearfix tagline">
+
+  <div class="comment-info">
+    <img class="avatar" src="https://dlnmh9ip6v2uc.cloudfront.net/images/framework/anon.png" />            <a href="http://www.sparkfun.com/users/53631">bw</a>
+    <span class="wide">|</span>
+    <span title="Saturday, 05-Dec-09 17:35:40 MST" class="date"><a href="https://www.sparkfun.com/products/9365#comment-4eaad841757b7fd351001cdc">about 3 years ago</a></span>
+    
+    <span class="rating-star">
+              <span title="Please login to up-vote comments" class=star-dark> </span>
+          </span>
+
+    <span class="rating" id="comment-rating-4eaad841757b7fd351001cdc">
+      <a class="text-grey" data="fancybox" href="http://www.sparkfun.com/static/comment_help">1</a>
+    </span>
+  </div>
+
+  <div class="actions">
+      </div>
+
+</div>
+
+<div class="comment-text">
+  <p>Not breadboard friendly, too wide.</p></div>
+</li><li id="comment-4eaad842757b7fd351001fca" class=" comment">
+<div class="clearfix tagline">
+
+  <div class="comment-info">
+    <img class="avatar" src="https://dlnmh9ip6v2uc.cloudfront.net/images/framework/anon.png" />            <a href="http://www.sparkfun.com/users/100188">Botmaster</a>
+    <span class="wide">|</span>
+    <span title="Wednesday, 30-Dec-09 15:05:55 MST" class="date"><a href="https://www.sparkfun.com/products/9365#comment-4eaad842757b7fd351001fca">about 3 years ago</a></span>
+    
+    <span class="rating-star">
+              <span title="Please login to up-vote comments" class=star-dark> </span>
+          </span>
+
+    <span class="rating" id="comment-rating-4eaad842757b7fd351001fca">
+      <a class="text-grey" data="fancybox" href="http://www.sparkfun.com/static/comment_help">1</a>
+    </span>
+  </div>
+
+  <div class="actions">
+      </div>
+
+</div>
+
+<div class="comment-text">
+  <p>Are there any plans to make a similar product, but for sensor analog signals, and with more input channels( from what I&rsquo;ve read, it has only 2 inputs now)?<br/>
+It looks like a good basis for an ADC breakout board</p></div>
+<ul class=comments><li id="comment-50abd5bece395ff838000001" class=" comment">
+<div class="clearfix tagline">
+
+  <div class="comment-info">
+    <img class="avatar" src="https://static.sparkfun.com/avatar/67e2b5fa5bb983e124888abec5eb3da0?d=retro&s=30&r=pg" />            <a href="http://www.sparkfun.com/users/41804">mmensinger</a>
+    <span class="wide">|</span>
+    <span title="Tuesday, 20-Nov-12 12:10:54 MST" class="date"><a href="https://www.sparkfun.com/products/9365#comment-50abd5bece395ff838000001">about 3 months ago</a></span>
+    
+    <span class="rating-star">
+              <span title="Please login to up-vote comments" class=star-dark> </span>
+          </span>
+
+    <span class="rating" id="comment-rating-50abd5bece395ff838000001">
+      <a class="text-grey" data="fancybox" href="http://www.sparkfun.com/static/comment_help">0</a>
+    </span>
+  </div>
+
+  <div class="actions">
+      </div>
+
+</div>
+
+<div class="comment-text">
+  <p>wut?</p></div>
+</li></ul></li><li id="comment-4eaad84a757b7fd351005773" class=" comment">
+<div class="clearfix tagline">
+
+  <div class="comment-info">
+    <img class="avatar" src="https://static.sparkfun.com/avatar/fdcd6234f9ddb68587eca718818af924?d=retro&s=30&r=pg" />            <a href="http://www.sparkfun.com/users/167681">kurtnelle</a>
+    <span class="wide">|</span>
+    <span title="Tuesday, 07-Dec-10 13:18:32 MST" class="date"><a href="https://www.sparkfun.com/products/9365#comment-4eaad84a757b7fd351005773">about 2 years ago</a></span>
+    
+    <span class="rating-star">
+              <span title="Please login to up-vote comments" class=star-dark> </span>
+          </span>
+
+    <span class="rating" id="comment-rating-4eaad84a757b7fd351005773">
+      <a class="text-grey" data="fancybox" href="http://www.sparkfun.com/static/comment_help">1</a>
+    </span>
+  </div>
+
+  <div class="actions">
+      </div>
+
+</div>
+
+<div class="comment-text">
+  <p>Asking questions are a good way of finding things out. I would have never come across this device!</p></div>
+</li><li id="comment-4eaad850757b7fd351008187" class=" comment">
+<div class="clearfix tagline">
+
+  <div class="comment-info">
+    <img class="avatar" src="https://dlnmh9ip6v2uc.cloudfront.net/images/framework/anon.png" />            <a href="http://www.sparkfun.com/users/152906">bhclowers</a>
+    <span class="wide">|</span>
+    <span title="Monday, 28-Mar-11 22:00:00 MDT" class="date"><a href="https://www.sparkfun.com/products/9365#comment-4eaad850757b7fd351008187">about 2 years ago</a></span>
+    
+    <span class="rating-star">
+              <span title="Please login to up-vote comments" class=star-dark> </span>
+          </span>
+
+    <span class="rating" id="comment-rating-4eaad850757b7fd351008187">
+      <a class="text-grey" data="fancybox" href="http://www.sparkfun.com/static/comment_help">1</a>
+    </span>
+  </div>
+
+  <div class="actions">
+      </div>
+
+</div>
+
+<div class="comment-text">
+  <p>I wanted to second the suggestion of Botmaster. Any chance this board could be used as a fast analog input and if so does anyone have a sketch demonstrating such an application?  Alternatively, does anyone have a solution to acquire analog signals faster than analogRead() through the I2C bus?</p></div>
+</li><li id="comment-4eaad851757b7fd3510088ef" class=" comment">
+<div class="clearfix tagline">
+
+  <div class="comment-info">
+    <img class="avatar" src="https://static.sparkfun.com/avatar/c6c9bda13fd0081c22c84be7be065b57?d=retro&s=30&r=pg" />            <a href="http://www.sparkfun.com/users/169945">mbrown9412</a>
+    <span class="wide">|</span>
+    <span title="Monday, 18-Apr-11 19:27:42 MDT" class="date"><a href="https://www.sparkfun.com/products/9365#comment-4eaad851757b7fd3510088ef">about 2 years ago</a></span>
+     *
+    <span class="rating-star">
+              <span title="Please login to up-vote comments" class=star-dark> </span>
+          </span>
+
+    <span class="rating" id="comment-rating-4eaad851757b7fd3510088ef">
+      <a class="text-grey" data="fancybox" href="http://www.sparkfun.com/static/comment_help">1</a>
+    </span>
+  </div>
+
+  <div class="actions">
+      </div>
+
+</div>
+
+<div class="comment-text">
+  <p>Now, could I use this instead for analog video? or would that just plain not work?<br/>
+I know SFE carries an IC that does that, but this would be a little easier to use, for it&rsquo;s size&hellip; I guess I could just make a little BOB for the IC.</p></div>
+</li><li id="comment-4f5efb42ce395ff734000001" class=" comment">
+<div class="clearfix tagline">
+
+  <div class="comment-info">
+    <img class="avatar" src="https://dlnmh9ip6v2uc.cloudfront.net/images/framework/anon.png" />            <a href="http://www.sparkfun.com/users/307562">Member #307562</a>
+    <span class="wide">|</span>
+    <span title="Tuesday, 13-Mar-12 01:46:10 MDT" class="date"><a href="https://www.sparkfun.com/products/9365#comment-4f5efb42ce395ff734000001">last year</a></span>
+    
+    <span class="rating-star">
+              <span title="Please login to up-vote comments" class=star-dark> </span>
+          </span>
+
+    <span class="rating" id="comment-rating-4f5efb42ce395ff734000001">
+      <a class="text-grey" data="fancybox" href="http://www.sparkfun.com/static/comment_help">1</a>
+    </span>
+  </div>
+
+  <div class="actions">
+      </div>
+
+</div>
+
+<div class="comment-text">
+  <p>I am trying to interface PCM1803a breakout card to Arduino UNO as SPI slave. i.e.PCM1803a (master), Arduino (slave). My configurations are FMT0 : 0, FMT1 : 0, MODE0: 1, MODE1: 0. How to select the sampling frequency (fs) of PCM1803a.</p>
+
+<p>Thanks in Advance.</p></div>
+</li><li id="comment-4fa72d66757b7f1130000000" class=" comment">
+<div class="clearfix tagline">
+
+  <div class="comment-info">
+    <img class="avatar" src="https://dlnmh9ip6v2uc.cloudfront.net/images/framework/anon.png" />            <a href="http://www.sparkfun.com/users/153141">Member #153141</a>
+    <span class="wide">|</span>
+    <span title="Sunday, 06-May-12 20:03:18 MDT" class="date"><a href="https://www.sparkfun.com/products/9365#comment-4fa72d66757b7f1130000000">about 10 months ago</a></span>
+    
+    <span class="rating-star">
+              <span title="Please login to up-vote comments" class=star-dark> </span>
+          </span>
+
+    <span class="rating" id="comment-rating-4fa72d66757b7f1130000000">
+      <a class="text-grey" data="fancybox" href="http://www.sparkfun.com/static/comment_help">1</a>
+    </span>
+  </div>
+
+  <div class="actions">
+      </div>
+
+</div>
+
+<div class="comment-text">
+  <p>Just an FYI for anyone wanting this chip for accurate time-domain A/D. I have tried this and learnt the following the hard way:</p>
+
+<p>Figure 3 on Pg 6 of the datasheet &ndash;> it&rsquo;s digital antialias filter rolls off too late. In practice I&rsquo;ve found inexplicable errors up to half the sensitivity of the device if any input is in the 0.45 to 0.5 fs range. Theoretically it shouldn&rsquo;t downmix aliasing signals here onto 0 Hz, but it does. I can even get it to hold a constant (0 Hz) offset by feeding it a strong sinewave at 0.5 fs.</p>
+
+<p>If you want to use this to make accurate time-domain measurements from sensors, then it very badly needs a Bessel analog anti-alias filter just before its input, to ensure there isn&rsquo;t any noise in that deadly 0.45 &ndash; 0.5 fs band. There are some ok switched-cap filter chips for this &ndash;  a break out would be nice. Integrating both so that the switched cap filter runs at the same clock as this chip would be better.</p>
+
+<p>Otherwise, you can use a low-order filter at far less than 0.5 fs, so that the roll-off by then is decent, and then implement a multirate filter on the data afterwards. This can get you better accuracy, since switched-cap filters aren&rsquo;t all that good for low noise measurements. The expense is only getting a sample ~ 1kHz or so, But this still gives a hell of a much cleaner signal, which can then be used in feedback loop control of some high power actuator without making everything go haywire.</p>
+
+<p>If you don&rsquo;t put the anti-alias filter in, there&rsquo;s nothing you can do afterwards to get rid of the noise &ndash; it ends up aliased all across the passband, and makes the &ldquo;24-bit&rdquo; precision a joke.</p>
+
+<p>You can still get away without an anti-alias filter, if you use, say, a completely faraday-shielded sensor. (like a vibration sensor or microphone) and never let any radio interference at all onto the wire. But as soon as you arn&rsquo;t shielding up to very high frequencies, your noise will come back.</p>
+
+<p>I&rsquo;d really like to see a breakout board with I2C interface, and integrated antialias filtering. The filter can easily be variable so as to match the sample rate if it&rsquo;s a switched-cap type. 14 bits would be more than enough (accuracy limited by the switched-cap filter). A sigma delta converter with an overall bessel response and a digital multi-rate filter would be very very nice for getting very clear time-domain samples. Would make sonar easy.
+Problem is no-one designs chips like this with flat pass-band group delay in mind.</p></div>
+<ul class=comments><li id="comment-4fb2ea37ce395f9b65000000" class=" comment">
+<div class="clearfix tagline">
+
+  <div class="comment-info">
+    <img class="avatar" src="https://static.sparkfun.com/avatar/db96bbc06d6d795bda639b8df1a75629?d=retro&s=30&r=pg" />            <a href="http://www.sparkfun.com/users/87674">Mupeg</a>
+    <span class="wide">|</span>
+    <span title="Tuesday, 15-May-12 17:43:51 MDT" class="date"><a href="https://www.sparkfun.com/products/9365#comment-4fb2ea37ce395f9b65000000">about 9 months ago</a></span>
+    
+    <span class="rating-star">
+              <span title="Please login to up-vote comments" class=star-dark> </span>
+          </span>
+
+    <span class="rating" id="comment-rating-4fb2ea37ce395f9b65000000">
+      <a class="text-grey" data="fancybox" href="http://www.sparkfun.com/static/comment_help">1</a>
+    </span>
+  </div>
+
+  <div class="actions">
+      </div>
+
+</div>
+
+<div class="comment-text">
+  <p>I Strongly agree! I would love to see a 16bit or higher time-domain A/D for fast and accurate sensor measurement. One properly filtered channel with serial interface (I2C, I2S, TTL, etc)  would be just fine. The (more than) order of magnitude increase in speed and accuracy over a pic or atmega ADC would serve as a great input for a PID loop, etc. You could build a pretty decent balancing bot with that.</p></div>
+</li><li id="comment-4fc67786ce395f7e13000001" class=" comment">
+<div class="clearfix tagline">
+
+  <div class="comment-info">
+    <img class="avatar" src="https://dlnmh9ip6v2uc.cloudfront.net/images/framework/anon.png" />            <a href="http://www.sparkfun.com/users/323679">Member #323679</a>
+    <span class="wide">|</span>
+    <span title="Wednesday, 30-May-12 13:39:50 MDT" class="date"><a href="https://www.sparkfun.com/products/9365#comment-4fc67786ce395f7e13000001">about 9 months ago</a></span>
+    
+    <span class="rating-star">
+              <span title="Please login to up-vote comments" class=star-dark> </span>
+          </span>
+
+    <span class="rating" id="comment-rating-4fc67786ce395f7e13000001">
+      <a class="text-grey" data="fancybox" href="http://www.sparkfun.com/static/comment_help">1</a>
+    </span>
+  </div>
+
+  <div class="actions">
+      </div>
+
+</div>
+
+<div class="comment-text">
+  <p>How do you listen to the audio the device sends you? How do you confirm your data is good? See my message below&hellip;</p></div>
+</li></ul></li><li id="comment-4fc67714757b7f102a000000" class=" comment">
+<div class="clearfix tagline">
+
+  <div class="comment-info">
+    <img class="avatar" src="https://dlnmh9ip6v2uc.cloudfront.net/images/framework/anon.png" />            <a href="http://www.sparkfun.com/users/323679">Member #323679</a>
+    <span class="wide">|</span>
+    <span title="Wednesday, 30-May-12 13:37:56 MDT" class="date"><a href="https://www.sparkfun.com/products/9365#comment-4fc67714757b7f102a000000">about 9 months ago</a></span>
+    
+    <span class="rating-star">
+              <span title="Please login to up-vote comments" class=star-dark> </span>
+          </span>
+
+    <span class="rating" id="comment-rating-4fc67714757b7f102a000000">
+      <a class="text-grey" data="fancybox" href="http://www.sparkfun.com/static/comment_help">1</a>
+    </span>
+  </div>
+
+  <div class="actions">
+      </div>
+
+</div>
+
+<div class="comment-text">
+  <p>Hopefully someone can help me here&hellip; so I think I got this device to spew-out some audio. I hooked-it up to a PIC18F4620 and the PIC is generating a 2.5MHz PWM 50% duty and the output of the PCM1803 is showing me what seems like the proper data&hellip;. but now&hellip; how can I listen to it? I believe that it is PCM data that can be directly piped into an S/PDIF input on an A/V receiver (which I don&rsquo;t currently have)&hellip; is that true? Otherwise, I&rsquo;m somewhat confused as to how I would be able to lower the quality to have the lowest bitrate so that I could save it somewhere then afterwards manipulate the data&hellip; any input anyone? Thanks!</p></div>
+</li><li id="comment-507310a8757b7f9d6f000000" class=" comment">
+<div class="clearfix tagline">
+
+  <div class="comment-info">
+    <img class="avatar" src="https://dlnmh9ip6v2uc.cloudfront.net/images/framework/anon.png" />            <a href="http://www.sparkfun.com/users/201924">halfstop</a>
+    <span class="wide">|</span>
+    <span title="Monday, 08-Oct-12 11:43:04 MDT" class="date"><a href="https://www.sparkfun.com/products/9365#comment-507310a8757b7f9d6f000000">about 4 months ago</a></span>
+    
+    <span class="rating-star">
+              <span title="Please login to up-vote comments" class=star-dark> </span>
+          </span>
+
+    <span class="rating" id="comment-rating-507310a8757b7f9d6f000000">
+      <a class="text-grey" data="fancybox" href="http://www.sparkfun.com/static/comment_help">1</a>
+    </span>
+  </div>
+
+  <div class="actions">
+      </div>
+
+</div>
+
+<div class="comment-text">
+  <p>Does anyone know of a solution to convert analog audio to digital and to store it on a flash drive in some sort of high-quality format.</p>
+
+<p>I&rsquo;m looking for something that can record up to as much audio as I can fit on the compact flash drive.</p>
+
+<p>It needs to be really high quality digital.</p>
+
+<p>I envision something that takes a 1/8" stereo input, captures the analog audio coming in, converts it to digital and saves it to the flash drive.</p></div>
+<ul class=comments><li id="comment-50731618ce395f3f4f000000" class=" comment">
+<div class="clearfix tagline">
+
+  <div class="comment-info">
+    <img class="avatar" src="https://static.sparkfun.com/avatar/cdd414fb83226460d6888236cc7e39c3?d=retro&s=30&r=pg" />    <span class=comment-internal title="SFE Employee"> </span>        <a href="http://www.sparkfun.com/users/134919">MikeGrusin</a>
+    <span class="wide">|</span>
+    <span title="Monday, 08-Oct-12 12:06:16 MDT" class="date"><a href="https://www.sparkfun.com/products/9365#comment-50731618ce395f3f4f000000">about 4 months ago</a></span>
+     *
+    <span class="rating-star">
+              <span title="Please login to up-vote comments" class=star-dark> </span>
+          </span>
+
+    <span class="rating" id="comment-rating-50731618ce395f3f4f000000">
+      <a class="text-grey" data="fancybox" href="http://www.sparkfun.com/static/comment_help">1</a>
+    </span>
+  </div>
+
+  <div class="actions">
+      </div>
+
+</div>
+
+<div class="comment-text">
+  <p>The <a href="https://www.sparkfun.com/products/9943">VS1053</a> can take in audio and encode it to MP3 and other formats, see the datasheet for details. To the best of my knowledge none of us have actually used it in this capacity, so that&rsquo;s all I know, but let us know how it works if you try it out!</p></div>
+</li></ul></li><li id="comment-50a526d2757b7fee05000001" class=" comment">
+<div class="clearfix tagline">
+
+  <div class="comment-info">
+    <img class="avatar" src="https://dlnmh9ip6v2uc.cloudfront.net/images/framework/anon.png" />            <a href="http://www.sparkfun.com/users/375911">Member #375911</a>
+    <span class="wide">|</span>
+    <span title="Thursday, 15-Nov-12 10:30:58 MST" class="date"><a href="https://www.sparkfun.com/products/9365#comment-50a526d2757b7fee05000001">about 3 months ago</a></span>
+    
+    <span class="rating-star">
+              <span title="Please login to up-vote comments" class=star-dark> </span>
+          </span>
+
+    <span class="rating" id="comment-rating-50a526d2757b7fee05000001">
+      <a class="text-grey" data="fancybox" href="http://www.sparkfun.com/static/comment_help">1</a>
+    </span>
+  </div>
+
+  <div class="actions">
+      </div>
+
+</div>
+
+<div class="comment-text">
+  <p>anyone tried to register this board (as a sound input) in ALSA under Linux??? an especial driver to do this??</p></div>
+</li><li id="comment-50b530bf757b7f6115000002" class=" comment">
+<div class="clearfix tagline">
+
+  <div class="comment-info">
+    <img class="avatar" src="https://dlnmh9ip6v2uc.cloudfront.net/images/framework/anon.png" />            <a href="http://www.sparkfun.com/users/375310">Member #375310</a>
+    <span class="wide">|</span>
+    <span title="Tuesday, 27-Nov-12 14:29:35 MST" class="date"><a href="https://www.sparkfun.com/products/9365#comment-50b530bf757b7f6115000002">about 2 months ago</a></span>
+    
+    <span class="rating-star">
+              <span title="Please login to up-vote comments" class=star-dark> </span>
+          </span>
+
+    <span class="rating" id="comment-rating-50b530bf757b7f6115000002">
+      <a class="text-grey" data="fancybox" href="http://www.sparkfun.com/static/comment_help">1</a>
+    </span>
+  </div>
+
+  <div class="actions">
+      </div>
+
+</div>
+
+<div class="comment-text">
+  <p>The 24.576MHz oscillator is suited to certain frequencies&mdash;32KHz, 48KHz, 64KHz, 96KHz.  Unfortunately, it isn&rsquo;t suited to CD-rate audio, 44.1KHz, which is quite common.  Since it can do both higher-quality and lower-quality audio, this may not be an issue for most people, but it&rsquo;s something to be aware of.  The clock pins are not among those broken out to the breadboard-friendly connectors.</p></div>
+</li>  </ul>
+</div>
+<br />
+
+</div>
+
+<div class=related-products>
+  <h2 class="collapsible grey big"><span class="arrow"></span> Related Products</h2>
+
+  <div>
+          
+<h2 class=clearfix>Customers also purchased</h2>
+<ul class="products tight" style="border-top: none; padding-top: 5px;">
+  
+<div class="product-tile ">
+  <li class="product ">
+
+    <a href="https://www.sparkfun.com/products/8745">
+      <img class="lazyload" src="https://dlnmh9ip6v2uc.cloudfront.net/images/products/8/7/4/5/08745-03-L_l_th.jpg" /><br>
+      <span class="products_name">Logic Level Converter</span>
+    </a>
+    <br>
+
+      <a data="fancybox" href="https://www.sparkfun.com/static/bubbles/" class="bubble bubble-in hidetext" title="in stock"><span>In stock</span></a>
+    <span class=sku>BOB-08745</span><br>
+
+          <span class=price>
+      1.95002      </span>
+      </li>
+
+  <div class="product-overlay">
+    <a href="https://www.sparkfun.com/products/8745">
+      <img src="https://dlnmh9ip6v2uc.cloudfront.net/images/products/8/7/4/5/08745-03-L_l_th.jpg" /><br>
+      <span class="products_name">Logic Level Converter</span>
+    </a>
+
+    <p>
+      
+	Description: If you&#39;ve ever tried to connect a 3.3V device to a 5V system, you know&hellip;    </p>
+
+    <p>
+      <a href="https://www.sparkfun.com/products/8745" class=red>
+        <em>Read Full Description</em>
+      </a>
+    </p>
+
+      <a data="fancybox" href="https://www.sparkfun.com/static/bubbles/" class="bubble bubble-in hidetext" title="in stock"><span>In stock</span></a>
+    <span class=sku>BOB-08745</span>
+          <span class=price>
+        1.95002      </span>
+      <br>
+      <br>
+
+      <div class="actions">
+        <form action="https://www.sparkfun.com/cart/add" method="post" onsubmit="$(this).cart('add_tile', 8745, $('add_qty_8745').val()); return false;">
+          <input type=hidden name=id value="8745" />
+          <input type=hidden name=qty value="1" />
+
+                      <input class=button type=submit id="add_button_8745" value="Add to Cart" />
+          
+                      <a data="fancybox" class=button href="https://www.sparkfun.com/static/wishlist?redirect=%2Fproducts%2F9365">Add to Wish List</a>
+                  </form>
+
+        <div class=added-to-cart id="added_to_cart_8745" style="display: none;">
+          <hr>
+          <p>
+            Added <span id="added_qty_8745"></span> to your <a href="https://www.sparkfun.com/cart">cart</a>!<br>
+          </p>
+          <p>
+            <a href="https://www.sparkfun.com/orders/make">Proceed to checkout &rarr;</a>
+          </p>
+        </div>
+
+        <p id="ask_which_wish_list_8745" class="ask-which-wish-list" style="display: none;">
+        </p>
+
+        <p class=added-to-cart id="added_to_wish_list_8745" style="display: none;">
+          added <span id="wl_added_qty_8745"></span> to <a id="wl_link_8745"></a>
+        </p>
+      </div>
+
+      </div>
+
+</div>
+
+
+<div class="product-tile ">
+  <li class="product ">
+
+    <a href="https://www.sparkfun.com/products/8736">
+      <img class="lazyload" src="https://dlnmh9ip6v2uc.cloudfront.net/images/products/8/7/3/6/08736-03-L_l_th.jpg" /><br>
+      <span class="products_name">Breakout Board for MCP4725 I2C DAC</span>
+    </a>
+    <br>
+
+      <a data="fancybox" href="https://www.sparkfun.com/static/bubbles/" class="bubble bubble-in hidetext" title="in stock"><span>In stock</span></a>
+    <span class=sku>BOB-08736</span><br>
+
+          <span class=price>
+      4.95002      </span>
+      </li>
+
+  <div class="product-overlay">
+    <a href="https://www.sparkfun.com/products/8736">
+      <img src="https://dlnmh9ip6v2uc.cloudfront.net/images/products/8/7/3/6/08736-03-L_l_th.jpg" /><br>
+      <span class="products_name">Breakout Board for MCP4725 I2C DAC</span>
+    </a>
+
+    <p>
+      
+	Description: You&#39;ve always wanted to output analog voltages from a microcontroller,&hellip;    </p>
+
+    <p>
+      <a href="https://www.sparkfun.com/products/8736" class=red>
+        <em>Read Full Description</em>
+      </a>
+    </p>
+
+      <a data="fancybox" href="https://www.sparkfun.com/static/bubbles/" class="bubble bubble-in hidetext" title="in stock"><span>In stock</span></a>
+    <span class=sku>BOB-08736</span>
+          <span class=price>
+        4.95002      </span>
+      <br>
+      <br>
+
+      <div class="actions">
+        <form action="https://www.sparkfun.com/cart/add" method="post" onsubmit="$(this).cart('add_tile', 8736, $('add_qty_8736').val()); return false;">
+          <input type=hidden name=id value="8736" />
+          <input type=hidden name=qty value="1" />
+
+                      <input class=button type=submit id="add_button_8736" value="Add to Cart" />
+          
+                      <a data="fancybox" class=button href="https://www.sparkfun.com/static/wishlist?redirect=%2Fproducts%2F9365">Add to Wish List</a>
+                  </form>
+
+        <div class=added-to-cart id="added_to_cart_8736" style="display: none;">
+          <hr>
+          <p>
+            Added <span id="added_qty_8736"></span> to your <a href="https://www.sparkfun.com/cart">cart</a>!<br>
+          </p>
+          <p>
+            <a href="https://www.sparkfun.com/orders/make">Proceed to checkout &rarr;</a>
+          </p>
+        </div>
+
+        <p id="ask_which_wish_list_8736" class="ask-which-wish-list" style="display: none;">
+        </p>
+
+        <p class=added-to-cart id="added_to_wish_list_8736" style="display: none;">
+          added <span id="wl_added_qty_8736"></span> to <a id="wl_link_8736"></a>
+        </p>
+      </div>
+
+      </div>
+
+</div>
+
+
+<div class="product-tile ">
+  <li class="product ">
+
+    <a href="https://www.sparkfun.com/products/9056">
+      <img class="lazyload" src="https://dlnmh9ip6v2uc.cloudfront.net/images/products/9/0/5/6/09056-01_l_th.jpg" /><br>
+      <span class="products_name">Analog/Digital MUX Breakout</span>
+    </a>
+    <br>
+
+      <a data="fancybox" href="https://www.sparkfun.com/static/bubbles/" class="bubble bubble-in hidetext" title="in stock"><span>In stock</span></a>
+    <span class=sku>BOB-09056</span><br>
+
+          <span class=price>
+      4.95002      </span>
+      </li>
+
+  <div class="product-overlay">
+    <a href="https://www.sparkfun.com/products/9056">
+      <img src="https://dlnmh9ip6v2uc.cloudfront.net/images/products/9/0/5/6/09056-01_l_th.jpg" /><br>
+      <span class="products_name">Analog/Digital MUX Breakout</span>
+    </a>
+
+    <p>
+      
+	Description: This is a breakout board for the very handy 16-Channel Analog/Digital Mult&hellip;    </p>
+
+    <p>
+      <a href="https://www.sparkfun.com/products/9056" class=red>
+        <em>Read Full Description</em>
+      </a>
+    </p>
+
+      <a data="fancybox" href="https://www.sparkfun.com/static/bubbles/" class="bubble bubble-in hidetext" title="in stock"><span>In stock</span></a>
+    <span class=sku>BOB-09056</span>
+          <span class=price>
+        4.95002      </span>
+      <br>
+      <br>
+
+      <div class="actions">
+        <form action="https://www.sparkfun.com/cart/add" method="post" onsubmit="$(this).cart('add_tile', 9056, $('add_qty_9056').val()); return false;">
+          <input type=hidden name=id value="9056" />
+          <input type=hidden name=qty value="1" />
+
+                      <input class=button type=submit id="add_button_9056" value="Add to Cart" />
+          
+                      <a data="fancybox" class=button href="https://www.sparkfun.com/static/wishlist?redirect=%2Fproducts%2F9365">Add to Wish List</a>
+                  </form>
+
+        <div class=added-to-cart id="added_to_cart_9056" style="display: none;">
+          <hr>
+          <p>
+            Added <span id="added_qty_9056"></span> to your <a href="https://www.sparkfun.com/cart">cart</a>!<br>
+          </p>
+          <p>
+            <a href="https://www.sparkfun.com/orders/make">Proceed to checkout &rarr;</a>
+          </p>
+        </div>
+
+        <p id="ask_which_wish_list_9056" class="ask-which-wish-list" style="display: none;">
+        </p>
+
+        <p class=added-to-cart id="added_to_wish_list_9056" style="display: none;">
+          added <span id="wl_added_qty_9056"></span> to <a id="wl_link_9056"></a>
+        </p>
+      </div>
+
+      </div>
+
+</div>
+
+
+<div class="product-tile ">
+  <li class="product ">
+
+    <a href="https://www.sparkfun.com/products/544">
+      <img class="lazyload" src="https://dlnmh9ip6v2uc.cloudfront.net/images/products/5/4/4/00544-03-L_l_th.jpg" /><br>
+      <span class="products_name">Breakout Board for microSD Transflash</span>
+    </a>
+    <br>
+
+      <a data="fancybox" href="https://www.sparkfun.com/static/bubbles/" class="bubble bubble-in hidetext" title="in stock"><span>In stock</span></a>
+    <span class=sku>BOB-00544</span><br>
+
+          <span class=price>
+      9.95002      </span>
+      </li>
+
+  <div class="product-overlay">
+    <a href="https://www.sparkfun.com/products/544">
+      <img src="https://dlnmh9ip6v2uc.cloudfront.net/images/products/5/4/4/00544-03-L_l_th.jpg" /><br>
+      <span class="products_name">Breakout Board for microSD Transflash</span>
+    </a>
+
+    <p>
+      
+	Description: Breakout board for the microSD socket that is not much bigger than your fi&hellip;    </p>
+
+    <p>
+      <a href="https://www.sparkfun.com/products/544" class=red>
+        <em>Read Full Description</em>
+      </a>
+    </p>
+
+      <a data="fancybox" href="https://www.sparkfun.com/static/bubbles/" class="bubble bubble-in hidetext" title="in stock"><span>In stock</span></a>
+    <span class=sku>BOB-00544</span>
+          <span class=price>
+        9.95002      </span>
+      <br>
+      <br>
+
+      <div class="actions">
+        <form action="https://www.sparkfun.com/cart/add" method="post" onsubmit="$(this).cart('add_tile', 544, $('add_qty_544').val()); return false;">
+          <input type=hidden name=id value="544" />
+          <input type=hidden name=qty value="1" />
+
+                      <input class=button type=submit id="add_button_544" value="Add to Cart" />
+          
+                      <a data="fancybox" class=button href="https://www.sparkfun.com/static/wishlist?redirect=%2Fproducts%2F9365">Add to Wish List</a>
+                  </form>
+
+        <div class=added-to-cart id="added_to_cart_544" style="display: none;">
+          <hr>
+          <p>
+            Added <span id="added_qty_544"></span> to your <a href="https://www.sparkfun.com/cart">cart</a>!<br>
+          </p>
+          <p>
+            <a href="https://www.sparkfun.com/orders/make">Proceed to checkout &rarr;</a>
+          </p>
+        </div>
+
+        <p id="ask_which_wish_list_544" class="ask-which-wish-list" style="display: none;">
+        </p>
+
+        <p class=added-to-cart id="added_to_wish_list_544" style="display: none;">
+          added <span id="wl_added_qty_544"></span> to <a id="wl_link_544"></a>
+        </p>
+      </div>
+
+      </div>
+
+</div>
+
+
+<div class="product-tile  last">
+  <li class="product  last">
+
+    <a href="https://www.sparkfun.com/products/718">
+      <img class="lazyload" src="https://dlnmh9ip6v2uc.cloudfront.net/images/products/7/1/8/00718-03-L_l_th.jpg" /><br>
+      <span class="products_name">Breakout Board for FT232RL USB to Serial</span>
+    </a>
+    <br>
+
+      <a data="fancybox" href="https://www.sparkfun.com/static/bubbles/" class="bubble bubble-low hidetext" title="24 available"><span>24 available</span></a>
+    <span class=sku>BOB-00718</span><br>
+
+          <span class=price>
+      14.95002      </span>
+      </li>
+
+  <div class="product-overlay">
+    <a href="https://www.sparkfun.com/products/718">
+      <img src="https://dlnmh9ip6v2uc.cloudfront.net/images/products/7/1/8/00718-03-L_l_th.jpg" /><br>
+      <span class="products_name">Breakout Board for FT232RL USB to Serial</span>
+    </a>
+
+    <p>
+      
+	Description: Basic breakout board for FTDI&#39;s popular USB to UART IC. Now with inter&hellip;    </p>
+
+    <p>
+      <a href="https://www.sparkfun.com/products/718" class=red>
+        <em>Read Full Description</em>
+      </a>
+    </p>
+
+      <a data="fancybox" href="https://www.sparkfun.com/static/bubbles/" class="bubble bubble-low hidetext" title="24 available"><span>24 available</span></a>
+    <span class=sku>BOB-00718</span>
+          <span class=price>
+        14.95002      </span>
+      <br>
+      <br>
+
+      <div class="actions">
+        <form action="https://www.sparkfun.com/cart/add" method="post" onsubmit="$(this).cart('add_tile', 718, $('add_qty_718').val()); return false;">
+          <input type=hidden name=id value="718" />
+          <input type=hidden name=qty value="1" />
+
+                      <input class=button type=submit id="add_button_718" value="Add to Cart" />
+          
+                      <a data="fancybox" class=button href="https://www.sparkfun.com/static/wishlist?redirect=%2Fproducts%2F9365">Add to Wish List</a>
+                  </form>
+
+        <div class=added-to-cart id="added_to_cart_718" style="display: none;">
+          <hr>
+          <p>
+            Added <span id="added_qty_718"></span> to your <a href="https://www.sparkfun.com/cart">cart</a>!<br>
+          </p>
+          <p>
+            <a href="https://www.sparkfun.com/orders/make">Proceed to checkout &rarr;</a>
+          </p>
+        </div>
+
+        <p id="ask_which_wish_list_718" class="ask-which-wish-list" style="display: none;">
+        </p>
+
+        <p class=added-to-cart id="added_to_wish_list_718" style="display: none;">
+          added <span id="wl_added_qty_718"></span> to <a id="wl_link_718"></a>
+        </p>
+      </div>
+
+      </div>
+
+</div>
+
+</ul>
+<div class=clearfix></div>
+    
+          <h2>Selected by our staff</h2>
+        <ul class="products tight" style="border-top: none; padding-top: 5px;">
+      
+<div class="product-tile ">
+  <li class="product ">
+
+    <a href="https://www.sparkfun.com/products/8636">
+      <img class="lazyload" src="https://dlnmh9ip6v2uc.cloudfront.net/images/products/8/6/3/6/08636-03-L_l_th.jpg" /><br>
+      <span class="products_name">Analog to Digital Converter - MCP3002</span>
+    </a>
+    <br>
+
+      <a data="fancybox" href="https://www.sparkfun.com/static/bubbles/" class="bubble bubble-in hidetext" title="in stock"><span>In stock</span></a>
+    <span class=sku>COM-08636</span><br>
+
+          <span class=price>
+      2.30002      </span>
+      </li>
+
+  <div class="product-overlay">
+    <a href="https://www.sparkfun.com/products/8636">
+      <img src="https://dlnmh9ip6v2uc.cloudfront.net/images/products/8/6/3/6/08636-03-L_l_th.jpg" /><br>
+      <span class="products_name">Analog to Digital Converter - MCP3002</span>
+    </a>
+
+    <p>
+      Description: The MCP3002 has a 10-bit analog to digital converter (ADC) with a simple to u&hellip;    </p>
+
+    <p>
+      <a href="https://www.sparkfun.com/products/8636" class=red>
+        <em>Read Full Description</em>
+      </a>
+    </p>
+
+      <a data="fancybox" href="https://www.sparkfun.com/static/bubbles/" class="bubble bubble-in hidetext" title="in stock"><span>In stock</span></a>
+    <span class=sku>COM-08636</span>
+          <span class=price>
+        2.30002      </span>
+      <br>
+      <br>
+
+      <div class="actions">
+        <form action="https://www.sparkfun.com/cart/add" method="post" onsubmit="$(this).cart('add_tile', 8636, $('add_qty_8636').val()); return false;">
+          <input type=hidden name=id value="8636" />
+          <input type=hidden name=qty value="1" />
+
+                      <input class=button type=submit id="add_button_8636" value="Add to Cart" />
+          
+                      <a data="fancybox" class=button href="https://www.sparkfun.com/static/wishlist?redirect=%2Fproducts%2F9365">Add to Wish List</a>
+                  </form>
+
+        <div class=added-to-cart id="added_to_cart_8636" style="display: none;">
+          <hr>
+          <p>
+            Added <span id="added_qty_8636"></span> to your <a href="https://www.sparkfun.com/cart">cart</a>!<br>
+          </p>
+          <p>
+            <a href="https://www.sparkfun.com/orders/make">Proceed to checkout &rarr;</a>
+          </p>
+        </div>
+
+        <p id="ask_which_wish_list_8636" class="ask-which-wish-list" style="display: none;">
+        </p>
+
+        <p class=added-to-cart id="added_to_wish_list_8636" style="display: none;">
+          added <span id="wl_added_qty_8636"></span> to <a id="wl_link_8636"></a>
+        </p>
+      </div>
+
+      </div>
+
+</div>
+
+
+<div class="product-tile ">
+  <li class="product ">
+
+    <a href="https://www.sparkfun.com/products/8635">
+      <img class="lazyload" src="https://dlnmh9ip6v2uc.cloudfront.net/images/products/8/6/3/5/08635-03-L_l_th.jpg" /><br>
+      <span class="products_name">Electret Microphone</span>
+    </a>
+    <br>
+
+      <a data="fancybox" href="https://www.sparkfun.com/static/bubbles/" class="bubble bubble-in hidetext" title="in stock"><span>In stock</span></a>
+    <span class=sku>COM-08635</span><br>
+
+          <span class=price>
+      0.95002      </span>
+      </li>
+
+  <div class="product-overlay">
+    <a href="https://www.sparkfun.com/products/8635">
+      <img src="https://dlnmh9ip6v2uc.cloudfront.net/images/products/8/6/3/5/08635-03-L_l_th.jpg" /><br>
+      <span class="products_name">Electret Microphone</span>
+    </a>
+
+    <p>
+      
+	Description: Small electret microphone. Useful in acoustic and audio applications.
+	
+&hellip;    </p>
+
+    <p>
+      <a href="https://www.sparkfun.com/products/8635" class=red>
+        <em>Read Full Description</em>
+      </a>
+    </p>
+
+      <a data="fancybox" href="https://www.sparkfun.com/static/bubbles/" class="bubble bubble-in hidetext" title="in stock"><span>In stock</span></a>
+    <span class=sku>COM-08635</span>
+          <span class=price>
+        0.95002      </span>
+      <br>
+      <br>
+
+      <div class="actions">
+        <form action="https://www.sparkfun.com/cart/add" method="post" onsubmit="$(this).cart('add_tile', 8635, $('add_qty_8635').val()); return false;">
+          <input type=hidden name=id value="8635" />
+          <input type=hidden name=qty value="1" />
+
+                      <input class=button type=submit id="add_button_8635" value="Add to Cart" />
+          
+                      <a data="fancybox" class=button href="https://www.sparkfun.com/static/wishlist?redirect=%2Fproducts%2F9365">Add to Wish List</a>
+                  </form>
+
+        <div class=added-to-cart id="added_to_cart_8635" style="display: none;">
+          <hr>
+          <p>
+            Added <span id="added_qty_8635"></span> to your <a href="https://www.sparkfun.com/cart">cart</a>!<br>
+          </p>
+          <p>
+            <a href="https://www.sparkfun.com/orders/make">Proceed to checkout &rarr;</a>
+          </p>
+        </div>
+
+        <p id="ask_which_wish_list_8635" class="ask-which-wish-list" style="display: none;">
+        </p>
+
+        <p class=added-to-cart id="added_to_wish_list_8635" style="display: none;">
+          added <span id="wl_added_qty_8635"></span> to <a id="wl_link_8635"></a>
+        </p>
+      </div>
+
+      </div>
+
+</div>
+
+
+<div class="product-tile ">
+  <li class="product ">
+
+    <a href="https://www.sparkfun.com/products/115">
+      <img class="lazyload" src="https://dlnmh9ip6v2uc.cloudfront.net/images/products/1/1/5/00115-03-L_l_th.jpg" /><br>
+      <span class="products_name">Female Headers</span>
+    </a>
+    <br>
+
+      <a data="fancybox" href="https://www.sparkfun.com/static/bubbles/" class="bubble bubble-in hidetext" title="in stock"><span>In stock</span></a>
+    <span class=sku>PRT-00115</span><br>
+
+          <span class=price>
+      1.50002      </span>
+      </li>
+
+  <div class="product-overlay">
+    <a href="https://www.sparkfun.com/products/115">
+      <img src="https://dlnmh9ip6v2uc.cloudfront.net/images/products/1/1/5/00115-03-L_l_th.jpg" /><br>
+      <span class="products_name">Female Headers</span>
+    </a>
+
+    <p>
+      
+	Description: Single row of 40-holes, female header. Can be cut to size with a pair of w&hellip;    </p>
+
+    <p>
+      <a href="https://www.sparkfun.com/products/115" class=red>
+        <em>Read Full Description</em>
+      </a>
+    </p>
+
+      <a data="fancybox" href="https://www.sparkfun.com/static/bubbles/" class="bubble bubble-in hidetext" title="in stock"><span>In stock</span></a>
+    <span class=sku>PRT-00115</span>
+          <span class=price>
+        1.50002      </span>
+      <br>
+      <br>
+
+      <div class="actions">
+        <form action="https://www.sparkfun.com/cart/add" method="post" onsubmit="$(this).cart('add_tile', 115, $('add_qty_115').val()); return false;">
+          <input type=hidden name=id value="115" />
+          <input type=hidden name=qty value="1" />
+
+                      <input class=button type=submit id="add_button_115" value="Add to Cart" />
+          
+                      <a data="fancybox" class=button href="https://www.sparkfun.com/static/wishlist?redirect=%2Fproducts%2F9365">Add to Wish List</a>
+                  </form>
+
+        <div class=added-to-cart id="added_to_cart_115" style="display: none;">
+          <hr>
+          <p>
+            Added <span id="added_qty_115"></span> to your <a href="https://www.sparkfun.com/cart">cart</a>!<br>
+          </p>
+          <p>
+            <a href="https://www.sparkfun.com/orders/make">Proceed to checkout &rarr;</a>
+          </p>
+        </div>
+
+        <p id="ask_which_wish_list_115" class="ask-which-wish-list" style="display: none;">
+        </p>
+
+        <p class=added-to-cart id="added_to_wish_list_115" style="display: none;">
+          added <span id="wl_added_qty_115"></span> to <a id="wl_link_115"></a>
+        </p>
+      </div>
+
+      </div>
+
+</div>
+
+
+<div class="product-tile ">
+  <li class="product ">
+
+    <a href="https://www.sparkfun.com/products/116">
+      <img class="lazyload" src="https://dlnmh9ip6v2uc.cloudfront.net/images/products/1/1/6/00116-02-L_l_th.jpg" /><br>
+      <span class="products_name">Break Away Headers - Straight</span>
+    </a>
+    <br>
+
+      <a data="fancybox" href="https://www.sparkfun.com/static/bubbles/" class="bubble bubble-in hidetext" title="in stock"><span>In stock</span></a>
+    <span class=sku>PRT-00116</span><br>
+
+          <span class=price>
+      1.50002      </span>
+      </li>
+
+  <div class="product-overlay">
+    <a href="https://www.sparkfun.com/products/116">
+      <img src="https://dlnmh9ip6v2uc.cloudfront.net/images/products/1/1/6/00116-02-L_l_th.jpg" /><br>
+      <span class="products_name">Break Away Headers - Straight</span>
+    </a>
+
+    <p>
+      
+	Description: A row of headers - break to fit. 40 pins that can be cut to any size. Used&hellip;    </p>
+
+    <p>
+      <a href="https://www.sparkfun.com/products/116" class=red>
+        <em>Read Full Description</em>
+      </a>
+    </p>
+
+      <a data="fancybox" href="https://www.sparkfun.com/static/bubbles/" class="bubble bubble-in hidetext" title="in stock"><span>In stock</span></a>
+    <span class=sku>PRT-00116</span>
+          <span class=price>
+        1.50002      </span>
+      <br>
+      <br>
+
+      <div class="actions">
+        <form action="https://www.sparkfun.com/cart/add" method="post" onsubmit="$(this).cart('add_tile', 116, $('add_qty_116').val()); return false;">
+          <input type=hidden name=id value="116" />
+          <input type=hidden name=qty value="1" />
+
+                      <input class=button type=submit id="add_button_116" value="Add to Cart" />
+          
+                      <a data="fancybox" class=button href="https://www.sparkfun.com/static/wishlist?redirect=%2Fproducts%2F9365">Add to Wish List</a>
+                  </form>
+
+        <div class=added-to-cart id="added_to_cart_116" style="display: none;">
+          <hr>
+          <p>
+            Added <span id="added_qty_116"></span> to your <a href="https://www.sparkfun.com/cart">cart</a>!<br>
+          </p>
+          <p>
+            <a href="https://www.sparkfun.com/orders/make">Proceed to checkout &rarr;</a>
+          </p>
+        </div>
+
+        <p id="ask_which_wish_list_116" class="ask-which-wish-list" style="display: none;">
+        </p>
+
+        <p class=added-to-cart id="added_to_wish_list_116" style="display: none;">
+          added <span id="wl_added_qty_116"></span> to <a id="wl_link_116"></a>
+        </p>
+      </div>
+
+      </div>
+
+</div>
+
+
+<div class="product-tile  last">
+  <li class="product  last">
+
+    <a href="https://www.sparkfun.com/products/553">
+      <img class="lazyload" src="https://dlnmh9ip6v2uc.cloudfront.net/images/products/5/5/3/00553-03-L_l_th.jpg" /><br>
+      <span class="products_name">Break Away Male Headers - Right Angle</span>
+    </a>
+    <br>
+
+      <a data="fancybox" href="https://www.sparkfun.com/static/bubbles/" class="bubble bubble-in hidetext" title="in stock"><span>In stock</span></a>
+    <span class=sku>PRT-00553</span><br>
+
+          <span class=price>
+      1.95002      </span>
+      </li>
+
+  <div class="product-overlay">
+    <a href="https://www.sparkfun.com/products/553">
+      <img src="https://dlnmh9ip6v2uc.cloudfront.net/images/products/5/5/3/00553-03-L_l_th.jpg" /><br>
+      <span class="products_name">Break Away Male Headers - Right Angle</span>
+    </a>
+
+    <p>
+      
+	Description: A row of right angle male headers - break to fit. 40 pins that can be cut &hellip;    </p>
+
+    <p>
+      <a href="https://www.sparkfun.com/products/553" class=red>
+        <em>Read Full Description</em>
+      </a>
+    </p>
+
+      <a data="fancybox" href="https://www.sparkfun.com/static/bubbles/" class="bubble bubble-in hidetext" title="in stock"><span>In stock</span></a>
+    <span class=sku>PRT-00553</span>
+          <span class=price>
+        1.95002      </span>
+      <br>
+      <br>
+
+      <div class="actions">
+        <form action="https://www.sparkfun.com/cart/add" method="post" onsubmit="$(this).cart('add_tile', 553, $('add_qty_553').val()); return false;">
+          <input type=hidden name=id value="553" />
+          <input type=hidden name=qty value="1" />
+
+                      <input class=button type=submit id="add_button_553" value="Add to Cart" />
+          
+                      <a data="fancybox" class=button href="https://www.sparkfun.com/static/wishlist?redirect=%2Fproducts%2F9365">Add to Wish List</a>
+                  </form>
+
+        <div class=added-to-cart id="added_to_cart_553" style="display: none;">
+          <hr>
+          <p>
+            Added <span id="added_qty_553"></span> to your <a href="https://www.sparkfun.com/cart">cart</a>!<br>
+          </p>
+          <p>
+            <a href="https://www.sparkfun.com/orders/make">Proceed to checkout &rarr;</a>
+          </p>
+        </div>
+
+        <p id="ask_which_wish_list_553" class="ask-which-wish-list" style="display: none;">
+        </p>
+
+        <p class=added-to-cart id="added_to_wish_list_553" style="display: none;">
+          added <span id="wl_added_qty_553"></span> to <a id="wl_link_553"></a>
+        </p>
+      </div>
+
+      </div>
+
+</div>
+
+
+<div class="product-tile ">
+  <li class="product ">
+
+    <a href="https://www.sparkfun.com/products/8736">
+      <img class="lazyload" src="https://dlnmh9ip6v2uc.cloudfront.net/images/products/8/7/3/6/08736-03-L_l_th.jpg" /><br>
+      <span class="products_name">Breakout Board for MCP4725 I2C DAC</span>
+    </a>
+    <br>
+
+      <a data="fancybox" href="https://www.sparkfun.com/static/bubbles/" class="bubble bubble-in hidetext" title="in stock"><span>In stock</span></a>
+    <span class=sku>BOB-08736</span><br>
+
+          <span class=price>
+      4.95002      </span>
+      </li>
+
+  <div class="product-overlay">
+    <a href="https://www.sparkfun.com/products/8736">
+      <img src="https://dlnmh9ip6v2uc.cloudfront.net/images/products/8/7/3/6/08736-03-L_l_th.jpg" /><br>
+      <span class="products_name">Breakout Board for MCP4725 I2C DAC</span>
+    </a>
+
+    <p>
+      
+	Description: You&#39;ve always wanted to output analog voltages from a microcontroller,&hellip;    </p>
+
+    <p>
+      <a href="https://www.sparkfun.com/products/8736" class=red>
+        <em>Read Full Description</em>
+      </a>
+    </p>
+
+      <a data="fancybox" href="https://www.sparkfun.com/static/bubbles/" class="bubble bubble-in hidetext" title="in stock"><span>In stock</span></a>
+    <span class=sku>BOB-08736</span>
+          <span class=price>
+        4.95002      </span>
+      <br>
+      <br>
+
+      <div class="actions">
+        <form action="https://www.sparkfun.com/cart/add" method="post" onsubmit="$(this).cart('add_tile', 8736, $('add_qty_8736').val()); return false;">
+          <input type=hidden name=id value="8736" />
+          <input type=hidden name=qty value="1" />
+
+                      <input class=button type=submit id="add_button_8736" value="Add to Cart" />
+          
+                      <a data="fancybox" class=button href="https://www.sparkfun.com/static/wishlist?redirect=%2Fproducts%2F9365">Add to Wish List</a>
+                  </form>
+
+        <div class=added-to-cart id="added_to_cart_8736" style="display: none;">
+          <hr>
+          <p>
+            Added <span id="added_qty_8736"></span> to your <a href="https://www.sparkfun.com/cart">cart</a>!<br>
+          </p>
+          <p>
+            <a href="https://www.sparkfun.com/orders/make">Proceed to checkout &rarr;</a>
+          </p>
+        </div>
+
+        <p id="ask_which_wish_list_8736" class="ask-which-wish-list" style="display: none;">
+        </p>
+
+        <p class=added-to-cart id="added_to_wish_list_8736" style="display: none;">
+          added <span id="wl_added_qty_8736"></span> to <a id="wl_link_8736"></a>
+        </p>
+      </div>
+
+      </div>
+
+</div>
+
+
+<div class="product-tile ">
+  <li class="product ">
+
+    <a href="https://www.sparkfun.com/products/8883">
+      <img class="lazyload" src="https://dlnmh9ip6v2uc.cloudfront.net/images/products/8/8/8/3/08883-1_l_th.jpg" /><br>
+      <span class="products_name">ACS712 Low Current Sensor Breakout</span>
+    </a>
+    <br>
+
+      <a data="fancybox" href="https://www.sparkfun.com/static/bubbles/" class="bubble bubble-low hidetext" title="only 8 left!"><span>Only 8 left!</span></a>
+    <span class=sku>SEN-08883</span><br>
+
+          <span class=price>
+      14.95002      </span>
+      </li>
+
+  <div class="product-overlay">
+    <a href="https://www.sparkfun.com/products/8883">
+      <img src="https://dlnmh9ip6v2uc.cloudfront.net/images/products/8/8/8/3/08883-1_l_th.jpg" /><br>
+      <span class="products_name">ACS712 Low Current Sensor Breakout</span>
+    </a>
+
+    <p>
+      
+	Description: This current sensor gives precise current measurement for both AC and DC s&hellip;    </p>
+
+    <p>
+      <a href="https://www.sparkfun.com/products/8883" class=red>
+        <em>Read Full Description</em>
+      </a>
+    </p>
+
+      <a data="fancybox" href="https://www.sparkfun.com/static/bubbles/" class="bubble bubble-low hidetext" title="only 8 left!"><span>Only 8 left!</span></a>
+    <span class=sku>SEN-08883</span>
+          <span class=price>
+        14.95002      </span>
+      <br>
+      <br>
+
+      <div class="actions">
+        <form action="https://www.sparkfun.com/cart/add" method="post" onsubmit="$(this).cart('add_tile', 8883, $('add_qty_8883').val()); return false;">
+          <input type=hidden name=id value="8883" />
+          <input type=hidden name=qty value="1" />
+
+                      <input class=button type=submit id="add_button_8883" value="Add to Cart" />
+          
+                      <a data="fancybox" class=button href="https://www.sparkfun.com/static/wishlist?redirect=%2Fproducts%2F9365">Add to Wish List</a>
+                  </form>
+
+        <div class=added-to-cart id="added_to_cart_8883" style="display: none;">
+          <hr>
+          <p>
+            Added <span id="added_qty_8883"></span> to your <a href="https://www.sparkfun.com/cart">cart</a>!<br>
+          </p>
+          <p>
+            <a href="https://www.sparkfun.com/orders/make">Proceed to checkout &rarr;</a>
+          </p>
+        </div>
+
+        <p id="ask_which_wish_list_8883" class="ask-which-wish-list" style="display: none;">
+        </p>
+
+        <p class=added-to-cart id="added_to_wish_list_8883" style="display: none;">
+          added <span id="wl_added_qty_8883"></span> to <a id="wl_link_8883"></a>
+        </p>
+      </div>
+
+      </div>
+
+</div>
+
+
+<div class="product-tile ">
+  <li class="product ">
+
+    <a href="https://www.sparkfun.com/products/9557">
+      <img class="lazyload" src="https://dlnmh9ip6v2uc.cloudfront.net/images/products/9/5/5/7/09557-01_l_th.jpg" /><br>
+      <span class="products_name">Dual/Quad Power Amplifier - STA540</span>
+    </a>
+    <br>
+
+      <a data="fancybox" href="https://www.sparkfun.com/static/bubbles/" class="bubble bubble-in hidetext" title="in stock"><span>In stock</span></a>
+    <span class=sku>COM-09557</span><br>
+
+          <span class=price>
+      4.95002      </span>
+      </li>
+
+  <div class="product-overlay">
+    <a href="https://www.sparkfun.com/products/9557">
+      <img src="https://dlnmh9ip6v2uc.cloudfront.net/images/products/9/5/5/7/09557-01_l_th.jpg" /><br>
+      <span class="products_name">Dual/Quad Power Amplifier - STA540</span>
+    </a>
+
+    <p>
+      
+	Description: The STA540 from STMicro is a 4-channel, class AB audio amplifier designed &hellip;    </p>
+
+    <p>
+      <a href="https://www.sparkfun.com/products/9557" class=red>
+        <em>Read Full Description</em>
+      </a>
+    </p>
+
+      <a data="fancybox" href="https://www.sparkfun.com/static/bubbles/" class="bubble bubble-in hidetext" title="in stock"><span>In stock</span></a>
+    <span class=sku>COM-09557</span>
+          <span class=price>
+        4.95002      </span>
+      <br>
+      <br>
+
+      <div class="actions">
+        <form action="https://www.sparkfun.com/cart/add" method="post" onsubmit="$(this).cart('add_tile', 9557, $('add_qty_9557').val()); return false;">
+          <input type=hidden name=id value="9557" />
+          <input type=hidden name=qty value="1" />
+
+                      <input class=button type=submit id="add_button_9557" value="Add to Cart" />
+          
+                      <a data="fancybox" class=button href="https://www.sparkfun.com/static/wishlist?redirect=%2Fproducts%2F9365">Add to Wish List</a>
+                  </form>
+
+        <div class=added-to-cart id="added_to_cart_9557" style="display: none;">
+          <hr>
+          <p>
+            Added <span id="added_qty_9557"></span> to your <a href="https://www.sparkfun.com/cart">cart</a>!<br>
+          </p>
+          <p>
+            <a href="https://www.sparkfun.com/orders/make">Proceed to checkout &rarr;</a>
+          </p>
+        </div>
+
+        <p id="ask_which_wish_list_9557" class="ask-which-wish-list" style="display: none;">
+        </p>
+
+        <p class=added-to-cart id="added_to_wish_list_9557" style="display: none;">
+          added <span id="wl_added_qty_9557"></span> to <a id="wl_link_9557"></a>
+        </p>
+      </div>
+
+      </div>
+
+</div>
+
+
+<div class="product-tile ">
+  <li class="product ">
+
+    <a href="https://www.sparkfun.com/products/9612">
+      <img class="lazyload" src="https://dlnmh9ip6v2uc.cloudfront.net/images/products/9/6/1/2/09612-06_l_th.jpg" /><br>
+      <span class="products_name">Audio Amplifier Kit - STA540</span>
+    </a>
+    <br>
+
+      <a data="fancybox" href="https://www.sparkfun.com/static/bubbles/" class="bubble bubble-out hidetext" title="out of stock"><span>Out of stock</span></a>
+    <span class=sku>KIT-09612</span><br>
+
+          <span class=price>
+      29.95002      </span>
+      </li>
+
+  <div class="product-overlay">
+    <a href="https://www.sparkfun.com/products/9612">
+      <img src="https://dlnmh9ip6v2uc.cloudfront.net/images/products/9/6/1/2/09612-06_l_th.jpg" /><br>
+      <span class="products_name">Audio Amplifier Kit - STA540</span>
+    </a>
+
+    <p>
+      
+	Description: This is a stereo amplifier kit designed to make use of the STA540 power am&hellip;    </p>
+
+    <p>
+      <a href="https://www.sparkfun.com/products/9612" class=red>
+        <em>Read Full Description</em>
+      </a>
+    </p>
+
+      <a data="fancybox" href="https://www.sparkfun.com/static/bubbles/" class="bubble bubble-out hidetext" title="out of stock"><span>Out of stock</span></a>
+    <span class=sku>KIT-09612</span>
+          <span class=price>
+        29.95002      </span>
+      <br>
+      <br>
+
+      <div class="actions">
+        <form action="https://www.sparkfun.com/cart/add" method="post" onsubmit="$(this).cart('add_tile', 9612, $('add_qty_9612').val()); return false;">
+          <input type=hidden name=id value="9612" />
+          <input type=hidden name=qty value="1" />
+
+                      <input class=button type=submit value="Add to Cart" disabled=disabled class=disabled />
+          
+                      <a data="fancybox" class=button href="https://www.sparkfun.com/static/wishlist?redirect=%2Fproducts%2F9365">Add to Wish List</a>
+                  </form>
+
+        <div class=added-to-cart id="added_to_cart_9612" style="display: none;">
+          <hr>
+          <p>
+            Added <span id="added_qty_9612"></span> to your <a href="https://www.sparkfun.com/cart">cart</a>!<br>
+          </p>
+          <p>
+            <a href="https://www.sparkfun.com/orders/make">Proceed to checkout &rarr;</a>
+          </p>
+        </div>
+
+        <p id="ask_which_wish_list_9612" class="ask-which-wish-list" style="display: none;">
+        </p>
+
+        <p class=added-to-cart id="added_to_wish_list_9612" style="display: none;">
+          added <span id="wl_added_qty_9612"></span> to <a id="wl_link_9612"></a>
+        </p>
+      </div>
+
+      </div>
+
+</div>
+
+    </ul>
+
+  </div>
+</div>
+      </div>
+    </div>
+
+    <div id=footer class=clearfix>
+
+  <div class="clearfix">
+    <div id=sharing-ingenuity class=hidetext><span>Sharing Ingenuity</span></div>
+    <div id=social-spew>
+      <ul>
+        <li class=github><a href="http://www.github.com/sparkfun" target="_blank" class=hidetext><span>GitHub</span></a></li>
+        <li class=youtube><a href="http://www.youtube.com/sparkfun" target="_blank" class=hidetext><span>YouTube</span></a></li>
+        <li class=vimeo><a href="http://www.vimeo.com/sparkfun" target="_blank" class=hidetext><span>Vimeo</span></a></li>
+        <li class=gplus><a href="https://plus.google.com/106084846822083498483/" target="_blank" class=hidetext><span>Google Plus</span></a></li>
+        <li class=facebook><a href="http://www.facebook.com/SparkFun" target="_blank" class=hidetext><span>Facebook</span></a></li>
+        <li class=flickr><a href="http://www.flickr.com/photos/sparkfun/" target="_blank" class=hidetext><span>Flickr</span></a></li>
+        <li class=twitter><a href="https://twitter.com/#!/sparkfun" target="_blank" class=hidetext><span>Twitter</span></a></li>
+        <li class=rss><a href="https://www.sparkfun.com/feeds" class=hidetext><span>RSS</span></a></li>
+      </ul>
+    </div>
+  </div>
+
+</div>
+
+  <div id=subfooter>
+    <div class=clearfix id=footer-cols>
+      <div class=col>
+        <h2>SparkFun?</h2>
+        <p>
+          SparkFun is an online retail store that sells the bits and pieces to
+          make your electronics projects possible. Whether it's a robot that can
+          cook your breakfast or a GPS cat tracking device, our products and
+          resources are designed to make the world of electronics more accessible
+          to the average person. In addition to products, SparkFun also offers
+          classes and a number of online tutorials designed to help educate
+          individuals in the wonderful world of embedded electronics.
+        </p>
+      </div>
+      <div class=col>
+        <h2>Resources</h2>
+        <ul class="resources">
+          <li>
+            <a title="RSS Feeds" href="https://www.sparkfun.com/feeds">Feeds</a><img src="https://dlnmh9ip6v2uc.cloudfront.net/images/icons/rss-noborder.png" />
+          </li>
+          <li><a href="http://forum.sparkfun.com/">Forum</a></li>
+          <li><a href="http://learn.sparkfun.com/">SparkFun Education</a></li>
+          <li><a href="http://www.sparkfun.com/news/263">SparkFun IRC Channel</a></li>
+          <li><a href="http://www.batchpcb.com/" title="Custom PCB fabrication">BatchPCB</a></li>
+          <li><a href="https://www.sparkfun.com/jobs">Jobs @ SparkFun</a></li>
+          <li><a href="https://www.sparkfun.com/tutorials/315">Sell Your Widget on SparkFun</a></li>
+          <li><a href="https://www.sparkfun.com/distributors/apply">Become a SparkFun Distributor</a></li>
+          <li><a href="https://www.sparkfun.com/sponsor/index">Request SparkFun Sponsorship</a></li>
+          <li><a href="https://www.sparkfun.com/quiz">Take the SparkFun Quiz</a></li>
+          <li><a href="https://www.sparkfun.com/project_calls">Tell us about a project</a></li>
+          <li><a href="http://www.kickstarter.com/pages/sparkfun">SparkFun Kickstarter Projects</a></li>
+                  </ul>
+      </div>
+      <div class="col col-wide">
+        <h2>Feedback</h2>
+        <form id="feedback" action="/feedback/mind.json" method="POST">
+  <input type="hidden" name="sparkaptcha" id="sparkaptcha" value="0">
+  <div class="error" id="error_feedback" style="display: none; color: #F03528; font-weight: bold; margin-bottom: 5px;"></div>
+  <label for="feedback_textarea" style="font-weight: bold">What's on your mind?</label>
+  <br />
+  <textarea id="feedback_textarea" name="feedback_text"></textarea>
+  <div class="error" id="error_feedback_text" style="display: none; color: #F03528; font-weight: bold; padding-left: 2px;"></div>
+  <br />
+  <label for="dest">For which department?</label><br/>
+  <select name="dest" id="feedback_dest" style="width: 99%">
+    <option value="general">General</option>
+    <option value="cust">Customer Service</option>
+    <option value="tech">Tech Support</option>
+  </select>
+  <br/><br/>
+  <label for="feedback_email">Please include your email address if you'd like us to respond to a specific question.</label>
+  <br />
+  <br />
+  <input type="text" id="feedback_email" name="email" />
+  <div class="error" id="error_feedback_email" style="display: none; color: #F03528; font-weight: bold; padding-left: 2px; margin-bottom: 5px;"></div>
+  <input onclick="$(this).sfeutil('mind_feedback'); return(false);" type="button" class="button" value="Submit" />
+</form>
+<script>
+  $(document).bind('loaded', function() {
+    $('#sparkaptcha').val(1);
+  });
+</script>
+      </div>
+    </div>
+  </div>
+
+<div id=copyleft>
+  <p>
+    SparkFun Electronics <a href="https://www.sparkfun.com/news/300">&reg;</a>    <span class="wide">|</span>
+    <a href="http://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=6175+Longbow+Dr,+Boulder,+CO+80301&sll=40.006234,-105.224915&sspn=0.012113,0.020192&ie=UTF8&hq=&hnear=6175+Longbow+Dr,+Boulder,+Colorado+80301&t=h&z=16">Boulder, Colorado</a>
+    <span class="wide">|</span>
+    <a href="https://www.sparkfun.com/static/customer_service">Customer Service</a>
+  </p>
+</div>
+
+    
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  var pluginUrl = '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
+  _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
+  _gaq.push(['_setAccount', 'UA-3404365-1']);
+  _gaq.push(['_trackPageview']);
+  _gaq.push(['_trackPageLoadTime']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+    <script data-cfasync="false" type='text/javascript'>/*{literal}<![CDATA[*/
+    window.olark||(function(c){var f=window,d=document,l=f.location.protocol=="https:"?"https:":"http:",z=c.name,r="load";var nt=function(){f[z]=function(){(a.s=a.s||[]).push(arguments)};var a=f[z]._={},q=c.methods.length;while(q--){(function(n){f[z][n]=function(){f[z]("call",n,arguments)}})(c.methods[q])}a.l=c.loader;a.i=nt;a.p={0:+new Date};a.P=function(u){a.p[u]=new Date-a.p[0]};function s(){a.P(r);f[z](r)}f.addEventListener?f.addEventListener(r,s,false):f.attachEvent("on"+r,s);var ld=function(){function p(hd){hd="head";return["<",hd,"></",hd,"><",i,' onl' + 'oad="var d=',g,";d.getElementsByTagName('head')[0].",j,"(d.",h,"('script')).",k,"='",l,"//",a.l,"'",'"',"></",i,">"].join("")}var i="body",m=d[i];if(!m){return setTimeout(ld,100)}a.P(1);var j="appendChild",h="createElement",k="src",n=d[h]("div"),v=n[j](d[h](z)),b=d[h]("iframe"),g="document",e="domain",o;n.style.display="none";m.insertBefore(n,m.firstChild).id=z;b.frameBorder="0";b.id=z+"-loader";if(/MSIE[ ]+6/.test(navigator.userAgent)){b.src="javascript:false"}b.allowTransparency="true";v[j](b);try{b.contentWindow[g].open()}catch(w){c[e]=d[e];o="javascript:var d="+g+".open();d.domain='"+d.domain+"';";b[k]=o+"void(0);"}try{var t=b.contentWindow[g];t.write(p());t.close()}catch(x){b[k]=o+'d.write("'+p().replace(/"/g,String.fromCharCode(92)+'"')+'");d.close();'}a.P(2)};ld()};nt()})({loader: "static.olark.com/jsclient/loader0.js",name:"olark",methods:["configure","extend","declare","identify"]});
+    olark.identify('4728-501-10-9212');/*]]>{/literal}*/</script><noscript><a href="https://www.olark.com/site/4728-501-10-9212/contact" title="Contact us" target="_blank">Questions? Feedback?</a> powered by <a href="http://www.olark.com?welcome" title="Olark live chat software">Olark live chat software</a></noscript>
+
+  </body>
+</html>
+
