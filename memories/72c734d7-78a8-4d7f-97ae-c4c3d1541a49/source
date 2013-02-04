@@ -1,0 +1,403 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en-US">
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<title>How to customize ggplot2 graphics | (R news & tutorials)</title>
+<script type="text/javascript">
+//<![CDATA[
+try{if (!window.CloudFlare) { var CloudFlare=[{verbose:0,p:0,byc:0,owlid:"cf",mirage:{responsive:0,lazy:0},oracle:0,paths:{cloudflare:"/cdn-cgi/nexp/abv=1870252173/"},atok:"f2a1b43eb41c404c1a9c0dd66d5da3bb",zone:"r-bloggers.com",rocket:"0",apps:{}}];CloudFlare.push({"apps":{"ape":"79485390b4be1ef27ece56691eb18784"}});var a=document.createElement("script"),b=document.getElementsByTagName("script")[0];a.async=!0;a.src="//ajax.cloudflare.com/cdn-cgi/nexp/abv=4114775854/cloudflare.min.js";b.parentNode.insertBefore(a,b);}}catch(e){};
+//]]>
+</script>
+<link rel="stylesheet" href="http://www.r-bloggers.com/wp-content/themes/magazine-basic-child/style.css" type="text/css" media="screen"/>
+<style type="text/css">body{width:1024px;}#mainwrapper{width:1004px;}#sidebar{width:180px;}#sidebar .side-widget{width:160px;}#secondsidebar{width:300px;}#secondsidebar .side-widget{width:300px;}#leftcontent,#twocol,#threecol,#threecol2,.commentlist{width:456px;}#leftcontent img,.wp-caption{max-width:456px;}#leftcontent .wp-caption img,#leftcontent .gallery-thumb img{max-width:444px;}<!-- fix for IE & Safari -->.threepost embed{width:132.24px!important;}.twopost embed{width:209.76px!important;}<!-- end fix for Safari --></style>
+<link rel="pingback" href="http://www.r-bloggers.com/xmlrpc.php"/>
+<!--[if IE]>
+<link rel="stylesheet" type="text/css" href="http://www.r-bloggers.com/wp-content/themes/magazine-basic/iestyles.css" />
+<![endif]-->
+<script type="text/javascript">
+	window.google_analytics_uacct = "UA-419807-53";
+</script>
+<link rel="alternate" type="application/rss+xml" title="R-bloggers &raquo; Feed" href="http://www.r-bloggers.com/feed/"/>
+<link rel="alternate" type="application/rss+xml" title="R-bloggers &raquo; Comments Feed" href="http://www.r-bloggers.com/comments/feed/"/>
+<link rel='stylesheet' id='nrelate-style-common-0-05-3-css' href='http://static.nrelate.com/common_wp/0.05.3/nrelate-panels-common.min.css?ver=0.05.3' type='text/css' media='all'/>
+<!--[if IE 6]>
+<link rel='stylesheet' id='nrelate-ie6-0-05-3-css'  href='http://static.nrelate.com/common_wp/0.05.3/ie6-panels.min.css?ver=0.05.3' type='text/css' media='all' />
+<![endif]-->
+<link rel='stylesheet' id='nrelate-style-huf-0-05-3-css' href='http://static.nrelate.com/common_wp/0.05.3/nrelate-panels-huf.min.css?ver=0.05.3' type='text/css' media='all'/>
+<link rel='stylesheet' id='codebox-css' href='http://www.r-bloggers.com/wp-content/plugins/wp-codebox/css/codebox.css?ver=0.1' type='text/css' media='screen'/>
+<script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js'></script>
+<script type='text/javascript'>try{jQuery.noConflict();}catch(e){};</script>
+<script type='text/javascript' src='http://www.r-bloggers.com/wp-content/plugins/nrelate-related-content/admin/common_frontend.min.js?ver=0.05.3'></script>
+<script type='text/javascript' src='http://www.r-bloggers.com/wp-includes/js/comment-reply.js?ver=20090102'></script>
+<script type='text/javascript' src='http://www.r-bloggers.com/wp-content/plugins/wp-codebox/js/codebox.js?ver=0.1'></script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://www.r-bloggers.com/xmlrpc.php?rsd"/>
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://www.r-bloggers.com/wp-includes/wlwmanifest.xml"/>
+<link rel='prev' title='How to Extract Citation from a Body of Text' href='http://www.r-bloggers.com/how-to-extract-citation-from-a-body-of-text/'/>
+<link rel='next' title='Julia functions for the Rmath library' href='http://www.r-bloggers.com/julia-functions-for-the-rmath-library/'/>
+<meta name="generator" content="WordPress 3.3.2"/>
+<link rel='shortlink' href='http://wp.me/pMm6L-fUk'/>
+ 
+<meta name="description" content="I consider ggplot2 to be nothing short of a revolution in R graphics. I simply haven't found anything like this package for quickly and elegantly producing usable graphics.&nbsp; I covered the quick and dirty basics of ggplot2 in a previous post. Now I..."/>
+<meta name="keywords" content="ggplot2,r tips"/>
+<link rel="canonical" href="http://www.r-bloggers.com/how-to-customize-ggplot2-graphics/"/>
+ 
+<meta property="og:title" content="  How to customize ggplot2 graphics"/>
+<meta property="og:type" content="article"/>
+<meta property="og:url" content="http://www.r-bloggers.com/how-to-customize-ggplot2-graphics/"/>
+<meta property="og:site_name" content="R-bloggers"/>
+<meta property="fb:admins" content=""/>
+<meta property="og:description" content="I consider ggplot2 to be nothing short of a revolution in R graphics. I simply haven't found anything like this package for quickly and elegantly producing usable graphics.&nbsp; I covered the quick and dirty basics of ggplot2 in a previous post. Now I..."/>
+<style type="text/css">.better-tag-cloud-shortcode li,.better-tag-cloud-shortcode li a,li#better-tag-cloud ul.wp-tag-cloud li,li#better-tag-cloud ul.wp-tag-cloud li a{display:inline;}</style> <meta id="syntaxhighlighteranchor" name="syntaxhighlighter-version" content="3.1.3"/>
+</head>
+<body class="single single-post postid-61152 single-format-standard">
+ 
+<div id="header">
+<div id="title" class="aligncenter">
+<h2><a href="http://www.r-bloggers.com/">R-bloggers</a> </h2>
+</div>
+<div id="description" class="aligncenter">
+R news and tutorials contributed by (425) R bloggers </div>
+<div class="main-navigation"><ul id="menu-top-nav" class="sf-menu"><li id="menu-item-48314" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-48314"><a href="http://www.r-bloggers.com">Home</a></li>
+<li id="menu-item-48312" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-48312"><a href="http://www.r-bloggers.com/about/">About</a></li>
+<li id="menu-item-48313" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-48313"><a href="http://www.r-bloggers.com/add-your-blog/">add your blog!</a></li>
+<li id="menu-item-48311" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-48311"><a href="http://www.r-bloggers.com/contact-us/">Contact us</a></li>
+<li id="menu-item-50111" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-50111"><a href="http://feeds.feedburner.com/RBloggers" onclick="javascript:_gaq.push(['_trackEvent','outbound-menu','http://feeds.feedburner.com/RBloggers']);">RSS</a></li>
+</ul></div>
+</div>
+ 
+<div id="mainwrapper">
+ 
+<div id="sidebar">
+<div class="side-widget"><h2>Welcome!</h2> <div class="textwidget">Here you will find daily <strong>news and tutorials about R</strong>, contributed by over 400 bloggers.
+You can <a href="http://feedburner.google.com/fb/a/mailverify?uri=RBloggers" onclick="javascript:_gaq.push(['_trackEvent','outbound-widget','http://feedburner.google.com/fb/a/mailverify?uri=RBloggers']);">subscribe for e-mail updates</a>:
+<form style="border:1px solid #ccc;padding:3px;text-align:center;" action="http://feedburner.google.com/fb/a/mailverify" method="post" target="popupwindow" onsubmit="window.open('http://feedburner.google.com/fb/a/mailverify?uri=RBloggers', 'popupwindow', 'scrollbars=yes,width=550,height=520');return true">
+<input type="text" style="width:110px" onclick="if (this.value == 'Your e-mail here') this.value = '';" value='Your e-mail here' name="email"/>
+<input type="hidden" value="RBloggers" name="uri"/><input type="hidden" name="loc" value="en_US"/><input type="submit" value="Subscribe"/>
+<a href="http://feeds.feedburner.com/RBloggers" onclick="javascript:_gaq.push(['_trackEvent','outbound-widget','http://feeds.feedburner.com/RBloggers']);"><img src="http://feeds.feedburner.com/~fc/RBloggers?bg=99CCFF&amp;fg=444444&amp;anim=0" height="26" width="88" style="border:0" alt=""/></a>
+</form>
+And get updates to your Facebook:
+<script type="text/javascript" src="http://static.ak.connect.facebook.com/js/api_lib/v0.4/FeatureLoader.js.php/en_GB"></script><script type="text/javascript">FB.init("f4a264d45dde87136dfe1d197cf48ae2");</script><fb:fan profile_id="191414254890" stream="" connections="2" width="160" height="162"></fb:fan>
+<strong>If you are an R blogger yourself</strong> you are invited to <a href="http://www.r-bloggers.com/add-your-blog/">add your own R content feed to this site</a> (<strong>Non-English</strong> R bloggers should add themselves- <a href="http://www.r-bloggers.com/lang/add-your-blog">here</a>)</div>
+</div><div class="side-widget"><h2>TOPICS OF INTEREST</h2><a href='http://www.r-bloggers.com/tag/ggplot2/' class='tag-link-27 nktagcloud-18' title='352 topics' rel="tag" style='font-size: 18pt;'>ggplot2</a>
+<a href='http://www.r-bloggers.com/tag/rstats/' class='tag-link-765 nktagcloud-15' title='279 topics' rel="tag" style='font-size: 15.56pt;'>rstats</a>
+<a href='http://www.r-bloggers.com/tag/graphics/' class='tag-link-76 nktagcloud-15' title='277 topics' rel="tag" style='font-size: 15.49pt;'>graphics</a>
+<a href='http://www.r-bloggers.com/tag/r-project/' class='tag-link-752 nktagcloud-14' title='255 topics' rel="tag" style='font-size: 14.76pt;'>r-project</a>
+<a href='http://www.r-bloggers.com/tag/programming/' class='tag-link-475 nktagcloud-14' title='238 topics' rel="tag" style='font-size: 14.19pt;'>programming</a>
+<a href='http://www.r-bloggers.com/tag/r-language/' class='tag-link-99 nktagcloud-13' title='204 topics' rel="tag" style='font-size: 13.05pt;'>R Language</a>
+<a href='http://www.r-bloggers.com/tag/visualization/' class='tag-link-22 nktagcloud-12' title='179 topics' rel="tag" style='font-size: 12.21pt;'>visualization</a>
+<a href='http://www.r-bloggers.com/tag/books/' class='tag-link-680 nktagcloud-11' title='169 topics' rel="tag" style='font-size: 11.88pt;'>Books</a>
+<a href='http://www.r-bloggers.com/tag/data/' class='tag-link-114 nktagcloud-10' title='132 topics' rel="tag" style='font-size: 10.64pt;'>Data</a>
+<a href='http://www.r-bloggers.com/tag/r-english/' class='tag-link-2739 nktagcloud-10' title='131 topics' rel="tag" style='font-size: 10.61pt;'>R-english</a>
+<a href='http://www.r-bloggers.com/tag/events/' class='tag-link-393 nktagcloud-10' title='124 topics' rel="tag" style='font-size: 10.37pt;'>events</a>
+<a href='http://www.r-bloggers.com/tag/tutorial/' class='tag-link-423 nktagcloud-10' title='117 topics' rel="tag" style='font-size: 10.14pt;'>tutorial</a>
+<a href='http://www.r-bloggers.com/tag/big-data/' class='tag-link-1009 nktagcloud-10' title='116 topics' rel="tag" style='font-size: 10.11pt;'>Big Data</a>
+<a href='http://www.r-bloggers.com/tag/latex/' class='tag-link-63 nktagcloud-9' title='110 topics' rel="tag" style='font-size: 9.91pt;'>LaTex</a>
+<a href='http://www.r-bloggers.com/tag/finance/' class='tag-link-394 nktagcloud-9' title='100 topics' rel="tag" style='font-size: 9.57pt;'>finance</a>
+<a href='http://www.r-bloggers.com/tag/packages/' class='tag-link-279 nktagcloud-9' title='99 topics' rel="tag" style='font-size: 9.54pt;'>packages</a>
+<a href='http://www.r-bloggers.com/tag/ggplot/' class='tag-link-296 nktagcloud-9' title='91 topics' rel="tag" style='font-size: 9.27pt;'>ggplot</a>
+<a href='http://www.r-bloggers.com/tag/applications/' class='tag-link-395 nktagcloud-9' title='90 topics' rel="tag" style='font-size: 9.24pt;'>applications</a>
+<a href='http://www.r-bloggers.com/tag/software/' class='tag-link-274 nktagcloud-9' title='89 topics' rel="tag" style='font-size: 9.2pt;'>Software</a>
+<a href='http://www.r-bloggers.com/tag/simulation/' class='tag-link-134 nktagcloud-9' title='85 topics' rel="tag" style='font-size: 9.07pt;'>Simulation</a>
+<a href='http://www.r-bloggers.com/tag/sweave/' class='tag-link-66 nktagcloud-8' title='81 topics' rel="tag" style='font-size: 8.94pt;'>sweave</a>
+<a href='http://www.r-bloggers.com/tag/tutorials/' class='tag-link-277 nktagcloud-8' title='80 topics' rel="tag" style='font-size: 8.9pt;'>Tutorials</a>
+<a href='http://www.r-bloggers.com/tag/stocks/' class='tag-link-2206 nktagcloud-8' title='80 topics' rel="tag" style='font-size: 8.9pt;'>stocks</a>
+<a href='http://www.r-bloggers.com/tag/r-chemometrics/' class='tag-link-5587 nktagcloud-8' title='79 topics' rel="tag" style='font-size: 8.87pt;'>&quot;R&quot; Chemometrics</a>
+<a href='http://www.r-bloggers.com/tag/computing/' class='tag-link-44 nktagcloud-8' title='79 topics' rel="tag" style='font-size: 8.87pt;'>computing</a>
+<a href='http://www.r-bloggers.com/tag/plot/' class='tag-link-28 nktagcloud-8' title='75 topics' rel="tag" style='font-size: 8.74pt;'>plot</a>
+<a href='http://www.r-bloggers.com/tag/bioinformatics/' class='tag-link-424 nktagcloud-8' title='74 topics' rel="tag" style='font-size: 8.7pt;'>Bioinformatics</a>
+<a href='http://www.r-bloggers.com/tag/stats/' class='tag-link-766 nktagcloud-8' title='74 topics' rel="tag" style='font-size: 8.7pt;'>stats</a>
+<a href='http://www.r-bloggers.com/tag/r-programming/' class='tag-link-94 nktagcloud-8' title='73 topics' rel="tag" style='font-size: 8.67pt;'>R Programming</a>
+<a href='http://www.r-bloggers.com/tag/python/' class='tag-link-425 nktagcloud-8' title='70 topics' rel="tag" style='font-size: 8.57pt;'>Python</a>
+<a href='http://www.r-bloggers.com/tag/quant-finance/' class='tag-link-2569 nktagcloud-8' title='69 topics' rel="tag" style='font-size: 8.54pt;'>Quant finance</a>
+<a href='http://www.r-bloggers.com/tag/lattice/' class='tag-link-82 nktagcloud-8' title='68 topics' rel="tag" style='font-size: 8.5pt;'>lattice</a>
+<a href='http://www.r-bloggers.com/tag/random/' class='tag-link-281 nktagcloud-8' title='66 topics' rel="tag" style='font-size: 8.43pt;'>random</a>
+<a href='http://www.r-bloggers.com/tag/rmedia/' class='tag-link-280 nktagcloud-8' title='65 topics' rel="tag" style='font-size: 8.4pt;'>Rmedia</a>
+<a href='http://www.r-bloggers.com/tag/science/' class='tag-link-186 nktagcloud-8' title='65 topics' rel="tag" style='font-size: 8.4pt;'>science</a>
+<a href='http://www.r-bloggers.com/tag/rblogs/' class='tag-link-4742 nktagcloud-8' title='64 topics' rel="tag" style='font-size: 8.37pt;'>rblogs</a>
+<a href='http://www.r-bloggers.com/tag/twitter/' class='tag-link-184 nktagcloud-8' title='64 topics' rel="tag" style='font-size: 8.37pt;'>twitter</a>
+<a href='http://www.r-bloggers.com/tag/sas/' class='tag-link-224 nktagcloud-8' title='63 topics' rel="tag" style='font-size: 8.33pt;'>SAS</a>
+<a href='http://www.r-bloggers.com/tag/cran/' class='tag-link-161 nktagcloud-8' title='62 topics' rel="tag" style='font-size: 8.3pt;'>cran</a>
+<a href='http://www.r-bloggers.com/tag/bms-extensions/' class='tag-link-3020 nktagcloud-8' title='60 topics' rel="tag" style='font-size: 8.23pt;'>BMS Extensions</a>
+<a href='http://www.r-bloggers.com/tag/blog/' class='tag-link-48 nktagcloud-8' title='60 topics' rel="tag" style='font-size: 8.23pt;'>blog</a>
+<a href='http://www.r-bloggers.com/tag/data-science/' class='tag-link-3762 nktagcloud-8' title='59 topics' rel="tag" style='font-size: 8.2pt;'>Data Science</a>
+<a href='http://www.r-bloggers.com/tag/english/' class='tag-link-2600 nktagcloud-8' title='58 topics' rel="tag" style='font-size: 8.17pt;'>English</a>
+<a href='http://www.r-bloggers.com/tag/announcements/' class='tag-link-270 nktagcloud-8' title='57 topics' rel="tag" style='font-size: 8.13pt;'>Announcements</a>
+<a href='http://www.r-bloggers.com/tag/probability/' class='tag-link-127 nktagcloud-8' title='56 topics' rel="tag" style='font-size: 8.1pt;'>Probability</a>
+<a href='http://www.r-bloggers.com/tag/data-mining/' class='tag-link-461 nktagcloud-8' title='55 topics' rel="tag" style='font-size: 8.07pt;'>data mining</a>
+<a href='http://www.r-bloggers.com/tag/linux/' class='tag-link-217 nktagcloud-8' title='55 topics' rel="tag" style='font-size: 8.07pt;'>linux</a>
+<a href='http://www.r-bloggers.com/tag/project-euler/' class='tag-link-2256 nktagcloud-8' title='54 topics' rel="tag" style='font-size: 8.03pt;'>Project Euler</a>
+<a href='http://www.r-bloggers.com/tag/machine-learning/' class='tag-link-9 nktagcloud-8' title='54 topics' rel="tag" style='font-size: 8.03pt;'>machine learning</a>
+<a href='http://www.r-bloggers.com/tag/r-bloggers/' class='tag-link-4 nktagcloud-8' title='53 topics' rel="tag" style='font-size: 8pt;'>R bloggers</a></div><div class="side-widget"><form method="get" id="searchform" action="http://www.r-bloggers.com/">
+<div>
+<input type="text" class="search_input" value="Search &amp; Hit Enter" name="s" id="s" onfocus="if (this.value == 'Search &amp; Hit Enter') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Search &amp; Hit Enter';}"/>
+<input type="hidden" id="searchsubmit"/>
+</div>
+</form></div> <div class="side-widget"> <h2>Recent Posts</h2> <ul>
+<li><a href="http://www.r-bloggers.com/hadleys-guide-to-high-performance-r-with-rcpp/" title="Hadley&#8217;s guide to high-performance R with Rcpp">Hadley&#8217;s guide to high-performance R with Rcpp</a></li>
+<li><a href="http://www.r-bloggers.com/hurricane-sandy-land-wind-speed-and-kriging/" title="Hurricane Sandy Land Wind Speed and Kriging">Hurricane Sandy Land Wind Speed and Kriging</a></li>
+<li><a href="http://www.r-bloggers.com/so-what-are-you-a-plant-an-animal-nope-im-a-fungus/" title="So, What Are You? ..A Plant? ..An Animal? &#8212; Nope, I&#8217;m a Fungus!">So, What Are You? ..A Plant? ..An Animal? &#8212; Nope, I&#8217;m a Fungus!</a></li>
+<li><a href="http://www.r-bloggers.com/how-to-network-animation-with-r-and-the-igraph-package-meaning-in-data-viz/" title="How to: network animation with R and the iGraph package &amp; Meaning in data viz">How to: network animation with R and the iGraph package &amp; Meaning in data viz</a></li>
+<li><a href="http://www.r-bloggers.com/distribution-of-uptimes-for-high-performance-computing-systems/" title="Distribution of uptimes for high-performance computing systems">Distribution of uptimes for high-performance computing systems</a></li>
+<li><a href="http://www.r-bloggers.com/images-as-voronoi-tesselations/" title="Images as Voronoi tesselations">Images as Voronoi tesselations</a></li>
+<li><a href="http://www.r-bloggers.com/what-time-is-it/" title="What Time Is It?">What Time Is It?</a></li>
+<li><a href="http://www.r-bloggers.com/quick-shiny-demo-exploring-nhs-winter-sit-rep-data/" title="Quick Shiny Demo – Exploring NHS Winter Sit Rep Data">Quick Shiny Demo – Exploring NHS Winter Sit Rep Data</a></li>
+<li><a href="http://www.r-bloggers.com/using-r-in-the-human-resources-department/" title="Using R in the Human Resources department">Using R in the Human Resources department</a></li>
+<li><a href="http://www.r-bloggers.com/rcpp-0-10-1/" title="Rcpp 0.10.1">Rcpp 0.10.1</a></li>
+<li><a href="http://www.r-bloggers.com/mcmc-convergence-assessment/" title="MCMC convergence assessment">MCMC convergence assessment</a></li>
+<li><a href="http://www.r-bloggers.com/spatial-data-visualization-with-r/" title="Spatial Data visualization with R">Spatial Data visualization with R</a></li>
+<li><a href="http://www.r-bloggers.com/openscoring-open-source-scoring-of-pmml-models-via-rest/" title="OpenScoring: Open Source Scoring of PMML Models via REST">OpenScoring: Open Source Scoring of PMML Models via REST</a></li>
+<li><a href="http://www.r-bloggers.com/triples-stores-and-sparql-in-r/" title="Triples, stores, and SPARQL in R">Triples, stores, and SPARQL in R</a></li>
+<li><a href="http://www.r-bloggers.com/dominant-color-palettes-with-k-means/" title="&quot;Dominant&quot; Color Palettes with k-means">&quot;Dominant&quot; Color Palettes with k-means</a></li>
+</ul>
+</div><div class="side-widget"><h2>Other sites</h2>
+<ul class='xoxo blogroll'>
+<li><a href="http://www.forex-bloggers.com/" title="Forex news and updates from bloggers" target="" onclick="javascript:_gaq.push(['_trackEvent','outbound-blogroll','http://www.forex-bloggers.com/']);">Forex blogs</a></li>
+<li><a href="http://www.proc-x.com/" title="SAS news gathered from bloggers" target="" onclick="javascript:_gaq.push(['_trackEvent','outbound-blogroll','http://www.proc-x.com/']);">SAS blogs</a></li>
+<li><a href="http://statil.org/" title="25,000 data sets of time series from the Israeli Central Bureau of Statistics " target="" onclick="javascript:_gaq.push(['_trackEvent','outbound-blogroll','http://statil.org/']);">Statistics of Israel</a></li>
+</ul>
+</div>
+<div class="side-widget"><h2>Popular Searches</h2>
+<ul>
+<li><a href="http://www.r-bloggers.com/search/ggplot">ggplot</a></li>
+<li><a href="http://www.r-bloggers.com/search/hadoop">hadoop</a></li>
+<li><a href="http://www.r-bloggers.com/search/heatmap">heatmap</a></li>
+<li><a href="http://www.r-bloggers.com/search/RStudio">RStudio</a></li>
+<li><a href="http://www.r-bloggers.com/search/Ggplot2">Ggplot2</a></li>
+<li><a href="http://www.r-bloggers.com/search/Web%20Scraping">Web Scraping</a></li>
+<li><a href="http://www.r-bloggers.com/search/eclipse">eclipse</a></li>
+<li><a href="http://www.r-bloggers.com/search/googlevis">googlevis</a></li>
+<li><a href="http://www.r-bloggers.com/search/trading">trading</a></li>
+<li><a href="http://www.r-bloggers.com/search/finance">finance</a></li>
+<li><a href="http://www.r-bloggers.com/search/quantmod">quantmod</a></li>
+<li><a href="http://www.r-bloggers.com/search/SQL">SQL</a></li>
+<li><a href="http://www.r-bloggers.com/search/PCA">PCA</a></li>
+<li><a href="http://www.r-bloggers.com/search/animation">animation</a></li>
+<li><a href="http://www.r-bloggers.com/search/boxplot">boxplot</a></li>
+<li><a href="http://www.r-bloggers.com/search/latex">latex</a></li>
+<li><a href="http://www.r-bloggers.com/search/sweave">sweave</a></li>
+<li><a href="http://www.r-bloggers.com/search/maps">maps</a></li>
+<li><a href="http://www.r-bloggers.com/search/tutorial">tutorial</a></li>
+<li><a href="http://www.r-bloggers.com/search/rcmdr">rcmdr</a></li>
+<li><a href="http://www.r-bloggers.com/search/map">map</a></li>
+<li><a href="http://www.r-bloggers.com/search/regression">regression</a></li>
+<li><a href="http://www.r-bloggers.com/search/knitr">knitr</a></li>
+<li><a href="http://www.r-bloggers.com/search/gis">gis</a></li>
+<li><a href="http://www.r-bloggers.com/search/time%2520series">time%20series</a></li>
+<li><a href="http://www.r-bloggers.com/search/ecdf">ecdf</a></li>
+<li><a href="http://www.r-bloggers.com/search/excel">excel</a></li>
+<li><a href="http://www.r-bloggers.com/search/time%20series">time series</a></li>
+<li><a href="http://www.r-bloggers.com/search/twitter">twitter</a></li>
+<li><a href="http://www.r-bloggers.com/search/sandy">sandy</a></li>
+</ul>
+</div> </div>
+  <div id="leftcontent">
+<div id="post-61152" class="post-61152 post type-post status-publish format-standard hentry category-r-bloggers tag-ggplot2 tag-r-tips">
+<h1>How to customize ggplot2 graphics</h1>
+<div class="meta"><div class="date">March 26, 2012</div>By <a href="http://www.r-bloggers.com/author/andrew-barr/" title="Posts by Andrew Barr" rel="author">Andrew Barr</a>
+<div class="like">
+<iframe src="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fwww.r-bloggers.com%2Fhow-to-customize-ggplot2-graphics%2F&amp;layout=standard&amp;show_faces=true&amp;width=450&amp;action=like&amp;font=&amp;colorscheme=light" scrolling="no" frameborder="0" allowTransparency="true" style="border:none; overflow:hidden; width:450px; height:24px; "></iframe>
+</div>
+</div><div class="entry"><p class="syndicated-attribution"><div style="border: 1px solid; background: none repeat scroll 0 0 #EDEDED; margin: 1px; font-size: 12px;">
+(This article was first published on <strong><a href="http://www.ancienteco.com/2012/03/how-to-customize-ggplot2-graphics.html"> W. Andrew Barr's Paleoecology Blog</a></strong>, and kindly contributed to <a href="http://www.r-bloggers.com/">R-bloggers)</a>
+</div></p>
+<div dir="ltr" style="text-align: left;" trbidi="on">I consider <a href="http://had.co.nz/ggplot2/" ref="nofollow" target="_blank">ggplot2</a> to be nothing short of a revolution in R graphics. I simply haven't found anything like this package for quickly and elegantly producing usable graphics.&nbsp; <a href="http://www.ancienteco.com/2012/03/basic-introduction-to-ggplot2.html" ref="nofollow" target="_blank">I covered the quick and dirty basics of ggplot2 in a previous post</a>. Now I am going to go into how you can tweak and customize ggplot graphics to look the way you want.<br/><br/><div style="font-family: &quot;Courier New&quot;,Courier,monospace;">#load ggplot2</div><span style="font-family: &quot;Courier New&quot;,Courier,monospace;">library(ggplot2)</span><br/><span style="font-family: &quot;Courier New&quot;,Courier,monospace;">#create some sample data</span><br/><span style="font-family: &quot;Courier New&quot;,Courier,monospace;">variable1&lt;-rnorm(200,sd=3) #200 random points from normal dist<br/>variable2&lt;-variable1 * .4 + rnorm(200,sd=.5) #correlated variable<br/>category&lt;-sample(c("A","B","C"),200,replace=T) #categorical variable<br/><br/>myDF&lt;-data.frame(variable1,variable2,category) #put in data frame<br/>rm(list=c("variable1","variable2","category")) #delete unneeded variables</span><br/><br/>So now we have a single object (a dataframe) which contains two correlated continuous variables and one categorical variable.&nbsp; Using the qplot() function from ggplot we can make a quick scatterplot of the continuous variables that is color coded by the categorical variable.<br/><br/><div style="font-family: &quot;Courier New&quot;,Courier,monospace;">qplot(x=variable1,y=variable2,data=myDF,color=category,geom="point")</div><br/>That creates this nice looking default plot.<br/><br/><div class="separator" style="clear: both; text-align: center;"><a href="http://2.bp.blogspot.com/-1H8vTipdCqc/T2jydyXeMZI/AAAAAAAAIuQ/nXXiIJhgPbE/s1600/myplot.jpg" imageanchor="1" style="margin-left: 1em; margin-right: 1em;" ref="nofollow" target="_blank"><img border="0" height="350" src="http://2.bp.blogspot.com/-1H8vTipdCqc/T2jydyXeMZI/AAAAAAAAIuQ/nXXiIJhgPbE/s400/myplot.jpg" width="400"/></a></div><b>Changing Themes</b><br/>Now....lets say that you don't want a solid gray background, and you want a bigger default font size. These are really common tweaks, so ggplot2 makes it easy to change the default "theme" in order to get white backgrounds and custom text sizes. You can set this globally for an entire R session with the following command.<br/><br/><div style="font-family: &quot;Courier New&quot;,Courier,monospace;">theme_set(theme_bw(24))</div><br/>Then we can reuse the single line of code we already used to make a scatter plot, and the "black and white" theme will be applied, along with a larger base font size (the default is 12, so we have set it to be twice as large as the default).&nbsp; Note that the different font sizes of axes, tick marks, legend titles, etc are automatically calculated relative to the base size that we set to 24.<br/><br/><div style="font-family: &quot;Courier New&quot;,Courier,monospace;">qplot(x=variable1,y=variable2,data=myDF,color=category,geom="point")</div><br/><div class="separator" style="clear: both; text-align: center;"><a href="http://1.bp.blogspot.com/-nUKG8buAkWg/T2jzpmBhEHI/AAAAAAAAIuY/ksCc98uWQmU/s1600/myplot.jpg" imageanchor="1" style="margin-left: 1em; margin-right: 1em;" ref="nofollow" target="_blank"><img border="0" height="350" src="http://1.bp.blogspot.com/-nUKG8buAkWg/T2jzpmBhEHI/AAAAAAAAIuY/ksCc98uWQmU/s400/myplot.jpg" width="400"/></a></div><br/>It is easy to change theme elements for a single plot, rather than changing them globally as we did before with theme_set().&nbsp; If I decide I want to go back to the default gray theme for any given plot, I can simply add a theme element to the plot object produced by the qplot() function.<br/><br/><b>Note</b>: I save the result of the qplot() function into a variable called myPlot.&nbsp; This doesn't result in anything getting printed to the screen, it just saves the ggplot object in a variable, that I can print whenever I want and manipulate to my heart's content.&nbsp; This is a useful way to avoid typing commands again.&nbsp; The plot gets printed to the screen in the second line of code.<br/><br/><div style="font-family: &quot;Courier New&quot;,Courier,monospace;">myPlot&lt;-qplot(x=category,y=variable1,data=myDF,geom="boxplot",fill=category)</div><span style="font-family: &quot;Courier New&quot;,Courier,monospace;">myPlot + theme_gray(12) </span><br/><br/><div class="separator" style="clear: both; text-align: center;"><a href="http://1.bp.blogspot.com/-dMgRCeHL_qg/T2j2JJUwGNI/AAAAAAAAIug/ZaPZtI9STRs/s1600/myplot.jpg" imageanchor="1" style="margin-left: 1em; margin-right: 1em;" ref="nofollow" target="_blank"><img border="0" height="350" src="http://1.bp.blogspot.com/-dMgRCeHL_qg/T2j2JJUwGNI/AAAAAAAAIug/ZaPZtI9STRs/s400/myplot.jpg" width="400"/>&nbsp;</a></div><div class="separator" style="clear: both; text-align: center;"><br/></div>This produces a boxplot with a gray background, because we have added the theme_gray(12) theme element to the plot. Note that this command also resulted in a smaller base font size.&nbsp; Also note that the next plot we do will have a white background and the larger base font size, because the theme_set() command we did earlier is still in effect globally.<br/><br/><b>Changing individual theme elements</b><br/><br/>Although all I did was add the function theme_gray(12) to the previous plot plot, ggplot2 did several things.&nbsp; It changed the background to gray AND the gridlines to white (rather than black gridlines and white background), AND changed the base font size.&nbsp; It did these several independent things behind the scenes, but you can of course manually change all the theme elements yourself.&nbsp; Lets say you like super-heinous-ugly plots....you might want to do the following.<br/><br/><div style="font-family: &quot;Courier New&quot;,Courier,monospace;">myPlot + opts(plot.background=theme_rect(fill="yellow"),<br/>panel.background=theme_rect(fill='purple'))</div><br/><br/><div class="separator" style="clear: both; text-align: center;"><a href="http://4.bp.blogspot.com/-faThBCiVV5c/T2pBY5N7nnI/AAAAAAAAIuo/sdV9lFPrvR4/s1600/myplot.jpg" imageanchor="1" style="margin-left: 1em; margin-right: 1em;" ref="nofollow" target="_blank"><img border="0" height="400" src="http://4.bp.blogspot.com/-faThBCiVV5c/T2pBY5N7nnI/AAAAAAAAIuo/sdV9lFPrvR4/s400/myplot.jpg" width="400"/>&nbsp;</a></div><div class="separator" style="clear: both; text-align: center;"><br/></div><div class="separator" style="clear: both; text-align: left;">This is where the rubber hits the road for tweaking theme elements.&nbsp; We can change theme elements by using the opts() function to pass new values for various theme elements.&nbsp; There are about 30 theme elements you might want to change (<a href="http://had.co.nz/ggplot2/docs/opts.html" ref="nofollow" target="_blank">listed here</a>).&nbsp; In our case we changed two: the plot.background element and the panel.background element.&nbsp; Note the use of theme_rect(fill="yellow") to specify that we want a yellow plot background.&nbsp; Any time you tweak a theme element with the opts() command, you do so with one of five functions.&nbsp; </div><ul style="text-align: left;"><li>theme_blank() - used to prevent an element from being drawn</li><li>theme_text() - used to tweak text and labels</li><li>theme_line() &amp; theme_segment() - for drawing lines and segments for things like axes</li><li>theme_rect() - for things like the overall plot background and the plot panel background</li></ul>There are various parameters you can tweak for these different theme functions look up the help file for the one you need.&nbsp; For example ?theme_text<br/><br/><b>Annotating a Plot </b><br/>We can use the annotate() function as a quick way to add text to our plot.&nbsp; I position the text label by specifying the coordinates where I want the center of the text, in this case centered at 0 on the x-axis and at the maximum y value. Specifying x and y coordinates works on a boxplot also....just think of the categories as sequential integers.&nbsp; <br/><br/><div style="font-family: &quot;Courier New&quot;,Courier,monospace;">myScatterplot&lt;-qplot(x=variable1,y=variable2,data=myDF,color=category,geom="point")</div><div style="font-family: &quot;Courier New&quot;,Courier,monospace;">myScatterplot + annotate("text", x = 0, y = max(myDF$variable2), label = "Relationship between x and y") </div><br/><br/></div><div class="blogger-post-footer"><img width='1' height='1' src='https://blogger.googleusercontent.com/tracker/9204176314411862946-5465298989445004967?l=www.ancienteco.com' alt=''/></div>
+<p class="syndicated-attribution"><div style="border: 1px solid; background: none repeat scroll 0 0 #EDEDED; margin: 1px; font-size: 13px;">
+<div style="text-align: center;">To <strong>leave a comment</strong> for the author, please follow the link and comment on his blog: <strong><a href="http://www.ancienteco.com/2012/03/how-to-customize-ggplot2-graphics.html"> W. Andrew Barr's Paleoecology Blog</a></strong>.</div>
+<hr/>
+<a href="http://www.r-bloggers.com/">R-bloggers.com</a> offers <strong><a href="http://feedburner.google.com/fb/a/mailverify?uri=RBloggers">daily e-mail updates</a></strong> about <a title="The R Project for Statistical Computing" href="http://www.r-project.org/">R</a> news and <a title="R tutorials" href="http://www.r-bloggers.com/?s=tutorial">tutorials</a> on topics such as: visualization (<a title="ggplot and ggplot2 tutorials" href="http://www.r-bloggers.com/?s=ggplot2">ggplot2</a>, <a title="Boxplots using lattice and ggplot2 tutorials" href="http://www.r-bloggers.com/?s=boxplot">Boxplots</a>, <a title="Maps and gis" href="http://www.r-bloggers.com/?s=map">maps</a>, <a title="Animation in R" href="http://www.r-bloggers.com/?s=animation">animation</a>), programming (<a title="RStudio IDE for R" href="http://www.r-bloggers.com/?s=RStudio">RStudio</a>, <a title="Sweave and literate programming" href="http://www.r-bloggers.com/?s=sweave">Sweave</a>, <a title="LaTeX in R" href="http://www.r-bloggers.com/?s=LaTeX">LaTeX</a>, <a title="SQL and databases" href="http://www.r-bloggers.com/?s=SQL">SQL</a>, <a title="Eclipse IDE for R" href="http://www.r-bloggers.com/?s=eclipse">Eclipse</a>, <a title="git and github, Version Control System" href="http://www.r-bloggers.com/?s=git">git</a>, <a title="Large data in R using Hadoop" href="http://www.r-bloggers.com/?s=hadoop">hadoop</a>, <a title="Web Scraping of google, facebook, yahoo, twitter and more using R" href="http://www.r-bloggers.com/?s=Web+Scraping">Web Scraping</a>) statistics (<a title="Regressions and ANOVA analysis tutorials" href="http://www.r-bloggers.com/?s=regression">regression</a>, <a title="principal component analysis tutorial" href="http://www.r-bloggers.com/?s=PCA">PCA</a>, <a title="Time series" href="http://www.r-bloggers.com/?s=time+series">time series</a>,<a title="ecdf" href="http://www.r-bloggers.com/?s=ecdf">ecdf</a>, <a title="finance trading" href="http://www.r-bloggers.com/?s=trading">trading</a>) and more...
+</div></p>
+<div class="like">
+<iframe src="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fwww.r-bloggers.com%2Fhow-to-customize-ggplot2-graphics%2F&amp;layout=standard&amp;show_faces=true&amp;width=450&amp;action=like&amp;font=&amp;colorscheme=light" scrolling="no" frameborder="0" allowTransparency="true" style="border:none; overflow:hidden; width:450px; height:24px; "></iframe>
+</div>
+<hr/>
+<div class="nr_clear"></div>
+<div id="nrelate_related_1" class="nrelate nrelate_related nrelate_huf nr_1col nr_80"></div>
+<!--[if IE 6]>
+		<script type="text/javascript">jQuery('.nrelate_huf').removeClass('nrelate_huf');</script>
+	<![endif]-->
+<script type="text/javascript">
+	/* <![CDATA[ */
+		nRelate.domain = "www.r-bloggers.com";
+		var entity_decoded_nr_url = jQuery('<span/>').html("http://api.nrelate.com/rcw_wp/0.51.4/?tag=nrelate_related&keywords=How+to+customize+ggplot2+graphics&domain=www.r-bloggers.com&url=http%3A%2F%2Fwww.r-bloggers.com%2Fhow-to-customize-ggplot2-graphics%2F&nr_div_number=1").text();
+		nRelate.getNrelatePosts(entity_decoded_nr_url);
+	/* ]]> */
+	</script>
+<div class="nr_clear"></div><hr/>
+<div style="border: 1px solid #EB9349; background: none repeat scroll 0 0 #FDEADA; text-align: center; margin: 10px; font-size: 16px;">
+If you got this far, why not <strong><u>subscribe for updates</u> </strong>from the site? Choose your flavor: <a href="http://feedburner.google.com/fb/a/mailverify?uri=RBloggers" rel="nofollow">e-mail</a>, <a href="https://twitter.com/#!/rbloggers" rel="nofollow">twitter</a>, <a href="http://feeds.feedburner.com/RBloggers" rel="nofollow">RSS</a>, or <a href="http://www.facebook.com/pages/R-bloggers/191414254890" rel="nofollow">facebook</a>...
+</div><p class="tags"><small><strong>Tags:</strong> <a href="http://www.r-bloggers.com/tag/ggplot2/" rel="tag">ggplot2</a>, <a href="http://www.r-bloggers.com/tag/r-tips/" rel="tag">R tips</a></small></p></div>
+</div> 
+<div id="comments">
+<div id="comment-user-details">
+<p class="nocomments">Comments are closed.</p>
+</div>
+</div> 
+</div>
+ 
+<div id="secondsidebar">
+<div class="side-widget"><form method="get" id="searchform" action="http://www.r-bloggers.com/">
+<div>
+<input type="text" class="search_input" value="Search &amp; Hit Enter" name="s" id="s" onfocus="if (this.value == 'Search &amp; Hit Enter') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Search &amp; Hit Enter';}"/>
+<input type="hidden" id="searchsubmit"/>
+</div>
+</form></div><div class="side-widget"><h2>Top 7 articles of the week</h2>
+<ol class='wppp_list'>
+<li><a href='http://www.r-bloggers.com/nice-ggplot-intro-tutorial-just-run-the-commands-about-6-pages/' title='nice ggplot intro tutorial. Just run the commands, about 6 pages...'>nice ggplot intro tutorial. Just run the commands, about 6 pages...</a></li>
+<li><a href='http://www.r-bloggers.com/data-table-rocks-data-manipulation-the-fast-way-in-r/' title='Data.table rocks! Data manipulation the fast way in R'>Data.table rocks! Data manipulation the fast way in R</a></li>
+<li><a href='http://www.r-bloggers.com/ipython-vs-knitr-or-python-vs-r/' title='IPython vs knitr, or Python vs R'>IPython vs knitr, or Python vs R</a></li>
+<li><a href='http://www.r-bloggers.com/image-manipulation-in-r-part-1/' title='Image Manipulation in R, Part 1'>Image Manipulation in R, Part 1</a></li>
+<li><a href='http://www.r-bloggers.com/ipython-vs-rstudioknitr/' title='IPython vs RStudio+knitr'>IPython vs RStudio+knitr</a></li>
+<li><a href='http://www.r-bloggers.com/select-operations-on-r-data-frames/' title='Select operations on R data frames'>Select operations on R data frames</a></li>
+<li><a href='http://www.r-bloggers.com/controlling-heatmap-colors-with-ggplot2/' title='Controlling heatmap colors with ggplot2'>Controlling heatmap colors with ggplot2</a></li>
+</ol>
+</div><div class="side-widget"><form method="get" id="searchform" action="http://www.r-bloggers.com/">
+<div>
+<input type="text" class="search_input" value="Search &amp; Hit Enter" name="s" id="s" onfocus="if (this.value == 'Search &amp; Hit Enter') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Search &amp; Hit Enter';}"/>
+<input type="hidden" id="searchsubmit"/>
+</div>
+</form></div><div class="side-widget"><h2>Sponsors</h2> <div class="textwidget"><a href="http://www.mango-solutions.com">
+<img src="http://www.r-bloggers.com/wp-content/uploads/2012/01/Mango-Solutions-Logo-300x200-pixels.jpg" alt="Mango solutions"><br/>mango-solutions.com
+</a>
+<br/><hr>
+<a href="http://www.highstat.com/">
+<img src="http://www.r-bloggers.com/wp-content/uploads/2011/12/jjcgejbf.png" alt="Zero Inflated Models and Generalized Linear Mixed Models with R">
+Zero Inflated Models and Generalized Linear Mixed Models with R.
+Zuur, Saveliev, Ieno (2012).
+</a>
+<br/><hr>
+<a href="http://www.quantide.com/">
+<img src="http://www.quantide.com/logo/quantide4rbloggers.png" alt="Quantide: statistical consulting and training">
+</a>
+<br/><hr>
+<a href="http://www.rstudio.org/">
+<img src="http://www.r-bloggers.com/wp-content/uploads/2012/08/LogoPlusTag.png" alt="RStudio homepage"><BR/>
+RStudio: a free and open source IDE for R
+</a>
+<br/><hr>
+<a href="http://www.revolutionanalytics.com/">
+<img src="http://www.r-bloggers.com/wp-content/uploads/2012/09/Revolution-Analytics-Ad.png" alt="REvolution analytics">
+</a>
+<br/><hr>
+<a href="http://www.analytical-software.de/en/start/">
+<img src="http://www.r-bloggers.com/wp-content/uploads/2012/09/HMS_300x150.png" alt="HMS Analytical Software GmbH">
+</a>
+<br/><hr>
+<a href="http://www.eoda.de">
+<img src="http://www.r-bloggers.com/wp-content/uploads/2012/11/eoda_logo_3001.png" alt="http://www.eoda.de">
+</a>
+</div>
+</div> </div>
+ </div>
+ 
+<div id="footer">
+<strong><a href="http://www.r-bloggers.com">R-bloggers</a></strong> was founded by <a href="http://www.r-statistics.com/about/">Tal Galili</a>, with gratitude to the <a href="http://www.r-project.org/">R</a> community. <br/>
+Is powered by <a href="http://www.wordpress.org">WordPress</a> using a <a href="http://themes.bavotasan.com" rel="nofollow">bavotasan.com</a> design.<br/>
+Copyright &copy; 2012 <strong>R-bloggers</strong>. All Rights Reserved.<br/>
+</div>
+ 
+<script type='text/javascript' src='http://www.r-bloggers.com/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shCore.js?ver=3.0.83c'></script>
+<script type='text/javascript' src='http://www.r-bloggers.com/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushAS3.js?ver=3.0.83c'></script>
+<script type='text/javascript' src='http://www.r-bloggers.com/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushBash.js?ver=3.0.83c'></script>
+<script type='text/javascript' src='http://www.r-bloggers.com/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushColdFusion.js?ver=3.0.83c'></script>
+<script type='text/javascript' src='http://www.r-bloggers.com/wp-content/plugins/syntaxhighlighter/third-party-brushes/shBrushClojure.js?ver=20090602'></script>
+<script type='text/javascript' src='http://www.r-bloggers.com/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushCpp.js?ver=3.0.83c'></script>
+<script type='text/javascript' src='http://www.r-bloggers.com/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushCSharp.js?ver=3.0.83c'></script>
+<script type='text/javascript' src='http://www.r-bloggers.com/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushCss.js?ver=3.0.83c'></script>
+<script type='text/javascript' src='http://www.r-bloggers.com/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushDelphi.js?ver=3.0.83c'></script>
+<script type='text/javascript' src='http://www.r-bloggers.com/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushDiff.js?ver=3.0.83c'></script>
+<script type='text/javascript' src='http://www.r-bloggers.com/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushErlang.js?ver=3.0.83c'></script>
+<script type='text/javascript' src='http://www.r-bloggers.com/wp-content/plugins/syntaxhighlighter/third-party-brushes/shBrushFSharp.js?ver=20091003'></script>
+<script type='text/javascript' src='http://www.r-bloggers.com/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushGroovy.js?ver=3.0.83c'></script>
+<script type='text/javascript' src='http://www.r-bloggers.com/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushJava.js?ver=3.0.83c'></script>
+<script type='text/javascript' src='http://www.r-bloggers.com/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushJavaFX.js?ver=3.0.83c'></script>
+<script type='text/javascript' src='http://www.r-bloggers.com/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushJScript.js?ver=3.0.83c'></script>
+<script type='text/javascript' src='http://www.r-bloggers.com/wp-content/plugins/syntaxhighlighter/third-party-brushes/shBrushLatex.js?ver=20090613'></script>
+<script type='text/javascript' src='http://www.r-bloggers.com/wp-content/plugins/syntaxhighlighter/third-party-brushes/shBrushMatlabKey.js?ver=20091209'></script>
+<script type='text/javascript' src='http://www.r-bloggers.com/wp-content/plugins/syntaxhighlighter/third-party-brushes/shBrushObjC.js?ver=20091207'></script>
+<script type='text/javascript' src='http://www.r-bloggers.com/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushPerl.js?ver=3.0.83c'></script>
+<script type='text/javascript' src='http://www.r-bloggers.com/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushPhp.js?ver=3.0.83c'></script>
+<script type='text/javascript' src='http://www.r-bloggers.com/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushPlain.js?ver=3.0.83c'></script>
+<script type='text/javascript' src='http://www.r-bloggers.com/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushPowerShell.js?ver=3.0.83c'></script>
+<script type='text/javascript' src='http://www.r-bloggers.com/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushPython.js?ver=3.0.83c'></script>
+<script type='text/javascript' src='http://www.r-bloggers.com/wp-content/plugins/syntaxhighlighter/third-party-brushes/shBrushR.js?ver=20100919'></script>
+<script type='text/javascript' src='http://www.r-bloggers.com/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushRuby.js?ver=3.0.83c'></script>
+<script type='text/javascript' src='http://www.r-bloggers.com/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushScala.js?ver=3.0.83c'></script>
+<script type='text/javascript' src='http://www.r-bloggers.com/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushSql.js?ver=3.0.83c'></script>
+<script type='text/javascript' src='http://www.r-bloggers.com/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushVb.js?ver=3.0.83c'></script>
+<script type='text/javascript' src='http://www.r-bloggers.com/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushXml.js?ver=3.0.83c'></script>
+<script type='text/javascript'>
+	(function(){
+		var corecss = document.createElement('link');
+		var themecss = document.createElement('link');
+		var corecssurl = "http://www.r-bloggers.com/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/styles/shCore.css?ver=3.0.83c";
+		if ( corecss.setAttribute ) {
+				corecss.setAttribute( "rel", "stylesheet" );
+				corecss.setAttribute( "type", "text/css" );
+				corecss.setAttribute( "href", corecssurl );
+		} else {
+				corecss.rel = "stylesheet";
+				corecss.href = corecssurl;
+		}
+		document.getElementsByTagName("head")[0].insertBefore( corecss, document.getElementById("syntaxhighlighteranchor") );
+		var themecssurl = "http://www.r-bloggers.com/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/styles/shThemeDefault.css?ver=3.0.83c";
+		if ( themecss.setAttribute ) {
+				themecss.setAttribute( "rel", "stylesheet" );
+				themecss.setAttribute( "type", "text/css" );
+				themecss.setAttribute( "href", themecssurl );
+		} else {
+				themecss.rel = "stylesheet";
+				themecss.href = themecssurl;
+		}
+		//document.getElementById("syntaxhighlighteranchor").appendChild(themecss);
+		document.getElementsByTagName("head")[0].insertBefore( themecss, document.getElementById("syntaxhighlighteranchor") );
+	})();
+	SyntaxHighlighter.config.strings.expandSource = '+ expand source';
+	SyntaxHighlighter.config.strings.help = '?';
+	SyntaxHighlighter.config.strings.alert = 'SyntaxHighlighter\n\n';
+	SyntaxHighlighter.config.strings.noBrush = 'Can\'t find brush for: ';
+	SyntaxHighlighter.config.strings.brushNotHtmlScript = 'Brush wasn\'t configured for html-script option: ';
+	SyntaxHighlighter.defaults['pad-line-numbers'] = false;
+	SyntaxHighlighter.defaults['toolbar'] = false;
+	SyntaxHighlighter.all();
+</script>
+<script type='text/javascript' src='http://www.r-bloggers.com/wp-content/themes/magazine-basic/js/effects.js?ver=3.3.2'></script>
+ <script src="http://stats.wordpress.com/e-201248.js" type="text/javascript"></script>
+<script type="text/javascript">
+st_go({blog:'11524731',v:'ext',post:'61152'});
+var load_cmc = function(){linktracker_init(11524731,61152,2);};
+if ( typeof addLoadEvent != 'undefined' ) addLoadEvent(load_cmc);
+else load_cmc();
+</script>
+<script type="text/javascript" src="http://www.r-bloggers.com/wp-content/themes/magazine-basic/js/effects.js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+jQuery(function(){
+	jQuery("ul.sf-menu").supersubs({ 
+		minWidth:    12,
+		maxWidth:    27,
+		extraWidth:  1
+	}).superfish({ 
+		delay:       100,
+		speed:       250 
+	});	});
+/* ]]> */
+</script>
+<script type="text/javascript">//<![CDATA[
+			// Google Analytics for WordPress by Yoast v4.2.8 | http://yoast.com/wordpress/google-analytics/
+			var _gaq = _gaq || [];
+			_gaq.push(['_setAccount', 'UA-419807-53']);
+							_gaq.push(['_setCustomVar',1,'tags','ggplot2 r-tips',3],['_trackPageview']);
+			(function () {
+				var ga = document.createElement('script');
+				ga.type = 'text/javascript';
+				ga.async = true;
+				ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+				var s = document.getElementsByTagName('script')[0];
+				s.parentNode.insertBefore(ga, s);
+			})();
+			//]]></script>
+</body>
+</html>
+ 
+ 
+ 
