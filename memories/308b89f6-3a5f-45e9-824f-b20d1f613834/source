@@ -1,0 +1,1057 @@
+<!DOCTYPE HTML SYSTEM "about:legacy-compat">
+
+  <html xmlns="http://www.w3.org/1999/xhtml">
+
+  <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# ibles-production: http://ogp.me/ns/fb/ibles-production#"><meta property="fb:app_id" content="140028286058792" /><title>Arduino Audio Input</title><meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="title" content="Arduino Audio Input"/>
+    <meta name="description" content="Send sound into your Arduino.  This Instructable will show you how to prepare audio so that it can be sampled and processed by an Arduino to make soun..."/>
+    
+
+ 
+<!--
+  <PageMap>
+     <DataObject type="document">
+	
+  <Attribute name="author" value="amandaghassaei" /><Attribute name="published" value="2012-10-02 01:26:49.0" /><Attribute name="category" value="technology" /><Attribute name="channel" value="arduino" />
+	 
+     </DataObject>
+     <DataObject type="thumbnail">
+        <Attribute name="src" value="${entry.squareURL}" />
+        <Attribute name="width" value="75" />
+        <Attribute name="height" value="75" />
+     </DataObject>
+  </PageMap>
+-->
+  
+
+  <meta property="og:type" content="ibles-production:instructable" />
+  <meta property="og:url"    content="http://www.instructables.com/id/Arduino-Audio-Input/"/>
+  <meta property="og:title"  content="Arduino Audio Input"/>
+  <meta property="og:image"  content="http://www.instructables.com/files/deriv/FK4/T20G/H742PPP8/FK4T20GH742PPP8.SQUARE3.jpg"/>
+  <meta property="og:description"  content="Send sound into your Arduino.  This Instructable will show you how to prepare audio so that it can be sampled and processed by an Arduino to make soun..."/>
+
+  <link rel="image_src" href="/files/deriv/FK4/T20G/H742PPP8/FK4T20GH742PPP8.THUMB.jpg" /><link rel="canonical" href="http://www.instructables.com/id/Arduino-Audio-Input/" /><link rel="prev" href="/id/Arduino-Audio-Input/" /><link rel="next" href="/id/Arduino-Audio-Input/step2/Prepare-audio-jack/" /><link rel="shortcut icon" href="/favicon.ico" /><link rel="apple-touch-icon-precomposed" href="/app-icon.png" /><link rel="alternate" type="application/rss+xml" title="Instructables : featured " href="/tag/type-id/featured-true/rss.xml" /><link rel="search" type="application/opensearchdescription+xml" title="Instructables" href="/openSearch.xml" /><link href="/static/bootstrap/css/bootstrap.min.css?9f78dac" rel="stylesheet" /><link rel="stylesheet" type="text/css" href="/static/css/instructables.base.css?9f78dac" /><link rel="stylesheet" type="text/css" href="/static/css/instructables.css?9f78dac" /><link rel="stylesheet" type="text/css" href="/static/css/instructabot.css?9f78dac" />    
+  
+  <!--[if lte IE 8]>
+      <link rel="stylesheet" type="text/css" href="/static/css/ie.css"/>
+  <![endif]-->
+  
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script><script type="text/javascript">___saveJQFromPrototype = $;</script><script type="text/javascript" src="/static/js/head.min.js"></script><script type="text/javascript" src="/static/bootstrap/js/bootstrap.min.js"></script><script type="text/deferscript" defersrc="/static/js/instruct_jq.js" class="tier1"></script><meta name="application-name" content="Instructables, Share What You Make" /><meta name="msapplication-TileImage" content="www.instructables.com/files/orig/F1E/URE9/H8FOFT3D/F1EURE9H8FOFT3D.png" /><meta name="msapplication-TileColor" content="#ff5200" /><meta name="msapplication-task" content="name=Browse All;action-uri=http://www.instructables.com/tag/type-id/;icon-uri=http://www.instructables.com/favicon.ico" /><meta name="msapplication-task" content="name=Tech;action-uri=http://www.instructables.com/tag/type-id/category-technology/;icon-uri=http://www.instructables.com/favicon.ico" /><meta name="msapplication-task" content="name=Workshop;action-uri=http://www.instructables.com/tag/type-id/category-workshop/;icon-uri=http://www.instructables.com/favicon.ico" /><meta name="msapplication-task" content="name=Living;action-uri=http://www.instructables.com/tag/type-id/category-living/;icon-uri=http://www.instructables.com/favicon.ico" /><meta name="msapplication-task" content="name=Food;action-uri=http://www.instructables.com/tag/type-id/category-food/;icon-uri=http://www.instructables.com/favicon.ico" /><meta name="msapplication-task" content="name=Outside;action-uri=http://www.instructables.com/tag/type-id/category-outside/;icon-uri=http://www.instructables.com/favicon.ico" /><meta name="msapplication-task" content="name=Play;action-uri=http://www.instructables.com/tag/type-id/category-play/;icon-uri=http://www.instructables.com/favicon.ico" />
+
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-306473-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+	
+<script type="text/javascript">
+  //This is a set of JS that absolutely, positively must be loaded synchronously before the page loads.
+  //If something is here, that means it's probably a candidate for reengineering.
+  (function() {
+      var $ = jQuery;
+      LogHit = function( entryId, entryType, authorId ) {
+        var data = {'id':entryId, 'type':entryType, 'authorId':authorId};
+        if (document.referrer&&document.referrer!=""){
+            data['referrer']=document.referrer;
+        }
+        // turn off global events triggering just for this call (prevents loading indicator)
+        $.ajaxSettings.global = false;
+        $.ajax({
+            type: 'POST',
+            url:'/counter',
+            'data': data,
+            success: function(){}
+        });
+        // turn back on global events triggering
+        $.ajaxSettings.global = true;
+      }
+    })();
+</script><script type="text/deferscript" class="tier1">
+  var _comscore = _comscore || [];
+  _comscore.push({c1:"2", c2:"7732561", c3:"", c4:"", c5:"", c6:"", c15:"",
+    options: {
+      url_append:"comscorekw=technology"
+    }
+  });
+  (function() {
+    var s = document.createElement("script"), el = document.getElementsByTagName("script")[0]; s.async = true;
+    s.src = (document.location.protocol == "https:" ? "https://sb" : "http://b") + ".scorecardresearch.com/beacon.js";
+    el.parentNode.insertBefore(s, el);
+  })();
+</script><noscript><img src="http://b.scorecardresearch.com/p?c1=2&c2=7732561&c3=&c4=&c5=&c6=&c15=&cv=2.0&cj=1" /></noscript><script type="text/javascript">
+_qoptions={
+qacct:"p-d6RKK49nWAdvA",
+labels:"technology.arduino"
+};
+</script><script type="text/javascript" src="http://edge.quantserve.com/quant.js"></script><noscript><a href="http://www.quantcast.com/p-d6RKK49nWAdvA" target="_blank"><img src="http://pixel.quantserve.com/pixel/p-d6RKK49nWAdvA.gif?labels=technology.arduino" border="0" height="1" width="1" alt="Quantcast" class="quantcast_img_0" /></a></noscript><script type="text/javascript">
+      if (typeof LogHit != "undefined") LogHit('ET0U5VQH5035JJ6','E','M0VIOL4GXDWOT46');
+    </script><script type="text/deferscript">
+    _gaq.push(['_trackPageview', '/event/technology/arduino/Step by Step/featured:homepage/contest-/']);
+  </script><script class="tier1" type="text/deferscript" defersrc="http://partner.googleadservices.com/gampad/google_service.js"></script><script class="tier1" type="text/deferscript">
+    GS_googleAddAdSenseService("ca-pub-1783560022203827");
+    GS_googleEnableAllServices();
+  </script><script class="tier1" type="text/deferscript">
+    GA_googleAddAttr("content", "Step by St");
+    GA_googleAddAttr("id", "VQH5035JJ6");
+    GA_googleAddAttr("category", "technology");
+    GA_googleAddAttr("channel", "arduino");
+    GA_googleAddAttr("author", "amandaghas");
+    GA_googleAddAttr("step", "intro");
+    GA_googleAddAttr("featured", "true");
+    GA_googleAddAttr("status", "PUBLISHED");
+    GA_googleAddAttr("loggedin", "false");
+    GA_googleAddAttr("adtest", "");
+    
+        GA_googleAddAttr("keyword", "arduino");
+      
+        GA_googleAddAttr("keyword", "audio");
+      
+        GA_googleAddAttr("keyword", "input");
+      
+        GA_googleAddAttr("keyword", "microphone");
+      
+        GA_googleAddAttr("keyword", "signal");
+      
+        GA_googleAddAttr("keyword", "analog");
+      
+        GA_googleAddAttr("keyword", "sound");
+      
+        GA_googleAddAttr("keyword", "adc");
+      
+        GA_googleAddAttr("keyword", "8 bit");
+      
+        GA_googleAddAttr("keyword", "music");
+      
+        GA_googleAddAttr("keyword", "audio in");
+      </script><script class="tier1" type="text/deferscript">
+    GA_googleAddSlot("ca-pub-1783560022203827", "technology_leaderboard");
+    GA_googleAddSlot("ca-pub-1783560022203827", "technology_med_rectangle");
+    GA_googleAddSlot("ca-pub-1783560022203827", "brand_technology_med_rectangle");
+    
+      GA_googleAddSlot("ca-pub-1783560022203827", "technology_inline_med_rectangle");
+      GA_googleAddSlot("ca-pub-1783560022203827", "rightside_inline_med_rectangle");
+    </script><script class="tier1" type="text/deferscript">
+    GA_googleUseSyncSRARendering();
+    GA_googleFetchAds();
+  </script></head><body class="instructable"><div id="omni" class="clearfix">
+      <!-- google_ad_section_start(weight=ignore) -->
+      <div class="header"><div class="nav"><div class="container"><a href="/" class="robot "><img src="/static/img/header/robot_technology.png" alt="Instructables" /></a><a href="/" class="logo"><img src="/static/img/header/instructables-logo.png" alt="Instructables" /></a><div class="nav-container"><div class="login" id="loginshower"><a href="/account/gopro?sourcea=nav&nxtPgName=Arduino+Audio+Input&nxtPg=/id/Arduino-Audio-Input/"><b>sign up</b></a>
+              or
+              <a href="/account/login" id="logintoggle"><b>login</b></a><span id="or">or</span><a id="facebook-login" href="https://www.facebook.com/dialog/oauth?client_id=102697913136381&redirect_uri=http://www.instructables.com/id/Arduino-Audio-Input/"><img src="/static/img/facebook-login.png" alt="Login with Facebook" /></a></div><ul id="tabnav" class="tabnav">
+<!-- talk to cloude before adding any of these back in -->
+<!-- 
+<li><a href="/group/familyhandyman"><img src="http://www.instructables.com/files/orig/FW6/JEK6/H97JQYYX/FW6JEK6H97JQYYX.png" alt="handyman" style="position:relative;"/></a></li>
+<li><a href="/group/techshop"><img style="margin-top:-10px" src="http://www.instructables.com/files/orig/FE2/RLZ3/H6MF3R7J/FE2RLZ3H6MF3R7J.png" alt="TechShop"/></a></li>
+<li><a href="/group/123d/"><img src="http://www.instructables.com/files/orig/FTY/0WEE/H4AFZNDR/FTY0WEEH4AFZNDR.png" alt="123d" style="position:relative; top:-10px"/></a></li>
+-->
+
+<style>
+/* temporary fixes to be migrated to code base */
+.featured-editor-content .featured-author > a {height:120px; width:120px; margin:0 14px 5px 0; float:left; display:inline-block; overflow:hidden; *display:inline; zoom:1}
+.featured-editor-content .featured-author > a > img {width:120px}
+.featured-editor-content .featured-list li:first-child a {border-top:1px solid #e6e6e6}
+.featured-editor-content .featured-author p {line-height:16px}
+.home-featured-content .editor .featured-list a {padding-left:0}
+.home-featured-content .featured-list li:first-child a {border-top:none}
+.home-featured-content .featured-author p {line-height:1.3em}
+.home-featured-content .featured-author > div {height:118px}
+.step-body pre {margin-left:0; border:none; background-color:transparent}
+#ible-steps-nav .btn {margin:0 5px 5px 0}
+.comment-entry.highlight {color:#333}
+#Tomdf .about-text p:first-child a {display:none}
+</style>
+</ul><div id="searchbar"><div id="searchbar-dropdown" class="btn-group"><form action="/tag/type-id/" method="get" id="searchbar-form"><div class="searchformcontainer"><input type="text" class="barinput" name="q" id="q" value="" /><input type="hidden" name="sort" value="none" /><i id="searchbar-active-icon" class="active-icon icon-instructable"></i><input class="searchbarTypeParam" type="hidden" id="limit:type:id" name="limit:type:id" value="on" disabled="disabled" /><input class="searchbarTypeParam" type="hidden" id="limit:type:forumTopic" name="limit:type:forumTopic" value="on" disabled="disabled" /><input class="searchbarTypeParam" type="hidden" id="limit:type:question" name="limit:type:question" value="on" disabled="disabled" /></div></form><button class="btn btn-mini dropdown-toggle" data-toggle="dropdown"><span class="caret" /></button><ul id="searchbar-dropdownmenu" class="dropdown-menu pull-right"><li class="active"><a class="searchbarTypeSelect" data-typeid="limit:type:id"><i class="icon-instructable"></i>Instructables</a></li><li class=""><a class="searchbarTypeSelect" data-typeid="limit:type:forumTopic"><i class="icon-forums"></i>Forums Topics</a></li><li class=""><a class="searchbarTypeSelect" data-typeid="limit:type:question"><i class="icon-questions"></i>Answers</a></li></ul></div><a id="searchbar-submitbtn" class="btn btn-mini">Go</a></div><script type="text/javascript">
+(function($){
+  $(function() {
+    $('.searchbarTypeSelect').click(function(e){
+      e.preventDefault();
+      var $link = $(this),
+          searchForm = $('#searchbar-form'),
+          type = $link.data('typeid'),
+          typeInputEl = document.getElementById(type);
+               
+      $('.searchbarTypeSelect').parent().removeClass('active');
+      $link.parent().addClass('active');
+      $('.searchbarTypeParam').attr('disabled', true);
+      $('#searchbar-active-icon').attr('class', 'active-icon ' + $link.children('i').attr('class'));
+
+      if (type.indexOf(":id") >= 0) {        
+        searchForm.attr('action', '/tag/type-id/');
+      } else {
+        searchForm.attr('action', '/tag/');
+        typeInputEl.disabled = false;
+      }
+    });
+    
+    $('#searchbar-submitbtn').click(function(e){
+      $('#searchbar-form').submit();
+    });
+  });
+})(jQuery);
+</script></div></div></div><div class="categories"><div class="container"><ul><li class="header-button" id="create"><a href="/about/submit.jsp"><span>Create</span></a></li><li class="header-button" id="explore"><a href="/tag/type-id/"><span>Explore</span></a></li><li class="header-button" id="contests"><a href="/contest/"><span>Contests</span></a></li><li class="header-button" id="more"><a href="/community/"><span>More</span></a></li></ul></div></div><div class="header-menu" id="create-menu"><div class="slick-column explore-section"><p class="explore-head">3 Simple Ways to<br /> Share What You Make</p><p>With Instructables you can share what you make with the world &#8212; and tap into an ever-growing community of creative experts. </p><div class="share"><p class="explore-head">Other ways to share:&nbsp;&nbsp;</p><ul><li class="tooltipByID ttid_share-ask"><a href="/account/register?sourcea=submit_q&nxtPgName=Ask+a+Question&nxtPg=%2Fanswers%2Fask&skipPro=true"><span>Ask a Question</span></a><div class="sharetip" id="share-ask-tip"><strong>What is a Question?</strong><br />
+                Questions are a super-easy way to get answers from the Instructables community. Learn how to build, do, or make anything! You just ask a question and the community will provide answers. You choose the best answer!
+                </div></li><li class="tooltipByID ttid_share-forum"><a href="/account/register?sourcea=submit_f&nxtPgName=Submit+Forum+Topic&nxtPg=%2Fedit%2Fnew%3Ftype%3DforumTopic&skipPro=true"><span>Forum Topic</span></a><div class="sharetip" id="share-forum-tip"><strong>Submit a Forum Topic!</strong><br />The forums are the place to ask questions, share a cool project from another site, find collaborators for your latest project, or discuss anything of interest to the Instructables community. </div></li><li class="tooltipByID ttid_share-guide"><a href="/edit/new?type=guide"><span>Guides</span></a><div class="sharetip" id="share-guide-tip"><strong>What is a guide?</strong><br />
+                Guides are a collection of Instructables, such as '5 Minute Recipes' or 'Father's Day Gifts'.
+                Start creating your own now!</div></li><li class="tooltipByID ttid_share-group"><a href="/account/register?sourcea=submit_g&nxtPgName=Submit+Group&nnav_conxtPg=%2Fedit%2Fnew%3Ftype%3Dgroup&skipPro=true"><span>Group</span></a><div class="sharetip" id="share-group-tip"><strong>Start a new group</strong></div></li><li class="tooltipByID ttid_share-upload"><a href="/account/register?sourcea=submit_f&nxtPgName=Upload+Images&nxtPg=%2Fupload&skipPro=true"><span>Upload Images</span></a><div class="sharetip" id="share-upload-tip"><strong>Do you have a lot of images to upload?</strong><br />
+                If you prefer to upload your images before you submit, then this is for you.
+                Remember to tag them so they will be easier for you to find when you are viewing your library.
+                You can also upload images when you are creating your posts.
+                </div></li><li class="tooltipByID ttid_share-bug"><a href="/community?categoryGroup=help&category=bugs"><span>Bug Report</span></a><div class="sharetip" id="share-bug-tip"><strong>Did you find a bug or have a suggestion for us?</strong><br />
+                We appreciate all the help our users give us in tracking down bugs and making the site better for everyone.
+                </div></li></ul></div></div><div class="slick-column"><div class="magic-box"><div class="magic-box-top"></div><div class="magic-box-content"><span class="box-icon" id="made-it-icon"><span>Photos</span></span><span class="explore-head">Photos</span><p>Share one or more photos of a project, recipe, or whatever you've made, quickly and easily.</p><div class="magic-actions"><p><a class="big-button" href="/account/register?sourcea=submit_s&nxtPgName=Submit+Photos&nxtPg=%2Fid%2Fedit%3Ftype%3Dphotos&skipPro=true">Get Started</a></p><p class="itips"><a href="#" onclick="javascript:window.open('/about/photos_tips.jsp','stepbystep','status=yes,scrollbars=yes,resizable=yes,width=750,height=500');return false;">Learn more &amp; Get Tips</a></p></div></div><div class="magic-box-bottom"></div></div></div><div class="slick-column"><div class="magic-box"><div class="magic-box-top"></div><div class="magic-box-content"><span class="box-icon" id="step-by-icon"><span>Step by Step</span></span><span class="explore-head">Step-By-Step</span><p>Share your step-by-step photos with text instructions of what you made so others can do it too!</p><div class="magic-actions"><p><a class="big-button" href="/account/register?sourcea=submit_i&nxtPgName=Submit+Step+by+Step&nxtPg=%2Fid%2Fedit&skipPro=true">Get Started</a></p><p class="stips"><a href="#" onclick="javascript:window.open('/about/stepbystep_tips.jsp','photos','status=yes,scrollbars=yes,resizable=yes,width=750,height=500');return false;">Learn more &amp; Get Tips</a></p></div></div><div class="magic-box-bottom"></div></div></div><div class="slick-column"><div class="magic-box"><div class="magic-box-top"></div><div class="magic-box-content"><span class="box-icon" id="video-icon"><span>Video</span></span><span class="explore-head">Video</span><p>Share your how-to video. You'll need your embed code from a video site such as YouTube.</p><div class="magic-actions"><p class="vtips"><a class="big-button" href="/account/register?sourcea=submit_v&nxtPgName=Submit+Video&nxtPg=%2Fid%2Fedit%3Ftype%3Dvideo&skipPro=true">Get Started</a></p><p class="vtips"><a href="#" onclick="javascript:window.open('/about/video_tips.jsp','video','status=yes,scrollbars=yes,resizable=yes,width=750,height=500');return false;">Learn more &amp; Get Tips</a></p></div></div><div class="magic-box-bottom"></div></div></div></div><div class="header-menu" id="explore-menu"><img class="menu-loading" src="/static/img/lb_loading.gif" /></div><div class="header-menu" id="contests-menu"><img class="menu-loading" src="/static/img/lb_loading.gif" /></div><div class="header-menu" id="more-menu"><img class="menu-loading" src="/static/img/lb_loading.gif" /></div><script type="text/javascript">
+          (function() {
+              function getInternetExplorerVersion()
+                // Returns the version of Internet Explorer or a -1 (indicating the use of another browser).
+              {
+                  var rv = -1; // Return value assumes failure.
+                  if (navigator.appName == 'Microsoft Internet Explorer')
+                  {
+                      var ua = navigator.userAgent;
+                      var re  = new RegExp("MSIE ([0-9]{1,}[\.0-9]{0,})");
+                      if (re.exec(ua) != null)
+                          rv = parseFloat( RegExp.$1 );
+                  }
+                  return rv;
+              }
+
+              var iev = getInternetExplorerVersion();
+              if(iev === -1 || iev >= 8.0) {
+                  ___saveJQFromPrototype(function() {
+                      var $ = ___saveJQFromPrototype;
+                      $(".header-button").each(function() {
+                          (function(that) {
+                              var buttonElem = $(that);
+                              var menuElem = $("#"+that.id+"-menu");
+                              var onButton = false;
+                              var onMenu = false;
+                              var loaded = that.id == "create";
+                              var delay = 250;
+                              $(that).hover(
+                                function() {
+                                    onButton = true;
+
+                                    if(!loaded) {
+                                        loaded = true;
+                                        menuElem.innerHTML = '<div class="menu-load">Loading...</div>';
+                                        $.ajax( "/dynjsp/nav_"+that.id+".jsp",
+                                                {
+                                                    success: function(data, textStatus, jqXHR) {
+                                                        menuElem.html(data);
+                                                    },
+                                                    error: function() {
+                                                        menuElem.html('<div class="menu-load-error">An error occurred while loading this content.</div>');
+                                                    }
+                                                });
+                                    }
+
+                                    setTimeout(function() {
+                                        if(onButton) {
+                                            //$(".header-menu").each( function() {$(this).hide()} );
+                                            //$(".header-button").each( function() {$(this).removeClass("selected")} );
+                                            menuElem.show();
+                                        }
+                                    }, delay);
+                                },
+                                function() {
+                                    onButton = false;
+                                    setTimeout(function() {
+                                        if(!onMenu)
+                                            menuElem.hide();
+                                    }, delay);
+                                }
+                              );
+
+                              menuElem.hover(
+                                function() {
+                                    onMenu = true;
+                                    buttonElem.addClass('selected');
+                                },
+                                function() {
+                                    onMenu = false;
+                                    setTimeout(function() {
+                                        if(!onButton && !onMenu) {
+                                            menuElem.hide();
+                                            buttonElem.removeClass('selected');
+                                        }
+                                    }, 250);
+                                }
+                              );
+                          })(this);
+                      });
+                  });
+              }
+          })();
+      </script></div><div class="aspace-wrap"><div class="aspace container"><div id="aplace">
+          
+            <script class="tier2" type="text/deferscript">
+            if (typeof GA_googleFillSlot != "undefined") {
+              GA_googleFillSlot("technology_leaderboard");
+            }
+            </script>
+          
+          </div></div></div><script type="text/javascript" language="javascript">
+
+function makeHelpBubbleLoginHTML(loginContinueParams, doRedirectLocation, source, fb) {
+
+    var loginHTML = '<form method="post" action="/account/login?' + loginContinueParams + '">';
+    loginHTML += '<input id="RememberME_hb" type="hidden" name="RememberME" />';
+    loginHTML += '<table style="margin-top:5px;">';
+    loginHTML += '<tr style="margin-top:5px;"><td>Username </td>';
+    loginHTML += '<td><input id="username_hb" type="text" style="width:100px;" name="u"/></td></tr>';
+    loginHTML += '<tr><td>Password </td>';
+    loginHTML += '<td><input id="password_hb" type="password" style="width:67px;" name="p"/>';
+    loginHTML += '<input class="ml5" class="button" type="submit" value="go" name="Submit"/></td></tr>';
+    loginHTML += '<tr><td colspan="2" class="center">';
+    loginHTML += '<a class="fs-1" href="/account/forgot?' + loginContinueParams + '">(forgot username/password?)</a></td></tr>';
+    if (typeof fb === "undefined" || fb !== false) {
+        loginHTML += '<tr><td colspan="2" class="center"> OR </td></tr>';
+        loginHTML += '<tr><td colspan="2" class="center">';
+        if (typeof doRedirectLocation === "undefined" || doRedirectLocation === "") {
+            loginHTML += '<fb:login-button size="medium" scope="email,user_birthday,publish_stream" onlogin="doRedirect(\'' + loginContinueParams + '\', \'' + source + '\');">';
+        } else {
+            loginHTML += '<fb:login-button size="medium" scope="email,user_birthday,publish_stream" onlogin="doRedirect(\'' + doRedirectLocation + '\', \'' + source + '\');">';
+        }
+        loginHTML += 'Log In with Facebook</fb:login-button></td></tr>';
+    }
+    loginHTML += '</table></form>';
+
+    return loginHTML;
+
+}
+
+function focusOnHelpBubbleLogin() {
+    if (typeof FB !== "undefined") {
+        FB.XFBML.parse(document.getElementById("login5"));
+    }
+    setTimeout(function() {
+        $( "username_hb" ).focus();
+    }, 10 );
+    }
+</script><div id="feedback" class="feedback" style="display: none;"></div><script type="text/javascript">
+      $(function(){            
+          var feedback = {};
+          if (feedback.messages) {
+            head.js("/static/js/feedback.jq.js");
+            head.ready(function() {       
+              feedBack.add(feedback.messages[0], 'feedback');
+            });
+          }   
+      });       
+    </script>
+      <!-- google_ad_section_end -->      
+      <div id="ible-header-wrapper"><div id="ible-header" data-initialstate="expanded"><div id="ible-header-inner"><div class="container"><div class="titlebar clearfix"><div class="fl title-container"><span class="title"><span class="fn">Arduino Audio Input</span></span><span class="author">&nbsp;by <a href="/member/amandaghassaei/" title="view amandaghassaei's profile">amandaghassaei</a></span></div><div class="fr awards-container"><div id="ible-awards-bar"><img alt="Featured" src="/static/img/instructable/award-featured.png" /></div></div></div><div class="actionbar clearfix"><div class="fl"><div class="btn-toolbar"><div class="btn-group"><a class="btn btn-small login-required" href="/id/Arduino-Audio-Input/?download=pdf"><i class="bg-icon pdf"></i>&nbsp;Download</a></div><div class="btn-group"><a class="btn btn-small" href="/id/Arduino-Audio-Input/?ALLSTEPS"><i class="bg-icon all"></i>&nbsp;See All</a></div><div id="jumpto-btngroup" class="btn-group"><a class="btn btn-small disabled prev" data-firstpage="1"><i class="bg-icon prev"></i></a><a class="btn btn-small dropdown-toggle " id="jump-to-step-btn">Jump To</a><a class="btn btn-small next" data-firstpage="1" href="/id/Arduino-Audio-Input/step2/Prepare-audio-jack/"><i class="bg-icon next"></i></a></div><div class="btn-group"><div class="steps callout fr">8 Steps</div></div></div></div><div class="fr"><div class="btn-toolbar"><div class="btn-group"><a class="btn btn-small ajax-action-btn"><i class="bg-icon favorites"></i>&nbsp; <span>Favorite</span></a></div></div></div></div></div><div id="ible-steps-nav" class="collapsed"><div class="bubble-tip" style="display:none"></div><div class="container"><div class="dropdown-bubble"><a id="stepnav-step0" data-stepindex="0" class="btn btn-mini jump-to-link active" href="#intro">Intro</a><div class="dropdown-menu step intro"><div class="image"><a href="#intro"><img src="/files/deriv/FK4/T20G/H742PPP8/FK4T20GH742PPP8.SQUARE2.jpg" /></a></div><div class="description"><h4>Intro: Arduino Audio Input</h4><p> Send sound into your Arduino.  This Instructable will show you how to prepare audio so that it can be sampled and processed by an Arduino to make soun...</p></div></div></div><div class="dropdown-bubble"><a id="stepnav-step1" data-stepindex="1" class="btn btn-mini jump-to-link " href="#step1">1</a><div class="dropdown-menu step "><div class="image"><a href="#step1"><img src="/files/deriv/F4W/2LYP/H7A8PO12/F4W2LYPH7A8PO12.SQUARE2.jpg" /></a></div><div class="description"><h4>Step 1: Preparing audio signals for Arduino</h4><p> If  you've ever recorded audio on your computer, you may have seen it represented as a waveform like the one in fig 1.  If you zoom in on this wave (a...</p></div></div></div><div class="dropdown-bubble"><a id="stepnav-step2" data-stepindex="2" class="btn btn-mini jump-to-link " href="/id/Arduino-Audio-Input/step2/Prepare-audio-jack/">2</a><div class="dropdown-menu step "><div class="image"><a href="/id/Arduino-Audio-Input/step2/Prepare-audio-jack/"><img src="/files/deriv/FLM/XXDL/H5JVXIK8/FLMXXDLH5JVXIK8.SQUARE2.jpg" /></a></div><div class="description"><h4>Step 2: Prepare audio jack</h4><p> In this Instructable, I'm only going to talk about how to route one channel of audio into an Arduino.  It is possible to copy the same circuit I've pr...</p></div></div></div><div class="dropdown-bubble"><a id="stepnav-step3" data-stepindex="3" class="btn btn-mini jump-to-link " href="/id/Arduino-Audio-Input/step3/Non-Inverting-Amplifier/">3</a><div class="dropdown-menu step "><div class="image"><a href="/id/Arduino-Audio-Input/step3/Non-Inverting-Amplifier/"><img src="/files/deriv/F0Z/L80W/H7431186/F0ZL80WH7431186.SQUARE2.jpg" /></a></div><div class="description"><h4>Step 3: Non-Inverting Amplifier</h4><p> The amplifier is the first step in the circuit, it increases the amplitude of the signal from around + or - 200mV to + or - 2.5V (ideally).  The other...</p></div></div></div><div class="dropdown-bubble"><a id="stepnav-step4" data-stepindex="4" class="btn btn-mini jump-to-link " href="/id/Arduino-Audio-Input/step4/DC-Offset/">4</a><div class="dropdown-menu step "><div class="image"><a href="/id/Arduino-Audio-Input/step4/DC-Offset/"><img src="/files/deriv/FO7/166G/H7HY7X7T/FO7166GH7HY7X7T.SQUARE2.jpg" /></a></div><div class="description"><h4>Step 4: DC Offset</h4><p> The next portion of the circuit DC offsets the output from the amplifier.  As I explained in step 1, this +2.5V DC offset causes audio signal to oscil...</p></div></div></div><div class="dropdown-bubble"><a id="stepnav-step5" data-stepindex="5" class="btn btn-mini jump-to-link " href="/id/Arduino-Audio-Input/step5/Simple-Analog-In/">5</a><div class="dropdown-menu step "><div class="image"><a href="/id/Arduino-Audio-Input/step5/Simple-Analog-In/"><img src="/files/deriv/F5Q/ZTGB/H7HY7YDU/F5QZTGBH7HY7YDU.SQUARE2.jpg" /></a></div><div class="description"><h4>Step 5: Simple Analog In</h4><p> Load the following code onto the Arduino.  This code reads the voltage of the incoming audio signal using analogRead(A0) as a number between 0 and 102...</p></div></div></div><div class="dropdown-bubble"><a id="stepnav-step6" data-stepindex="6" class="btn btn-mini jump-to-link " href="/id/Arduino-Audio-Input/step6/Sampling-rate-of-40kHz/">6</a><div class="dropdown-menu step "><div class="image"><a href="/id/Arduino-Audio-Input/step6/Sampling-rate-of-40kHz/"><img src="/files/deriv/FIN/IH71/H743120X/FINIH71H743120X.SQUARE2.jpg" /></a></div><div class="description"><h4>Step 6: Sampling rate of ~40kHz</h4><p> In the code below I bypassed the function analogRead() in order to increase my sampling rate. The code required to do this is fairly advanced, maybe i...</p></div></div></div><div class="dropdown-bubble"><a id="stepnav-step7" data-stepindex="7" class="btn btn-mini jump-to-link " href="/id/Arduino-Audio-Input/step7/Interrupt/">7</a><div class="dropdown-menu step "><div class="image"><a href="/id/Arduino-Audio-Input/step7/Interrupt/"><img src="/files/deriv/FV4/2AGK/H7NLY67M/FV42AGKH7NLY67M.SQUARE2.jpg" /></a></div><div class="description"><h4>Step 7: Interrupt</h4><p> In this piece of code, I set up the Arduino to continuously monitor pin A0 at 38.5kHz, but now I've added a piece of code that automatically updates t...</p></div></div></div><div class="dropdown-bubble"><a id="stepnav-step8" data-stepindex="8" class="btn btn-mini jump-to-link " href="/id/Arduino-Audio-Input/step8/Clipping-Indicator/">8</a><div class="dropdown-menu step "><div class="image"><a href="/id/Arduino-Audio-Input/step8/Clipping-Indicator/"><img src="/files/deriv/FOX/RN6F/H7KZ1QLW/FOXRN6FH7KZ1QLW.SQUARE2.jpg" /></a></div><div class="description"><h4>Step 8: Clipping Indicator</h4><p> A clipping indicator LED is useful so that you know if you need to turn the gain down on your amplifier.  If your signal is clipping as it comes into ...</p></div></div></div></div></div></div><div id="ible-header-toggle" style="display:none"></div></div></div><script type="text/deferscript" class="tier1">
+  $(function() {
+    function positionStepNavTip() {
+    	var jumpBtn = $('#jump-to-step-btn'),
+    	    jumpX = jumpBtn.position().left,
+    	    parentX = jumpBtn.parent().position().left,
+    	    totalX = parentX+jumpX,
+    	    stepNavTip = $('#ible-steps-nav > .bubble-tip');
+        	stepNavTip.css({'left':totalX+45});
+        	stepNavTip.show();
+	  }
+	  
+	  function jumpToStep(stepIndex) {
+      var anchorId = "stepanchor-step"+stepIndex;
+      $(window).scrollTop($('#'+anchorId).offset().top-$('#ible-header').outerHeight());
+      $('.jump-to-link').removeClass('active');
+      $('#stepnav-step'+stepIndex).addClass('active');	    
+	  }
+	  
+	  positionStepNavTip();
+	         
+    var currentStep = 0, stepCount = $('#ible-steps-nav a.btn').size();
+    var jumpToStepBtn = $('#jump-to-step-btn'),
+        next = jumpToStepBtn.next(),
+        prev = jumpToStepBtn.prev();
+        
+    var H = window.location.hash;
+    if (H == '#intro') {currentStep = 0;}
+    if (H == '#step1') {currentStep = 1; prev.removeClass('disabled');}
+           
+    $('#jumpto-btngroup > a').click(function(e) {
+      var $btn = $(this),
+          onFirstPage = $btn.data('firstpage') == 1,
+          allSteps = $btn.data("allsteps") ==  1;
+          
+      if (onFirstPage || allSteps) {
+        e.preventDefault();
+      
+        if ($btn.hasClass('next')) {
+          if (!$btn.hasClass('disabled')) {
+            if (onFirstPage && currentStep == 1) {
+              window.location = $btn.attr('href'); 
+              return;
+            }
+            prev.removeClass('disabled');              
+            currentStep++;
+            if (currentStep == stepCount-1)
+              next.addClass('disabled');
+            jumpToStep(currentStep);
+          }
+        }        
+      
+        if ($btn.hasClass('prev')) {
+          if (!$btn.hasClass('disabled')) {
+            next.removeClass('disabled');
+            currentStep--;
+            if (currentStep == 0)
+              prev.addClass('disabled');
+            jumpToStep(currentStep);
+          }
+        }
+      }
+      
+      if ($btn.hasClass('dropdown-toggle')) {
+        var header = $('#ible-header');
+        document.cookie=($('#ible-steps-nav').is(':hidden')) ? 'ibleStepNavOpened=1; path=/':"ibleStepNavOpened=0; path=/";
+        positionStepNavTip();
+        $btn.toggleClass('active');
+        $('#ible-steps-nav').toggleClass('collapsed');
+        header.parent().height(header.outerHeight());   
+        header.data('offsetbottom', header.data('offsettop') + header.height());
+      }
+    });    
+    
+    $(".jump-to-link").hover(
+      function() {
+        $(this).parent().addClass('open');
+      },
+      function() {
+        $(this).parent().removeClass('open');
+      }
+    );
+    
+    if (false) {
+      $(".jump-to-link").click(function(e) {
+        e.preventDefault();
+        currentStep = $(this).data('stepindex');
+        if (currentStep == stepCount-1)
+          next.addClass('disabled');
+        if (currentStep == 0)
+          prev.addClass('disabled');
+        if (currentStep > 0 && currentStep < stepCount-1) {
+          next.removeClass('disabled');
+          prev.removeClass('disabled');
+        }
+        jumpToStep(currentStep);
+      });
+    }    
+  });
+  </script><script type="text/deferscript" class="tier1">
+$(function(){
+  if (false) {
+    $('.ajax-action-btn').ajaxActionBtn();
+  } else {
+    $('.ajax-action-btn').click(function(e){
+      e.preventDefault();
+      navoperator.makeLoginByJquery();          
+    });
+  }
+    
+  $('#vote-dropdown-toggle').click(function(e) {
+    e.preventDefault();
+    var parent = $(this).parent(),
+        wasActive = parent.hasClass('open'),
+        clearMenu = function() {
+           parent.removeClass('open');
+           $('html').off('click.vote-dropdown');
+        };
+      
+    parent.toggleClass('open');   
+    if (wasActive) {
+      clearMenu();
+    } else {
+      $('html').on('click.vote-dropdown', function(e) {
+        var target = $(e.target);
+        if (target.closest('.vote-dropdown').length == 0) {
+          parent.removeClass('open');
+          $('html').off('click.vote-dropdown');            
+        }
+      });
+    }  
+  });
+});
+</script><script type="text/deferscript" class="tier3">
+/* needs to run in tier3 after the Ads have loaded */
+$(function() {
+  var header = $("#ible-header"),
+      headerState = header.data('initialstate'),
+      ibleHeaderCollapsed;
+        
+  function readCookie(name) {
+    var re = new RegExp(name + "=([^;]+)"), value = re.exec(document.cookie); 
+    return (value != null) ? unescape(value[1]) : null;
+  }
+    
+  ibleHeaderCollapsed = (readCookie('ibleHeaderCollapsed') == 1);
+  headerState = (ibleHeaderCollapsed) ? 'collapsed':'expanded';
+          
+  $('#ible-header-toggle').click(function(){
+    var headerInner = $('#ible-header-inner'),
+        visible = headerInner.is(':visible');
+    document.cookie=(visible) ? 'ibleHeaderCollapsed=1; path=/':"ibleHeaderCollapsed=0; path=/";    
+    if (visible) {
+      headerInner.slideUp('fast', function(){
+        header.removeClass('expanded').addClass('collapsed');
+        headerState = 'collapsed';
+      });
+    } else {
+      headerInner.slideDown('fast', function() {
+        header.removeClass('collapsed').addClass('expanded');
+        headerState = 'expanded';
+      });
+    }     
+  });
+  
+  window.setTimeout(function(){
+    var updateFlag = true;    
+    header.data('offsettop', header.offset().top);
+    header.data('offsetbottom', header.offset().top + header.height());
+                    
+    $(window).bind('scroll.ibleheader', function() {    
+      var scrollTop = $(window).scrollTop(),
+          headerOffsetTop = header.data('offsettop'),
+          headerOffsetBottom = header.data('offsetbottom');
+      
+      function fixHeader() {
+  		  if (updateFlag) {
+		      header.parent().height(header.outerHeight());
+  		    updateFlag = false;
+    			header.css({'top':0, 'position':'fixed'}).addClass(headerState);
+    			$('#ible-header-toggle').show();
+  			}        
+      }
+      
+      function unfixHeader() {
+			  header.css({'position':'relative'}).removeClass(headerState);
+  			$('#ible-header-toggle').hide();
+  			updateFlag = true;
+      }
+      
+      if ((header.hasClass('collapsed') || headerState == 'collapsed') && !header.hasClass('expanded')) {
+    		if (scrollTop > headerOffsetBottom) {	  
+    		  fixHeader();
+    		  $('#ible-header-inner').hide();
+  			} else {
+          unfixHeader(); 			
+          $('#ible-header-inner').show();
+			  }			  
+		  } else {
+		    if (scrollTop > headerOffsetTop) {
+		      fixHeader();     
+		    } else {
+		      unfixHeader();
+		    }
+		  }
+    });
+  }, 750);
+});
+</script><div class="container"><div id="main-content">
+    <!-- google_ad_section_start -->  
+    <div class="step-container"><a id="stepanchor-step0" name="intro"></a><script type="text/javascript">
+    if (typeof notesArray === "undefined")
+      window.notesArray = {};
+  </script><div class="photoset" data-entry-id="SJ8R7OWH5IRVY39" data-entry-url="/id/Arduino-Audio-Input/" id="photoset-SJ8R7OWH5IRVY39"><div class="row" style="width:600px;text-align:center;"><a id="photoset-link-FD3YZE3H82U7PMK-0" style="margin-left:10px" class="photoset-link" rel="photoset-gallery-SJ8R7OWH5IRVY39" data-notes-lookup-id="FK4T20GH742PPP8-0" data-href="/file/FK4T20GH742PPP8" data-fancybox-href="/files/deriv/FK4/T20G/H742PPP8/FK4T20GH742PPP8.LARGE.jpg" href="/file/FK4T20GH742PPP8"><div class="photo-container" style="width:600px;"><img class="photo id_FK4T20GH742PPP8" data-notes-lookup-id="FK4T20GH742PPP8-0" alt="IMG_0041 copy.jpg" src="/files/deriv/FK4/T20G/H742PPP8/FK4T20GH742PPP8.LARGE.jpg" style="width:600px;" /></div></a></div></div><div class="txt step-body"><div class="summary">Send sound into your Arduino.&nbsp; This Instructable will show you how to prepare audio so that it can be sampled and processed by an Arduino to make sound responsive projects and audio effects.&nbsp; (This article is a companion to another Instructable I've written about building an audio output circuit for an Arduino, find that <a href="http://www.instructables.com/id/Arduino-Audio-Output/">here</a>)<br />
+<br />
+Some ideas that come to mind include:<br />
+<br />
+<strong>beat detection</strong>- trigger lighting effects, build a set of turntables that beat match themselves, or make a robot that dances along with the music you play for it<br />
+<strong>amplitude detection</strong>- make a simple <a href="http://en.wikipedia.org/wiki/VU_meter">vu meter </a>with LEDS<br />
+<strong>frequency analysis</strong>- you could make a project that<a href="http://www.instructables.com/id/Arduino-Frequency-Detection/"> reacts to different frequencies</a> in different ways, recognizes certain melodies, turns audio into <a href="http://www.instructables.com/id/Send-and-Receive-MIDI-with-Arduino/">MIDI data</a>, or translates incoming frequencies into square waves with the <a href="http://arduino.cc/en/Reference/Tone">tone() library</a><br />
+<strong>digital effects boxes/digital signal processing</strong>- check out what I did with my <a href="http://www.instructables.com/id/Arduino-Vocal-Effects-Box/">vocal effects box</a> (all processing done with Arduino), lots of possibilities here: pitch bending, distortion, sampling, <a href="http://en.wikipedia.org/wiki/Delay_%28audio_effect%29">delay</a>, <a href="http://en.wikipedia.org/wiki/Reverb">reverb</a>, <a href="http://en.wikipedia.org/wiki/Granular_synthesis">granular synthesis</a>, <a href="http://en.wikipedia.org/wiki/DJ_mixer">mixing</a>, and much more...&nbsp; I've provided code in this Instructable that lets you sample at up to 38.5kHz.&nbsp; <a href="http://www.instructables.com/id/Arduino-Audio-Output/">Here</a> is another instructable describing how to set up a simple audio out circuit with Arduino.<br />
+<strong>digital recorder</strong>- with the addition of an SD card of course (the Arduino has very limited memory by itself), this opens up the possibility of looping large samples and doing lots of other digital manipulations to pieces of stored audio&nbsp; The circuits and code provided here are compatible with SD card shields that communicate via SPI.<br />
+<strong>graphical representations of sound</strong>- Arduino oscilloscope/visualizer<br />
+<br />
+<strong>Feel free to use any of the info in this Instructable to put together an amazing project for the <a href="http://www.instructables.com/contest/audio/">DIY Audio Contest</a>!&nbsp; We're giving away an HDTV, some DSLR cameras, and tons of other great stuff!&nbsp; The contest closes Nov 26.</strong><br />
+<br />
+<strong>Parts list:</strong><br />
+(x1) Microphone <a href="http://www.radioshack.com/product/index.jsp?productId=2123173">Radioshack 33-3038</a><br />
+(x1) TL072 <a href="http://www.digikey.com/product-detail/en/TL072IP/296-14997-5-ND/563039">Digikey 296-14997-5-ND</a> or TL082 <a href="http://www.digikey.com/product-detail/en/TL082CP/296-1780-5-ND/277630">Digikey 296-1780-5-ND</a> (TL081/TL071 are fine too)&nbsp; I used a tl082 in my examples<br />
+(x2) 9V battery<br />
+(x2) 9V battery snap connector <a href="http://www.radioshack.com/product/index.jsp?productId=2062218">Radioshack 270-324</a><br />
+(x1) mono audio jack 1/4&quot; <a href="http://www.radioshack.com/product/index.jsp?productId=2103223">Radioshack 274-340</a>&nbsp; or <a href="http://www.radioshack.com/product/index.jsp?productId=2103454">Radioshack 274-252</a> or 1/8&quot; <a href="http://www.radioshack.com/product/index.jsp?productId=2062461">Radioshack 274-333</a> or <a href="http://www.radioshack.com/product/index.jsp?productId=2103453">Radioshack 274-251</a><br />
+(x1) LED <a href="http://www.digikey.com/product-detail/en/C513A-WSN-CV0Y0151/C513A-WSN-CV0Y0151-ND/1922948">Digikey C513A-WSN-CV0Y0151-ND</a><br />
+(x1) 10kOhm potentiometer linear <a href="http://www.digikey.com/product-detail/en/P160KN-0QC15B10K/987-1301-ND/2408878">Digikey 987-1301-ND</a><br />
+(x3) 100kOhm 1/4watt resistors <a href="http://www.digikey.com/product-detail/en/CF14JT100K/CF14JT100KCT-ND/1830399">Digikey CF14JT100KCT-ND</a><br />
+(x1) 10uF electrolytic capacitor <a href="http://www.digikey.com/product-detail/en/ECA-1CM100/P5134-ND/244993">Digikey P5134-ND</a><br />
+(x1) 47nF ceramic capacitor <a href="http://www.digikey.com/product-detail/en/ECK-F1E473ZVE/P4307-ND/4660">Digikey P4307-ND</a><br />
+(x1) Arduino Uno (Duemilanove is fine too) <a href="https://www.sparkfun.com/products/9950">Sparkfun DEV-09950</a><br />
+<br />
+<strong>Additional Materials:</strong><br />
+22 gauge wire<br />
+solder</div></div><div id="files" class="ible-files"><a name="files"></a></div><div class="inline-ads">
+        
+        
+                 <table cellpadding="0" cellspacing="0" class="adwrapper">
+                 <tr>
+                 <td class="adhole">
+                 <script class="tier2" type="text/deferscript">
+                   GA_googleFillSlot("technology_inline_med_rectangle");
+                 </script>
+                 </td>
+                 <td class="adgutter">
+                 &nbsp;
+                 </td>
+                 <td class="adhole">
+                 <script class="tier2" type="text/deferscript">
+                   GA_googleFillSlot("rightside_inline_med_rectangle");
+                 </script>
+                 </td>
+                 </tr>
+                 </table>
+                 
+        
+        <div class="remove-ads"><img src="/static/img/dialog-close.png" align="absmiddle" class="ex" alt="Remove these ads" />Remove these ads by
+          <a href="/account/gopro?sourcea=removeads&nxtPgName=Arduino+Audio+Input&nxtPg=/id/Arduino-Audio-Input/"><strong>Signing Up</strong></a></div></div></div><div class="step-container"><a id="stepanchor-step1" name="step1"></a><h2 class="step-title">Step 1: Preparing audio signals for Arduino</h2><script type="text/javascript">
+    if (typeof notesArray === "undefined")
+      window.notesArray = {};
+  </script><div class="photoset" data-entry-id="SWWOKSBH5035JJ7" data-entry-url="/id/Arduino-Audio-Input/step1/Preparing-audio-signals-for-Arduino/" id="photoset-SWWOKSBH5035JJ7"><div class="row" style="width:600px;text-align:center;"><a id="photoset-link-F65JAIIH7S5AUWN-0" style="margin-left:10px" class="photoset-link" rel="photoset-gallery-SWWOKSBH5035JJ7" data-notes-lookup-id="F4W2LYPH7A8PO12-0" data-href="/file/F4W2LYPH7A8PO12" data-fancybox-href="/files/deriv/F4W/2LYP/H7A8PO12/F4W2LYPH7A8PO12.LARGE.jpg" href="/file/F4W2LYPH7A8PO12"><div class="photo-container" style="width:600px;"><img class="photo id_F4W2LYPH7A8PO12" data-notes-lookup-id="F4W2LYPH7A8PO12-0" alt="Screen shot 2012-09-27 at 2.25.50 PM.png" src="/files/deriv/F4W/2LYP/H7A8PO12/F4W2LYPH7A8PO12.LARGE.jpg" style="width:600px;" /></div></a></div><div class="row" style="width:600px;height:196px;"><a id="photoset-link-FNGRU3MH7S5AUWO-1" style="margin-left:10px" class="photoset-link" rel="photoset-gallery-SWWOKSBH5035JJ7" data-notes-lookup-id="FWHXKZ2H7A8PO13-1" data-href="/file/FWHXKZ2H7A8PO13" data-fancybox-href="/files/deriv/FWH/XKZ2/H7A8PO13/FWHXKZ2H7A8PO13.LARGE.jpg" href="/file/FWHXKZ2H7A8PO13"><div class="photo-container" style="width:295px;height:196px;"><img class="photo id_FWHXKZ2H7A8PO13 lazyphoto" data-original="/files/deriv/FWH/XKZ2/H7A8PO13/FWHXKZ2H7A8PO13.MEDIUM.jpg" data-notes-lookup-id="FWHXKZ2H7A8PO13-1" alt="Screen shot 2012-09-27 at 2.26.50 PM.png" src="/static/img/pixel.png" style="width:295px;" /><noscript><img class="photo" alt="Screen shot 2012-09-27 at 2.26.50 PM.png" src="/files/deriv/FWH/XKZ2/H7A8PO13/FWHXKZ2H7A8PO13.MEDIUM.jpg" style="width:295px;" /></noscript></div><i class="notes-icon"></i><script type="text/javascript">                
+                notesArray["FWHXKZ2H7A8PO13-1"] = [{"noteID":"N87OYYZH7KZ206C","author":"M0VIOL4GXDWOT46","screenName":"amandaghassaei","addedDate":1348781419481,"modifiedDate":1348781685436,"text":"zoomed in from fig 1 shows individual oscillations of signal","top":0.2106537530266344,"height":0.7142857142857143,"left":0.17096774193548386,"width":0.5693548387096774}];        
+              </script></a><a id="photoset-link-FD18HA2H7S5AUWP-2" style="margin-left:10px" class="photoset-link" rel="photoset-gallery-SWWOKSBH5035JJ7" data-notes-lookup-id="FTEN88YH742PR3Q-2" data-href="/file/FTEN88YH742PR3Q" data-fancybox-href="/files/deriv/FTE/N88Y/H742PR3Q/FTEN88YH742PR3Q.LARGE.jpg" href="/file/FTEN88YH742PR3Q"><div class="photo-container" style="width:295px;height:196px;"><img class="photo id_FTEN88YH742PR3Q lazyphoto" data-original="/files/deriv/FTE/N88Y/H742PR3Q/FTEN88YH742PR3Q.MEDIUM.jpg" data-notes-lookup-id="FTEN88YH742PR3Q-2" alt="IMG_9994 copy.jpg" src="/static/img/pixel.png" style="width:295px;" /><noscript><img class="photo" alt="IMG_9994 copy.jpg" src="/files/deriv/FTE/N88Y/H742PR3Q/FTEN88YH742PR3Q.MEDIUM.jpg" style="width:295px;" /></noscript></div><i class="notes-icon"></i><script type="text/javascript">                
+                notesArray["FTEN88YH742PR3Q-2"] = [{"noteID":"NAY2F1JH7KZ20AK","author":"M0VIOL4GXDWOT46","screenName":"amandaghassaei","addedDate":1348782752327,"modifiedDate":1348782752327,"text":"0V","top":0.45036319612590797,"height":0.03389830508474576,"left":0.020967741935483872,"width":0.7806451612903226},{"noteID":"NCHUAR0H7KZ20BB","author":"M0VIOL4GXDWOT46","screenName":"amandaghassaei","addedDate":1348783314038,"modifiedDate":1348783314038,"text":"volts/div = 2V","top":0.9322033898305084,"height":0.05811138014527845,"left":0.10483870967741936,"width":0.056451612903225805}];        
+              </script></a></div><div class="row" style="width:600px;height:143px;"><a id="photoset-link-FG4H9X8H7S5AUWQ-3" style="margin-left:9px" class="photoset-link" rel="photoset-gallery-SWWOKSBH5035JJ7" data-notes-lookup-id="F9JT83YH5Y9W70T-3" data-href="/file/F9JT83YH5Y9W70T" data-fancybox-href="/files/deriv/F9J/T83Y/H5Y9W70T/F9JT83YH5Y9W70T.LARGE.jpg" href="/file/F9JT83YH5Y9W70T"><div class="photo-container" style="width:194px;height:143px;"><img class="photo id_F9JT83YH5Y9W70T lazyphoto" data-original="/files/deriv/F9J/T83Y/H5Y9W70T/F9JT83YH5Y9W70T.SMALL.jpg" data-notes-lookup-id="F9JT83YH5Y9W70T-3" alt="IMG_2376 copy.jpg" src="/static/img/pixel.png" style="width:194px;" /><noscript><img class="photo" alt="IMG_2376 copy.jpg" src="/files/deriv/F9J/T83Y/H5Y9W70T/F9JT83YH5Y9W70T.SMALL.jpg" style="width:194px;" /></noscript></div><i class="notes-icon"></i><script type="text/javascript">                
+                notesArray["F9JT83YH5Y9W70T-3"] = [{"noteID":"NPZL0JGH63P42LL","author":"M0VIOL4GXDWOT46","screenName":"amandaghassaei","addedDate":1345588252161,"modifiedDate":1345588252161,"text":"signal directly from microphone has a relatively small amplitude","top":0.3941018766756032,"height":0.1554959785522788,"left":0.02,"width":0.832},{"noteID":"N9Q1QZZH7KZ1R0H","author":"M0VIOL4GXDWOT46","screenName":"amandaghassaei","addedDate":1348714336101,"modifiedDate":1348714336101,"text":"volts/div = 2V","top":0.883369264540868,"height":0.06695464362850972,"left":0.11451612903225807,"width":0.05967741935483871}];        
+              </script></a><a id="photoset-link-F3ZESG1H7S5AUWR-4" style="margin-left:9px" class="photoset-link" rel="photoset-gallery-SWWOKSBH5035JJ7" data-notes-lookup-id="FLF0AZ7H5Y9W70V-4" data-href="/file/FLF0AZ7H5Y9W70V" data-fancybox-href="/files/deriv/FLF/0AZ7/H5Y9W70V/FLF0AZ7H5Y9W70V.LARGE.jpg" href="/file/FLF0AZ7H5Y9W70V"><div class="photo-container" style="width:194px;height:143px;"><img class="photo id_FLF0AZ7H5Y9W70V lazyphoto" data-original="/files/deriv/FLF/0AZ7/H5Y9W70V/FLF0AZ7H5Y9W70V.SMALL.jpg" data-notes-lookup-id="FLF0AZ7H5Y9W70V-4" alt="IMG_2381 copy.jpg" src="/static/img/pixel.png" style="width:194px;" /><noscript><img class="photo" alt="IMG_2381 copy.jpg" src="/files/deriv/FLF/0AZ7/H5Y9W70V/FLF0AZ7H5Y9W70V.SMALL.jpg" style="width:194px;" /></noscript></div><i class="notes-icon"></i><script type="text/javascript">                
+                notesArray["FLF0AZ7H5Y9W70V-4"] = [{"noteID":"NJHX92PH63P42LM","author":"M0VIOL4GXDWOT46","screenName":"amandaghassaei","addedDate":1345588271253,"modifiedDate":1345588271253,"text":"amplified signal oscillates between -2.5 and 2.5 V","top":0.2803234501347709,"height":0.42318059299191374,"left":0.012,"width":0.81},{"noteID":"NNL939LH7KZ1R0G","author":"M0VIOL4GXDWOT46","screenName":"amandaghassaei","addedDate":1348714320288,"modifiedDate":1348714320288,"text":"volts/div = 2V","top":0.8826086293096128,"height":0.07391304347826087,"left":0.11129032258064517,"width":0.054838709677419356}];        
+              </script></a><a id="photoset-link-FFR9LPGH7S5AUWS-5" style="margin-left:9px" class="photoset-link" rel="photoset-gallery-SWWOKSBH5035JJ7" data-notes-lookup-id="FHQZH99H63P42CM-5" data-href="/file/FHQZH99H63P42CM" data-fancybox-href="/files/deriv/FHQ/ZH99/H63P42CM/FHQZH99H63P42CM.LARGE.jpg" href="/file/FHQZH99H63P42CM"><div class="photo-container" style="width:194px;height:143px;"><img class="photo id_FHQZH99H63P42CM lazyphoto" data-original="/files/deriv/FHQ/ZH99/H63P42CM/FHQZH99H63P42CM.SMALL.jpg" data-notes-lookup-id="FHQZH99H63P42CM-5" alt="IMG_2397 copy.jpg" src="/static/img/pixel.png" style="width:194px;" /><noscript><img class="photo" alt="IMG_2397 copy.jpg" src="/files/deriv/FHQ/ZH99/H63P42CM/FHQZH99H63P42CM.SMALL.jpg" style="width:194px;" /></noscript></div><i class="notes-icon"></i><script type="text/javascript">                
+                notesArray["FHQZH99H63P42CM-5"] = [{"noteID":"N266UTFH63P42LP","author":"M0VIOL4GXDWOT46","screenName":"amandaghassaei","addedDate":1345588294429,"modifiedDate":1348604901849,"text":"DC offset moves midpoint of signal to  2.5V, now the signal oscillates between 0 and 5V","top":0.16348195329087048,"height":0.37154989384288745,"left":0.014516129032258065,"width":0.8161290322580645},{"noteID":"N0D26A3H7KZ20FG","author":"M0VIOL4GXDWOT46","screenName":"amandaghassaei","addedDate":1348784328051,"modifiedDate":1348784328051,"text":"volts/div = 2V","top":0.8853503184713376,"height":0.04883227176220807,"left":0.1064516129032258,"width":0.05967741935483871}];        
+              </script></a></div><div class="row" style="width:600px;text-align:center;"><a id="photoset-link-FNLVC4UH7S5AUWT-6" style="margin-left:10px" class="photoset-link" rel="photoset-gallery-SWWOKSBH5035JJ7" data-notes-lookup-id="F1R8DZIH7KZ1PNJ-6" data-href="/file/F1R8DZIH7KZ1PNJ" data-fancybox-href="/files/deriv/F1R/8DZI/H7KZ1PNJ/F1R8DZIH7KZ1PNJ.LARGE.jpg" href="/file/F1R8DZIH7KZ1PNJ"><div class="photo-container" style="width:600px;"><img class="photo id_F1R8DZIH7KZ1PNJ lazyphoto" data-original="/files/deriv/F1R/8DZI/H7KZ1PNJ/F1R8DZIH7KZ1PNJ.LARGE.jpg" data-notes-lookup-id="F1R8DZIH7KZ1PNJ-6" alt="microphoneschem.jpg" src="/static/img/pixel.png" style="width:600px;" /><noscript><img class="photo" alt="microphoneschem.jpg" src="/files/deriv/F1R/8DZI/H7KZ1PNJ/F1R8DZIH7KZ1PNJ.LARGE.jpg" style="width:600px;" /></noscript></div><i class="notes-icon"></i><script type="text/javascript">                
+                notesArray["F1R8DZIH7KZ1PNJ-6"] = [{"noteID":"N0D5QI9H7KZ1PNX","author":"M0VIOL4GXDWOT46","screenName":"amandaghassaei","addedDate":1348700769793,"modifiedDate":1348700769793,"text":"microphone mono input","top":0.5351089588377724,"height":0.12106537530266344,"left":0.1693548387096774,"width":0.08064516129032258},{"noteID":"N0WHB5UH7KZ20IW","author":"M0VIOL4GXDWOT46","screenName":"amandaghassaei","addedDate":1348784555099,"modifiedDate":1348784555099,"text":"amplifier","top":0.14285714285714285,"height":0.5326876513317191,"left":0.24838709677419354,"width":0.22580645161290322},{"noteID":"NXPL7L5H7KZ20IX","author":"M0VIOL4GXDWOT46","screenName":"amandaghassaei","addedDate":1348784564731,"modifiedDate":1348784564731,"text":"DC offset","top":0.19128329297820823,"height":0.6610169491525424,"left":0.4870967741935484,"width":0.16451612903225807}];        
+              </script></a></div></div><div class="txt step-body"><div class="instructions">If&nbsp; you've ever recorded audio on your computer, you may have seen it represented as a waveform like the one in fig 1.&nbsp; If you zoom in on this wave (as in fig 2) you will see that the shape is made of thousands of tiny <a href="http://en.wikipedia.org/wiki/Oscillations">oscillations</a> back and forth.&nbsp; This is called an <a href="http://en.wikipedia.org/wiki/Audio_signal">audio signal</a> and when we are dealing with audio signals in electronics, these oscillations represent oscillating voltages over time.<br />
+<br />
+When we look at an audio signal with an <a href="http://www.instructables.com/id/Oscilloscope-How-To/">oscilloscope</a>, we see a similar picture (fig 3).&nbsp; Notice how the audio signal in fig 3 oscillates around a center voltage of 0V; this is typical of audio signals.&nbsp; The <a href="http://en.wikipedia.org/wiki/Amplitude">amplitude</a> of an audio signal is the distance between its center voltage and its high or low peak.&nbsp; The amplitude of the wave in fig 3 is 2V: it reaches a maximum voltage of +2V and a minimum voltage of -2V.&nbsp; This is a problem if we want to measure the audio signal with one of the Arduino's analog inputs because the Arduino can only measure voltages between 0 and 5V.&nbsp; If we tried to measure the negative voltages in the signal from fig 3, the Arduino would read only 0V and we would end up <a href="http://en.wikipedia.org/wiki/Clipping_%28audio%29">clipping</a> the bottom of the signal.&nbsp; In this Instructable I'll show you how you can amplify and offset audio signals so that they fall within this 0-5V range.&nbsp; Ideally you want a signal with an amplitude of 2.5V that oscillates around 2.5V (like in fig 7) so that its min voltage is 0V and its max voltage is 5V (see the calculations below).<br />
+<br />
+<strong>Min voltage = Center Voltage - Amplitude<br />
+Min voltage = 2.5V - 2.5V = 0V<br />
+<br />
+Max Voltage = Center Voltage + Amplitude<br />
+Max Voltage = 2.5V + 2.5V = 5V</strong><br />
+<br />
+Fig 4 shows the signal coming straight out of the microphone on an oscilloscope.&nbsp; The signal is relatively weak, with an <a href="http://en.wikipedia.org/wiki/Amplitude">amplitude</a> of only 200mV, you may find that signals from other sources (ipods, guitars, record players...) also produce audio signals with small amplitudes.&nbsp; These signals need to be amplified to get them up to the amplitude we want (2.5V).&nbsp; <a href="http://en.wikipedia.org/wiki/Amplifier">Amplification</a> means increasing the amplitude (distance between the center point and max or min) of a signal.&nbsp; Amplification also buffers the audio source (in my case this was a microphone) from any loads that you may put on it later in the circuit, which is a good thing because it prevents distortion.<br />
+<br />
+Fig 5 shows the same microphone signal after amplification, you can see how the height of the peaks has increased so that the wave has an amplitude of 2.5V.&nbsp; But since the center voltage of the wave is still 0, the wave is oscillating between -2.5 and +2.5V.&nbsp; It will need to be DC offset to correct this.&nbsp; <a href="http://en.wikipedia.org/wiki/DC_bias">DC offset</a> means changing the center voltage that the wave oscillates around (the average voltage of the wave).&nbsp; Fig 6 shows the signal after it has been DC offset; it still has an amplitude of 2.5V, but the center voltage is 2.5V instead of 0V, so the wave never drops down below 0V.&nbsp; (Note- the slight change in shape between the signals in figures 5 and 6 is dues to changes in my voice between the two pics, it has nothing to do with the circuit).&nbsp; The signal in fig 6 is ready to go to an Arduino analog input pin.<br />
+<br />
+</div></div><div id="files" class="ible-files"><a name="files"></a></div></div><div id="steps-pager"><div class="clearfix"><a class="btn btn-large disabled fl" href="javascript:void(0);">&laquo; Previous</a><a id="nextstepbutton" class="btn btn-orange btn-large fr" href="/id/Arduino-Audio-Input/step2/Prepare-audio-jack/">Next &raquo;</a></div></div>
+     <!-- google_ad_section_end -->
+
+    <!-- google_ad_section_start(weight=ignore) -->
+    <a id="DISCUSS" name="DISCUSS"></a><div class="comments" id="comments"><div class="comments-header clearfix"><div id="add-comment-top" class="add-comment-bucket login-required"><a id="comment-invoker-top" class="static-invoker" href="#" style="display:none"></a><div id="CommentPoster"><div id="CommentFlaggerXX" class="comment-flagger"><div id="CommentFlagOptions" class="comment-flag-options clearfix"><div class="stepLabel fr">Flag this comment as:</div><div class="clearfix flag-type fr"><div><img src="/static/IMGS/bullet-1.gif" /><a class="flag-comment-as" data-flagtype="not_nice">Not Nice</a></div><div><img src="/static/IMGS/bullet-1.gif" /><a class="flag-comment-as" data-flagtype="inappropriate">Inappropriate</a></div><div><img src="/static/IMGS/bullet-1.gif" /><a class="flag-comment-as" data-flagtype="spam">Spam</a></div><div class="cancel"><input id="" value="cancel" type="button" class="button" style="width:75px;" onclick="$('#CommentPoster').fadeOut('fast', function(){$(this).remove();});" tabindex="" onmouseover="this.className = 'button_over';" onmouseout="this.className = 'button';" rel="" /></div></div></div><div id="CommentFlagResponse" class="comment-flag-response clearfix"></div></div><div id="CommentPosterXX" class="comment-poster clearfix"><a name="previewlink"></a><div id="PreviewComment" class="comment-preview" style="display:none"><span class="stepLabel">Preview Your <span class="commentType">Comment</span></span><div class="preview-body"><div id="PreviewCommentBody" name="PreviewCommentBody"></div><div id="PreviewCommentImages" name="PreviewCommentImages"></div><div id="PreviewCommentFiles" name="PreviewCommentFiles"></div></div></div><form action="/edit/post?bootstrapped=1" method="post"  id="PostCommentForm"  name="PostCommentForm"  class="post-comment-form" ><input type="hidden" name="posted" value="1359893501497"/><input id="PostTopicID" type="hidden" name="stepId" value="SJ8R7OWH5IRVY39" /><input id="InReplyToId" type="hidden" name="inReplyToId" value="" /><input type="hidden" name="linkTo" value="/id/Arduino-Audio-Input/" /><input type="hidden" name="richeditor" id="richeditor" value="false" /><input id="files" name="files" type="hidden" value="" /><input type="hidden" id="PostCommentFormBODY" name="PostCommentFormBODY" value="" /><input type="hidden" id="postToFb" name="postToFb" value="" /><div class="post-comment-box clearfix"><div class="clearfix"><div class="commenter-image fl"><img src="/static/defaultIMG/user.TINY.gif" /></div><div class="comment-container fr"><div class="tip"></div><textarea id="PostCommentFormBODY_editor" class="editorArea"></textarea></div></div><div class="clearfix"><div class="actions fr"><input id="PostCommentLink" class="btn btn-orange" value="Post Comment" type="button" tabindex="5" /></div></div><div id="PostCommentFormError" class="form-error"></div></div></form><ul id="image-bucket" class="instructable-image-bucket clearfix ui-sortable" style="display:none"></ul><div id="file-tabs" class="file-tabs" style="display:none"><ul class="small-tabs clearfix"><li><a href="#upload-tab"><span>upload</span></a></li><li><a href="#library-tab"><span>your library</span></a></li></ul><div id="upload-tab" class="upload-tab small-box clearfix"><input id="file_upload" name="file_upload" type="file" /><p><label for="ftags">Tag files as:</label><input type="text" id="ftags" /></p><p><a id="upload-button" href="javascript:$('#file_upload').uploadifyUpload();" class="gray-btn">Upload Files</a></p></div><div id="library-tab" class="small-box clearfix"><img src="/static/img/ajax-loader.gif" alt="updating" /></div></div></div></div></div><div class="comments-pager"><table cellpadding="7"><tr><td></td><td><span class="pager-results">1-40 of 43</span></td><td><a class="pager-next" rel="nofollow" href="http://www.instructables.com/id/Arduino-Audio-Input/?&amp;sort=ACTIVE&amp;limit=40&amp;offset=40#DISCUSS">Next &raquo;</a></td></tr></table></div></div><div id="ajax_newcomment_placeholder"></div><a name="CCG1IQAHCB8KAU9"></a><div class="comment-entry clearfix toplevel " style="margin-left:0px;"><div class="comment-authorpic"><a href="/member/aolinger/"><img src="http://graph.facebook.com/777158829/picture" alt="" /></a></div><div class="comment-info"><span class="comment-author"><a class="author-link " href="/member/aolinger/">aolinger</a> says:
+        </span><span class="comment-date">Jan 24, 2013. 2:25 AM<a id="replytolink_CCG1IQAHCB8KAU9" class="btn btn-mini reply-comment login-required" href="CCG1IQAHCB8KAU9">Reply</a></span></div><div class="txt comment-txt">Hi Amanda,<br> <br> many thanks for this nice instructable. I will definitely build it, hook up an oscilloscope and demo the output to my students which are attending an Arduino workshop.<br> <br> I just came across a small problem in your schematics in Step 3 and 4: A connection is missing: Vin should be connected to the plus pole of the lower 9V battery... the breadboard pictures are showing this vital connection :-)<br> <br> Have a nice day,<br> <br> Alex. ICT Teacher.</div><div id="files" class=""><a name="files"></a></div><div id="commentactioncontainer_CCG1IQAHCB8KAU9" class="comment-actions"><div class="fr mt5"></div></div></div><a name="CQXKZLKHAQ2UVQW"></a><div class="comment-entry clearfix toplevel " style="margin-left:0px;"><div class="comment-authorpic"><a href="/member/JiahuanZhang/"><img src="/static/defaultIMG/user.TINY.gif" alt="" /></a></div><div class="comment-info"><span class="comment-author"><a class="author-link " href="/member/JiahuanZhang/">JiahuanZhang</a> says:
+        </span><span class="comment-date">Jan 16, 2013. 1:20 AM<a id="replytolink_CQXKZLKHAQ2UVQW" class="btn btn-mini reply-comment login-required" href="CQXKZLKHAQ2UVQW">Reply</a></span></div><div class="txt comment-txt">Wow, I understand! Thank you amandaghassaei. Thank you a lot.</div><div id="files" class=""><a name="files"></a></div><div id="commentactioncontainer_CQXKZLKHAQ2UVQW" class="comment-actions"><div class="fr mt5"></div></div></div><a name="C1BW6TTHBNXV55K"></a><div class="comment-entry clearfix toplevel " style="margin-left:0px;"><div class="comment-authorpic"><a href="/member/JiahuanZhang/"><img src="/static/defaultIMG/user.TINY.gif" alt="" /></a></div><div class="comment-info"><span class="comment-author"><a class="author-link " href="/member/JiahuanZhang/">JiahuanZhang</a> says:
+        </span><span class="comment-date">Jan 10, 2013. 5:16 AM<a id="replytolink_C1BW6TTHBNXV55K" class="btn btn-mini reply-comment login-required" href="C1BW6TTHBNXV55K">Reply</a></span></div><div class="txt comment-txt">Hi, I am a new beginner of Arduino. After reading the project I learned a lot. But still one thing confuses me. In the tutorial you use &quot;ADCH&quot; to get the values from A0 at a sampling rate of 38.5kHz. It's hard to understand the usage of &quot;ADCH&quot; for me. If I want to get the values from other analog inputs, what to do with &quot;ADCH&quot;? Is there somewhere to learn more about it ? It will be appreciated if you reply me.</div><div id="files" class=""><a name="files"></a></div><div id="commentactioncontainer_C1BW6TTHBNXV55K" class="comment-actions"><div class="fr mt5"></div></div></div><a name="CLW8FWLHBXWRIXS"></a><div class="comment-entry clearfix  highlight" style="margin-left:52px;"><div class="comment-authorpicstats"><a class="memberstats id-amandaghassaei" href="/member/amandaghassaei/"><img src="/files/deriv/FBC/NVBB/HC3PTPRY/FBCNVBBHC3PTPRY.TINY.jpg" alt="" /><div class="count">53</div></a></div><div class="comment-info"><span class="comment-author"><a class="author-link " href="/member/amandaghassaei/">amandaghassaei</a> (author) says:
+        </span><span class="comment-date">Jan 16, 2013. 12:52 AM<a id="replytolink_CLW8FWLHBXWRIXS" class="btn btn-mini reply-comment login-required" href="CLW8FWLHBXWRIXS">Reply</a></span></div><div class="txt comment-txt">in this code I have the arduino set up to only read data from A0- all the other pins are in an inactive state.  Then each time I want to get an analog value I call ADCH.  If I'd set the arduino up to only read from a1, I would still call ADCH to get the value.  Read my reply to yasinkeles to get some more info about how I set up the arduino to only read from one input.</div><div id="files" class=""><a name="files"></a></div><div id="commentactioncontainer_CLW8FWLHBXWRIXS" class="comment-actions"><div class="fr mt5"></div></div></div><a name="C6FWYYIHBUZEKJR"></a><div class="comment-entry clearfix toplevel " style="margin-left:0px;"><div class="comment-authorpic"><a href="/member/yasinkeles/"><img src="/static/defaultIMG/user.TINY.gif" alt="" /></a></div><div class="comment-info"><span class="comment-author"><a class="author-link " href="/member/yasinkeles/">yasinkeles</a> says:
+        </span><span class="comment-date">Jan 12, 2013. 7:43 PM<a id="replytolink_C6FWYYIHBUZEKJR" class="btn btn-mini reply-comment login-required" href="C6FWYYIHBUZEKJR">Reply</a></span></div><div class="txt comment-txt">I see you use only one mic. can we use two mic both same time and proccess signals same time?  Can we take differantial signals between two mic? How can I do it? Thank you</div><div id="files" class=""><a name="files"></a></div><div id="commentactioncontainer_C6FWYYIHBUZEKJR" class="comment-actions"><div class="fr mt5"></div></div></div><a name="CGPCVQ8HBXWRIXN"></a><div class="comment-entry clearfix  highlight" style="margin-left:52px;"><div class="comment-authorpicstats"><a class="memberstats id-amandaghassaei" href="/member/amandaghassaei/"><img src="/files/deriv/FBC/NVBB/HC3PTPRY/FBCNVBBHC3PTPRY.TINY.jpg" alt="" /><div class="count">53</div></a></div><div class="comment-info"><span class="comment-author"><a class="author-link " href="/member/amandaghassaei/">amandaghassaei</a> (author) says:
+        </span><span class="comment-date">Jan 16, 2013. 12:50 AM<a id="replytolink_CGPCVQ8HBXWRIXN" class="btn btn-mini reply-comment login-required" href="CGPCVQ8HBXWRIXN">Reply</a></span></div><div class="txt comment-txt">yes, but you will get half the sampling rate.  if you want to read from A0 you have to set the last four digits of ADCMUX to zeros: <br> <br>ADCMUX &amp;= B11110000; <br> <br>to read from A1 you set the last four digits to 0001: <br> <br>ADCMUX &amp;= B11110000; <br>ADCMUX |= B00000001; <br> <br>you can read more about this here: <br>http://openenergymonitor.blogspot.com/2012/08/low-level-adc-control-admux.html</div><div id="files" class=""><a name="files"></a></div><div id="commentactioncontainer_CGPCVQ8HBXWRIXN" class="comment-actions"><div class="fr mt5"></div></div></div><a name="CHJGA31HAQ32QSV"></a><div class="comment-entry clearfix toplevel " style="margin-left:0px;"><div class="comment-authorpic"><a href="/member/luis_cordova/"><img src="/static/defaultIMG/user.TINY.gif" alt="" /></a></div><div class="comment-info"><span class="comment-author"><a class="author-link " href="/member/luis_cordova/">luis_cordova</a> says:
+        </span><span class="comment-date">Jan 4, 2013. 8:47 PM<a id="replytolink_CHJGA31HAQ32QSV" class="btn btn-mini reply-comment login-required" href="CHJGA31HAQ32QSV">Reply</a></span></div><div class="txt comment-txt">when i print the incomingAudio value, i get fluctuations around 512, but when i adjust the potentiometer nothing happens. i have checked the diagram many times, and even have the same ground connections and Vin connection. have i missed something in the wiring? newbie here : )</div><div id="files" class=""><a name="files"></a></div><div id="commentactioncontainer_CHJGA31HAQ32QSV" class="comment-actions"><div class="fr mt5"></div></div></div><a name="CHVL121HAQ2UJRV"></a><div class="comment-entry clearfix  highlight" style="margin-left:52px;"><div class="comment-authorpicstats"><a class="memberstats id-amandaghassaei" href="/member/amandaghassaei/"><img src="/files/deriv/FBC/NVBB/HC3PTPRY/FBCNVBBHC3PTPRY.TINY.jpg" alt="" /><div class="count">53</div></a></div><div class="comment-info"><span class="comment-author"><a class="author-link " href="/member/amandaghassaei/">amandaghassaei</a> (author) says:
+        </span><span class="comment-date">Jan 7, 2013. 2:35 PM<a id="replytolink_CHVL121HAQ2UJRV" class="btn btn-mini reply-comment login-required" href="CHVL121HAQ2UJRV">Reply</a></span></div><div class="txt comment-txt">the print function might not be fast enough to give you a lot of information about what is going on.  do you have an oscilloscope?</div><div id="files" class=""><a name="files"></a></div><div id="commentactioncontainer_CHVL121HAQ2UJRV" class="comment-actions"><div class="fr mt5"></div></div></div><a name="CV8MYD8HBHGL5SG"></a><div class="comment-entry clearfix toplevel " style="margin-left:0px;"><div class="comment-authorpic"><a href="/member/mijserwis/"><img src="/static/defaultIMG/user.TINY.gif" alt="" /></a></div><div class="comment-info"><span class="comment-author"><a class="author-link " href="/member/mijserwis/">mijserwis</a> says:
+        </span><span class="comment-date">Jan 3, 2013. 7:35 AM<a id="replytolink_CV8MYD8HBHGL5SG" class="btn btn-mini reply-comment login-required" href="CV8MYD8HBHGL5SG">Reply</a></span></div><div class="txt comment-txt">Wow, it's amazing, thanks a lot for that tutorial!!!</div><div id="files" class=""><a name="files"></a></div><div id="commentactioncontainer_CV8MYD8HBHGL5SG" class="comment-actions"><div class="fr mt5"></div></div></div><a name="CZXMLXNHAWBW5RU"></a><div class="comment-entry clearfix toplevel " style="margin-left:0px;"><div class="comment-authorpic"><a href="/member/gargoor/"><img src="/static/defaultIMG/user.TINY.gif" alt="" /></a></div><div class="comment-info"><span class="comment-author"><a class="author-link " href="/member/gargoor/">gargoor</a> says:
+        </span><span class="comment-date">Dec 19, 2012. 7:15 AM<a id="replytolink_CZXMLXNHAWBW5RU" class="btn btn-mini reply-comment login-required" href="CZXMLXNHAWBW5RU">Reply</a></span></div><div class="txt comment-txt">what do you think about using OPA2835ID as an amplifier ? <br>isn't it too strong for it (36MHz BW and slewrate 160v/us), i found it because i would like to use 3.3 to 5v not 9v ) on the other hand i found OPA344 (0.8v/us and 1MHz) isn't this too low for the application ?? i still dont fully understand do they refer by bandwidth in an opamp and slew rate ( slew rate is the steepness of the slop as far as i understand) </div><div id="files" class=""><a name="files"></a></div><div id="commentactioncontainer_CZXMLXNHAWBW5RU" class="comment-actions"><div class="fr mt5"></div></div></div><a name="C2WU5QUHAQ2UVUT"></a><div class="comment-entry clearfix toplevel " style="margin-left:0px;"><div class="comment-authorpic"><a href="/member/gargoor/"><img src="/static/defaultIMG/user.TINY.gif" alt="" /></a></div><div class="comment-info"><span class="comment-author"><a class="author-link " href="/member/gargoor/">gargoor</a> says:
+        </span><span class="comment-date">Dec 16, 2012. 1:18 PM<a id="replytolink_C2WU5QUHAQ2UVUT" class="btn btn-mini reply-comment login-required" href="C2WU5QUHAQ2UVUT">Reply</a></span></div><div class="txt comment-txt">how did you do the calculations for the dc offset to choose the capacitors ?</div><div id="files" class=""><a name="files"></a></div><div id="commentactioncontainer_C2WU5QUHAQ2UVUT" class="comment-actions"><div class="fr mt5"></div></div></div><a name="CSZWA6CHAUNLX1Y"></a><div class="comment-entry clearfix  highlight" style="margin-left:52px;"><div class="comment-authorpicstats"><a class="memberstats id-amandaghassaei" href="/member/amandaghassaei/"><img src="/files/deriv/FBC/NVBB/HC3PTPRY/FBCNVBBHC3PTPRY.TINY.jpg" alt="" /><div class="count">53</div></a></div><div class="comment-info"><span class="comment-author"><a class="author-link " href="/member/amandaghassaei/">amandaghassaei</a> (author) says:
+        </span><span class="comment-date">Dec 18, 2012. 6:15 PM<a id="replytolink_CSZWA6CHAUNLX1Y" class="btn btn-mini reply-comment login-required" href="CSZWA6CHAUNLX1Y">Reply</a></span></div><div class="txt comment-txt">there weren't really any calculations, since the output is not driving a large load, lots of different values will work.  Pick something close to what I have.</div><div id="files" class=""><a name="files"></a></div><div id="commentactioncontainer_CSZWA6CHAUNLX1Y" class="comment-actions"><div class="fr mt5"></div></div></div><a name="C5GGKR9HAWBW5QI"></a><div class="comment-entry clearfix  " style="margin-left:52px;"><div class="comment-authorpic"><a href="/member/gargoor/"><img src="/static/defaultIMG/user.TINY.gif" alt="" /></a></div><div class="comment-info"><span class="comment-author"><a class="author-link " href="/member/gargoor/">gargoor</a> says:
+        </span><span class="comment-date">Dec 19, 2012. 6:19 AM<a id="replytolink_C5GGKR9HAWBW5QI" class="btn btn-mini reply-comment login-required" href="C5GGKR9HAWBW5QI">Reply</a></span></div><div class="txt comment-txt">great, but what if there is a bigger load , is there a formula to follow ? </div><div id="files" class=""><a name="files"></a></div><div id="commentactioncontainer_C5GGKR9HAWBW5QI" class="comment-actions"><div class="fr mt5"></div></div></div><a name="CFS1XL5HAWBW5QF"></a><div class="comment-entry clearfix toplevel " style="margin-left:0px;"><div class="comment-authorpic"><a href="/member/gargoor/"><img src="/static/defaultIMG/user.TINY.gif" alt="" /></a></div><div class="comment-info"><span class="comment-author"><a class="author-link " href="/member/gargoor/">gargoor</a> says:
+        </span><span class="comment-date">Dec 19, 2012. 6:16 AM<a id="replytolink_CFS1XL5HAWBW5QF" class="btn btn-mini reply-comment login-required" href="CFS1XL5HAWBW5QF">Reply</a></span></div><div class="txt comment-txt">thanks for your quick response  <br>so you have the audio input and output all in one system , when you talk from the microphone you hear it on the other end of the speaker. right? <br>how did you chose your microphone ? did you consider the impedance to match the opamp ? <br>what speaker have you chosen and why? <br>i meant with TRx --&gt; transciever.  <br>i would like to transmit the digitized sound coming from the microphone via TRx to another user who will hear it through the audio output. and viceversa , so half duplex system or full duplex <br></div><div id="files" class=""><a name="files"></a></div><div id="commentactioncontainer_CFS1XL5HAWBW5QF" class="comment-actions"><div class="fr mt5"></div></div></div><a name="CCRECRLHAOPLZKF"></a><div class="comment-entry clearfix toplevel " style="margin-left:0px;"><div class="comment-authorpic"><a href="/member/gargoor/"><img src="/static/defaultIMG/user.TINY.gif" alt="" /></a></div><div class="comment-info"><span class="comment-author"><a class="author-link " href="/member/gargoor/">gargoor</a> says:
+        </span><span class="comment-date">Dec 14, 2012. 2:21 AM<a id="replytolink_CCRECRLHAOPLZKF" class="btn btn-mini reply-comment login-required" href="CCRECRLHAOPLZKF">Reply</a></span></div><div class="txt comment-txt">awesome post, i was going too far with complicated audio chips. I would like to send the digitized audio from ADC via TRX chip . (should i use the digital pin to get the output from ADC) <br>Then also receive digitized Audio via TRX passing it to DAC ((which pin to use? to get the output from DAC) <br>did you connect the oscilloscope to a digital inpout to get the data from ADC or you used TX ?  <br>the 8kHz sampling rate you used does sound like walkie talkies or better quality? <br> <br>will highly appreciate your answers, once again thanks for you great posts <br></div><div id="files" class=""><a name="files"></a></div><div id="commentactioncontainer_CCRECRLHAOPLZKF" class="comment-actions"><div class="fr mt5"></div></div></div><a name="CK2T5ULHAUNLX2I"></a><div class="comment-entry clearfix  highlight" style="margin-left:52px;"><div class="comment-authorpicstats"><a class="memberstats id-amandaghassaei" href="/member/amandaghassaei/"><img src="/files/deriv/FBC/NVBB/HC3PTPRY/FBCNVBBHC3PTPRY.TINY.jpg" alt="" /><div class="count">53</div></a></div><div class="comment-info"><span class="comment-author"><a class="author-link " href="/member/amandaghassaei/">amandaghassaei</a> (author) says:
+        </span><span class="comment-date">Dec 18, 2012. 6:23 PM<a id="replytolink_CK2T5ULHAUNLX2I" class="btn btn-mini reply-comment login-required" href="CK2T5ULHAUNLX2I">Reply</a></span></div><div class="txt comment-txt">thanks for the comment!  what is a TRX chip?  I connected the oscilloscope to an 8 bit resistor DAC like the one I used here: <br>http://www.instructables.com/id/Arduino-Audio-Output/ <br>in this project I got up to 38khz sampling rate which is pretty good sounding, 8khz is still recognizable, maybe a little worse than walking talkie.</div><div id="files" class=""><a name="files"></a></div><div id="commentactioncontainer_CK2T5ULHAUNLX2I" class="comment-actions"><div class="fr mt5"></div></div></div><a name="C3OKP1PHAQ2TEZF"></a><div class="comment-entry clearfix toplevel " style="margin-left:0px;"><div class="comment-authorpic"><a href="/member/dany151/"><img src="/files/deriv/FO3/SRT1/H8RVCVZQ/FO3SRT1H8RVCVZQ.TINY.jpg" alt="" /></a></div><div class="comment-info"><span class="comment-author"><a class="author-link " href="/member/dany151/">dany151</a> says:
+        </span><span class="comment-date">Dec 16, 2012. 11:12 AM<a id="replytolink_C3OKP1PHAQ2TEZF" class="btn btn-mini reply-comment login-required" href="C3OKP1PHAQ2TEZF">Reply</a></span></div><div class="txt comment-txt">good work...it is helpfull..</div><div id="files" class=""><a name="files"></a></div><div id="commentactioncontainer_C3OKP1PHAQ2TEZF" class="comment-actions"><div class="fr mt5"></div></div></div><a name="CLFHCNVH8CVETJV"></a><div class="comment-entry clearfix toplevel " style="margin-left:0px;"><div class="comment-authorpic"><a href="/member/AntzyP/"><img src="/files/deriv/FKV/5TVB/GGPFCITB/FKV5TVBGGPFCITB.TINY.jpg" alt="" /></a></div><div class="comment-info"><span class="comment-author"><a class="author-link " href="/member/AntzyP/">AntzyP</a> says:
+        </span><span class="comment-date">Nov 4, 2012. 7:46 AM<a id="replytolink_CLFHCNVH8CVETJV" class="btn btn-mini reply-comment login-required" href="CLFHCNVH8CVETJV">Reply</a></span></div><div class="txt comment-txt">Hi amandaghassaei. Nice instructable. I wasn't aware that the audio signal gets clipped if put directly into arduino.<br>One question, can we use lm386 instead for amplification? It's a more popular op-amp and runs on a single 9v battery.<br><br>-Antzy</div><div id="files" class=""><a name="files"></a></div><div id="commentactioncontainer_CLFHCNVH8CVETJV" class="comment-actions"><div class="fr mt5"></div></div></div><a name="CF3FT0EH9142RAD"></a><div class="comment-entry clearfix  highlight" style="margin-left:52px;"><div class="comment-authorpicstats"><a class="memberstats id-amandaghassaei" href="/member/amandaghassaei/"><img src="/files/deriv/FBC/NVBB/HC3PTPRY/FBCNVBBHC3PTPRY.TINY.jpg" alt="" /><div class="count">53</div></a></div><div class="comment-info"><span class="comment-author"><a class="author-link " href="/member/amandaghassaei/">amandaghassaei</a> (author) says:
+        </span><span class="comment-date">Nov 4, 2012. 2:05 PM<a id="replytolink_CF3FT0EH9142RAD" class="btn btn-mini reply-comment login-required" href="CF3FT0EH9142RAD">Reply</a></span></div><div class="txt comment-txt">hi, yes the lm386 should work.  I don't like to use it as much bc it has a slower slew rate than a tl082, so it adds some distortion, and it is less clear how to fine tune the gain of the amplifier.  but yes, it does run off a 9V which is nice.  Let me know how it goes!</div><div id="files" class=""><a name="files"></a></div><div id="commentactioncontainer_CF3FT0EH9142RAD" class="comment-actions"><div class="fr mt5"></div></div></div><a name="CCCZZ13H9T4CC5Q"></a><div class="comment-entry clearfix  " style="margin-left:52px;"><div class="comment-authorpic"><a href="/member/AntzyP/"><img src="/files/deriv/FKV/5TVB/GGPFCITB/FKV5TVBGGPFCITB.TINY.jpg" alt="" /></a></div><div class="comment-info"><span class="comment-author"><a class="author-link " href="/member/AntzyP/">AntzyP</a> says:
+        </span><span class="comment-date">Nov 21, 2012. 9:17 PM<a id="replytolink_CCCZZ13H9T4CC5Q" class="btn btn-mini reply-comment login-required" href="CCCZZ13H9T4CC5Q">Reply</a></span></div><div class="txt comment-txt">As you prophesied, lm386 was a mess. It had so much noise and pretty weird performance.  At one time it would work and next it would stop. <br>I'm working on a project which doesn't have enough space for 2 9V batteries. Can your circuit be modified to run off only 1 9v battery? <br>What I have in mind is that we can take 4.5v from 9v using resistor divider and treat 4.5v as ground voltage for mic and amplifier. So negative terminal of battery becomes -4.5v for amplifier. The amplified signal will then have the DC offset of 4.5v removed by the 10uF capacitor. Then your resistor divider will put back dc offset of 2.5v. <br>Since rail voltage is 4.5v for amplifier, it should easily amplify to 2.5v. <br>Does this seem possible? I've just started learning about amplifiers for this project so I kitni be totally wrong...</div><div id="files" class=""><a name="files"></a></div><div id="commentactioncontainer_CCCZZ13H9T4CC5Q" class="comment-actions"><div class="fr mt5"></div></div></div><a name="CCMUTJ6H9T4SCG1"></a><div class="comment-entry clearfix  " style="margin-left:52px;"><div class="comment-authorpic"><a href="/member/AntzyP/"><img src="/files/deriv/FKV/5TVB/GGPFCITB/FKV5TVBGGPFCITB.TINY.jpg" alt="" /></a></div><div class="comment-info"><span class="comment-author"><a class="author-link " href="/member/AntzyP/">AntzyP</a> says:
+        </span><span class="comment-date">Nov 22, 2012. 9:31 AM<a id="replytolink_CCMUTJ6H9T4SCG1" class="btn btn-mini reply-comment login-required" href="CCMUTJ6H9T4SCG1">Reply</a></span></div><div class="txt comment-txt">Something like this... Guess ground of arduino also ought to be connected to negative terminal of 9V battery instead of the 4.5V ground created for amplifier &amp; microphone since after removing DC offset, it's just like a normal audio signal centered at 0V. Complete beginner here in realm of amplifiers so not sure if it should work or not. When I tried it out, it didn't work. :(<br> <br> </div><script type="text/javascript">
+      if (typeof notesArray === "undefined")
+        window.notesArray = {};    
+    </script><div class="spotThumbs spot-images"><a href="/files/deriv/F36/7W88/H9T4SCFU/F367W88H9T4SCFU.LARGE.jpg" rel="fancybox-thumb-CCMUTJ6H9T4SCG1" data-href="/image/F367W88H9T4SCFU"><img id="id_F367W88H9T4SCFU" class="fancybox-thumb" src="/files/deriv/F36/7W88/H9T4SCFU/F367W88H9T4SCFU.SMALL.jpg" alt="F1R8DZIH7KZ1PNJ.LARGE.jpg" title="" /></a></div><div id="files" class=""><a name="files"></a></div><div id="commentactioncontainer_CCMUTJ6H9T4SCG1" class="comment-actions"><div class="fr mt5"></div></div></div><a name="CZFYYJUH9T4B68Y"></a><div class="comment-entry clearfix  highlight" style="margin-left:52px;"><div class="comment-authorpicstats"><a class="memberstats id-amandaghassaei" href="/member/amandaghassaei/"><img src="/files/deriv/FBC/NVBB/HC3PTPRY/FBCNVBBHC3PTPRY.TINY.jpg" alt="" /><div class="count">53</div></a></div><div class="comment-info"><span class="comment-author"><a class="author-link " href="/member/amandaghassaei/">amandaghassaei</a> (author) says:
+        </span><span class="comment-date">Nov 24, 2012. 4:47 AM<a id="replytolink_CZFYYJUH9T4B68Y" class="btn btn-mini reply-comment login-required" href="CZFYYJUH9T4B68Y">Reply</a></span></div><div class="txt comment-txt">This looks good but connect arduino ground to the center 4.5v of the power supply, that way it is referenced to the same &quot;ground&quot; as your signal.  Let me know how it works!</div><div id="files" class=""><a name="files"></a></div><div id="commentactioncontainer_CZFYYJUH9T4B68Y" class="comment-actions"><div class="fr mt5"></div></div></div><a name="CCR6KS0H9T43M73"></a><div class="comment-entry clearfix  " style="margin-left:52px;"><div class="comment-authorpic"><a href="/member/AntzyP/"><img src="/files/deriv/FKV/5TVB/GGPFCITB/FKV5TVBGGPFCITB.TINY.jpg" alt="" /></a></div><div class="comment-info"><span class="comment-author"><a class="author-link " href="/member/AntzyP/">AntzyP</a> says:
+        </span><span class="comment-date">Nov 24, 2012. 3:13 PM<a id="replytolink_CCR6KS0H9T43M73" class="btn btn-mini reply-comment login-required" href="CCR6KS0H9T43M73">Reply</a></span></div><div class="txt comment-txt">It worked! I found a pretty similar figure here(figure 1):<br>http://www.google.co.in/url?sa=t&amp;source=web&amp;cd=3&amp;ved=0CD0QFjAC&amp;url=http%3A%2F%2Fwww.ieee.li%2Fpdf%2Fessay%2Fsingle_supply_op_amp_design.pdf&amp;ei=K1KxUKvUHcatrAfcm4DADg&amp;usg=AFQjCNF6tmwdTJIjS-yLGtzfP2vz2qva3g</div><div id="files" class=""><a name="files"></a></div><div id="commentactioncontainer_CCR6KS0H9T43M73" class="comment-actions"><div class="fr mt5"></div></div></div><a name="C107HEWH9T4QBJW"></a><div class="comment-entry clearfix  highlight" style="margin-left:52px;"><div class="comment-authorpicstats"><a class="memberstats id-amandaghassaei" href="/member/amandaghassaei/"><img src="/files/deriv/FBC/NVBB/HC3PTPRY/FBCNVBBHC3PTPRY.TINY.jpg" alt="" /><div class="count">53</div></a></div><div class="comment-info"><span class="comment-author"><a class="author-link " href="/member/amandaghassaei/">amandaghassaei</a> (author) says:
+        </span><span class="comment-date">Nov 25, 2012. 5:32 PM<a id="replytolink_C107HEWH9T4QBJW" class="btn btn-mini reply-comment login-required" href="C107HEWH9T4QBJW">Reply</a></span></div><div class="txt comment-txt">great!  what are you going to do with it now?</div><div id="files" class=""><a name="files"></a></div><div id="commentactioncontainer_C107HEWH9T4QBJW" class="comment-actions"><div class="fr mt5"></div></div></div><a name="CUR18FAHA5M7KJ5"></a><div class="comment-entry clearfix  " style="margin-left:52px;"><div class="comment-authorpic"><a href="/member/AntzyP/"><img src="/files/deriv/FKV/5TVB/GGPFCITB/FKV5TVBGGPFCITB.TINY.jpg" alt="" /></a></div><div class="comment-info"><span class="comment-author"><a class="author-link " href="/member/AntzyP/">AntzyP</a> says:
+        </span><span class="comment-date">Dec 3, 2012. 5:53 PM<a id="replytolink_CUR18FAHA5M7KJ5" class="btn btn-mini reply-comment login-required" href="CUR18FAHA5M7KJ5">Reply</a></span></div><div class="txt comment-txt">I'm making a guitar tuner. Your frequency detection code is pretty neat. But when harmonics comes into picture, it detects all the harmonic frequencies. So have made my own slow but precise algo which combines zero crossing and amplitude measurement. <br>It's almost done and will be posting instructable soon. Was hoping to make it into DIY Audio contest but couldn't make it...</div><div id="files" class=""><a name="files"></a></div><div id="commentactioncontainer_CUR18FAHA5M7KJ5" class="comment-actions"><div class="fr mt5"></div></div></div><a name="C9B7R03HA4MMWMM"></a><div class="comment-entry clearfix  highlight" style="margin-left:52px;"><div class="comment-authorpicstats"><a class="memberstats id-amandaghassaei" href="/member/amandaghassaei/"><img src="/files/deriv/FBC/NVBB/HC3PTPRY/FBCNVBBHC3PTPRY.TINY.jpg" alt="" /><div class="count">53</div></a></div><div class="comment-info"><span class="comment-author"><a class="author-link " href="/member/amandaghassaei/">amandaghassaei</a> (author) says:
+        </span><span class="comment-date">Dec 3, 2012. 6:29 PM<a id="replytolink_C9B7R03HA4MMWMM" class="btn btn-mini reply-comment login-required" href="C9B7R03HA4MMWMM">Reply</a></span></div><div class="txt comment-txt">great!  send me a link when you post</div><div id="files" class=""><a name="files"></a></div><div id="commentactioncontainer_C9B7R03HA4MMWMM" class="comment-actions"><div class="fr mt5"></div></div></div><a name="C49DMK9HA4MGRBH"></a><div class="comment-entry clearfix  " style="margin-left:52px;"><div class="comment-authorpic"><a href="/member/AntzyP/"><img src="/files/deriv/FKV/5TVB/GGPFCITB/FKV5TVBGGPFCITB.TINY.jpg" alt="" /></a></div><div class="comment-info"><span class="comment-author"><a class="author-link " href="/member/AntzyP/">AntzyP</a> says:
+        </span><span class="comment-date">Dec 4, 2012. 7:50 AM<a id="replytolink_C49DMK9HA4MGRBH" class="btn btn-mini reply-comment login-required" href="C49DMK9HA4MGRBH">Reply</a></span></div><div class="txt comment-txt">for sure!</div><div id="files" class=""><a name="files"></a></div><div id="commentactioncontainer_C49DMK9HA4MGRBH" class="comment-actions"><div class="fr mt5"></div></div></div><a name="CBA009UH9T4F6S3"></a><div class="comment-entry clearfix toplevel " style="margin-left:0px;"><div class="comment-authorpic"><a href="/member/arduinolover/"><img src="/static/defaultIMG/user.TINY.gif" alt="" /></a></div><div class="comment-info"><span class="comment-author"><a class="author-link " href="/member/arduinolover/">arduinolover</a> says:
+        </span><span class="comment-date">Nov 22, 2012. 10:08 AM<a id="replytolink_CBA009UH9T4F6S3" class="btn btn-mini reply-comment login-required" href="CBA009UH9T4F6S3">Reply</a></span></div><div class="txt comment-txt">Great work, one question, if I manage to put every component in order, is there any piece of code to apply a simple effect (anything) on the incoming audio? I am realy newbie here, thanks a lot keep up the good work! </div><div id="files" class=""><a name="files"></a></div><div id="commentactioncontainer_CBA009UH9T4F6S3" class="comment-actions"><div class="fr mt5"></div></div></div><a name="CTDCL25H9T4B690"></a><div class="comment-entry clearfix  highlight" style="margin-left:52px;"><div class="comment-authorpicstats"><a class="memberstats id-amandaghassaei" href="/member/amandaghassaei/"><img src="/files/deriv/FBC/NVBB/HC3PTPRY/FBCNVBBHC3PTPRY.TINY.jpg" alt="" /><div class="count">53</div></a></div><div class="comment-info"><span class="comment-author"><a class="author-link " href="/member/amandaghassaei/">amandaghassaei</a> (author) says:
+        </span><span class="comment-date">Nov 24, 2012. 4:58 AM<a id="replytolink_CTDCL25H9T4B690" class="btn btn-mini reply-comment login-required" href="CTDCL25H9T4B690">Reply</a></span></div><div class="txt comment-txt">Thanks!  Are you going to output the audio?  Something simple would be to multiply all the incoming data by 2 to amplify the signal.  If you wanted to change the shape of the signal you could try squaring the data before outputting it.  You could DC offset it by adding a value to it, or subtract the incoming data from 255 to invert the signal.  Does that make sense?  If you are looking for some more interesting effects you should check out my vocal effects box project: <br>http://instructables.com/id/Arduino-Vocal-Effects-Box/</div><div id="files" class=""><a name="files"></a></div><div id="commentactioncontainer_CTDCL25H9T4B690" class="comment-actions"><div class="fr mt5"></div></div></div><a name="CHK4RYQH8CVHY76"></a><div class="comment-entry clearfix toplevel " style="margin-left:0px;"><div class="comment-authorpic"><a href="/member/Panichou/"><img src="/static/defaultIMG/user.TINY.gif" alt="" /></a></div><div class="comment-info"><span class="comment-author"><a class="author-link " href="/member/Panichou/">Panichou</a> says:
+        </span><span class="comment-date">Oct 17, 2012. 12:37 PM<a id="replytolink_CHK4RYQH8CVHY76" class="btn btn-mini reply-comment login-required" href="CHK4RYQH8CVHY76">Reply</a></span></div><div class="txt comment-txt">Hi ! I am working on a project on digital amplification ( for academic purpose ). <br>I want to amplify a simple signal like an A ( not quite sure, I am french and we call it a &quot; La &quot;, frequence = 55hz ) <br>It won't be much about audio at first, just trying to figure out how arduino works right know ! <br> <br>Here's my first attempt : <br> <br> // Multiply a pure sine from a function generator by 2 <br> <br>int incoming;                                      // define &quot;incoming&quot; as a variable  <br>#define DIGIO 13                              // digital output at pin 13 <br>void setup() <br>{ <br>pinmode(DIGIO, OUTPUT};            //set pin 13 as an output <br>void loop(){  <br>  incoming = analogRead(A0);      //read input from A0 <br>  incoming = 2*incoming;               //multiply A0 input by 2 <br>  DIGIO = incoming;                        // send result to pin 13 <br>} <br> <br>I'll put a function generator in A0. It is my first program ever so it is a little fuzy. I am just not quite sure for how to return the final value, is DIGIO = incoming the right way to do it ?  </div><div id="files" class=""><a name="files"></a></div><div id="commentactioncontainer_CHK4RYQH8CVHY76" class="comment-actions"><div class="fr mt5"></div></div></div><a name="C4PDUVPH8CVHY9B"></a><div class="comment-entry clearfix  " style="margin-left:52px;"><div class="comment-authorpic"><a href="/member/Panichou/"><img src="/static/defaultIMG/user.TINY.gif" alt="" /></a></div><div class="comment-info"><span class="comment-author"><a class="author-link " href="/member/Panichou/">Panichou</a> says:
+        </span><span class="comment-date">Oct 17, 2012. 12:51 PM<a id="replytolink_C4PDUVPH8CVHY9B" class="btn btn-mini reply-comment login-required" href="C4PDUVPH8CVHY9B">Reply</a></span></div><div class="txt comment-txt">* correction :  <br>void setup() {  <br>pinmode(DIGIO, OUTPUT); // set pin 13 as output <br>} </div><div id="files" class=""><a name="files"></a></div><div id="commentactioncontainer_C4PDUVPH8CVHY9B" class="comment-actions"><div class="fr mt5"></div></div></div><a name="CKYG729H8CVGCBG"></a><div class="comment-entry clearfix  highlight" style="margin-left:52px;"><div class="comment-authorpicstats"><a class="memberstats id-amandaghassaei" href="/member/amandaghassaei/"><img src="/files/deriv/FBC/NVBB/HC3PTPRY/FBCNVBBHC3PTPRY.TINY.jpg" alt="" /><div class="count">53</div></a></div><div class="comment-info"><span class="comment-author"><a class="author-link " href="/member/amandaghassaei/">amandaghassaei</a> (author) says:
+        </span><span class="comment-date">Oct 17, 2012. 2:57 PM<a id="replytolink_CKYG729H8CVGCBG" class="btn btn-mini reply-comment login-required" href="CKYG729H8CVGCBG">Reply</a></span></div><div class="txt comment-txt">you're almost there, pin 13 is a digital output, it can only output 5V ( digitalWrite(13,HIGH) ) or ground ( digitalWrite(13,LOW) ).&nbsp; Unfortunately, the Arduino does not have any analog outputs, but using digital pins 0-7 you can make a simple 8 bit DAC.&nbsp; Look at what I set up <a href="http://www.instructables.com/id/Arduino-Audio-Output/" rel="nofollow">here</a><br> You can send this dac a number between 0 and 255 to get it to output a voltage between 0 and 5V using the command:<br> <br> <strong>PORTD = number;</strong><br> <br> one more thing you have to think about is that the values you get from analogRead(A0) are between 0 and 1023, when you multiply this by two, then you get values between 0 and 2046, but the dac will only output values between 0 and 255.&nbsp; If you want to keep the line:<br> <br> <strong>incoming = 2*incoming;</strong><br> <br> then you will need to restrict your analog in values to number between 0 and 127 (between 0 and 0.625V)<br> <br> one way you can do this is by dc offsetting your incoming mic signal by 1/2*0.625 = 0.3125V instead of 2.5V as I recommended in this instructable.&nbsp; And then being careful not to let the amplitude of the signal go above 0.3125V<br> <br> Another (and I think better way) is to keep the signal biased around 2.5V with an amplitude of 0.3125.&nbsp; This will give you values between 2.5-0.3125V = 2.1875V and 2.5+0.3125 = 2.8125V.&nbsp; When you use analogRead(A0) the arduino will read the signal as a value in this range:<br> <br> <strong>min = 2.1875V/5V*1023 = 448<br> max = 2.8125V/5V*1023 = 575</strong><br> <br> you can then subtract 448 from these values so you get values within this range:<br> <br> <strong>min = 448-448 = 0<br> max = 575-448 = 127</strong><br> <br> then you can multiply them by 2 and get numbers between 0 and 255 which can be sent straight to the 8 bit dac.<br> <br> I think this way is better bc if you want to do other things with the audio input later, you can simply amplify the signal more and use the full 0-1023 range to read with A0.&nbsp; by DC offsetting around 0.3125, the Arduino will start clipping the bottom part of your wave as soon as the amplitude of the signal goes above 0.3125V.<br> <br> let me know how this sounds, does it make sense?<br> <br> </div><div id="files" class=""><a name="files"></a></div><div id="commentactioncontainer_CKYG729H8CVGCBG" class="comment-actions"><div class="fr mt5"></div></div></div><a name="C15TKJ8H994BWUS"></a><div class="comment-entry clearfix  " style="margin-left:52px;"><div class="comment-authorpic"><a href="/member/Panichou/"><img src="/static/defaultIMG/user.TINY.gif" alt="" /></a></div><div class="comment-info"><span class="comment-author"><a class="author-link " href="/member/Panichou/">Panichou</a> says:
+        </span><span class="comment-date">Nov 9, 2012. 1:51 PM<a id="replytolink_C15TKJ8H994BWUS" class="btn btn-mini reply-comment login-required" href="C15TKJ8H994BWUS">Reply</a></span></div><div class="txt comment-txt">One more question. <br>Why don't you use the map function ( map(analogRead(A0),0,1023,0,127)) instead of a manual substraction ?  <br>Is it the same thing at the end ?</div><div id="files" class=""><a name="files"></a></div><div id="commentactioncontainer_C15TKJ8H994BWUS" class="comment-actions"><div class="fr mt5"></div></div></div><a name="CWFLZN4H994X8ZL"></a><div class="comment-entry clearfix  highlight" style="margin-left:52px;"><div class="comment-authorpicstats"><a class="memberstats id-amandaghassaei" href="/member/amandaghassaei/"><img src="/files/deriv/FBC/NVBB/HC3PTPRY/FBCNVBBHC3PTPRY.TINY.jpg" alt="" /><div class="count">53</div></a></div><div class="comment-info"><span class="comment-author"><a class="author-link " href="/member/amandaghassaei/">amandaghassaei</a> (author) says:
+        </span><span class="comment-date">Nov 9, 2012. 4:58 PM<a id="replytolink_CWFLZN4H994X8ZL" class="btn btn-mini reply-comment login-required" href="CWFLZN4H994X8ZL">Reply</a></span></div><div class="txt comment-txt">generally with this high frequency interrupt stuff, I like to avoid using any of the commands from the Arduino library, because they usually use more lines of code than are absolutely necessary (so that they are generalized for lots of possible inputs).</div><div id="files" class=""><a name="files"></a></div><div id="commentactioncontainer_CWFLZN4H994X8ZL" class="comment-actions"><div class="fr mt5"></div></div></div><a name="CKYW18LH8TTNQC8"></a><div class="comment-entry clearfix  " style="margin-left:52px;"><div class="comment-authorpic"><a href="/member/Panichou/"><img src="/static/defaultIMG/user.TINY.gif" alt="" /></a></div><div class="comment-info"><span class="comment-author"><a class="author-link " href="/member/Panichou/">Panichou</a> says:
+        </span><span class="comment-date">Oct 28, 2012. 6:42 AM<a id="replytolink_CKYW18LH8TTNQC8" class="btn btn-mini reply-comment login-required" href="CKYW18LH8TTNQC8">Reply</a></span></div><div class="txt comment-txt">Hi ! <br>I do not understand the difference between <br> &quot; PORTD = 3 ;&quot; and &quot; digitalwrite( 3 , HIGH ); &quot; <br></div><div id="files" class=""><a name="files"></a></div><div id="commentactioncontainer_CKYW18LH8TTNQC8" class="comment-actions"><div class="fr mt5"></div></div></div><a name="CEBYNPDH8RK8OCI"></a><div class="comment-entry clearfix  highlight" style="margin-left:52px;"><div class="comment-authorpicstats"><a class="memberstats id-amandaghassaei" href="/member/amandaghassaei/"><img src="/files/deriv/FBC/NVBB/HC3PTPRY/FBCNVBBHC3PTPRY.TINY.jpg" alt="" /><div class="count">53</div></a></div><div class="comment-info"><span class="comment-author"><a class="author-link " href="/member/amandaghassaei/">amandaghassaei</a> (author) says:
+        </span><span class="comment-date">Oct 28, 2012. 12:44 PM<a id="replytolink_CEBYNPDH8RK8OCI" class="btn btn-mini reply-comment login-required" href="CEBYNPDH8RK8OCI">Reply</a></span></div><div class="txt comment-txt">digitalWrite(3,HIGH) turns pin 3 to HIGH and leaves the other outputs alone <br> <br>PORTD = 3 turns pis 0 and 1 to HIGH and pins 2-7 to LOW.  because 3 in binary is 00000011.  These eight digits represent each of the 8 pins in port D (pins 0-7).  The first 6 digits are 0's, so pins 7-2 are LOW, the last two digits are 1's, so pins 1 and 0 are HIGH. <br> <br>more info here: <br>http://www.arduino.cc/en/Reference/PortManipulation</div><div id="files" class=""><a name="files"></a></div><div id="commentactioncontainer_CEBYNPDH8RK8OCI" class="comment-actions"><div class="fr mt5"></div></div></div><a name="COZ77RTH8FOFWEV"></a><div class="comment-entry clearfix  " style="margin-left:52px;"><div class="comment-authorpic"><a href="/member/Panichou/"><img src="/static/defaultIMG/user.TINY.gif" alt="" /></a></div><div class="comment-info"><span class="comment-author"><a class="author-link " href="/member/Panichou/">Panichou</a> says:
+        </span><span class="comment-date">Oct 20, 2012. 4:06 PM<a id="replytolink_COZ77RTH8FOFWEV" class="btn btn-mini reply-comment login-required" href="COZ77RTH8FOFWEV">Reply</a></span></div><div class="txt comment-txt">This is awesome thank you ! Really learned something here. <br>I get the idea of the biased signal but I do not quit understand why do yo substract 448 ( how does the arduino read a 2,18V as a digital 0 ? )</div><div id="files" class=""><a name="files"></a></div><div id="commentactioncontainer_COZ77RTH8FOFWEV" class="comment-actions"><div class="fr mt5"></div></div></div><a name="C5WKC9NH8FYP5F0"></a><div class="comment-entry clearfix  highlight" style="margin-left:52px;"><div class="comment-authorpicstats"><a class="memberstats id-amandaghassaei" href="/member/amandaghassaei/"><img src="/files/deriv/FBC/NVBB/HC3PTPRY/FBCNVBBHC3PTPRY.TINY.jpg" alt="" /><div class="count">53</div></a></div><div class="comment-info"><span class="comment-author"><a class="author-link " href="/member/amandaghassaei/">amandaghassaei</a> (author) says:
+        </span><span class="comment-date">Oct 22, 2012. 10:10 AM<a id="replytolink_C5WKC9NH8FYP5F0" class="btn btn-mini reply-comment login-required" href="C5WKC9NH8FYP5F0">Reply</a></span></div><div class="txt comment-txt">good question, the arduino reads 2.18V as a 448 through its analog input because of the following relationship: <br> <br>2.1875V / 5V *1023 = 448 <br> <br>(remember the arduino reads 5V as 1023 and 0V as 0, so any voltage in between (like 2.18) will give you a value between 1023 and 0) <br> <br>but, since the wave we're looking at only has a voltage between 2.18 and 2.81, we can subtract 448 from all incoming measurements of the wave so that values of 2.18V get stored in the arduino's memory at &quot;0&quot;.  the command would be like this: <br> <br>incoming = analogRead(A0) - 448; <br> <br>This way when we multiply all the values by 2 they fit nicely within the 0-255 range we want.  hopefully that helps?</div><div id="files" class=""><a name="files"></a></div><div id="commentactioncontainer_C5WKC9NH8FYP5F0" class="comment-actions"><div class="fr mt5"></div></div></div><a name="C77K0V5H8TTNQCA"></a><div class="comment-entry clearfix  " style="margin-left:52px;"><div class="comment-authorpic"><a href="/member/Panichou/"><img src="/static/defaultIMG/user.TINY.gif" alt="" /></a></div><div class="comment-info"><span class="comment-author"><a class="author-link " href="/member/Panichou/">Panichou</a> says:
+        </span><span class="comment-date">Oct 28, 2012. 6:43 AM<a id="replytolink_C77K0V5H8TTNQCA" class="btn btn-mini reply-comment login-required" href="C77K0V5H8TTNQCA">Reply</a></span></div><div class="txt comment-txt">Okay I Got It !  <br>Here it is :  <br> <br> <br>int incoming;                   // define &quot;incoming&quot; as a variable  <br>void setup(){ <br>  for (byte i=0;i&lt;8;i++){pinMode(i,OUTPUT);//set digital pins 0-7 <br>  } <br>} <br>void loop(){  <br>  incoming = analogRead(A0)-448;    //read input from A0 <br>  incoming = 2*incoming;        //multiply A0 input by 2 <br>  PORTD = incoming;             // send result to pins 0-7 <br>}</div><div id="files" class=""><a name="files"></a></div><div id="commentactioncontainer_C77K0V5H8TTNQCA" class="comment-actions"><div class="fr mt5"></div></div></div><a name="CJS5XEZH8RK8OF1"></a><div class="comment-entry clearfix  highlight" style="margin-left:52px;"><div class="comment-authorpicstats"><a class="memberstats id-amandaghassaei" href="/member/amandaghassaei/"><img src="/files/deriv/FBC/NVBB/HC3PTPRY/FBCNVBBHC3PTPRY.TINY.jpg" alt="" /><div class="count">53</div></a></div><div class="comment-info"><span class="comment-author"><a class="author-link " href="/member/amandaghassaei/">amandaghassaei</a> (author) says:
+        </span><span class="comment-date">Oct 28, 2012. 12:45 PM<a id="replytolink_CJS5XEZH8RK8OF1" class="btn btn-mini reply-comment login-required" href="CJS5XEZH8RK8OF1">Reply</a></span></div><div class="txt comment-txt">perfect, have you hooked up the hardware yet?</div><div id="files" class=""><a name="files"></a></div><div id="commentactioncontainer_CJS5XEZH8RK8OF1" class="comment-actions"><div class="fr mt5"></div></div></div><div class="comments-pager"><table cellpadding="7"><tr><td></td><td><span class="pager-results">1-40 of 43</span></td><td><a class="pager-next" rel="nofollow" href="http://www.instructables.com/id/Arduino-Audio-Input/?&amp;sort=ACTIVE&amp;limit=40&amp;offset=40#DISCUSS">Next &raquo;</a></td></tr></table></div><div id="add-comment-bottom" class="add-comment-bucket login-required"><a id="comment-invoker-bottom" class="static-invoker" href="#" style="display:none"></a><div id="CommentPoster"><div id="CommentFlaggerXX" class="comment-flagger"><div id="CommentFlagOptions" class="comment-flag-options clearfix"><div class="stepLabel fr">Flag this comment as:</div><div class="clearfix flag-type fr"><div><img src="/static/IMGS/bullet-1.gif" /><a class="flag-comment-as" data-flagtype="not_nice">Not Nice</a></div><div><img src="/static/IMGS/bullet-1.gif" /><a class="flag-comment-as" data-flagtype="inappropriate">Inappropriate</a></div><div><img src="/static/IMGS/bullet-1.gif" /><a class="flag-comment-as" data-flagtype="spam">Spam</a></div><div class="cancel"><input id="" value="cancel" type="button" class="button" style="width:75px;" onclick="$('#CommentPoster').fadeOut('fast', function(){$(this).remove();});" tabindex="" onmouseover="this.className = 'button_over';" onmouseout="this.className = 'button';" rel="" /></div></div></div><div id="CommentFlagResponse" class="comment-flag-response clearfix"></div></div><div id="CommentPosterXX" class="comment-poster clearfix"><a name="previewlink"></a><div id="PreviewComment" class="comment-preview" style="display:none"><span class="stepLabel">Preview Your <span class="commentType">Comment</span></span><div class="preview-body"><div id="PreviewCommentBody" name="PreviewCommentBody"></div><div id="PreviewCommentImages" name="PreviewCommentImages"></div><div id="PreviewCommentFiles" name="PreviewCommentFiles"></div></div></div><form action="/edit/post?bootstrapped=1" method="post"  id="PostCommentForm"  name="PostCommentForm"  class="post-comment-form" ><input type="hidden" name="posted" value="1359893501497"/><input id="PostTopicID" type="hidden" name="stepId" value="SJ8R7OWH5IRVY39" /><input id="InReplyToId" type="hidden" name="inReplyToId" value="" /><input type="hidden" name="linkTo" value="/id/Arduino-Audio-Input/" /><input type="hidden" name="richeditor" id="richeditor" value="false" /><input id="files" name="files" type="hidden" value="" /><input type="hidden" id="PostCommentFormBODY" name="PostCommentFormBODY" value="" /><input type="hidden" id="postToFb" name="postToFb" value="" /><div class="post-comment-box clearfix"><div class="clearfix"><div class="commenter-image fl"><img src="/static/defaultIMG/user.TINY.gif" /></div><div class="comment-container fr"><div class="tip"></div><textarea id="PostCommentFormBODY_editor" class="editorArea"></textarea></div></div><div class="clearfix"><div class="actions fr"><input id="PostCommentLink" class="btn btn-orange" value="Post Comment" type="button" tabindex="5" /></div></div><div id="PostCommentFormError" class="form-error"></div></div></form><ul id="image-bucket" class="instructable-image-bucket clearfix ui-sortable" style="display:none"></ul><div id="file-tabs" class="file-tabs" style="display:none"><ul class="small-tabs clearfix"><li><a href="#upload-tab"><span>upload</span></a></li><li><a href="#library-tab"><span>your library</span></a></li></ul><div id="upload-tab" class="upload-tab small-box clearfix"><input id="file_upload" name="file_upload" type="file" /><p><label for="ftags">Tag files as:</label><input type="text" id="ftags" /></p><p><a id="upload-button" href="javascript:$('#file_upload').uploadifyUpload();" class="gray-btn">Upload Files</a></p></div><div id="library-tab" class="small-box clearfix"><img src="/static/img/ajax-loader.gif" alt="updating" /></div></div></div></div></div><script type="text/deferscript" class="tier1">
+      (function($) {
+        $(function() {
+            $(".login-required").click(function (evt) {
+                evt.preventDefault();
+                navoperator.makeLoginByJquery();
+            });
+            $("div.comment-entry div.spotThumbs a").fancybox({
+                afterShow: function (x) {
+                    var $el = $(this.element),
+                    imgid = $el.find("img").attr("id").substring(3);
+                    $("img.fancybox-image").notes(notesArray[imgid], false, $(".fancybox-inner"));
+                }
+            });            
+        });
+      })(jQuery);
+    </script></div>
+    <!-- google_ad_section_end -->
+  </div><div id="sidebar"><div class="side-ad ible"><script class="tier2" type="text/deferscript">
+      GA_googleFillSlot("technology_med_rectangle");
+    </script></div><div class="hatbox about-ible"><h3>About This Instructable <a class="stats-link btn btn-small" href="#statsModal" data-toggle="imodal"><i class="bg-icon stats"></i></a></h3><div id="ible-about" class="hatbox-content"><div class="ible-info"><div class="clearfix"><div class="ible-details"><p class="total-hits"><i class="icon-views selected"></i><span class="count">18,342</span> views</p><p class="favorites"><i class="icon-favorites selected"></i><span class="count">59</span> favorites</p></div><div class="ible-extras"><p class="posted-date"><span>Posted:</span><br />Oct 2, 2012</p><p class="license"><span>License:</span><br /><a href="#" onclick="window.open('/static/entry/license/BY_NC_SA.html','LICENSE','status=yes,scrollbars=yes,resizable=yes,width=450,height=400'); return false;"><img alt="Attribution-NonCommercial-ShareAlike" src="/static/img/license/by-nc-sa_small.png" /></a></p></div></div></div><div class="ible-author"><div class="clearfix"><div class="author-image"><a href="/member/amandaghassaei/" title="view amandaghassaei's profile"><img src="/files/deriv/FBC/NVBB/HC3PTPRY/FBCNVBBHC3PTPRY.SQUARE.jpg" /></a></div><div class="author-details"><div class="byline"><a class="name" href="/member/amandaghassaei/" title="view amandaghassaei's profile">amandaghassaei</a><a class="site" href="http://www.amandaghassaei.com" target="_blank" title="view amandaghassaei's website">uh-man-duh-guss-eye-dot-com</a></div><div class="follow"><a id="follow-btn" class="btn btn-small btn-yellow" data-action="follow" data-followid="M0VIOL4GXDWOT46" data-flag="0" data-dotxt="Follow" data-donetxt="Following" data-undotxt="Unfollow"><i class="bg-icon plus active"></i>&nbsp; <span>Follow</span></a><span class="callout">528</span></div></div></div><div class="bio"><span class="lbl">Bio:</span>Currently working for instructables!</div></div><div id="ajax-more-from-author-placeholder" style="display:none"></div><div class="ible-tags"><div class="clearfix"><span class="lbl fl">Tags:</span><a class="btn btn-mini" href="/tag/type-id/category-technology/keyword-arduino/">arduino</a><a class="btn btn-mini" href="/tag/type-id/category-technology/keyword-audio/">audio</a><a class="btn btn-mini" href="/tag/type-id/category-technology/keyword-input/">input</a><a class="btn btn-mini" href="/tag/type-id/category-technology/keyword-microphone/">microphone</a><a class="btn btn-mini" href="/tag/type-id/category-technology/keyword-signal/">signal</a><a class="btn btn-mini" href="/tag/type-id/category-technology/keyword-analog/">analog</a><a class="btn btn-mini" href="/tag/type-id/category-technology/keyword-sound/">sound</a><a class="btn btn-mini" href="/tag/type-id/category-technology/keyword-adc/">ADC</a><a class="btn btn-mini" href="/tag/type-id/category-technology/keyword-8 bit/">8 bit</a><a class="btn btn-mini" href="/tag/type-id/category-technology/keyword-music/">music</a><a class="btn btn-mini" href="/tag/type-id/category-technology/keyword-audio in/">audio in</a></div></div></div></div><div class="imodal addto-modal stats-modal" id="statsModal" tabindex="-1" style="display:none"><div class="imodal-inner"><a href="#" class="imodal-close" data-dismiss="imodal"><img alt="close" src="/static/img/imodal-close.png" /></a><div class="imodal-header"><h2>Stats</h2></div><div class="imodal-body"><div class="ible-stats"><table cellspacing="0" border="0" width="250"><tr><th>Total Views</th><td>18,342</td></tr><tr><th>Views Today</th><td>187</td></tr><tr><th>Comments</th><td>44</td></tr><tr><th>Favorites</th><td>59</td></tr></table></div></div></div></div><div id="ajax-related-instructables-placeholder" style="display:none"></div><div id="ible-sticky-wrapper"><div id="ible-stickyad"><script class="tier2" type="text/deferscript">
+        GA_googleFillSlot("brand_technology_med_rectangle");
+        window.setTimeout(function() {          
+          $(function(){
+            var stickyAd = $('#ible-stickyad'),
+                stickyAdHeight = stickyAd.height(),
+                stickyAdTop = stickyAd.offset().top,
+                sidebar = $('#sidebar'),
+                mainContent = $('#main-content');
+
+            $('#ible-sticky-wrapper').height(stickyAdHeight);
+            $(window).bind('scroll.iblestickyad', function(){
+              var scrollTop = $(window).scrollTop(),
+                  sidebarHeight = sidebar.height(),
+                  sidebarBottomOffset = sidebarHeight + sidebar.offset().top,
+                  mainContentHeight = mainContent.height(),
+                  mainContentBottomOffset = mainContentHeight + mainContent.offset().top,
+                  topAdjust = $('#ible-header').height() + 43;
+              
+              if (sidebarHeight < mainContentHeight) {
+                if ((scrollTop+stickyAdHeight) > (mainContentBottomOffset - topAdjust)) {
+                  stickyAd.css({top:'auto'}).css({'position':'absolute','bottom':0});
+                } else if (scrollTop > (stickyAdTop - topAdjust)) {
+                  stickyAd.css({'top':topAdjust+'px', 'position':'fixed'});
+                } else { 
+                  stickyAd.css({top:'auto'}).css({'position':'relative'});
+                }
+              }
+            });
+
+            // clicking on related instructables changes position of the ad
+            $('#seemore-related-ibles').live('click', function(e){
+              stickyAdTop = stickyAd.offset().top;
+            });         
+          });     
+        },1250);          
+      </script></div></div><script type="text/deferscript">
+  $(function() {
+    if (true) {
+      $('#follow-btn').click(function(e){
+        e.preventDefault();
+        navoperator.makeLoginByJquery();
+      });
+    } else {
+      $('#follow-btn').ajaxActionBtn();  
+    }
+  });
+</script><script type="text/deferscript">
+    $(function() {
+      $('.addbtn').ajaxActionBtn();
+
+      $('.addbtn').bind('ajax-action-success', function(e, data) {
+        if (($(this).data('action') == 'addToContest') && data) {
+          var container = $(this).parent();
+          container.children('p').remove();
+          container.append('<p>'+data+'</p>');            
+        }
+      });     
+    });      
+  </script><script class="tier1" type="text/deferscript" defersrc="/static/js/imodal.js"></script></div></div></div><div id="footer"><div id="footer-search"><div id="other-locations"><a target="_blank" href="http://www.facebook.com/instructables"><img src="/static/img/home/fb.png" /></a><a target="_blank" href="http://www.twitter.com/instructables"><img src="/static/img/home/twitter.png" /></a></div><div id="searchbox"><form action="/tag/type-id/" method="get" id="footer-search-form"><input type="text" class="barinput" name="q" id="q2" value="" /><input type="hidden" name="sort" value="none" /><a href="#" id="searchbutton"><span>Search</span></a></form><script type="text/javascript">
+        (function($){
+          $(function() {
+            $('#searchbutton').click(function(e){
+              e.preventDefault();
+              $('#footer-search-form').submit();
+            });        
+          });
+        })(jQuery);
+        </script></div></div><div id="footerstuff"><div id="morefrom" class="col"><h3>Explore Channels</h3><div class="footerchannels">
+<ul>
+<li><a href="/tag/type-id/category-technology/channel-arduino/"><span>Arduino</span></a></li>
+<li><a href="/tag/type-id/category-outside/channel-bikes/"><span>Bikes</span></a></li>
+<li><a href="/tag/type-id/category-technology/channel-cnc/"><span>CNC</span></a></li>
+<li><a href="/tag/type-id/category-living/channel-christmas/"><span><b>Christmas</b></span></a></li>
+<li><a href="/tag/type-id/category-living/channel-decorating/"><span>Decorating</span></a></li>
+<li><a href="/tag/type-id/category-technology/channel-electronics/"><span>Electronics</span></a></li>
+<li><a href="/tag/type-id/category-workshop/channel-furniture/"><span>Furniture</span></a></li>
+</ul>
+<ul>
+<li><a href="/tag/type-id/category-living/channel-kids/"><span>Kids</span></a></li>
+<li><a href="/tag/type-id/category-technology/channel-leds/"><span>LEDs</span></a></li>
+<li><a href="/tag/type-id/category-technology/channel-science/"><span>Science</span></a></li>
+<li><a href="/tag/type-id/category-living/channel-sewing/"><span>Sewing</span></a></li>
+<li><a href="/tag/type-id/category-workshop/channel-solar/"><span>Solar</span></a></li>
+<li><a href="/tag/type-id/category-workshop/channel-tools/"><span>Tools</span></a></li>
+<li><a href="/tag/type-id/category-workshop/channel-woodworking/"><span>Woodworking</span></a></li>
+</ul>
+</div></div><div id="newsletter-column" class="col"><h3>Join Our Newsletter</h3><p>Join over 1 million Instructable fans who receive our how to make newsletter.</p><p><input type="text" id="newslettersignuptext" class="text" value="enter email" onfocus="if(this.value == 'enter email')this.value='';" /><a id="join-btn" href="#" onclick="openSubscribePopUp(document.getElementById('newslettersignuptext'));return false;"><img src="/static/img/home/join.png" /></a></p><script type="text/javascript">
+  	      function openSubscribePopUp(src){
+              if (src.value == 'enter email') {
+              alert('Please enter your email address');
+              } else {
+              window.open("/newsletter/newslettersignup?email=" + src.value,"newslettersignup","status=yes,scrollbars=yes,resizable=yes,width=420,height=250");
+              }
+  	      }
+  	    </script></div><div id="footer-about" class="col"><h3>About Us</h3><ul><li><a href="/about/">Who We Are</a></li><li><a href="/advertise/">Advertise</a></li><li><a href="/about/contact.jsp">Contact</a></li><li><a href="/community?categoryGroup=marketplace&category=jobs_internships">Jobs</a></li><li><a href="/community?categoryGroup=Help">Help</a></li></ul></div><div class="col"><a class="pro-btns" href="/account/gopro?sourcea=footer"><img src="/static/img/home/go-pro.png" alt="Go Pro!" /></a><a class="pro-btns" href="/account/give?sourcea=footer"><img src="/static/img/home/give-pro.png" alt="Give Pro" /></a></div></div><p id="copyright" class="copyright" /><div class="footer-bottom"><a title="Autodesk" target="blank" href="http://usa.autodesk.com/adsk/servlet/pc/index?id=20781545&siteID=123112"><img src="/static/img/autodesk.png" /></a><br /><a onclick="window.open('/tos.html','TOS','status=yes,scrollbars=yes,resizable=yes,width=600,height=480'); return false;" href="/tos.html">Terms of service</a> |
+      <a target="blank" href="http://usa.autodesk.com/privacy/">Privacy Policy</a> |
+      <a class="mobile-site-link" href="http://m.instructables.com">Mobile Site</a></div><script type="text/javascript">
+      jQuery('.mobile-site-link').click(function(e){
+        e.preventDefault();
+        var that = this;
+        document.cookie = 'Iblefullsite=0;domain=.instructables.com;path=/;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+        setTimeout(function(){window.location = that.href;},50);
+      });
+    </script></div><div class="promodal" id="login-modal"><div class="promodal-inner"><div class="promodal-top"><img class="promodal-proburst" src="/static/img/promodal-proburst.png" alt="Pro" /><h3>Get More Out of Instructables</h3><h3 id="login-account-h">Already have an Account?</h3><a class="promodal-close" href="#"><img src="/static/img/promodal-close.png" alt="close" /></a></div><div id="upgrade-features"><img id="login-upgrade-img" src="/static/defaultIMG/file/PDF.gif" /><p><strong>PDF Downloads</strong><br />As a Pro member, you will gain access to download any Instructable in the PDF format. 
+          You also have the ability to customize your PDF download.</p><a id="login-upgrade" href="/account/gopro?sourcea=login"><span>Upgrade to Pro today!</span></a></div><div class="login loginform" id="loginform"><form id="login" method="post" action="/account/login?nxtPgName=Arduino+Audio+Input&nxtPg=/id/Arduino-Audio-Input/"><div class="username"><label for="username_nav" id="username_label">Username</label><input id="username_nav" type="text" name="u" /></div><div class="password"><label for="password_nav" id="password_label">Password</label><input id="password_nav" type="password" name="p" /></div><div class="loginbutton"><input type="hidden" name="RememberME" value="checked" /><input type="submit" class="login-btn" value="Login" /></div><p class="forgot"><a href="/account/forgot?nxtPgName=Arduino+Audio+Input&nxtPg=/id/Arduino-Audio-Input/">(forgot username/password?)</a></p></form></div></div></div><div id="fb-root"></div><script type="text/javascript" src="/static/js/nav.js"></script><script type="text/deferscript" class="tier1" defersrc="//connect.facebook.net/en_US/all.js"></script><script class="tier1" type="text/deferscript">
+          FB.init({
+            appId: '140028286058792',
+            cookie: false,
+            xfbml: false,
+            oauth: true
+          });
+          (function () {
+              var el = document.getElementById("facebook-login");
+              if (el != null) {
+                  el.onclick = function (evt) {
+                      evt.preventDefault();
+                      FB.getLoginStatus(function(response) {
+                          if (response.status === 'connected') {
+                              if (response.authResponse) {
+                                  var expirationDate = new Date;
+                                  expirationDate.setMonth(expirationDate.getMonth()+6);
+                                  document.cookie = 'fbat_140028286058792=' + response.authResponse.accessToken + '; domain=.instructables.com; expires=' + expirationDate + '; path=/';
+                                  window.location.reload(true);
+                              }
+                          } else {
+                              // not logged into Facebook or not authorized
+                              FB.login(function(response) {
+                                  if (response.authResponse) {
+                                      var expirationDate = new Date;
+                                      expirationDate.setMonth(expirationDate.getMonth()+6);
+                                      document.cookie = 'fbat_140028286058792=' + response.authResponse.accessToken + '; domain=.instructables.com; expires=' + expirationDate + '; path=/';
+                                      window.location.reload(true);
+                                  }
+                              }, {
+                                  scope: "email,user_birthday,publish_stream",
+                                  redirect_url: "http://www.instructables.com/id/Arduino-Audio-Input/"
+                              });
+                          };
+                      })
+                  }
+              }
+          })();
+        
+            doRedirect = function (params, source) {
+                var o = {};
+                o.location = window.location.href;
+                o.host = window.location.host;
+                o.protocol = window.location.protocol;
+                o.doit = function(){
+                    if (typeof params === "undefined") { // no params, redirect to current page
+                        window.location = o.location;
+                        return; // we don't bother processing the rest of this, just immediately redirect
+                    } else if (params.indexOf("/account/gopro") !== -1) { // found "/account/gopro" in params, so redirect there
+                        o.nextHref = o.protocol + "//" + o.host + params;
+                    } else if (params.indexOf("nxtPg=") === -1) { // we have a URL declared as a string
+                        o.nextHref = params;
+                    } else { // a string of query parameters, we need to parse out the values
+                        o.nextPage = params.substring(params.indexOf("nxtPg=") + 6);
+                        o.nextHref = o.protocol + "//" + o.host + o.nextPage;
+                    }
+                    window.location = o.nextHref;
+                }();
+                if (typeof source !== "undefined" && source !== "" && typeof _gaq !== "undefined") {
+                    _gaq.push(['_trackPageview', '/event/fb_login/' + source + '/']);
+                }
+                return o.doit;
+            };
+        
+    </script><script type="text/javascript" src="/static/js/gw-12.4.4/lib/gw.min.js"></script><script type="text/javascript"> setTimeout(ghostwriter.loadscripts, 2500); </script><link rel="stylesheet" type="text/css" href="/static/js/jqplugins/fancybox/source/jquery.fancybox.css" /><script type="text/javascript" src="/static/js/jqplugins/jquery.notes.js"></script><script type="text/javascript" src="/static/js/jqplugins/fancybox/source/jquery.fancybox.pack.js"></script><script type="text/javascript" src="/static/js/fancybox-photoset.js"></script><script type="text/javascript" src="/static/js/jqplugins/lazyload/jquery.lazyload.min.js"></script><script type="text/javascript">
+/*  */
+(function() {
+  var $ = jQuery;
+    
+  function imgLoaded(img) {
+    if (!img.complete || (typeof img.naturalWidth != "undefined" && img.naturalWidth == 0)) {
+      return false;
+    }
+    return true;
+  }
+  
+  function hasImgNotes(lookupId) {
+    return (typeof notesArray !== "undefined" && typeof notesArray[lookupId] !== "undefined");
+  }
+  
+  function getNotes(lookupId) {
+    return notesArray[lookupId];
+  }
+            
+  $(function () {       
+      // see more images
+      $('.photoset-seemore').click(function(e) {
+        e.preventDefault();
+        var photoset = $(this).closest('.photoset')
+        photoset.children('.row').filter(':hidden').show();
+        $('html,body').animate({scrollTop:$(window).scrollTop()+1}, 100);                   
+        $(this).closest('.row').remove();
+      });   
+       
+      // lazyload images
+      $(".lazyphoto").show().lazyload({
+        effect: "fadeIn",
+        threshold: 200,
+        load: function() {
+          // load image notes for the rest of the images that are in a row by itself and are lazily loaded
+          var notesContainer = $(this).closest(".photoset-link");
+          if ($(this).closest('.row').children('.photoset-link').size() === 1) {
+            var notesId = $(this).data("notes-lookup-id");
+            if (hasImgNotes(notesId)) {
+              $(this).notes(getNotes(notesId), false, notesContainer);
+            }            
+          }
+        }
+      });
+      
+      $(".photoset-link").each(function() {
+        // Replace href attribute with value needed to display lightbox content
+        $(this).attr('href', $(this).data('fancybox-href'));
+
+        // toggle notes icon
+        $(this).bind("mouseenter mouseleave", function(){
+          $(this).toggleClass('selected');
+        });
+        
+        // enable clicking on the note-holder to open the gallery
+        $(this).children(".note-holder").live('click', function(){
+          $(this).parent(".photoset-link").click();          
+        });
+      });
+      
+      // enable clicking on note-holder and fancybox-image to open image url
+      $(".photoset-fancybox .note-holder, .photoset-fancybox .fancybox-image").live('click', function(){
+        window.location.href = $($.fancybox.group[$.fancybox.current.index]).data('href');
+      });
+      
+      // Initialize lightbox gallery and image note upon rendering
+      $(".photoset-link").fancybox({    
+        afterClose: function() {
+          if (window.history && history.pushState) {
+            $.fancybox.statePushed = false;
+            if ($.fancybox.closeFromBack)
+              $.fancybox.closeFromBack = false;
+            else
+              history.back();
+          }
+        },
+        
+        afterShow: function () {
+          if (window.history && history.pushState) {
+            var photosetLink = $.fancybox.group[$.fancybox.current.index],
+                state = {'photosetLinkId': photosetLink.id},
+                href = $(photosetLink).data('href');
+            $.fancybox.lastState = state;
+            if (!$.fancybox.statePushed) {
+              $.fancybox.statePushed = true;
+              history.pushState(state, null, href);
+            } else {
+              history.replaceState(state, null, href);            
+            }
+          }
+            
+          var notesContainer = $.fancybox.inner;
+          if (notesContainer) {
+            var galleryImg = notesContainer.find("img:first"),
+                curPhotoLink = $($.fancybox.current.element),
+                notesId = curPhotoLink.data("notes-lookup-id");                
+            if (hasImgNotes(notesId)) {
+              galleryImg.notes(getNotes(notesId), false, notesContainer);
+            } 
+            _gaq.push(['_trackPageview', curPhotoLink.closest('.photoset').attr('data-entry-url') + 'image' + $.fancybox.current.index + '/']);             
+          }         
+        }          
+      });    
+  });   
+
+  // Initialize image notes for first photoset image if it wasn't lazy loaded
+  $(window).load(function() {       
+      $(".photoset").each(function() {
+        var firstImg = $(this).find("img:first"),
+            notesId = firstImg.data("notes-lookup-id"),
+            notesContainer = firstImg.closest(".photoset-link");
+        if (!firstImg.hasClass('lazyphoto') && hasImgNotes(notesId) && imgLoaded(firstImg[0])) {
+          firstImg.notes(getNotes(notesId), false, notesContainer);
+        }
+      });
+  });
+    
+  $(window).bind("popstate", function(e) {
+    if (window.history && history.pushState) {
+      if (e.originalEvent && e.originalEvent.state && !$.fancybox.isOpen) {
+        $.fancybox.statePushed = true;
+        $('#'+e.originalEvent.state.photosetLinkId).click();
+      } else if ($.fancybox.isOpen) {
+        $.fancybox.closeFromBack = true;
+        $.fancybox.close();
+      }
+    }
+  });
+    
+  $(window).bind('pageshow', function(e){
+    if (window.history && history.state) {
+      if (history.state.photosetLinkId) {        
+        $.fancybox.statePushed = true;
+        $('#'+history.state.photosetLinkId).click();
+      }
+    }
+  });
+    
+  $(window).bind('unload', function(e){
+    if (window.history && history.replaceState) {
+      if ($.fancybox.lastState && ($.fancybox.originalUrl != window.location.href)) {
+        // In safari, if we call replacestate with a new url during an unload event, then the browser will
+        // ignore url on address bar and will effectively redirect back to the originalUrl. I don't think
+        // this can solve this without trading off another history functionality.
+        // Chrome has its issues as well.
+        history.replaceState($.fancybox.lastState, null, $.fancybox.originalUrl);    
+      }
+    }
+  });
+})();
+/*  */
+</script><script class="tier1" type="text/deferscript" defersrc="/static/js/statcard.jq.js"></script><script class="tier1" type="text/deferscript">
+$(function() {
+  $.ajax({
+    url: '/pages/instructable/ajax_ible_pageload.jsp',
+    dataType: 'json',
+    data: {
+      id: "ET0U5VQH5035JJ6",
+      author: "amandaghassaei",
+      category: "technology",
+      channel: "arduino",
+      keywords: "arduino, audio, input, microphone, signal, analog, sound, ADC, 8 bit, music, audio in",
+      status: "PUBLISHED"  
+    },
+    success: function(data) {
+      var moreByHtml = data.moreByHtml,
+          relatedHtml = data.relatedHtml,
+          isBlank = function(obj) {
+            return (!obj || $.trim(obj) === "");
+          };          
+      if (!isBlank(moreByHtml))
+        $('#ajax-more-from-author-placeholder').html(data.moreByHtml).show();
+      if (!isBlank(relatedHtml))
+        $('#ajax-related-instructables-placeholder').html(data.relatedHtml).show();
+    }
+  });
+});
+</script></body>
+</html>

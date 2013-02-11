@@ -1,0 +1,913 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta name="description" content="Arduino reading audio input" />
+	<meta name="keywords" content="PHP, MySQL, bulletin, board, free, open, source, smf, simple, machines, forum" />
+	<script language="JavaScript" type="text/javascript" src="http://arduino.cc/forum/Themes/default/script.js?fin11"></script>
+	<script language="JavaScript" type="text/javascript"><!-- // --><![CDATA[
+		var smf_theme_url = "http://arduino.cc/forum/Themes/arduinoWide";
+		var smf_images_url = "http://arduino.cc/forum/Themes/arduinoWide/images";
+		var smf_scripturl = "http://arduino.cc/forum/index.php";
+		var smf_iso_case_folding = false;
+		var smf_charset = "UTF-8";
+	// ]]>
+</script>
+
+	<script type="text/javascript">
+	  var _gaq = _gaq || [];
+	  _gaq.push(['_setAccount', 'UA-22581631-3']);
+	  _gaq.push(['_setDomainName', 'arduino.cc']);
+	  _gaq.push(['_trackPageview']);
+
+	  (function() {
+	    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+	    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	  })();
+	</script>
+
+	<title>Arduino reading audio input - Arduino Forum</title>
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.png">
+	<link rel="stylesheet" type="text/css" href="http://arduino.cc/forum/Themes/arduinoWide/style.css?fin11" />
+	<link rel="stylesheet" type="text/css" href="http://arduino.cc/forum/Themes/default/print.css?fin11" media="print" />
+	<link rel="help" href="http://arduino.cc/forum/index.php?action=help" target="_blank" />
+	<link rel="search" href="http://arduino.cc/forum/index.php?action=search" />
+	<link rel="contents" href="http://arduino.cc/forum/index.php" />
+	<link rel="alternate" type="application/rss+xml" title="Arduino Forum - RSS" href="http://arduino.cc/forum/index.php?type=rss;action=.xml" />
+	<link rel="prev" href="http://arduino.cc/forum/index.php?topic=4586.0;prev_next=prev" />
+	<link rel="next" href="http://arduino.cc/forum/index.php?topic=4586.0;prev_next=next" /><link rel="stylesheet" type="text/css" media="screen" href="https://id.arduino.cc/css/sso_bar.css" /><script src="https://id.arduino.cc/css/sso_bar_js_2.php?s=forum"></script>
+	<link rel="index" href="http://arduino.cc/forum/index.php?board=39.0" /><meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+	<script language="JavaScript" type="text/javascript"><!-- // --><![CDATA[
+		var current_header = false;
+
+		function shrinkHeader(mode)
+		{
+			document.cookie = "upshrink=" + (mode ? 1 : 0);
+			document.getElementById("upshrink").src = smf_images_url + (mode ? "/upshrink2.gif" : "/upshrink.gif");
+
+			document.getElementById("upshrinkHeader").style.display = mode ? "none" : "";
+			document.getElementById("upshrinkHeader2").style.display = mode ? "none" : "";
+
+			current_header = mode;
+		}
+	// ]]></script>
+		<script language="JavaScript" type="text/javascript"><!-- // --><![CDATA[
+			var current_header_ic = false;
+
+			function shrinkHeaderIC(mode)
+			{
+				document.cookie = "upshrinkIC=" + (mode ? 1 : 0);
+				document.getElementById("upshrink_ic").src = smf_images_url + (mode ? "/expand.gif" : "/collapse.gif");
+
+				document.getElementById("upshrinkHeaderIC").style.display = mode ? "none" : "";
+
+				current_header_ic = mode;
+			}
+		// ]]></script>
+                  <script language="JavaScript" type="text/javascript" src="http://arduino.cc/forum/Themes/arduinoWide/mootools.js"></script>
+                  <script language="JavaScript" type="text/javascript" src="http://arduino.cc/forum/Themes/arduinoWide/menu.js"></script>
+  <link href="http://arduino.cc/resources/jquery/plugins/bubblepopup/css/jquery.bubblepopup.v2.3.1.css?fin11" rel="stylesheet" type="text/css" />
+	<script language="JavaScript" type="text/javascript" src="http://arduino.cc/resources/jquery/jquery-1.4.4.min.js?fin11"></script>
+	<script language="JavaScript" type="text/javascript" src="http://arduino.cc/forum/Themes/arduinoWide/t.js"></script>
+</head>
+ <body>
+		<div id="ssotoolbar">
+		  <div id="al">
+			<nobr><div id="ssoNavBar">&nbsp;</div></nobr>
+		  </div>
+		  <div id="ar">
+			<nobr>
+			  <div id="loginInfo"><div id="loading">Loading...</div></div>
+			</nobr>
+		  </div>
+		</div>
+		
+  <div id="wrapper"/>
+	  <div id="header">
+      <a href="http://arduino.cc" title=""><span id="logo"> </span></a>
+		  <a href="http://arduino.cc/forum/index.php?action=forum" title=""><span id="logo_tagline"> </span></a>
+	  </div>
+
+	  <div id="sidebar">
+    <div id="searchbox">
+      <form action="index.php?action=search2" method="post" accept-charset="UTF-8" name="searchform" id="searchform"> 
+        <input type="text" name="search" /> 
+        <input type="submit" name="submit" value="Search" />
+      </form>
+    </div>
+	    <div id="fancymenu"><script type="text/javascript">$extRender = '<div class="li adv search"><a href="http://arduino.cc/forum/index.php?action=search">Search</a></div> <div class="li sep">|</div>';ssoGenerateNavigationBar('');</script>
+	    </div>
+      <div id="userarea"><div class="smalltext">				
+        Welcome, <b>Guest</b>. Please <a href="http://arduino.cc/forum/index.php?action=login">login</a> or <a href="http://arduino.cc/forum/index.php?action=register">register</a>.</div><div class="smalltext">
+        February 04, 2013, 06:08:20 AM</div>
+      </div>
+    </div>
+    <div id="mainarea">
+<a name="top"></a>
+<a name="msg34810"></a>
+<div><div id="navBreadCrumb"><span class="homeIcon"><a href="http://arduino.cc/forum/index.php"><img src="http://arduino.cc/forum/Themes/arduinoWide/images/home_icon.gif" alt="home icon" title=" home icon " width="9" height="11"></a></span> | <a href="http://arduino.cc/forum/index.php" class="nav">Arduino Forum</a>&nbsp;::&nbsp;<a href="http://arduino.cc/forum/index.php#12" class="nav">Forum 2005-2010 (read only)</a>&nbsp;::&nbsp;<a href="http://arduino.cc/forum/index.php?board=61.0" class="nav">General</a>&nbsp;::&nbsp;<a href="http://arduino.cc/forum/index.php?board=39.0" class="nav">Frequently-Asked Questions</a>&nbsp;::&nbsp;Arduino reading audio input</div></div>
+      <div class="msgMenu">
+			  <div class="nav" style="margin-bottom: 2px;"> <a href="http://arduino.cc/forum/index.php?topic=4586.0;prev_next=prev#new">&laquo; previous topic&nbsp;</a> <a href="http://arduino.cc/forum/index.php?topic=4586.0;prev_next=next#new">&nbsp;next topic &raquo;</a></div>
+      </div>
+<table width="100%" cellpadding="0" cellspacing="0" border="0">
+	<tr>
+		<td class="middletext" valign="bottom" style="padding-bottom: 4px;">Pages: [<b>1</b>]   &nbsp;&nbsp;<a href="#lastPost"><b>Go Down</b></a></td>
+		<td>
+      <div class="msgMenu">
+			  <div style="margin-bottom: -1px;">
+			  <table cellpadding="0" cellspacing="0">
+				  <tr>
+					  
+		<td class="maintab_back"><a href="http://arduino.cc/forum/index.php?action=printpage;topic=4586.0" target="_blank">Print</a></td>
+				  </tr>
+			  </table>
+			  </div>
+      </div>
+		</td>
+	</tr>
+</table>
+						<div class="catbgf">
+						</div>
+<table width="100%" cellpadding="3" cellspacing="0" border="0" class="tborder" style="border-bottom: 0;">
+		<tr class="titlebg">
+				<td valign="middle" width="2%" style="padding-left: 6px;">
+						<img src="http://arduino.cc/forum/Themes/arduinoWide/images/topic/normal_post.gif" align="bottom" alt="" />
+				</td>
+				<td width="13%"> Author</td>
+				<td valign="middle" width="85%" style="padding-left: 6px;" id="top_subject">
+						Topic: Arduino reading audio input &nbsp;(Read 859 times)
+				</td>
+		</tr>
+		<tr>
+				<td colspan="3" class="smalltext">0 Members and 1 Guest are viewing this topic.
+				</td>
+		</tr>
+</table>
+<form action="http://arduino.cc/forum/index.php?action=quickmod2;topic=4586.0" method="post" accept-charset="UTF-8" name="quickModForm" id="quickModForm" style="margin: 0;" onsubmit="return in_edit_mode == 1 ? modify_save('23226eab2af095d7bae7632774df4b71') : confirm('Are you sure you want to do this?');">
+<table cellpadding="0" cellspacing="0" border="0" width="100%" class="bordercolor">
+	<tr><td style="padding: 1px 1px 0 1px;">
+		<table width="100%" cellpadding="3" cellspacing="0" border="0">
+			<tr><td class="windowbg">
+				<table width="100%" cellpadding="5" cellspacing="0" style="table-layout: fixed;">
+					<tr>
+						<td valign="top" width="16%" rowspan="2" style="overflow: hidden;">
+						<div class="profile">
+
+							<div class="memberName"><a href="http://arduino.cc/forum/index.php?action=profile;u=19681" title="View the profile of silverslik1">silverslik1</a> <div class="genderIcon"><img src="http://arduino.cc/forum/Themes/arduinoWide/images/icons/ghost.png"/>
+                </div>
+              </div>
+							<div class="profileText">
+								<div class="memberLocation">0</div>
+								<div class="memberOnline"><img src="http://arduino.cc/forum/Themes/arduinoWide/images/useroff.gif" alt="Offline" border="0" style="margin-top: 2px;" /><span class="smalltext"> Offline</span></div>
+								<div class="memberPostGroup">Newbie</div>
+								<div class="memberGroupStars"><img src="http://arduino.cc/forum/Themes/arduinoWide/images/star.gif" alt="*" border="0" /></div><div class="memberKarma">Karma: 0</div>
+								<div class="memberPosts">Posts: 19</div>
+								
+								<div class="memberAvatar" style="overflow: auto; width: 100%;"><img src="http://arduino.cc/forum/avatars/blank.gif" alt="" class="avatar" border="0" /></div>
+								<div class="memberPersonalMsg">Arduino rocks</div>
+								<div class="memberIcons">
+								<div class="memberIM">
+								
+								
+								</div>
+								<div class="memberViewProfile"><a href="http://arduino.cc/forum/index.php?action=profile;u=19681"><img src="http://arduino.cc/forum/Themes/arduinoWide/images/icons/user.png" alt="View Profile" title="View Profile" border="0" /></a></div></div>
+							</div></div>
+
+						</td>
+						<td valign="top" width="85%" height="100%">
+							<table width="100%" border="0"><tr>
+								<td valign="middle"><a href="http://arduino.cc/forum/index.php?topic=4586.msg34810#msg34810"><img src="http://arduino.cc/forum/Themes/arduinoWide/images/post/xx.gif" alt="" border="0" /></a></td>
+								<td valign="middle">
+									<div class="postSubject" id="subject_34810">
+										<a href="http://arduino.cc/forum/index.php?topic=4586.msg34810#msg34810">Arduino reading audio input</a>
+									</div>
+									<div class="postDate">&#171; <b> on:</b> February 10, 2010, 11:55:19 PM &#187;</div></td>
+								<td align="right" valign="bottom" height="20" class="postIconMenu">	
+			<a href="#" class="increaseFont"> <img src="http://arduino.cc/forum/Themes/arduinoWide/images/buttons/edit-size-up.png" alt=" Bigger" align="middle" /><b> Bigger</b></a>
+			<a href="#" class="decreaseFont"> <img src="http://arduino.cc/forum/Themes/arduinoWide/images/buttons/edit-size-up.png" alt=" Smaller" align="middle" /><b> Smaller</b></a>
+			<a href="#" class="resetFont"><img src="http://arduino.cc/forum/Themes/arduinoWide/images/buttons/edit-size-up.png" alt=" Reset" align="middle" /><b> Reset</b></a>
+		
+								</td>
+							</tr></table>
+							<hr width="100%" size="1" class="hrcolor" />
+							<div class="post">Hey, I was wondering if there was anyway an Arduino could read and audio input and respond via LED or something. &nbsp;This might be a silly question but I've tried looking on the forums and Google searching things...<br /><br />Thanks for your help!</div>
+						</td>
+					</tr>
+					<tr>
+						<td valign="bottom" width="85%">
+							<table width="100%" border="0" style="table-layout: fixed;"><tr>
+								<td colspan="2" width="100%">
+								</td>
+							</tr><tr>
+								<td valign="bottom" class="postLastModified" id="modified_34810">
+								</td>
+								<td align="right" valign="bottom" class="postReportIp">
+									<img src="http://arduino.cc/forum/Themes/arduinoWide/images/ip.gif" alt="" border="0" />
+									Logged
+								</td>
+							</tr></table>
+						</td>
+					</tr>
+				</table>
+			</td></tr>
+<tr>
+<td class="windowbg3"><br />
+</td>
+</tr>
+		</table>
+	</td></tr>
+	<tr><td style="padding: 1px 1px 0 1px;">
+		<a name="msg34811"></a>
+		<table width="100%" cellpadding="3" cellspacing="0" border="0">
+			<tr><td class="windowbg2">
+				<table width="100%" cellpadding="5" cellspacing="0" style="table-layout: fixed;">
+					<tr>
+						<td valign="top" width="16%" rowspan="2" style="overflow: hidden;">
+						<div class="profile">
+
+							<div class="memberName"><a href="http://arduino.cc/forum/index.php?action=profile;u=307" title="View the profile of MikMo">MikMo</a> <div class="genderIcon"><img src="http://arduino.cc/forum/Themes/arduinoWide/images/icons/ghost.png"/>
+                </div>
+              </div>
+							<div class="profileText">
+								<div class="memberLocation">Copenhagen / Denmark</div>
+								<div class="memberOnline"><img src="http://arduino.cc/forum/Themes/arduinoWide/images/useroff.gif" alt="Offline" border="0" style="margin-top: 2px;" /><span class="smalltext"> Offline</span></div>
+								<div class="memberPostGroup">Edison Member</div>
+								<div class="memberGroupStars"><img src="http://arduino.cc/forum/Themes/arduinoWide/images/stargold.gif" alt="*" border="0" /></div><div class="memberKarma">Karma: 4</div>
+								<div class="memberPosts">Posts: 2312</div>
+								
+								<div class="memberAvatar" style="overflow: auto; width: 100%;"><img src="http://arduino.cc/forum/avatars/blank.gif" alt="" class="avatar" border="0" /></div>
+								<div class="memberPersonalMsg">Do it !</div>
+								<div class="memberIcons">
+								<div class="memberIM">
+								
+								
+								</div>
+								<div class="memberViewProfile"><a href="http://arduino.cc/forum/index.php?action=profile;u=307"><img src="http://arduino.cc/forum/Themes/arduinoWide/images/icons/user.png" alt="View Profile" title="View Profile" border="0" /></a></div>
+								<div class="memberWeb"><a href="http://www.mikmo.dk" title="" target="_blank"><img src="http://arduino.cc/forum/Themes/arduinoWide/images/icons/globe.png" alt="WWW" border="0" /></a></div></div>
+							</div></div>
+
+						</td>
+						<td valign="top" width="85%" height="100%">
+							<table width="100%" border="0"><tr>
+								<td valign="middle"><a href="http://arduino.cc/forum/index.php?topic=4586.msg34811#msg34811"><img src="http://arduino.cc/forum/Themes/arduinoWide/images/post/xx.gif" alt="" border="0" /></a></td>
+								<td valign="middle">
+									<div class="postSubject" id="subject_34811">
+										<a href="http://arduino.cc/forum/index.php?topic=4586.msg34811#msg34811">Re: Arduino reading audio input</a>
+									</div>
+									<div class="postDate">&#171; <b>Reply #1 on:</b> February 11, 2010, 01:08:02 AM &#187;</div></td>
+								<td align="right" valign="bottom" height="20" class="postIconMenu">	
+			<a href="#" class="increaseFont"> <img src="http://arduino.cc/forum/Themes/arduinoWide/images/buttons/edit-size-up.png" alt=" Bigger" align="middle" /><b> Bigger</b></a>
+			<a href="#" class="decreaseFont"> <img src="http://arduino.cc/forum/Themes/arduinoWide/images/buttons/edit-size-up.png" alt=" Smaller" align="middle" /><b> Smaller</b></a>
+			<a href="#" class="resetFont"><img src="http://arduino.cc/forum/Themes/arduinoWide/images/buttons/edit-size-up.png" alt=" Reset" align="middle" /><b> Reset</b></a>
+		
+								</td>
+							</tr></table>
+							<hr width="100%" size="1" class="hrcolor" />
+							<div class="post">Yuo can do it by hooking a microphone up to an anlalog input, but you most liely need to amplify the signal frm the mic.<br /><br />Search the forum for microphone.</div>
+						</td>
+					</tr>
+					<tr>
+						<td valign="bottom" width="85%">
+							<table width="100%" border="0" style="table-layout: fixed;"><tr>
+								<td colspan="2" width="100%">
+								</td>
+							</tr><tr>
+								<td valign="bottom" class="postLastModified" id="modified_34811">
+								</td>
+								<td align="right" valign="bottom" class="postReportIp">
+									<img src="http://arduino.cc/forum/Themes/arduinoWide/images/ip.gif" alt="" border="0" />
+									Logged
+								</td>
+							</tr></table>
+						</td>
+					</tr>
+				</table>
+			</td></tr>
+<tr>
+<td class="windowbg3"><br />
+</td>
+</tr>
+		</table>
+	</td></tr>
+	<tr><td style="padding: 1px 1px 0 1px;">
+		<a name="msg34812"></a>
+		<table width="100%" cellpadding="3" cellspacing="0" border="0">
+			<tr><td class="windowbg">
+				<table width="100%" cellpadding="5" cellspacing="0" style="table-layout: fixed;">
+					<tr>
+						<td valign="top" width="16%" rowspan="2" style="overflow: hidden;">
+						<div class="profile">
+
+							<div class="memberName"><a href="http://arduino.cc/forum/index.php?action=profile;u=19681" title="View the profile of silverslik1">silverslik1</a> <div class="genderIcon"><img src="http://arduino.cc/forum/Themes/arduinoWide/images/icons/ghost.png"/>
+                </div>
+              </div>
+							<div class="profileText">
+								<div class="memberLocation">0</div>
+								<div class="memberOnline"><img src="http://arduino.cc/forum/Themes/arduinoWide/images/useroff.gif" alt="Offline" border="0" style="margin-top: 2px;" /><span class="smalltext"> Offline</span></div>
+								<div class="memberPostGroup">Newbie</div>
+								<div class="memberGroupStars"><img src="http://arduino.cc/forum/Themes/arduinoWide/images/star.gif" alt="*" border="0" /></div><div class="memberKarma">Karma: 0</div>
+								<div class="memberPosts">Posts: 19</div>
+								
+								<div class="memberAvatar" style="overflow: auto; width: 100%;"><img src="http://arduino.cc/forum/avatars/blank.gif" alt="" class="avatar" border="0" /></div>
+								<div class="memberPersonalMsg">Arduino rocks</div>
+								<div class="memberIcons">
+								<div class="memberIM">
+								
+								
+								</div>
+								<div class="memberViewProfile"><a href="http://arduino.cc/forum/index.php?action=profile;u=19681"><img src="http://arduino.cc/forum/Themes/arduinoWide/images/icons/user.png" alt="View Profile" title="View Profile" border="0" /></a></div></div>
+							</div></div>
+
+						</td>
+						<td valign="top" width="85%" height="100%">
+							<table width="100%" border="0"><tr>
+								<td valign="middle"><a href="http://arduino.cc/forum/index.php?topic=4586.msg34812#msg34812"><img src="http://arduino.cc/forum/Themes/arduinoWide/images/post/xx.gif" alt="" border="0" /></a></td>
+								<td valign="middle">
+									<div class="postSubject" id="subject_34812">
+										<a href="http://arduino.cc/forum/index.php?topic=4586.msg34812#msg34812">Re: Arduino reading audio input</a>
+									</div>
+									<div class="postDate">&#171; <b>Reply #2 on:</b> February 11, 2010, 01:43:06 AM &#187;</div></td>
+								<td align="right" valign="bottom" height="20" class="postIconMenu">	
+			<a href="#" class="increaseFont"> <img src="http://arduino.cc/forum/Themes/arduinoWide/images/buttons/edit-size-up.png" alt=" Bigger" align="middle" /><b> Bigger</b></a>
+			<a href="#" class="decreaseFont"> <img src="http://arduino.cc/forum/Themes/arduinoWide/images/buttons/edit-size-up.png" alt=" Smaller" align="middle" /><b> Smaller</b></a>
+			<a href="#" class="resetFont"><img src="http://arduino.cc/forum/Themes/arduinoWide/images/buttons/edit-size-up.png" alt=" Reset" align="middle" /><b> Reset</b></a>
+		
+								</td>
+							</tr></table>
+							<hr width="100%" size="1" class="hrcolor" />
+							<div class="post">Is there anyway to feed it music and have led lights turn off and on due to the tempo or something?</div>
+						</td>
+					</tr>
+					<tr>
+						<td valign="bottom" width="85%">
+							<table width="100%" border="0" style="table-layout: fixed;"><tr>
+								<td colspan="2" width="100%">
+								</td>
+							</tr><tr>
+								<td valign="bottom" class="postLastModified" id="modified_34812">
+								</td>
+								<td align="right" valign="bottom" class="postReportIp">
+									<img src="http://arduino.cc/forum/Themes/arduinoWide/images/ip.gif" alt="" border="0" />
+									Logged
+								</td>
+							</tr></table>
+						</td>
+					</tr>
+				</table>
+			</td></tr>
+<tr>
+<td class="windowbg3"><br />
+</td>
+</tr>
+		</table>
+	</td></tr>
+	<tr><td style="padding: 1px 1px 0 1px;">
+		<a name="msg34813"></a>
+		<table width="100%" cellpadding="3" cellspacing="0" border="0">
+			<tr><td class="windowbg2">
+				<table width="100%" cellpadding="5" cellspacing="0" style="table-layout: fixed;">
+					<tr>
+						<td valign="top" width="16%" rowspan="2" style="overflow: hidden;">
+						<div class="profile">
+
+							<div class="memberName"><a href="http://arduino.cc/forum/index.php?action=profile;u=307" title="View the profile of MikMo">MikMo</a> <div class="genderIcon"><img src="http://arduino.cc/forum/Themes/arduinoWide/images/icons/ghost.png"/>
+                </div>
+              </div>
+							<div class="profileText">
+								<div class="memberLocation">Copenhagen / Denmark</div>
+								<div class="memberOnline"><img src="http://arduino.cc/forum/Themes/arduinoWide/images/useroff.gif" alt="Offline" border="0" style="margin-top: 2px;" /><span class="smalltext"> Offline</span></div>
+								<div class="memberPostGroup">Edison Member</div>
+								<div class="memberGroupStars"><img src="http://arduino.cc/forum/Themes/arduinoWide/images/stargold.gif" alt="*" border="0" /></div><div class="memberKarma">Karma: 4</div>
+								<div class="memberPosts">Posts: 2312</div>
+								
+								<div class="memberAvatar" style="overflow: auto; width: 100%;"><img src="http://arduino.cc/forum/avatars/blank.gif" alt="" class="avatar" border="0" /></div>
+								<div class="memberPersonalMsg">Do it !</div>
+								<div class="memberIcons">
+								<div class="memberIM">
+								
+								
+								</div>
+								<div class="memberViewProfile"><a href="http://arduino.cc/forum/index.php?action=profile;u=307"><img src="http://arduino.cc/forum/Themes/arduinoWide/images/icons/user.png" alt="View Profile" title="View Profile" border="0" /></a></div>
+								<div class="memberWeb"><a href="http://www.mikmo.dk" title="" target="_blank"><img src="http://arduino.cc/forum/Themes/arduinoWide/images/icons/globe.png" alt="WWW" border="0" /></a></div></div>
+							</div></div>
+
+						</td>
+						<td valign="top" width="85%" height="100%">
+							<table width="100%" border="0"><tr>
+								<td valign="middle"><a href="http://arduino.cc/forum/index.php?topic=4586.msg34813#msg34813"><img src="http://arduino.cc/forum/Themes/arduinoWide/images/post/xx.gif" alt="" border="0" /></a></td>
+								<td valign="middle">
+									<div class="postSubject" id="subject_34813">
+										<a href="http://arduino.cc/forum/index.php?topic=4586.msg34813#msg34813">Re: Arduino reading audio input</a>
+									</div>
+									<div class="postDate">&#171; <b>Reply #3 on:</b> February 11, 2010, 04:31:00 AM &#187;</div></td>
+								<td align="right" valign="bottom" height="20" class="postIconMenu">	
+			<a href="#" class="increaseFont"> <img src="http://arduino.cc/forum/Themes/arduinoWide/images/buttons/edit-size-up.png" alt=" Bigger" align="middle" /><b> Bigger</b></a>
+			<a href="#" class="decreaseFont"> <img src="http://arduino.cc/forum/Themes/arduinoWide/images/buttons/edit-size-up.png" alt=" Smaller" align="middle" /><b> Smaller</b></a>
+			<a href="#" class="resetFont"><img src="http://arduino.cc/forum/Themes/arduinoWide/images/buttons/edit-size-up.png" alt=" Reset" align="middle" /><b> Reset</b></a>
+		
+								</td>
+							</tr></table>
+							<hr width="100%" size="1" class="hrcolor" />
+							<div class="post">Thats quite another thing because you would ned to do beat detection, which equals some level of sampling the audio and analyzing it. This is a task that is a bit much for Arduinos limited memory.<br /><br />Some simple audio stuff has been done.<br /><br />I don't have the link present, but search the forum or google Arduino + audio.</div>
+						</td>
+					</tr>
+					<tr>
+						<td valign="bottom" width="85%">
+							<table width="100%" border="0" style="table-layout: fixed;"><tr>
+								<td colspan="2" width="100%">
+								</td>
+							</tr><tr>
+								<td valign="bottom" class="postLastModified" id="modified_34813">
+								</td>
+								<td align="right" valign="bottom" class="postReportIp">
+									<img src="http://arduino.cc/forum/Themes/arduinoWide/images/ip.gif" alt="" border="0" />
+									Logged
+								</td>
+							</tr></table>
+						</td>
+					</tr>
+				</table>
+			</td></tr>
+<tr>
+<td class="windowbg3"><br />
+</td>
+</tr>
+		</table>
+	</td></tr>
+	<tr><td style="padding: 1px 1px 0 1px;">
+		<a name="msg34814"></a>
+		<table width="100%" cellpadding="3" cellspacing="0" border="0">
+			<tr><td class="windowbg">
+				<table width="100%" cellpadding="5" cellspacing="0" style="table-layout: fixed;">
+					<tr>
+						<td valign="top" width="16%" rowspan="2" style="overflow: hidden;">
+						<div class="profile">
+
+							<div class="memberName"><a href="http://arduino.cc/forum/index.php?action=profile;u=5282" title="View the profile of Grumpy_Mike">Grumpy_Mike</a> <div class="genderIcon"><img src="http://arduino.cc/forum/Themes/arduinoWide/images/icons/male.png"/>
+                </div>
+              </div>
+							<div class="profileText">
+								<div class="memberLocation">Manchester (England England)</div>
+								<div class="memberOnline"><img src="http://arduino.cc/forum/Themes/arduinoWide/images/useron.gif" alt="Online" border="0" style="margin-top: 2px;" /><span class="smalltext"> Online</span></div>
+								<div class="memberPostGroup">Brattain Member</div>
+								<div class="memberGroupStars"><img src="http://arduino.cc/forum/Themes/arduinoWide/images/stargold.gif" alt="*" border="0" /><img src="http://arduino.cc/forum/Themes/arduinoWide/images/stargold.gif" alt="*" border="0" /><img src="http://arduino.cc/forum/Themes/arduinoWide/images/stargold.gif" alt="*" border="0" /><img src="http://arduino.cc/forum/Themes/arduinoWide/images/stargold.gif" alt="*" border="0" /><img src="http://arduino.cc/forum/Themes/arduinoWide/images/stargold.gif" alt="*" border="0" /></div><div class="memberKarma">Karma: 196</div>
+								<div class="memberPosts">Posts: 23633</div>
+								
+								<div class="memberAvatar" style="overflow: auto; width: 100%;"><img src="http://www.thebox.myzen.co.uk/grumpy.png" width="65" height="65" alt="" class="avatar" border="0" /></div>
+								<div class="memberPersonalMsg">Solder is electric glue</div>
+								<div class="memberIcons">
+								<div class="memberIM">
+								
+								
+								</div>
+								<div class="memberViewProfile"><a href="http://arduino.cc/forum/index.php?action=profile;u=5282"><img src="http://arduino.cc/forum/Themes/arduinoWide/images/icons/user.png" alt="View Profile" title="View Profile" border="0" /></a></div>
+								<div class="memberWeb"><a href="http://www.thebox.myzen.co.uk" title="http://www.thebox.myzen.co.uk" target="_blank"><img src="http://arduino.cc/forum/Themes/arduinoWide/images/icons/globe.png" alt="WWW" border="0" /></a></div></div>
+							</div></div>
+
+						</td>
+						<td valign="top" width="85%" height="100%">
+							<table width="100%" border="0"><tr>
+								<td valign="middle"><a href="http://arduino.cc/forum/index.php?topic=4586.msg34814#msg34814"><img src="http://arduino.cc/forum/Themes/arduinoWide/images/post/xx.gif" alt="" border="0" /></a></td>
+								<td valign="middle">
+									<div class="postSubject" id="subject_34814">
+										<a href="http://arduino.cc/forum/index.php?topic=4586.msg34814#msg34814">Re: Arduino reading audio input</a>
+									</div>
+									<div class="postDate">&#171; <b>Reply #4 on:</b> February 11, 2010, 04:54:36 AM &#187;</div></td>
+								<td align="right" valign="bottom" height="20" class="postIconMenu">	
+			<a href="#" class="increaseFont"> <img src="http://arduino.cc/forum/Themes/arduinoWide/images/buttons/edit-size-up.png" alt=" Bigger" align="middle" /><b> Bigger</b></a>
+			<a href="#" class="decreaseFont"> <img src="http://arduino.cc/forum/Themes/arduinoWide/images/buttons/edit-size-up.png" alt=" Smaller" align="middle" /><b> Smaller</b></a>
+			<a href="#" class="resetFont"><img src="http://arduino.cc/forum/Themes/arduinoWide/images/buttons/edit-size-up.png" alt=" Reset" align="middle" /><b> Reset</b></a>
+		
+								</td>
+							</tr></table>
+							<hr width="100%" size="1" class="hrcolor" />
+							<div class="post">That sort of thing can be done with an envelope detector.<br />This one was posted the other day:-<br /><a href="http://www.andregoncalves.info/ag_blog/?page_id=61" target="_blank" rel="nofollow">http://www.andregoncalves.info/ag_blog/?page_id=61</a></div>
+						</td>
+					</tr>
+					<tr>
+						<td valign="bottom" width="85%">
+							<table width="100%" border="0" style="table-layout: fixed;"><tr>
+								<td colspan="2" width="100%">
+								</td>
+							</tr><tr>
+								<td valign="bottom" class="postLastModified" id="modified_34814">
+								</td>
+								<td align="right" valign="bottom" class="postReportIp">
+									<img src="http://arduino.cc/forum/Themes/arduinoWide/images/ip.gif" alt="" border="0" />
+									Logged
+								</td>
+							</tr></table>
+						</td>
+					</tr>
+				</table>
+			</td></tr>
+<tr>
+<td class="windowbg3"><br />
+</td>
+</tr>
+		</table>
+	</td></tr>
+	<tr><td style="padding: 1px 1px 0 1px;">
+		<a name="msg34815"></a>
+		<table width="100%" cellpadding="3" cellspacing="0" border="0">
+			<tr><td class="windowbg2">
+				<table width="100%" cellpadding="5" cellspacing="0" style="table-layout: fixed;">
+					<tr>
+						<td valign="top" width="16%" rowspan="2" style="overflow: hidden;">
+						<div class="profile">
+
+							<div class="memberName"><a href="http://arduino.cc/forum/index.php?action=profile;u=18390" title="View the profile of SilverCG">SilverCG</a> <div class="genderIcon"><img src="http://arduino.cc/forum/Themes/arduinoWide/images/icons/ghost.png"/>
+                </div>
+              </div>
+							<div class="profileText">
+								<div class="memberLocation">0</div>
+								<div class="memberOnline"><img src="http://arduino.cc/forum/Themes/arduinoWide/images/useroff.gif" alt="Offline" border="0" style="margin-top: 2px;" /><span class="smalltext"> Offline</span></div>
+								<div class="memberPostGroup">Newbie</div>
+								<div class="memberGroupStars"><img src="http://arduino.cc/forum/Themes/arduinoWide/images/star.gif" alt="*" border="0" /></div><div class="memberKarma">Karma: 0</div>
+								<div class="memberPosts">Posts: 45</div>
+								
+								<div class="memberAvatar" style="overflow: auto; width: 100%;"><img src="http://id.arduino.cc/avatars/silvercg.jpg" width="65" height="65" alt="" class="avatar" border="0" /></div><div class="memberIcons">
+								<div class="memberIM">
+								
+								
+								</div>
+								<div class="memberViewProfile"><a href="http://arduino.cc/forum/index.php?action=profile;u=18390"><img src="http://arduino.cc/forum/Themes/arduinoWide/images/icons/user.png" alt="View Profile" title="View Profile" border="0" /></a></div>
+								<div class="memberWeb"><a href="http://www.silvercg.com" title="" target="_blank"><img src="http://arduino.cc/forum/Themes/arduinoWide/images/icons/globe.png" alt="WWW" border="0" /></a></div></div>
+							</div></div>
+
+						</td>
+						<td valign="top" width="85%" height="100%">
+							<table width="100%" border="0"><tr>
+								<td valign="middle"><a href="http://arduino.cc/forum/index.php?topic=4586.msg34815#msg34815"><img src="http://arduino.cc/forum/Themes/arduinoWide/images/post/xx.gif" alt="" border="0" /></a></td>
+								<td valign="middle">
+									<div class="postSubject" id="subject_34815">
+										<a href="http://arduino.cc/forum/index.php?topic=4586.msg34815#msg34815">Re: Arduino reading audio input</a>
+									</div>
+									<div class="postDate">&#171; <b>Reply #5 on:</b> February 11, 2010, 04:44:04 PM &#187;</div></td>
+								<td align="right" valign="bottom" height="20" class="postIconMenu">	
+			<a href="#" class="increaseFont"> <img src="http://arduino.cc/forum/Themes/arduinoWide/images/buttons/edit-size-up.png" alt=" Bigger" align="middle" /><b> Bigger</b></a>
+			<a href="#" class="decreaseFont"> <img src="http://arduino.cc/forum/Themes/arduinoWide/images/buttons/edit-size-up.png" alt=" Smaller" align="middle" /><b> Smaller</b></a>
+			<a href="#" class="resetFont"><img src="http://arduino.cc/forum/Themes/arduinoWide/images/buttons/edit-size-up.png" alt=" Reset" align="middle" /><b> Reset</b></a>
+		
+								</td>
+							</tr></table>
+							<hr width="100%" size="1" class="hrcolor" />
+							<div class="post">Yes sir you can via USB. i just got done with the same project. today as a matter of fact. <br /><br />here are my posts on the topic <br /><br /><a href="http://www.arduino.cc/cgi-bin/yabb2/YaBB.pl?num=1263084743/1#1" target="_blank" rel="nofollow">http://www.arduino.cc/cgi-bin/yabb2/YaBB.pl?num=1263084743/1#1</a><br /><br /><a href="http://www.arduino.cc/cgi-bin/yabb2/YaBB.pl?num=1265843802/0#0" target="_blank" rel="nofollow">http://www.arduino.cc/cgi-bin/yabb2/YaBB.pl?num=1265843802/0#0</a><br /><br />right now this is my code... i think there are some holes in it still but doesn&#039;t effect performance. <br /><br /><div class="codeheader">Code:</div><div class="code">const int ledPin = 3;    <br />const int ledPin2 = 5;<br />const int ledPin3 = 6;<br />const int ledPin4 = 9;    <br />const int ledPin5 = 10;<br />const int ledPin6 = 11;<br />void setup()<br />&#123;<br />&nbsp; <br />&nbsp; Serial.begin(57600);<br />&nbsp; pinMode(ledPin, OUTPUT);<br />&nbsp; pinMode(ledPin2, OUTPUT);<br />&nbsp; pinMode(ledPin3, OUTPUT);<br />&nbsp; pinMode(ledPin4, OUTPUT);<br />&nbsp; pinMode(ledPin5, OUTPUT);<br />&nbsp; pinMode(ledPin6, OUTPUT);<br />&#125;<br /><br />void loop() &#123;<br />&nbsp; // good settings lvl:minus 1:70 &#124; 4:150 &#124; 6:100 &#124; 8:100<br />&nbsp;int lvl = 1;      // spectral range option 0-8<br />&nbsp;int minus = 100;   // minus value from 255 for start range (fine tune lvls)<br />&nbsp;//------------------------------------------------------------<br />&nbsp;int total = 0;    // for calculations below. &lt;&lt;don't edit&gt;&gt; <br />&nbsp;int data[9];      // raw serial data &lt;&lt;don't edit&gt;&gt; <br />&nbsp;int value[7];    // values for the led pins based on the minus value &lt;&lt;dont' edit&gt;&gt;<br />&nbsp;int check = 0;<br />&nbsp;// serial data start ---------------<br />&nbsp; if (Serial.available() &gt;10) &#123;<br />&nbsp;   <br />&nbsp;    byte i = Serial.read();<br />&nbsp;    if (int(i) == 255) &#123;<br />&nbsp;      for (int c = 0; c &lt; 9; c++)&#123;<br />&nbsp;      data[c] = int(Serial.read());<br />&nbsp;      check = 1;<br />&nbsp;      &#125;<br />&nbsp;    &#125;<br /><br />&nbsp; &#125;<br /><br />&nbsp; // serial data end -----------------<br />&nbsp; // some math -------------<br />&nbsp;total = (255 - minus) / 6;<br />&nbsp;value[0] = 0;<br />&nbsp;value[1] = 255 - minus;<br />&nbsp;for (int k = 2; k &lt;= 5; k++)&#123;<br />&nbsp;  value[k] = value[k - 1] + total;<br />&nbsp;&#125;<br /><br />&nbsp;     <br />// math end -----------------<br />&nbsp;//----------- solution 1 ----------------<br /><br />&nbsp;if (check == 1)&#123;<br />&nbsp; if (data[lvl] == 0)&#123;<br />&nbsp;   analogWrite(ledPin, 0);<br />&nbsp;   analogWrite(ledPin2, 0);<br />&nbsp;   analogWrite(ledPin3, 0);<br />&nbsp;   analogWrite(ledPin4, 0);<br />&nbsp;   analogWrite(ledPin5, 0);<br />&nbsp;   analogWrite(ledPin6, 0);<br />&nbsp; &#125;<br />&nbsp; if (data[lvl]&gt; value[0] &amp;&amp; data[lvl]&lt;= value[1]) &#123;<br />&nbsp;   analogWrite(ledPin, 255);<br />&nbsp;   analogWrite(ledPin2, 0);<br />&nbsp;   analogWrite(ledPin3, 0);<br />&nbsp;   analogWrite(ledPin4, 0);<br />&nbsp;   analogWrite(ledPin5, 0);<br />&nbsp;   analogWrite(ledPin6, 0);<br />&nbsp;   <br />&nbsp; &#125;<br />&nbsp; if (data[lvl]&gt; value[1] &amp;&amp; data[lvl]&lt; value[2]) &#123;<br />&nbsp;   analogWrite(ledPin, 255);<br />&nbsp;   analogWrite(ledPin2, 255);<br />&nbsp;   analogWrite(ledPin3, 0);<br />&nbsp;   analogWrite(ledPin4, 0);<br />&nbsp;   analogWrite(ledPin5, 0);<br />&nbsp;   analogWrite(ledPin6, 0);<br />&nbsp; &#125;<br />&nbsp; if (data[lvl]&gt;= value[2] &amp;&amp; data[lvl]&lt; value[3]) &#123;<br />&nbsp;   analogWrite(ledPin, 255);<br />&nbsp;   analogWrite(ledPin2,255);<br />&nbsp;   analogWrite(ledPin3, 255);<br />&nbsp;   analogWrite(ledPin4, 0);<br />&nbsp;   analogWrite(ledPin5, 0);<br />&nbsp;   analogWrite(ledPin6, 0);<br />&nbsp; &#125;<br />&nbsp; if ( data[lvl]&gt;= value[3] &amp;&amp; data[lvl]&lt;=value[4]) &#123;<br /><br />&nbsp;   analogWrite(ledPin, 255);<br />&nbsp;   analogWrite(ledPin2, 255);<br />&nbsp;   analogWrite(ledPin3, 255);<br />&nbsp;   analogWrite(ledPin4, 255);<br />&nbsp;   analogWrite(ledPin5, 0);<br />&nbsp;   analogWrite(ledPin6, 0);<br />&nbsp; &#125;<br />&nbsp;   if ( data[lvl]&gt;= value[4] &amp;&amp; data[lvl]&lt;=value[5]) &#123;<br /><br />&nbsp;   analogWrite(ledPin, 255);<br />&nbsp;   analogWrite(ledPin2, 255);<br />&nbsp;   analogWrite(ledPin3, 255);<br />&nbsp;   analogWrite(ledPin4, 255);<br />&nbsp;   analogWrite(ledPin5, 255);<br />&nbsp;   analogWrite(ledPin6, 0);<br />&nbsp; &#125;<br />&nbsp;   if ( data[lvl]&gt;= value[5] &amp;&amp; data[lvl]&lt;=value[6]) &#123;<br /><br />&nbsp;   analogWrite(ledPin, 255);<br />&nbsp;   analogWrite(ledPin2, 255);<br />&nbsp;   analogWrite(ledPin3, 255);<br />&nbsp;   analogWrite(ledPin4, 255);<br />&nbsp;   analogWrite(ledPin5, 255);<br />&nbsp;   analogWrite(ledPin6, 255);<br />&nbsp; &#125;<br /><br />&#125;<br />&#125;<br /><br />&nbsp; // ------------- end Solution 1<br />&nbsp;   // ------------ Solution 2<br />&nbsp;    /*<br />&nbsp;    if (value &gt; 0) &#123;<br />&nbsp;      if (value &gt; 0 &amp;&amp; value &lt;= 175) &#123;<br />&nbsp;        analogWrite(ledPin, 0);<br />&nbsp;      &#125;<br />&nbsp;      if (value &gt; 175 &amp;&amp; value &lt;= 195) &#123;<br />&nbsp;        analogWrite(ledPin, 10);<br />&nbsp;      &#125;<br />&nbsp;      if (value &gt; 195 &amp;&amp; value &lt;= 215) &#123;<br />&nbsp;        analogWrite(ledPin, 100);<br />&nbsp;      &#125;<br />&nbsp;      if (value &gt; 215 &amp;&amp; value &lt;= 235) &#123;<br />&nbsp;        analogWrite(ledPin, 210);<br />&nbsp;      &#125;<br />&nbsp;      if ( value &gt; 235 &amp;&amp; value &lt;=255) &#123;<br />&nbsp;        analogWrite(ledPin, 255); <br />&nbsp;      &#125;    <br />&nbsp;<br />&nbsp;    &#125;<br />*/<br />&nbsp;// -------- end solution 2 ---------------<br />&nbsp;    <br /></div> solution 1 is just a vu meter, which is what i have working right now. and solution 2 is old and needs to be updated to the current code i have in place. <br /><br />video from last night:<br />[media]http://www.youtube.com/watch?v=p9Ij2KzLIdc[/media]<br />note: the code above works smoother than the one in the video which is using the old code. <br /><br />let me know if there is anything you need help with.. i'm noobish but i still understand quite a bit.  ;D<br /><br />Cheers,<br />Dave.</div>
+						</td>
+					</tr>
+					<tr>
+						<td valign="bottom" width="85%">
+							<table width="100%" border="0" style="table-layout: fixed;"><tr>
+								<td colspan="2" width="100%">
+								</td>
+							</tr><tr>
+								<td valign="bottom" class="postLastModified" id="modified_34815">
+									&#171; <i>Last Edit: February 11, 2010, 07:10:37 PM by silvercg</i> &#187;
+								</td>
+								<td align="right" valign="bottom" class="postReportIp">
+									<img src="http://arduino.cc/forum/Themes/arduinoWide/images/ip.gif" alt="" border="0" />
+									Logged
+								</td>
+							</tr></table>
+						</td>
+					</tr>
+				</table>
+			</td></tr>
+<tr>
+<td class="windowbg3"><br />
+</td>
+</tr>
+		</table>
+	</td></tr>
+	<tr><td style="padding: 1px 1px 0 1px;">
+		<a name="msg34816"></a>
+		<table width="100%" cellpadding="3" cellspacing="0" border="0">
+			<tr><td class="windowbg">
+				<table width="100%" cellpadding="5" cellspacing="0" style="table-layout: fixed;">
+					<tr>
+						<td valign="top" width="16%" rowspan="2" style="overflow: hidden;">
+						<div class="profile">
+
+							<div class="memberName"><a href="http://arduino.cc/forum/index.php?action=profile;u=5310" title="View the profile of macegr">macegr</a> <div class="genderIcon"><img src="http://arduino.cc/forum/Themes/arduinoWide/images/icons/male.png"/>
+                </div>
+              </div>
+							<div class="profileText">
+								<div class="memberLocation">SF Bay Area</div>
+								<div class="memberOnline"><img src="http://arduino.cc/forum/Themes/arduinoWide/images/useroff.gif" alt="Offline" border="0" style="margin-top: 2px;" /><span class="smalltext"> Offline</span></div>
+								<div class="memberPostGroup">Edison Member</div>
+								<div class="memberGroupStars"><img src="http://arduino.cc/forum/Themes/arduinoWide/images/stargold.gif" alt="*" border="0" /></div><div class="memberKarma">Karma: 5</div>
+								<div class="memberPosts">Posts: 1197</div>
+								
+								<div class="memberAvatar" style="overflow: auto; width: 100%;"><img src="http://www.macetech.com/ninja.jpg" width="65" height="65" alt="" class="avatar" border="0" /></div>
+								<div class="memberPersonalMsg">Arduino Ninja</div>
+								<div class="memberIcons">
+								<div class="memberIM">
+								
+								
+								</div>
+								<div class="memberViewProfile"><a href="http://arduino.cc/forum/index.php?action=profile;u=5310"><img src="http://arduino.cc/forum/Themes/arduinoWide/images/icons/user.png" alt="View Profile" title="View Profile" border="0" /></a></div>
+								<div class="memberWeb"><a href="http://www.macetech.com" title="" target="_blank"><img src="http://arduino.cc/forum/Themes/arduinoWide/images/icons/globe.png" alt="WWW" border="0" /></a></div></div>
+							</div></div>
+
+						</td>
+						<td valign="top" width="85%" height="100%">
+							<table width="100%" border="0"><tr>
+								<td valign="middle"><a href="http://arduino.cc/forum/index.php?topic=4586.msg34816#msg34816"><img src="http://arduino.cc/forum/Themes/arduinoWide/images/post/xx.gif" alt="" border="0" /></a></td>
+								<td valign="middle">
+									<div class="postSubject" id="subject_34816">
+										<a href="http://arduino.cc/forum/index.php?topic=4586.msg34816#msg34816">Re: Arduino reading audio input</a>
+									</div>
+									<div class="postDate">&#171; <b>Reply #6 on:</b> February 11, 2010, 05:13:09 PM &#187;</div></td>
+								<td align="right" valign="bottom" height="20" class="postIconMenu">	
+			<a href="#" class="increaseFont"> <img src="http://arduino.cc/forum/Themes/arduinoWide/images/buttons/edit-size-up.png" alt=" Bigger" align="middle" /><b> Bigger</b></a>
+			<a href="#" class="decreaseFont"> <img src="http://arduino.cc/forum/Themes/arduinoWide/images/buttons/edit-size-up.png" alt=" Smaller" align="middle" /><b> Smaller</b></a>
+			<a href="#" class="resetFont"><img src="http://arduino.cc/forum/Themes/arduinoWide/images/buttons/edit-size-up.png" alt=" Reset" align="middle" /><b> Reset</b></a>
+		
+								</td>
+							</tr></table>
+							<hr width="100%" size="1" class="hrcolor" />
+							<div class="post">And if you don&#039;t need spectrum analysis or want a computer attached, I have the Shifty VU Shield: <a href="http://docs.macetech.com/doku.php/shifty_vu_shield" target="_blank" rel="nofollow">http://docs.macetech.com/doku.php/shifty_vu_shield</a><br /><br />You can do this sort of thing: <object width="640" height="385">
+<param name="movie" value="http://www.youtube.com/v/MGP3x-mrZ8g&fs=1&start="></param>
+<param name="allowFullScreen" value="true"></param>
+<embed src="http://www.youtube.com/v/MGP3x-mrZ8g&fs=1&start=" type="application/x-shockwave-flash" allowfullscreen="true" width="640" height="385" wmode="transparent"></embed></object><br />[media]http://www.youtube.com/watch?v=MGP3x-mrZ8g[/media]</div>
+						</td>
+					</tr>
+					<tr>
+						<td valign="bottom" width="85%">
+							<table width="100%" border="0" style="table-layout: fixed;"><tr>
+								<td colspan="2" width="100%">
+								</td>
+							</tr><tr>
+								<td valign="bottom" class="postLastModified" id="modified_34816">
+								</td>
+								<td align="right" valign="bottom" class="postReportIp">
+									<img src="http://arduino.cc/forum/Themes/arduinoWide/images/ip.gif" alt="" border="0" />
+									Logged
+								</td>
+							</tr></table>
+							<hr width="100%" size="1" class="hrcolor" />
+							<div class="signature">Unique RGB LED Modules and Arduino shields: <a href="http://www.macetech.com/store" target="_blank" rel="nofollow">http://www.macetech.com/store</a></div>
+						</td>
+					</tr>
+				</table>
+			</td></tr>
+<tr>
+<td class="windowbg3"><br />
+</td>
+</tr>
+		</table>
+	</td></tr>
+	<tr><td style="padding: 1px 1px 0 1px;">
+		<a name="msg34817"></a>
+		<table width="100%" cellpadding="3" cellspacing="0" border="0">
+			<tr><td class="windowbg2">
+				<table width="100%" cellpadding="5" cellspacing="0" style="table-layout: fixed;">
+					<tr>
+						<td valign="top" width="16%" rowspan="2" style="overflow: hidden;">
+						<div class="profile">
+
+							<div class="memberName"><a href="http://arduino.cc/forum/index.php?action=profile;u=19681" title="View the profile of silverslik1">silverslik1</a> <div class="genderIcon"><img src="http://arduino.cc/forum/Themes/arduinoWide/images/icons/ghost.png"/>
+                </div>
+              </div>
+							<div class="profileText">
+								<div class="memberLocation">0</div>
+								<div class="memberOnline"><img src="http://arduino.cc/forum/Themes/arduinoWide/images/useroff.gif" alt="Offline" border="0" style="margin-top: 2px;" /><span class="smalltext"> Offline</span></div>
+								<div class="memberPostGroup">Newbie</div>
+								<div class="memberGroupStars"><img src="http://arduino.cc/forum/Themes/arduinoWide/images/star.gif" alt="*" border="0" /></div><div class="memberKarma">Karma: 0</div>
+								<div class="memberPosts">Posts: 19</div>
+								
+								<div class="memberAvatar" style="overflow: auto; width: 100%;"><img src="http://arduino.cc/forum/avatars/blank.gif" alt="" class="avatar" border="0" /></div>
+								<div class="memberPersonalMsg">Arduino rocks</div>
+								<div class="memberIcons">
+								<div class="memberIM">
+								
+								
+								</div>
+								<div class="memberViewProfile"><a href="http://arduino.cc/forum/index.php?action=profile;u=19681"><img src="http://arduino.cc/forum/Themes/arduinoWide/images/icons/user.png" alt="View Profile" title="View Profile" border="0" /></a></div></div>
+							</div></div>
+
+						</td>
+						<td valign="top" width="85%" height="100%">
+							<table width="100%" border="0"><tr>
+								<td valign="middle"><a href="http://arduino.cc/forum/index.php?topic=4586.msg34817#msg34817"><img src="http://arduino.cc/forum/Themes/arduinoWide/images/post/xx.gif" alt="" border="0" /></a></td>
+								<td valign="middle">
+									<div class="postSubject" id="subject_34817">
+										<a href="http://arduino.cc/forum/index.php?topic=4586.msg34817#msg34817">Re: Arduino reading audio input</a>
+									</div>
+									<div class="postDate">&#171; <b>Reply #7 on:</b> February 12, 2010, 09:08:39 AM &#187;</div></td>
+								<td align="right" valign="bottom" height="20" class="postIconMenu">	
+			<a href="#" class="increaseFont"> <img src="http://arduino.cc/forum/Themes/arduinoWide/images/buttons/edit-size-up.png" alt=" Bigger" align="middle" /><b> Bigger</b></a>
+			<a href="#" class="decreaseFont"> <img src="http://arduino.cc/forum/Themes/arduinoWide/images/buttons/edit-size-up.png" alt=" Smaller" align="middle" /><b> Smaller</b></a>
+			<a href="#" class="resetFont"><img src="http://arduino.cc/forum/Themes/arduinoWide/images/buttons/edit-size-up.png" alt=" Reset" align="middle" /><b> Reset</b></a>
+		
+								</td>
+							</tr></table>
+							<hr width="100%" size="1" class="hrcolor" />
+							<div class="post">This stuff is gold. Ill have to check it out and start ordering the parts when I get home. Thanks everyone!</div>
+						</td>
+					</tr>
+					<tr>
+						<td valign="bottom" width="85%">
+							<table width="100%" border="0" style="table-layout: fixed;"><tr>
+								<td colspan="2" width="100%">
+								</td>
+							</tr><tr>
+								<td valign="bottom" class="postLastModified" id="modified_34817">
+								</td>
+								<td align="right" valign="bottom" class="postReportIp">
+									<img src="http://arduino.cc/forum/Themes/arduinoWide/images/ip.gif" alt="" border="0" />
+									Logged
+								</td>
+							</tr></table>
+						</td>
+					</tr>
+				</table>
+			</td></tr>
+<tr>
+<td class="windowbg3"><br />
+</td>
+</tr>
+		</table>
+	</td></tr>
+	<tr><td style="padding: 0 0 1px 0;"></td></tr>
+</table>
+<a name="lastPost"></a>
+<table width="100%" cellpadding="0" cellspacing="0" border="0">
+	<tr>
+		<td class="middletext">Pages: [<b>1</b>]   &nbsp;&nbsp;<a href="#top"><b>Go Up</b></a></td>
+		<td  class="msgMenu">
+			<table cellpadding="0" cellspacing="0">
+				<tr>
+					
+		<td class="maintab_back"><a href="http://arduino.cc/forum/index.php?action=printpage;topic=4586.0" target="_blank">Print</a></td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+</table>
+<script language="JavaScript" type="text/javascript" src="http://arduino.cc/forum/Themes/default/xml_topic.js"></script>
+<script language="JavaScript" type="text/javascript"><!-- // --><![CDATA[
+	quickReplyCollapsed = true;
+
+	smf_topic = 4586;
+	smf_start = 0;
+	smf_show_modify = 1;
+
+	// On quick modify, this is what the body will look like.
+	var smf_template_body_edit = '<div id="error_box" style="padding: 4px; color: red;"></div><textarea class="editor" name="message" rows="12" style="width: 94%; margin-bottom: 10px;">%body%</textarea><br /><input type="hidden" name="sc" value="23226eab2af095d7bae7632774df4b71" /><input type="hidden" name="topic" value="4586" /><input type="hidden" name="msg" value="%msg_id%" /><div style="text-align: center;"><input type="submit" name="post" value="Save" onclick="return modify_save(\'23226eab2af095d7bae7632774df4b71\');" accesskey="s" />&nbsp;&nbsp;<input type="submit" name="cancel" value="Cancel" onclick="return modify_cancel();" /></div>';
+
+	// And this is the replacement for the subject.
+	var smf_template_subject_edit = '<input type="text" name="subject" value="%subject%" size="60" style="width: 99%;"  maxlength="80" />';
+
+	// Restore the message to this after editing.
+	var smf_template_body_normal = '%body%';
+	var smf_template_subject_normal = '<a href="http://arduino.cc/forum/index.php?topic=4586.msg%msg_id%#msg%msg_id%">%subject%</a>';
+	var smf_template_top_subject = "Topic: %subject% &nbsp;(Read 859 times)"
+
+	if (window.XMLHttpRequest)
+		showModifyButtons();
+// ]]></script>
+<table border="0" width="100%" cellpadding="0" cellspacing="0" style="margin-bottom: 1ex;">
+		<tr>
+		</tr>
+</table>
+      <div class="msgMenu">
+			  <div class="nav" style="margin-bottom: 2px;"> <a href="http://arduino.cc/forum/index.php?topic=4586.0;prev_next=prev#new">&laquo; previous topic&nbsp;</a> <a href="http://arduino.cc/forum/index.php?topic=4586.0;prev_next=next#new">&nbsp;next topic &raquo;</a></div>
+      </div><div><div id="navBreadCrumb"><span class="homeIcon"><a href="http://arduino.cc/forum/index.php"><img src="http://arduino.cc/forum/Themes/arduinoWide/images/home_icon.gif" alt="home icon" title=" home icon " width="9" height="11"></a></span> | <a href="http://arduino.cc/forum/index.php" class="nav">Arduino Forum</a>&nbsp;::&nbsp;<a href="http://arduino.cc/forum/index.php#12" class="nav">Forum 2005-2010 (read only)</a>&nbsp;::&nbsp;<a href="http://arduino.cc/forum/index.php?board=61.0" class="nav">General</a>&nbsp;::&nbsp;<a href="http://arduino.cc/forum/index.php?board=39.0" class="nav">Frequently-Asked Questions</a>&nbsp;::&nbsp;Arduino reading audio input</div></div>
+	<table cellpadding="0" cellspacing="0" border="0" class="topicMenu">
+		<tr>
+			<td>&nbsp;</td>
+		</tr>
+	</table>
+</form>
+<div class="tborder"><div class="titlebg2" style="padding: 4px;" align="right">
+	<form action="http://arduino.cc/forum/index.php" method="get" accept-charset="UTF-8" style="padding:0; margin: 0;">
+		<span class="smalltext">Jump to:</span>
+		<select name="jumpto" id="jumpto" onchange="if (this.selectedIndex > 0 &amp;&amp; this.options[this.selectedIndex].value) window.location.href = smf_scripturl + this.options[this.selectedIndex].value.substr(smf_scripturl.indexOf('?') == -1 || this.options[this.selectedIndex].value.substr(0, 1) != '?' ? 0 : 1);">
+			<option value="">Please select a destination:</option>
+			<option value="" disabled="disabled">-----------------------------</option>
+			<option value="#2">Using Arduino</option>
+			<option value="" disabled="disabled">-----------------------------</option>
+			<option value="?board=2.0"> => Installation &amp; Troubleshooting</option>
+			<option value="?board=3.0"> => Project Guidance</option>
+			<option value="?board=4.0"> => Programming Questions</option>
+			<option value="?board=5.0"> => General Electronics</option>
+			<option value="?board=67.0"> => Microcontrollers</option>
+			<option value="?board=6.0"> => LEDs and Multiplexing</option>
+			<option value="?board=7.0"> => Displays</option>
+			<option value="?board=8.0"> => Audio</option>
+			<option value="?board=9.0"> => Motors, Mechanics, and Power</option>
+			<option value="?board=10.0"> => Sensors</option>
+			<option value="?board=11.0"> => Networking, Protocols, and Devices</option>
+			<option value="?board=66.0"> => Storage</option>
+			<option value="?board=12.0"> => Interfacing w/ Software on the Computer </option>
+			<option value="" disabled="disabled">-----------------------------</option>
+			<option value="#3">Topics</option>
+			<option value="" disabled="disabled">-----------------------------</option>
+			<option value="?board=13.0"> => E-Textiles and Craft</option>
+			<option value="?board=15.0"> => Science and Measurement</option>
+			<option value="?board=14.0"> => Robotics</option>
+			<option value="?board=16.0"> => Home Automation and Networked Objects</option>
+			<option value="?board=17.0"> => Device Hacking</option>
+			<option value="?board=18.0"> => Education and Teaching</option>
+			<option value="?board=19.0"> => Interactive Art</option>
+			<option value="?board=20.0"> => Product Design</option>
+			<option value="" disabled="disabled">-----------------------------</option>
+			<option value="#4">Development</option>
+			<option value="" disabled="disabled">-----------------------------</option>
+			<option value="?board=21.0"> => Suggestions for the Arduino Project</option>
+			<option value="?board=22.0"> => Other Hardware Development</option>
+			<option value="?board=23.0"> => Other Software Development</option>
+			<option value="" disabled="disabled">-----------------------------</option>
+			<option value="#5">Community</option>
+			<option value="" disabled="disabled">-----------------------------</option>
+			<option value="?board=24.0"> => Website and Forum</option>
+			<option value="?board=25.0"> => Products and Services</option>
+			<option value="?board=26.0"> => Gigs and Collaborations</option>
+			<option value="?board=27.0"> => Workshops and Events</option>
+			<option value="?board=28.0"> => Local Groups</option>
+			<option value="?board=29.0"> => Exhibition / Gallery</option>
+			<option value="?board=30.0"> => Bar Sport</option>
+			<option value="" disabled="disabled">-----------------------------</option>
+			<option value="#14">Products</option>
+			<option value="" disabled="disabled">-----------------------------</option>
+			<option value="?board=86.0"> => The Arduino Starter Kit</option>
+			<option value="?board=87.0"> => Arduino Due</option>
+			<option value="?board=89.0"> => Arduino Esplora</option>
+			<option value="" disabled="disabled">-----------------------------</option>
+			<option value="#6">International</option>
+			<option value="" disabled="disabled">-----------------------------</option>
+			<option value="?board=31.0"> => Deutsch</option>
+			<option value="?board=32.0"> => Español</option>
+			<option value="?board=78.0"> ===> Software</option>
+			<option value="?board=79.0"> ===> Hardware</option>
+			<option value="?board=80.0"> ===> Proyectos</option>
+			<option value="?board=81.0"> ===> Documentación</option>
+			<option value="?board=72.0"> ===> Humor y Debate</option>
+			<option value="?board=73.0"> ===> Talleres, Encuentros, ...</option>
+			<option value="?board=33.0"> => Français</option>
+			<option value="?board=74.0"> ===> Tutoriels et cours</option>
+			<option value="?board=75.0"> ===> Réalisations et Projets Finis</option>
+			<option value="?board=76.0"> ===> Le bar</option>
+			<option value="?board=82.0"> => India</option>
+			<option value="?board=34.0"> => Italiano</option>
+			<option value="?board=88.0"> ===> Generale</option>
+			<option value="?board=83.0"> ===> Hardware</option>
+			<option value="?board=84.0"> ===> Software</option>
+			<option value="?board=85.0"> ===> Megatopic</option>
+			<option value="?board=77.0"> => Nederlands</option>
+			<option value="?board=35.0"> => Portugues</option>
+			<option value="?board=36.0"> => Scandinavia</option>
+			<option value="" disabled="disabled">-----------------------------</option>
+			<option value="#1">General Category</option>
+			<option value="" disabled="disabled">-----------------------------</option>
+			<option value="?board=1.0"> => General Discussion</option>
+			<option value="" disabled="disabled">-----------------------------</option>
+			<option value="#12">Forum 2005-2010 (read only)</option>
+			<option value="" disabled="disabled">-----------------------------</option>
+			<option value="?board=61.0"> => General</option>
+			<option value="?board=37.0"> ===> Uno Punto Zero</option>
+			<option value="?board=38.0"> ===> Bar Sport</option>
+			<option value="?board=39.0" selected="selected"> ===> Frequently-Asked Questions</option>
+			<option value="?board=40.0"> ===> News</option>
+			<option value="?board=41.0"> ===> Exhibition</option>
+			<option value="?board=42.0"> ===> Workshops</option>
+			<option value="?board=62.0"> => Hardware</option>
+			<option value="?board=43.0"> ===> Interfacing</option>
+			<option value="?board=44.0"> ===> Bugs & Suggestions</option>
+			<option value="?board=45.0"> ===> Development</option>
+			<option value="?board=46.0"> ===> Troubleshooting</option>
+			<option value="?board=63.0"> => Software</option>
+			<option value="?board=53.0"> ===> Development</option>
+			<option value="?board=54.0"> ===> Interfacing</option>
+			<option value="?board=55.0"> ===> Syntax & Programs</option>
+			<option value="?board=56.0"> ===> Bugs & Suggestions</option>
+			<option value="?board=57.0"> ===> Troubleshooting</option>
+			<option value="?board=64.0"> => International</option>
+			<option value="?board=47.0"> ===> Portugues</option>
+			<option value="?board=48.0"> ===> Deutsch</option>
+			<option value="?board=49.0"> ===> Español</option>
+			<option value="?board=50.0"> ===> Français</option>
+			<option value="?board=51.0"> ===> Italiano</option>
+			<option value="?board=52.0"> ===> Scandinavia</option>
+			<option value="?board=65.0"> => Web/Forum/Email/Spam</option>
+			<option value="?board=58.0"> ===> Report Spam at Arduino.cc</option>
+			<option value="?board=59.0"> ===> Forum</option>
+			<option value="?board=60.0"> ===> Playground Wiki</option>
+		</select>&nbsp;
+		<input type="button" value="go" onclick="if (this.form.jumpto.options[this.form.jumpto.selectedIndex].value) window.location.href = 'http://arduino.cc/forum/index.php' + this.form.jumpto.options[this.form.jumpto.selectedIndex].value;" />
+	</form>
+</div></div><br />
+			<div id="footerarea">
+				<span class="copyright">© 2011 Arduino Forum: 
+		<span class="smalltext" style="display: inline; visibility: visible; font-family: Verdana, Arial, sans-serif;"><a href="http://www.simplemachines.org/" title="Simple Machines Forum" target="_blank">Powered by SMF 1.1.17</a> |
+<a href="http://www.simplemachines.org/about/copyright.php" title="Free Forum Software" target="_blank">SMF &copy; 2011, Simple Machines</a>
+		</span>
+        </span>
+	  </div>
+    </div>
+    </div>
+           <br />
+	<div id="ajax_in_progress" style="display: none;">Loading...</div>
+ </body>
+</html>
