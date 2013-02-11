@@ -1,0 +1,221 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+				<meta name="keywords" content="Research papers,Research papers/Authors,Research papers/Compilation,Research papers/Data structures,Research papers/Domain specific languages,Research papers/Functional pearls,Research papers/Functional reactive programming,Research papers/Generics,Research papers/Monads and arrows,Research papers/Parallelism and concurrency,Research papers/Program development" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/haskellwiki/opensearch_desc.php" title="HaskellWiki (English)" />
+		<link title="Creative Commons" type="application/rdf+xml" href="/haskellwiki/index.php?title=Research_papers&amp;action=creativecommons" rel="meta" />
+		<link rel="copyright" href="/haskellwiki/HaskellWiki:Copyrights" />
+<link rel="alternate" type="application/rss+xml" title="HaskellWiki RSS Feed" href="http://www.haskell.org/haskellwiki/index.php?title=Special:Recentchanges&amp;feed=rss" />
+<link rel="alternate" type="application/atom+xml" title="HaskellWiki Atom Feed" href="http://www.haskell.org/haskellwiki/index.php?title=Special:Recentchanges&amp;feed=atom" />
+		<title>Research papers - HaskellWiki</title>
+		<style type="text/css" media="screen, projection">/*<![CDATA[*/
+			@import "/wikistatic/skins//common/shared.css?116";
+			@import "/wikistatic/skins//hawiki/main.css?116";
+		/*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="/wikistatic/skins//common/commonPrint.css?116" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "/wikistatic/skins//hawiki/IE50Fixes.css?116";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "/wikistatic/skins//hawiki/IE55Fixes.css?116";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "/wikistatic/skins//hawiki/IE60Fixes.css?116";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "/wikistatic/skins//hawiki/IE70Fixes.css?116";</style><![endif]-->
+		<!--[if lte IE 7]><script type="text/javascript" src="/wikistatic/skins//hawiki/IEFixes.js?116"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+                                                <script type="text/javascript">
+                        var isMSIE55 = (window.showModalDialog && window.clipboardData && window.createPopup); /*alert("test: " + isMSIE55);*/</script>
+
+		<script type= "text/javascript">/*<![CDATA[*/
+var skin = "hawiki";
+var stylepath = "/wikistatic/skins/";
+var wgArticlePath = "/haskellwiki/$1";
+var wgScriptPath = "/haskellwiki";
+var wgScript = "/haskellwiki/index.php";
+var wgServer = "http://www.haskell.org";
+var wgCanonicalNamespace = "";
+var wgCanonicalSpecialPageName = false;
+var wgNamespaceNumber = 0;
+var wgPageName = "Research_papers";
+var wgTitle = "Research papers";
+var wgAction = "view";
+var wgRestrictionEdit = [];
+var wgRestrictionMove = [];
+var wgArticleId = "1702";
+var wgIsArticle = true;
+var wgUserName = null;
+var wgUserGroups = null;
+var wgUserLanguage = "en";
+var wgContentLanguage = "en";
+var wgBreakFrames = false;
+var wgCurRevisionId = "44038";
+var wgVersion = "1.12.0";
+var wgEnableAPI = true;
+var wgEnableWriteAPI = false;
+/*]]>*/</script>
+
+		<script type="text/javascript" src="/wikistatic/skins//common/wikibits.js?116"><!-- wikibits js --></script>
+		<!-- Head Scripts -->
+		<script type="text/javascript" src="/wikistatic/skins//common/ajax.js?116"></script>
+		<script type="text/javascript" src="/haskellwiki/index.php?title=-&amp;action=raw&amp;gen=js&amp;useskin=hawiki"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "/haskellwiki/index.php?title=MediaWiki:Common.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=18000";
+@import "/haskellwiki/index.php?title=MediaWiki:Hawiki.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=18000";
+@import "/haskellwiki/index.php?title=-&action=raw&gen=css&maxage=18000&useskin=hawiki";
+/*]]>*/</style>
+	</head>
+<body class="mediawiki ltr page-Research_papers ">
+   <div id="topbar" class="noprint">
+	<div class="portlet noprint" id="p-personal">
+		<h5>Personal tools</h5>
+		<div class="pBody">
+			<ul><li><a class="homebutton" href="/haskellwiki/Haskell">Home</a></li>
+				<li id="pt-login"><a href="/haskellwiki/index.php?title=Special:Userlogin&amp;returnto=Research_papers" title="You are encouraged to log in, it is not mandatory however. [o]" accesskey="o">Log in / create account</a></li>
+			</ul>
+		</div>
+	</div>
+        	  <div id="p-search">
+	    <div id="searchBody" class="pBody">
+	       <form action="/haskellwiki/index.php" id="searchform"><div>
+	          <input type='hidden' name="title" value=""/>
+	          <input id="searchInput" name="search" type="text" title="Search HaskellWiki [f]" accesskey="f" value="" />
+				<input type='submit' name="go" class="searchButton" id="searchGoButton"	value="Go" title="Go to a page with this exact name if exists" />&nbsp;
+				<input type='submit' name="fulltext" class="searchButton" id="mw-searchButton" value="Search" title="Search the pages for this text" />
+
+	         </div></form>
+	    </div>
+	  </div>
+   </div>
+	<div id="globalWrapper">
+	<div class="portlet" id="p-logo">
+		<a style="background-image: url(/wikistatic/haskellwiki_logo.png);" href="/haskellwiki/Haskell" title="Main Page"></a>
+	</div>
+	<div id="column-content">
+        <div id="notice-area" class="noprint">
+        <!-- ?php $this->data['sitenotice'] = 'This is a test instance.  Do not edit, your changes will be lost.'; ? -->
+			        </div>
+        <div id="content-wrapper">
+	<div id="p-cactions" class="portlet noprint">
+		<h5>Views</h5>
+		<div class="pBody">
+			<ul>
+	
+				 <li id="ca-nstab-main" class="selected"><a href="/haskellwiki/Research_papers" title="View the content page [c]" accesskey="c">Page</a></li>
+				 <li id="ca-talk" class="new"><a href="/haskellwiki/index.php?title=Talk:Research_papers&amp;action=edit" title="Discussion about the content page [t]" accesskey="t">Discussion</a></li>
+				 <li id="ca-viewsource"><a href="/haskellwiki/index.php?title=Research_papers&amp;action=edit" title="This page is protected. You can view its source. [e]" accesskey="e">View source</a></li>
+				 <li id="ca-history"><a href="/haskellwiki/index.php?title=Research_papers&amp;action=history" title="Past versions of this page. [h]" accesskey="h">History</a></li>			</ul>
+		</div>
+	</div>
+                        <div id="content">
+		<a name="top" id="top"></a>
+                        <h1 id="firstHeading" class="firstHeading">Research papers</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From HaskellWiki</h3>
+			<div id="contentSub"></div>
+			<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<p><br />
+</p><p><br />
+A lot of documentation exists about Haskell, and its foundations, in the form of research papers written by those investigating language design. An enormous research effort, by hundreds of researchers over the past 20 years, has gone into making Haskell such a great language. In general, if a feature is not well understood, it isn't going to become part of the language.  
+</p><p>Here is a selection of those papers, with the goal of making the wealth of material published on Haskell more available to the casual user, and not just researchers. Some of the papers are highly technical, others, not so. These papers are not suitable for those trying to learn the language from scratch, but more for those looking for a deeper understanding of the theoretical and practical aspects of Haskell.
+</p>
+<a name="Overview"></a><h2> <span class="mw-headline">1 Overview</span></h2>
+<dl><dt><a href="http://www.cs.kent.ac.uk/people/staff/dat/miranda/whyfp90.pdf" class="external text" title="http://www.cs.kent.ac.uk/people/staff/dat/miranda/whyfp90.pdf" rel="nofollow">Why Functional Programming Matters</a> ∷ PDF
+</dt><dd>John Hughes. Comput. J. 32(2): 98-107 (1989)
+</dd></dl>
+<dl><dt><a href="http://www.cs.kent.ac.uk/pubs/1997/224/index.html" class="external text" title="http://www.cs.kent.ac.uk/pubs/1997/224/index.html" rel="nofollow">Higher-order + Polymorphic = Reusable</a>
+</dt><dd>Simon Thompson, 1997.
+</dd></dl>
+<dl><dt><a href="http://research.microsoft.com/~simonpj/papers/history-of-haskell/index.htm" class="external text" title="http://research.microsoft.com/~simonpj/papers/history-of-haskell/index.htm" rel="nofollow">The History of Haskell</a>
+</dt><dd>Simon Peyton Jones, Paul Hudak, John Hughes, and Philip Wadler, 2006
+</dd></dl>
+<a name="Categories"></a><h2> <span class="mw-headline">2 Categories</span></h2>
+<ul><li><a href="/haskellwiki/Research_papers/Runtime_systems" title="Research papers/Runtime systems">Runtime systems</a>
+</li><li><a href="/haskellwiki/Research_papers/Parallelism_and_concurrency" title="Research papers/Parallelism and concurrency">Parallelism and concurrency</a>
+</li><li><a href="/haskellwiki/Research_papers/Compilation" title="Research papers/Compilation">Compilation</a>
+</li><li><a href="/haskellwiki/Research_papers/Type_systems" title="Research papers/Type systems">Type systems</a>
+</li><li><a href="/haskellwiki/Research_papers/Data_structures" title="Research papers/Data structures">Data structures</a>
+</li><li><a href="/haskellwiki/Research_papers/Monads_and_arrows" title="Research papers/Monads and arrows">Monads and arrows</a>
+</li><li><a href="/haskellwiki/Research_papers/Generics" title="Research papers/Generics">Generic programming</a>
+</li><li><a href="/haskellwiki/Research_papers/Testing_and_correctness" title="Research papers/Testing and correctness">Proofs, verification and testing</a>
+</li><li><a href="/haskellwiki/Research_papers/Program_development" title="Research papers/Program development">Software application development</a>
+</li><li><a href="/haskellwiki/Research_papers/Domain_specific_languages" title="Research papers/Domain specific languages">Domain specific languages</a>
+</li><li><a href="/haskellwiki/Research_papers/Functional_reactive_programming" title="Research papers/Functional reactive programming">Functional reactive programming</a>
+</li><li><a href="/haskellwiki/Research_papers/Functional_pearls" title="Research papers/Functional pearls">Functional pearls: beautiful design</a>
+</li></ul>
+<a name="Authors"></a><h2> <span class="mw-headline">3  Authors </span></h2>
+<p><a href="/haskellwiki/Research_papers/Authors" title="Research papers/Authors">Authors Index</a>
+</p>
+<a name="Top_10"></a><h2> <span class="mw-headline">4  Top 10 </span></h2>
+<p><a href="/haskellwiki/Research_papers/Top_10" title="Research papers/Top 10">Most cited</a> Haskell papers
+</p>
+<a name="Bibliography"></a><h2> <span class="mw-headline">5  Bibliography </span></h2>
+<p><a href="http://www.catamorphism.net/" class="external text" title="http://www.catamorphism.net/" rel="nofollow">Functional Programming Bibliography</a>
+</p><p>A searchable bibliographic database, concentrating on Haskell, with over 1,500 citations.
+</p>
+<!-- 
+NewPP limit report
+Preprocessor node count: 6/1000000
+Post-expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+-->
+
+<!-- Saved in parser cache with key wikidb:pcache:idhash:1702-0!1!0!1!en!2!edit=0 and timestamp 20130211153014 -->
+<div class="printfooter">
+Retrieved from "<a href="http://www.haskell.org/haskellwiki/Research_papers">http://www.haskell.org/haskellwiki/Research_papers</a>"</div>
+			<p class='catlinks'><a href="/haskellwiki/Special:Categories" title="Special:Categories">Category</a>: <span dir='ltr'><a href="/haskellwiki/Category:Research" title="Category:Research">Research</a></span></p>			<!-- end content -->
+						<div class="visualClear"></div>
+		</div>
+	</div>
+		</div></div>
+		<div id="column-one">
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+	<div class='generated-sidebar portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage"><a href="/haskellwiki/Haskell" title="Visit the Main Page [z]" accesskey="z">Haskell</a></li>
+				<li id="n-portal"><a href="/haskellwiki/HaskellWiki:Community" title="About the project, what you can do, where to find things">Wiki community</a></li>
+				<li id="n-recentchanges"><a href="/haskellwiki/Special:Recentchanges" title="The list of recent changes in the wiki. [r]" accesskey="r">Recent changes</a></li>
+				<li id="n-randompage"><a href="/haskellwiki/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-tb">
+		<h5>Toolbox</h5>
+		<div class="pBody">
+			<ul>
+				<li id="t-whatlinkshere"><a href="/haskellwiki/Special:Whatlinkshere/Research_papers" title="List of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+				<li id="t-recentchangeslinked"><a href="/haskellwiki/Special:Recentchangeslinked/Research_papers" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+<li id="t-upload"><a href="/haskellwiki/Special:Upload" title="Upload files [u]" accesskey="u">Upload file</a></li>
+<li id="t-specialpages"><a href="/haskellwiki/Special:Specialpages" title="List of all special pages [q]" accesskey="q">Special pages</a></li>
+				<li id="t-print"><a href="/haskellwiki/index.php?title=Research_papers&amp;printable=yes" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>				<li id="t-permalink"><a href="/haskellwiki/index.php?title=Research_papers&amp;oldid=44038" title="Permanent link to this version of the page">Permanent link</a></li>			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="/wikistatic/skins//common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>
+			<ul id="f-list">
+					<li id="lastmod"> This page was last modified 12:36, 19 January 2012.</li>
+					<li id="viewcount">This page has been accessed 61,475 times.</li>
+					<li id="copyright">Recent content is available under <a href="/haskellwiki/HaskellWiki:Copyrights" title="HaskellWiki:Copyrights">a simple permissive license</a>.</li>
+					<li id="privacy"><a href="/haskellwiki/HaskellWiki:Privacy_policy" title="HaskellWiki:Privacy policy">Privacy policy</a></li>
+					<li id="about"><a href="/haskellwiki/HaskellWiki:About" title="HaskellWiki:About">About HaskellWiki</a></li>
+					<li id="disclaimer"><a href="/haskellwiki/HaskellWiki:General_disclaimer" title="HaskellWiki:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+</div>
+
+		<script type="text/javascript">if (window.runOnloadHook) runOnloadHook();</script>
+<!-- Served in 0.102 secs. --><script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-15375175-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</body></html>

@@ -1,0 +1,1160 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    
+    <title>backbone.js - Pattern to manage views in backbone - Stack Overflow</title>
+    <link rel="shortcut icon" href="http://cdn.sstatic.net/stackoverflow/img/favicon.ico">
+    <link rel="apple-touch-icon" href="http://cdn.sstatic.net/stackoverflow/img/apple-touch-icon.png">
+    <link rel="search" type="application/opensearchdescription+xml" title="Stack Overflow" href="/opensearch.xml">
+
+    
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script type="text/javascript" src="http://cdn.sstatic.net/js/stub.js?v=655f0a867d03"></script>
+    <link rel="stylesheet" type="text/css" href="http://cdn.sstatic.net/stackoverflow/all.css?v=912df4e693b3">
+    
+    <meta name="relativepagescore" content="230962">
+    <link rel="canonical" href="http://stackoverflow.com/questions/8348805/pattern-to-manage-views-in-backbone">
+    <link rel="alternate" type="application/atom+xml" title="Feed for question 'Pattern to manage views in backbone'" href="/feeds/question/8348805">
+    <script type="text/javascript">
+        
+        StackExchange.ready(function () {
+            
+            StackExchange.question.init({showAnswerHelp:true,totalCommentCount:0,shownCommentCount:0,highlightColor:'#F4A83D',backgroundColor:'#FFF',questionId:8348805});
+
+            styleCode();
+
+                StackExchange.realtime.subscribeToQuestion('1', '8348805');
+            
+                
+        });
+    </script>
+
+
+    <script type="text/javascript">
+        StackExchange.init({"stackAuthUrl":"https://stackauth.com","serverTime":1360622564,"styleCode":true,"enableUserHovercards":true,"site":{"name":"Stack Overflow","description":"Q&A for professional and enthusiast programmers","isNoticesTabEnabled":true,"recaptchaPublicKey":"6LdchgIAAAAAAJwGpIzRQSOFaO0pU6s44Xt8aTwc","enableSocialMediaInSharePopup":true},"user":{"fkey":"9fcc9a9480821134e0f946af7c94062d","isAnonymous":true}});
+        StackExchange.using.setCacheBreakers({"js/prettify-full.js":"c862bf93b3ec","js/moderator.js":"53a4fbf22d01","js/full-anon.js":"95c3ce8c7b6c","js/full.js":"9b0f7c71eed3","js/wmd.js":"fd5b31f81840","js/third-party/jquery.autocomplete.min.js":"e5f01e97f7c3","js/mobile.js":"6eb68240242f","js/help.js":"fc9fb0517db2","js/tageditor.js":"450c9e8426fc","js/tageditornew.js":"f12653fbfd29","js/inline-tag-editing.js":"30f72b99548b","js/revisions.js":"7273bb714bba","js/review.js":"7f234e0aa04f","js/tagsuggestions.js":"c019341b234d"});
+        
+    </script>
+
+
+    <script type="text/javascript">
+        StackExchange.using(
+            "gps",
+            function () {
+                StackExchange.gps.init(false);
+            }
+        );
+    </script>
+
+</head>
+<body class="question-page">
+    <noscript><div id="noscript-padding"></div></noscript>
+    <div id="notify-container"></div>
+    <div id="overlay-header"></div>
+    <div id="custom-header"></div>
+
+    <div class="container">
+        <div id="header">
+            <div id="portalLink">
+                <a class="genu" href="http://stackexchange.com" onclick="StackExchange.ready(function(){genuwine.click();});return false;">Stack Exchange</a>
+            </div>
+            <div id="topbar">
+                <div id="hlinks">
+                    
+
+
+
+
+
+
+
+
+
+<span id="hlinks-user">
+
+</span>
+<span id="hlinks-nav">
+                   <a href="/users/login?returnurl=%2fquestions%2f8348805%2fpattern-to-manage-views-in-backbone">log in</a>
+
+ <span class="lsep">|</span>
+                    <a href="http://careers.stackoverflow.com">careers 2.0</a>
+
+ <span class="lsep">|</span>
+
+</span>
+<span id="hlinks-custom">
+        <a href="http://chat.stackoverflow.com">chat</a>
+
+ <span class="lsep">|</span>
+            <a href="http://meta.stackoverflow.com">meta</a>
+
+ <span class="lsep">|</span>
+        <a href="/about">about</a>
+
+ <span class="lsep">|</span>
+    <a href="/faq">faq</a>
+
+</span>
+                </div>
+                <div id="hsearch">
+                    <form id="search" action="/search" method="get" autocomplete="off">
+                    <div>
+                        <input autocomplete="off" name="q" class="textbox" placeholder="search" tabindex="1" type="text" maxlength="240" size="28" value="">
+                    </div>
+                    </form>
+                </div>
+            </div>
+            <br class="cbt">
+            <div id="hlogo">
+                <a href="/" >Stack Overflow</a>
+            </div>
+            <div id="hmenus">
+                <div class="nav mainnavs">
+                    <ul>
+                        <li class="youarehere"><a id="nav-questions" href="/questions">Questions</a></li>
+                        <li><a id="nav-tags" href="/tags">Tags</a></li>
+                        <li><a id="nav-users" href="/users">Users</a></li>
+                        <li><a id="nav-badges" href="/badges">Badges</a></li>
+                        <li><a id="nav-unanswered" href="/unanswered">Unanswered</a></li>
+                    </ul>
+                </div>
+                <div class="nav askquestion">
+                    <ul>
+                        <li>
+                            <a id="nav-askquestion"  href="/questions/ask">Ask Question</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        
+
+
+
+        <div id="content">
+            
+
+<div itemscope itemtype="http://schema.org/Article">
+<link itemprop="image" href="http://cdn.sstatic.net/stackoverflow/img/apple-touch-icon.png">
+<div id="question-header">
+    <h1 itemprop="name"><a href="/questions/8348805/pattern-to-manage-views-in-backbone" class="question-hyperlink"">Pattern to manage views in backbone</a></h1>
+</div>
+<div id="mainbar">
+
+
+
+<div class="question" data-questionid="8348805"  id="question">
+    
+            <div class="everyonelovesstackoverflow" id="adzerk1">
+        </div>
+
+
+    <table>
+        <tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+    <input type="hidden" value="8348805">
+    <a class="vote-up-off" title="This question shows research effort; it is useful and clear (click again to undo)">up vote</a>
+    <span class="vote-count-post ">14</span>
+    <a class="vote-down-off" title="This question does not show any research effort; it is unclear or not useful (click again to undo)">down vote</a>
+    
+    <a class="star-off" href="#" title="This is a favorite question (click again to undo)">favorite</a>
+    <div class="favoritecount"><b>11</b></div>   
+
+ 
+</div>
+
+            </td>
+            
+<td class="postcell">
+<div>
+    <div class="post-text" itemprop="description">
+        <p>Coming from GWT, Backbone seems to miss a built-in solution on how to handle the life-cycle of a view. In GWT, every activity, which is more or less the equivalent to a View in Backbone, is managed by an ActivityManager which calls onStart/onStop on the activity, passing the eventBus and the element where the Activity can be rendered in. On stop, the ActivityManager will unbind all events the activity has bind to the eventbus and remove the view from the DOM.</p>
+
+<p>In Backbone, it's easy to bind the events to model and collection but you have to remove them manually and there is no common api method where you will do this. </p>
+
+<p>So I'm looking for best practice pattern on how to manage views to ensure no killed or disabled views are listening unnecessary to events.</p>
+
+    </div>
+    <div class="post-taglist">
+        <a href="/questions/tagged/design-patterns" class="post-tag" title="show questions tagged 'design-patterns'" rel="tag">design-patterns</a> <a href="/questions/tagged/backbone.js" class="post-tag" title="show questions tagged 'backbone.js'" rel="tag">backbone.js</a> <a href="/questions/tagged/event-driven" class="post-tag" title="show questions tagged 'event-driven'" rel="tag">event-driven</a> 
+    </div>
+    <table class="fw">
+    <tr>
+    <td class="vt">
+
+
+
+
+
+
+
+
+
+<div class="post-menu"><a href="/q/8348805" title="short permalink to this question" class="short-link" id="link-post-8348805">share</a><span class="lsep">|</span><a href="/posts/8348805/edit" class="suggest-edit-post" title="">improve this question</a></div>            </td>
+    <td align="right" class="post-signature">
+
+
+    <div class="user-info ">
+        <div class="user-action-time">
+                            edited
+                             <a href="/posts/8348805/revisions" title="show all edits to this post"><span title="2012-03-16 09:52:01Z" class="relativetime">Mar 16 '12 at 9:52</span></a>
+
+        </div>
+        <div class="user-gravatar32">
+            <a href="/users/21234/skaffman"><div class=""><img src="http://www.gravatar.com/avatar/d5f91983a9d9cfb69981b6108a63b412?s=32&d=identicon&r=PG" alt="" width="32" height="32"></div></a>
+        </div>
+        <div class="user-details">
+            <a href="/users/21234/skaffman">skaffman</a><br>
+            <span class="reputation-score" title="reputation score 142612" dir="ltr">143k</span><span title="19 gold badges"><span class="badge1"></span><span class="badgecount">19</span></span><span title="242 silver badges"><span class="badge2"></span><span class="badgecount">242</span></span><span title="334 bronze badges"><span class="badge3"></span><span class="badgecount">334</span></span>
+        </div>
+    </div>
+    </td>
+    <td class="post-signature owner">
+        
+
+    <div class="user-info ">
+        <div class="user-action-time">
+                                    asked
+ <span title="2011-12-01 21:53:12Z" class="relativetime">Dec 1 '11 at 21:53</span>
+        </div>
+        <div class="user-gravatar32">
+            <a href="/users/184883/andreas-koberle"><div class=""><img src="http://www.gravatar.com/avatar/7831f9c652845c34091da263b689cc25?s=32&d=identicon&r=PG" alt="" width="32" height="32"></div></a>
+        </div>
+        <div class="user-details">
+            <a href="/users/184883/andreas-koberle">Andreas K&#246;berle</a><br>
+            <span class="reputation-score" title="reputation score" dir="ltr">7,322</span><span title="2 gold badges"><span class="badge1"></span><span class="badgecount">2</span></span><span title="22 silver badges"><span class="badge2"></span><span class="badgecount">22</span></span><span title="58 bronze badges"><span class="badge3"></span><span class="badgecount">58</span></span>
+        </div>
+    </div>
+
+    </td>
+    </tr>
+    </table>
+</div>
+</td>
+        </tr>
+
+
+<tr>
+<td class="votecell"></td>
+<td>
+    <div id="comments-8348805" class="comments dno">
+        <table>
+        <tbody>
+        
+            <tr><td></td><td></td></tr>
+        
+        </tbody>
+    
+        </table>
+    </div>
+    
+    
+    <div class="was-this-helpful">
+        feedback
+    </div>
+    
+</td>
+</tr>            </table>    
+</div>
+
+
+    
+
+
+<div id="answers">
+
+    <a name="tab-top"></a>
+    <div id="answers-header">
+        <div class="subheader answers-subheader">
+            <h2>
+                    4 Answers
+            </h2>
+            <div id="tabs">
+                <a href="/questions/8348805/pattern-to-manage-views-in-backbone?answertab=active#tab-top" title="Answers with the latest activity first">active</a>
+<a href="/questions/8348805/pattern-to-manage-views-in-backbone?answertab=oldest#tab-top" title="Answers in the order they were provided">oldest</a>
+<a class="youarehere" href="/questions/8348805/pattern-to-manage-views-in-backbone?answertab=votes#tab-top" title="Answers with the highest score first">votes</a>
+
+            </div>
+        </div>    
+    </div>    
+
+
+
+
+  
+<a name="8350638"></a>
+<div id="answer-8350638" class="answer" data-answerid="8350638" >
+    <table>
+        <tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+    <input type="hidden" value="8350638">
+    <a class="vote-up-off" title="This answer is useful (click again to undo)">up vote</a>
+    <span class="vote-count-post ">11</span>
+    <a class="vote-down-off" title="This answer is not useful (click again to undo)">down vote</a>
+    
+
+ 
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text"><p>you are right,
+there is no build in solution to that (yet).</p>
+
+<p>however it is of course possible to extend backbone to provide this functionality,
+Derick Bailey has written a blog post about this recently,</p>
+
+<p>take a look here:
+<a href="http://lostechies.com/derickbailey/2011/09/15/zombies-run-managing-page-transitions-in-backbone-apps/">http://lostechies.com/derickbailey/2011/09/15/zombies-run-managing-page-transitions-in-backbone-apps/</a></p>
+
+<p>this is by no means the holy grail, you are free to implement as you wish, but it is a very straight forward approach, for handling zombie views, now you still need to take care of other creatures crawling in your memory, but this is a start with the views at least!</p>
+</div>
+    <table class="fw">
+    <tr>
+    <td class="vt">
+
+
+
+
+
+
+
+
+
+<div class="post-menu"><a href="/a/8350638" title="short permalink to this answer" class="short-link" id="link-post-8350638">share</a><span class="lsep">|</span><a href="/posts/8350638/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    
+
+    <div class="user-info user-hover">
+        <div class="user-action-time">
+                                    answered
+ <span title="2011-12-02 01:20:03Z" class="relativetime">Dec 2 '11 at 1:20</span>
+        </div>
+        <div class="user-gravatar32">
+            <a href="/users/109341/sander"><div class=""><img src="http://www.gravatar.com/avatar/13091ee9cd0e2cb9eced6969fef6e449?s=32&d=identicon&r=PG" alt="" width="32" height="32"></div></a>
+        </div>
+        <div class="user-details">
+            <a href="/users/109341/sander">Sander</a><br>
+            <span class="reputation-score" title="reputation score" dir="ltr">4,897</span><span title="2 gold badges"><span class="badge1"></span><span class="badgecount">2</span></span><span title="16 silver badges"><span class="badge2"></span><span class="badgecount">16</span></span><span title="53 bronze badges"><span class="badge3"></span><span class="badgecount">53</span></span>
+        </div>
+    </div>
+
+    </td>
+    </tr>
+    </table>
+</td>
+        </tr>
+
+
+
+<tr>
+<td class="votecell"></td>
+<td>
+    <div id="comments-8350638" class="comments">
+        <table>
+        <tbody>
+                    
+    <tr id="comment-10303300" class="comment">
+        <td></td>
+        <td class="comment-text"><div><span class="comment-copy">Nice article. Thanks for the link.</span> &ndash;&nbsp;<a href="/users/960820/protom" title="663 reputation" class="comment-user">ProTom</a> <span class="comment-date" dir="ltr"><span title="2011-12-02 07:31:40Z" class="relativetime-clean">Dec 2 '11 at 7:31</span></span></div></td>
+    </tr>
+            
+    <tr id="comment-10303657" class="comment">
+        <td></td>
+        <td class="comment-text"><div><span class="comment-copy">Yes the article goes in the right direction, but after all the view is  responsible for cleaning up. Im locking for a solution where the view dont care about cleaning up, cause someone else is doing it. Think about larger teams where sometimes someone forget to clean up manually. Also you have to write the same code over and over again.</span> &ndash;&nbsp;<a href="/users/184883/andreas-koberle" title="7322 reputation" class="comment-user owner">Andreas K&#246;berle</a> <span class="comment-date" dir="ltr"><span title="2011-12-02 08:08:13Z" class="relativetime-clean">Dec 2 '11 at 8:08</span></span><span class="edited-yes" title="this comment was edited"></span></div></td>
+    </tr>
+            
+    <tr id="comment-10304409" class="comment">
+        <td></td>
+        <td class="comment-text"><div><span class="comment-copy">such a system does not exist with backbone, because they want to provide a structure that is and stays flexible, of course it&#39;s not unlikely someone has thought of this, and started a plugin, however i have not heard of one that does all of this automatically (yet).</span> &ndash;&nbsp;<a href="/users/109341/sander" title="4897 reputation" class="comment-user">Sander</a> <span class="comment-date" dir="ltr"><span title="2011-12-02 09:06:22Z" class="relativetime-clean">Dec 2 '11 at 9:06</span></span></div></td>
+    </tr>
+            
+    <tr id="comment-10643738" class="comment">
+        <td></td>
+        <td class="comment-text"><div><span class="comment-copy">@AndreasK&#246;berle In the article, Derek extends the Backbone View prototype with a close() method which will unbind all events and remove the element from the view.  Just have people use <code>view.close()</code> instead of <code>view.remove()</code> and then they can forget about cleaning up.</span> &ndash;&nbsp;<a href="/users/640517/eric-hu" title="2592 reputation" class="comment-user">Eric Hu</a> <span class="comment-date" dir="ltr"><span title="2011-12-20 21:54:24Z" class="relativetime-clean">Dec 20 '11 at 21:54</span></span></div></td>
+    </tr>
+            
+    <tr id="comment-12566242" class="comment">
+        <td></td>
+        <td class="comment-text"><div><span class="comment-copy">@EricHu or just extend view.remove (either of the Backbone View or your own BaseView)</span> &ndash;&nbsp;<a href="/users/45948/roberkules" title="2719 reputation" class="comment-user">roberkules</a> <span class="comment-date" dir="ltr"><span title="2012-03-25 02:52:06Z" class="relativetime-clean">Mar 25 '12 at 2:52</span></span></div></td>
+    </tr>
+
+        </tbody>
+    
+        </table>
+    </div>
+    
+    
+    <div class="was-this-helpful">
+        feedback
+    </div>
+    
+</td>
+</tr>
+   
+    
+    </table>
+</div>
+        <div class="everyonelovesstackoverflow" id="adzerk3">
+        </div>
+
+
+
+  
+<a name="9857602"></a>
+<div id="answer-9857602" class="answer" data-answerid="9857602" >
+    <table>
+        <tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+    <input type="hidden" value="9857602">
+    <a class="vote-up-off" title="This answer is useful (click again to undo)">up vote</a>
+    <span class="vote-count-post ">3</span>
+    <a class="vote-down-off" title="This answer is not useful (click again to undo)">down vote</a>
+    
+
+ 
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text"><p>I'm using a custom BaseView, which extends Backbone's remove method:</p>
+
+<pre><code>app.BaseView = Backbone.View.extend({
+
+    views: [], // array to keep a ref of child-views for proper disposal later on
+
+    remove: function() {
+
+        // dispose any sub-views
+        if (_.isArray(this.views) &amp;&amp; this.views.length &gt; 0) {
+            _.each(this.views, function(view) {
+                view.remove();
+            });
+        }
+
+        // if the inheriting class defines a custom on-remove method, call it!
+        if (_.isFunction(this.onRemove)) {
+            this.onRemove();
+        }
+
+        // unbind all events from this view
+        this.off();
+
+        // finally, call Backbone's default remove method to
+        // remove the view from the DOM
+        Backbone.View.prototype.remove.call(this);
+    }
+}
+</code></pre>
+
+<p>There's still a catch: models and collections need to be disposed by hand, because you don't know if it's used by other views too.</p>
+</div>
+    <table class="fw">
+    <tr>
+    <td class="vt">
+
+
+
+
+
+
+
+
+
+<div class="post-menu"><a href="/a/9857602" title="short permalink to this answer" class="short-link" id="link-post-9857602">share</a><span class="lsep">|</span><a href="/posts/9857602/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    
+
+    <div class="user-info user-hover">
+        <div class="user-action-time">
+                                    answered
+ <span title="2012-03-25 03:01:27Z" class="relativetime">Mar 25 '12 at 3:01</span>
+        </div>
+        <div class="user-gravatar32">
+            <a href="/users/45948/roberkules"><div class=""><img src="http://www.gravatar.com/avatar/05c586f5958c72b10a532955e2fc74bd?s=32&d=identicon&r=PG" alt="" width="32" height="32"></div></a>
+        </div>
+        <div class="user-details">
+            <a href="/users/45948/roberkules">roberkules</a><br>
+            <span class="reputation-score" title="reputation score" dir="ltr">2,719</span><span title="9 silver badges"><span class="badge2"></span><span class="badgecount">9</span></span><span title="24 bronze badges"><span class="badge3"></span><span class="badgecount">24</span></span>
+        </div>
+    </div>
+
+    </td>
+    </tr>
+    </table>
+</td>
+        </tr>
+
+
+
+<tr>
+<td class="votecell"></td>
+<td>
+    <div id="comments-9857602" class="comments dno">
+        <table>
+        <tbody>
+        
+            <tr><td></td><td></td></tr>
+        
+        </tbody>
+    
+        </table>
+    </div>
+    
+    
+    <div class="was-this-helpful">
+        feedback
+    </div>
+    
+</td>
+</tr>
+   
+    
+    </table>
+</div>
+
+  
+<a name="10330905"></a>
+<div id="answer-10330905" class="answer" data-answerid="10330905" >
+    <table>
+        <tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+    <input type="hidden" value="10330905">
+    <a class="vote-up-off" title="This answer is useful (click again to undo)">up vote</a>
+    <span class="vote-count-post ">2</span>
+    <a class="vote-down-off" title="This answer is not useful (click again to undo)">down vote</a>
+    
+
+ 
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text"><p>I post my solution to manage view at <a href="https://github.com/thomasdao/Backbone-View-Manager" rel="nofollow">https://github.com/thomasdao/Backbone-View-Manager</a>. </p>
+
+<p>The view manager will always cleanup existing view before create a new view. Now I will initialize a new view by:</p>
+
+<pre><code>newView = VM.createView("newView", function(){
+             return new View();
+          };
+</code></pre>
+
+<p>If I want to reuse a view instead of creating a new one, I can use </p>
+
+<pre><code>newView = VM.reuseView("newView", function() {
+              return new View();
+          }
+</code></pre>
+
+<p>The different between VM.reuseView and VM.createView is that, reuseView will look for existing view with name "newView", if found it will return to you. Else, it will execute the callback function and cache result. VM.createView will always execute the callback function and cleanup existing view for you. Hence you may like to use VM.createView if the views is dynamic and frequently change</p>
+</div>
+    <table class="fw">
+    <tr>
+    <td class="vt">
+
+
+
+
+
+
+
+
+
+<div class="post-menu"><a href="/a/10330905" title="short permalink to this answer" class="short-link" id="link-post-10330905">share</a><span class="lsep">|</span><a href="/posts/10330905/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    
+
+    <div class="user-info ">
+        <div class="user-action-time">
+                                    answered
+ <span title="2012-04-26 09:42:39Z" class="relativetime">Apr 26 '12 at 9:42</span>
+        </div>
+        <div class="user-gravatar32">
+            <a href="/users/622510/thomasdao"><div class=""><img src="http://www.gravatar.com/avatar/407dc8fea731def2f7d0db0514890d55?s=32&d=identicon&r=PG" alt="" width="32" height="32"></div></a>
+        </div>
+        <div class="user-details">
+            <a href="/users/622510/thomasdao">thomasdao</a><br>
+            <span class="reputation-score" title="reputation score" dir="ltr">171</span><span title="1 silver badge"><span class="badge2"></span><span class="badgecount">1</span></span><span title="6 bronze badges"><span class="badge3"></span><span class="badgecount">6</span></span>
+        </div>
+    </div>
+
+    </td>
+    </tr>
+    </table>
+</td>
+        </tr>
+
+
+
+<tr>
+<td class="votecell"></td>
+<td>
+    <div id="comments-10330905" class="comments dno">
+        <table>
+        <tbody>
+        
+            <tr><td></td><td></td></tr>
+        
+        </tbody>
+    
+        </table>
+    </div>
+    
+    
+    <div class="was-this-helpful">
+        feedback
+    </div>
+    
+</td>
+</tr>
+   
+    
+    </table>
+</div>
+
+  
+<a name="11369444"></a>
+<div id="answer-11369444" class="answer accepted-answer" data-answerid="11369444" >
+    <table>
+        <tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+    <input type="hidden" value="11369444">
+    <a class="vote-up-off" title="This answer is useful (click again to undo)">up vote</a>
+    <span class="vote-count-post ">1</span>
+    <a class="vote-down-off" title="This answer is not useful (click again to undo)">down vote</a>
+    
+
+            <span class="vote-accepted-on load-accepted-answer-date" title="loading when this answer was accepted...">accepted</span>
+ 
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text"><p>Seems <a href="https://github.com/derickbailey/backbone.marionette" rel="nofollow">Marionette</a> finally has the <a href="https://github.com/derickbailey/backbone.marionette/blob/master/docs/marionette.region.md" rel="nofollow">functionality</a> I'm looking for.</p>
+</div>
+    <table class="fw">
+    <tr>
+    <td class="vt">
+
+
+
+
+
+
+
+
+
+<div class="post-menu"><a href="/a/11369444" title="short permalink to this answer" class="short-link" id="link-post-11369444">share</a><span class="lsep">|</span><a href="/posts/11369444/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+            
+
+
+    <td align="right" class="post-signature owner">   
+       
+
+    
+
+    <div class="user-info ">
+        <div class="user-action-time">
+                                    answered
+ <span title="2012-07-06 20:46:26Z" class="relativetime">Jul 6 '12 at 20:46</span>
+        </div>
+        <div class="user-gravatar32">
+            <a href="/users/184883/andreas-koberle"><div class=""><img src="http://www.gravatar.com/avatar/7831f9c652845c34091da263b689cc25?s=32&d=identicon&r=PG" alt="" width="32" height="32"></div></a>
+        </div>
+        <div class="user-details">
+            <a href="/users/184883/andreas-koberle">Andreas K&#246;berle</a><br>
+            <span class="reputation-score" title="reputation score" dir="ltr">7,322</span><span title="2 gold badges"><span class="badge1"></span><span class="badgecount">2</span></span><span title="22 silver badges"><span class="badge2"></span><span class="badgecount">22</span></span><span title="58 bronze badges"><span class="badge3"></span><span class="badgecount">58</span></span>
+        </div>
+    </div>
+
+    </td>
+    </tr>
+    </table>
+</td>
+        </tr>
+
+
+
+<tr>
+<td class="votecell"></td>
+<td>
+    <div id="comments-11369444" class="comments dno">
+        <table>
+        <tbody>
+        
+            <tr><td></td><td></td></tr>
+        
+        </tbody>
+    
+        </table>
+    </div>
+    
+    
+    <div class="was-this-helpful">
+        feedback
+    </div>
+    
+</td>
+</tr>
+   
+    
+    </table>
+</div>
+    <a name='new-answer'></a>
+    <form id="post-form" action="/questions/8348805/answer/submit" method="post"  class="post-form">
+        <h2 class="space">Your Answer</h2>
+
+
+
+
+<script type="text/javascript">
+    StackExchange.ready(function() {
+        initTagRenderer("".split(" "), "".split(" "));
+         
+        prepareEditor({
+            heartbeatType: 'answer',
+            bindNavPrevention: true,
+            postfix: "",
+            onDemand: true,
+            discardSelector: ".discard-answer"
+            ,immediatelyShowMarkdownHelp:true
+        });
+        
+
+    });  
+</script>
+
+
+<div id="post-editor" class="post-editor">  
+
+    
+    <div class="wmd-container">
+        <div id="wmd-button-bar" class="wmd-button-bar"></div>
+        <textarea id="wmd-input" class="wmd-input" name="post-text" cols="92" rows="15" tabindex="101"></textarea>
+    </div>
+
+    <div class="fl" style="margin-top: 8px; height:24px;">&nbsp;</div>
+    <div id="draft-saved" class="draft-saved community-option fl" style="margin-top: 8px; height:24px; display:none;">draft saved</div>
+
+    <div id="draft-discarded" class="draft-discarded community-option fl" style="margin-top: 8px; height:24px; display:none;">draft discarded</div>
+
+
+
+    <div id="wmd-preview" class="wmd-preview"></div>
+    <div></div>
+    <div class="edit-block">
+        <input id="fkey" name="fkey" type="hidden" value="9fcc9a9480821134e0f946af7c94062d">
+        <input id="author" name="author" type="text">
+    </div>
+</div>            <div class="form-item">
+        <table>
+        <tr>
+                <td class="vm open-id-login">
+                    <a id="login-link" style="font-size: 200%; margin-left: 30px;" href="/users/login?returnurl=%2fquestions%2f8348805%2fpattern-to-manage-views-in-backbone">log in</a>
+                    <script type="text/javascript">
+                        StackExchange.ready(function () {
+                            StackExchange.helpers.onClickDraftSave('#login-link');
+                        });
+                    </script>
+                </td>
+                    <script type="text/javascript">
+                StackExchange.ready(function () {
+                    StackExchange.helpers.bindHelpOverlayEvents($('.vm input'));
+                });
+            </script>
+                <td class="orcell">
+                    <div class="orword">or</div>
+                    <div class="orline"></div>
+                </td>
+            <td class="vm">
+                    <div>
+                        <label for="display-name">Name</label>
+                        <input id="display-name" name="display-name" type="text" size="30" maxlength="30" value="" tabindex="105">
+                    </div>
+                <div>
+                    <label for="m-address">Email</label>
+                    <input id="m-address" name="m-address" type="text" size="40" maxlength="100" value="" tabindex="106">
+                    <span class="edit-field-overlay">required, but never shown</span>
+                </div>
+                    <div>
+                        <label for="home-page">Home Page</label>
+                        <input id="home-page" name="home-page" type="text" size="40" maxlength="200" value="" tabindex="107">
+                    </div>
+            </td>
+        </tr>
+        </table>
+    </div>
+           
+            <div class="form-submit cbt">
+            <input id="submit-button" type="submit" value="Post Your Answer" tabindex="110">
+            <a href="#" class="discard-answer dno">discard</a>
+    <p class="privacy-policy-agreement">
+        By posting your answer, you agree to the 
+        <a href="http://stackexchange.com/legal/privacy-policy" target="_blank">privacy policy</a> and 
+        <a href="http://stackexchange.com/legal/terms-of-service" target="_blank">terms of service</a>.
+    </p>
+    <input type="hidden" name="legalLinksShown" value="1" />
+        </div>
+    </form>
+
+
+
+        <h2 class="bottom-notice">
+                Not the answer you're looking for? 
+            Browse other questions tagged <a href="/questions/tagged/design-patterns" class="post-tag" title="show questions tagged 'design-patterns'" rel="tag">design-patterns</a> <a href="/questions/tagged/backbone.js" class="post-tag" title="show questions tagged 'backbone.js'" rel="tag">backbone.js</a> <a href="/questions/tagged/event-driven" class="post-tag" title="show questions tagged 'event-driven'" rel="tag">event-driven</a> 
+                or <a href="/questions/ask">ask your own question</a>.
+        </h2>
+</div>
+</div>
+<div id="sidebar">
+
+
+
+     <script type="text/javascript">
+        window.showNewUser = true;
+
+            
+                (function(){
+                    var cs = window.sessionStorage && window.sessionStorage['tNewsletter'];
+                    var m = /:\/\/([^\/]*)/.exec(document.referrer);
+                    var h = {'www.reddit.com':1,'news.ycombinator.com':1};
+                    if(window.sessionStorage && (cs || (m && m.length == 2 && h[m[1]]))){
+                        showNewUser = false;
+                        StackExchange.ready(function(){
+                            StackExchange.newsletterAd.loader(m[1], cs);
+                        });
+                    }
+                    if (window.localStorage && showNewUser){
+                        var c = parseInt(localStorage['nuCounter'],10); 
+                        c = isNaN(c) ? 1 : c+1;
+                        window.localStorage['nuCounter'] = c; 
+                        showNewUser = c < 10;
+                    }
+                })()
+            
+     </script>
+    <div class="module newuser newuser-greeting" id="newuser-box" style="display:none;">
+        <h4>Hello World!</h4>
+        <div>
+            <p>This is a collaboratively edited question and answer site for <b>professional and enthusiast programmers</b>. It's 100% free, no registration required.</p>
+            <p class="ar">
+                    <a href="/about?mnu=1">about &raquo;</a>&nbsp;&nbsp;&nbsp;
+                <a href="/faq?mnu=1">faq &raquo;</a>
+            </p>
+        </div>
+    </div>
+     <script type="text/javascript">
+        if (showNewUser) {
+            document.getElementById('newuser-box').style.display = '';
+        }
+     </script>
+        <div class="module question-stats">
+        <p class="label-key">tagged</p>
+        <div class="tagged"><a href="/questions/tagged/design-patterns" class="post-tag" title="show questions tagged 'design-patterns'" rel="tag">design-patterns</a>&nbsp;<span class="item-multiplier"><span class="item-multiplier-x">&times;</span>&nbsp;<span class="item-multiplier-count">11987</span></span><br>
+<a href="/questions/tagged/backbone.js" class="post-tag" title="show questions tagged 'backbone.js'" rel="tag">backbone.js</a>&nbsp;<span class="item-multiplier"><span class="item-multiplier-x">&times;</span>&nbsp;<span class="item-multiplier-count">7080</span></span><br>
+<a href="/questions/tagged/event-driven" class="post-tag" title="show questions tagged 'event-driven'" rel="tag">event-driven</a>&nbsp;<span class="item-multiplier"><span class="item-multiplier-x">&times;</span>&nbsp;<span class="item-multiplier-count">86</span></span><br>
+</div>
+        <table id="qinfo">
+            <tr>
+                <td><p class="label-key">asked</p></td>
+                <td style="padding-left:10px"><p class="label-key" title="2011-12-01 21:53:12Z"><b>1 year ago</b></p></td>
+            </tr>
+            <tr>
+                <td><p class="label-key">viewed</p></td>
+
+                <td style="padding-left:10px">
+                    <p class="label-key">
+                        <b>4334 times</b>
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td><p class="label-key">active</p></td>
+                <td style="padding-left:10px"><p class="label-key"><b><a href="?lastactivity" class="lastactivity-link" title="2012-07-06 20:46:26Z">7 months ago</a></b></p></td>
+            </tr>
+        </table>
+    </div>
+        
+                <script type="text/javascript">
+                var scriptSrc = "http://engine.adzerk.net/z/8277/adzerk1_2_4_43,adzerk2_2_17_45,adzerk3_2_4_44?keywords=design-patterns,backbone.js,event-driven";
+                if (document.referrer) {
+                    if (/\?/.test(scriptSrc))
+                        scriptSrc += "&";
+                    else
+                        scriptSrc += "?";
+                    scriptSrc += "xReferrer=" + document.referrer;
+                }
+                StackExchange.ready(function () {
+                    var z = document.createElement("script");
+                    z.type = "text/javascript";
+                    z.async = "true";
+                    z.src = scriptSrc;
+                    var s = document.getElementsByTagName("script")[0];
+                    s.parentNode.insertBefore(z, s);
+                });
+            </script>
+        <div class="everyonelovesstackoverflow" id="adzerk2">
+        </div>
+    <div id="hireme">
+        <script type="text/javascript">
+            var careers_adurl="http://careers.stackoverflow.com/gethired/js",careers_cssurl="//careerscdn.sstatic.net/careers/gethired/sidebar.css?fffffffff879eaa0",careers_leaderboardcssurl="//careerscdn.sstatic.net/careers/gethired/ninja.min.css?3a4eea",careers_companycssurl="//careerscdn.sstatic.net/careers/gethired/company",careers_adselector="div.hireme, div#hireme";StackExchange.ready(function(){$.ajax({url:"//careerscdn.sstatic.net/careers/gethired/loader.min.js?3a4eea",dataType:"script",cache:!0})})
+        </script>
+    </div>
+
+
+
+      
+    
+    <div class="module sidebar-linked">
+        <h4 id="h-linked">Linked</h4>
+        <div class="linked" data-tracker="lq=1">
+            <div class="spacer">
+<a href="/questions/10885900/life-cycle-of-a-backbone-js-view-a-few-beginner-questions" class="question-hyperlink"">Life cycle of a backbone.js view, a few beginner questions</a>
+</div>
+
+        </div>
+    </div>
+    <div class="module sidebar-related">
+        <h4 id="h-related">Related</h4>
+        <div class="related" data-tracker="rq=1">
+            <div class="spacer">
+<a href="/questions/6300450/how-to-handling-ui-state-for-single-page-app-with-backbone" class="question-hyperlink"">How to Handling UI State for Single Page App With Backbone</a>
+</div>
+<div class="spacer">
+<a href="/questions/6309946/backbone-js-approach-to-managing-ui-state-handling-selections-in-ui" class="question-hyperlink"">Backbone.js Approach to Managing UI State / Handling Selections in UI</a>
+</div>
+<div class="spacer">
+<a href="/questions/8559383/backbone-view-is-not-refreshed-according-to-model-bind" class="question-hyperlink"">Backbone view is not refreshed according to model.bind</a>
+</div>
+<div class="spacer">
+<a href="/questions/8618995/backbone-view-instantiation-issue" class="question-hyperlink"">Backbone view instantiation issue</a>
+</div>
+<div class="spacer">
+<a href="/questions/8844345/creating-a-backbone-view-for-a-collection" class="question-hyperlink"">Creating a backbone view for a collection</a>
+</div>
+<div class="spacer">
+<a href="/questions/8886571/design-pattern-for-a-backbone-application" class="question-hyperlink"">Design pattern for a Backbone application</a>
+</div>
+<div class="spacer">
+<a href="/questions/9157040/good-materials-about-event-driven-programming" class="question-hyperlink"">good materials about event-driven programming</a>
+</div>
+<div class="spacer">
+<a href="/questions/9250872/switching-views-with-backbone" class="question-hyperlink"">Switching views with backbone</a>
+</div>
+<div class="spacer">
+<a href="/questions/9735573/backbone-expanded-views-and-zombies" class="question-hyperlink"">Backbone - expanded views and zombies</a>
+</div>
+<div class="spacer">
+<a href="/questions/10057511/backbone-facade-mediator-pattern-challenge" class="question-hyperlink"">Backbone Facade/Mediator Pattern Challenge</a>
+</div>
+<div class="spacer">
+<a href="/questions/10341141/backbone-multiple-views-subscribing-to-a-single-collections-event-is-this-a-b" class="question-hyperlink"">Backbone: Multiple views subscribing to a single collection&#39;s event? Is this a bad practice?</a>
+</div>
+<div class="spacer">
+<a href="/questions/10399995/backbone-view-not-updating-page" class="question-hyperlink"">Backbone - View not updating page</a>
+</div>
+<div class="spacer">
+<a href="/questions/10727786/backbone-preserve-thead-in-a-table-view" class="question-hyperlink"">Backbone - preserve thead in a table View</a>
+</div>
+<div class="spacer">
+<a href="/questions/10885900/life-cycle-of-a-backbone-js-view-a-few-beginner-questions" class="question-hyperlink"">Life cycle of a backbone.js view, a few beginner questions</a>
+</div>
+<div class="spacer">
+<a href="/questions/11438759/what-is-the-pattern-for-setting-attributes-on-backbone-js-models-and-views" class="question-hyperlink"">What is the pattern for setting attributes on Backbone.js&#39; Models and Views?</a>
+</div>
+<div class="spacer">
+<a href="/questions/11731994/managing-hidden-backbone-views-that-share-the-same-model-with-a-visible-view" class="question-hyperlink"">Managing hidden Backbone views that share the same model with a visible view</a>
+</div>
+<div class="spacer">
+<a href="/questions/12193615/remove-a-view-using-backbone" class="question-hyperlink"">Remove a View using Backbone</a>
+</div>
+<div class="spacer">
+<a href="/questions/12232874/php-am-i-mixing-up-event-driven-programming-with-signals-aware-interfaces-sing" class="question-hyperlink"">PHP: Am I mixing up event-driven programming with signals-aware interfaces (Singal and Slots / Observer Pattern)?</a>
+</div>
+<div class="spacer">
+<a href="/questions/12245468/backbone-requirejs-mediator-pattern-resulted-in-view-logic-short-circuiting" class="question-hyperlink"">Backbone + RequireJS + Mediator Pattern resulted in View Logic short-circuiting and infinite looping</a>
+</div>
+<div class="spacer">
+<a href="/questions/12768771/re-render-the-view-backbone" class="question-hyperlink"">Re-render the view - backbone</a>
+</div>
+<div class="spacer">
+<a href="/questions/13115843/simulate-the-event-driven-programming-model-in-java-with-basic-design-pattern" class="question-hyperlink"">simulate the event driven programming model in Java with basic design pattern</a>
+</div>
+<div class="spacer">
+<a href="/questions/13537351/backbone-view-el-confusion" class="question-hyperlink"">Backbone View El confusion</a>
+</div>
+<div class="spacer">
+<a href="/questions/13742561/backbone-data-view-not-showing" class="question-hyperlink"">backbone data view not showing</a>
+</div>
+<div class="spacer">
+<a href="/questions/13775973/backbone-few-views-for-one-model" class="question-hyperlink"">Backbone - few views for one model</a>
+</div>
+<div class="spacer">
+<a href="/questions/14385148/backbone-cant-access-this-model-in-view" class="question-hyperlink"">Backbone: Can&#39;t access &#39;this.model.*&#39; in view</a>
+</div>
+
+        </div>
+    </div>
+        <div class="everyonelovesstackoverflow" id="adzerk3">
+        </div>
+
+
+</div>
+
+<div id="feed-link">
+    <div id="feed-link-text"><a href="/feeds/question/8348805" title="feed of this question and its answers"><span class="feed-icon"></span>question feed</a></div>
+</div>
+<script type="text/javascript">
+StackExchange.ready(function(){$.get('/posts/8348805/ivc/802a');});
+</script>
+<noscript>
+    <div><img src="/posts/8348805/ivc/802a" class="dno" alt="" width="0" height="0"></div>
+</noscript><div style="display:none" id="prettify-lang">default</div></div>
+        </div>
+    </div>
+    <div id="footer">
+        <div class="footerwrap">
+            <div id="footer-menu">
+                    <a href="/about">about</a> |
+                <a href="/faq">faq</a> |
+                <a href="http://blog.stackexchange.com?blb=1">blog</a> |
+                    <a href="http://chat.stackoverflow.com">chat</a> |
+                <a href="http://data.stackexchange.com">data</a> |
+                <a href="http://stackexchange.com/legal">legal</a> |
+                <a href="http://stackexchange.com/legal/privacy-policy">privacy policy</a> |
+                <a href="http://stackexchange.com/about/hiring">jobs</a> |
+                <a href="http://engine.adzerk.net/redirect/0/2776/2751/0/4de3c60f719c4dfcb1a57531c7050090/0">advertising info</a> |
+
+                <a onclick="StackExchange.switchMobile('on', '/questions/8348805/pattern-to-manage-views-in-backbone')">mobile</a> |
+
+                <b><a href="/help">contact us</a></b>
+                  | <b><a href="http://meta.stackoverflow.com">feedback</a></b>
+                <div id="footer-sites">
+                    
+                        <span style="color:#FE7A15;font-size:140%">&#9632;</span>&nbsp;<a href="http://stackoverflow.com">stackoverflow.com</a>&nbsp; 
+                        <span style="color:#FE7A15;font-size:140%">&#9632;</span>&nbsp;<a href="http://stackapps.com">api/apps</a>&nbsp; 
+                        <span style="color:#FE7A15;font-size:140%">&#9632;</span>&nbsp;<a href="http://careers.stackoverflow.com">careers 2.0</a>&nbsp; 
+                        <span style="color:#E8272C;font-size:140%">&#9632;</span>&nbsp;<a href="http://serverfault.com">serverfault.com</a>&nbsp; 
+                        <span style="color:#00AFEF;font-size:140%">&#9632;</span>&nbsp;<a href="http://superuser.com">superuser.com</a>&nbsp; 
+                        <span style="color:#969696;font-size:140%">&#9632;</span>&nbsp;<a href="http://meta.stackoverflow.com">meta</a>&nbsp; 
+                        <span style="color:#46937D;font-size:140%">&#9632;</span>&nbsp;<a href="http://area51.stackexchange.com">area&nbsp;51</a>&nbsp; 
+                        <span style="color:#C0D0DC;font-size:140%">&#9632;</span>&nbsp;<a href="http://webapps.stackexchange.com">webapps</a>&nbsp; 
+                        <span style="color:#000000;font-size:140%">&#9632;</span>&nbsp;<a href="http://gaming.stackexchange.com">gaming</a>&nbsp; 
+                        <span style="color:#dd4814;font-size:140%">&#9632;</span>&nbsp;<a href="http://askubuntu.com">ubuntu</a>&nbsp; 
+                        <span style="color:#9ce4fe;font-size:140%">&#9632;</span>&nbsp;<a href="http://webmasters.stackexchange.com">webmasters</a>&nbsp; 
+                        <span style="color:#cf4d3f;font-size:140%">&#9632;</span>&nbsp;<a href="http://cooking.stackexchange.com">cooking</a>&nbsp; 
+                        <span style="color:#f4f28d;font-size:140%">&#9632;</span>&nbsp;<a href="http://gamedev.stackexchange.com">game development</a>&nbsp; 
+                        <span style="color:#0f3559;font-size:140%">&#9632;</span>&nbsp;<a href="http://math.stackexchange.com">math</a>&nbsp; 
+                        <span style="color:#f2f2f2;font-size:140%">&#9632;</span>&nbsp;<a href="http://photo.stackexchange.com">photography</a>&nbsp; 
+                        <span style="color:#037187;font-size:140%">&#9632;</span>&nbsp;<a href="http://stats.stackexchange.com">stats</a>&nbsp; 
+                        <span style="color:#f1e7cc;font-size:140%">&#9632;</span>&nbsp;<a href="http://tex.stackexchange.com">tex</a>&nbsp; 
+                        <span style="color:#e1cdae;font-size:140%">&#9632;</span>&nbsp;<a href="http://english.stackexchange.com">english</a>&nbsp; 
+                        <span style="color:#a2d9f6;font-size:140%">&#9632;</span>&nbsp;<a href="http://cstheory.stackexchange.com">theoretical cs</a>&nbsp; 
+                        <span style="color:#1b3e6c;font-size:140%">&#9632;</span>&nbsp;<a href="http://programmers.stackexchange.com">programmers</a>&nbsp; 
+                        <span style="color:#293a5d;font-size:140%">&#9632;</span>&nbsp;<a href="http://unix.stackexchange.com">unix</a>&nbsp;
+                        <span style="color:#bec0cb;font-size:140%">&#9632;</span>&nbsp;<a href="http://apple.stackexchange.com">apple</a>&nbsp;
+                        <span style="color:#939185;font-size:140%">&#9632;</span>&nbsp;<a href="http://wordpress.stackexchange.com">wordpress</a>&nbsp;
+                        <span style="color:#ebf5f5;font-size:140%">&#9632;</span>&nbsp;<a href="http://physics.stackexchange.com">physics</a>&nbsp;
+                        <span style="color:#4176ab;font-size:140%">&#9632;</span>&nbsp;<a href="http://diy.stackexchange.com">home&nbsp;improvement</a>&nbsp;
+                        <span style="color:#d1d8d7;font-size:140%">&#9632;</span>&nbsp;<a href="http://gis.stackexchange.com">gis</a>&nbsp;
+                        <span style="color:#e5e2d3;font-size:140%">&#9632;</span>&nbsp;<a href="http://electronics.stackexchange.com">electrical&nbsp;engineering</a>&nbsp;
+                        <span style="color:#a4c639;font-size:140%">&#9632;</span>&nbsp;<a href="http://android.stackexchange.com">android</a>&nbsp;
+                        <span style="color:#2e4e60;font-size:140%">&#9632;</span>&nbsp;<a href="http://security.stackexchange.com">security</a>&nbsp;
+                        <span style="color:#45bcb5;font-size:140%">&#9632;</span>&nbsp;<a href="http://bicycles.stackexchange.com">bicycles</a>&nbsp;
+                        <span style="color:#00adee;font-size:140%">&#9632;</span>&nbsp;<a href="http://dba.stackexchange.com">dba</a>&nbsp;
+                        <span style="color:#2edaf0;font-size:140%">&#9632;</span>&nbsp;<a href="http://drupal.stackexchange.com">drupal</a>&nbsp;
+                        <span style="color:#213951;font-size:140%">&#9632;</span>&nbsp;<a href="http://sharepoint.stackexchange.com">sharepoint</a>&nbsp;
+                        <span style="color:#73abb3;font-size:140%">&#9632;</span>&nbsp;<a href="http://scifi.stackexchange.com">scifi&nbsp;&amp;&nbsp;fantasy</a>&nbsp;
+                        <span style="color:#23629F;font-size:140%">&#9632;</span>&nbsp;<a href="http://ux.stackexchange.com">user&nbsp;experience</a>&nbsp;
+                        <span style="color:#faff72;font-size:140%">&#9632;</span>&nbsp;<a href="http://skeptics.stackexchange.com">skeptics</a>&nbsp;
+                        <span style="color:#623121;font-size:140%">&#9632;</span>&nbsp;<a href="http://rpg.stackexchange.com">rpg</a>&nbsp;
+                        <span style="color:#e4be88;font-size:140%">&#9632;</span>&nbsp;<a href="http://judaism.stackexchange.com">judaism</a>&nbsp;
+                        <span style="color:#ffecb1;font-size:140%">&#9632;</span>&nbsp;<a href="http://mathematica.stackexchange.com">mathematica</a>&nbsp;
+                        <span style="color:#1b8598;font-size:140%">&#9632;</span>&nbsp;<a href="http://travel.stackexchange.com">travel</a>&nbsp;
+                </div>
+            </div>
+            <div id="footer-flair">
+                <a class="peer1" href="http://www.peer1.com/stackoverflow"></a>  
+	            <a href="http://creativecommons.org/licenses/by-sa/3.0/" class="cc-wiki-link"></a>
+                <div id="svnrev">rev 2013.2.9.1</div>
+                        </div>
+            <div id="copyright">
+                site design / logo &copy; 2013 stack exchange inc; 
+                user contributions licensed under <a href="http://creativecommons.org/licenses/by-sa/3.0/" rel="license">cc-wiki</a> with <a href="http://blog.stackoverflow.com/2009/06/attribution-required/" rel="license">attribution required</a>
+            </div>
+            
+
+        </div>
+    </div>
+    
+    <noscript>
+        <div id="noscript-warning">Stack Overflow works best with JavaScript enabled<img src="http://pixel.quantserve.com/pixel/p-c1rF4kxgLUzNc.gif" alt="" class="dno"></div>
+    </noscript>
+    <script type="text/javascript">var _gaq=_gaq||[];_gaq.push(['_setAccount','UA-5620270-1']);
+        _gaq.push(['_setCustomVar', 1, 'tags', '|design-patterns|backbone.js|event-driven|']); 
+_gaq.push(['_trackPageview']);
+    var _qevents = _qevents || [];
+    (function(){
+        var s=document.getElementsByTagName('script')[0];
+        var ga=document.createElement('script');
+        ga.type='text/javascript';
+        ga.async=true;
+        ga.src='http://www.google-analytics.com/ga.js';
+        s.parentNode.insertBefore(ga,s);
+        var sc=document.createElement('script');
+        sc.type='text/javascript';
+        sc.async=true;
+        sc.src='http://edge.quantserve.com/quant.js'; 
+        s.parentNode.insertBefore(sc,s);
+    })();
+    </script>
+    <script type="text/javascript">
+        _qevents.push({ qacct: "p-c1rF4kxgLUzNc" });
+    </script>    
+    
+</body>
+</html>
