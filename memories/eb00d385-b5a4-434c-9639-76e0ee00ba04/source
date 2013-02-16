@@ -1,0 +1,202 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+				<meta name="keywords" content="Diagrams,Diagrams/Contributing,Diagrams/Dev,Diagrams/Dev/BuildStatus,Diagrams/Dev/Migrate0.6,Diagrams/FAQ,Diagrams/GHC7.6,Diagrams/GSoC,Diagrams/Install,Diagrams/Projects" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/haskellwiki/opensearch_desc.php" title="HaskellWiki (English)" />
+		<link title="Creative Commons" type="application/rdf+xml" href="/haskellwiki/index.php?title=Diagrams&amp;action=creativecommons" rel="meta" />
+		<link rel="copyright" href="/haskellwiki/HaskellWiki:Copyrights" />
+<link rel="alternate" type="application/rss+xml" title="HaskellWiki RSS Feed" href="http://www.haskell.org/haskellwiki/index.php?title=Special:Recentchanges&amp;feed=rss" />
+<link rel="alternate" type="application/atom+xml" title="HaskellWiki Atom Feed" href="http://www.haskell.org/haskellwiki/index.php?title=Special:Recentchanges&amp;feed=atom" />
+		<title>Diagrams - HaskellWiki</title>
+		<style type="text/css" media="screen, projection">/*<![CDATA[*/
+			@import "/wikistatic/skins//common/shared.css?116";
+			@import "/wikistatic/skins//hawiki/main.css?116";
+		/*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="/wikistatic/skins//common/commonPrint.css?116" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "/wikistatic/skins//hawiki/IE50Fixes.css?116";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "/wikistatic/skins//hawiki/IE55Fixes.css?116";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "/wikistatic/skins//hawiki/IE60Fixes.css?116";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "/wikistatic/skins//hawiki/IE70Fixes.css?116";</style><![endif]-->
+		<!--[if lte IE 7]><script type="text/javascript" src="/wikistatic/skins//hawiki/IEFixes.js?116"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+                                                <script type="text/javascript">
+                        var isMSIE55 = (window.showModalDialog && window.clipboardData && window.createPopup); /*alert("test: " + isMSIE55);*/</script>
+
+		<script type= "text/javascript">/*<![CDATA[*/
+var skin = "hawiki";
+var stylepath = "/wikistatic/skins/";
+var wgArticlePath = "/haskellwiki/$1";
+var wgScriptPath = "/haskellwiki";
+var wgScript = "/haskellwiki/index.php";
+var wgServer = "http://www.haskell.org";
+var wgCanonicalNamespace = "";
+var wgCanonicalSpecialPageName = false;
+var wgNamespaceNumber = 0;
+var wgPageName = "Diagrams";
+var wgTitle = "Diagrams";
+var wgAction = "view";
+var wgRestrictionEdit = [];
+var wgRestrictionMove = [];
+var wgArticleId = "5221";
+var wgIsArticle = true;
+var wgUserName = null;
+var wgUserGroups = null;
+var wgUserLanguage = "en";
+var wgContentLanguage = "en";
+var wgBreakFrames = false;
+var wgCurRevisionId = "55428";
+var wgVersion = "1.12.0";
+var wgEnableAPI = true;
+var wgEnableWriteAPI = false;
+/*]]>*/</script>
+
+		<script type="text/javascript" src="/wikistatic/skins//common/wikibits.js?116"><!-- wikibits js --></script>
+		<!-- Head Scripts -->
+		<script type="text/javascript" src="/wikistatic/skins//common/ajax.js?116"></script>
+		<script type="text/javascript" src="/haskellwiki/index.php?title=-&amp;action=raw&amp;gen=js&amp;useskin=hawiki"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "/haskellwiki/index.php?title=MediaWiki:Common.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=18000";
+@import "/haskellwiki/index.php?title=MediaWiki:Hawiki.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=18000";
+@import "/haskellwiki/index.php?title=-&action=raw&gen=css&maxage=18000&useskin=hawiki";
+/*]]>*/</style>
+	</head>
+<body class="mediawiki ltr page-Diagrams ">
+   <div id="topbar" class="noprint">
+	<div class="portlet noprint" id="p-personal">
+		<h5>Personal tools</h5>
+		<div class="pBody">
+			<ul><li><a class="homebutton" href="/haskellwiki/Haskell">Home</a></li>
+				<li id="pt-login"><a href="/haskellwiki/index.php?title=Special:Userlogin&amp;returnto=Diagrams" title="You are encouraged to log in, it is not mandatory however. [o]" accesskey="o">Log in / create account</a></li>
+			</ul>
+		</div>
+	</div>
+        	  <div id="p-search">
+	    <div id="searchBody" class="pBody">
+	       <form action="/haskellwiki/index.php" id="searchform"><div>
+	          <input type='hidden' name="title" value=""/>
+	          <input id="searchInput" name="search" type="text" title="Search HaskellWiki [f]" accesskey="f" value="" />
+				<input type='submit' name="go" class="searchButton" id="searchGoButton"	value="Go" title="Go to a page with this exact name if exists" />&nbsp;
+				<input type='submit' name="fulltext" class="searchButton" id="mw-searchButton" value="Search" title="Search the pages for this text" />
+
+	         </div></form>
+	    </div>
+	  </div>
+   </div>
+	<div id="globalWrapper">
+	<div class="portlet" id="p-logo">
+		<a style="background-image: url(/wikistatic/haskellwiki_logo.png);" href="/haskellwiki/Haskell" title="Main Page"></a>
+	</div>
+	<div id="column-content">
+        <div id="notice-area" class="noprint">
+        <!-- ?php $this->data['sitenotice'] = 'This is a test instance.  Do not edit, your changes will be lost.'; ? -->
+			        </div>
+        <div id="content-wrapper">
+	<div id="p-cactions" class="portlet noprint">
+		<h5>Views</h5>
+		<div class="pBody">
+			<ul>
+	
+				 <li id="ca-nstab-main" class="selected"><a href="/haskellwiki/Diagrams" title="View the content page [c]" accesskey="c">Page</a></li>
+				 <li id="ca-talk" class="new"><a href="/haskellwiki/index.php?title=Talk:Diagrams&amp;action=edit" title="Discussion about the content page [t]" accesskey="t">Discussion</a></li>
+				 <li id="ca-viewsource"><a href="/haskellwiki/index.php?title=Diagrams&amp;action=edit" title="This page is protected. You can view its source. [e]" accesskey="e">View source</a></li>
+				 <li id="ca-history"><a href="/haskellwiki/index.php?title=Diagrams&amp;action=history" title="Past versions of this page. [h]" accesskey="h">History</a></li>			</ul>
+		</div>
+	</div>
+                        <div id="content">
+		<a name="top" id="top"></a>
+                        <h1 id="firstHeading" class="firstHeading">Diagrams</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From HaskellWiki</h3>
+			<div id="contentSub"></div>
+			<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<p><a href="/haskellwiki/Image:Diagrams-logo.png" class="image" title="Image:Diagrams-logo.png"><img alt="Image:Diagrams-logo.png" src="/wikiupload/7/79/Diagrams-logo.png" width="600" height="102" border="0" /></a>
+</p><p>The <a href="http://projects.haskell.org/diagrams" class="external text" title="http://projects.haskell.org/diagrams" rel="nofollow">diagrams framework</a> provides an embedded domain-specific language (EDSL) for declarative drawing.
+</p><p>This is the diagrams wiki, for collecting tips and tricks, examples, information about related projects, and any other related information.  If you are looking for more structured documentation (tutorial, user manual, API reference), see the <a href="http://projects.haskell.org/diagrams" class="external text" title="http://projects.haskell.org/diagrams" rel="nofollow">diagrams web page</a>.  There is also a <a href="http://code.google.com/p/diagrams/issues/list" class="external text" title="http://code.google.com/p/diagrams/issues/list" rel="nofollow">bug tracker</a>.
+</p>
+<ul><li> <a href="/haskellwiki/Diagrams/FAQ" title="Diagrams/FAQ">Frequently asked questions</a>
+</li><li> <a href="/haskellwiki/Diagrams/Install" title="Diagrams/Install">Installation instructions</a>
+</li><li> <a href="/haskellwiki/Diagrams/Contributing" title="Diagrams/Contributing">How to contribute</a>
+</li><li> <a href="/haskellwiki/Diagrams/Projects" title="Diagrams/Projects">Projects</a>: who is working on what.
+</li><li> <a href="/haskellwiki/Diagrams/GSoC" title="Diagrams/GSoC">Google Summer of Code projects</a>
+</li></ul>
+<ul><li> <a href="/haskellwiki/Diagrams/GHC7.6" title="Diagrams/GHC7.6">Current status of diagrams and GHC 7.6</a>
+</li></ul>
+<ul><li> <a href="/haskellwiki/Diagrams/Dev/Migrate0.6" title="Diagrams/Dev/Migrate0.6">0.5 to 0.6 migration</a>: Description of API changes that may affect diagrams 0.5 code, with explanations of how to migrate to 0.6
+</li></ul>
+<ul><li> <a href="/haskellwiki/Diagrams/Dev" title="Diagrams/Dev">Developer wiki</a>: notes on wanted features, style guidelines, best practices, etc.
+</li></ul>
+<ul><li> <a href="/haskellwiki/Diagrams/Dev/BuildStatus" title="Diagrams/Dev/BuildStatus">Build status</a> of all diagrams packages at a glance.
+</li><li> <a href="http://projects.haskell.org/diagrams/backend-tests/all-index.html" class="external text" title="http://projects.haskell.org/diagrams/backend-tests/all-index.html" rel="nofollow">Current test case results for backends side-by-side.</a>
+</li></ul>
+
+<!-- 
+NewPP limit report
+Preprocessor node count: 1/1000000
+Post-expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+-->
+
+<!-- Saved in parser cache with key wikidb:pcache:idhash:5221-0!1!0!1!en!2!edit=0 and timestamp 20130215215226 -->
+<div class="printfooter">
+Retrieved from "<a href="http://www.haskell.org/haskellwiki/Diagrams">http://www.haskell.org/haskellwiki/Diagrams</a>"</div>
+			<p class='catlinks'><a href="/haskellwiki/Special:Categories" title="Special:Categories">Categories</a>: <span dir='ltr'><a href="/haskellwiki/Category:Graphics" title="Category:Graphics">Graphics</a></span> | <span dir='ltr'><a href="/haskellwiki/Category:Libraries" title="Category:Libraries">Libraries</a></span> | <span dir='ltr'><a href="/haskellwiki/Category:Packages" title="Category:Packages">Packages</a></span></p>			<!-- end content -->
+						<div class="visualClear"></div>
+		</div>
+	</div>
+		</div></div>
+		<div id="column-one">
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+	<div class='generated-sidebar portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage"><a href="/haskellwiki/Haskell" title="Visit the Main Page [z]" accesskey="z">Haskell</a></li>
+				<li id="n-portal"><a href="/haskellwiki/HaskellWiki:Community" title="About the project, what you can do, where to find things">Wiki community</a></li>
+				<li id="n-recentchanges"><a href="/haskellwiki/Special:Recentchanges" title="The list of recent changes in the wiki. [r]" accesskey="r">Recent changes</a></li>
+				<li id="n-randompage"><a href="/haskellwiki/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-tb">
+		<h5>Toolbox</h5>
+		<div class="pBody">
+			<ul>
+				<li id="t-whatlinkshere"><a href="/haskellwiki/Special:Whatlinkshere/Diagrams" title="List of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+				<li id="t-recentchangeslinked"><a href="/haskellwiki/Special:Recentchangeslinked/Diagrams" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+<li id="t-upload"><a href="/haskellwiki/Special:Upload" title="Upload files [u]" accesskey="u">Upload file</a></li>
+<li id="t-specialpages"><a href="/haskellwiki/Special:Specialpages" title="List of all special pages [q]" accesskey="q">Special pages</a></li>
+				<li id="t-print"><a href="/haskellwiki/index.php?title=Diagrams&amp;printable=yes" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>				<li id="t-permalink"><a href="/haskellwiki/index.php?title=Diagrams&amp;oldid=55428" title="Permanent link to this version of the page">Permanent link</a></li>			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="/wikistatic/skins//common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>
+			<ul id="f-list">
+					<li id="lastmod"> This page was last modified 19:48, 13 February 2013.</li>
+					<li id="viewcount">This page has been accessed 21,704 times.</li>
+					<li id="copyright">Recent content is available under <a href="/haskellwiki/HaskellWiki:Copyrights" title="HaskellWiki:Copyrights">a simple permissive license</a>.</li>
+					<li id="privacy"><a href="/haskellwiki/HaskellWiki:Privacy_policy" title="HaskellWiki:Privacy policy">Privacy policy</a></li>
+					<li id="about"><a href="/haskellwiki/HaskellWiki:About" title="HaskellWiki:About">About HaskellWiki</a></li>
+					<li id="disclaimer"><a href="/haskellwiki/HaskellWiki:General_disclaimer" title="HaskellWiki:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+</div>
+
+		<script type="text/javascript">if (window.runOnloadHook) runOnloadHook();</script>
+<!-- Served in 0.091 secs. --><script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-15375175-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</body></html>
