@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html>
+	
+	<head>
+		<title>Publication: Higher-order + Polymorphic = Reusable - School of Computing - University of Kent</title>
+
+		<meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
+<meta name="description" content="This is the 'Higher-order + Polymorphic = Reusable' page on the 'School of Computing' website at the 'University of Kent'." />
+<meta name="keywords" content="School of Computing, Studying, Activities, Local users, About us, Search, Higher-order + Polymorphic = Reusable, Simon Thompson, Abstract, Bibtex Record" />
+<!--[if IE]>
+	<meta http-equiv="Page-Exit" content="Alpha(opacity=100)" />
+<![endif]-->
+
+		<link rel='icon' href='http://www.cs.kent.ac.uk/favicon.ico' type='image/x-icon' /> 
+<link rel='shortcut icon' href='http://www.cs.kent.ac.uk/favicon.ico' type='image/x-icon' />
+		<link media='screen' type='text/css' rel='stylesheet' href='http://www.cs.kent.ac.uk/pantheon-assets/styles/Defaultbrowser.css?TRUNK' />
+<link media='screen' type='text/css' rel='stylesheet' href='http://www.cs.kent.ac.uk/pantheon-assets/styles/Chronosbrowser.css?TRUNK' />
+<link media='screen' type='text/css' rel='stylesheet' href='http://www.cs.kent.ac.uk/pantheon-assets/styles/Bacchus2Chronosbrowser.css?TRUNK' />
+<link media='print' type='text/css' rel='stylesheet' href='http://www.cs.kent.ac.uk/pantheon-assets/styles/print.css?TRUNK' />
+<!--[if IE 6]>
+<link media='screen' type='text/css' rel='stylesheet' href='http://www.cs.kent.ac.uk/pantheon-assets/styles/ie6.css?TRUNK' />
+<![endif]-->
+<!--[if IE 7]>
+<link media='screen' type='text/css' rel='stylesheet' href='http://www.cs.kent.ac.uk/pantheon-assets/styles/ie7.css?TRUNK' />
+<![endif]-->
+
+
+		<link rel="stylesheet" media="all" type="text/css" href="/styles/v2/WebStandard.css" />
+
+			<script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.3.1/jquery.min.js'></script>
+	<script type='text/javascript' src='http://www.cs.kent.ac.uk/pantheon-assets/javascript/snippets/Scroller/Scroller.js?TRUNK'></script>
+	<script type='text/javascript' src='http://www.cs.kent.ac.uk/pantheon-assets/javascript/snippets/Calendar/Calendar.js?TRUNK'></script>
+	<script type='text/javascript' src='http://www.cs.kent.ac.uk/pantheon-assets/javascript/snippets/Twitter/kenttweet.js?TRUNK'></script>
+	<script type='text/javascript' src='http://www.cs.kent.ac.uk/pantheon-assets/javascript/snippets/SearchBox/SearchBox.js?TRUNK'></script>
+	<script type='text/javascript' src='http://www.cs.kent.ac.uk/pantheon-assets/javascript/modules/megaMenu/megaMenu_fade.js?TRUNK'></script>
+	<script type='text/javascript' src='http://www.cs.kent.ac.uk/pantheon-assets/javascript/GlobalSearch/searchBox.js?TRUNK'></script>
+	<script type='text/javascript' src='http://www.cs.kent.ac.uk/pantheon-assets/javascript/snippets/Tabs/tabber.js?TRUNK'></script>
+	<script type='text/javascript' src='http://www.cs.kent.ac.uk/pantheon-assets/javascript/modules/Citations.js?TRUNK'></script>
+
+<meta name="description" content="Higher-order + Polymorphic = Reusable, Simon Thompson, 1997, Computer Science, University of Kent at Canterbury" />
+<meta name="keywords" content="higher-order, polymorphic, iterator, constructor class, C++, functional programming, Higher-order, +, Polymorphic, =, Reusable, Computer Science, University of Kent, Canterbury, Kent, UKC" />
+
+	</head>
+
+	<body>
+		
+<div class="hideInDW" id="topOfpage" name="topOfpage">
+	<ul class="offScreen hideInDW">
+	</ul>
+</div>
+<!--[if lt IE 7 ]><div id='pageWrapper' class='chronosTemplate ie ie6'> <![endif]--> 
+<!--[if IE 7 ]><div id='pageWrapper' class='chronosTemplate ie ie7'> <![endif]--> 
+<!--[if IE 8 ]><div id='pageWrapper' class='chronosTemplate ie ie8'> <![endif]--> 
+<!--[if IE 9 ]><div id='pageWrapper' class='chronosTemplate ie ie9'> <![endif]--> 
+<!--[if !(IE)]><!--><div id='pageWrapper' class='chronosTemplate'><!--><![endif]--> 
+	 
+			<div id='headerWrapper'>
+	 
+				<div id='globalHeaderContainer'>
+	<div id='globalHeader'>
+		<div id='globalHeaderLeft'>
+			<div id='globalHeaderTitle'>University of Kent - The UK's European University</div>
+			<a href='http://www.kent.ac.uk/' id='globalHeaderLogo' title="University of Kent - Home"><span class="hideInBrowser">University of Kent  - Home</span></a>
+		</div>
+		<div id='globalHeaderRight'>
+			<ul id='utilityLinks'>
+				<li class='first-child'><a href='http://www.kent.ac.uk/contact/'>Contact</a></li>
+				<li><a href='http://www.kent.ac.uk/maps/'>Maps</a></li>
+				<li><a href='http://www.kent.ac.uk/departments/'>Departments</a></li>
+			</ul>
+			
+			<div id="extraLinksWrapper">
+				<div class="firstExtraElement">
+					<div id="quickLinksContent">
+	<div id="quickLinksLink">
+		Quick links		<span></span>
+	</div>
+	<div id='quickLinks0' class='megamenu'>
+		<div class="bottomleft">
+			<div class="shadowbox">
+				<div class="megacontentarea">
+					<div class='columnsWrapper'>
+						<div class="firstColumn">
+										
+			<ul><li><a href="http://www.kent.ac.uk/accommodation/">Accommodation</a></li> 
+                  <li><a href="http://www.kent.ac.uk/campusonline/">Campus online</a></li> 
+                  <li><a href="http://www.kent.ac.uk/ces/">Careers advice</a></li> 
+                  <li><a href="http://www.kent.ac.uk/congregations/">Congregations</a></li> 
+                  <li><a href="http://www.kent.ac.uk/calendar/">Events Calendar</a></li> 
+                  <li><a href="http://www.kent.ac.uk/finance/index.html">Finance office</a></li>
+                  <li><a href="http://www.kent.ac.uk/gettingstarted/">Getting started</a></li> 
+                  <li><a href="http://www.kent.ac.uk/itservices/">IT services</a></li> 
+                  <li><a href="http://www.kent.ac.uk/jobs/">Job opportunities</a></li> 
+                  <li><a href="http://blogs.kent.ac.uk/">Kent blogs</a></li> 
+                  <li><a href="http://uk.sitestat.com/kent/kent-ext/s?clickout.kentunion&amp;ns_type=clickout">Kent Union</a></li> 
+          <li><a href="http://www.kent.ac.uk/library">Library services</a></li>
+          <li><a href="http://uk.sitestat.com/kent/kent-ext/s?clickout.liveatedu&amp;ns_type=clickout">Live@edu</a></li>
+   <li><a href="http://uk.sitestat.com/kent/kent-ext/s?clickout.medical&amp;ns_type=clickout">Medical Centre</a></li> 
+          <li><a href="http://uk.sitestat.com/kent/kent-ext/s?clickout.umsa&amp;ns_type=clickout">Medway union</a></li>
+          <li><a href="http://www.kent.ac.uk/courses/modulecatalogue/">Module catalogue</a></li>
+          <li><a href="http://uk.sitestat.com/kent/kent-ext/s?clickout.moodle&amp;ns_type=clickout">Moodle</a></li>
+          <li><a href="http://uk.sitestat.com/kent/kent-ext/s?clickout.myfolio&amp;ns_type=clickout">MyFolio</a></li>
+          <li><a href="http://uk.sitestat.com/kent/kent-ext/s?clickout.onlinestore&amp;ns_type=clickout">Online store</a></li>
+          <li><a href="http://www.kent.ac.uk/openlectures/">Open Lectures</a></li>
+          <li><a href="http://uk.sitestat.com/kent/kent-ext/s?clickout.owa.connect&amp;ns_type=clickout">Outlook web access</a></li>
+          <li><a href="http://uk.sitestat.com/kent/kent-ext/s?clickout.resourcelists&amp;ns_type=clickout">Reading lists</a></li> 
+          <li><a href="http://www.kent.ac.uk/sportsartsmusic/">Sports, arts and music</a></li>
+          <li><a href="http://uk.sitestat.com/kent/kent-ext/s?clickout.records.account&amp;ns_type=clickout">Student data system</a></li>
+          <li><a href="http://uk.sitestat.com/kent/kent-ext/s?clickout.studentportal&amp;ns_type=clickout">Student portal</a></li>
+          <li><a href="http://www.kent.ac.uk/about/termdates.php">Term dates</a></li>
+          <li><a href="http://www.kent.ac.uk/campusonline/directory/">University Directory</a></li>
+          <li><a href="http://www.kent.ac.uk/videoaudio/">Video and audio</a></li>
+			</ul>						</div>
+					</div>		
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+				</div>
+				<div class="lastExtraElement">		
+					<div id="infoLists">
+	<div id="infoForMeLink">
+		Information for me		<span></span>
+	</div>
+	<div id='infoList0' class='megamenu'>
+		<div class="bottomleft">
+			<div class="shadowbox">
+				<div class="megacontentarea">
+					<div class='columnsWrapper'>
+						<div class="firstColumn">
+							
+			
+			<ul><li><a href="http://www.kent.ac.uk/gettingstarted/">Arriving students</a></li> 
+                  <li><a href="http://uk.sitestat.com/kent/kent-ext/s?clickout.studentportal&amp;ns_type=clickout">Current students</a></li> 
+                  <li><a href="http://www.kent.ac.uk/internationalstudent/index.html">International students</a></li>
+                  <li><a href="http://www.kent.ac.uk/applicants/">Applicants</a></li> 
+                  <li><a href="http://www.kent.ac.uk/campusonline/">Staff</a></li> 
+                  <li><a href="http://www.kent.ac.uk/parents/">Parents and family</a></li> 
+                  <li><a href="http://www.kent.ac.uk/alumni/">Alumni (former students)</a></li>
+                  <li><a href="http://www.kent.ac.uk/news/">Press and media</a></li> 
+                  <li><a href="http://www.kent.ac.uk/associate/staff/">Partner college staff</a></li> 
+                  <li><a href="http://www.kent.ac.uk/associate/">Partner college students</a></li>
+                  <li><a href="http://www.kent.ac.uk/secondary/">Secondary schools</a></li>
+                  <li><a href="http://www.kent.ac.uk/secondary/">FE colleges</a></li>
+                  <li><a href="http://www.kent.ac.uk/secondary/">Teachers and advisors</a></li> 
+                
+			</ul>						</div>
+					</div>		
+				</div>
+			</div>
+		</div>
+	</div>
+</div>	
+				</div>
+			</div>				
+			
+			<br style='clear:both'/>
+		</div>
+		<div id='globalHeaderBottom'>
+			<div id="globalHeaderMenu">
+				<ul id="topMenuList">
+
+		<li id='MegaAbout0' class='toplink first'>
+			<a href='http://www.kent.ac.uk/about/'>About</a>
+			<span></span>
+			<div id='megaMenu0' class='megamenu'>
+				<div class='bottomleft'>
+					<div class='shadowbox'>
+						<div class='megacontentarea'>
+							<div class='columnsWrapper'>
+								<div class='firstColumn'>
+          <p class="megasegmentheader">Planning and strategy</p>
+         		<ul><li><a href="http://www.kent.ac.uk/about/plan/index.html">University Plan 2009-2012</a></li>
+                    <li><a href="http://www.kent.ac.uk/about/plan/int/">International impact</a></li>
+                    <li><a href="http://www.kent.ac.uk/about/plan/studentexperience/">Student experience</a></li>
+                    <li><a href="http://www.kent.ac.uk/european/">UK's European university</a></li>
+                   
+                  <li><a href="http://www.kent.ac.uk/about/report/index.html">Annual review and reports</a></li>
+                </ul><p class="megasegmentheader">Governance</p>
+         		<ul><li><a href="http://www.kent.ac.uk/censec/areas-of-work/constitution-management.html">Constitution </a></li>
+                  <li><a href="http://www.kent.ac.uk/regulations/general.html">General regulations</a></li>
+                    <li><a href="http://www.kent.ac.uk/regulations/academic.html">Academic regulations</a></li>
+                    <li><a href="http://www.kent.ac.uk/about/charity.html">Charity information</a></li>
+       		</ul></div><div class='column'>
+   		                 <p class="megasegmentheader">People </p>
+         		<ul><li><a href="http://www.kent.ac.uk/about/vicechancellor/index.html">Vice-Chancellor</a></li>
+                    <li><a href="http://www.kent.ac.uk/about/exec/index.html">Executive Group</a></li>
+                    <li><a href="http://www.kent.ac.uk/about/officers.html">Principal officers</a></li>
+                    <li><a href="http://www.kent.ac.uk/about/hongrads/index.html">Honorary graduates</a></li>
+                  <li><a href="http://www.kent.ac.uk/departments/committees.html">Committees</a></li>
+        		</ul><p class="megasegmentheader">Departments</p>
+         		<ul><li><a href="http://www.kent.ac.uk/departments/academic/">Schools and faculties</a></li>
+                  <li><a href="http://www.kent.ac.uk/departments/nonacademic/index.html">Professional services</a></li>
+                  <li><a href="http://www.kent.ac.uk/departments/external/index.html">External services</a></li>
+                  <li><a href="http://www.kent.ac.uk/departments/atoz/index.html">Complete A-Z</a></li>        		
+                </ul></div><div class='column'>
+  <p class="megasegmentheader">More about Kent</p>
+         		<ul><li><a href="http://www.kent.ac.uk/jobs/">Job vacancies</a></li>
+                                  <li><a href="http://www.kent.ac.uk/about/keykentfacts.html">Key facts 2011</a></li>
+                  <li><a href="http://www.kent.ac.uk/about/history/index.html">History</a></li>
+                  <li><a href="http://www.kent.ac.uk/about/impact/">Regional impact</a></li>
+                <li><a href="http://www.kent.ac.uk/about/community/">Community relations</a></li>
+    
+         		</ul><p class="megasegmentheader">Events and what's on</p>
+         		<ul><li><a href="http://www.kent.ac.uk/calendar/">Full calendar</a></li>
+         		  <li><a href="http://www.kent.ac.uk/about/termdates.php">Term dates</a></li>
+                  <li><a href="http://www.kent.ac.uk/openlectures/">Open Lectures</a></li>
+                  <li><a href="http://www.kent.ac.uk/gulbenkian/">Gulbenkian</a></li>
+	          </ul></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</li>
+		
+		<li id='MegaResearch1' class='toplink '>
+			<a href='http://www.kent.ac.uk/research/'>Research</a>
+			<span></span>
+			<div id='megaMenu1' class='megamenu'>
+				<div class='bottomleft'>
+					<div class='shadowbox'>
+						<div class='megacontentarea'>
+							<div class='columnsWrapper'>
+								<div class='firstColumn'><p class="megasegmentheader">Excellence at Kent</p>
+            <ul><li><a href="http://www.kent.ac.uk/research/rae/2008/index.html">RAE 2008</a></li>
+                <li><a href="http://www.kent.ac.uk/research/expertise/">Expertise search</a></li>
+                <li><a href="http://www.kent.ac.uk/research/publications/index.html">Publications</a></li>
+                <li><a href="http://www.kent.ac.uk/courses/postgrad/">Postgraduate courses</a></li>
+                <li><a href="http://www11.i-grasp.com/fe/tpl_kent01.asp?newms=srs&amp;c11=4323,4327">Job vacancies   </a></li>
+                <li><a href="http://www.kent.ac.uk/research/news.html">Research news</a></li>
+                <li><a href="http://www.kent.ac.uk/research/features/">Research features</a></li>
+        </ul></div><div class='column'><p class="megasegmentheader">Research degrees</p>
+          <ul><li><a href="http://www.kent.ac.uk/courses/postgrad/subjects/index.html">Search courses</a></li>
+            <li><a href="http://www.kent.ac.uk/courses/postgrad/search/type/research/">Research degrees</a></li>
+            <li><a href="http://www.kent.ac.uk/courses/postgrad/apply/index.html">How to apply</a></li>
+            <li><a href="http://www.kent.ac.uk/courses/funding/postgraduate/index.html">Postgraduate funding</a></li>
+            <li><a href="http://www.kent.ac.uk/graduateschool/">Graduate school</a></li>
+        </ul></div><div class='column'><p class="megasegmentheader">Departments</p>
+            <ul><li><a href="http://www.kent.ac.uk/departments/academic/">Schools and faculties</a></li>
+              <li><a href="http://www.kent.ac.uk/researchservices/">Research Services</a></li>
+                <li><a href="http://www.kent.ac.uk/business/">Services for businesses</a></li>
+                <li><a href="http://www.kent.ac.uk/enterprise/">Kent Innovation and Enterprise</a></li>
+          </ul></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</li>
+		
+		<li id='MegaCourses2' class='toplink '>
+			<a href='http://www.kent.ac.uk/courses/'>Courses</a>
+			<span></span>
+			<div id='megaMenu2' class='megamenu'>
+				<div class='bottomleft'>
+					<div class='shadowbox'>
+						<div class='megacontentarea'>
+							<div class='columnsWrapper'>
+								<div class='firstColumn'><p class="megasegmentheader">Undergraduate 2013</p>
+          <ul><li><a href="http://www.kent.ac.uk/courses/undergrad/2013/index.html">Online prospectus</a></li>
+            <li><a href="http://www.kent.ac.uk/courses/undergrad/2013/subjects/index.html">Search courses</a></li>
+            <li><a href="http://www.kent.ac.uk/courses/undergrad/why/future.html">Employability and careers</a></li>
+            <li><a href="http://www.kent.ac.uk/courses/undergrad/apply/">How to apply</a></li>
+            <li><a href="http://www.kent.ac.uk/courses/funding/undergraduate/">Fees and funding</a></li>
+          </ul><p class="megasegmentheader">Undergraduate 2012</p>
+          <ul><li><a href="http://www.kent.ac.uk/courses/undergrad/2012/index.html">Online prospectus</a></li>
+
+            <li><a href="http://www.kent.ac.uk/courses/undergrad/why/future.html">Employability and careers</a></li>
+            <li><a href="http://www.kent.ac.uk/courses/undergrad/apply/">How to apply</a></li>
+            <li><a href="http://www.kent.ac.uk/courses/funding/undergraduate/">Fees and funding</a></li>
+          </ul></div><div class='column'>        <p class="megasegmentheader">Postgraduate 2013</p>
+          <ul><li><a href="http://www.kent.ac.uk/courses/postgrad/">Online prospectus</a></li>
+            <li><a href="http://www.kent.ac.uk/courses/postgrad/subjects/index.html">Search courses</a></li>
+            <li><a href="http://www.kent.ac.uk/courses/postgrad/search/type/research/">Research degrees</a></li>
+            <li><a href="http://www.kent.ac.uk/courses/postgrad/search/type/taught/">Taught courses</a></li>
+            <li><a href="http://www.kent.ac.uk/courses/funding/postgraduate/index.html">Fees and funding</a></li>
+          </ul><p class="megasegmentheader">Part-time</p>
+          <ul><li><a href="http://www.kent.ac.uk/courses/part-time/">Online prospectus</a></li>
+            <li><a href="http://www.kent.ac.uk/courses/part-time/">Part-time study options</a></li>
+            <li><a href="http://www.kent.ac.uk/courses/funding/undergraduate/parttime/">Part-time funding</a></li>
+            <li><a href="http://www.kent.ac.uk/courses/part-time/">How to apply</a></li>
+          </ul></div><div class='column'><p class="megasegmentheader">International</p>
+            <ul><li><a href="http://www.kent.ac.uk/cewl/courses/ifp/">Foundation (IFP)</a></li>
+<li><a href="http://www.kent.ac.uk/cewl/courses/pre-sessional/index.html">Pre-sessional English</a></li>
+                <li><a href="http://www.kent.ac.uk/courses/short-term/programmes/jya.html">Junior Year Abroad (JYA)</a></li>
+              <li><a href="http://www.kent.ac.uk/courses/short-term/erasmus/index.html">Erasmus</a></li>
+                <li><a href="http://www.kent.ac.uk/courses/short-term/programmes/index.html">Short-term programmes</a></li>
+                
+            </ul><p class="megasegmentheader">Visit Kent</p>
+            <ul><li><a href="http://www.kent.ac.uk/courses/visit/openday/index.html">Open Days</a></li>
+              <li><a href="http://www.kent.ac.uk/courses/visit/ucas/index.html">UCAS Visit days</a></li>
+                <li><a href="http://www.kent.ac.uk/courses/visit/informal/">Informal visits</a></li>
+                <li><a href="http://www.kent.ac.uk/internationalstudent/overseas-visits.html">Kent around the world</a></li>
+            </ul></div><div class='column'><p class="megasegmentheader">Useful links</p>
+            <ul><li><a href="http://www.kent.ac.uk/accommodation/">Accommodation</a></li>
+                <li><a href="http://www.kent.ac.uk/courses/funding/">Fees and funding</a></li>
+                <li><a href="http://www.kent.ac.uk/scholarships/">Scholarships</a></li>
+                <li><a href="http://www.kent.ac.uk/locations/">Locations</a></li>
+                <li><a href="http://www.kent.ac.uk/courses/faq.html">Admissions FAQs</a></li>
+</ul><p class="megasegmentheader">Information for...</p>
+<ul><li><a href="http://www.kent.ac.uk/internationalstudent/index.html">International students</a></li>
+              <li><a href="http://www.kent.ac.uk/parents/">Parents and family</a></li>
+              <li><a href="http://www.kent.ac.uk/applicants/">Applicants</a></li>
+              <li><a href="http://www.kent.ac.uk/gettingstarted/">New students</a></li>
+        </ul></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</li>
+		
+		<li id='MegaLocations3' class='toplink '>
+			<a href='http://www.kent.ac.uk/locations/'>Locations</a>
+			<span></span>
+			<div id='megaMenu3' class='megamenu'>
+				<div class='bottomleft'>
+					<div class='shadowbox'>
+						<div class='megacontentarea'>
+							<div class='columnsWrapper'>
+								<div class='firstColumn'><p class="megasegmentheader">Canterbury</p>
+            <ul><li><a href="http://www.kent.ac.uk/locations/canterbury/index.html">Campus</a></li>
+                <li><a href="http://www.kent.ac.uk/locations/canterbury/accommodation/index.html">Accommodation</a></li>
+                <li><a href="http://www.kent.ac.uk/locations/canterbury/support/index.html">Services and support</a></li>
+                <li><a href="http://www.kent.ac.uk/locations/canterbury/union.html">Students' union</a></li>
+                <li><a href="http://www.kent.ac.uk/locations/canterbury/region.html">City and region</a></li>
+                <li><a href="http://www.kent.ac.uk/courses/visit/index.html">Visit Canterbury</a></li>
+                <li><a href="http://www.kent.ac.uk/maps/canterbury/maps.html">Maps and directions</a></li>
+            </ul></div><div class='column'><p class="megasegmentheader">Medway</p>
+          <ul><li><a href="http://www.kent.ac.uk/locations/medway/index.html">Campus</a></li>
+            <li><a href="http://www.kent.ac.uk/locations/medway/accommodation/index.html">Accommodation</a></li>
+            <li><a href="http://www.kent.ac.uk/locations/medway/support/index.html">Services and support</a></li>
+            <li><a href="http://www.kent.ac.uk/locations/medway/union.html">Students' union</a></li>
+            <li><a href="http://www.kent.ac.uk/locations/medway/region.html">City and region</a></li>
+            <li><a href="http://www.kent.ac.uk/courses/visit/index.html">Visit Medway</a></li>
+                <li><a href="http://www.kent.ac.uk/maps/medway/">Maps and directions</a></li>
+          </ul></div><div class='column'><p class="megasegmentheader">Brussels</p>
+            <ul><li><a href="http://www.kent.ac.uk/locations/brussels/index.html">Campus</a></li>
+                <li><a href="http://www.kent.ac.uk/maps/brussels/">Maps and directions</a></li>
+                <li><a href="http://www.kent.ac.uk/brussels/BSIS/index.html">BSIS website</a></li>
+            </ul><p class="megasegmentheader">Paris</p>
+            <ul><li><a href="http://www.kent.ac.uk/locations/paris/index.html">Centre</a></li>
+                <li><a href="http://www.kent.ac.uk/maps/paris/">Maps and directions</a></li>
+            </ul></div><div class='column'><p class="megasegmentheader">Tonbridge</p>
+            <ul><li><a href="http://www.kent.ac.uk/locations/tonbridge/index.html">Tonbridge centre</a></li>
+                <li><a href="http://www.kent.ac.uk/maps/tonbridge/">Maps and directions</a></li>
+                <li><a href="http://www.kent.ac.uk/locations/tonbridge/infoevents.html">Visit Tonbridge</a></li>
+       
+            </ul><p class="megasegmentheader">Other locations</p>
+            <ul><li><a href="http://www.kent.ac.uk/locations/associate/index.html">Associate/partner colleges</a></li>
+        </ul></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</li>
+		
+		<li id='MegaInternational4' class='toplink '>
+			<a href='http://www.kent.ac.uk/int/'>International</a>
+			<span></span>
+			<div id='megaMenu4' class='megamenu'>
+				<div class='bottomleft'>
+					<div class='shadowbox'>
+						<div class='megacontentarea'>
+							<div class='columnsWrapper'>
+								<div class='firstColumn'><p class="megasegmentheader">Courses </p>
+          <ul><li><a href="http://www.kent.ac.uk/goabroad/">Study and work abroad</a></li>
+            <li><a href="http://www.kent.ac.uk/european/courses/double.html">Double-degrees</a></li>
+            <li><a href="http://www.kent.ac.uk/courses/short-term/">Short-term study options</a></li>
+            <li><a href="http://www.kent.ac.uk/courses/">'International' courses</a></li>
+            <li><a href="http://www.kent.ac.uk/courses/short-term/erasmus/index.html">Erasmus exchanges</a></li>
+          </ul><p class="megasegmentheader">International students</p>
+          <ul><li><a href="http://www.kent.ac.uk/internationalstudent/beforeapply/index.html">Before you apply</a></li>
+            <li><a href="http://www.kent.ac.uk/internationalstudent/afterapply/index.html">After you apply</a></li>
+            <li><a href="http://www.kent.ac.uk/internationalstudent/now_here/index.html">When you arrive</a></li>
+          </ul></div><div class='column'><p class="megasegmentheader">Partners &amp; exchanges</p>
+          <ul><li><a href="http://www.kent.ac.uk/european/partnerships/index.html">European partnerships</a></li>
+            <li><a href="http://www.kent.ac.uk/goabroad/courses/">Worldwide exchanges</a></li>
+            <li><a href="http://www.kent.ac.uk/hkcp/">Hong Kong/China portal</a></li>
+            <li><a href="http://www.kent.ac.uk/european/erasmus.html">Erasmus Mundus</a></li>
+            <li><a href="http://www.kent.ac.uk/alumni/">Alumni groups/networks</a></li>
+          </ul><p class="megasegmentheader">Contacts</p>
+          <ul><li><a href="http://www.kent.ac.uk/international/">International Development</a></li>
+            <li><a href="http://www.kent.ac.uk/cewl/">English &amp; world languages</a></li>
+        </ul></div><div class='column'><p class="megasegmentheader">Strategy &amp; reputation</p>
+          <ul><li><a href="http://www.kent.ac.uk/about/plan/int/">International impact</a></li>
+            <li><a href="http://www.kent.ac.uk/research/">World-leading research</a></li>
+            <li><a href="http://www.kent.ac.uk/european/">UK's European university</a></li>
+          </ul><p class="megasegmentheader">Maps</p>
+          <ul><li><a href="http://www.kent.ac.uk/internationalmaps/world.html">International impact</a></li>
+            <li><a href="http://www.kent.ac.uk/european/partnerships/index.html">European partnerships</a></li>
+            <li><a href="http://www.kent.ac.uk/locations/">Campus locations</a></li>
+        </ul></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</li>
+		
+		<li id='MegaBusiness5' class='toplink '>
+			<a href='http://www.kent.ac.uk/business/'>Business</a>
+			<span></span>
+			<div id='megaMenu5' class='megamenu'>
+				<div class='bottomleft'>
+					<div class='shadowbox'>
+						<div class='megacontentarea'>
+							<div class='columnsWrapper'>
+								<div class='firstColumn'>
+    <p class="megasegmentheader">International expertise</p>
+    <ul><li><a href="http://www.kent.ac.uk/enterprise/practical-partnering/index.html">Business services</a></li>
+      <li><a href="http://www.kent.ac.uk/enterprise/practical-partnering/collaborative-projects.html">Collaborative projects</a></li>
+		<li><a href="http://www.kent.ac.uk/enterprise/practical-partnering/consultancy.html">Consultancy</a></li>
+		<li><a href="http://www.kent.ac.uk/enterprise/practical-partnering/facilities.html">Facilities</a></li>
+		<li><a href="http://www.kent.ac.uk/employabilitypoints/">Employability points</a></li>
+		</ul></div><div class='column'>
+    <p class="megasegmentheader">Courses</p>
+    <ul><li><a href="http://www.kent.ac.uk/courses/undergrad/2013/search/index.html">Undergraduate</a></li>
+      <li><a href="http://www.kent.ac.uk/courses/postgrad/search/subjects-az.html">Postgraduate</a></li>
+      <li><a href="http://www.kent.ac.uk/courses/part-time/undergrad/index.html">Part-time (undergraduate)</a></li>
+      <li><a href="http://www.kent.ac.uk/kbs/corporate/executive-education/index.html">Executive education</a></li>
+    </ul></div><div class='column'><p class="megasegmentheader">Contacts</p>
+    <ul><li><a href="http://www.kent.ac.uk/enterprise/index.html">Innovation &amp; Enterprise</a></li>
+      <li><a href="http://www.kent.ac.uk/kbs/">Kent Business School</a></li>
+      <li><a href="http://www.kent.ac.uk/conferences/">Conferences and functions</a></li>
+      <li><a href="http://www.kent.ac.uk/sports/">Sports centre and facilities</a></li>
+    </ul></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</li>
+		
+		<li id='MegaNews6' class='toplink '>
+			<a href='http://www.kent.ac.uk/news/'>News</a>
+			<span></span>
+			<div id='megaMenu6' class='megamenu'>
+				<div class='bottomleft'>
+					<div class='shadowbox'>
+						<div class='megacontentarea'>
+							<div class='columnsWrapper'>
+								<div class='firstColumn'>
+    <p class="megasegmentheader">University news</p>
+	<ul><li><a href="http://www.kent.ac.uk/news/latest.html">Headlines</a></li>
+		<li><a href="http://www.kent.ac.uk/news/inthenews/index.html">Kent in the news</a></li>
+		<li><a href="http://www.kent.ac.uk/news/stories/index.php">News archive</a></li>
+		<li><a href="http://www.kent.ac.uk/news/rss/">RSS feeds</a></li>
+		<li><a href="http://blogs.kent.ac.uk/">Blogs</a></li>
+		<li><a href="http://www.kent.ac.uk/news/contacts.html">Press Office contacts</a></li>
+	</ul></div><div class='column'>
+    <p class="megasegmentheader">Students and staff</p>
+	<ul><li><a href="http://www.kent.ac.uk/student/news/">Student news</a></li>
+		<li><a href="http://www.kent.ac.uk/campusonline/">Staff news</a></li>
+		<li><a href="http://www.kent.ac.uk/estates/news/index.html">Campus transport news</a></li>
+		<li><a href="http://www.kent.ac.uk/campusonline/kentmagazine/">Kent magazine</a></li>
+		<li><a href="http://www.kent.ac.uk/is/computing/motd.html">IT service alerts</a></li>
+		<li><a href="http://www.kent.ac.uk/news/contacts.html">Submit a story</a></li>
+	</ul></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</li>
+		
+		<li id='MegaAlumni7' class='toplink '>
+			<a href='http://www.kent.ac.uk/alumni/'>Alumni</a>
+			<span></span>
+			<div id='megaMenu7' class='megamenu'>
+				<div class='bottomleft'>
+					<div class='shadowbox'>
+						<div class='megacontentarea'>
+							<div class='columnsWrapper'>
+								<div class='firstColumn'>
+	<p class="megasegmentheader">Lasting connections...</p>
+	<ul><li><a href="http://www.kent.ac.uk/alumni/">Alumni and friends</a></li>
+        <li><a href="http://www.kent.ac.uk/alumni/news/kent/index.html">News</a></li>
+        <li><a href="http://www.kent.ac.uk/alumni/events/index.html">Events</a></li>
+        <li><a href="http://www.kent.ac.uk/alumni/in-touch/index.html">Keeping in    touch</a></li>
+        <li><a href="http://www.kent.ac.uk/alumni/groups/index.html">Alumni groups</a></li>
+	    <li><a href="http://www.kent.ac.uk/alumni/formerstaff/index.html">Former staff</a></li>
+	</ul></div><div class='column'><p class="megasegmentheader">Useful links</p>
+	      <ul><li><a href="http://www.kent.ac.uk/congregations/">Congregations</a></li>
+        <li><a href="http://www.kent.ac.uk/alumni/news/honorary.html">Honorary graduates</a></li>
+        <li><a href="http://www.kent.ac.uk/scholarships/index.html">Discount on fees</a></li>
+	      <li><a href="http://www.kent.ac.uk/scholarships/index.html">Alumni scholarships</a></li>
+          <li><a href="http://uk.sitestat.com/kent/kent-ext/s?clickout.webshop&amp;ns_type=clickout">Online giftshop</a></li>
+	      </ul></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</li>
+		
+		<li id='MegaGiving8' class='toplink '>
+			<a href='http://www.kent.ac.uk/giving/'>Giving</a>
+			<span></span>
+			<div id='megaMenu8' class='megamenu'>
+				<div class='bottomleft'>
+					<div class='shadowbox'>
+						<div class='megacontentarea'>
+							<div class='columnsWrapper'>
+								<div class='firstColumn'>
+	<p class="megasegmentheader">Major projects</p>
+	<ul><li><a href="http://www.kent.ac.uk/giving/lawcampaign/index.html">Kent Law Campaign</a></li>
+        <li><a href="http://www.kent.ac.uk/giving/buildings/musicbuilding.html">Music  building</a></li>
+        <li><a href="http://www.kent.ac.uk/giving/scholarshipscampaign.html">Scholarships Campaign</a></li>
+        <li><a href="http://www.kent.ac.uk/giving/hkcp/index.html">Hong Kong &amp; China Portal</a></li>
+    </ul></div><div class='column'>
+	<p class="megasegmentheader">Ways to give</p>
+	<ul><li><a href="http://www.kent.ac.uk/giving/give/online/index.html">Online</a></li>
+        <li><a href="http://www.kent.ac.uk/giving/give/post.html">By post or phone</a></li>
+        <li><a href="http://www.kent.ac.uk/giving/give/index.html">Other options..</a></li>
+      </ul></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</li>
+			
+	
+	
+</ul>
+				<div class='search'>
+	<form class='googlecse' method='get' action='http://search.kent.ac.uk/search' name='search' id='search'>
+	<input type='hidden' value='chronos' name='client'/>
+	<input type='hidden' value='chronos' name='proxystylesheet'/>
+	<input type='hidden' value='default_collection' name='site'/>
+	<input type='hidden' value='xml_no_dtd' name='output'/>	
+	<input type='hidden' value='0F3A70' name='primaryColour' />
+	<input type='text' class='inputText' accesskey='4' value='Search' id='q' name='q'/>
+	<input type='image' id='submitSearch' name='submitSearch' alt='Search' src='http://www.cs.kent.ac.uk/pantheon-assets/images/Chronos/layout/searchIcon.png'/>
+	</form>
+</div>
+
+			</div>		
+		</div>
+	</div>
+</div>
+
+				<div id='departmentHeader'>
+	<div id='departmentTitle'><span id="deptHeaderSpan">School of Computing</span></div>
+	<div id='imageBox'>
+		<div id='bannerExtended'></div>
+		<br style='clear:left'/>
+	</div>
+	<div style="clear: both"></div>
+	<div class='divider'></div>
+</div>
+			 
+</div>
+
+			<div id='contentWrapper'>
+	<div id='contentContainer'>
+		 
+				<div id='contentLeft'>
+	 
+					<div id='menu'>
+	<h1 class="hidden">Navigation menu</h1><h2>School of Computing</h2><ul class=''><li><a href='/index.html'>Home</a></li><li><a href='/teaching/index.html' class='closed'>Teaching</a></li><li><a href='/research/index.html' class='open'>Research<div class='menuOpener'></div>
+</a><ul class='open'><li><a href='/pubs/index.html' class='active'>Publications</a></li><li><a href='/research/groups/index.html' class='closed'>Groups</a></li><li><a href='/research/people/index.html'>Research staff</a></li><li><a href='http://projects.cs.kent.ac.uk/'>CS Projects</a></li><li><a href='/research/pg/index.html'>Research admissions</a></li><li><a href='http://www.kent.ac.uk/research/'>Research at Kent</a></li>	
+</ul></li>	
+</ul><h2>Studying</h2><ul class=''><li><a href='/students/index.html' class='closed'>Undergraduate courses</a></li><li><a href='/pg/index.html' class='closed'>Postgraduate courses</a></li>	
+</ul><h2>Activities</h2><ul class=''><li><a href='/news/index.html'>News</a></li><li><a href='/activities/index.html'>National &amp; International services</a></li><li><a href='/dept_info/seminars/index.html'>Seminars</a></li><li><a href='/schools-liaison/index.html'>Schools Liaison</a></li><li><a href='/outreach/index.html'>Outreach</a></li><li><a href='http://www.kitclinic.co.uk/' class='external'>Kent IT Clinic</a></li><li><a href='http://www.kent.ac.uk/enterprise/'>Kent enterprise</a></li>	
+</ul><h2>Local users</h2><ul class=''><li><a href='/LOCAL-ONLY/index.html' class='closed'>For current students and staff</a></li><li><a href='/systems/index.html' class='closed'>Systems Support</a></li>	
+</ul><h2>About us</h2><ul class=''><li><a href='/contacts/index.html'>Contacts - How to find us</a></li><li><a href='/people/index.html' class='closed'>People</a></li>	
+</ul></div>
+					<div id="deptSearch">
+	<h4>Search</h4>
+	<h5>School of Computing</h5>
+	<form id='deptSearchForm' name='deptSearch' method='get' action='http://search.kent.ac.uk/search'>
+		<fieldset>
+			<div id="textboxWrap">
+				<label class='hidden' for='q'>Search:</label>
+				<input type='text' id='query' name='q' value='Search' />
+				<input type="submit" value="Go" />
+			</div>
+			
+			<input type='hidden' name='client' value='default_frontend'/>
+			<input type='hidden' name='site' value='default_collection'/>
+			<input type='hidden' name='proxystylesheet' value='default_frontend'/>
+			<input type='hidden' name='output' value='xml_no_dtd'/>
+			<input type='hidden' name='sitesearch' value='cs.kent.ac.uk'/>
+			<input type='hidden' name='imagebartext' value='School of Computing'/>
+			<input type='hidden' name='imagebartextcolour' value='#FF0000'/>
+			<input type='hidden' name='imagebarimage' value='http://www.cs.kent.ac.uk/pantheon-assets/CS/Bacchus/headerImage-narrow.jpg'/>
+		</fieldset>
+	</form>
+</div>
+				 
+</div>
+
+				<div id='contentRight'>
+	 
+					<div id='utilityBar'>
+	<div id='breadcrumbs'>
+	<ul>
+		<li><a href='http://www.kent.ac.uk/'>University of Kent</a></li><li><a class='current' href='/'>School of Computing</a></li>
+	</ul>
+	
+</div>
+	<div id="socialEvangeliser">
+	<ul>
+		<li class="share"> 
+        	<a class="addthis_button" href="http://www.addthis.com/bookmark.php" ></a>
+
+		</li>
+
+	</ul>
+</div>
+</div>
+					<a id='alContent'></a>
+<div id='content'>
+	 
+
+
+
+
+<h1>Higher-order + Polymorphic = Reusable</h1>
+<h2>Simon Thompson</h2>
+May 1997.
+
+
+
+<br /><br />
+
+<h3>Abstract</h3>
+
+<P>
+This paper explores how certain ideas in object oriented languages have their
+correspondents in functional languages. In particular we look at the analogue
+of the iterators of the C++ standard template library. We also give an example
+of the use of constructor classes which feature in Haskell 1.3 and Gofer.
+
+</P>
+
+      
+  <a href="/pubs/1997/224/content.ps.gz">Download publication</a>
+  20 kbytes
+
+<br /><br />
+
+<h3>Bibtex Record</h3>
+<pre>
+@unpublished{224,
+author = {Simon Thompson},
+title = {Higher-order + {P}olymorphic {=} {R}eusable},
+month = {May},
+year = {1997},
+pages = {},
+keywords = {higher-order, polymorphic, iterator, constructor class, C++, functional programming},
+note = {},
+doi = {},
+url = {http://www.cs.kent.ac.uk/pubs/1997/224},
+}
+</pre>
+
+
+					 
+</div>
+
+				 
+</div>
+			 
+	</div>
+</div>
+
+			<div id='footerWrapper'>
+	 
+				<div id='footerContainer'>
+	<div id='footerLeft'>
+		<p>School of Computing, University of Kent, Canterbury, Kent, CT2 7NF</p>
+		<p>Enquiries: +44 (0)1227 824180 or <a href="http://www.cs.kent.ac.uk/contacts/">contact us</a>.</p>
+	</div>
+	<div id='footerRight'>
+		<p class='last-updated'>
+			<span>Last Updated:</span> 12/03/2012 17:02
+		</p>
+		
+	</div>
+</div>
+				<div id='globalFooterContainer'>
+	<div id='globalFooter'>
+		<div id='globalFooterLeft'>
+
+			<div class='social-media'>
+	<ul>		
+		<li><a href='http://uk.sitestat.com/kent/kent-ext/s?clickout.facebook.kent&ns_type=clickout' class='facebook' title='Kent on facebook' target='_blank'><span class="hideInBrowser">Kent on facebook</span></a></li>
+		<li><a href='http://uk.sitestat.com/kent/kent-ext/s?clickout.twitter.unikent&ns_type=clickout' class='twitter' title='Kent on twitter' target='_blank'><span class="hideInBrowser">Kent on twitter</span></a></li>
+		<li><a href='http://uk.sitestat.com/kent/kent-ext/s?clickout.linkedin.kent&ns_type=clickout' class='linkedin' title='Kent on linkedin' target='_blank'><span class="hideInBrowser">Kent on linkedin</span></a></li>
+		<li><a href='http://uk.sitestat.com/kent/kent-ext/s?clickout.youtube.kentchannel&ns_type=clickout' class='youtube' title='Kent on youtube' target='_blank'><span class="hideInBrowser">Kent on youtube</span></a></li>
+		<li><a href='http://uk.sitestat.com/kent/kent-ext/s?clickout.flickr.kent&ns_type=clickout' class='flickr' title='Kent on flickr' target='_blank'><span class="hideInBrowser">Kent on flickr</span></a></li>
+		<li><a href='http://www.kent.ac.uk/news/rss/' class='rss' title='Kent on rss' target='_blank'><span class="hideInBrowser">Kent on rss</span></a></li>
+	</ul>
+	<p class="text"><a href="http://www.kent.ac.uk/socialmedia/">Social media at Kent</a></p>
+</div>					
+
+
+
+			
+			<div class='text'>
+				<p>&copy; University of Kent - <a href='http://www.kent.ac.uk/contact/'>Contact</a> | <a href='http://www.kent.ac.uk/feedback.html'>Feedback</a> | <a href='http://www.kent.ac.uk/legal/'>Legal</a> | <a href='http://www.kent.ac.uk/legal/cookies.html'>Cookies</a></p>
+				<p>The University of Kent, Canterbury, Kent, CT2 7NZ, T +44 (0)1227 764000</p>
+			</div>
+			
+		</div>
+		<div id='globalFooterRight'>
+			<div class='kent-tweets'>
+				<div class='header'><a href="http://www.twitter.com/unikent/" title="Kent on Twitter"><span class="hideInBrowser">Kent on Twitter</span></a></div>
+				
+<div  id="twitterSnippet_unikent_2" class="tweet-box">
+	<p class="loadingTweets"></p>
+	<p class="tweet-content">See the reaction to the resignation of the #Pope by Kent Professor of Applied Theology, Robin Gill in <a href="http://www.twitter.com/skynews">@skynews</a>: <a href="http://t.co/PjorPDpv">http://t.co/PjorPDpv</a></p><p class="posted">Posted about 7 hours ago</p>
+</div> 
+
+			</div>
+			<div class='kent-logos'>
+				<ul>
+					<li><a href="http://uk.sitestat.com/kent/kent-ext/s?santander-eun&ns_type=clickout" title="Santander Group - European Universities Network" class="santander-logo" alt="Santander Group - European Universities Network"> </a></li>
+					<li><a href="http://uk.sitestat.com/kent/kent-ext/s?universities-uk&ns_type=clickout" title="Universities UK" class="uuk-logo" alt="Universities UK"> </a></li>
+					<li><a href="http://uk.sitestat.com/kent/kent-ext/s?hefce&ns_type=clickout" title="Higher Education Funding Council for England" class="hefce-logo" alt="Higher Education Funding Council for England"> </a></li>
+				</ul>
+			</div>
+		</div>
+		<br style='clear:both' />
+	</div>
+</div>
+
+			 
+</div>
+		 
+</div>
+<script type="text/javascript">
+var addthis_config = {
+	pubid: "ra-4e4bc55753a3c92a",
+		ui_cobrand: "Kent.ac.uk",
+	ui_click:   true
+}
+</script>
+<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js"></script>
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+
+  _gaq.push(
+  ['t0._setAccount', 'UA-21420000-1'], 
+['t0._trackPageview'], 
+['t1._setAccount', 'UA-2248758-2'], 
+['t1._trackPageview']  );
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+
+
+
+
+
+	</body>
+</html>
