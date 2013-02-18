@@ -1,0 +1,161 @@
+
+
+
+
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta name="viewport" content="width=500" />
+<!--<META HTTP-EQUIV="PRAGMA" CONTENT="CACHE">-->
+
+<title>undef | receipt-racer</title>
+<link rel="SHORTCUT ICON" href="/undeficon.png" />
+
+<link rel="stylesheet" title="Default" href="style/default.css">
+<link rel="stylesheet" type="text/css" href="style/player.css">
+<style type="text/css">
+#fplayer{
+background-color: #000;
+z-index: 1;
+overflow: hidden;
+}
+
+#receiptRacerCanvas{
+position: absolute;
+left:20px;
+top:40px;
+}
+</style>
+
+<link rel="stylesheet" href="pages/receiptracer/receiptRacer.css" type="text/css"/><script src="/javascript/jquery-1.6.1.min.js" type="text/javascript"></script>
+<!--glitch it begin-->
+<script type="text/javascript" src="javascript/jquery.timer.js"></script>
+<link rel="stylesheet" type="text/css" href="style/glitch.css"/>
+<script type="text/javascript" src="javascript/glitch.js"></script>
+<!--glitch it end-->
+
+<link rel="stylesheet" type="text/css" href="/style/menu.css">
+
+<script type="text/javascript">
+$(window).bind("load", function() {
+
+    $('#moremenu').mousedown(function() {
+    	if($('#menu').height()==20){
+    		$('#menu').css("height","200px");
+    		$('#menu').css("padding-bottom","20px");
+    	}else{
+    		$('#menu').css("height","20px");
+    		$('#menu').css("top","0px");
+    		$('#menu').css("padding-bottom","0px");
+    	}
+    	$('#about').toggle();
+     });
+     
+     addHover('.pagetags');
+     addHover('.pagetitle');
+     addHover('.moremenu');
+     addHover('.previmg');
+     addHover('.menu_p');  
+ });
+ 
+ function addHover(div){
+
+     $(div).mouseover(function() {
+        $(this).find('.out').hide();
+        $(this).find('.over').show();
+     });
+     
+      $(div).mouseout(function() {
+        $(this).find('.out').show();
+        $(this).find('.over').hide();
+     });
+
+}
+</script>
+
+
+<script src="javascript/player.js" type="text/javascript"></script>
+
+    <script type="text/javascript" src="javascript/jquery-1.6.1.min.js"></script>
+    <script type="text/javascript" src="pages/receiptracer/perlin-noise-simplex.js"></script>
+    <script type="text/javascript" src="pages/receiptracer/jquery.timer.js"></script>
+    <script type="text/javascript" src="pages/receiptracer/receiptRacer.js"></script>		
+</head>
+<body>
+
+
+<div id="menu"><div id="about"><div class="info"><p>
+<a href="http://twitter.com/d_effekt"><img src="/images/twitter.png"/></a> <a href="http://flicker.com/d_effekt"><img src="/images/flicker.png"/></a> <a href="http://vimeo.com/deffekt"><img src="/images/vimeo.png"/></a><br/><a href="">[info.pdf]</a> <a class="elink" href="http://deffekt.ch">d_effekt, Martin Fuchs</a><br/>
+<a href="http://twitter.com/underdoeg"><img src="/images/twitter.png"/></a> <a href="http://flicker.com/underdoeg"><img src="/images/flicker.png"/></a> <a href="http://vimeo.com/underdoeg"><img src="/images/vimeo.png"/></a><br/><a href="">[info.pdf]</a> <a class="elink" href="http://underdoeg">underdoeg, Philip Whitfield</a><br/><br/>
+</p></div>
+<div class="info dark">
+<p><a class="elink" href="mailto:mail@undef.ch">mail@undef.ch</a><br/>
+Ateliergemeinschaft<br/>
+Breisacherstrasse 66<br/>
+4057 Basel<br/><br/>
+<a href="http://creativecommons.org/licenses/by-nc-nd/2.5/ch/" target="new">website and contents are licensed under Creative Commons 2.5</a>
+</p></div></div><div class="menu_p overview"><div class="caticon projects"></div><div class="caticon lab"></div><div class="caticon code"></div><a href="/"><img class="out" src="/php/text_img.php?width=min&style=title&text=overview"/><img class="over" src="/php/text_img.php?hover=true&width=min&style=title&text=overview"/></a></div><div class="menu_p"><div class="caticon projects"></div><a href="/cat/projects"><img class="out" src="/php/text_img.php?width=min&style=title&text=projects"/><img class="over" src="/php/text_img.php?hover=true&width=min&style=title&text=projects"/></a></div><div class="menu_p"><div class="caticon lab"></div><a href="/cat/lab"><img class="out" src="/php/text_img.php?width=min&style=title&text=lab"/><img class="over" src="/php/text_img.php?hover=true&width=min&style=title&text=lab"/></a></div><div class="menu_p"><div class="caticon code"></div><a href="/cat/code"><img class="out" src="/php/text_img.php?width=min&style=title&text=code"/><img class="over" src="/php/text_img.php?hover=true&width=min&style=title&text=code"/></a></div><div class="menu_p"><div class="caticon "></div><a href="/cat/"><img class="out" src="/php/text_img.php?width=min&style=title&text="/><img class="over" src="/php/text_img.php?hover=true&width=min&style=title&text="/></a></div><div id="controller"><a href="/videopong"><img src="/images/prev.png"/></a><a href="/gd3d"><img src="/images/next.png"/></a></div><div class="menupagetitle"><img src="/php/text_img.php?width=min&style=title&text=Receipt Racer"/></div><div id="moremenu" class="moremenu" ><a href=""><img class="out" src="/php/text_img.php?width=min&style=title&text=undef"/><img class="over" src="/php/text_img.php?hover=true&width=min&style=title&text=undef"/></a></div></div><div id='glitchContent'><div id="receiptRacerCanvas" style="width:300px;height:353px"></div>
+
+<div id="fplayer" style="width:500px">
+ 		<div id="playerprevimg"><img src="pages/receiptracer/previmg.jpg"/></div>
+		<object id="myFlash" type="application/x-shockwave-flash" data="player_flv_js.swf" width="500" height="333" style="z-index:1">
+			<param name="movie" value="player_flv_js.swf" />
+			<param name="AllowScriptAccess" value="always" />
+			<param name="wmode" value="transparent"/>
+			<param name="FlashVars" value="listener=myListener&amp;interval=500&amp;useHandCursor=0&amp;bgcolor=000000&amp;buffer=9" />
+		</object>
+		<div id="player" style="width:500px">
+			<div id="playerplay" class="button play"><a href="javascript:play('pages/receiptracer/receipt_racer.FLV')" >PLAY</a></div>
+			<div id="playerpause" class="button pause"><a href="javascript:pause()">PAUSE</a></div>
+			<div id="playerstop" class="button stop"><a href="javascript:stop()">STOP</a></div>
+			<div id="playersoundon" class="button soundon"><a href="javascript:toggleVolume()">VOL</a></div>
+			<div id="playersoundoff" class="button soundoff"><a href="javascript:toggleVolume()">VOL</a></div>
+			<div id="playerload" class="button load"><div id="info_load"></div></div>
+		</div>
+</div>
+
+<div style="width:1280px">
+<div id="textdiv">
+RECEIPT RACER</br>
+a microproject by undef and <a href="http://thefactoryfactory.com/">Joshua Noble</a></br>
+</br>
+The receipt racer combines different in and output devices into a complete game. It was made during the <a href="http://www.creativeapplications.net/offf2011/">"Let's feed the future workshop"</a>, organized by <a href="http://www.creativeapplications.net">creativeapplications.net</a> as a part of the OFFF Festival in Barcelona on June 8th 2011. <br/>
+</br>
+The game is played on a receipt  printer, a common device you can see at every convenient store. It prints those papers you usually find crumbled up in your pockets, just to throw them away. It is a thermal printer using heat to darken the paper. This eliminates any slowdowns in printing lots of black. A roll can be ordered online and costs around 80 cents.
+</div>
+<div id="textdiv">
+50 meters is the maximum distance you are theoretically able to race in one run, before running out of paper. So ecologically it's pretty much a disaster, just like any real car.<br/>
+</br>
+Print is a static medium. that's why it was an intriguing challenge to create an interactive game with it. First we tried to do it only with the printer as the visual representation but that seemed rather impossible. But then <a href="http://thefactoryfactory.com/">Joshua Noble</a> came up with this tiny beamer, perfect to project a car onto a preprinted road.<br/>
+</br>
+There is no game without an input device. So we were lucky each of us always carries a gamepad around. We use them a lot because
+</div>
+<div id="textdiv">
+they're physical and you can control something without have to look at it. And it is a game after all, so a joypad is the perfect match.<br/>
+<br/>
+The cables come together on a laptop running an openframeworks application all three of us wrote parts of. The app was entirely programmed during the workshop. Internally it runs something like the basic js game. Onnly a car driving on a randomly generated race track. Then it broadcasts its components to the external devices, prints the street and guesses where the car's projection is supposed to be to perform the hit test. That's the trickiest part. Everything has to be in sync and needs some calibration in the beginning. The paper also has a
+</div>
+<div id="textdiv">
+little bit of a mind of it's own and tends to slide around or curl. But that's nothing some duct tape and cardboard can't fix. <br/>
+</br>
+It was a lucky day. Somehow everything was just lying around, waiting to be used. Even the stand and this plastic thing you would normally use to put in your name on a conference. Even the timing was perfect. Right at the end of the workshop we finished adding the details like a little score and the YOU CRASHED TEXTS. Components that make it a complete game. It was a great experience and we thank <a href="http://www.creativeapplications.net">creativeapplications.net</a> to provide this platform and gathering all these people in one room for a whole day.
+</div>
+<div id="textdiv">
+You can download the source code and a compiled mac version here: <a href="uploads/receiptRacer.zip">receiptRacer</a>. It should compile on other systems as well. But beware! It was a one day project, so it's quite a mess...<br/><br />
+[undef June 12th 2011]
+</div>
+</div></div>
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-11283321-1");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+
+</body>
+

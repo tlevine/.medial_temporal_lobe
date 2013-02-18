@@ -1,0 +1,327 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Naccho | The Arizona Hemophilia Association</title>
+<link rel="stylesheet" href="css/reset.css" />
+<link rel="stylesheet" href="css/text.css" />
+<link rel="stylesheet" href="css/960.css" />
+<link rel="stylesheet" href="css/style.css" />
+<link rel="stylesheet" type="text/css" href="css/superfish.css" media="screen">
+<link rel="stylesheet" type="text/css" href="css/superfish-vertical.css" media="screen">
+<script type="text/javascript" src="js/jquery-1.2.6.min.js"></script>
+<script type="text/javascript" src="js/hoverIntent.js"></script>
+<script type="text/javascript" src="js/superfish.js"></script>
+<script type="text/javascript"> 
+ 
+    $(document).ready(function(){ 
+        $("ul.sf-menu").superfish({ 
+            animation: {height:'show'},   // slide-down effect without fade-in 
+            delay:     1200               // 1.2 second delay on mouseout 
+        }); 
+    }); 
+ 
+</script>
+<script type="text/javascript" src="js/jquery.cycle.all.min.js"></script>
+<script type="text/javascript"> 
+$(document).ready(function() {
+    $('.slideshow').cycle({
+		fx: 'fade' // choose your transition type, ex: fade, scrollUp, shuffle, etc...
+	});
+});
+</script>
+</head>
+<body>
+<div class="red_band"></div>
+<div class="container_12" id="container"> <!-- open container -->
+
+	<div class="grid_12" id="header"> <!-- open header -->
+		
+		<div class="grid_4 alpha">
+			<a href="https://www.hemophiliaz.org"><img class="logo" src="../images/logo.gif" alt="Arizona Hemophilia Association"/></a>
+		</div>
+		
+		<div class="grid_4">
+			<h2 style="padding-bottom:0px;margin-bottom:0px;">Call <span class="red"><strong>888-754-7017</strong></span> for information</h2>
+            <h2 style="margin-top:0px; font-size:13px">or click here to <a href="https://www.hemophiliaz.org/contact-us.php"><span class="red"><strong>Contact Us</strong></span></a></h2>
+			<p><em>The Arizona Hemophilia Association is dedicated to enhancing the quality of life for people with inherited bleeding disorders, while advocating for a cure.</em></p>
+		</div>
+		
+		<div class="grid_4 omega" id="donate">
+        	<a href="hemophilia-donate.php"><img class="donate" src="images/donate.jpg" alt="donate" /></a>
+<!--			<h2>Donate Now</h2>
+			<p>Please Help Make a Difference.</p>
+			<a href="https://www.hemophiliaz.org/hemophilia-donate.php"><img src="../images/donate_btn.jpg" alt="Donate Now" width="156" height="29" /></a>
+-->		</div>
+	</div> <!-- close header -->	
+	<div class="grid_12" id="red_band_container">
+		<div class="nav_bg"></div>
+		<div class="red_band_naccho_img"></div>
+		<div class="grid_4" id="nav">
+			<ul class="sf-menu sf-vertical" >
+  <li><a href="index.php">Home</a></li>
+  <li>
+      <a href="">About Us</a>
+      <ul>
+          <li><a href="who-we-are.php">Who We Are</a></li>
+          <li><a href="what-we-do.php">What We Do</a></li>
+          <li><a href="our-team.php">Our Team</a></li>
+          <li><a href="our-partners.php">Our Partners</a></li>
+          <li><a href="annual-report.php">Annual Report</a></a></li>
+          <li><a href="become-a-member.php">Become A Member</a></li>
+      </ul>
+  </li>
+  <li>
+      <a href="">Bleeding Disorders</a>
+      <ul>
+          <li><a href="hemophilia.php">Hemophilia</a></li>
+          <li><a href="von-willebrands.php">von Willebrands</a></li>
+          <li><a href="hiv-aids.php">HIV/AIDS</a></li>
+          <li><a href="hepatitis.php">Hepatitis</a></li>
+      </ul>
+  </li>
+  <li>
+      <a href="">Programs</a>
+      <ul>
+          <li><a href="youth-programs.php">Youth Programs</a></li>
+          <li><a href="social-group.php">Social Groups</a></li>
+          <li><a href="camp-programs.php">Camp Programs</a></li>
+          <li><a href="education.php">Education Outreach</a></li>
+          <li><a href="retreats.php">Retreats</a></li>
+          <li><a href="all-community-programs.php">All Community Programs</a></li>
+      </ul>
+  </li>
+  <li>
+      <a href="">Services</a>
+      <ul>
+          <li><a href="financial-assistance.php">Financial Assistance</a></li>
+          <li><a href="scholarships.php">Scholarships</a></li>
+          
+          <li><a href="client-services.php">Client Services</a></li>
+          <li><a href="newly-diagnosed.php">Newly Diagnosed</a></li>
+          <li><a href="transition-mentoring.php">Transition Mentoring</a></li>
+      </ul>
+  </li>
+  <li>
+      <a href="">Resources</a>
+      <ul>
+          <li><a href="az-hemophilia-thrombosis.php">AZ Hemophilia and Thrombosis Center</a></li>
+          <li><a href="hemophilia-treatment-center-pch.php">Hemophilia Treatment Center at PCH</a></li>
+          <li><a href="hemophilia-national-organizations.php">National Organizations</a></li>
+          <li><a href="hemophilia-medical-resources.php">Medical Resources</a></li>
+          <li><a href="health-insurance.php">Health Insurance</a></li>
+          <li><a href="hemophilia-community-resources.php">Community Resources</a></li>
+          <li><a href="aha-newsletter.php">AHA Newsletter</a></li>
+          <li><a href="hemophilia-news-media.php">News & Media</a></li>
+          <!--<li><a href="hemophilia-photo-gallery.php">Photo Gallery</a></li>-->
+      </ul>
+  </li>
+  <li>
+      <a href="">Advocacy</a>
+      <ul>
+          <li><a href="advocacy-committee.php">Advocacy Committee</a></li>
+          <li><a href="legislative-day.php">Legislative Day</a></li>
+          <li><a href="advocacy-update.php">Advocacy Update</a></li>
+      </ul>
+  </li>
+  
+  <li>
+      <a href="">Conferences</a>
+      <ul>
+          <li><a href="fundfusion.php">Fundfusion</a></li>
+          <li><a href="naccho.php">NACCHO</a></li>
+          <li><a href="von-willebrand-conference.php">NOW Conference</a></li>
+      </ul>
+  </li>
+  
+  <li>
+      <a href="">Events</a>
+      <ul>
+          <li><a href="salsa-challenge.php">Salsa Challenge</a></li>
+          <li><a href="hemophilia-walk.php">Hemophilia Walk</a></li>
+          <li><a href="charity-golf-tournament.php">Charity Golf Tournament</a></li>
+          <li><a href="wonderful-women.php">Wonderful Women</a></li>
+          <li><a href="pub-crawl.php">Pub Crawl</a></li>
+      </ul>
+  </li>
+  
+  <li><a href="calendar.php">Calendar</a></li>
+  <li>
+      <a href="">Get Involved</a>
+      <ul>
+          <li><a href="making-a-difference.php">Making a Difference</a></li>
+          <li><a href="sponsorships.php">Sponsorships</a></li>
+          <li><a href="hemophilia-donate.php">Donate</a></li>
+          <li><a href="speakers-bureau.php">Speakers Bureau</a></li>
+          <li><a href="volunteer.php">Volunteer</a></li>
+      </ul>
+  </li>
+  <li><a href="blog/">Blog</a></li>
+</ul>        <div class="clear"></div>
+		<div id="search">
+			<form method="post" action="search-results.php">
+            	<INPUT TYPE="text" NAME="search" SIZE="20"> <INPUT TYPE="submit" value="Submit">
+            </form>
+		</div>
+		</div>
+
+		
+	</div>
+	
+		<div class="grid_12">
+    	<div class="grid_8 alpha">
+          <div class="subs_container">
+              <h2>NACCHO</h2>
+              <div class="pageTextContainer"><div><img style="display: block; margin-left: auto; margin-right: auto;" src="http://www.arizonahemophilia.org/fileUploads/Naccho-Logo.jpg" alt="" width="195" height="188" /></div>
+<div style="text-align: center;"><strong><span style="font-size: medium;"><span style="font-size: large;">North American Camping Conference of Hemophilia </span></span></strong><span style="font-size: medium;"><strong>Organizations</strong></span></div>
+<div style="text-align: center;">&nbsp;</div>
+<div style="text-align: center;"><span style="font-size: medium;">Sponsored by a grant from<img src="http://www.arizonahemophilia.org/fileUploads/pfizer1.JPG" alt="" width="102" height="55" /></span></div>
+<div><span style="font-size: medium;">(<strong>NACCHO</strong>),&nbsp;</span><span style="font-size: medium;">will be&nbsp;held </span><span style="font-size: medium;">January 25-27, 2013 in Tempe, Arizona. </span></div>
+<div>&nbsp;</div>
+<div style="text-align: center;">&nbsp;</div>
+<div><span style="font-size: small;">&nbsp;</span></div>
+<div><span style="font-size: medium;">&nbsp;Thank you to those who attended NACCHO! It was a great success!</span></div>
+<div>&nbsp;</div>
+<p>&nbsp;<img style="display: block; margin-left: auto; margin-right: auto;" src="http://www.arizonahemophilia.org/fileUploads/PastedGraphic-1%20(2).tiff%20" alt="" width="226" height="342" /></p>
+<p>&nbsp;&nbsp;</p>
+<div style="text-align: center;"><span style="font-size: medium;"><strong><em>What is NACCHO?</em></strong></span><br /><span style="font-size: small;">With funding by a grant from <span style="text-decoration: underline;">Pfizer</span>, the <span style="text-decoration: underline;">Arizona Hemophilia Association</span> is able to organize a specialized annual weekend conference in the sunny southwest that focuses on the work of bleeding disorder summer camps. Designed by a planning team from across the country, NACCHO is facilitated by nationally known presenters and leaders from the bleeding disorder community who share useful camp resources and techniques. Participants can exchange resource materials, meet with representatives from the NHF, pick up new ideas, and share their most successful endeavors with people from other camps. Along the way, we have a little fun, good food, and strengthen the bond we&rsquo;ve enjoyed as collaborators over the years.</span></div>
+<div style="text-align: center;">&nbsp;</div>
+<div style="text-align: center;">
+<p align="center"><strong><span style="font-size: medium;">Welcome to NACCHO 2013!!</span></strong></p>
+<p align="center"><strong><span style="font-size: medium;"><img title="Building Today for Tomorrow.jpg" src="https://www.hemophiliaz.org/admin/img_upload/Building%20Today%20for%20Tomorrow.jpg" alt="Building Today for Tomorrow.jpg" width="250" height="39" /></span></strong></p>
+<p align="center"><span style="font-size: small;">The 2013 NACCHO Conference theme stems from last year's emphasis on camp culture and values. Building Today for Tomorrow will highlight the importance of the precise planning that goes into camp in order to shape the future. When plans are specific and intentional, it also helps produce unintentional moments that help in the construction of the next generation of camp...this is your foundation. Join us as we put our hard hats on to build on the archetype of today for the sake of tomorrow.</span></p>
+</div>
+<div style="text-align: center;">&nbsp;</div>
+<div style="text-align: center;"><span style="font-size: medium;"><strong><em>Who Is Invited?</em></strong></span><br /><span style="font-size: small;">NACCHO was created for the people who are responsible for planning, organizing, and operating bleeding disorder summer camps (including family camps). These people could include your best counselors, camp director&rsquo;s, medical staff, fundraisers, activities leaders, or camp committee members. The sponsoring agency that operates your local bleeding disorder summer camp, whether that is an HTC, NHF Chapter, or Association, should identify and designate representatives to the conference. Sponsoring agencies are strongly encouraged to send representatives who have never attended NACCHO before-encouraging new participants to attend will help enlarge the base of caring and knowledgeable camp staff. </span></div>
+<div style="text-align: center;">&nbsp;</div>
+<div style="text-align: center;"><span style="font-size: small;"><strong>The conference is funded to accept a limited number of participants on a first-come first-served basis with new attendees receiving special priority</strong>. Participants are encouraged to complete the online registration form with credit card payment for prompt service. Due to the enthusiastic response from the community to attend NACCHO, the following criteria for conference participation were devised:</span></div>
+<ul>
+<li><span style="font-size: small;">Organizations who want to start a camp may send two representatives.</span></li>
+<li><span style="font-size: small;">Organizations that have a program and serve 49 or fewer campers may send two representatives.</span></li>
+<li><span style="font-size: small;">Organizations that have a program and serve 50 or more campers may send three representatives.</span></li>
+</ul>
+<div><span style="font-size: medium;"><strong>What should I expect?</strong></span></div>
+<div><span style="font-size: small;">With funding by a grant from Pfizer, the Arizona Hemophilia Association is able to organize a specialized annual weekend conference in the sunny southwest that focuses on the work of bleeding disorder summer camps. NACCHO serves to promote and enhance the summer camp experience of children with bleeding disorders, like hemophilia, and to provide the dedicated organizations who put on these camps the vehicle to develop best practices, share information, and foster new ideas.</span></div>
+<div><span style="font-size: small;">At the upcoming NACCHO conference, we will provide education and learning opportunities through five major interest tracks:</span></div>
+<p><span style="font-size: small;">&nbsp;</span></p>
+<p style="padding-left: 30px;"><span style="font-size: small;"><strong><em>1. Administration Track</em></strong></span></p>
+<p><span style="font-size: small;">- All the nuts and bolts sessions on how to budget, market, promote, insure and manage camp &ndash; including facilities management, registration, policies, purchasing supplies for camp, and much more.</span></p>
+<p style="padding-left: 30px;"><span style="font-size: small;"><strong><em>2. Campers &amp; Parent Track</em></strong></span></p>
+<p><span style="font-size: small;">- All sessions relating to child/youth development in theory and in practice, contemporary parenting issues, working with children with behavioral challenges, sending children home, developmental or practical issues related to bleeding disorders, as well as current topics relating to working with parents, building partnerships, setting limits, and enforcing camp rules.</span></p>
+<p style="padding-left: 30px;"><span style="font-size: small;"><strong><em>3. Programs &amp; Activities Track</em></strong></span></p>
+<p><span style="font-size: small;">- All sessions relating to the ways in which we organize and execute our camp program and activities. These include regular activity programming, special events, practical issues, and curriculum related to instruction in sports and arts, adventure and waterfront operation.</span></p>
+<p style="padding-left: 30px;"><span style="font-size: small;"><strong><em>4. Staff and Leadership Track</em></strong></span></p>
+<p><span style="font-size: small;">- Sessions within this category fall into two areas: those relating to staff hiring, training and management; and those relating to camp leadership theory and practice, cultivation and training, vision, ethics, community building, and establishing or changing camp culture.</span></p>
+<p style="padding-left: 30px;"><span style="font-size: small;"><strong>5.</strong> <strong><em>Medical Services Track</em></strong></span></p>
+<p><span style="font-size: small;">- All session relating to the providing of medical and social services at&nbsp;camp</span></p>
+<p><span style="font-size: small;"><strong>NACCHO Cup</strong></span></p>
+<p><span style="font-size: small;"><strong>As a tradition at NACCHO, each year the top applicants showcase their innovative programs to the attendees who vote for the NACCHO Cup winner. This year, we will have five winners who will receive funds to help them with their camp program.</strong></span></p>
+<p><span style="font-size: small;"><strong>Recognition Levels:</strong></span></p>
+<p><span style="font-size: small;"><strong>1st Place: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $1,500</strong></span></p>
+<p><span style="font-size: small;"><strong>2nd Place:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $1,000</strong></span></p>
+<p><span style="font-size: small;"><strong>3rd Place:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $&nbsp;&nbsp; 750</strong></span></p>
+<p><span style="font-size: small;"><strong>4th Place:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $&nbsp; &nbsp;500</strong></span></p>
+<p><span style="font-size: small;"><strong>5th Place:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $&nbsp;&nbsp; 250</strong></span></p>
+<p><span style="font-size: small;"><strong>This year&rsquo;s theme is </strong><strong>Blueprint for Success</strong><strong>: Describe one of your camp goals and how it was successful through demonstrated measurable programs, activities and outcomes.&nbsp;</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong></strong></span></p>
+<p><span style="font-size: small;">To Enter:</span></p>
+<p><span style="font-size: small;">A)&nbsp; <strong><a href="http://www.arizonahemophilia.org/fileUploads/2013%20NACCHO%20Cup%20Application.docx" target="_blank">Download and complete the NACCHO Cup Application form</a></strong></span></p>
+<p><span style="font-size: small;">B)&nbsp; Submit your completed entry form to <a href="mailto:joan@hemophiliaz.org">joan@hemophiliaz.org</a> no later than <strong>January 18th, 2013</strong></span></p>
+<p><span style="font-size: small;">C)&nbsp; Prepare a brief public presentation on your entry if selected (5 minutes)</span></p>
+<p><span style="font-size: small;"><a href="http://www.arizonahemophilia.org/fileUploads/2012%20NACCHO%20Cup%20Winners.docx" target="_blank"><strong>View the winners from 2012!</strong></a></span></p>
+<p>&nbsp;<span style="font-size: medium;"><strong><em>What is the Pre-Conference for camp directors all about?</em></strong></span><br /><span style="font-size: small;">Bleeding Disorder camp directors are invited to attend a special Camp Director&rsquo;s Pre-Conference. The pre-conference is being held for camp directors to focus on &lsquo;best practices&rsquo;, staff training and camp management particularly relevant to the funding, administration, and supervision aspects of running a summer camp for those affected by bleeding disorders. Attending the pre-conference adds $25 to the registration fee and that defrays the cost of the extra night&rsquo;s hotel stay, all meals, and all program materials. Camp directors are highly encouraged to attend and participate in the pre-conference.</span></p>
+<div>&nbsp;</div>
+<div><span style="font-size: medium;"><strong><em>What does NACCHO cost to attend?</em></strong></span><br /><span style="font-size: small;">Pfizer&rsquo;s funding of NACCHO enables us to offer airfare, hotel, food, and conference registration for only $125.00 per participant ($150.00 if you are a camp director attending the pre-conference). Yes, it&rsquo;s true! For $125 you get to spend two nights at the Tempe Mission Palms Hotel on Mill Avenue (downtown Tempe), and have all meals and receptions on the conference agenda included. </span><span style="font-size: medium;"><span style="font-size: small;">The hotel, which is only a ten-minute drive from the airport, offers free shuttle service every half-hour.</span> </span></div>
+<div>&nbsp;</div>
+<div><span style="font-size: medium;"><strong>If you choose to take a cab or rent a car, that will be your out-of-pocket expense. Also, there is no reimbursement for any meals you have while you are traveling to and from the conference</strong>.</span></div>
+<div><span style="font-size: medium;"><strong><em>Can we send more people to NACCHO than we are allotted?</em></strong></span><br /><span style="font-size: small;">If a sponsoring agency is willing to pay airfare, share its allocation of rooms, and pay a conference registration fee of $350 (not $125), we can accommodate extra people. For the price of airfare and $350, this is still a great investment in your camp leadership. To register additional people, contact Joan Gustin at <a href="mailto:Cindy@hemophiliaz.org">mailto:joan@hemophiliaz.org</a></span></div>
+<div>&nbsp;</div>
+<div>&nbsp;<span style="color: #800080; font-size: medium;"><strong>REGISTER HERE: <span style="color: #800080;"><a href="http://weblink.donorperfect.com/NACCHO" target="_blank">http://weblink.donorperfect.com/NACCHO</a>&nbsp;(Registration is now closed)</span></strong></span></div>
+<div>&nbsp;</div>
+<div><span style="font-size: medium;"><strong>Please contact Joan Gustin with any questions regarding NACCHO. She may be reached at 602-955-3947 or via email at <a href="mailto:joan@hemophilaz.org">mailto:joan@hemophiliaz.org</a></strong></span></div>
+<div><span style="font-size: medium;">Below are examples of camp programs and documents from previous NACCHO conferences. </span></div>
+<div>
+<ul>
+<li><span style="font-size: medium;"><a href="http://www.arizonahemophilia.org/fileUploads/AgeCharacterisrics.pdf" target="_blank">AgeCharacterisrics.pdf</a></span></li>
+<li><span style="font-size: medium;"><a href="http://www.arizonahemophilia.org/fileUploads/AquaticEmergencyProcedures.pdf" target="_blank">AquaticEmergencyProcedures.pdf</a></span></li>
+<li><span style="font-size: medium;"><a href="http://www.arizonahemophilia.org/fileUploads/BasicNeedsofYouth.pdf" target="_blank">BasicNeedsofYouth.pdf</a></span></li>
+<li><span style="font-size: medium;"><a href="http://www.arizonahemophilia.org/fileUploads/BecomeACounselor.pdf" target="_blank">BecomeACounselor.pdf</a></span></li>
+<li><span style="font-size: medium;"><a href="http://www.arizonahemophilia.org/fileUploads/Bloodsnack.pdf" target="_blank">Bloodsnack.pdf</a></span></li>
+<li><span style="font-size: medium;"><a href="http://www.arizonahemophilia.org/fileUploads/CampHonorOlympics.pdf" target="_blank">CampHonorOlympics.pdf</a></span></li>
+<li><span style="font-size: medium;"><a href="http://www.arizonahemophilia.org/fileUploads/CampHonorParentsManual.pdf" target="_blank">CampHonorParentsManual.pdf</a></span></li>
+<li><span style="font-size: medium;"><a href="http://www.arizonahemophilia.org/fileUploads/CampHonorStaffManual05.pdf" target="_blank">CampHonorStaffManual05.pdf</a></span></li>
+<li><span style="font-size: medium;"><a href="http://www.arizonahemophilia.org/fileUploads/CamperRegistrationandMedicalInformation.pdf" target="_blank">CamperRegistrationandMedicalInformation.pdf</a></span></li>
+<li><span style="font-size: medium;"><a href="http://www.arizonahemophilia.org/fileUploads/EmergencyProceduresforCamp.pdf" target="_blank">EmergencyProceduresforCamp.pdf</a></span></li>
+<li><span style="font-size: medium;"><a href="http://www.arizonahemophilia.org/fileUploads/GeneralCampGuidelines.pdf" target="_blank">GeneralCampGuidelines.pdf</a></span></li>
+<li><span style="font-size: medium;"><a href="http://www.arizonahemophilia.org/fileUploads/GoalsandObjectivesofCamp.pdf" target="_blank">GoalsandObjectivesofCamp.pdf</a></span></li>
+<li><span style="font-size: medium;"><a href="http://www.arizonahemophilia.org/fileUploads/HIghHopesCampeApplication.pdf" target="_blank">HighHopesCampeApplication.pdf</a></span></li>
+<li><span style="font-size: medium;"><a href="http://www.arizonahemophilia.org/fileUploads/HelpingCampersLearn.pdf" target="_blank">HelpingCampersLearn.pdf</a></span></li>
+<li><span style="font-size: medium;"><a href="http://www.arizonahemophilia.org/fileUploads/HighHopes06CampManual.pdf" target="_blank">HighHopes06CampManual.pdf</a></span></li>
+<li><span style="font-size: medium;"><a href="http://www.arizonahemophilia.org/fileUploads/HighHopesActivityIdeas.pdf" target="_blank">HighHopesActivityIdeas.pdf</a></span></li>
+<li><span style="font-size: medium;"><a href="http://www.arizonahemophilia.org/fileUploads/HighHopesCompetitionPractices.pdf" target="_blank">HighHopesCompetitionPractices.pdf</a></span></li>
+<li><span style="font-size: medium;"><a href="http://www.arizonahemophilia.org/fileUploads/OrganizationalChart.pdf" target="_blank">OrganizationalChart.pdf</a></span></li>
+<li><span style="font-size: medium;"><a href="http://www.arizonahemophilia.org/fileUploads/WhatShouldIPackforCamp.pdf" target="_blank">WhatShouldIPackforCamp.pdf</a></span></li>
+<li><span style="font-size: medium;"><a href="http://www.arizonahemophilia.org/fileUploads/TheGameofLife.pdf" target="_blank">TheGameofLife.pdf</a></span></li>
+<li><span style="font-size: medium;"><a href="http://www.arizonahemophilia.org/fileUploads/VolunteerCriminalBackgroundCheck.pdf" target="_blank">VolunteerCriminalBackgroundCheck.pdf</a></span></li>
+</ul>
+<div>&nbsp;</div>
+</div></div>
+          </div>
+    	</div>
+        
+        <div class="grid_4 omega">
+      	<div class="slideShowTitle"><h3>Event Photos</h3></div>
+          <div class="slideshow">
+           	<div class="slideImg"><img src="slideshows/naccho/web NACCHO cup winner 4.jpg" width="269" alt="Camp Programs" /></div><div class="slideImg"><img src="slideshows/naccho/web NACCHO cup winner 3.jpg" width="269" alt="Camp Programs" /></div><div class="slideImg"><img src="slideshows/naccho/web NACCHO cup winner 2.jpg" width="269" alt="Camp Programs" /></div><div class="slideImg"><img src="slideshows/naccho/web NACCHO cup winner 1.jpg" width="269" alt="Camp Programs" /></div><div class="slideImg"><img src="slideshows/naccho/web NACCHO director cup 1.jpg" width="269" alt="Camp Programs" /></div><div class="slideImg"><img src="slideshows/naccho/web NACCHO director cup 2.jpg" width="269" alt="Camp Programs" /></div><div class="slideImg"><img src="slideshows/naccho/web NACCHO director cup 3.jpg" width="269" alt="Camp Programs" /></div>             
+      	  </div>
+      </div>
+      
+	</div>
+<div class="clear"></div>
+
+ <!-- <div class="subs_container">
+    <div style="float:left"><img src="images/tickets.jpg" width="60" /></div>
+    <div style="float:left"><h3>NACCHO Registration Form</h3></div>
+    <div style="margin-bottom:50px;"><iframe src="https://hemophiliaz.secure.force.com/NacchoForm" frameborder="0" width="100%" height="2000px" scrolling="yes" style="border:0px;"></iframe></div>
+  </div>-->
+  
+</div> <!-- close container -->        
+<div class="clear"></div>
+<div class="footer">
+	<div class="container_12">
+			<div class="grid_4">
+				<h3>Find Us Online</h3>
+				<a href="http://www.facebook.com/AZHemo" target="_blank"><img src="../images/facebook.jpg" alt="facebook" width="24" height="23" class="left"/></a>
+				<!--<a href=""><img src="../images/flickr.jpg" alt="flickr" width="24" height="23" /></a>-->
+				<a href="http://www.twitter.com/AZHemophilia" target="_blank"><img src="../images/twitter.jpg" alt="twitter" width="24" height="23" /></a>
+				<a href="https://www.youtube.com/user/AZHemophiliaAssoc" target="_blank"><img src="../images/youtube.jpg" alt="youtube" width="23" height="23" /></a>
+			</div>
+			
+			<div class="grid_4">
+				<p>
+				Arizona Hemophilia Association<br />
+		        826 North 5th Avenue<br />
+		        Phoenix, AZ  85003<br />
+		        <strong>Phone:</strong> (602) 955-3947<br />
+		        <strong>Toll Free:</strong> 888-754-7017
+				</p>
+            </div>
+			
+			<div class="grid_4">
+				<p>Copyright &copy; 2010 Arizona Hemophilia Association</p>
+				<p>Site by <a href="http://www.liquisdesign.com">Liquis Design</a></p>
+			</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+ var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-15836593-1']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</body>
+</html>

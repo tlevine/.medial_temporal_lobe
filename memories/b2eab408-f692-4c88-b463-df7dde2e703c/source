@@ -1,0 +1,153 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+  <title>Go Free Range build outstanding software for the web.</title>
+  
+  <script type="text/javascript" src="http://use.typekit.com/rny4upv.js"></script>
+  <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+  
+  <link rel="stylesheet" type="text/css" title="screen" href="/stylesheets/screen.css">
+  <link href="http://feeds.feedburner.com/GoFreeRangeBlog" rel='alternate' title='Go Free Range Blog' type='application/atom+xml' />
+  
+  <meta description="A small software development company based in London, UK." />
+  <meta name="google-site-verification" content="GNqgxou6cYLkYq9l47mZM00R93JN49KqRhJebklH7uo" />
+  <meta content='width=device-width' name='viewport'> 
+  <meta content='chrome=1' http-equiv='X-UA-Compatible'>
+</head>
+<body class="">
+  <div id="page">
+
+  <div id="header" class="group"> 
+    <ul id="top_nav" class="nav group"> 
+      <li id="link_blog"><p>Read our <a href="/blog">blog</a></p></li> 
+    </ul> 
+  </div>
+
+    <div id="content" class="group">
+      <h2 id='tag'>
+  Printer.
+</h2>
+<div class='section group'>
+  <p>
+    An <a href="https://github.com/freerange/printer">open source kit</a> for exploring the possibilities of internet-of-things printing.
+  </p>
+  <p>
+    <img src='/images/printer/printer.jpg' />
+  </p>
+  <p>
+    The best background is
+    <a href='/hello-printer'>
+      the introductory blog post
+    </a>.
+    In a nutshell, it's a software system that makes it easy for <b>YOU</b> to:
+  </p>
+  <p>
+    &mdash;
+    <a href='https://github.com/freerange/printer/wiki/Making-your-own-printer'>
+      build your own small internet-connected printers
+    </a>,
+  </p>
+  <p>
+    &mdash;
+    produce
+    <a href='https://github.com/freerange/printer/wiki/Building-content-services'>
+      customised content
+    </a>
+    for them, and
+  </p>
+  <p>
+    &mdash;
+    <a href='https://github.com/freerange/printer/wiki/Architecture'>
+      share that content
+    </a>
+    with other people who also have small internet-connected printers.
+  </p>
+  <p>
+    Read more about it in
+    <a href='/hello-printer'>
+      the introductory blog post
+    </a>,
+    in
+    <a href='https://github.com/freerange/printer/wiki'>
+      the wiki
+    </a>
+    or go
+    <a href='https://github.com/freerange/printer'>
+      straight to the source
+    </a>.
+  </p>
+  <p>
+    You can also get news and updates from
+    <a href='http://twitter.com/gfrprinter'>
+      @gfrprinter
+    </a>
+    and
+    <a href='https://groups.google.com/forum/#!forum/gfr-printer'>
+      the mailing list
+    </a>.
+  </p>
+  <p>
+    <a href='http://printer-mail.herokuapp.com/send/freerange'>
+      Send us a message
+    </a>
+    or
+    <a href='http://printer-paint.herokuapp.com/send/freerange'>
+      draw us a picture
+    </a>
+    and it will be printed in our office.
+  </p>
+</div>
+<div class='section group'>
+  <a name='kit'></a>
+  <h2>Register interest in a Printer kit</h2>
+  <p>
+    You can always buy the components to <a href="https://github.com/freerange/printer/wiki/Making-your-own-printer">build a printer yourself</a>, but we thought some people might be interested in purchasing a kit, pre-configured and ready to run.
+  </p>
+  <p>
+    We don't know if we will actually go ahead with this; it depends in large part on the level of interest. The cost of everything required (printer, Arduino, components) is probably in the ballpark of £80-100. If you've already got an Arduino, or an Arduino with an Ethernet+SD shield, the cost would be considerably lower.
+  </p>
+  <iframe src="https://docs.google.com/a/gofreerange.com/spreadsheet/embeddedform?formkey=dHFMOFdIWVo4Ym9ITDhhbHhibktOUHc6MQ" width="606" height="594" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
+</div>
+<div class='section group'>
+  <a name='borrow'></a>
+  <h2>Borrow a Printer</h2>
+  <p>
+    If you've got a great idea for using Printer, we'd love to help you explore it. We have a very small number of printers that we can loan on a temporary basis.
+  </p>
+  <iframe src="https://docs.google.com/spreadsheet/embeddedform?formkey=dENmT2RKMTJ1NnZ6c0R5RzBXMlJIcEE6MQ" width="606" height="608" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
+</div>
+
+    </div>
+
+
+    <div id="header"><h1 id="logo"><a href="/" title="Go to homepage">Go Free Range</a></h1></div>
+
+  </div>
+  <script src="/javascripts/app.js" type="text/javascript" charset="utf-8"></script>
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-8045787-1");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+
+  
+  <script>
+    function refreshSnapshot() {
+      $("img#snapshot").attr("src", "http://public.lazyatom.com/timmy/snapshot.jpg?" + (new Date().valueOf()));
+    }
+
+    $(function() {
+      $("img#snapshot").load(function() {
+        setTimeout(refreshSnapshot, 5000);
+      })
+      refreshSnapshot();
+    })
+  </script>
+</body>
+</html>
