@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>The second-order-diff Git trick - Tom Moertel’s Blog</title>
+        <link rel="stylesheet" type="text/css" href="../css/default.css" />
+        <link rel="stylesheet" type="text/css" href="../css/syntax.css" />
+        <link rel="alternate" type="application/atom+xml" href="http://feeds.feedburner.com/TomMoertelsBlog" />
+        <link href="http://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic,700italic|Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+        <script type="text/javascript">
+          var _gaq = _gaq || [];
+          _gaq.push(['_setAccount', 'UA-604725-1']);
+          _gaq.push(['_trackPageview']);
+          (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+          })();
+        </script>
+    </head>
+    <body>
+        <div id="header">
+            <div id="logo">
+                <a href="../">Tom Moertel’s Blog</a>
+            </div>
+            <div id="navigation">
+                <a href="../">Home</a>
+                <a href="../about.html">About</a>
+                <a href="../archive.html">Archive</a>
+            </div>
+        </div>
+
+        <div id="content">
+            <h1>The second-order-diff Git trick</h1>
+
+            <div class="info">Posted on February 18, 2013</div>
+
+<p>One of the things that Git makes safe and practical is bulk editing by way of “sledgehammer-and-review”:</p>
+<ol style="list-style-type: decimal">
+<li>Apply some powerful (but potentially dangerous) sledgehammer to a bunch of files.</li>
+<li>Review the sledgehammer’s effects using <code>git diff</code> to make sure there was no collateral damage.</li>
+<li>If everything looks right, <code>commit</code> the effects; otherwise, <code>reset</code> them back to step 1 and try again using a more-refined sledgehammer.</li>
+</ol>
+<p>That technique is handy, but it’s not the trick I want to share with you.</p>
+<p>The trick I want to share with you is a refinement of sledgehammer-and-review, one that allows you to adjust the sledgehammer iteratively without having to re-review changes you’ve already reviewed. Instead, you just have to review the changes to the changes, hence the “second-order-diff trick.”</p>
+<p>The idea is to replace <code>git reset</code> with <code>git stash</code>, should you need to back up and try again with an adjusted sledgehammer. Using <code>stash</code> not only resets your working tree back to the starting point but also stashes the <em>result</em> of the applying the previous sledgehammer. Then you can apply your new sledgehammer and use <code>git diff stash</code> to review how it changed your original working tree <em>differently than the previous sledgehammer.</em> In this way, you can more easily verify that adjusting your sledgehammer worked as expected. Once everything looks good, <code>git commit</code> as usual.</p>
+<h3 id="example">Example</h3>
+<p>Recently, <a href="https://plus.google.com/103957126301745359889/posts/D83yPehFusJ">I moved my blog</a> from the <a href="http://typosphere.org/">Typo</a> system to the <a href="http://jaspervdj.be/hakyll/">Hakyll</a> system. The hardest part was translating a decade’s worth of posts from Typo-flavored Textile to Hakyll-flavored Markdown. I automated what I could using <a href="http://johnmacfarlane.net/pandoc/">Pandoc</a>, but a lot of Textile markup evaded translation.</p>
+<p>In particular, over 100 links spread across 30 posts remained in Textile form. In Textile, a link looks like this:</p>
+<pre><code>&quot;Link Title&quot;:http://example.com/</code></pre>
+<p>My challenge was to convert links like that one, across all posts, into Markdown:</p>
+<pre><code>[Link Title](http://example.com/)</code></pre>
+<p>Rather than convert them by hand, I reached for a sledgehammer. In my head, the sledgehammer took shape:</p>
+<ol style="list-style-type: decimal">
+<li>Use <code>git grep</code> to locate posts that <em>probably</em> contained Textile-flavored links. This I did by looking for a double quote followed by a colon, which I figured unlikely to occur in normal text.</li>
+<li>Pipe the matching posts into a Perl one-liner that would translate <em>probable</em> Textile links into Markdown links.</li>
+</ol>
+<p>Because the sledgehammer makes changes that are “probably” right, I had the obligation to review its effects for collateral damage. Thus began the process of sledgehammer-and-review.</p>
+<h4 id="sledgehammer-and-review">Sledgehammer-and-review</h4>
+<p>At first, I used plain sledgehammer-and-review to home in on a regular expression that matched Textile links semi-reliably. The first iteration went like this:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash">git status  <span class="co"># verify that we're starting w/ a clean slate</span>
+
+<span class="co"># Iteration 1:  take an educated guess at a good sledgehammer</span>
+
+<span class="co"># 1.  Try out the candidate sledgehammer</span>
+git <span class="kw">grep</span> -lF <span class="st">'&quot;:'</span> -- posts <span class="kw">|</span>
+  <span class="kw">xargs</span> <span class="kw">perl</span> -i -pe<span class="st">'s{&quot;(.+?)&quot;:([^.,:\s]+)}{[$1]($2)}g'</span>
+
+<span class="co"># 2.  Review results and judge</span>
+git <span class="kw">diff</span>  <span class="co"># =&gt; wrong</span>
+
+<span class="co"># 3.  Roll back to clean slate in preparation for the next attempt</span>
+git checkout -- posts  <span class="co"># (also could have used git reset --hard)</span></code></pre>
+<p>The next iterations took only a few seconds. For each, I just hit the up-arrow key from the command line to recall and refine the previous iteration:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="co"># Iteration 2:  refine the sledgehammer</span>
+git <span class="kw">grep</span> -lF <span class="st">'&quot;:'</span> -- posts <span class="kw">|</span>
+  <span class="kw">xargs</span> <span class="kw">perl</span> -i -pe<span class="st">'s{&quot;(.+?)&quot;:([^.,!\)\]\s]+)}{[$1]($2)}g'</span>
+git <span class="kw">diff</span>  <span class="co"># =&gt; wrong</span>
+git checkout -- posts
+
+<span class="co"># Iteration 3:  refine the sledgehammer more</span>
+git <span class="kw">grep</span> -lF <span class="st">'&quot;:'</span> -- posts <span class="kw">|</span>
+  <span class="kw">xargs</span> <span class="kw">perl</span> -i -pe<span class="st">'s{&quot;(.+?)&quot;:([^,!\)\]\s]+)\b}{[$1]($2)}g'</span>
+git <span class="kw">diff</span>  <span class="co"># =&gt; wrong</span>
+git checkout -- posts</code></pre>
+<p>But on iteration four I hit on a regular expression that worked well:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="co"># Iteration 4:  refine the sledgehammer just a bit more</span>
+git <span class="kw">grep</span> -lF <span class="st">'&quot;:'</span> -- posts <span class="kw">|</span>
+  <span class="kw">xargs</span> <span class="kw">perl</span> -i -pe<span class="st">'s{&quot;(.+?)&quot;:([^,!\)\]\s]+)}{[$1]($2)}g'</span>
+git <span class="kw">diff</span>  <span class="co"># =&gt; hey! looking good...</span></code></pre>
+<p>This time, I spent a good ten minutes in <code>git diff</code> because most of the changes looked good and I ended up reviewing them all.</p>
+<p>But there was one tiny problem. If a link occurred at the end of a sentence, the sentence-ending period got absorbed into the link. Here’s one of the dozen such errors I spotted during the review:</p>
+<pre class="sourceCode diff"><code class="sourceCode diff"><span class="st">--Do check it out: &quot;Try Ruby&quot;:http://tryruby.hobix.com/.</span>
+<span class="ot">++Do check it out: [Try Ruby](http://tryruby.hobix.com/.)</span></code></pre>
+<p>So I needed to adjust my sledgehammer to not break sentence-ending links. And, of course, after adjustment I would need to verify that everything now worked as expected.</p>
+<p>But I didn’t want to re-do the entire review. Why review all 100+ links, when the adjustment should affect only a dozen?</p>
+<p>Time for the second-order-diff trick!</p>
+<h4 id="the-second-order-diff-trick">The second-order-diff trick</h4>
+<p>This time, instead of blowing away the previous sledgehammer’s results, I stashed them:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash">git stash save <span class="st">&quot;link fix: almost there&quot;</span></code></pre>
+<p>Now I had my original clean slate back, but I also had the previous results stashed away for later comparison. Time to refine the sledgehammer and try again:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash">git <span class="kw">grep</span> -lF <span class="st">'&quot;:'</span> -- posts <span class="kw">|</span>
+  <span class="kw">xargs</span> <span class="kw">perl</span> -i -pe<span class="st">'</span>
+<span class="st">    s{&quot;(.+?)&quot;:([^,!\)\]\s]+)}</span>
+<span class="st">     {my($t,$l)=($1,$2); $l=~/(.*?)([.:])?$/; &quot;[$t]($1)$2&quot;}eg</span>
+<span class="st">  '</span></code></pre>
+<p>This time for review, however, I didn’t compare the sledgehammer’s results to the original clean slate but to the <em>previous</em> sledgehammer’s results, as stashed away:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash">git <span class="kw">diff</span> <span class="st">'stash@{0}'</span></code></pre>
+<p>And, sure enough, there were only a dozen changes to review, and they were the expected end-of-sentence fixes:</p>
+<pre class="sourceCode diff"><code class="sourceCode diff"><span class="st">-Do check it out: [Try Ruby](http://tryruby.hobix.com/.)</span>
+<span class="ot">+Do check it out: [Try Ruby](http://tryruby.hobix.com/).</span></code></pre>
+<p>Mission accomplished! All that was left was to commit the reviewed changes:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash">git add posts
+git commit -m <span class="st">'Fix links that evaded initial translation'</span></code></pre>
+<p>And that’s the second-order-diff Git trick.</p>
+<p>Questions or comments? Post them to <a href="http://news.ycombinator.com/item?id=5242700">the thread on Hacker News</a>.</p>
+<h3 id="follow-up-questions-and-answers">Follow-up questions and answers</h3>
+<p>On Hacker News, I’m seeing some common questions, so I’ll try to answer them here.</p>
+<h4 id="why-not-use-git-add--p-to-incrementally-accept-the-good-changes-while-you-refine-the-sledgehammer">Why not use <code>git add -p</code> to incrementally accept the good changes while you refine the sledgehammer?</h4>
+<p>The reason is that the sledgehammer is <em>not</em> incremental: it expects to be applied to the original clean slate. Every time. Using <code>git stash</code> will get me back to that clean slate. Using <code>git add -p</code> will not, for both the approved and unapproved changes will remain in the working tree, where the sledgehammer expects neither of them to be.</p>
+<h4 id="instead-of-using-the-stash-cant-you-just-create-a-temporary-branch">Instead of using the stash, can’t you just create a temporary branch?</h4>
+<p>Using the stash <em>is</em> just creating a temporary branch. The stash is just a stack of local temporary branches. But, unlike a hand-made branch, the stash has a more-convenient interface for work that follows a review-reset-retry cycle.</p>
+<h3 id="update-2013-02-21">Update 2013-02-21</h3>
+<p>I expanded my explanation of what was happening during each step of the sledgehammer-and-review process.</p>
+
+        </div>
+        <div id="footer">
+            Site proudly generated by
+            <a href="http://jaspervdj.be/hakyll">Hakyll</a>
+        </div>
+    </body>
+</html>

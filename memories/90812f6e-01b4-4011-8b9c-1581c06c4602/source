@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    
+    <meta name="Generator" content="iWeb 3.0.3" />
+    <meta name="iWeb-Build" content="local-build-20110310" />
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+    <meta name="viewport" content="width=700" />
+    <title>Arduino Led VU Meter</title>
+    <link rel="stylesheet" type="text/css" media="screen,print" href="24_Arduino_Led_VU_Meter_files/24_Arduino_Led_VU_Meter.css" />
+    <!--[if lt IE 8]><link rel='stylesheet' type='text/css' media='screen,print' href='24_Arduino_Led_VU_Meter_files/24_Arduino_Led_VU_MeterIE.css'/><![endif]-->
+    <!--[if gte IE 8]><link rel='stylesheet' type='text/css' media='screen,print' href='../../../../Media/IE8.css'/><![endif]-->
+    <style type="text/css"> <!--
+	@import "../../../../Scripts/Widgets/YouTube/YouTube.css";
+--></style>
+    <script language="javascript" type="text/javascript"><!--
+
+iWebBlogMainPageName = 'Arduino_Tutorials.html';
+iWebBlogMainPageTitle = 'Arduino Tutorials';
+iWebBlogArchivePageName = 'Archive.html';
+iWebBlogArchivePageTitle = 'Archive';
+
+
+--></script>
+    <script type="text/javascript" src="../../../../Scripts/iWebSite.js"></script>
+    <script type="text/javascript" src="../../../../Scripts/Widgets/SharedResources/WidgetCommon.js"></script>
+    <script type="text/javascript" src="../../../../Scripts/Widgets/Navbar/navbar.js"></script>
+    <script type="text/javascript" src="http://www.me.com/1/up/comments/scripts/search.js"></script>
+    <script type="text/javascript" src="../../../../Scripts/iWebBlog.js"></script>
+    <script type="text/javascript" src="../../../../Scripts/iWebImage.js"></script>
+    <script type="text/javascript" src="../../../../Scripts/iWebMediaGrid.js"></script>
+    <script type="text/javascript" src="../../../../Scripts/Widgets/YouTube/YouTube.js"></script>
+    <script type="text/javascript" src="../../../../Scripts/Widgets/YouTube/localizedStrings.js"></script>
+    <script type="text/javascript" src="24_Arduino_Led_VU_Meter_files/24_Arduino_Led_VU_Meter.js"></script>
+  </head>
+  <body style="background: rgb(0, 0, 0); margin: 0pt; " onload="onPageLoad();" onunload="onPageUnload();">
+    <div style="text-align: center; ">
+      <div style="margin-bottom: 0px; margin-left: auto; margin-right: auto; margin-top: 0px; overflow: hidden; position: relative; word-wrap: break-word;  background: rgb(0, 0, 0); text-align: left; width: 700px; " id="body_content">
+        <div style="margin-left: 0px; position: relative; width: 700px; z-index: 0; " id="nav_layer">
+          <div style="height: 0px; line-height: 0px; " class="bumper"> </div>
+          <div class="com-apple-iweb-widget-navbar flowDefining" id="widget0" style="margin-left: 35px; margin-top: 0px; opacity: 1.00; position: relative; width: 630px; z-index: 1; ">
+    
+            <div id="widget0-navbar" class="navbar">
+
+      
+              <div id="widget0-bg" class="navbar-bg">
+
+        
+                <ul id="widget0-navbar-list" class="navbar-list">
+ <li></li> 
+</ul>
+                
+      
+</div>
+              
+    
+</div>
+          </div>
+          <script type="text/javascript"><!--//--><![CDATA[//><!--
+new NavBar('widget0', '../../../../Scripts/Widgets/Navbar', '../../../../Scripts/Widgets/SharedResources', '../../../..', {"path-to-root": "..\/..\/..\/..\/", "navbar-css": ".navbar {\n\tfont-family: Arial, sans-serif;\n\tfont-size: 1em;\n\tcolor: #A1A1A1;\n\tmargin: 9px 0px 6px 0px;\n\tline-height: 30px;\n}\n\n.navbar-bg {\n\ttext-align: center;\n}\n\n.navbar-bg ul {\n\tlist-style: none;\n\tmargin: 0px;\n\tpadding: 0px;\n}\n\n\nli {\n\tlist-style-type: none;\n\tdisplay: inline;\n\tpadding: 0px 10px 0px 10px;\n}\n\n\nli a {\n\ttext-decoration: none;\n\tcolor: #A1A1A1;\n}\n\nli a:visited {\n\ttext-decoration: none;\n\tcolor: #A1A1A1;\n}\n\n\nli a:hover\n{\n\ttext-decoration: none;\n \tcolor: #eee;\n}\n\n\nli.current-page a\n{\n\ttext-decoration: none;\n\t color: #fff;\n\tfont-weight: bold;\n\n}", "current-page-GUID": "56230176-9939-4649-8CF9-547A46009708", "isCollectionPage": "YES"});
+//--><!]]></script>
+          <div style="clear: both; height: 0px; line-height: 0px; " class="spacer"> </div>
+        </div>
+        <div style="height: 73px; margin-left: 0px; position: relative; width: 700px; z-index: 10; " id="header_layer">
+          <div style="height: 0px; line-height: 0px; " class="bumper"> </div>
+          <div id="id1" style="visibility: hidden;  height: 50px; left: 35px; position: absolute; top: 23px; width: 630px; z-index: 1; " class="style_SkipStroke shape-with-text">
+            <div class="text-content Normal_External_630_50" style="padding: 0px; ">
+              <div class="Normal">
+                <p style="padding-bottom: 0pt; padding-top: 0pt; " class="Header">Arduino Led VU Meter</p>
+              </div>
+            </div>
+            <div id="generic-header-attribute" class="Header"></div>
+          </div>
+          
+
+
+          <div style="height: 1px; width: 630px;  height: 1px; left: 35px; position: absolute; top: 3px; width: 630px; z-index: 1; " class="tinyText">
+            <div style="position: relative; width: 630px; ">
+              <img src="24_Arduino_Led_VU_Meter_files/shapeimage_1.jpg" alt="" style="height: 1px; left: 0px; position: absolute; top: 0px; width: 630px; " />
+            </div>
+          </div>
+        </div>
+        <div style="margin-left: 0px; position: relative; width: 700px; z-index: 5; " id="body_layer">
+          <div style="height: 0px; line-height: 0px; " class="bumper"> </div>
+          <div id="id2" style="visibility: hidden;  height: 32px; left: 145px; position: absolute; top: 345px; width: 410px; z-index: 1; " class="style_SkipStroke_1 shape-with-text">
+            <div class="text-content Normal_External_410_32" style="padding: 0px; ">
+              <div class="Normal">
+                <p style="padding-bottom: 0pt; padding-top: 0pt; " class="Title">Arduino Led VU Meter<span class="style"> - Video Added</span></p>
+              </div>
+            </div>
+            <div id="generic-title-attributes" class="Title"></div>
+          </div>
+          <div style="height: 1px; line-height: 1px; " class="tinyText"> </div>
+          <div style="visibility: hidden;  margin-left: 145px; margin-top: 399px; position: relative; width: 410px; z-index: 1; " class="style_SkipStroke_2 shape-with-text flowDefining">
+            <div class="text-content style_External_410_3475" style="padding: 0px; ">
+              <div class="style_1">
+                <p style="padding-top: 0pt; " class="Body">This is a tutorial on how to make a 10-led VU Meter using the Arduino.<br /></p>
+                <p class="Body"><br /></p>
+                <p class="Body">You will need:<br /></p>
+                <ol>
+                  <li style="line-height: 20px; padding-left: 17px; text-indent: -17px; " class="full-width" value="1">
+                    <p style="text-indent: -17px; " class="paragraph_style"><span style="font-size: 15px; " class="Bullet">1.</span><span style="width: 4px; " class="inline-block"></span>An Arduino which has at least 10 digital pins and 1 analog pin,<br /></p>
+                  </li>
+                  <li style="line-height: 20px; padding-left: 17px; text-indent: -17px; " class="full-width" value="2">
+                    <p style="text-indent: -17px; " class="paragraph_style"><span style="font-size: 15px; " class="Bullet">2.</span><span style="width: 4px; " class="inline-block"></span>A solderless breadboard,<br /></p>
+                  </li>
+                  <li style="line-height: 20px; padding-left: 17px; text-indent: -17px; " class="full-width" value="3">
+                    <p style="text-indent: -17px; " class="paragraph_style"><span style="font-size: 15px; " class="Bullet">3.</span><span style="width: 4px; " class="inline-block"></span>10 leds,<br /></p>
+                  </li>
+                  <li style="line-height: 20px; padding-left: 17px; text-indent: -17px; " class="full-width" value="4">
+                    <p style="text-indent: -17px; " class="paragraph_style"><span style="font-size: 15px; " class="Bullet">4.</span><span style="width: 4px; " class="inline-block"></span>10 560Ω resistors,<br /></p>
+                  </li>
+                  <li style="line-height: 20px; padding-left: 17px; text-indent: -17px; " class="full-width" value="5">
+                    <p style="text-indent: -17px; " class="paragraph_style"><span style="font-size: 15px; " class="Bullet">5.</span><span style="width: 4px; " class="inline-block"></span>Jumper Wires,<br /></p>
+                  </li>
+                  <li style="line-height: 20px; padding-left: 17px; text-indent: -17px; " class="full-width" value="6">
+                    <p style="text-indent: -17px; " class="paragraph_style"><span style="font-size: 15px; " class="Bullet">6.</span><span style="width: 4px; " class="inline-block"></span>Either an audio cable that you can cut to breakout the GND, left and right channels or an audio jack that you can connect wires to breakout each channel and ground.<br /></p>
+                  </li>
+                </ol>
+                <p class="Body"><br /></p>
+                <p class="Body">The circuit layout is below:<br /></p>
+                <p class="Body"><br /></p>
+                <p class="Body"><br /></p>
+                <p class="Body"><br /></p>
+                <p class="Body"><br /></p>
+                <p class="Body"><br /></p>
+                <p class="Body"><br /></p>
+                <p class="Body"><br /></p>
+                <p class="Body"><br /></p>
+                <p class="Body"><br /></p>
+                <p class="Body"><br /></p>
+                <p class="Body"><br /></p>
+                <p class="Body"><br /></p>
+                <p class="Body"><br /></p>
+                <p class="Body"><br /></p>
+                <p class="Body"><br /></p>
+                <p class="Body"><br /></p>
+                <p class="Body"><br /></p>
+                <ol>
+                  <li style="line-height: 20px; padding-left: 17px; text-indent: -17px; " class="full-width" value="1">
+                    <p style="text-indent: -17px; " class="paragraph_style"><span style="font-size: 15px; " class="Bullet">1.</span><span style="width: 4px; " class="inline-block"></span>Attach the leds to the breadboard.<br /></p>
+                  </li>
+                  <li style="line-height: 20px; padding-left: 17px; text-indent: -17px; " class="full-width" value="2">
+                    <p style="text-indent: -17px; " class="paragraph_style"><span style="font-size: 15px; " class="Bullet">2.</span><span style="width: 4px; " class="inline-block"></span>Connect a 560Ω Resistor to the positive(long) leg of each led.<br /></p>
+                  </li>
+                  <li style="line-height: 20px; padding-left: 17px; text-indent: -17px; " class="full-width" value="3">
+                    <p style="text-indent: -17px; " class="paragraph_style"><span style="font-size: 15px; " class="Bullet">3.</span><span style="width: 4px; " class="inline-block"></span>Connect the negative(short) leg of each led to the ground of the Arduino using jumper wires.<br /></p>
+                  </li>
+                  <li style="line-height: 20px; padding-left: 17px; text-indent: -17px; " class="full-width" value="4">
+                    <p style="text-indent: -17px; " class="paragraph_style"><span style="font-size: 15px; " class="Bullet">4.</span><span style="width: 4px; " class="inline-block"></span>Connect the resistors that are connected to the leds to pins 3 to 12 of the Arduino.<br /></p>
+                  </li>
+                  <li style="line-height: 20px; padding-left: 17px; text-indent: -17px; " class="full-width" value="5">
+                    <p style="text-indent: -17px; " class="paragraph_style"><span style="font-size: 15px; " class="Bullet">5.</span><span style="width: 4px; " class="inline-block"></span>Connect the audio jack by connecting the ground wire to the GND pin and either the left or right channel to A0(pin 0 on analog section of the Arduino) and connect the jack to an audio source(computer, mp3 player etc.).<br /></p>
+                  </li>
+                  <li style="line-height: 20px; padding-left: 17px; text-indent: -17px; " class="full-width" value="6">
+                    <p style="text-indent: -17px; " class="paragraph_style"><span style="font-size: 15px; " class="Bullet">6.</span><span style="width: 4px; " class="inline-block"></span>Open up the Arduino software available from <a title="http://arduino.cc" href="http://arduino.cc">http://arduino.cc</a>, create a new project and copy the code below into the new project.<br /></p>
+                  </li>
+                  <li style="line-height: 20px; padding-left: 17px; text-indent: -17px; " class="full-width" value="7">
+                    <p style="text-indent: -17px; " class="paragraph_style"><span style="font-size: 15px; " class="Bullet">7.</span><span style="width: 4px; " class="inline-block"></span>Attach the Arduino to your computer and upload the code to your arduino and press play on your media player.<br /></p>
+                  </li>
+                </ol>
+                <p class="Body"><br /></p>
+                <p class="Body">Arduino Code:<br /></p>
+                <p class="Body"><br /></p>
+                <p class="paragraph_style_1">// Led VU Meter Example<br /></p>
+                <p class="paragraph_style_1">// Version 1.0<br /></p>
+                <p class="paragraph_style_1">// Written by James Newbould<br /></p>
+                <p class="paragraph_style_1"><br /></p>
+                <p class="paragraph_style_1"><br /></p>
+                <p class="paragraph_style_1">int led[10] = { 3, 4, 5, 6, 7, 8, 9, 10, 11, 12}; // Assign the pins for the leds<br /></p>
+                <p class="paragraph_style_1">int leftChannel = 0;  // left channel input<br /></p>
+                <p class="paragraph_style_1">int left, i;<br /></p>
+                <p class="paragraph_style_1"><br /></p>
+                <p class="paragraph_style_1">void setup()<br /></p>
+                <p class="paragraph_style_1">{<br /></p>
+                <p class="paragraph_style_1">for (i = 0; i &lt; 10; i++)  // Tell the arduino that the leds are digital outputs<br /></p>
+                <p class="paragraph_style_1">  pinMode(led[i], OUTPUT);<br /></p>
+                <p class="paragraph_style_1">//  Serial.begin(9600); // Uncomment to enable troubleshooting over serial.<br /></p>
+                <p class="paragraph_style_1">}<br /></p>
+                <p class="paragraph_style_1"><br /></p>
+                <p class="paragraph_style_1">void loop()<br /></p>
+                <p class="paragraph_style_1">{<br /></p>
+                <p class="paragraph_style_1"> left = analogRead(leftChannel);  // read the left channel<br /></p>
+                <p class="paragraph_style_1"> // Serial.println(left);  // uncomment to check the raw input.<br /></p>
+                <p class="paragraph_style_1"> left = left / 50;    // adjusts the sensitivity  <br /></p>
+                <p class="paragraph_style_1">//  Serial.println(left);  // uncomment to check the modified input.<br /></p>
+                <p class="paragraph_style_1">// left = 1500;  // uncomment to test all leds light.<br /></p>
+                <p class="paragraph_style_1">// left = 0;    // uncomment to check the leds are not lit when the input is 0.<br /></p>
+                <p class="paragraph_style_1"><br /></p>
+                <p class="paragraph_style_1">  if (left == 0)  // if the volume is 0 then turn off all leds<br /></p>
+                <p class="paragraph_style_1">   {<br /></p>
+                <p class="paragraph_style_1">   for(i = 0; i &lt; 10; i++)<br /></p>
+                <p class="paragraph_style_1">     {<br /></p>
+                <p class="paragraph_style_1">     digitalWrite(led[i], LOW);<br /></p>
+                <p class="paragraph_style_1">     }<br /></p>
+                <p class="paragraph_style_1">  }<br /></p>
+                <p class="paragraph_style_1">  <br /></p>
+                <p class="paragraph_style_1">  else<br /></p>
+                <p class="paragraph_style_1">  {<br /></p>
+                <p class="paragraph_style_1">   for (i = 0; i &lt; left; i++) // turn on the leds up to the volume level<br /></p>
+                <p class="paragraph_style_1">    {<br /></p>
+                <p class="paragraph_style_1">     digitalWrite(led[i], HIGH);<br /></p>
+                <p class="paragraph_style_1">    }<br /></p>
+                <p class="paragraph_style_1">    <br /></p>
+                <p class="paragraph_style_1">    for(i = i; i &lt; 10; i++)  // turn off the leds above the voltage level<br /></p>
+                <p class="paragraph_style_1">     {<br /></p>
+                <p class="paragraph_style_1">      digitalWrite(led[i], LOW);<br /></p>
+                <p class="paragraph_style_1">     }<br /></p>
+                <p class="paragraph_style_1">  }<br /></p>
+                <p class="paragraph_style_1">}<br /></p>
+                <p class="Body"><br /></p>
+                <p class="paragraph_style_2"><br /></p>
+                <p class="paragraph_style_2"><br /></p>
+                <p class="paragraph_style_2"><br /></p>
+                <p class="paragraph_style_2"><br /></p>
+                <p class="paragraph_style_2"><br /></p>
+                <p class="paragraph_style_2"><br /></p>
+                <p class="paragraph_style_2"><br /></p>
+                <p class="paragraph_style_2"><br /></p>
+                <p class="paragraph_style_2"><br /></p>
+                <p class="paragraph_style_2"><br /></p>
+                <p class="paragraph_style_2"><br /></p>
+                <p class="paragraph_style_2"><br /></p>
+                <p class="paragraph_style_2"><br /></p>
+                <p class="paragraph_style_2"><br /></p>
+                <p class="paragraph_style_2"><br /></p>
+                <p class="paragraph_style_3"><br /></p>
+                <p class="paragraph_style_3"><br /></p>
+                <p class="paragraph_style_3"><br /></p>
+                <p class="paragraph_style_3"><br /></p>
+                <p class="paragraph_style_3"><br /></p>
+                <p class="paragraph_style_3">Troubleshooting<br /></p>
+                <p class="Body"><br /></p>
+                <p class="Body">No leds light:<br /></p>
+                <p class="Body"><br /></p>
+                <ol>
+                  <li style="line-height: 20px; padding-left: 17px; text-indent: -17px; " class="full-width" value="1">
+                    <p style="text-indent: -17px; " class="paragraph_style"><span style="font-size: 15px; " class="Bullet">1.</span><span style="width: 4px; " class="inline-block"></span>Have you connected the leds the correct way round.<br /></p>
+                  </li>
+                  <li style="line-height: 20px; padding-left: 17px; text-indent: -17px; " class="full-width" value="2">
+                    <p style="text-indent: -17px; " class="paragraph_style"><span style="font-size: 15px; " class="Bullet">2.</span><span style="width: 4px; " class="inline-block"></span>Have you connected the negative pins to GND.<br /></p>
+                  </li>
+                  <li style="line-height: 20px; padding-left: 17px; text-indent: -17px; " class="full-width" value="3">
+                    <p style="text-indent: -17px; " class="paragraph_style"><span style="font-size: 15px; " class="Bullet">3.</span><span style="width: 4px; " class="inline-block"></span>Have you connected the correct leads to the audio jack.<br /></p>
+                  </li>
+                  <li style="line-height: 20px; padding-left: 17px; text-indent: -17px; " class="full-width" value="4">
+                    <p style="text-indent: -17px; " class="paragraph_style"><span style="font-size: 15px; " class="Bullet">4.</span><span style="width: 4px; " class="inline-block"></span>If only some leds fail to light try changing the leds that do not light.<br /></p>
+                  </li>
+                  <li style="line-height: 20px; padding-left: 17px; text-indent: -17px; " class="full-width" value="5">
+                    <p style="text-indent: -17px; " class="paragraph_style"><span style="font-size: 15px; " class="Bullet">5.</span><span style="width: 4px; " class="inline-block"></span>Try uncommenting the code that says “<span class="style_2">// left = 1500;</span><span class="style_3">”. and upload the program again. And if the leds are still not lit then check your arduino is working with the simple Blink program.<br /></span></p>
+                  </li>
+                  <li style="line-height: 20px; padding-left: 17px; text-indent: -17px; " class="full-width" value="6">
+                    <p style="text-indent: -17px; " class="paragraph_style"><span style="font-size: 15px; " class="Bullet">6.</span><span style="width: 4px; " class="inline-block"></span><span class="style_3">If all leds lit up then comment “</span><span class="style_2">left = 1500</span><span class="style_3">” and uncomment “</span><span class="style_2">//  Serial.begin(9600);</span><span class="style_3">” and also uncomment the first “</span><span class="style_2">// Serial.println(left);</span><span class="style_3">” and values should appear on the serial monitor.  If values are appearing all you need to do is change the sensisitivity of the input so by changing the value to a higher value in the code</span><span class="style_2"> </span><span class="style_3">“</span><span class="style_2">left = left / 50;</span>”.  An easy way to work out the integer is to look at the values on the serial monitor when your music is at its highest and divide by 10 i.e. my max reading was 500 so i have the value at 50.<br /></p>
+                  </li>
+                </ol>
+                <p class="Body"><br /></p>
+                <p class="Body"><br /></p>
+                <p class="Body">All leds are lit when no sound is played:<br /></p>
+                <p class="Body"><br /></p>
+                <ol>
+                  <li style="line-height: 20px; padding-left: 17px; text-indent: -17px; " class="full-width" value="7">
+                    <p style="text-indent: -17px; " class="paragraph_style_4"><span style="font-size: 15px; " class="Bullet">7.</span><span style="width: 4px; " class="inline-block"></span>Uncomment the code that says “<span class="style_2">// left = 0;</span>” .  If all the leds are still lit check your Arduino using the blink program. However if the leds do not light up then recomment         “<span class="style_2">left = 0;</span>” and uncomment <span class="style_3">“</span><span class="style_2">//  Serial.begin(9600);</span><span class="style_3">” and also uncomment the first “</span><span class="style_2">// Serial.println(left);</span><span class="style_3">” and values should appear on the serial monitor.  If values are appearing all you need to do is change the sensisitivity of the input so by changing the value to a higher value in the code</span><span class="style_2"> </span><span class="style_3">“</span><span class="style_2">left = left / 50;</span>”.  An easy way to work out the integer is to look at the values on the serial monitor when your music is at its highest and divide by 10 i.e. my max reading was 500 so i have the value at 50.<br /></p>
+                  </li>
+                </ol>
+                <p class="paragraph_style_5"><br /></p>
+                <ol>
+                  <li style="line-height: 20px; padding-left: 17px; text-indent: -17px; " class="full-width" value="8">
+                    <p style="text-indent: -17px; " class="paragraph_style_4"><span style="font-size: 15px; " class="Bullet">8.</span><span style="width: 4px; " class="inline-block"></span>Check your connections with the diagram above.<br /></p>
+                  </li>
+                </ol>
+                <p class="paragraph_style_5"><br /></p>
+                <p style="padding-bottom: 0pt; " class="paragraph_style_6">If your still having problems feel free to contact me at <a title="mailto:robmaniac123@gmail.com" href="mailto:robmaniac123@gmail.com">robomaniac123@gmail.com</a> and I will try to respond as soon as possible.</p>
+              </div>
+            </div>
+            <div id="generic-body-attributes" class="Body"></div>
+          </div>
+          
+
+
+          <div id="id3" style="visibility: hidden;  height: 24px; left: 145px; position: absolute; top: 376px; width: 410px; z-index: 1; " class="style_SkipStroke_3 shape-with-text">
+            <div class="text-content style_External_410_24" style="padding: 0px; ">
+              <div class="style_1">
+                <p style="padding-bottom: 0pt; padding-top: 0pt; " class="Date">Thursday, 24 February 2011</p>
+              </div>
+            </div>
+            <div id="generic-datefield-attributes" class="Date"></div>
+          </div>
+          
+
+
+          <div style="height: 266px; width: 430px;  height: 266px; left: 148px; position: absolute; top: 22px; width: 430px; z-index: 1; " class="tinyText style_SkipStroke_4">
+            <img src="24_Arduino_Led_VU_Meter_files/vu%20meter.jpg" alt="" style="border: none; height: 266px; width: 430px; " />
+          </div>
+          
+
+
+          <div style="height: 314px; width: 395px;  height: 314px; left: 142px; position: absolute; top: 716px; width: 395px; z-index: 1; " class="tinyText style_SkipStroke_4">
+            <img src="24_Arduino_Led_VU_Meter_files/VU%20meter%20leds.jpg" alt="" style="border: none; height: 315px; width: 395px; " />
+          </div>
+          <div class="com-apple-iweb-widget-YouTube aboveStrokesAndFrames" id="widget1" style="height: 355px; left: 137px; opacity: 1.00; position: absolute; top: 2544px; width: 425px; z-index: 1; ">
+            <div id="widget1-youTube" class="youtube_widget"></div>
+          </div>
+          <script type="text/javascript"><!--//--><![CDATA[//><!--
+new YouTubeWidget('widget1', '../../../../Scripts/Widgets/YouTube', '../../../../Scripts/Widgets/SharedResources', '../../../..', {"movieURL": "http:\/\/www.youtube.com\/v\/GBX_6ucEZ1E", "lastNormalizedAddress": "http:\/\/www.youtube.com\/watch?v=GBX_6ucEZ1E", "address": "http:\/\/www.youtube.com\/watch?v=GBX_6ucEZ1E", "showRelatedVideos": true});
+//--><!]]></script>
+          <div style="height: 0px; line-height: 0px; " class="spacer"> </div>
+        </div>
+        <div style="height: 150px; margin-left: 0px; position: relative; width: 700px; z-index: 15; " id="footer_layer">
+          <div style="height: 0px; line-height: 0px; " class="bumper"> </div>
+          <div id="id4" style="height: 30px; left: 350px; position: absolute; top: 10px; width: 315px; z-index: 1; " class="style_SkipStroke_5 shape-with-text">
+            <div class="text-content graphic_textbox_layout_style_default_External_315_30" style="padding: 0px; ">
+              <div class="graphic_textbox_layout_style_default">
+                <p style="padding-bottom: 0pt; padding-top: 0pt; " class="Next"><a class="iWebBlogNext" title="" href="">next &gt;</a></p>
+              </div>
+            </div>
+          </div>
+          
+
+
+          <div id="id5" style="height: 30px; left: 35px; position: absolute; top: 10px; width: 315px; z-index: 1; " class="style_SkipStroke_5 shape-with-text">
+            <div class="text-content graphic_textbox_layout_style_default_External_315_30" style="padding: 0px; ">
+              <div class="graphic_textbox_layout_style_default">
+                <p style="padding-bottom: 0pt; padding-top: 0pt; " class="Previous"><a class="iWebBlogPrev" title="" href="">&lt; previous</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+
+

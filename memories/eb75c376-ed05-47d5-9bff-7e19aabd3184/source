@@ -1,0 +1,884 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Open Data</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+ /* <![CDATA[ */
+ if(top.frames.length > 0) top.location.href=self.location;
+ /* ]]> */
+</script>
+
+<link rel="alternate" type="application/rss+xml" title="" href="/opendata/rss.xml" />
+<script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+<script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+<link rel="shortcut icon" href="/opendata/files/master/world_bank_favicon.ico" type="image/x-icon" />
+  <link type="text/css" rel="stylesheet" media="all" href="/opendata/sites/all/modules/block_edit/block_edit.css?w" />
+<link type="text/css" rel="stylesheet" media="all" href="/opendata/modules/node/node.css?w" />
+<link type="text/css" rel="stylesheet" media="all" href="/opendata/modules/poll/poll.css?w" />
+<link type="text/css" rel="stylesheet" media="all" href="/opendata/modules/system/defaults.css?w" />
+<link type="text/css" rel="stylesheet" media="all" href="/opendata/modules/system/system.css?w" />
+<link type="text/css" rel="stylesheet" media="all" href="/opendata/modules/system/system-menus.css?w" />
+<link type="text/css" rel="stylesheet" media="all" href="/opendata/modules/user/user.css?w" />
+<link type="text/css" rel="stylesheet" media="all" href="/opendata/sites/all/modules/cck/theme/content-module.css?w" />
+<link type="text/css" rel="stylesheet" media="all" href="/opendata/sites/all/modules/date/date.css?w" />
+<link type="text/css" rel="stylesheet" media="all" href="/opendata/sites/all/modules/filefield/filefield.css?w" />
+<link type="text/css" rel="stylesheet" media="all" href="/opendata/sites/all/modules/mollom/mollom.css?w" />
+<link type="text/css" rel="stylesheet" media="all" href="/opendata/sites/all/modules/views/css/views.css?w" />
+<link type="text/css" rel="stylesheet" media="all" href="/opendata/sites/all/modules/print/css/printlinks.css?w" />
+<link type="text/css" rel="stylesheet" media="all" href="/opendata/sites/all/themes/world/world_bank/html-elements.css?w" />
+<link type="text/css" rel="stylesheet" media="all" href="/opendata/sites/all/themes/world/world/tabs.css?w" />
+<link type="text/css" rel="stylesheet" media="all" href="/opendata/sites/all/themes/world/world/block-editing.css?w" />
+<link type="text/css" rel="stylesheet" media="all" href="/opendata/sites/all/themes/world/world_bank/reset.css?w" />
+<link type="text/css" rel="stylesheet" media="all" href="/opendata/sites/all/themes/world/world_bank/child-specific-styles.css?w" />
+<link type="text/css" rel="stylesheet" media="all" href="/opendata/sites/all/themes/world/world_bank/overrides.css?w" />
+<link type="text/css" rel="stylesheet" media="all" href="/opendata/sites/all/themes/world/world_bank/layout-garland.css?w" />
+<link type="text/css" rel="stylesheet" media="all" href="/opendata/sites/all/themes/world/world_bank/icons.css?w" />
+<link type="text/css" rel="stylesheet" media="all" href="/opendata/sites/all/themes/world/world_bank/world-bank.css?w" />
+<link type="text/css" rel="stylesheet" media="all" href="/opendata/sites/all/themes/world/world_bank/colors.css?w" />
+<link type="text/css" rel="stylesheet" media="print" href="/opendata/sites/all/themes/world/world_bank/print.css?w" />
+<!--[if IE]>
+<link type="text/css" rel="stylesheet" media="all" href="/opendata/sites/all/themes/world/world_bank/ie.css?w" />
+<![endif]-->
+  <script type="text/javascript" src="/opendata/misc/jquery.js?w"></script>
+<script type="text/javascript" src="/opendata/misc/drupal.js?w"></script>
+<script type="text/javascript" src="/opendata/sites/all/modules/block_edit/block_edit.js?w"></script>
+<script type="text/javascript" src="/opendata/sites/all/modules/service_links/js/facebook_like.js?w"></script>
+<script type="text/javascript" src="/opendata/sites/all/modules/service_links/js/google_plus_one.js?w"></script>
+<script type="text/javascript" src="/opendata/sites/all/modules/views/js/base.js?w"></script>
+<script type="text/javascript" src="/opendata/sites/all/modules/views/js/ajax_view.js?w"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, { "basePath": "/opendata/", "block_edit": { "hover_links": 1 }, "ws_fl": { "width": 100, "height": "21" }, "ws_gpo": { "type": "medium", "counter": true }, "views": { "ajax_path": "/opendata/views/ajax", "ajaxViews": [ { "view_name": "archive", "view_display_id": "block_1", "view_args": "", "view_path": "page", "view_base_path": "archive", "view_dom_id": 7, "pager_element": 0 } ] } });
+//--><!]]>
+</script>
+  <script type="text/javascript"> </script>
+</head>
+<body class="sitename-opendata front not-logged-in page-page two-sidebars i18n-en">
+
+        <div id="superadminmessage">
+                  </div> <!-- /superadminmessage -->    
+		
+        <div id="strip">
+        
+					<div id="stripinside">
+            
+			        <div id="headstripleft">
+					<p><a href="http://worldbank.org">The World Bank</a> - Working for a world free of poverty </p>
+                  </div> <!-- /headstripleft -->
+        
+              </div> <!-- /stripinside -->
+        
+        </div>
+
+
+<div id="headerx" class = "en_logo">
+
+<a href="http://blogs.worldbank.org" id="ielogo" target="_self"><span id="iespan">url</span></a>	
+
+
+	<div id="top">
+				<div id="toolsarea"><div id="block-search-0" class="block block-search region-odd odd region-count-1 count-3"><div class="block-inner">
+
+      <h2 class="title">Search</h2>
+  
+  <div class="content">
+    <form action="/opendata/"  accept-charset="UTF-8" method="post" id="search-block-form" autocomplete="off">
+<div><div class="container-inline">
+  <div class="form-item" id="edit-search-block-form-1-wrapper">
+ <input type="text" maxlength="128" name="search_block_form" id="edit-search-block-form-1" size="15" value="" title="Enter the terms you wish to search for." class="form-text" />
+</div>
+<input type="submit" name="op" id="edit-submit" value="Go"  class="form-submit" />
+<input type="hidden" name="form_build_id" id="form-e8814796f87be8644795adfa819659b8" value="form-e8814796f87be8644795adfa819659b8"  />
+<input type="hidden" name="form_id" id="edit-search-block-form" value="search_block_form"  />
+</div>
+
+</div></form>
+  </div>
+
+  
+</div></div> <!-- /block-inner, /block -->
+</div> <!-- /toolsarea -->  </div>
+  
+  
+	<div class="pngfix">
+		<div id="navo" class="pngfix">
+	    <div id="navigation" class="menu withprimary ">
+				<div id="primary" class="clear-block"><ul class="links"><li class="menu-859 active-trail first active"><a href="/opendata/" title="Home" class="active">Home</a></li>
+<li class="menu-857"><a href="/opendata/bloggers" title="Bloggers">Bloggers</a></li>
+<li class="menu-16240"><a href="/opendata/tags" title="Tags">Tags</a></li>
+<li class="menu-856 last"><a href="/opendata/contact" title="Contact">Contact</a></li>
+</ul></div>        			</div> <!-- /navigation -->
+    </div> <!-- /navo -->
+	</div> <!-- /.pngfix -->
+
+</div>
+
+
+<div id="subheader">
+
+  
+                  <div id="subheaderright">
+          <div id="block-wb_translation-3" class="block block-wb_translation region-odd even region-count-1 count-4"><div class="block-inner">
+
+  
+  <div class="content">
+    <div class="b_nav_div"><select class="b_navigate" onchange="window.location.href=this.value"><option value="">All Blogs</option><option value="http://menablog.worldbank.org">Arab Voices and Views: Middle East and North Africa</option><option value="http://blogs.worldbank.org/africacan/">Africa Can end poverty</option><option value="http://blogs.worldbank.org/allaboutfinance/">All About Finance</option><option value="http://blogs.worldbank.org/conflict/">Conflict and Development</option><option value="http://blogs.worldbank.org/impactevaluations/">Development Impact</option><option value="http://blogs.worldbank.org/climatechange/">Development in a Changing Climate</option><option value="http://blogs.worldbank.org/dmblog/">Development Marketplace</option><option value="http://blogs.worldbank.org/eastasiapacific/">East Asia & Pacific on the rise</option><option value="http://blogs.worldbank.org/education/">Education for Global Development</option><option value="http://blogs.worldbank.org/edutech/">EduTech - ICT & Education</option><option value="http://blogs.worldbank.org/endpovertyinsouthasia/">End Poverty in South Asia</option><option value="http://blogs.worldbank.org/governance/">Governance for Development</option><option value="http://blogs.worldbank.org/growth/">Growth & Crisis</option><option value="http://blogs.worldbank.org/ic4d/">Information and Communications for Development</option><option value="http://blogs.worldbank.org/insidetheweb/">Inside the Web</option><option value="http://blogs.worldbank.org/health/">Investing in Health</option><option value="http://blogs.worldbank.org/latinamerica/">Latin America</option><option value="http://blogs.worldbank.org/developmenttalk/">Let's Talk Development</option><option value="http://blogs.worldbank.org/nasikiliza/">nasikiliza</option><option value="http://blogs.worldbank.org/opendata/">Open Data</option><option value="http://blogs.worldbank.org/peoplemove/">People Move</option><option value="http://blogs.worldbank.org/publicsphere/">People, Spaces, Deliberation</option><option value="http://blogs.worldbank.org/miga/">Political Risk and Emerging Markets</option><option value="http://blogs.worldbank.org/psd/">Private Sector Development</option><option value="http://blogs.worldbank.org/prospects/">Prospects for Development</option><option value="http://blogs.worldbank.org/sustainablecities/">Sustainable Cities</option><option value="http://blogs.worldbank.org/energy/">Sustainable Energy to End Poverty</option><option value="http://blogs.worldbank.org/trade/">The Trade Post</option><option value="http://blogs.worldbank.org/water/">The Water Blog</option><option value="http://blogs.worldbank.org/transport/">Transport for Development</option><option value="http://blogs.worldbank.org/voices/">World Bank Voices</option><option value="http://blogs.worldbank.org/youthink/">Youthink Blog</option></select></div>  </div>
+
+  
+</div></div> <!-- /block-inner, /block -->
+          <div class="feed-icons"><a href="/opendata/rss.xml" class="feed-icon"><img src="/opendata/misc/feed.png" alt="Syndicate content" title="" width="16" height="16" /></a></div>        </div> <!-- /subheaderright -->
+      
+</div> <!-- /subheader -->  
+<div id="contfull">  
+<div id="contfullinner">
+
+			<div id="toppromo">
+	<div id="block-block-15" class="block block-block region-odd even region-count-1 count-2"><div class="block-inner">
+
+  
+  <div class="content">
+    <p><A href="http://blogs.worldbank.org/opendata"><img width="952" height="153" alt="" src="/opendata/files/opendata/opendata-banner.jpg" /></a></p>
+  </div>
+
+  
+</div></div> <!-- /block-inner, /block -->
+		</div> <!-- /#toppromo -->
+   
+        
+      
+                     
+    
+    
+                   
+ 
+                              
+                        
+ 
+  
+
+<div id="breaker"></div>
+
+    <div id="container" class="clear-block">
+
+              <div id="sidebar-left" class="column sidebar">
+          <div id="block-views-_bloggers-block_2" class="block block-views region-odd odd region-count-1 count-5"><div class="block-inner">
+
+      <h2 class="title">Bloggers</h2>
+  
+  <div class="content">
+    <div class="view view--bloggers view-id-_bloggers view-display-id-block_2 view-dom-id-5">
+    
+  
+  
+      <div class="view-content">
+      <div class="item-list">
+    <ul>
+          <li class="views-row views-row-1 views-row-odd views-row-first">  
+  <div class="views-field-name">
+                <span class="field-content"><a href="/opendata/team/alison-j-kwong">Alison J. Kwong</a></span>
+  </div>
+</li>
+          <li class="views-row views-row-2 views-row-even">  
+  <div class="views-field-name">
+                <span class="field-content"><a href="/opendata/team/asli-demirguc-kunt">Asli Demirguc-Kunt</a></span>
+  </div>
+</li>
+          <li class="views-row views-row-3 views-row-odd">  
+  <div class="views-field-name">
+                <span class="field-content"><a href="/opendata/team/emi-suzuki">Emi Suzuki</a></span>
+  </div>
+</li>
+          <li class="views-row views-row-4 views-row-even">  
+  <div class="views-field-name">
+                <span class="field-content"><a href="/opendata/team/evis-rucaj">Evis Rucaj</a></span>
+  </div>
+</li>
+          <li class="views-row views-row-5 views-row-odd">  
+  <div class="views-field-name">
+                <span class="field-content"><a href="/opendata/team/federico-escaler">Federico Escaler</a></span>
+  </div>
+</li>
+          <li class="views-row views-row-6 views-row-even">  
+  <div class="views-field-name">
+                <span class="field-content"><a href="/opendata/team/grant-cameron">Grant Cameron</a></span>
+  </div>
+</li>
+          <li class="views-row views-row-7 views-row-odd">  
+  <div class="views-field-name">
+                <span class="field-content"><a href="/opendata/team/ibrahim-levent">Ibrahim Levent</a></span>
+  </div>
+</li>
+          <li class="views-row views-row-8 views-row-even">  
+  <div class="views-field-name">
+                <span class="field-content"><a href="/opendata/team/iulian-pogor">Iulian Pogor</a></span>
+  </div>
+</li>
+          <li class="views-row views-row-9 views-row-odd">  
+  <div class="views-field-name">
+                <span class="field-content"><a href="/opendata/team/joao-pedro-azevedo">Joao Pedro Azevedo</a></span>
+  </div>
+</li>
+          <li class="views-row views-row-10 views-row-even">  
+  <div class="views-field-name">
+                <span class="field-content"><a href="/opendata/team/johan-mistiaen">Johan Mistiaen</a></span>
+  </div>
+</li>
+          <li class="views-row views-row-11 views-row-odd">  
+  <div class="views-field-name">
+                <span class="field-content"><a href="/opendata/team/juan-feng">Juan Feng</a></span>
+  </div>
+</li>
+          <li class="views-row views-row-12 views-row-even">  
+  <div class="views-field-name">
+                <span class="field-content"><a href="/opendata/team/leila-rafei">Leila Rafei</a></span>
+  </div>
+</li>
+          <li class="views-row views-row-13 views-row-odd">  
+  <div class="views-field-name">
+                <span class="field-content"><a href="/opendata/team/leora-klapper">Leora Klapper</a></span>
+  </div>
+</li>
+          <li class="views-row views-row-14 views-row-even">  
+  <div class="views-field-name">
+                <span class="field-content"><a href="/opendata/team/liana-pistell">Liana Pistell</a></span>
+  </div>
+</li>
+          <li class="views-row views-row-15 views-row-odd">  
+  <div class="views-field-name">
+                <span class="field-content"><a href="/opendata/team/maryna-taran">Maryna Taran</a></span>
+  </div>
+</li>
+          <li class="views-row views-row-16 views-row-even">  
+  <div class="views-field-name">
+                <span class="field-content"><a href="/opendata/team/neil-fantom">Neil Fantom</a></span>
+  </div>
+</li>
+          <li class="views-row views-row-17 views-row-odd">  
+  <div class="views-field-name">
+                <span class="field-content"><a href="/opendata/team/prasanna-lal-das">Prasanna Lal Das</a></span>
+  </div>
+</li>
+          <li class="views-row views-row-18 views-row-even">  
+  <div class="views-field-name">
+                <span class="field-content"><a href="/opendata/team/rasiel-vellos">Rasiel Vellos</a></span>
+  </div>
+</li>
+          <li class="views-row views-row-19 views-row-odd">  
+  <div class="views-field-name">
+                <span class="field-content"><a href="/opendata/team/samuel-lee">Samuel Lee</a></span>
+  </div>
+</li>
+          <li class="views-row views-row-20 views-row-even">  
+  <div class="views-field-name">
+                <span class="field-content"><a href="/opendata/team/sandra-moscoso">Sandra Moscoso</a></span>
+  </div>
+</li>
+          <li class="views-row views-row-21 views-row-odd">  
+  <div class="views-field-name">
+                <span class="field-content"><a href="/opendata/team/shaida-badiee">Shaida Badiee</a></span>
+  </div>
+</li>
+          <li class="views-row views-row-22 views-row-even">  
+  <div class="views-field-name">
+                <span class="field-content"><a href="/opendata/team/soong-sup-lee">Soong Sup Lee</a></span>
+  </div>
+</li>
+          <li class="views-row views-row-23 views-row-odd">  
+  <div class="views-field-name">
+                <span class="field-content"><a href="/opendata/team/tariqkhokhar">Tariq Khokhar</a></span>
+  </div>
+</li>
+          <li class="views-row views-row-24 views-row-even views-row-last">  
+  <div class="views-field-name">
+                <span class="field-content"><a href="/opendata/team/tim-herzog">Tim Herzog</a></span>
+  </div>
+</li>
+      </ul>
+</div>    </div>
+  
+  
+  
+  
+  
+  
+</div>   </div>
+
+  
+</div></div> <!-- /block-inner, /block -->
+        </div> <!-- /sidebar-left -->
+      
+      <div id="main" class="column"><div id="squeeze" class="clear-block">
+                        <div id="content">
+                                                  
+          
+          <div class="view view--Frontpage view-id-_Frontpage view-display-id-page_1 view-dom-id-1">
+    
+  
+  
+      <div class="view-content">
+        <div class="views-row views-row-1 views-row-odd views-row-first">
+    		
+
+
+<div id="node-564" class="node node-teaser node-type-blog">
+<div class="node-inner">
+        <h2 class="title">
+      <a href="/opendata/would-you-give-up-your-personal-data-for-development" title="Would you give up your personal data for development?">Would you give up your personal data for development?</a>
+    </h2>
+  
+  
+      <div class="meta">
+      <div class="submitted">Submitted by <a href="/opendata/team/prasanna-lal-das" title="View user profile.">Prasanna Lal Das</a>, co-authors: <a href="/opendata/user/54">Tariq Khokhar</a> on Tue, 2013-02-26 14:40</div>	  </div>
+    
+    
+
+
+	<div class="content"><p>&nbsp;<img style="margin-left:0px" src="http://farm9.staticflickr.com/8186/8432780528_9f1b2202c2.jpg" width="495" height="180" alt="" /></p>
+<p>If you joined us at the World Bank for <a href="https://hackpad.com/@OpenDataDay-2013-DC-XOyEe1yIUK2">Open Day Day </a>on Saturday the 23rd you'll have heard about the <a href="http://datakindworldbank.eventbrite.com/">Data Dive we've got planned on the 15th - 17th of March.&nbsp;</a></p>
+<p>What is a Data Dive you ask? Start with <a href="http://europeandcis.undp.org/blog/2013/02/20/qa-can-open-data-cast-new-light-on-poverty-reduction/#comment-33537">this Q&amp;A</a> on exploring Big Data. Then have a look at what colleagues at a Data Dive in Venice accomplised by <a href="http://europeandcis.undp.org/blog/2013/01/31/big-data-and-development-organizations-what-happens-when-you-move-from-theory-to-practice/">analysing World Bank contracts and vendors.</a>&nbsp;And now, read the <a href="http://europeandcis.undp.org/blog/2013/02/25/would-you-give-up-your-personal-data-for-development/">cross-posted blog</a> below from&nbsp;<a href="https://blogs.worldbank.org/opendata/team/prasanna-lal-das">Prasanna</a>&nbsp;who asks: would you give up your personal data for development?&nbsp;</p>
+<p></p></div>
+  <div id="rmore2"><div class="rmore"><a href="/opendata/would-you-give-up-your-personal-data-for-development" title="Read the rest of Would you give up your personal data for development?.">READ MORE &raquo;</a></div></div>
+
+    		
+	<div id="linksbox">
+			<div class="terms terms-inline"><ul class="links inline"><li class="blog_usernames_blog first"><a href="/opendata/blogs/prasanna-lal-das" title="Read Prasanna Lal Das&#039;s latest blog entries.">Prasanna Lal Das&#039;s blog</a></li>
+<li class="comment_add"><a href="/opendata/comment/reply/564#comment-form" title="Add a new comment to this page.">Add new comment</a></li>
+
+<li class="print_html"><a href="/opendata/print/564" title="Display a printer-friendly version of this page." class="print-page" onclick="window.open(this.href); return false" rel="nofollow"><img src="/opendata/sites/all/modules/print/icons/print_icon.gif" alt="" title="" width="16" height="16" class="print-icon print-icon-margin" /></a></li>
+<li class="service-links-facebook-like"><a href="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fblogs.worldbank.org%2Fopendata%2Fwould-you-give-up-your-personal-data-for-development&amp;layout=button_count&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;width=100&amp;height=21&amp;font=&amp;locale=" title="I Like it" class="service-links-facebook-like" rel="nofollow"><span style="display:none;">Facebook Like</span></a></li>
+<li class="service-links-linkedin"><a href="http://www.linkedin.com/shareArticle?mini=true&amp;url=http%3A%2F%2Fblogs.worldbank.org%2Fopendata%2Fwould-you-give-up-your-personal-data-for-development&amp;title=Would+you+give+up+your+personal+data+for+development%3F&amp;summary=%26nbsp%3B%0AIf+you+joined+us+at+the+World+Bank+for+Open+Day+Day+on+Saturday+the+23rd+you%27ll+have+heard+about+the+Data+Dive+we%27ve+got+planned+on+the+15th+-+17th+of+March.%26nbsp%3B%0AWhat+is+a+Data+Dive+you+ask%3F+Start+with+this+Q%26amp%3BA+on+exploring+Big+Data.+Then+have+a+look+at+what+colleagues+at+a+Data+Dive+in+Venice+accomplised+by+analysing+World+Bank+contracts+and+vendors.%26nbsp%3BAnd+now%2C+read+the+cross-posted+blog+below+from%26nbsp%3BPrasanna%26nbsp%3Bwho+asks%3A+would+you+give+up+your+personal+data+for+development%3F%26nbsp%3B%0A&amp;source=Open+Data" title="Publish this post to LinkedIn" class="service-links-linkedin" rel="nofollow"><img src="/opendata/sites/all/modules/service_links/images/linkedin.png" alt="LinkedIn" title="" width="16" height="16" /></a></li>
+<li class="service-links-twitter-widget"><a href="http://twitter.com/share?url=http%3A%2F%2Fblogs.worldbank.org%2Fopendata%2Fwould-you-give-up-your-personal-data-for-development&amp;count=horizontal&amp;via=WorldBank&amp;text=Would%20you%20give%20up%20your%20personal%20data%20for%20development%3F&amp;counturl=http%3A%2F%2Fblogs.worldbank.org%2Fopendata%2Fwould-you-give-up-your-personal-data-for-development" class="twitter-share-button service-links-twitter-widget" title="Tweet This" rel="nofollow"><span style="display:none;">Tweet Widget</span></a></li>
+<li class="service-links-google-plus-one last"><a href="http://blogs.worldbank.org/opendata/would-you-give-up-your-personal-data-for-development" title="Plus it" class="service-links-google-plus-one" rel="nofollow"><span style="display:none;">Google Plus One</span></a></li>
+</ul> <br />
+								
+					Tags: <ul class="links inline"><li class="taxonomy_term_10023 first"><a href="/opendata/category/tags/bigdata" rel="tag" title="">bigdata</a></li>
+<li class="taxonomy_term_347"><a href="/opendata/category/tags/opendata" rel="tag" title="">opendata</a></li>
+<li class="taxonomy_term_10011 last"><a href="/opendata/category/tags/wbfinances" rel="tag" title="">wbfinances</a></li>
+</ul>							</div>
+	</div>
+
+
+</div></div> <!-- /node-inner, /node -->  </div>
+  <div class="views-row views-row-2 views-row-even">
+    		
+
+
+<div id="node-563" class="node node-teaser node-type-blog">
+<div class="node-inner">
+        <h2 class="title">
+      <a href="/opendata/international-debt-flows-before-and-after-the-financial-crisis" title="International debt flows before and after the financial crisis">International debt flows before and after the financial crisis</a>
+    </h2>
+  
+  
+      <div class="meta">
+      <div class="submitted">Submitted by <a href="/opendata/team/evis-rucaj" title="View user profile.">Evis Rucaj</a> on Thu, 2013-02-21 17:06</div>	  </div>
+    
+    
+
+
+	<div class="content"><p><strong>New  debt statistics show that the composition of long term debt inflows in 2011 follows  pre-crisis patterns</strong>.</p>
+<p>Debt statistics are central to understanding the  impact of the financial crisis; the World Bank's <a href="http://data.worldbank.org/data-catalog/international-debt-statistics"><em>International Debt Statistics</em></a> provides  a detailed picture of debt flows of 128 developing countries. Now that the 2013 edition has been released, and  as a member of the team that put it together, I thought I would look back at  what the data tell us actually happened to international debt flows to  developing countries before and after the recent financial crisis.</p>
+<p></p></div>
+  <div id="rmore2"><div class="rmore"><a href="/opendata/international-debt-flows-before-and-after-the-financial-crisis" title="Read the rest of International debt flows before and after the financial crisis.">READ MORE &raquo;</a></div></div>
+
+    		
+	<div id="linksbox">
+			<div class="terms terms-inline"><ul class="links inline"><li class="blog_usernames_blog first"><a href="/opendata/blogs/evis-rucaj" title="Read Evis Rucaj&#039;s latest blog entries.">Evis Rucaj&#039;s blog</a></li>
+<li class="comment_add"><a href="/opendata/comment/reply/563#comment-form" title="Add a new comment to this page.">Add new comment</a></li>
+
+<li class="print_html"><a href="/opendata/print/563" title="Display a printer-friendly version of this page." class="print-page" onclick="window.open(this.href); return false" rel="nofollow"><img src="/opendata/sites/all/modules/print/icons/print_icon.gif" alt="" title="" width="16" height="16" class="print-icon print-icon-margin" /></a></li>
+<li class="service-links-facebook-like"><a href="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fblogs.worldbank.org%2Fopendata%2Finternational-debt-flows-before-and-after-the-financial-crisis&amp;layout=button_count&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;width=100&amp;height=21&amp;font=&amp;locale=" title="I Like it" class="service-links-facebook-like" rel="nofollow"><span style="display:none;">Facebook Like</span></a></li>
+<li class="service-links-linkedin"><a href="http://www.linkedin.com/shareArticle?mini=true&amp;url=http%3A%2F%2Fblogs.worldbank.org%2Fopendata%2Finternational-debt-flows-before-and-after-the-financial-crisis&amp;title=International+debt+flows+before+and+after+the+financial+crisis&amp;summary=New++debt+statistics+show+that+the+composition+of+long+term+debt+inflows+in+2011+follows++pre-crisis+patterns.%0ADebt+statistics+are+central+to+understanding+the++impact+of+the+financial+crisis%3B+the+World+Bank%27s+International+Debt+Statistics+provides++a+detailed+picture+of+debt+flows+of+128+developing+countries.+Now+that+the+2013+edition+has+been+released%2C+and++as+a+member+of+the+team+that+put+it+together%2C+I+thought+I+would+look+back+at++what+the+data+tell+us+actually+happened+to+international+debt+flows+to++developing+countries+before+and+after+the+recent+financial+crisis.%0A&amp;source=Open+Data" title="Publish this post to LinkedIn" class="service-links-linkedin" rel="nofollow"><img src="/opendata/sites/all/modules/service_links/images/linkedin.png" alt="LinkedIn" title="" width="16" height="16" /></a></li>
+<li class="service-links-twitter-widget"><a href="http://twitter.com/share?url=http%3A%2F%2Fblogs.worldbank.org%2Fopendata%2Finternational-debt-flows-before-and-after-the-financial-crisis&amp;count=horizontal&amp;via=WorldBank&amp;text=International%20debt%20flows%20before%20and%20after%20the%20financial%20crisis&amp;counturl=http%3A%2F%2Fblogs.worldbank.org%2Fopendata%2Finternational-debt-flows-before-and-after-the-financial-crisis" class="twitter-share-button service-links-twitter-widget" title="Tweet This" rel="nofollow"><span style="display:none;">Tweet Widget</span></a></li>
+<li class="service-links-google-plus-one last"><a href="http://blogs.worldbank.org/opendata/international-debt-flows-before-and-after-the-financial-crisis" title="Plus it" class="service-links-google-plus-one" rel="nofollow"><span style="display:none;">Google Plus One</span></a></li>
+</ul> <br />
+							</div>
+	</div>
+
+
+</div></div> <!-- /node-inner, /node -->  </div>
+  <div class="views-row views-row-3 views-row-odd">
+    		
+
+
+<div id="node-562" class="node node-teaser node-type-blog">
+<div class="node-inner">
+        <h2 class="title">
+      <a href="/opendata/new-stata-module-released" title="New Stata module released">New Stata module released</a>
+    </h2>
+  
+  
+      <div class="meta">
+      <div class="submitted">Submitted by <a href="/opendata/team/joao-pedro-azevedo" title="View user profile.">Joao Pedro Azevedo</a> on Wed, 2013-02-06 08:44</div>	  </div>
+    
+    
+
+
+	<div class="content"><p>A new Stata module <strong>wbopendata </strong>has been released. The module can be installed or updated directly from within Stata using <a href="http://ideas.repec.org/s/boc/bocode.html">Statistical Software Components</a> (SSC) repository.</p>
+<p>The new features of this release include:</p>
+<ul>
+<li>Updated list of indicator, with over 1,000 new indicators, adding up to 7,349 series;</li>
+<li>Ability to download multiple series of indicators;</li>
+<li>Information such as series frequency, variable name, and label are now stored, and returned as macros.</li>
+</ul>
+<p>&nbsp;</p>
+</div>
+  <div id="rmore2"><div class="rmore"><a href="/opendata/new-stata-module-released" title="Read the rest of New Stata module released.">READ MORE &raquo;</a></div></div>
+
+    		
+	<div id="linksbox">
+			<div class="terms terms-inline"><ul class="links inline"><li class="blog_usernames_blog first"><a href="/opendata/blogs/joao-pedro-azevedo" title="Read Joao Pedro Azevedo&#039;s latest blog entries.">Joao Pedro Azevedo&#039;s blog</a></li>
+<li class="comment_add"><a href="/opendata/comment/reply/562#comment-form" title="Add a new comment to this page.">Add new comment</a></li>
+
+<li class="print_html"><a href="/opendata/print/562" title="Display a printer-friendly version of this page." class="print-page" onclick="window.open(this.href); return false" rel="nofollow"><img src="/opendata/sites/all/modules/print/icons/print_icon.gif" alt="" title="" width="16" height="16" class="print-icon print-icon-margin" /></a></li>
+<li class="service-links-facebook-like"><a href="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fblogs.worldbank.org%2Fopendata%2Fnew-stata-module-released&amp;layout=button_count&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;width=100&amp;height=21&amp;font=&amp;locale=" title="I Like it" class="service-links-facebook-like" rel="nofollow"><span style="display:none;">Facebook Like</span></a></li>
+<li class="service-links-linkedin"><a href="http://www.linkedin.com/shareArticle?mini=true&amp;url=http%3A%2F%2Fblogs.worldbank.org%2Fopendata%2Fnew-stata-module-released&amp;title=New+Stata+module+released&amp;summary=A+new+Stata+module+wbopendata+has+been+released.+The+module+can+be+installed+or+updated+directly+from+within+Stata+using+Statistical+Software+Components+%28SSC%29+repository.%0AThe+new+features+of+this+release+include%3A%0A%0AUpdated+list+of+indicator%2C+with+over+1%2C000+new+indicators%2C+adding+up+to+7%2C349+series%3B%0AAbility+to+download+multiple+series+of+indicators%3B%0AInformation+such+as+series+frequency%2C+variable+name%2C+and+label+are+now+stored%2C+and+returned+as+macros.%0A%0A%26nbsp%3B%0A&amp;source=Open+Data" title="Publish this post to LinkedIn" class="service-links-linkedin" rel="nofollow"><img src="/opendata/sites/all/modules/service_links/images/linkedin.png" alt="LinkedIn" title="" width="16" height="16" /></a></li>
+<li class="service-links-twitter-widget"><a href="http://twitter.com/share?url=http%3A%2F%2Fblogs.worldbank.org%2Fopendata%2Fnew-stata-module-released&amp;count=horizontal&amp;via=WorldBank&amp;text=New%20Stata%20module%20released&amp;counturl=http%3A%2F%2Fblogs.worldbank.org%2Fopendata%2Fnew-stata-module-released" class="twitter-share-button service-links-twitter-widget" title="Tweet This" rel="nofollow"><span style="display:none;">Tweet Widget</span></a></li>
+<li class="service-links-google-plus-one last"><a href="http://blogs.worldbank.org/opendata/new-stata-module-released" title="Plus it" class="service-links-google-plus-one" rel="nofollow"><span style="display:none;">Google Plus One</span></a></li>
+</ul> <br />
+							</div>
+	</div>
+
+
+</div></div> <!-- /node-inner, /node -->  </div>
+  <div class="views-row views-row-4 views-row-even">
+    		
+
+
+<div id="node-561" class="node node-teaser node-type-blog">
+<div class="node-inner">
+        <h2 class="title">
+      <a href="/opendata/being-average-is-your-superpower" title="Being average is your superpower">Being average is your superpower</a>
+    </h2>
+  
+  
+      <div class="meta">
+      <div class="submitted">Submitted by <a href="/opendata/team/sandra-moscoso" title="View user profile.">Sandra Moscoso</a> on Thu, 2013-01-24 07:05</div>	  </div>
+    
+    
+
+
+	<div class="content"><p>Last week, on my way home from work, I met a young man raising funds for a charity. He stood outside of a subway station and as part of his pitch, he asked, &quot;if you could have any superpower, what would it be?&quot; I offered the same answer I have been giving my children for years. &quot;I have a superpower. It's reading.&quot; I suspect this both annoys and inspires my children. Given that annoying&nbsp;and inspiring&nbsp;are among my favorite parental duties, I rather like this answer.</p>
+</div>
+  <div id="rmore2"><div class="rmore"><a href="/opendata/being-average-is-your-superpower" title="Read the rest of Being average is your superpower.">READ MORE &raquo;</a></div></div>
+
+    		
+	<div id="linksbox">
+			<div class="terms terms-inline"><ul class="links inline"><li class="blog_usernames_blog first"><a href="/opendata/blogs/sandra-moscoso" title="Read Sandra Moscoso&#039;s latest blog entries.">Sandra Moscoso&#039;s blog</a></li>
+<li class="comment_comments"><a href="/opendata/being-average-is-your-superpower#comments" title="Jump to the first comment of this posting.">2 comments</a></li>
+
+<li class="print_html"><a href="/opendata/print/561" title="Display a printer-friendly version of this page." class="print-page" onclick="window.open(this.href); return false" rel="nofollow"><img src="/opendata/sites/all/modules/print/icons/print_icon.gif" alt="" title="" width="16" height="16" class="print-icon print-icon-margin" /></a></li>
+<li class="service-links-facebook-like"><a href="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fblogs.worldbank.org%2Fopendata%2Fbeing-average-is-your-superpower&amp;layout=button_count&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;width=100&amp;height=21&amp;font=&amp;locale=" title="I Like it" class="service-links-facebook-like" rel="nofollow"><span style="display:none;">Facebook Like</span></a></li>
+<li class="service-links-linkedin"><a href="http://www.linkedin.com/shareArticle?mini=true&amp;url=http%3A%2F%2Fblogs.worldbank.org%2Fopendata%2Fbeing-average-is-your-superpower&amp;title=Being+average+is+your+superpower&amp;summary=Last+week%2C+on+my+way+home+from+work%2C+I+met+a+young+man+raising+funds+for+a+charity.+He+stood+outside+of+a+subway+station+and+as+part+of+his+pitch%2C+he+asked%2C+%26quot%3Bif+you+could+have+any+superpower%2C+what+would+it+be%3F%26quot%3B+I+offered+the+same+answer+I+have+been+giving+my+children+for+years.+%26quot%3BI+have+a+superpower.+It%27s+reading.%26quot%3B+I+suspect+this+both+annoys+and+inspires+my+children.+Given+that+annoying%26nbsp%3Band+inspiring%26nbsp%3Bare+among+my+favorite+parental+duties%2C+I+rather+like+this+answer.%0A&amp;source=Open+Data" title="Publish this post to LinkedIn" class="service-links-linkedin" rel="nofollow"><img src="/opendata/sites/all/modules/service_links/images/linkedin.png" alt="LinkedIn" title="" width="16" height="16" /></a></li>
+<li class="service-links-twitter-widget"><a href="http://twitter.com/share?url=http%3A%2F%2Fblogs.worldbank.org%2Fopendata%2Fbeing-average-is-your-superpower&amp;count=horizontal&amp;via=WorldBank&amp;text=Being%20average%20is%20your%20superpower&amp;counturl=http%3A%2F%2Fblogs.worldbank.org%2Fopendata%2Fbeing-average-is-your-superpower" class="twitter-share-button service-links-twitter-widget" title="Tweet This" rel="nofollow"><span style="display:none;">Tweet Widget</span></a></li>
+<li class="service-links-google-plus-one last"><a href="http://blogs.worldbank.org/opendata/being-average-is-your-superpower" title="Plus it" class="service-links-google-plus-one" rel="nofollow"><span style="display:none;">Google Plus One</span></a></li>
+</ul> <br />
+								
+					Tags: <ul class="links inline"><li class="taxonomy_term_10005 first"><a href="/opendata/category/tags/open-data" rel="tag" title="">open data</a></li>
+<li class="taxonomy_term_10029"><a href="/opendata/category/tags/open-finances" rel="tag" title="">open finances</a></li>
+<li class="taxonomy_term_283"><a href="/opendata/category/regions/the-world-region" rel="tag" title="">The World Region </a></li>
+<li class="taxonomy_term_10030 last"><a href="/opendata/category/tags/world-bank-finances" rel="tag" title="">world bank finances</a></li>
+</ul>							</div>
+	</div>
+
+
+</div></div> <!-- /node-inner, /node -->  </div>
+  <div class="views-row views-row-5 views-row-odd">
+    		
+
+
+<div id="node-560" class="node node-teaser node-type-blog">
+<div class="node-inner">
+        <h2 class="title">
+      <a href="/opendata/what-does-data-tell-us-about-debt-of-high-income-and-developing-countries" title="What does data tell us about debt of high income and developing countries?">What does data tell us about debt of high income and developing countries?</a>
+    </h2>
+  
+  
+      <div class="meta">
+      <div class="submitted">Submitted by <a href="/opendata/team/rasiel-vellos" title="View user profile.">Rasiel Vellos</a> on Wed, 2013-01-23 12:08</div>	  </div>
+    
+    
+
+
+	<div class="content"><p>Since the global financial crisis of 2008, analysis and  discussion of debt has taken center stage in economic and fiscal policy,  especially in high income countries. Working closely with the IMF and other  partners, the World Bank maintains two quarterly databases that provide useful  information on <a href="http://data.worldbank.org/indicator/DT.DOD.DPPG.CD">external  and public sector debt</a> of many countries.</p>
+</div>
+  <div id="rmore2"><div class="rmore"><a href="/opendata/what-does-data-tell-us-about-debt-of-high-income-and-developing-countries" title="Read the rest of What does data tell us about debt of high income and developing countries?.">READ MORE &raquo;</a></div></div>
+
+    		
+	<div id="linksbox">
+			<div class="terms terms-inline"><ul class="links inline"><li class="blog_usernames_blog first"><a href="/opendata/blogs/rasiel-vellos" title="Read Rasiel Vellos&#039;s latest blog entries.">Rasiel Vellos&#039;s blog</a></li>
+<li class="comment_comments"><a href="/opendata/what-does-data-tell-us-about-debt-of-high-income-and-developing-countries#comments" title="Jump to the first comment of this posting.">1 comment</a></li>
+
+<li class="print_html"><a href="/opendata/print/560" title="Display a printer-friendly version of this page." class="print-page" onclick="window.open(this.href); return false" rel="nofollow"><img src="/opendata/sites/all/modules/print/icons/print_icon.gif" alt="" title="" width="16" height="16" class="print-icon print-icon-margin" /></a></li>
+<li class="service-links-facebook-like"><a href="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fblogs.worldbank.org%2Fopendata%2Fwhat-does-data-tell-us-about-debt-of-high-income-and-developing-countries&amp;layout=button_count&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;width=100&amp;height=21&amp;font=&amp;locale=" title="I Like it" class="service-links-facebook-like" rel="nofollow"><span style="display:none;">Facebook Like</span></a></li>
+<li class="service-links-linkedin"><a href="http://www.linkedin.com/shareArticle?mini=true&amp;url=http%3A%2F%2Fblogs.worldbank.org%2Fopendata%2Fwhat-does-data-tell-us-about-debt-of-high-income-and-developing-countries&amp;title=What+does+data+tell+us+about+debt+of+high+income+and+developing+countries%3F&amp;summary=Since+the+global+financial+crisis+of+2008%2C+analysis+and++discussion+of+debt+has+taken+center+stage+in+economic+and+fiscal+policy%2C++especially+in+high+income+countries.+Working+closely+with+the+IMF+and+other++partners%2C+the+World+Bank+maintains+two+quarterly+databases+that+provide+useful++information+on+external++and+public+sector+debt+of+many+countries.%0A&amp;source=Open+Data" title="Publish this post to LinkedIn" class="service-links-linkedin" rel="nofollow"><img src="/opendata/sites/all/modules/service_links/images/linkedin.png" alt="LinkedIn" title="" width="16" height="16" /></a></li>
+<li class="service-links-twitter-widget"><a href="http://twitter.com/share?url=http%3A%2F%2Fblogs.worldbank.org%2Fopendata%2Fwhat-does-data-tell-us-about-debt-of-high-income-and-developing-countries&amp;count=horizontal&amp;via=WorldBank&amp;text=What%20does%20data%20tell%20us%20about%20debt%20of%20high%20income%20and%20developing%20countries%3F&amp;counturl=http%3A%2F%2Fblogs.worldbank.org%2Fopendata%2Fwhat-does-data-tell-us-about-debt-of-high-income-and-developing-countries" class="twitter-share-button service-links-twitter-widget" title="Tweet This" rel="nofollow"><span style="display:none;">Tweet Widget</span></a></li>
+<li class="service-links-google-plus-one last"><a href="http://blogs.worldbank.org/opendata/what-does-data-tell-us-about-debt-of-high-income-and-developing-countries" title="Plus it" class="service-links-google-plus-one" rel="nofollow"><span style="display:none;">Google Plus One</span></a></li>
+</ul> <br />
+							</div>
+	</div>
+
+
+</div></div> <!-- /node-inner, /node -->  </div>
+  <div class="views-row views-row-6 views-row-even">
+    		
+
+
+<div id="node-559" class="node node-teaser node-type-blog">
+<div class="node-inner">
+        <h2 class="title">
+      <a href="/opendata/the-future-of-the-open-data-catalog" title="The Future of the Open Data Catalog">The Future of the Open Data Catalog</a>
+    </h2>
+  
+  
+      <div class="meta">
+      <div class="submitted">Submitted by <a href="/opendata/team/alison-j-kwong" title="View user profile.">Alison J. Kwong</a>, co-authors: <a href="/opendata/user/51">Tim Herzog</a> on Thu, 2013-01-17 14:34</div>	  </div>
+    
+    
+
+
+	<div class="content"><p>The World Bank launched <a href="http://data.worldbank.org">data.worldbank.org</a> in April 2010, with  over 2,000 World Development Indicators. Since its launch over two years ago,  you can now find datasets that include <a href="http://data.worldbank.org/data-catalog/climate-change">Climate</a>, <a href="http://data.worldbank.org/data-catalog/projects-portfolio">Projects &amp;  Operations</a>, <a href="http://microdata.worldbank.org/index.php">Microdata</a>, <a href="http://data.worldbank.org/data-catalog/world-bank-finances">Finances</a> and many other topics.</p>
+</div>
+  <div id="rmore2"><div class="rmore"><a href="/opendata/the-future-of-the-open-data-catalog" title="Read the rest of The Future of the Open Data Catalog.">READ MORE &raquo;</a></div></div>
+
+    		
+	<div id="linksbox">
+			<div class="terms terms-inline"><ul class="links inline"><li class="blog_usernames_blog first"><a href="/opendata/blogs/alison-j-kwong" title="Read Alison J. Kwong&#039;s latest blog entries.">Alison J. Kwong&#039;s blog</a></li>
+<li class="comment_comments"><a href="/opendata/the-future-of-the-open-data-catalog#comments" title="Jump to the first comment of this posting.">7 comments</a></li>
+
+<li class="print_html"><a href="/opendata/print/559" title="Display a printer-friendly version of this page." class="print-page" onclick="window.open(this.href); return false" rel="nofollow"><img src="/opendata/sites/all/modules/print/icons/print_icon.gif" alt="" title="" width="16" height="16" class="print-icon print-icon-margin" /></a></li>
+<li class="service-links-facebook-like"><a href="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fblogs.worldbank.org%2Fopendata%2Fthe-future-of-the-open-data-catalog&amp;layout=button_count&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;width=100&amp;height=21&amp;font=&amp;locale=" title="I Like it" class="service-links-facebook-like" rel="nofollow"><span style="display:none;">Facebook Like</span></a></li>
+<li class="service-links-linkedin"><a href="http://www.linkedin.com/shareArticle?mini=true&amp;url=http%3A%2F%2Fblogs.worldbank.org%2Fopendata%2Fthe-future-of-the-open-data-catalog&amp;title=The+Future+of+the+Open+Data+Catalog&amp;summary=The+World+Bank+launched+data.worldbank.org+in+April+2010%2C+with++over+2%2C000+World+Development+Indicators.+Since+its+launch+over+two+years+ago%2C++you+can+now+find+datasets+that+include+Climate%2C+Projects+%26amp%3B++Operations%2C+Microdata%2C+Finances+and+many+other+topics.%0A&amp;source=Open+Data" title="Publish this post to LinkedIn" class="service-links-linkedin" rel="nofollow"><img src="/opendata/sites/all/modules/service_links/images/linkedin.png" alt="LinkedIn" title="" width="16" height="16" /></a></li>
+<li class="service-links-twitter-widget"><a href="http://twitter.com/share?url=http%3A%2F%2Fblogs.worldbank.org%2Fopendata%2Fthe-future-of-the-open-data-catalog&amp;count=horizontal&amp;via=WorldBank&amp;text=The%20Future%20of%20the%20Open%20Data%20Catalog&amp;counturl=http%3A%2F%2Fblogs.worldbank.org%2Fopendata%2Fthe-future-of-the-open-data-catalog" class="twitter-share-button service-links-twitter-widget" title="Tweet This" rel="nofollow"><span style="display:none;">Tweet Widget</span></a></li>
+<li class="service-links-google-plus-one last"><a href="http://blogs.worldbank.org/opendata/the-future-of-the-open-data-catalog" title="Plus it" class="service-links-google-plus-one" rel="nofollow"><span style="display:none;">Google Plus One</span></a></li>
+</ul> <br />
+							</div>
+	</div>
+
+
+</div></div> <!-- /node-inner, /node -->  </div>
+  <div class="views-row views-row-7 views-row-odd">
+    		
+
+
+<div id="node-558" class="node node-teaser node-type-blog">
+<div class="node-inner">
+        <h2 class="title">
+      <a href="/opendata/international-debt-statistics-open-data-on-a-wider-scale" title="International Debt Statistics: Open Data on a wider scale">International Debt Statistics: Open Data on a wider scale</a>
+    </h2>
+  
+  
+      <div class="meta">
+      <div class="submitted">Submitted by <a href="/opendata/team/ibrahim-levent" title="View user profile.">Ibrahim Levent</a>, co-authors: <a href="/opendata/user/59">Maryna Taran</a> on Thu, 2012-12-20 08:02</div>	  </div>
+    
+    
+
+
+	<div class="content"><p>For over three decades debt statistics published by the  World Bank have provided the authoritative accounting of the external debt of  developing countries. Governments, investors and bankers, academics, and  journalists have relied on them to identify financial trends and vulnerabilities.</p>
+</div>
+  <div id="rmore2"><div class="rmore"><a href="/opendata/international-debt-statistics-open-data-on-a-wider-scale" title="Read the rest of International Debt Statistics: Open Data on a wider scale.">READ MORE &raquo;</a></div></div>
+
+    		
+	<div id="linksbox">
+			<div class="terms terms-inline"><ul class="links inline"><li class="blog_usernames_blog first"><a href="/opendata/blogs/ibrahim-levent" title="Read Ibrahim Levent&#039;s latest blog entries.">Ibrahim Levent&#039;s blog</a></li>
+<li class="comment_comments"><a href="/opendata/international-debt-statistics-open-data-on-a-wider-scale#comments" title="Jump to the first comment of this posting.">7 comments</a></li>
+
+<li class="print_html"><a href="/opendata/print/558" title="Display a printer-friendly version of this page." class="print-page" onclick="window.open(this.href); return false" rel="nofollow"><img src="/opendata/sites/all/modules/print/icons/print_icon.gif" alt="" title="" width="16" height="16" class="print-icon print-icon-margin" /></a></li>
+<li class="service-links-facebook-like"><a href="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fblogs.worldbank.org%2Fopendata%2Finternational-debt-statistics-open-data-on-a-wider-scale&amp;layout=button_count&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;width=100&amp;height=21&amp;font=&amp;locale=" title="I Like it" class="service-links-facebook-like" rel="nofollow"><span style="display:none;">Facebook Like</span></a></li>
+<li class="service-links-linkedin"><a href="http://www.linkedin.com/shareArticle?mini=true&amp;url=http%3A%2F%2Fblogs.worldbank.org%2Fopendata%2Finternational-debt-statistics-open-data-on-a-wider-scale&amp;title=International+Debt+Statistics%3A+Open+Data+on+a+wider+scale&amp;summary=For+over+three+decades+debt+statistics+published+by+the++World+Bank+have+provided+the+authoritative+accounting+of+the+external+debt+of++developing+countries.+Governments%2C+investors+and+bankers%2C+academics%2C+and++journalists+have+relied+on+them+to+identify+financial+trends+and+vulnerabilities.%0A&amp;source=Open+Data" title="Publish this post to LinkedIn" class="service-links-linkedin" rel="nofollow"><img src="/opendata/sites/all/modules/service_links/images/linkedin.png" alt="LinkedIn" title="" width="16" height="16" /></a></li>
+<li class="service-links-twitter-widget"><a href="http://twitter.com/share?url=http%3A%2F%2Fblogs.worldbank.org%2Fopendata%2Finternational-debt-statistics-open-data-on-a-wider-scale&amp;count=horizontal&amp;via=WorldBank&amp;text=International%20Debt%20Statistics%3A%20Open%20Data%20on%20a%20wider%20scale&amp;counturl=http%3A%2F%2Fblogs.worldbank.org%2Fopendata%2Finternational-debt-statistics-open-data-on-a-wider-scale" class="twitter-share-button service-links-twitter-widget" title="Tweet This" rel="nofollow"><span style="display:none;">Tweet Widget</span></a></li>
+<li class="service-links-google-plus-one last"><a href="http://blogs.worldbank.org/opendata/international-debt-statistics-open-data-on-a-wider-scale" title="Plus it" class="service-links-google-plus-one" rel="nofollow"><span style="display:none;">Google Plus One</span></a></li>
+</ul> <br />
+							</div>
+	</div>
+
+
+</div></div> <!-- /node-inner, /node -->  </div>
+  <div class="views-row views-row-8 views-row-even">
+    		
+
+
+<div id="node-557" class="node node-teaser node-type-blog">
+<div class="node-inner">
+        <h2 class="title">
+      <a href="/opendata/announcing-the-launch-of-the-global-financial-inclusion-global-findex-microdata" title="Announcing the launch of the Global Financial Inclusion (Global Findex) Microdata">Announcing the launch of the Global Financial Inclusion (Global Findex) Microdata</a>
+    </h2>
+  
+  
+      <div class="meta">
+      <div class="submitted">Submitted by <a href="/opendata/team/asli-demirguc-kunt" title="View user profile.">Asli Demirguc-Kunt</a>, co-authors: <a href="/opendata/user/65">Leora Klapper</a> on Thu, 2012-12-13 11:16</div>	  </div>
+    
+    
+
+
+	<div class="content"><p>It’s raining data. Financial inclusion data, that  is. The Development Research Group has published the <a href="http://microdata.worldbank.org/index.php/catalog/global-findex">complete  micro dataset</a> of the Global Financial Inclusion  (Global Findex) dataset on the <a href="http://microdata.worldbank.org/index.php">Open Data Microdata  Library</a>. We’re talking over 150,000 individual-level  observations, representing adults in 148 economies and 97 percent of the  world’s adult population. Users can download the complete worldwide dataset, or  datasets by country.</p>
+</div>
+  <div id="rmore2"><div class="rmore"><a href="/opendata/announcing-the-launch-of-the-global-financial-inclusion-global-findex-microdata" title="Read the rest of Announcing the launch of the Global Financial Inclusion (Global Findex) Microdata.">READ MORE &raquo;</a></div></div>
+
+    		
+	<div id="linksbox">
+			<div class="terms terms-inline"><ul class="links inline"><li class="blog_usernames_blog first"><a href="/opendata/blogs/asli-demirguc-kunt" title="Read Asli Demirguc-Kunt&#039;s latest blog entries.">Asli Demirguc-Kunt&#039;s blog</a></li>
+<li class="comment_add"><a href="/opendata/comment/reply/557#comment-form" title="Add a new comment to this page.">Add new comment</a></li>
+
+<li class="print_html"><a href="/opendata/print/557" title="Display a printer-friendly version of this page." class="print-page" onclick="window.open(this.href); return false" rel="nofollow"><img src="/opendata/sites/all/modules/print/icons/print_icon.gif" alt="" title="" width="16" height="16" class="print-icon print-icon-margin" /></a></li>
+<li class="service-links-facebook-like"><a href="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fblogs.worldbank.org%2Fopendata%2Fannouncing-the-launch-of-the-global-financial-inclusion-global-findex-microdata&amp;layout=button_count&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;width=100&amp;height=21&amp;font=&amp;locale=" title="I Like it" class="service-links-facebook-like" rel="nofollow"><span style="display:none;">Facebook Like</span></a></li>
+<li class="service-links-linkedin"><a href="http://www.linkedin.com/shareArticle?mini=true&amp;url=http%3A%2F%2Fblogs.worldbank.org%2Fopendata%2Fannouncing-the-launch-of-the-global-financial-inclusion-global-findex-microdata&amp;title=Announcing+the+launch+of+the+Global+Financial+Inclusion+%28Global+Findex%29+Microdata&amp;summary=It%E2%80%99s+raining+data.+Financial+inclusion+data%2C+that++is.+The+Development+Research+Group+has+published+the+complete++micro+dataset+of+the+Global+Financial+Inclusion++%28Global+Findex%29+dataset+on+the+Open+Data+Microdata++Library.+We%E2%80%99re+talking+over+150%2C000+individual-level++observations%2C+representing+adults+in+148+economies+and+97+percent+of+the++world%E2%80%99s+adult+population.+Users+can+download+the+complete+worldwide+dataset%2C+or++datasets+by+country.%0A&amp;source=Open+Data" title="Publish this post to LinkedIn" class="service-links-linkedin" rel="nofollow"><img src="/opendata/sites/all/modules/service_links/images/linkedin.png" alt="LinkedIn" title="" width="16" height="16" /></a></li>
+<li class="service-links-twitter-widget"><a href="http://twitter.com/share?url=http%3A%2F%2Fblogs.worldbank.org%2Fopendata%2Fannouncing-the-launch-of-the-global-financial-inclusion-global-findex-microdata&amp;count=horizontal&amp;via=WorldBank&amp;text=Announcing%20the%20launch%20of%20the%20Global%20Financial%20Inclusion%20%28Global%20Findex%29%20Microdata&amp;counturl=http%3A%2F%2Fblogs.worldbank.org%2Fopendata%2Fannouncing-the-launch-of-the-global-financial-inclusion-global-findex-microdata" class="twitter-share-button service-links-twitter-widget" title="Tweet This" rel="nofollow"><span style="display:none;">Tweet Widget</span></a></li>
+<li class="service-links-google-plus-one last"><a href="http://blogs.worldbank.org/opendata/announcing-the-launch-of-the-global-financial-inclusion-global-findex-microdata" title="Plus it" class="service-links-google-plus-one" rel="nofollow"><span style="display:none;">Google Plus One</span></a></li>
+</ul> <br />
+							</div>
+	</div>
+
+
+</div></div> <!-- /node-inner, /node -->  </div>
+  <div class="views-row views-row-9 views-row-odd">
+    		
+
+
+<div id="node-556" class="node node-teaser node-type-blog">
+<div class="node-inner">
+        <h2 class="title">
+      <a href="/opendata/what-happens-when-big-data-meets-official-statistics" title="What happens when big data meets official statistics? ">What happens when big data meets official statistics? </a>
+    </h2>
+  
+  
+      <div class="meta">
+      <div class="submitted">Submitted by <a href="/opendata/team/shaida-badiee" title="View user profile.">Shaida Badiee</a> on Thu, 2012-12-06 15:15</div>	  </div>
+    
+    
+
+
+	<div class="content"><p><a href="http://bigstats.eventbrite.com/"><img style="margin-left:0px" src="/opendata/files/opendata/bigstats.png" width="510" height="195" align="absMiddle" alt="" /></a></p>
+<p><strong>Update</strong>: the event will be <a href="http://live.worldbank.org/what-happens-when-big-data-meets-official-statistics-live-webcast">webstreamed on World Bank Live.</a></p>
+<p>This is an exciting time to be in the data business. There have never been more groups, from such different backgrounds, with a passion for producing and using data for the public good.</p>
+</div>
+  <div id="rmore2"><div class="rmore"><a href="/opendata/what-happens-when-big-data-meets-official-statistics" title="Read the rest of What happens when big data meets official statistics? .">READ MORE &raquo;</a></div></div>
+
+    		
+	<div id="linksbox">
+			<div class="terms terms-inline"><ul class="links inline"><li class="blog_usernames_blog first"><a href="/opendata/blogs/shaida-badiee" title="Read Shaida Badiee&#039;s latest blog entries.">Shaida Badiee&#039;s blog</a></li>
+<li class="comment_comments"><a href="/opendata/what-happens-when-big-data-meets-official-statistics#comments" title="Jump to the first comment of this posting.">9 comments</a></li>
+
+<li class="print_html"><a href="/opendata/print/556" title="Display a printer-friendly version of this page." class="print-page" onclick="window.open(this.href); return false" rel="nofollow"><img src="/opendata/sites/all/modules/print/icons/print_icon.gif" alt="" title="" width="16" height="16" class="print-icon print-icon-margin" /></a></li>
+<li class="service-links-facebook-like"><a href="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fblogs.worldbank.org%2Fopendata%2Fwhat-happens-when-big-data-meets-official-statistics&amp;layout=button_count&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;width=100&amp;height=21&amp;font=&amp;locale=" title="I Like it" class="service-links-facebook-like" rel="nofollow"><span style="display:none;">Facebook Like</span></a></li>
+<li class="service-links-linkedin"><a href="http://www.linkedin.com/shareArticle?mini=true&amp;url=http%3A%2F%2Fblogs.worldbank.org%2Fopendata%2Fwhat-happens-when-big-data-meets-official-statistics&amp;title=What+happens+when+big+data+meets+official+statistics%3F+&amp;summary=%0AUpdate%3A+the+event+will+be+webstreamed+on+World+Bank+Live.%0AThis+is+an+exciting+time+to+be+in+the+data+business.+There+have+never+been+more+groups%2C+from+such+different+backgrounds%2C+with+a+passion+for+producing+and+using+data+for+the+public+good.%0A&amp;source=Open+Data" title="Publish this post to LinkedIn" class="service-links-linkedin" rel="nofollow"><img src="/opendata/sites/all/modules/service_links/images/linkedin.png" alt="LinkedIn" title="" width="16" height="16" /></a></li>
+<li class="service-links-twitter-widget"><a href="http://twitter.com/share?url=http%3A%2F%2Fblogs.worldbank.org%2Fopendata%2Fwhat-happens-when-big-data-meets-official-statistics&amp;count=horizontal&amp;via=WorldBank&amp;text=What%20happens%20when%20big%20data%20meets%20official%20statistics%3F%20&amp;counturl=http%3A%2F%2Fblogs.worldbank.org%2Fopendata%2Fwhat-happens-when-big-data-meets-official-statistics" class="twitter-share-button service-links-twitter-widget" title="Tweet This" rel="nofollow"><span style="display:none;">Tweet Widget</span></a></li>
+<li class="service-links-google-plus-one last"><a href="http://blogs.worldbank.org/opendata/what-happens-when-big-data-meets-official-statistics" title="Plus it" class="service-links-google-plus-one" rel="nofollow"><span style="display:none;">Google Plus One</span></a></li>
+</ul> <br />
+								
+					Tags: <ul class="links inline"><li class="taxonomy_term_10023 first"><a href="/opendata/category/tags/bigdata" rel="tag" title="">bigdata</a></li>
+<li class="taxonomy_term_10028"><a href="/opendata/category/tags/bigstats" rel="tag" title="">bigstats</a></li>
+<li class="taxonomy_term_347 last"><a href="/opendata/category/tags/opendata" rel="tag" title="">opendata</a></li>
+</ul>							</div>
+	</div>
+
+
+</div></div> <!-- /node-inner, /node -->  </div>
+  <div class="views-row views-row-10 views-row-even views-row-last">
+    		
+
+
+<div id="node-555" class="node node-teaser node-type-blog">
+<div class="node-inner">
+        <h2 class="title">
+      <a href="/opendata/what-has-the-world-bank-done-for-your-neighborhood-lately" title="What has the World Bank done for your neighborhood lately?">What has the World Bank done for your neighborhood lately?</a>
+    </h2>
+  
+  
+      <div class="meta">
+      <div class="submitted">Submitted by <a href="/opendata/team/prasanna-lal-das" title="View user profile.">Prasanna Lal Das</a> on Tue, 2012-12-04 14:25</div>	  </div>
+    
+    
+
+
+	<div class="content"><p><a href="https://play.google.com/store/apps/details?id=com.worldbank.finances&amp;feature=search_result#?t=W251bGwsMSwyLDEsImNvbS53b3JsZGJhbmsuZmluYW5jZXMiXQ.."><img src="/opendata/files/opendata/wbf_app_-_nearby_project_kenya_tablet.jpg" width="219" height="350" align="left" alt="" /></a>Let’s say you are in the middle of what others may call ‘nowhere’ and need information on the Bank’s work in the vicinity before an upcoming meeting with local officials. Or you are a civil society organization rep and want to make sure that the numbers you have about a particular project are the same as what the Bank reports (and if not, you want to know why not).</p>
+<p>Your laptop is no good because - it is the middle of nowhere after all! - and you can only rue your decision to leave your stack of papers behind.</p>
+<p>What do you do? Well, the answer might be in your pocket.<br /> <br /> It took longer than we'd hoped but it's finally here - the new World Bank Finances app answers many of the questions you asked after the release of the first version last year (<a href="https://play.google.com/store/apps/details?id=com.worldbank.finances&amp;rdid=com.worldbank.finances&amp;rdot=1">click here to download the new version for Android</a>; an updated iOS version will be out soon).&nbsp;</p>
+<p><br /> </p>
+</div>
+  <div id="rmore2"><div class="rmore"><a href="/opendata/what-has-the-world-bank-done-for-your-neighborhood-lately" title="Read the rest of What has the World Bank done for your neighborhood lately?.">READ MORE &raquo;</a></div></div>
+
+    		
+	<div id="linksbox">
+			<div class="terms terms-inline"><ul class="links inline"><li class="blog_usernames_blog first"><a href="/opendata/blogs/prasanna-lal-das" title="Read Prasanna Lal Das&#039;s latest blog entries.">Prasanna Lal Das&#039;s blog</a></li>
+<li class="comment_add"><a href="/opendata/comment/reply/555#comment-form" title="Add a new comment to this page.">Add new comment</a></li>
+
+<li class="print_html"><a href="/opendata/print/555" title="Display a printer-friendly version of this page." class="print-page" onclick="window.open(this.href); return false" rel="nofollow"><img src="/opendata/sites/all/modules/print/icons/print_icon.gif" alt="" title="" width="16" height="16" class="print-icon print-icon-margin" /></a></li>
+<li class="service-links-facebook-like"><a href="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fblogs.worldbank.org%2Fopendata%2Fwhat-has-the-world-bank-done-for-your-neighborhood-lately&amp;layout=button_count&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;width=100&amp;height=21&amp;font=&amp;locale=" title="I Like it" class="service-links-facebook-like" rel="nofollow"><span style="display:none;">Facebook Like</span></a></li>
+<li class="service-links-linkedin"><a href="http://www.linkedin.com/shareArticle?mini=true&amp;url=http%3A%2F%2Fblogs.worldbank.org%2Fopendata%2Fwhat-has-the-world-bank-done-for-your-neighborhood-lately&amp;title=What+has+the+World+Bank+done+for+your+neighborhood+lately%3F&amp;summary=Let%E2%80%99s+say+you+are+in+the+middle+of+what+others+may+call+%E2%80%98nowhere%E2%80%99+and+need+information+on+the+Bank%E2%80%99s+work+in+the+vicinity+before+an+upcoming+meeting+with+local+officials.+Or+you+are+a+civil+society+organization+rep+and+want+to+make+sure+that+the+numbers+you+have+about+a+particular+project+are+the+same+as+what+the+Bank+reports+%28and+if+not%2C+you+want+to+know+why+not%29.%0AYour+laptop+is+no+good+because+-+it+is+the+middle+of+nowhere+after+all%21+-+and+you+can+only+rue+your+decision+to+leave+your+stack+of+papers+behind.%0AWhat+do+you+do%3F+Well%2C+the+answer+might+be+in+your+pocket.++It+took+longer+than+we%27d+hoped+but+it%27s+finally+here+-+the+new+World+Bank+Finances+app+answers+many+of+the+questions+you+asked+after+the+release+of+the+first+version+last+year+%28click+here+to+download+the+new+version+for+Android%3B+an+updated+iOS+version+will+be+out+soon%29.%26nbsp%3B%0A+%0A&amp;source=Open+Data" title="Publish this post to LinkedIn" class="service-links-linkedin" rel="nofollow"><img src="/opendata/sites/all/modules/service_links/images/linkedin.png" alt="LinkedIn" title="" width="16" height="16" /></a></li>
+<li class="service-links-twitter-widget"><a href="http://twitter.com/share?url=http%3A%2F%2Fblogs.worldbank.org%2Fopendata%2Fwhat-has-the-world-bank-done-for-your-neighborhood-lately&amp;count=horizontal&amp;via=WorldBank&amp;text=What%20has%20the%20World%20Bank%20done%20for%20your%20neighborhood%20lately%3F&amp;counturl=http%3A%2F%2Fblogs.worldbank.org%2Fopendata%2Fwhat-has-the-world-bank-done-for-your-neighborhood-lately" class="twitter-share-button service-links-twitter-widget" title="Tweet This" rel="nofollow"><span style="display:none;">Tweet Widget</span></a></li>
+<li class="service-links-google-plus-one last"><a href="http://blogs.worldbank.org/opendata/what-has-the-world-bank-done-for-your-neighborhood-lately" title="Plus it" class="service-links-google-plus-one" rel="nofollow"><span style="display:none;">Google Plus One</span></a></li>
+</ul> <br />
+								
+					Tags: <ul class="links inline"><li class="taxonomy_term_347 first"><a href="/opendata/category/tags/opendata" rel="tag" title="">opendata</a></li>
+<li class="taxonomy_term_10011 last"><a href="/opendata/category/tags/wbfinances" rel="tag" title="">wbfinances</a></li>
+</ul>							</div>
+	</div>
+
+
+</div></div> <!-- /node-inner, /node -->  </div>
+    </div>
+  
+      <div class="item-list"><ul class="pager"><li class="pager-current first">1</li>
+<li class="pager-item"><a href="/opendata/page?page=1" title="Go to page 2" class="active">2</a></li>
+<li class="pager-item"><a href="/opendata/page?page=2" title="Go to page 3" class="active">3</a></li>
+<li class="pager-item"><a href="/opendata/page?page=3" title="Go to page 4" class="active">4</a></li>
+<li class="pager-next"><a href="/opendata/page?page=1" title="Go to next page" class="active">next ›</a></li>
+<li class="pager-last last"><a href="/opendata/page?page=3" title="Go to last page" class="active">last »</a></li>
+</ul></div>  
+  
+  
+  
+  
+</div>         </div> <!-- /content -->
+              </div></div> <!-- /squeeze /main -->
+
+              <div id="sidebar-right" class="column sidebar">
+          <div id="block-block-16" class="block block-block region-odd even region-count-1 count-6"><div class="block-inner">
+
+      <h2 class="title">Welcome!</h2>
+  
+  <div class="content">
+    <p>This blog is a forum for discussing development data issues and open access to data. Open access to data is a key part of the World Bank's commitment to sharing our knowledge to improve people's lives.</p>
+<h2 class="title">Links</h2>
+<ul>
+<li><a href="http://data.worldbank.org">Open Data Initiative</a></li>
+<li><a href="http://data.worldbank.org/news">Open Data news archive</a></li>
+<li><a href="http://twitter.com/worldbankdata">Follow on Twitter</a></li>
+</ul>
+  </div>
+
+  
+</div></div> <!-- /block-inner, /block -->
+<div id="block-views-archive-block_1" class="block block-views region-even odd region-count-2 count-7"><div class="block-inner">
+
+      <h2 class="title">Archive</h2>
+  
+  <div class="content">
+    <div class="view view-archive view-id-archive view-display-id-block_1 view-dom-id-7">
+    
+  
+  
+      <div class="view-content">
+      <div class="item-list">
+  <ul class="views-summary">
+      <li><a href="/opendata/archive/201302">February 2013</a>
+              (3)
+          </li>
+      <li><a href="/opendata/archive/201301">January 2013</a>
+              (3)
+          </li>
+      <li><a href="/opendata/archive/201212">December 2012</a>
+              (4)
+          </li>
+      <li><a href="/opendata/archive/201211">November 2012</a>
+              (8)
+          </li>
+      <li><a href="/opendata/archive/201210">October 2012</a>
+              (2)
+          </li>
+      <li><a href="/opendata/archive/201209">September 2012</a>
+              (1)
+          </li>
+      <li><a href="/opendata/archive/201208">August 2012</a>
+              (4)
+          </li>
+      <li><a href="/opendata/archive/201207">July 2012</a>
+              (3)
+          </li>
+      <li><a href="/opendata/archive/201206">June 2012</a>
+              (5)
+          </li>
+      <li><a href="/opendata/archive/201205">May 2012</a>
+              (6)
+          </li>
+    </ul>
+</div>
+    </div>
+  
+  
+  
+      
+<div class="more-link">
+  <a href="/opendata/archive">
+    more  </a>
+</div>
+  
+  
+  
+</div>   </div>
+
+  
+</div></div> <!-- /block-inner, /block -->
+        </div> <!-- /sidebar-right -->
+      
+    </div> <!-- /container -->
+    
+                 
+    
+</div> <!-- /contfullinner -->
+</div> <!-- /contfull -->
+
+
+<div id="subcontfull"></div>
+<div id="footerx_en">
+        <div id="block-menu-menu-footermenu" class="block block-menu region-odd even region-count-1 count-8"><div class="block-inner">
+
+      <h2 class="title">footermenu</h2>
+  
+  <div class="content">
+    <ul class="menu"><li class="leaf first"><a href="http://www.worldbank.org" title="Copyright © 2012 - The World Bank Group">Copyright © 2012 - The World Bank Group</a></li>
+<li class="leaf active-trail"><a href="/opendata/" title="Home" class="active">Home</a></li>
+<li class="leaf"><a href="/opendata/contact" title="Contact">Contact</a></li>
+<li class="leaf"><a href="/opendata/disclaimer" title="Disclaimer">Disclaimer</a></li>
+<li class="leaf last"><a href="http://go.worldbank.org/OS6V7NIUD0" title="Legal">Legal</a></li>
+</ul>  </div>
+
+  
+</div></div> <!-- /block-inner, /block -->
+      </div> <!-- /footer -->
+
+
+    
+    <!-- SiteCatalyst code version: G.6. Copyright 1997-2004 Omniture, Inc. More info available at http://www.omniture.com -->
+
+<script language="JavaScript" src="http://siteresources.worldbank.org/scripts/s_nonISP_common.js"></script>
+<script language="JavaScript">
+<!--
+var s_pageName="Open Data | The World Bank Open Data Blog"; 
+var s_channel="DEC Open Data Blog EN EXT";
+var s_hier1="DEC, DEC Open Data Blog EN EXT";
+var s_prop1="Open Data | The World Bank Open Data Blog";
+var s_prop2="Not Available";
+var s_prop3="Not Available";
+var s_prop4="Not Available";
+var s_prop5="Not Available";
+var s_prop6="Not Available";
+var s_prop7="Not Available";
+var s_prop8="Not Available";
+var s_prop9="Not Available";
+var s_prop10="Not Available";
+var s_prop11="Not Available";
+var s_prop12="Blog";
+var s_prop13="DEC"; 
+var s_prop16="English"; 
+var s_prop17="English";
+var s_account="wbnispblogsext,wbglobalext";
+-->
+</script>
+
+<script language="JavaScript" src="http://siteresources.worldbank.org/scripts/s_code_remote.js"></script>
+<!-- End SiteCatalyst code version: G.9. -->
+
+
+</div>
+        
+     
+
+
+</body>
+</html>
