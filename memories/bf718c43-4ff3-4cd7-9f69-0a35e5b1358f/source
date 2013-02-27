@@ -1,0 +1,680 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+				<meta name="keywords" content="Haskell in industry,Consultants,Jobs" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/haskellwiki/opensearch_desc.php" title="HaskellWiki (English)" />
+		<link title="Creative Commons" type="application/rdf+xml" href="/haskellwiki/index.php?title=Haskell_in_industry&amp;action=creativecommons" rel="meta" />
+		<link rel="copyright" href="/haskellwiki/HaskellWiki:Copyrights" />
+<link rel="alternate" type="application/rss+xml" title="HaskellWiki RSS Feed" href="http://www.haskell.org/haskellwiki/index.php?title=Special:Recentchanges&amp;feed=rss" />
+<link rel="alternate" type="application/atom+xml" title="HaskellWiki Atom Feed" href="http://www.haskell.org/haskellwiki/index.php?title=Special:Recentchanges&amp;feed=atom" />
+		<title>Haskell in industry - HaskellWiki</title>
+		<style type="text/css" media="screen, projection">/*<![CDATA[*/
+			@import "/wikistatic/skins//common/shared.css?116";
+			@import "/wikistatic/skins//hawiki/main.css?116";
+		/*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="/wikistatic/skins//common/commonPrint.css?116" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "/wikistatic/skins//hawiki/IE50Fixes.css?116";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "/wikistatic/skins//hawiki/IE55Fixes.css?116";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "/wikistatic/skins//hawiki/IE60Fixes.css?116";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "/wikistatic/skins//hawiki/IE70Fixes.css?116";</style><![endif]-->
+		<!--[if lte IE 7]><script type="text/javascript" src="/wikistatic/skins//hawiki/IEFixes.js?116"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+                                                <script type="text/javascript">
+                        var isMSIE55 = (window.showModalDialog && window.clipboardData && window.createPopup); /*alert("test: " + isMSIE55);*/</script>
+
+		<script type= "text/javascript">/*<![CDATA[*/
+var skin = "hawiki";
+var stylepath = "/wikistatic/skins/";
+var wgArticlePath = "/haskellwiki/$1";
+var wgScriptPath = "/haskellwiki";
+var wgScript = "/haskellwiki/index.php";
+var wgServer = "http://www.haskell.org";
+var wgCanonicalNamespace = "";
+var wgCanonicalSpecialPageName = false;
+var wgNamespaceNumber = 0;
+var wgPageName = "Haskell_in_industry";
+var wgTitle = "Haskell in industry";
+var wgAction = "view";
+var wgRestrictionEdit = [];
+var wgRestrictionMove = [];
+var wgArticleId = "2250";
+var wgIsArticle = true;
+var wgUserName = null;
+var wgUserGroups = null;
+var wgUserLanguage = "en";
+var wgContentLanguage = "en";
+var wgBreakFrames = false;
+var wgCurRevisionId = "55450";
+var wgVersion = "1.12.0";
+var wgEnableAPI = true;
+var wgEnableWriteAPI = false;
+/*]]>*/</script>
+
+		<script type="text/javascript" src="/wikistatic/skins//common/wikibits.js?116"><!-- wikibits js --></script>
+		<!-- Head Scripts -->
+		<script type="text/javascript" src="/wikistatic/skins//common/ajax.js?116"></script>
+		<script type="text/javascript" src="/haskellwiki/index.php?title=-&amp;action=raw&amp;gen=js&amp;useskin=hawiki"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "/haskellwiki/index.php?title=MediaWiki:Common.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=18000";
+@import "/haskellwiki/index.php?title=MediaWiki:Hawiki.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=18000";
+@import "/haskellwiki/index.php?title=-&action=raw&gen=css&maxage=18000&useskin=hawiki";
+/*]]>*/</style>
+	</head>
+<body class="mediawiki ltr page-Haskell_in_industry ">
+   <div id="topbar" class="noprint">
+	<div class="portlet noprint" id="p-personal">
+		<h5>Personal tools</h5>
+		<div class="pBody">
+			<ul><li><a class="homebutton" href="/haskellwiki/Haskell">Home</a></li>
+				<li id="pt-login"><a href="/haskellwiki/index.php?title=Special:Userlogin&amp;returnto=Haskell_in_industry" title="You are encouraged to log in, it is not mandatory however. [o]" accesskey="o">Log in / create account</a></li>
+			</ul>
+		</div>
+	</div>
+        	  <div id="p-search">
+	    <div id="searchBody" class="pBody">
+	       <form action="/haskellwiki/index.php" id="searchform"><div>
+	          <input type='hidden' name="title" value=""/>
+	          <input id="searchInput" name="search" type="text" title="Search HaskellWiki [f]" accesskey="f" value="" />
+				<input type='submit' name="go" class="searchButton" id="searchGoButton"	value="Go" title="Go to a page with this exact name if exists" />&nbsp;
+				<input type='submit' name="fulltext" class="searchButton" id="mw-searchButton" value="Search" title="Search the pages for this text" />
+
+	         </div></form>
+	    </div>
+	  </div>
+   </div>
+	<div id="globalWrapper">
+	<div class="portlet" id="p-logo">
+		<a style="background-image: url(/wikistatic/haskellwiki_logo.png);" href="/haskellwiki/Haskell" title="Main Page"></a>
+	</div>
+	<div id="column-content">
+        <div id="notice-area" class="noprint">
+        <!-- ?php $this->data['sitenotice'] = 'This is a test instance.  Do not edit, your changes will be lost.'; ? -->
+			        </div>
+        <div id="content-wrapper">
+	<div id="p-cactions" class="portlet noprint">
+		<h5>Views</h5>
+		<div class="pBody">
+			<ul>
+	
+				 <li id="ca-nstab-main" class="selected"><a href="/haskellwiki/Haskell_in_industry" title="View the content page [c]" accesskey="c">Page</a></li>
+				 <li id="ca-talk"><a href="/haskellwiki/Talk:Haskell_in_industry" title="Discussion about the content page [t]" accesskey="t">Discussion</a></li>
+				 <li id="ca-viewsource"><a href="/haskellwiki/index.php?title=Haskell_in_industry&amp;action=edit" title="This page is protected. You can view its source. [e]" accesskey="e">View source</a></li>
+				 <li id="ca-history"><a href="/haskellwiki/index.php?title=Haskell_in_industry&amp;action=history" title="Past versions of this page. [h]" accesskey="h">History</a></li>			</ul>
+		</div>
+	</div>
+                        <div id="content">
+		<a name="top" id="top"></a>
+                        <h1 id="firstHeading" class="firstHeading">Haskell in industry</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From HaskellWiki</h3>
+			<div id="contentSub"></div>
+			<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<p><br />
+Haskell has a diverse range of use commercially, from aerospace and defense, to finance, to web startups, hardware design firms and a lawnmower manufacturer. This page collects resources on the industrial use of Haskell.
+</p>
+<ul><li> The main user conference for industrial Haskell use is CUFP - the <a href="http://cufp.org/" class="external text" title="http://cufp.org/" rel="nofollow">Commercial Users of Functional Programming Workshop</a>.
+</li><li> The <a href="http://industry.haskell.org" class="external text" title="http://industry.haskell.org" rel="nofollow">Industrial Haskell Group</a> supports commercial users.
+</li><li> <a href="http://fpcomplete.com/" class="external text" title="http://fpcomplete.com/" rel="nofollow">FP Complete</a> is dedicated to the widespread adoption of modern Functional Programming technology, with a focus on the Haskell system. 
+</li></ul>
+<a name="Haskell_in_Industry"></a><h2> <span class="mw-headline">1  Haskell in Industry </span></h2>
+<p>Many companies have used Haskell for a range of projects, including:
+</p>
+<ul><li> <a href="http://cufp.galois.com/2007/abstracts.html#CyrilSchmidt" class="external text" title="http://cufp.galois.com/2007/abstracts.html#CyrilSchmidt" rel="nofollow">ABN AMRO</a> Amsterdam, The Netherlands
+</li></ul>
+<blockquote>
+ABN AMRO is an international bank headquartered in Amsterdam. For its
+investment banking activities it needs to measure the counterparty risk
+on portfolios of financial derivatives.  </blockquote>
+<dl><dd><dl><dd>ABN AMRO's <a href="http://cufp.galois.com/2007/abstracts.html#CyrilSchmidt" class="external text" title="http://cufp.galois.com/2007/abstracts.html#CyrilSchmidt" rel="nofollow">CUFP talk</a>.
+</dd></dl>
+</dd></dl>
+<ul><li> Aetion Technologies LLC, Columbus, Ohio
+</li></ul>
+<blockquote>
+Aetion was a defense contractor in operation from 1999 to 2011, whose applications use artificial intelligence. Rapidly changing priorities make it important to minimize the code impact of changes, which suits Haskell well. Aetion developed three main projects in
+Haskell, all successful. Haskell's concise code was perhaps most important for
+rewriting: it made it practicable to throw away old code occasionally. DSELs
+allowed the AI to be specified very declaratively. 
+</blockquote>
+<dl><dd><dl><dd>Aetion's <a href="http://cufp.galois.com/2006/slides/GaryMorris.pdf" class="external text" title="http://cufp.galois.com/2006/slides/GaryMorris.pdf" rel="nofollow">CUFP talk</a>.
+</dd></dl>
+</dd></dl>
+<ul><li> Alcatel-Lucent
+</li></ul>
+<blockquote>
+A consortium of groups, including Alcatel-Lucent, have used Haskell to prototype narrowband software radio systems, running in (soft) real-time.
+</blockquote>
+<dl><dd><dl><dd>Alcatel-Lucent's <a href="http://cufp.org/conference/sessions/2011/fourteen-days-haskell-real-time-programming-projec" class="external text" title="http://cufp.org/conference/sessions/2011/fourteen-days-haskell-real-time-programming-projec" rel="nofollow">CUFP talk</a>
+</dd></dl>
+</dd></dl>
+<ul><li> <a href="http://www.allstontrading.com/" class="external text" title="http://www.allstontrading.com/" rel="nofollow">Allston Trading</a>
+</li></ul>
+<blockquote>
+Headquartered in Chicago, Illinois, Allston Trading, LLC is a premier high frequency market maker in over 40 financial exchanges, in 20 countries, and in nearly every conceivable product class. Allston makes some use of Haskell for their trading infrastructure.
+</blockquote>
+<ul><li> <a href="http://www.alphaheavy.com/" class="external text" title="http://www.alphaheavy.com/" rel="nofollow">Alpha Heavy Industries</a>
+</li></ul>
+<blockquote>
+Alpha Heavy Industries is an alternative asset manager dedicated to producing superior returns through quantitative methods. They use Haskell as their primary implementation language.
+</blockquote>
+<ul><li> <a href="http://www.amgen.com/" class="external text" title="http://www.amgen.com/" rel="nofollow">Amgen</a> Thousand Oaks, California
+</li></ul>
+<blockquote>
+Amgen is a human therapeutics company in the biotechnology industry.  Amgen pioneered the development of novel products based on advances in recombinant DNA and molecular biology and launched the biotechnology industry’s first blockbuster medicines.
+
+Amgen uses Haskell;
+
+<ul><li>  To rapidly build software to implement mathematical models and other complex, mathematically oriented applications
+</li><li> Provide a more mathematically rigorous validation of software
+</li><li> To break developers out of their software development rut by giving them a new way to think about software.
+</li></ul>
+</blockquote>
+<dl><dd><dl><dd>Amgen's <a href="http://cufp.galois.com/2008/abstracts.html#BalabanDavid" class="external text" title="http://cufp.galois.com/2008/abstracts.html#BalabanDavid" rel="nofollow">CUFP talk</a>.
+</dd></dl>
+</dd></dl>
+<ul><li> <a href="http://www.ansemond.com/" class="external text" title="http://www.ansemond.com/" rel="nofollow">Ansemond LLC</a>
+</li></ul>
+<blockquote>
+"Find It! Keep It! is a Mac Web Browser that lets you keep the pages you
+visit in a database. A list of these pages is shown in the 'database
+view'. "
+</blockquote>
+<ul><li> <a href="http://antiope.com/" class="external text" title="http://antiope.com/" rel="nofollow">Antiope</a> Fair Haven, New Jersey
+</li></ul>
+<blockquote>
+Antiope Associates provides custom solutions for wireless communication
+and networking problems. Our team has expertise in all aspects of
+wireless system design, from the physical and protocol layers to complex
+networked applications. Antiope Associates's relies on a number of
+advanced techniques to ensure that the communication systems we design
+are reliable and free from error. We use custom simulation tools
+developed in Haskell, to model our hardware designs..
+</blockquote>
+<dl><dd><dl><dd>Antiope's <a href="http://cufp.galois.com/2008/slides/WrightGregory.pdf" class="external text" title="http://cufp.galois.com/2008/slides/WrightGregory.pdf" rel="nofollow">CUFP talk</a>.
+</dd></dl>
+</dd></dl>
+<ul><li> <a href="http://www.att.com" class="external text" title="http://www.att.com" rel="nofollow">AT&amp;T</a>
+</li></ul>
+<blockquote>
+Haskell is being used in the Network Security division to automate processing of internet abuse complaints. Haskell has allowed us to easily meet very tight deadlines with reliable results.
+</blockquote>
+<ul><li> <a href="http://www.baml.com/" class="external text" title="http://www.baml.com/" rel="nofollow">Bank of America Merril Lynch</a>
+</li></ul>
+<blockquote>Haskell is being used for backend data transformation and loading.</blockquote>
+<ul><li> <a href="http://www.haskell.org/communities/12-2007/html/report.html#sect7.1.2" class="external text" title="http://www.haskell.org/communities/12-2007/html/report.html#sect7.1.2" rel="nofollow">Barclays Capital Quantitative Analytics Group</a>
+</li></ul>
+<blockquote>
+Barclays Capital's Quantitative Analytics group is using Haskell to
+develop an embedded domain-specific functional language (called FPF)
+which is used to specify exotic equity derivatives. These derivatives,
+which are naturally best described in terms of mathematical functions,
+and constructed compositionally, map well to being expressed in an
+embedded functional language. This language is now regularly being used
+by people who had no previous functional language experience.
+</blockquote>
+<dl><dd><dl><dd><a href="http://lambda-the-ultimate.org/node/3331" class="external text" title="http://lambda-the-ultimate.org/node/3331" rel="nofollow">Simon Frankau et al's JFP paper on their use of Haskell</a>
+</dd></dl>
+</dd></dl>
+<ul><li> <a href="http://bazqux.com" class="external text" title="http://bazqux.com" rel="nofollow">BazQux Reader</a>
+</li></ul>
+<blockquote>
+BazQux Reader is a commercial RSS reader. Its feeds and comments crawler and a part of web-server are implemented in Haskell.
+</blockquote>
+<ul><li> <a href="http://www.bcode.com/" class="external text" title="http://www.bcode.com/" rel="nofollow">bCODE Pty Ltd</a> Sydney Australia
+</li></ul>
+<blockquote>
+bCode Pty Ltd is a small venture capital-funded startup using Ocaml and a bit of Haskell in Sydney Australia.
+</blockquote>
+<ul><li> <a href="http://www.bluespec.com/" class="external text" title="http://www.bluespec.com/" rel="nofollow">Bluespec, Inc.</a> Waltham, Massachusetts
+</li></ul>
+<blockquote>
+Developing a modern integrated circuit (ASIC or FPGA) is an enormously
+expensive process involving specification, modeling (to choose and fix the
+architecture), design (to describe what will become silicon) and verification
+(to ensure that it meets the specs), all before actually committing anything to
+silicon (where the cost of a failure can be tens of millions of dollars).
+Bluespec, Inc. is a three year-old company that provides language facilities,
+methodologies, and tools for this purpose, within the framework of the IEEE
+standard languages SystemVerilog and SystemC, but borrowing ideas heavily from
+Term Rewriting Systems and functional programming languages like Haskell. In
+this talk, after a brief technical overview to set the context, we will
+describe our tactics and strategies, and the challenges we face, in introducing
+declarative programming ideas into this field, both externally (convincing
+customers about the value of these ideas) and internally (using Haskell for our
+tool implementation). 
+</blockquote>
+<dl><dd><dl><dd>Bluespec's <a href="http://cufp.galois.com/2006/abstracts.html#RishiyurNikhil" class="external text" title="http://cufp.galois.com/2006/abstracts.html#RishiyurNikhil" rel="nofollow">CUFP talk</a>.
+</dd></dl>
+</dd></dl>
+<ul><li> <a href="http://bu.mp/" class="external text" title="http://bu.mp/" rel="nofollow">Bump</a>
+</li></ul>
+<blockquote>
+Bump use a Haskell-based server, <a href="http://github.com/jamwt/Angel" class="external text" title="http://github.com/jamwt/Angel" rel="nofollow">Angel</a>, for process supervisor for all their backend systems, and <a href="http://devblog.bu.mp/haskell-at-bump" class="external text" title="http://devblog.bu.mp/haskell-at-bump" rel="nofollow">for other infrastructure tasks</a>.
+</blockquote>
+<dl><dd><dl><dd>Haskell at <a href="http://fpcomplete.com/downloads/bump-fp-complete-study.pdf" class="external text" title="http://fpcomplete.com/downloads/bump-fp-complete-study.pdf" rel="nofollow">Bump</a>
+</dd></dl>
+</dd></dl>
+<ul><li> <a href="http://www.circos.com" class="external text" title="http://www.circos.com" rel="nofollow">Circos Brand Karma</a> Singapore
+</li></ul>
+<blockquote>
+Brand Karma provides services to brand owners to measure online sentiments towards their brands.
+Haskell is used in building parts of the product, specifically for back-end job scheduling and brand matching.
+</blockquote>
+<ul><li> <a href="http://www.credit-suisse.com/" class="external text" title="http://www.credit-suisse.com/" rel="nofollow">Credit Suisse Global Modelling and Analytics Group</a> London, UK; New York City, New York
+</li></ul>
+<blockquote>
+GMAG, the quantitative modelling group at Credit Suisse, has been using Haskell
+for various projects since the beginning of 2006, with the twin aims of
+improving the productivity of modellers and making it easier for other people
+within the bank to use GMAG models. Current projects include: Further work on
+tools for checking, manipulating and transforming spreadsheets; a
+domain-specific language embedded in Haskell for implementing reusable
+components that can be compiled into various target forms (see the video presentation: <a href="http://www.londonhug.net/2008/08/11/video-paradise-a-dsel-for-derivatives-pricing/" class="external text" title="http://www.londonhug.net/2008/08/11/video-paradise-a-dsel-for-derivatives-pricing/" rel="nofollow">Paradise, a DSEL for Derivatives Pricing</a>).
+</blockquote>
+<dl><dd><dl><dd>Credit Suisse's <a href="http://cufp.galois.com/2006/abstracts.html#HowardMansell" class="external text" title="http://cufp.galois.com/2006/abstracts.html#HowardMansell" rel="nofollow">CUFP talk</a>.
+</dd></dl>
+</dd></dl>
+<ul><li> <a href="http://detexify.kirelabs.org/classify.html" class="external text" title="http://detexify.kirelabs.org/classify.html" rel="nofollow">Detexify</a>
+</li></ul>
+<blockquote>
+Detexify is an online handwriting recognition system, whose backend is written in Haskell. 
+</blockquote>
+<ul><li> <a href="http://www.db.com/" class="external text" title="http://www.db.com/" rel="nofollow">Deutsche Bank Equity Proprietary Trading, Directional Credit Trading</a>
+</li></ul>
+<blockquote>
+The Directional Credit Trading group uses Haskell as the primary
+implementation language for all its software infrastructure.
+</blockquote>
+<dl><dd><dl><dd>Deutsche Bank's <a href="http://cufp.galois.com/2008/abstracts.html#PolakowJeff" class="external text" title="http://cufp.galois.com/2008/abstracts.html#PolakowJeff" rel="nofollow">CUFP talk</a>.
+</dd></dl>
+</dd></dl>
+<ul><li> <a href="http://article.gmane.org/gmane.comp.lang.haskell.cafe/37093" class="external text" title="http://article.gmane.org/gmane.comp.lang.haskell.cafe/37093" rel="nofollow">Eaton</a> Cleveland, Ohio
+</li></ul>
+<blockquote>
+Design and verification of hydraulic hybrid vehicle systems
+</blockquote>
+<dl><dd><dl><dd>Eaton's <a href="http://cufp.galois.com/2008/abstracts.html#HawkinsTom" class="external text" title="http://cufp.galois.com/2008/abstracts.html#HawkinsTom" rel="nofollow">CUFP talk</a>
+</dd><dd>Eaton's <a href="http://www.haskell.org/pipermail/haskell-cafe/2009-April/060602.html" class="external text" title="http://www.haskell.org/pipermail/haskell-cafe/2009-April/060602.html" rel="nofollow">experiences using a Haskell DSL</a>
+</dd></dl>
+</dd></dl>
+<ul><li> [Ericsson AB]
+</li></ul>
+<blockquote>
+Ericsson uses Haskell for the implementation of Feldspar, an EDSL for digital signal processing algorithms.
+</blockquote>
+<dl><dd><dl><dd>Ericsson's <a href="http://hackage.haskell.org/package/feldspar-compiler" class="external text" title="http://hackage.haskell.org/package/feldspar-compiler" rel="nofollow">Feldspar compiler</a>
+</dd></dl>
+</dd></dl>
+<ul><li> <a href="http://facebook.com" class="external text" title="http://facebook.com" rel="nofollow">Facebook</a>
+</li></ul>
+<blockquote>
+Facebook uses some Haskell internally for tools. <a href="http://github.com/facebook/lex-pass/tree/master" class="external text" title="http://github.com/facebook/lex-pass/tree/master" rel="nofollow">lex-pass</a> is a tool for programmatically manipulating a PHP code base via Haskell.
+</blockquote>
+<dl><dd><dl><dd> Facebook's <a href="http://cufp.galois.com/2009/abstracts.html#ChristopherPiroEugeneLetuchy" class="external text" title="http://cufp.galois.com/2009/abstracts.html#ChristopherPiroEugeneLetuchy" rel="nofollow">CUFP talk</a>
+</dd></dl>
+</dd></dl>
+<ul><li> <a href="http://www.factisresearch.com/" class="external text" title="http://www.factisresearch.com/" rel="nofollow">Factis Research</a>
+</li></ul>
+<blockquote>
+Factis research, located in Freiburg, Germany, develops reliable and user-friendly mobile solutions. Our client software runs under J2ME, Symbian, iPhone OS, Android, and Blackberry. The server components are implemented in Python and Haskell. We are actively using Haskell for a number of projects, most of which are released under an open-source license.
+</blockquote>
+<dl><dd><dl><dd> Factis' <a href="http://haskell.org/communities/05-2010/html/report.html#factisresearch" class="external text" title="http://haskell.org/communities/05-2010/html/report.html#factisresearch" rel="nofollow">HCAR submission</a>
+</dd></dl>
+</dd></dl>
+<ul><li> <a href="http://fortytools.com" class="external text" title="http://fortytools.com" rel="nofollow">fortytools gmbh</a>
+</li></ul>
+<blockquote>
+Located in Hamburg, Germany, we are developing web-based productivity tools for invoicing, customer management, resource scheduling and time tracking. While using Javascript for building rich frontend application in the browser, we use Haskell to implement the REST backends. Additionally, we do occasional project/client work as well.
+</blockquote>
+<dl><dd><dl><dd> Oh, and of course we develop and maintain <a href="http://hayoo.info" class="external text" title="http://hayoo.info" rel="nofollow">Hayoo!</a>&nbsp;:)
+</dd></dl>
+</dd></dl>
+<ul><li> <a href="http://www.funktional.info/index.php?id=7&amp;L=1" class="external text" title="http://www.funktional.info/index.php?id=7&amp;L=1" rel="nofollow">Funktionale Programmierung Dr. Heinrich Hördegen</a>, Munich, Germany
+</li></ul>
+<blockquote>
+We develop software prototypes according to the Pareto principle: After spending only 20 percent of budget, we aim to provide already 80 percent of the software's functionality. We can realize this by constructing a 2080-software-prototype that we can further develop into a full-fledged solution...
+</blockquote>
+<ul><li> <a href="http://www.galois.com/" class="external text" title="http://www.galois.com/" rel="nofollow">Galois, Inc</a> Portland, Oregon
+</li></ul>
+<blockquote>
+Galois designs and develops high confidence software for critical applications.
+Our innovative approach to software development provides high levels of
+assurance, yet its scalability enables us to address the most complex problems.
+We have successfully engineered projects under contract for corporations and
+government clients in the demanding application areas of security, information
+assurance and cryptography.  
+</blockquote>
+<dl><dd><dl><dd>Galois' <a href="http://cufp.galois.com/2007/abstracts.html#JohnLaunchbury" class="external text" title="http://cufp.galois.com/2007/abstracts.html#JohnLaunchbury" rel="nofollow">2007 CUFP talk</a>
+</dd><dd>Galois' <a href="http://cufp.org/conference/sessions/2011/theorem-based-derivation-aes-implementation" class="external text" title="http://cufp.org/conference/sessions/2011/theorem-based-derivation-aes-implementation" rel="nofollow">2011 CUFP talk</a>
+</dd><dd>Galois' <a href="http://corp.galois.com/blog/2009/4/27/engineering-large-projects-in-haskell-a-decade-of-fp-at-galo.html" class="external text" title="http://corp.galois.com/blog/2009/4/27/engineering-large-projects-in-haskell-a-decade-of-fp-at-galo.html" rel="nofollow">retrospective on 10 years of industrial Haskell use</a>
+</dd></dl>
+</dd></dl>
+<ul><li> <a href="http://google.com" class="external text" title="http://google.com" rel="nofollow">Google</a>
+</li></ul>
+<blockquote>
+Haskell is used on a small number of internal projects in Google, for internal IT infrastructure support. 
+</blockquote>
+<dl><dd><dl><dd>Google's <a href="http://k1024.org/~iusty/papers/icfp10-haskell-reagent.pdf" class="external text" title="http://k1024.org/~iusty/papers/icfp10-haskell-reagent.pdf" rel="nofollow">ICFP 2010 experience report on Haskell</a>
+</dd></dl>
+</dd></dl>
+<ul><li> <a href="http://glyde.com/" class="external text" title="http://glyde.com/" rel="nofollow">Glyde</a>
+</li></ul>
+<blockquote>
+Glyde uses OCaml and Haskell for a few projects. Glyde uses Haskell for our client-side template source-to-source translator, which converts HAML-like view templates into JS code.
+</blockquote>
+<ul><li> <a href="http://groupcommerce.com" class="external text" title="http://groupcommerce.com" rel="nofollow">Group Commerce</a>
+</li></ul>
+<blockquote>
+Group Commerce uses Haskell to drive the main component of their advertising infrastructure: a Snap Framework based web server. Haskell enabled quicker development, higher reliability, and better maintainability than other languages, without having to sacrifice performance.
+</blockquote>
+<ul><li> <a href="http://humane-software.com" class="external text" title="http://humane-software.com" rel="nofollow">Humane Software</a>
+</li></ul>
+<blockquote>We develop enterprise systems with de-coupled, asynchronous Haskell backends and Javascript UIs.<br />
+For our current customer, an Internet connectivity provider, we wrote a solution for monitoring multiple remote machines and analyzing gigabytes of traffic samples. Haskell proved an excellent tool for the job.       
+We were able to replace legacy systems in a granular, piece-by-piece manner, while delivering new features.</blockquote>
+<ul><li> <a href="http://hustlerturf.com" class="external text" title="http://hustlerturf.com" rel="nofollow">Hustler Turf Equipment</a> Hesston, Kansas
+</li></ul>
+<blockquote>
+Designs, builds, and sells lawn mowers.  We use quite a bit of Haskell, especially as a "glue language" for tying together data from different manufacturing-related systems.  We also use it for some web apps that are deployed to our dealer network.  There are also some uses for it doing sysadmin
+automation, such as adding/removing people from LDAP servers and the like
+</blockquote>
+<ul><li> <a href="http://iba-cg.de/haskell.html" class="external text" title="http://iba-cg.de/haskell.html" rel="nofollow">iba Consulting Gesellschaft</a> - Intelligent business architecture for you. Leipzig, Germany
+</li></ul>
+<blockquote>
+iba CG develops software for large companies: 
+<ul><li> risk analysis and reporting solution for power supply company; 
+</li><li> contract management, assert management, booking and budgeting software for one of the worldwide leading accounting firm.
+</li></ul>
+</blockquote>
+<ul><li> <a href="http://www.ics-ag.de/" class="external text" title="http://www.ics-ag.de/" rel="nofollow">Informatik Consulting Systems AG</a>
+</li></ul>
+<blockquote>
+ICS AG developed a simulation and testing tool which based on a DSL (Domain Specific Language). The DSL is used for the description of architecture and behavior of distributed system components (event/message based, reactive). The compiler was written in Haskell (with target language Ada). The test system is used in some industrial projects.
+</blockquote>
+<ul><li> <a href="http://ipwnstudios.com/" class="external text" title="http://ipwnstudios.com/" rel="nofollow">iPwn Studios</a>
+</li></ul>
+<blockquote>
+ipwn studios is a video game studio founded in 2009 and based in the greater Boston area. They're developing a game engine in Haskell, and a number of games built on that engine, including an action-rpg for touchscreen devices called bloodknight.
+</blockquote>
+<ul><li> <a href="http://www.ivu.de/uk/products/public-transport/" class="external text" title="http://www.ivu.de/uk/products/public-transport/" rel="nofollow">IVU Traffic Technologies AG</a>
+</li></ul>
+<blockquote>
+The rostering group at IVU Traffic Technologies AG has been using Haskell to check rosters for compliance with EC regulations.
+
+Our implementation is based on an embedded DSL to combine the regulation’s single rules into a solver that not only decides on instances but, in the case of a faulty roster, finds an interpretation of the roster that is “favorable” in the sense that the error messages it entails are “helpful” in leading the dispatcher to the resolution of the issue at hand.
+
+The solver is both reliable (due to strong static typing and referential transparency — we have not experienced a failure in three years) and efficient (due to constraint propagation, a custom search strategy, and lazy evaluation).
+
+Our EC 561/2006 component is part of the IVU.crew software suite and as such is in wide-spread use all over Europe, both in planning and dispatch. So the next time you enter a regional bus, chances are that the driver’s roster was checked by Haskell.
+</blockquote>
+<ul><li> <a href="http://www.janrain.com" class="external text" title="http://www.janrain.com" rel="nofollow">JanRain</a>
+</li></ul>
+<blockquote>
+JanRain uses Haskell for network and web software. Read more about <a href="http://www.janrain.com/blogs/haskell-janrain" class="external text" title="http://www.janrain.com/blogs/haskell-janrain" rel="nofollow">Haskell at JanRain</a> and in their <a href="http://corp.galois.com/blog/2011/3/8/tech-talk-haskell-and-the-social-web.html" class="external text" title="http://corp.galois.com/blog/2011/3/8/tech-talk-haskell-and-the-social-web.html" rel="nofollow">tech talk at Galois</a>. JanRain's "<a href="http://www.janrain.com/products/capture" class="external text" title="http://www.janrain.com/products/capture" rel="nofollow">Capture</a>" user API product is built on Haskell's Snap webframework.
+</blockquote>
+<dl><dd><dl><dd> See Janrain's <a href="http://corp.galois.com/blog/2011/4/22/tech-talk-video-haskell-and-the-social-web.html" class="external text" title="http://corp.galois.com/blog/2011/4/22/tech-talk-video-haskell-and-the-social-web.html" rel="nofollow">technical talk about their use of Snap</a>
+</dd></dl>
+</dd></dl>
+<ul><li> <a href="http://joyridelabs.de/game/" class="external text" title="http://joyridelabs.de/game/" rel="nofollow">Joyride Laboratories</a>
+</li></ul>
+<blockquote>
+Joyride Laboratories is an independent game development studio, founded in 2009 by Florian Hofer and Sönke Hahn. Their first game, "Nikki and the Robots"  was released in 2011.
+</blockquote>
+<ul><li> <a href="http://www.linspire.com/" class="external text" title="http://www.linspire.com/" rel="nofollow">Linspire</a>
+</li></ul>
+<blockquote>
+Linspire, Inc. has used functional programming since its inception in 2001,
+beginning with extensive use of O'Caml, with a steady shift to Haskell as its
+implementations and libraries have matured. Hardware detection, software
+packaging and CGI web page generation are all areas where we have used
+functional programming extensively. Haskell's feature set lets us replace much
+of our use of little languages (e.g., bash or awk) and two-level languages (C
+or C++ bound to an interpreted language), allowing for faster development,
+better code sharing and ultimately faster implementations. Above all, we value
+static type checking for minimizing runtime errors in applications that run in
+unknown environments and for wrapping legacy programs in strongly typed
+functions to ensure that we pass valid arguments. 
+</blockquote>
+<dl><dd><dl><dd>Linspire's <a href="http://cufp.galois.com/2006/abstracts.html#CliffordBeshers" class="external text" title="http://cufp.galois.com/2006/abstracts.html#CliffordBeshers" rel="nofollow">CUFP talk</a>
+</dd><dd>Linspire's experience report on using <a href="http://portal.acm.org/citation.cfm?doid=1291151.1291184" class="external text" title="http://portal.acm.org/citation.cfm?doid=1291151.1291184" rel="nofollow">functional programming to manage a Linux distribution</a>
+</dd></dl>
+</dd></dl>
+<ul><li> <a href="http://www.mitre.org/" class="external text" title="http://www.mitre.org/" rel="nofollow">MITRE</a>
+</li></ul>
+<blockquote>
+MITRE uses Haskell for, amongst other things, the <a href="http://hackage.haskell.org/package/cpsa" class="external text" title="http://hackage.haskell.org/package/cpsa" rel="nofollow">analysis of cryptographic protocols</a>.
+</blockquote>
+<ul><li> <a href="http://ertos.nicta.com.au/research/sel4/" class="external text" title="http://ertos.nicta.com.au/research/sel4/" rel="nofollow">NICTA</a>
+</li></ul>
+<blockquote>
+NICTA has used Haskell as part of a project to verify the L4 microkernel.
+</blockquote>
+<dl><dd><dl><dd><a href="http://www.drdobbs.com/embedded/222400553" class="external text" title="http://www.drdobbs.com/embedded/222400553" rel="nofollow">Read the Dr. Dobbs article on using Haskell and formal methods to verify a kernel</a>
+</dd></dl>
+</dd></dl>
+<ul><li> <a href="http://www.gb.nrao.edu" class="external text" title="http://www.gb.nrao.edu" rel="nofollow">NRAO</a>
+</li></ul>
+<blockquote>
+NRAO has used Haskell to implement the core science algorithms for the Robert C. Byrd Green Bank Telescope (GBT) Dynamic Scheduling System (<a href="http://www.gb.nrao.edu/dss" class="external text" title="http://www.gb.nrao.edu/dss" rel="nofollow">DSS</a>).
+<dl><dd><dl><dd>Source code available on <a href="https://github.com/nrao/antioch" class="external text" title="https://github.com/nrao/antioch" rel="nofollow">GitHub</a>.
+</dd></dl>
+</dd></dl>
+</blockquote>
+<ul><li> <a href="http://www.ns-sol.co.jp" class="external text" title="http://www.ns-sol.co.jp" rel="nofollow">NS Solutions(NSSOL)</a> Tokyo, Japan
+</li></ul>
+<blockquote>
+NS Solutions has employed Haskell since 2008 to develop its software
+packages including "BancMeasure", a mark-to-market accounting software
+package for financial institutions, "BancMeasure for IFRS" and
+"Mamecif", a data analysis package.
+"BancMeasure" and "Mamecif" are registered trademarks of NS Solutions Corporation in JAPAN.
+</blockquote>
+<ul><li> <a href="http://www.nvidia.com/content/global/global.php" class="external text" title="http://www.nvidia.com/content/global/global.php" rel="nofollow">NVIDIA</a>
+</li></ul>
+<blockquote>
+At NVIDIA, we have a handful of in-house tools that are written in Haskell
+</blockquote>
+<ul><li> <a href="http://blog.openomy.com/2008/01/case-study-using-haskell-and-happs-for.html" class="external text" title="http://blog.openomy.com/2008/01/case-study-using-haskell-and-happs-for.html" rel="nofollow">Openomy</a>
+</li></ul>
+<blockquote>
+Openomy's API v2.0 is developed in Haskell, using the
+<a href="http://www.happs.org/" class="external text" title="http://www.happs.org/" rel="nofollow">HAppS</a> web platform.
+</blockquote>
+<ul><li> <a href="http://www.oblomov.com" class="external text" title="http://www.oblomov.com" rel="nofollow">Oblomov</a>
+</li></ul>
+<blockquote>
+Oblomov Systems is a one-person software company based in Utrecht, The Netherlands. Founded in 2009, Oblomov has since then been working on a number of Haskell-related projects. The main focus lies on web-applications and (web-based) editors. Haskell has turned out to be extremely useful for implementing web servers that communicate with JavaScript clients or iPhone apps.
+</blockquote>
+<dl><dd><dl><dd> <a href="http://haskell.org/communities/05-2010/html/report.html#oblomov" class="external text" title="http://haskell.org/communities/05-2010/html/report.html#oblomov" rel="nofollow">Oblomov's HCAR submission</a>.
+</dd></dl>
+</dd></dl>
+<ul><li> <a href="http://www.patch-tag.com" class="external text" title="http://www.patch-tag.com" rel="nofollow">Patch-Tag: hosting for darcs</a>
+</li></ul>
+<blockquote>
+Need somewhere to put your darcs code? Try us.
+
+Patch-Tag is built with <a href="http://happstack.com" class="external text" title="http://happstack.com" rel="nofollow">happstack</a>, the continuation of the project formerly known as HAppS.
+</blockquote>
+<ul><li> <a href="http://www.peerium.com" class="external text" title="http://www.peerium.com" rel="nofollow">Peerium, Inc</a> Cambridge, Massachusetts
+</li></ul>
+<blockquote>
+At Peerium, we're striving to bring a new level of quality and efficiency to online communication and collaboration within virtual communities, social networks, and business environments. We believe that a new environment that supports the effortless sharing of both information and software will enable a level of online cooperation far beyond current Web-based technologies -- modern programming techniques will enable the creation of more robust and more powerful programs within these environments. To this end, we're building a new software platform for direct, real-time communication and collaboration within graphically rich environments. Peerium is located in the heart of Harvard Square in Cambridge, Massachusetts.
+</blockquote>
+<ul><li> <a href="http://www.qualcomm.com/" class="external text" title="http://www.qualcomm.com/" rel="nofollow">Qualcomm, Inc</a>
+</li></ul>
+<blockquote>
+Qualcomm uses Haskell to generate Lua bindings to the BREW platform 
+</blockquote>
+<ul><li> <a href="http://www.renci.org/" class="external text" title="http://www.renci.org/" rel="nofollow">Renaissaince Computing Institute</a>, Chapel Hill, North Carolina
+</li></ul>
+<blockquote>
+The Renaissance Computing Institute (RENCI), a multi-institutional organization, brings together multidisciplinary experts and advanced technological capabilities to address pressing research issues and to find solutions to complex problems that affect the quality of life in North Carolina, our nation and the world.
+
+Research scientists at RENCI have used Haskell for a number of projects, including <a href="http://vis.renci.org/jeff/2009/08/26/open-sourcing-the-big-board/" class="external text" title="http://vis.renci.org/jeff/2009/08/26/open-sourcing-the-big-board/" rel="nofollow">The Big Board</a>.
+</blockquote>
+<dl><dd><dl><dd>RENCI's <a href="http://cufp.galois.com/2009/abstracts.html#JeffersonHeard" class="external text" title="http://cufp.galois.com/2009/abstracts.html#JeffersonHeard" rel="nofollow">CUFP talk</a>.
+</dd></dl>
+</dd></dl>
+<ul><li> <a href="https://scrive.com/gb/en" class="external text" title="https://scrive.com/gb/en" rel="nofollow">Scrive</a> 
+</li></ul>
+<blockquote>
+Scrive is a service for e-signing tenders, contracts, and other documents. We help our clients close deals faster, decrease their administrative burden, and improve their customers’ experience.
+</blockquote>
+<ul><li> <a href="http://sankelsoftware.com" class="external text" title="http://sankelsoftware.com" rel="nofollow">Sankel Software</a> Albuquerque, New Mexico
+</li></ul>
+<blockquote>
+Sankel Software has been using Haskell since 2002 for both prototyping and deployment for technologies ranging from CAD/CAM to gaming and computer animation. We specialize in the development of user-friendly, large, long-term applications that solve difficult and conceptually intricate problems.
+</blockquote>
+<ul><li> <a href="http://www.signalicorp.com/index.htm" class="external text" title="http://www.signalicorp.com/index.htm" rel="nofollow">Signali</a> Portland, Oregon
+</li></ul>
+<blockquote>
+Signali Corp is a new custom hardware design company. Our chief products
+are custom IP cores targeted for embedded DSP and cryptographic
+applications. Our specialty is the design and implementation of
+computationally intensive, complex algorithms. The interfaces to each
+core are modular and can be very efficiently modified for your specific
+application. System-level integration and validation is crucial and is
+the majority of investment in a product.
+</blockquote>
+<ul><li> <a href="http://www.standardchartered.com/home/en/index.html" class="external text" title="http://www.standardchartered.com/home/en/index.html" rel="nofollow">Standard Chartered</a>
+</li></ul>
+<blockquote>
+Standard Chartered has a large group using Haskell for all aspects of its wholesale banking business.
+</blockquote>
+<ul><li> <a href="http://www.starling-software.com/en/index.html" class="external text" title="http://www.starling-software.com/en/index.html" rel="nofollow">Starling Software</a> Tokyo, Japan
+</li></ul>
+<blockquote>
+Starling Software are developing a commercial automated options trading system 
+in Haskell, and are migrating other parts of their software suite to
+Haskell.
+</blockquote>
+<dl><dd><dl><dd>Starling Software's <a href="http://www.starling-software.com/misc/icfp-2009-cjs.pdf" class="external text" title="http://www.starling-software.com/misc/icfp-2009-cjs.pdf" rel="nofollow">experience building real time trading systems in Haskell</a> 
+</dd></dl>
+</dd></dl>
+<ul><li> <a href="http://www.tabula.com/" class="external text" title="http://www.tabula.com/" rel="nofollow">Tabula.com</a>
+</li></ul>
+<blockquote>
+Tabula is a privately held fabless semiconductor company developing 3-D Programmable Logic Devices. Haskell is used for internal compiler toolchains related to hardware design.
+</blockquote>
+<ul><li> <a href="http://tsurucapital.com" class="external text" title="http://tsurucapital.com" rel="nofollow">Tsuru Capital</a> Tokyo, Japan
+</li></ul>
+<blockquote>
+Tsuru Capital is operating an automated options trading system written in Haskell.
+</blockquote>
+<dl><dd><dl><dd><a href="http://haskell.org/communities/05-2010/html/report.html#sect7.6" class="external text" title="http://haskell.org/communities/05-2010/html/report.html#sect7.6" rel="nofollow">Tsuru Capital's HCAR submission</a>
+</dd></dl>
+</dd></dl>
+<ul><li> <a href="http://tupil.com/" class="external text" title="http://tupil.com/" rel="nofollow">Tupil</a> Utrecht, The Netherlands
+</li></ul>
+<blockquote>
+Tupil is a Dutch company that built software for clients, written in Haskell. Tupil used Haskell for the speed in development and resulting software quality. The company is founded by Chris Eidhof and Eelco Lempsink. Currently they build iPhone/iPad applications in Objective-C.
+</blockquote>
+<dl><dd><dl><dd> Tupil's experience building <a href="http://blog.tupil.com/building-commercial-haskell-applications/" class="external text" title="http://blog.tupil.com/building-commercial-haskell-applications/" rel="nofollow">commercial web apps in Haskell</a>
+</dd></dl>
+</dd></dl>
+<ul><li> <a href="http://typlab.com" class="external text" title="http://typlab.com" rel="nofollow">TypLAB</a> Amsterdam, The Netherlands
+</li></ul>
+<blockquote>
+TypLAB investigates and develops new ways of creating and consuming online content. Their <a href="http://www.silkapp.com/" class="external text" title="http://www.silkapp.com/" rel="nofollow">Silk</a> application makes it easy to filter and visualize large amounts of information.
+</blockquote>
+<dl><dd><dl><dd> TypLAB's blog on <a href="http://blog.typlab.com/2009/09/why-we-use-haskell/" class="external text" title="http://blog.typlab.com/2009/09/why-we-use-haskell/" rel="nofollow">why they use Haskell</a>
+</dd><dd> A <a href="http://thenextweb.com/eu/2011/04/28/filter-and-visualize-data-in-seconds-with-silk/" class="external text" title="http://thenextweb.com/eu/2011/04/28/filter-and-visualize-data-in-seconds-with-silk/" rel="nofollow">review of Silk</a>
+</dd></dl>
+</dd></dl>
+<ul><li> <a href="http://www.sensor-sense.nl" class="external text" title="http://www.sensor-sense.nl" rel="nofollow">Sensor Sense</a> Nijmegen, The Netherlands
+</li></ul>
+<blockquote>
+Sensor Sense is offering high technology systems for gas measurements in the <i>ppbv</i> down to <i>pptv</i> range. We use Haskell for the embedded control software of our trace gas detectors.
+</blockquote>
+<p>If you're using Haskell commercially, please add your details here.
+</p>
+<a name="The_Industrial_Haskell_Group"></a><h2> <span class="mw-headline">2  The Industrial Haskell Group </span></h2>
+<p>The <a href="http://industry.haskell.org/" class="external text" title="http://industry.haskell.org/" rel="nofollow">Industrial Haskell Group (IHG)</a> is an organisation to support the needs of commercial users of the Haskell programming language. 
+</p>
+<a name="Jobs_and_recruitment"></a><h2> <span class="mw-headline">3  Jobs and recruitment </span></h2>
+<p><a href="/haskellwiki/Jobs" title="Jobs">Haskell jobs</a> on the HaskellWiki.
+</p><p><a href="http://www.haskellers.com/jobs" class="external text" title="http://www.haskellers.com/jobs" rel="nofollow">Jobs at Haskellers.com</a>.
+</p>
+<a name="Consultants"></a><h2> <span class="mw-headline">4  Consultants </span></h2>
+<p><a href="/haskellwiki/Consultants" title="Consultants">Consultants</a>
+</p>
+<a name="Commercial_Users_of_Functional_Programming_Workshop"></a><h2> <span class="mw-headline">5  Commercial Users of Functional Programming Workshop </span></h2>
+<p><a href="http://www.galois.com/cufp/" class="external text" title="http://www.galois.com/cufp/" rel="nofollow">Commercial Users of Functional Programming</a>
+</p><p>The goal of <a href="http://www.galois.com/cufp/" class="external text" title="http://www.galois.com/cufp/" rel="nofollow">CUFP</a> is to build a community
+for users of functional programming languages and technology, be they
+using functional languages in their professional lives, in an open
+source project (other than implementation of functional languages), as a
+hobby, or any combination thereof. In short: anyone who uses functional
+programming as a means, but not an end.
+</p>
+<!-- 
+NewPP limit report
+Preprocessor node count: 66/1000000
+Post-expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+-->
+
+<!-- Saved in parser cache with key wikidb:pcache:idhash:2250-0!1!0!1!en!2!edit=0 and timestamp 20130227193809 -->
+<div class="printfooter">
+Retrieved from "<a href="http://www.haskell.org/haskellwiki/Haskell_in_industry">http://www.haskell.org/haskellwiki/Haskell_in_industry</a>"</div>
+			<p class='catlinks'><a href="/haskellwiki/Special:Categories" title="Special:Categories">Category</a>: <span dir='ltr'><a href="/haskellwiki/Category:Community" title="Category:Community">Community</a></span></p>			<!-- end content -->
+						<div class="visualClear"></div>
+		</div>
+	</div>
+		</div></div>
+		<div id="column-one">
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+	<div class='generated-sidebar portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage"><a href="/haskellwiki/Haskell" title="Visit the Main Page [z]" accesskey="z">Haskell</a></li>
+				<li id="n-portal"><a href="/haskellwiki/HaskellWiki:Community" title="About the project, what you can do, where to find things">Wiki community</a></li>
+				<li id="n-recentchanges"><a href="/haskellwiki/Special:Recentchanges" title="The list of recent changes in the wiki. [r]" accesskey="r">Recent changes</a></li>
+				<li id="n-randompage"><a href="/haskellwiki/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-tb">
+		<h5>Toolbox</h5>
+		<div class="pBody">
+			<ul>
+				<li id="t-whatlinkshere"><a href="/haskellwiki/Special:Whatlinkshere/Haskell_in_industry" title="List of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+				<li id="t-recentchangeslinked"><a href="/haskellwiki/Special:Recentchangeslinked/Haskell_in_industry" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+<li id="t-upload"><a href="/haskellwiki/Special:Upload" title="Upload files [u]" accesskey="u">Upload file</a></li>
+<li id="t-specialpages"><a href="/haskellwiki/Special:Specialpages" title="List of all special pages [q]" accesskey="q">Special pages</a></li>
+				<li id="t-print"><a href="/haskellwiki/index.php?title=Haskell_in_industry&amp;printable=yes" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>				<li id="t-permalink"><a href="/haskellwiki/index.php?title=Haskell_in_industry&amp;oldid=55450" title="Permanent link to this version of the page">Permanent link</a></li>			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="/wikistatic/skins//common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>
+			<ul id="f-list">
+					<li id="lastmod"> This page was last modified 17:35, 17 February 2013.</li>
+					<li id="viewcount">This page has been accessed 174,921 times.</li>
+					<li id="copyright">Recent content is available under <a href="/haskellwiki/HaskellWiki:Copyrights" title="HaskellWiki:Copyrights">a simple permissive license</a>.</li>
+					<li id="privacy"><a href="/haskellwiki/HaskellWiki:Privacy_policy" title="HaskellWiki:Privacy policy">Privacy policy</a></li>
+					<li id="about"><a href="/haskellwiki/HaskellWiki:About" title="HaskellWiki:About">About HaskellWiki</a></li>
+					<li id="disclaimer"><a href="/haskellwiki/HaskellWiki:General_disclaimer" title="HaskellWiki:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+</div>
+
+		<script type="text/javascript">if (window.runOnloadHook) runOnloadHook();</script>
+<!-- Served in 0.164 secs. --><script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-15375175-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</body></html>
