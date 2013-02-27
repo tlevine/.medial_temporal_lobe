@@ -1,0 +1,679 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta http-equiv="Content-Language" content="en-us">
+<meta http-equiv="Keywords" content="EBCDIC, ISO-Latin-1, ISO-8859-1">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>EBCDIC-to-ASCII conversion table Part I</title>
+</head>
+
+<body>
+
+<table border="0" width="616">
+  <tr>
+    <td width="85">
+      <p align="center"><img border="0" src="flounder.gif" width="65" height="109"></p>
+    </td>
+    <td width="372" valign="top">
+      <h1><b>EBCDIC-to-ASCII/ISO-8859-1 Conversion Table</b></h1>
+      <h1>Part I</h1>
+    </td>
+    <td height="110" width="133" valign="top">
+      <table border="1" width="107%">
+        <tr>
+          <td width="50%"><a href="index.htm"><img src="flounder.gif" width="29" height="49"></a></td>
+          <td width="50%"><a href="index.htm"><strong>Home</strong></a></td>
+        </tr>
+        <tr>
+          <td width="50%"><a href="mvp_tips.htm"><img border="0" src="bulb.gif" width="58" height="59"></a></td>
+          <td width="50%"><strong><a href="mvp_tips.htm">Back To Tips Page</a></strong></td>
+        </tr>
+        <tr>
+          <td width="50%">&nbsp;</td>
+          <td width="50%"><strong><a href="ebcdictoascii2.htm">Part II</a></strong></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<table border="1" width="100%" height="625" cellpadding="0" cellspacing="1">
+  <tr>
+    <td width="24%" colspan="4" height="18" align="center" bgcolor="#3333CC"><font face="Arial" color="#FFFFFF"><b>x'00
+      - x'1F</b></font></td>
+    <td width="24%" height="18" colspan="4" align="center" bgcolor="#3333CC"><font face="Arial" color="#FFFFFF"><b>x'20
+      - x'3F</b></font></td>
+    <td width="24%" height="18" colspan="4" align="center" bgcolor="#3333CC"><font face="Arial" color="#FFFFFF"><b>x'40
+      - x'5F</b></font></td>
+    <td width="28%" height="18" colspan="4" align="center" bgcolor="#3333CC"><font face="Arial" color="#FFFFFF"><b>x'60
+      - x'7F</b></font></td>
+  </tr>
+  <tr>
+    <td width="12%" height="19" colspan="2" align="center" bgcolor="#00FFFF"><font face="Arial" size="2"><b>EBCDIC</b></font></td>
+    <td width="12%" height="19" colspan="2" align="center" bgcolor="#00FF00"><font face="Arial" size="2"><b>ASCII</b></font></td>
+    <td width="12%" height="19" colspan="2" align="center" bgcolor="#00FFFF"><font face="Arial" size="2"><b>EBCDIC</b></font></td>
+    <td width="12%" height="19" colspan="2" align="center" bgcolor="#00FF00"><font face="Arial" size="2"><b>ASCII</b></font></td>
+    <td width="12%" height="19" colspan="2" align="center" bgcolor="#00FFFF"><font face="Arial" size="2"><b>EBCDIC</b></font></td>
+    <td width="12%" height="19" colspan="2" align="center" bgcolor="#00FF00"><font face="Arial" size="2"><b>ASCII</b></font></td>
+    <td width="14%" height="19" colspan="2" align="center" bgcolor="#00FFFF"><font face="Arial" size="2"><b>EBCDIC</b></font></td>
+    <td width="14%" height="19" colspan="2" align="center" bgcolor="#00FF00"><font face="Arial" size="2"><b>ASCII</b></font></td>
+  </tr>
+  <tr>
+    <td width="6%" height="19" align="center" bgcolor="#00FFFF"><b><font face="Arial" size="1">x'00</font></b></td>
+    <td width="6%" height="19" align="center" bgcolor="#FFFF00"><b><font face="Arial" size="1">NUL</font></b></td>
+    <td width="6%" height="19" align="center" bgcolor="#99FF66"><b><font face="Arial" size="1">x'00</font></b></td>
+    <td width="6%" height="19" align="center" bgcolor="#FFFF00"><b><font face="Arial" size="1">NUL</font></b></td>
+    <td width="6%" height="19" align="center" bgcolor="#00FFFF"><font face="Arial" size="1"><b>x'20</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#FFFF00"><font face="Arial" size="1"><b>DS</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#FF3300">&nbsp;</td>
+    <td width="6%" height="19" align="center" bgcolor="#FF0000">&nbsp;</td>
+    <td width="6%" height="19" align="center" bgcolor="#00FFFF"><font face="Arial" size="1"><b>x'40</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#00FFFF">&nbsp;</td>
+    <td width="6%" height="19" align="center" bgcolor="#00FF00"><font face="Arial" size="1"><b>x'20</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#0099FF">&nbsp;</td>
+    <td width="7%" height="19" align="center" bgcolor="#00FFFF"><font face="Arial" size="1"><b>x'60</b></font></td>
+    <td width="7%" height="19" align="center" bgcolor="#00FFFF"><font face="Arial" size="1"><b>-</b></font></td>
+    <td width="7%" height="19" align="center" bgcolor="#00FF00"><font face="Arial" size="1"><b>x'2D</b></font></td>
+    <td width="7%" height="19" align="center" bgcolor="#0099FF"><font face="Arial" size="1"><b>-</b></font></td>
+  </tr>
+  <tr>
+    <td width="6%" height="19" align="center" bgcolor="#00FFFF"><b><font face="Arial" size="1">x'01</font></b></td>
+    <td width="6%" height="19" align="center" bgcolor="#FFFF00"><b><font face="Arial" size="1">SOH</font></b></td>
+    <td width="6%" height="19" align="center" bgcolor="#99FF66"><font face="Arial" size="1"><b>x'01</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#FFFF00"><font face="Arial" size="1"><b>SOH</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#00FFFF"><font face="Arial" size="1"><b>x'21</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#FFFF00"><font face="Arial" size="1"><b>SOS</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#FF3300">&nbsp;</td>
+    <td width="6%" height="19" align="center" bgcolor="#FF0000">&nbsp;</td>
+    <td width="6%" height="19" align="center" bgcolor="#00FFFF"><font face="Arial" size="1"><b>x'41</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#000000">&nbsp;</td>
+    <td width="6%" height="19" align="center" bgcolor="#FF0000">&nbsp;</td>
+    <td width="6%" height="19" align="center" bgcolor="#FF0000">&nbsp;</td>
+    <td width="7%" height="19" align="center" bgcolor="#00FFFF"><font face="Arial" size="1"><b>x'61</b></font></td>
+    <td width="7%" height="19" align="center" bgcolor="#00FFFF"><font face="Arial" size="1"><b>/</b></font></td>
+    <td width="7%" height="19" align="center" bgcolor="#00FF00"><font face="Arial" size="1"><b>x'2F</b></font></td>
+    <td width="7%" height="19" align="center" bgcolor="#0099FF"><font face="Arial" size="1"><b>/</b></font></td>
+  </tr>
+  <tr>
+    <td width="6%" height="19" align="center" bgcolor="#00FFFF"><b><font face="Arial" size="1">x'02</font></b></td>
+    <td width="6%" height="19" align="center" bgcolor="#FFFF00"><b><font face="Arial" size="1">STX</font></b></td>
+    <td width="6%" height="19" align="center" bgcolor="#99FF66"><font face="Arial" size="1"><b>x'02</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#FFFF00"><font face="Arial" size="1"><b>STX</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#00FFFF"><font face="Arial" size="1"><b>x'22</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#FFFF00"><font face="Arial" size="1"><b>FS</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#99FF66"><font face="Arial" size="1"><b>x'1C</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#FFFF00"><font face="Arial" size="1"><b>FS</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#00FFFF"><font face="Arial" size="1"><b>x'42</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#FF99FF"><font FACE="Arial" size="1"><b>â</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#00FF00"><font face="Arial" size="1"><b>x'E2</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#FFCC00"><font FACE="Arial" size="1"><b>â</b></font></td>
+    <td width="7%" height="19" align="center" bgcolor="#00FFFF"><font face="Arial" size="1"><b>x'62</b></font></td>
+    <td width="7%" height="19" align="center" bgcolor="#FF99FF"><font FACE="Arial" size="1"><b>Â</b></font></td>
+    <td width="7%" height="19" align="center" bgcolor="#00FF00"><font face="Arial" size="1"><b>x'C2</b></font></td>
+    <td width="7%" height="19" align="center" bgcolor="#FFCC00"><font FACE="Arial" size="1"><b>Â</b></font></td>
+  </tr>
+  <tr>
+    <td width="6%" height="19" align="center" bgcolor="#00FFFF"><b><font face="Arial" size="1">x'03</font></b></td>
+    <td width="6%" height="19" align="center" bgcolor="#FFFF00"><b><font face="Arial" size="1">ETX</font></b></td>
+    <td width="6%" height="19" align="center" bgcolor="#99FF66"><font face="Arial" size="1"><b>x'03</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#FFFF00"><font face="Arial" size="1"><b>ETX</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#00FFFF"><font face="Arial" size="1"><b>x'23</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#FFFF00"><font face="Arial" size="1"><b>WUS</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#FF0000">&nbsp;</td>
+    <td width="6%" height="19" align="center" bgcolor="#FF0000">&nbsp;</td>
+    <td width="6%" height="19" align="center" bgcolor="#00FFFF"><font face="Arial" size="1"><b>x'43</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#FF99FF"><font FACE="Arial" size="1"><b>ä</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#00FF00"><font face="Arial" size="1"><b>x'E4</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#FFCC00"><font FACE="Arial" size="1"><b>ä</b></font></td>
+    <td width="7%" height="19" align="center" bgcolor="#00FFFF"><font face="Arial" size="1"><b>x'63</b></font></td>
+    <td width="7%" height="19" align="center" bgcolor="#FF99FF"><font FACE="Arial" size="1"><b>Ä</b></font></td>
+    <td width="7%" height="19" align="center" bgcolor="#00FF00"><font face="Arial" size="1"><b>x'C4</b></font></td>
+    <td width="7%" height="19" align="center" bgcolor="#FFCC00"><font FACE="Arial" size="1"><b>Ä</b></font></td>
+  </tr>
+  <tr>
+    <td width="6%" height="19" align="center" bgcolor="#00FFFF"><b><font face="Arial" size="1">x'04</font></b></td>
+    <td width="6%" height="19" align="center" bgcolor="#FFFF00"><b><font face="Arial" size="1">PF</font></b></td>
+    <td width="6%" height="19" align="center" bgcolor="#FF3300">&nbsp;</td>
+    <td width="6%" height="19" align="center" bgcolor="#FF3300">&nbsp;</td>
+    <td width="6%" height="19" align="center" bgcolor="#00FFFF"><font face="Arial" size="1"><b>x'24</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#FFFF00"><font face="Arial" size="1"><b>BYP</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#FF0000">&nbsp;</td>
+    <td width="6%" height="19" align="center" bgcolor="#FF0000">&nbsp;</td>
+    <td width="6%" height="19" align="center" bgcolor="#00FFFF"><font face="Arial" size="1"><b>x'44</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#FF99FF"><font FACE="Arial" size="1"><b>à</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#00FF00"><font face="Arial" size="1"><b>x'E0</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#FFCC00"><font FACE="Arial" size="1"><b>à</b></font></td>
+    <td width="7%" height="19" align="center" bgcolor="#00FFFF"><font face="Arial" size="1"><b>x'64</b></font></td>
+    <td width="7%" height="19" align="center" bgcolor="#FF99FF"><font FACE="Arial" size="1"><b>À</b></font></td>
+    <td width="7%" height="19" align="center" bgcolor="#00FF00"><font face="Arial" size="1"><b>x'C0</b></font></td>
+    <td width="7%" height="19" align="center" bgcolor="#FFCC00"><font FACE="Arial" size="1"><b>À</b></font></td>
+  </tr>
+  <tr>
+    <td width="6%" height="19" align="center" bgcolor="#00FFFF"><b><font face="Arial" size="1">x'05</font></b></td>
+    <td width="6%" height="19" align="center" bgcolor="#FFFF00"><b><font face="Arial" size="1">HT</font></b></td>
+    <td width="6%" height="19" align="center" bgcolor="#99FF66"><font face="Arial" size="1"><b>x'09</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#FFFF00"><font face="Arial" size="1"><b>HT</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#00FFFF"><font face="Arial" size="1"><b>x'25</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#FFFF00"><font face="Arial" size="1"><b>LF</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#99FF66"><font face="Arial" size="1"><b>x'0A</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#FFFF00"><font face="Arial" size="1"><b>LF</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#00FFFF"><font face="Arial" size="1"><b>x'45</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#FF99FF"><font FACE="Arial" size="1"><b>á</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#00FF00"><font face="Arial" size="1"><b>x'E1</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#FFCC00"><font FACE="Arial" size="1"><b>á</b></font></td>
+    <td width="7%" height="19" align="center" bgcolor="#00FFFF"><font face="Arial" size="1"><b>x'65</b></font></td>
+    <td width="7%" height="19" align="center" bgcolor="#FF99FF"><font FACE="Arial" size="1"><b>Á</b></font></td>
+    <td width="7%" height="19" align="center" bgcolor="#00FF00"><font face="Arial" size="1"><b>x'C1</b></font></td>
+    <td width="7%" height="19" align="center" bgcolor="#FFCC00"><font FACE="Arial" size="1"><b>Á</b></font></td>
+  </tr>
+  <tr>
+    <td width="6%" height="19" align="center" bgcolor="#00FFFF"><b><font face="Arial" size="1">x'06</font></b></td>
+    <td width="6%" height="19" align="center" bgcolor="#FFFF00"><b><font face="Arial" size="1">LC</font></b></td>
+    <td width="6%" height="19" align="center" bgcolor="#FF3300">&nbsp;</td>
+    <td width="6%" height="19" align="center" bgcolor="#FF3300">&nbsp;</td>
+    <td width="6%" height="19" align="center" bgcolor="#00FFFF"><font face="Arial" size="1"><b>x'26</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#FFFF00"><font face="Arial" size="1"><b>ETB</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#99FF66"><font face="Arial" size="1"><b>x'17</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#FFFF00"><font face="Arial" size="1"><b>ETB</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#00FFFF"><font face="Arial" size="1"><b>x'46</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#FF99FF"><font FACE="Arial" size="1"><b>ã</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#00FF00"><font face="Arial" size="1"><b>x'E3</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#FFCC00"><font FACE="Arial" size="1"><b>ã</b></font></td>
+    <td width="7%" height="19" align="center" bgcolor="#00FFFF"><font face="Arial" size="1"><b>x'66</b></font></td>
+    <td width="7%" height="19" align="center" bgcolor="#FF99FF"><font FACE="Arial" size="1"><b>Ã</b></font></td>
+    <td width="7%" height="19" align="center" bgcolor="#00FF00"><font face="Arial" size="1"><b>x'C3</b></font></td>
+    <td width="7%" height="19" align="center" bgcolor="#FFCC00"><font FACE="Arial" size="1"><b>Ã</b></font></td>
+  </tr>
+  <tr>
+    <td width="6%" height="19" align="center" bgcolor="#00FFFF"><b><font face="Arial" size="1">x'07</font></b></td>
+    <td width="6%" height="19" align="center" bgcolor="#FFFF00"><b><font face="Arial" size="1">DEL</font></b></td>
+    <td width="6%" height="19" align="center" bgcolor="#99FF66"><font face="Arial" size="1"><b>x'7F</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#FFFF00"><font face="Arial" size="1"><b>DEL</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#00FFFF"><font face="Arial" size="1"><b>x'27</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#FFFF00"><font face="Arial" size="1"><b>ESC</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#99FF66"><font face="Arial" size="1"><b>x'1B</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#FFFF00"><font face="Arial" size="1"><b>ESC</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#00FFFF"><font face="Arial" size="1"><b>x'47</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#FF99FF"><font FACE="Arial" size="1"><b>å</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#00FF00"><font face="Arial" size="1"><b>x'E5</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#FFCC00"><font FACE="Arial" size="1"><b>å</b></font></td>
+    <td width="7%" height="19" align="center" bgcolor="#00FFFF"><font face="Arial" size="1"><b>x'67</b></font></td>
+    <td width="7%" height="19" align="center" bgcolor="#FF99FF"><font FACE="Arial" size="1"><b>Å</b></font></td>
+    <td width="7%" height="19" align="center" bgcolor="#00FF00"><font face="Arial" size="1"><b>x'C5</b></font></td>
+    <td width="7%" height="19" align="center" bgcolor="#FFCC00"><font FACE="Arial" size="1"><b>Å</b></font></td>
+  </tr>
+  <tr>
+    <td width="6%" height="19" align="center" bgcolor="#00FFFF"><b><font face="Arial" size="1">x'08</font></b></td>
+    <td width="6%" height="19" align="center" bgcolor="#FFFF00"><b><font face="Arial" size="1">GE</font></b></td>
+    <td width="6%" height="19" align="center" bgcolor="#FF3300">&nbsp;</td>
+    <td width="6%" height="19" align="center" bgcolor="#FF3300">&nbsp;</td>
+    <td width="6%" height="19" align="center" bgcolor="#00FFFF"><font face="Arial" size="1"><b>x'28</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#000000">&nbsp;</td>
+    <td width="6%" height="19" align="center" bgcolor="#FF0000">&nbsp;</td>
+    <td width="6%" height="19" align="center" bgcolor="#FF0000">&nbsp;</td>
+    <td width="6%" height="19" align="center" bgcolor="#00FFFF"><font face="Arial" size="1"><b>x'48</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#FF99FF"><font FACE="Arial" size="1"><b>ç</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#00FF00"><font face="Arial" size="1"><b>x'E7</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#FFCC00"><font FACE="Arial" size="1"><b>ç</b></font></td>
+    <td width="7%" height="19" align="center" bgcolor="#00FFFF"><font face="Arial" size="1"><b>x'68</b></font></td>
+    <td width="7%" height="19" align="center" bgcolor="#FF99FF"><font FACE="Arial" size="1"><b>Ç</b></font></td>
+    <td width="7%" height="19" align="center" bgcolor="#00FF00"><font face="Arial" size="1"><b>x'C7</b></font></td>
+    <td width="7%" height="19" align="center" bgcolor="#FFCC00"><font FACE="Arial" size="1"><b>Ç</b></font></td>
+  </tr>
+  <tr>
+    <td width="6%" height="19" align="center" bgcolor="#00FFFF"><b><font face="Arial" size="1">x'09</font></b></td>
+    <td width="6%" height="19" align="center" bgcolor="#FFFF00"><b><font face="Arial" size="1">RPT</font></b></td>
+    <td width="6%" height="19" align="center" bgcolor="#FF3300">&nbsp;</td>
+    <td width="6%" height="19" align="center" bgcolor="#FF3300">&nbsp;</td>
+    <td width="6%" height="19" align="center" bgcolor="#00FFFF"><font face="Arial" size="1"><b>x'29</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#000000">&nbsp;</td>
+    <td width="6%" height="19" align="center" bgcolor="#FF0000">&nbsp;</td>
+    <td width="6%" height="19" align="center" bgcolor="#FF0000">&nbsp;</td>
+    <td width="6%" height="19" align="center" bgcolor="#00FFFF"><font face="Arial" size="1"><b>x'49</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#FF99FF"><font FACE="Arial" size="1"><b>ñ</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#00FF00"><font face="Arial" size="1"><b>x'F0</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#FFCC00"><font FACE="Arial" size="1"><b>ñ</b></font></td>
+    <td width="7%" height="19" align="center" bgcolor="#00FFFF"><font face="Arial" size="1"><b>x'69</b></font></td>
+    <td width="7%" height="19" align="center" bgcolor="#FF99FF"><font FACE="Arial" size="1"><b>Ñ</b></font></td>
+    <td width="7%" height="19" align="center" bgcolor="#00FF00"><font face="Arial" size="1"><b>x'D1</b></font></td>
+    <td width="7%" height="19" align="center" bgcolor="#FFCC00"><font FACE="Arial" size="1"><b>Ñ</b></font></td>
+  </tr>
+  <tr>
+    <td width="6%" height="19" align="center" bgcolor="#00FFFF"><b><font face="Arial" size="1">x'0A</font></b></td>
+    <td width="6%" height="19" align="center" bgcolor="#FFFF00"><b><font face="Arial" size="1">SMM</font></b></td>
+    <td width="6%" height="19" align="center" bgcolor="#FF3300">&nbsp;</td>
+    <td width="6%" height="19" align="center" bgcolor="#FF3300">&nbsp;</td>
+    <td width="6%" height="19" align="center" bgcolor="#00FFFF"><font face="Arial" size="1"><b>x'2A</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#FFFF00"><font face="Arial" size="1"><b>SM</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#FF0000">&nbsp;</td>
+    <td width="6%" height="19" align="center" bgcolor="#FF0000">&nbsp;</td>
+    <td width="6%" height="19" align="center" bgcolor="#00FFFF"><font face="Arial" size="1"><b>x'4A</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#FF99FF"><font FACE="Arial" size="1"><b>¢</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#00FF00"><font face="Arial" size="1"><b>x'A2</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#FFCC00"><font FACE="Arial" size="1"><b>¢</b></font></td>
+    <td width="7%" height="19" align="center" bgcolor="#00FFFF"><font face="Arial" size="1"><b>x'6A</b></font></td>
+    <td width="7%" height="19" align="center" bgcolor="#FF99FF"><font FACE="Arial" size="1"><b>¦</b></font></td>
+    <td width="7%" height="19" align="center" bgcolor="#00FF00"><font face="Arial" size="1"><b>x'A6</b></font></td>
+    <td width="7%" height="19" align="center" bgcolor="#FFCC00"><font FACE="Arial" size="1"><b>¦</b></font></td>
+  </tr>
+  <tr>
+    <td width="6%" height="19" align="center" bgcolor="#00FFFF"><b><font face="Arial" size="1">x'0B</font></b></td>
+    <td width="6%" height="19" align="center" bgcolor="#FFFF00"><b><font face="Arial" size="1">VT</font></b></td>
+    <td width="6%" height="19" align="center" bgcolor="#99FF66"><font face="Arial" size="1"><b>x'0B</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#FFFF00"><font face="Arial" size="1"><b>VT</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#00FFFF"><font face="Arial" size="1"><b>x'2B</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#FFFF00"><font face="Arial" size="1"><b>CU2</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#FF0000">&nbsp;</td>
+    <td width="6%" height="19" align="center" bgcolor="#FF0000">&nbsp;</td>
+    <td width="6%" height="19" align="center" bgcolor="#00FFFF"><font face="Arial" size="1"><b>x'4B</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#00FFFF"><font face="Arial" size="1"><b>.</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#00FF00"><font face="Arial" size="1"><b>x'2E</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#0099FF"><font face="Arial" size="1"><b>.</b></font></td>
+    <td width="7%" height="19" align="center" bgcolor="#00FFFF"><font face="Arial" size="1"><b>x'6B</b></font></td>
+    <td width="7%" height="19" align="center" bgcolor="#00FFFF"><font face="Arial" size="1"><b>,</b></font></td>
+    <td width="7%" height="19" align="center" bgcolor="#00FF00"><font face="Arial" size="1"><b>x'2C</b></font></td>
+    <td width="7%" height="19" align="center" bgcolor="#0099FF"><font face="Arial" size="1"><b>,</b></font></td>
+  </tr>
+  <tr>
+    <td width="6%" height="19" align="center" bgcolor="#00FFFF"><b><font face="Arial" size="1">x'0C</font></b></td>
+    <td width="6%" height="19" align="center" bgcolor="#FFFF00"><b><font face="Arial" size="1">FF</font></b></td>
+    <td width="6%" height="19" align="center" bgcolor="#99FF66"><font face="Arial" size="1"><b>x'0C</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#FFFF00"><font face="Arial" size="1"><b>FF</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#00FFFF"><font face="Arial" size="1"><b>x'2C</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#000000">&nbsp;</td>
+    <td width="6%" height="19" align="center" bgcolor="#FF0000">&nbsp;</td>
+    <td width="6%" height="19" align="center" bgcolor="#FF0000">&nbsp;</td>
+    <td width="6%" height="19" align="center" bgcolor="#00FFFF"><font face="Arial" size="1"><b>x'4C</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#00FFFF"><font face="Arial" size="1"><b>&lt;</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#00FF00"><font face="Arial" size="1"><b>x'3C</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#0099FF"><font face="Arial" size="1"><b>&lt;</b></font></td>
+    <td width="7%" height="19" align="center" bgcolor="#00FFFF"><font face="Arial" size="1"><b>x'6C</b></font></td>
+    <td width="7%" height="19" align="center" bgcolor="#00FFFF"><font face="Arial" size="1"><b>%</b></font></td>
+    <td width="7%" height="19" align="center" bgcolor="#00FF00"><font face="Arial" size="1"><b>x'25</b></font></td>
+    <td width="7%" height="19" align="center" bgcolor="#0099FF"><font face="Arial" size="1"><b>%</b></font></td>
+  </tr>
+  <tr>
+    <td width="6%" height="19" align="center" bgcolor="#00FFFF"><b><font face="Arial" size="1">x'0D</font></b></td>
+    <td width="6%" height="19" align="center" bgcolor="#FFFF00"><b><font face="Arial" size="1">CR</font></b></td>
+    <td width="6%" height="19" align="center" bgcolor="#99FF66"><font face="Arial" size="1"><b>x'0D</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#FFFF00"><font face="Arial" size="1"><b>CR</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#00FFFF"><font face="Arial" size="1"><b>x'2D</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#FFFF00"><font face="Arial" size="1"><b>ENQ</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#99FF66"><font face="Arial" size="1"><b>x'05</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#FFFF00"><font face="Arial" size="1"><b>ENQ</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#00FFFF"><font face="Arial" size="1"><b>x'4D</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#00FFFF"><font face="Arial" size="1"><b>(</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#00FF00"><font face="Arial" size="1"><b>x'28</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#0099FF"><font face="Arial" size="1"><b>(</b></font></td>
+    <td width="7%" height="19" align="center" bgcolor="#00FFFF"><font face="Arial" size="1"><b>x'6D</b></font></td>
+    <td width="7%" height="19" align="center" bgcolor="#00FFFF"><font face="Arial" size="1"><b>_</b></font></td>
+    <td width="7%" height="19" align="center" bgcolor="#00FF00"><font face="Arial" size="1"><b>x'5F</b></font></td>
+    <td width="7%" height="19" align="center" bgcolor="#0099FF"><font face="Arial" size="1"><b>_</b></font></td>
+  </tr>
+  <tr>
+    <td width="6%" height="19" align="center" bgcolor="#00FFFF"><b><font face="Arial" size="1">x'0E</font></b></td>
+    <td width="6%" height="19" align="center" bgcolor="#FFFF00"><b><font face="Arial" size="1">SO</font></b></td>
+    <td width="6%" height="19" align="center" bgcolor="#99FF66"><font face="Arial" size="1"><b>x'0E</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#FFFF00"><font face="Arial" size="1"><b>SO</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#00FFFF"><font face="Arial" size="1"><b>x'2E</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#FFFF00"><font face="Arial" size="1"><b>ACK</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#99FF66"><font face="Arial" size="1"><b>x'06</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#FFFF00"><font face="Arial" size="1"><b>ACK</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#00FFFF"><font face="Arial" size="1"><b>x'4E</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#00FFFF"><font face="Arial" size="1"><b>+</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#00FF00"><font face="Arial" size="1"><b>x'2B</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#0099FF"><font face="Arial" size="1"><b>+</b></font></td>
+    <td width="7%" height="19" align="center" bgcolor="#00FFFF"><font face="Arial" size="1"><b>x'6E</b></font></td>
+    <td width="7%" height="19" align="center" bgcolor="#00FFFF"><font face="Arial" size="1"><b>&gt;</b></font></td>
+    <td width="7%" height="19" align="center" bgcolor="#00FF00"><font face="Arial" size="1"><b>x'3E</b></font></td>
+    <td width="7%" height="19" align="center" bgcolor="#0099FF"><font face="Arial" size="1"><b>&gt;</b></font></td>
+  </tr>
+  <tr>
+    <td width="6%" height="19" align="center" bgcolor="#00FFFF"><b><font face="Arial" size="1">x'0F</font></b></td>
+    <td width="6%" height="19" align="center" bgcolor="#FFFF00"><b><font face="Arial" size="1">SI</font></b></td>
+    <td width="6%" height="19" align="center" bgcolor="#99FF66"><font face="Arial" size="1"><b>x'0F</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#FFFF00"><font face="Arial" size="1"><b>OF</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#00FFFF"><font face="Arial" size="1"><b>x'2F</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#FFFF00"><font face="Arial" size="1"><b>BEL</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#99FF66"><font face="Arial" size="1"><b>x'07</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#FFFF00"><font face="Arial" size="1"><b>BEL</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#00FFFF"><font face="Arial" size="1"><b>x'4F</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#00FFFF"><font face="Arial" size="1"><b>|</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#00FF00"><font face="Arial" size="1"><b>x'7C</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#0099FF"><font face="Arial" size="1"><b>|</b></font></td>
+    <td width="7%" height="19" align="center" bgcolor="#00FFFF"><font face="Arial" size="1"><b>x'6F</b></font></td>
+    <td width="7%" height="19" align="center" bgcolor="#00FFFF"><font face="Arial" size="1"><b>?</b></font></td>
+    <td width="7%" height="19" align="center" bgcolor="#00FF00"><font face="Arial" size="1"><b>x'3F</b></font></td>
+    <td width="7%" height="19" align="center" bgcolor="#0099FF"><font face="Arial" size="1"><b>?</b></font></td>
+  </tr>
+  <tr>
+    <td width="6%" height="19" align="center" bgcolor="#00FFFF"><b><font face="Arial" size="1">x'10</font></b></td>
+    <td width="6%" height="19" align="center" bgcolor="#FFFF00"><b><font face="Arial" size="1">DLE</font></b></td>
+    <td width="6%" height="19" align="center" bgcolor="#99FF66"><font face="Arial" size="1"><b>x'10</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#FFFF00"><font face="Arial" size="1"><b>DLE</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#00FFFF"><font face="Arial" size="1"><b>x'30</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#000000">&nbsp;</td>
+    <td width="6%" height="19" align="center" bgcolor="#FF3300">&nbsp;</td>
+    <td width="6%" height="19" align="center" bgcolor="#FF0000">&nbsp;</td>
+    <td width="6%" height="19" align="center" bgcolor="#00FFFF"><font face="Arial" size="1"><b>x'50</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#00FFFF"><font face="Arial" size="1"><b>&amp;</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#00FF00"><font face="Arial" size="1"><b>x'26</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#0099FF"><font face="Arial" size="1"><b>&amp;</b></font></td>
+    <td width="7%" height="19" align="center" bgcolor="#00FFFF"><font face="Arial" size="1"><b>x'70</b></font></td>
+    <td width="7%" height="19" align="center" bgcolor="#FF99FF"><font FACE="Arial" size="1"><b>ø</b></font></td>
+    <td width="7%" height="19" align="center" bgcolor="#00FF00"><font face="Arial" size="1"><b>x'F8</b></font></td>
+    <td width="7%" height="19" align="center" bgcolor="#FFCC00"><font FACE="Arial" size="1"><b>ø</b></font></td>
+  </tr>
+  <tr>
+    <td width="6%" height="20" align="center" bgcolor="#00FFFF"><b><font face="Arial" size="1">x'11</font></b></td>
+    <td width="6%" height="20" align="center" bgcolor="#FFFF00"><b><font face="Arial" size="1">DC1</font></b></td>
+    <td width="6%" height="20" align="center" bgcolor="#99FF66"><font face="Arial" size="1"><b>x'11</b></font></td>
+    <td width="6%" height="20" align="center" bgcolor="#FFFF00"><font face="Arial" size="1"><b>DC1</b></font></td>
+    <td width="6%" height="20" align="center" bgcolor="#00FFFF"><font face="Arial" size="1"><b>x'31</b></font></td>
+    <td width="6%" height="20" align="center" bgcolor="#000000">&nbsp;</td>
+    <td width="6%" height="20" align="center" bgcolor="#FF3300">&nbsp;</td>
+    <td width="6%" height="20" align="center" bgcolor="#FF0000">&nbsp;</td>
+    <td width="6%" height="20" align="center" bgcolor="#00FFFF"><font face="Arial" size="1"><b>x'51</b></font></td>
+    <td width="6%" height="20" align="center" bgcolor="#FF99FF"><font FACE="Arial" size="1"><b>é</b></font></td>
+    <td width="6%" height="20" align="center" bgcolor="#00FF00"><font face="Arial" size="1"><b>x'E9</b></font></td>
+    <td width="6%" height="20" align="center" bgcolor="#FFCC00"><font FACE="Arial" size="1"><b>é</b></font></td>
+    <td width="7%" height="20" align="center" bgcolor="#00FFFF"><font face="Arial" size="1"><b>x'71</b></font></td>
+    <td width="7%" height="20" align="center" bgcolor="#FF99FF"><font FACE="Arial" size="1"><b>É</b></font></td>
+    <td width="7%" height="20" align="center" bgcolor="#00FF00"><font face="Arial" size="1"><b>x'C9</b></font></td>
+    <td width="7%" height="20" align="center" bgcolor="#FFCC00"><font FACE="Arial" size="1"><b>É</b></font></td>
+  </tr>
+  <tr>
+    <td width="6%" height="19" align="center" bgcolor="#00FFFF"><b><font face="Arial" size="1">x'12</font></b></td>
+    <td width="6%" height="19" align="center" bgcolor="#FFFF00"><b><font face="Arial" size="1">DC2</font></b></td>
+    <td width="6%" height="19" align="center" bgcolor="#99FF66"><font face="Arial" size="1"><b>x'12</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#FFFF00"><font face="Arial" size="1"><b>DC2</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#00FFFF"><font face="Arial" size="1"><b>x'32</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#FFFF00"><font face="Arial" size="1"><b>SYN</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#99FF66"><font face="Arial" size="1"><b>x'16</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#FFFF00"><font face="Arial" size="1"><b>SYN</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#00FFFF"><font face="Arial" size="1"><b>x'52</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#FF99FF"><font FACE="Arial" size="1"><b>ê</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#00FF00"><font face="Arial" size="1"><b>x'EA</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#FFCC00"><font FACE="Arial" size="1"><b>ê</b></font></td>
+    <td width="7%" height="19" align="center" bgcolor="#00FFFF"><font face="Arial" size="1"><b>x'72</b></font></td>
+    <td width="7%" height="19" align="center" bgcolor="#FF99FF"><font FACE="Arial" size="1"><b>Ê</b></font></td>
+    <td width="7%" height="19" align="center" bgcolor="#00FF00"><font face="Arial" size="1"><b>x'CA</b></font></td>
+    <td width="7%" height="19" align="center" bgcolor="#FFCC00"><font FACE="Arial" size="1"><b>Ê</b></font></td>
+  </tr>
+  <tr>
+    <td width="6%" height="19" align="center" bgcolor="#00FFFF"><b><font face="Arial" size="1">x'13</font></b></td>
+    <td width="6%" height="19" align="center" bgcolor="#FFFF00"><b><font face="Arial" size="1">DCE</font></b></td>
+    <td width="6%" height="19" align="center" bgcolor="#99FF66"><font face="Arial" size="1"><b>x'13</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#FFFF00"><font face="Arial" size="1"><b>DC3</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#00FFFF"><font face="Arial" size="1"><b>x'33</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#000000">&nbsp;</td>
+    <td width="6%" height="19" align="center" bgcolor="#FF3300">&nbsp;</td>
+    <td width="6%" height="19" align="center" bgcolor="#FF0000">&nbsp;</td>
+    <td width="6%" height="19" align="center" bgcolor="#00FFFF"><font face="Arial" size="1"><b>x'53</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#FF99FF"><font FACE="Arial" size="1"><b>ë</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#00FF00"><font face="Arial" size="1"><b>x'EB</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#FFCC00"><font FACE="Arial" size="1"><b>ë</b></font></td>
+    <td width="7%" height="19" align="center" bgcolor="#00FFFF"><font face="Arial" size="1"><b>x'73</b></font></td>
+    <td width="7%" height="19" align="center" bgcolor="#FF99FF"><font FACE="Arial" size="1"><b>Ë</b></font></td>
+    <td width="7%" height="19" align="center" bgcolor="#00FF00"><font face="Arial" size="1"><b>x'CB</b></font></td>
+    <td width="7%" height="19" align="center" bgcolor="#FFCC00"><font FACE="Arial" size="1"><b>Ë</b></font></td>
+  </tr>
+  <tr>
+    <td width="6%" height="19" align="center" bgcolor="#00FFFF"><b><font face="Arial" size="1">x'14</font></b></td>
+    <td width="6%" height="19" align="center" bgcolor="#FFFF00"><b><font face="Arial" size="1">RES</font></b></td>
+    <td width="6%" height="19" align="center" bgcolor="#FF3300">&nbsp;</td>
+    <td width="6%" height="19" align="center" bgcolor="#FF3300">&nbsp;</td>
+    <td width="6%" height="19" align="center" bgcolor="#00FFFF"><font face="Arial" size="1"><b>x'34</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#FFFF00"><font face="Arial" size="1"><b>PP</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#FF3300">&nbsp;</td>
+    <td width="6%" height="19" align="center" bgcolor="#FF0000">&nbsp;</td>
+    <td width="6%" height="19" align="center" bgcolor="#00FFFF"><font face="Arial" size="1"><b>x'54</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#FF99FF"><font FACE="Arial" size="1"><b>è</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#00FF00"><font face="Arial" size="1"><b>x'E8</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#FFCC00"><font FACE="Arial" size="1"><b>è</b></font></td>
+    <td width="7%" height="19" align="center" bgcolor="#00FFFF"><font face="Arial" size="1"><b>x'74</b></font></td>
+    <td width="7%" height="19" align="center" bgcolor="#FF99FF"><font FACE="Arial" size="1"><b>È</b></font></td>
+    <td width="7%" height="19" align="center" bgcolor="#00FF00"><font face="Arial" size="1"><b>x'C8</b></font></td>
+    <td width="7%" height="19" align="center" bgcolor="#FFCC00"><font FACE="Arial" size="1"><b>È</b></font></td>
+  </tr>
+  <tr>
+    <td width="6%" height="19" align="center" bgcolor="#00FFFF"><b><font face="Arial" size="1">x'15</font></b></td>
+    <td width="6%" height="19" align="center" bgcolor="#FFFF00"><b><font face="Arial" size="1">NL</font></b></td>
+    <td width="6%" height="19" align="center" bgcolor="#99FF66"><font face="Arial" size="1"><b>x'0A</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#FFFF00"><font face="Arial" size="1"><b>LF</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#00FFFF"><font face="Arial" size="1"><b>x'35</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#FFFF00"><font face="Arial" size="1"><b>RS</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#FF3300">&nbsp;</td>
+    <td width="6%" height="19" align="center" bgcolor="#FF0000">&nbsp;</td>
+    <td width="6%" height="19" align="center" bgcolor="#00FFFF"><font face="Arial" size="1"><b>x'55</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#FF99FF"><font FACE="Arial" size="1"><b>í</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#00FF00"><font size="1" face="Arial"><b>x'ED</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#FFCC00"><font FACE="Arial" size="1"><b>í</b></font></td>
+    <td width="7%" height="19" align="center" bgcolor="#00FFFF"><font face="Arial" size="1"><b>x'75</b></font></td>
+    <td width="7%" height="19" align="center" bgcolor="#FF99FF"><font FACE="Arial" size="1"><b>Í</b></font></td>
+    <td width="7%" height="19" align="center" bgcolor="#00FF00"><font face="Arial" size="1"><b>x'CD</b></font></td>
+    <td width="7%" height="19" align="center" bgcolor="#FFCC00"><font FACE="Arial" size="1"><b>Í</b></font></td>
+  </tr>
+  <tr>
+    <td width="6%" height="19" align="center" bgcolor="#00FFFF"><b><font face="Arial" size="1">x'16</font></b></td>
+    <td width="6%" height="19" align="center" bgcolor="#FFFF00"><b><font face="Arial" size="1">BS</font></b></td>
+    <td width="6%" height="19" align="center" bgcolor="#99FF66"><font face="Arial" size="1"><b>x'0B</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#FFFF00"><font face="Arial" size="1"><b>BS</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#00FFFF"><font face="Arial" size="1"><b>x'36</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#FFFF00"><font face="Arial" size="1"><b>UC</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#FF3300">&nbsp;</td>
+    <td width="6%" height="19" align="center" bgcolor="#FF0000">&nbsp;</td>
+    <td width="6%" height="19" align="center" bgcolor="#00FFFF"><font face="Arial" size="1"><b>x'56</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#FF99FF"><font size="1" face="Arial"><b>î</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#00FF00"><font size="1" face="Arial"><b>x'EE</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#FFCC00"><font size="1" face="Arial"><b>î</b></font></td>
+    <td width="7%" height="19" align="center" bgcolor="#00FFFF"><font face="Arial" size="1"><b>x'76</b></font></td>
+    <td width="7%" height="19" align="center" bgcolor="#FF99FF"><font FACE="Arial" size="1"><b>Î</b></font></td>
+    <td width="7%" height="19" align="center" bgcolor="#00FF00"><font face="Arial" size="1"><b>x'CE</b></font></td>
+    <td width="7%" height="19" align="center" bgcolor="#FFCC00"><font FACE="Arial" size="1"><b>Î</b></font></td>
+  </tr>
+  <tr>
+    <td width="6%" height="19" align="center" bgcolor="#00FFFF"><b><font face="Arial" size="1">x'17</font></b></td>
+    <td width="6%" height="19" align="center" bgcolor="#FFFF00"><b><font face="Arial" size="1">IL</font></b></td>
+    <td width="6%" height="19" align="center" bgcolor="#FF3300">&nbsp;</td>
+    <td width="6%" height="19" align="center" bgcolor="#FF3300">&nbsp;</td>
+    <td width="6%" height="19" align="center" bgcolor="#00FFFF"><font face="Arial" size="1"><b>x'37</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#FFFF00"><font face="Arial" size="1"><b>EOT</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#99FF66"><font face="Arial" size="1"><b>x'04</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#FFFF00"><font face="Arial" size="1"><b>EOT</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#00FFFF"><font face="Arial" size="1"><b>x'57</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#FF99FF"><font size="1" face="Arial"><b>ï</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#00FF00"><font size="1" face="Arial"><b>x'EF</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#FFCC00"><font size="1" face="Arial"><b>ï</b></font></td>
+    <td width="7%" height="19" align="center" bgcolor="#00FFFF"><font face="Arial" size="1"><b>x'77</b></font></td>
+    <td width="7%" height="19" align="center" bgcolor="#FF99FF"><font FACE="Arial" size="1"><b>Ï</b></font></td>
+    <td width="7%" height="19" align="center" bgcolor="#00FF00"><font face="Arial" size="1"><b>x'CF</b></font></td>
+    <td width="7%" height="19" align="center" bgcolor="#FFCC00"><font FACE="Arial" size="1"><b>Ï</b></font></td>
+  </tr>
+  <tr>
+    <td width="6%" height="19" align="center" bgcolor="#00FFFF"><b><font face="Arial" size="1">x'18</font></b></td>
+    <td width="6%" height="19" align="center" bgcolor="#FFFF00"><b><font face="Arial" size="1">CAN</font></b></td>
+    <td width="6%" height="19" align="center" bgcolor="#99FF66"><font face="Arial" size="1"><b>x'18</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#FFFF00"><font face="Arial" size="1"><b>CAN</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#00FFFF"><font face="Arial" size="1"><b>x'38</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#FFFF00"><font face="Arial" size="1"><b>SBS</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#FF3300">&nbsp;</td>
+    <td width="6%" height="19" align="center" bgcolor="#FF0000">&nbsp;</td>
+    <td width="6%" height="19" align="center" bgcolor="#00FFFF"><font face="Arial" size="1"><b>x'58</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#FF99FF"><font size="1" face="Arial"><b>ì</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#00FF00"><font size="1" face="Arial"><b>x'EC</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#FFCC00"><font size="1" face="Arial"><b>ì</b></font></td>
+    <td width="7%" height="19" align="center" bgcolor="#00FFFF"><font face="Arial" size="1"><b>x'78</b></font></td>
+    <td width="7%" height="19" align="center" bgcolor="#FF99FF"><font FACE="Arial" size="1"><b>Ì</b></font></td>
+    <td width="7%" height="19" align="center" bgcolor="#00FF00"><font face="Arial" size="1"><b>x'CC</b></font></td>
+    <td width="7%" height="19" align="center" bgcolor="#FFCC00"><font FACE="Arial" size="1"><b>Ì</b></font></td>
+  </tr>
+  <tr>
+    <td width="6%" height="19" align="center" bgcolor="#00FFFF"><b><font face="Arial" size="1">x'19</font></b></td>
+    <td width="6%" height="19" align="center" bgcolor="#FFFF00"><b><font face="Arial" size="1">EM</font></b></td>
+    <td width="6%" height="19" align="center" bgcolor="#99FF66"><font face="Arial" size="1"><b>x'19</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#FFFF00"><font face="Arial" size="1"><b>EM</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#00FFFF"><font face="Arial" size="1"><b>x'39</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#FFFF00"><font face="Arial" size="1"><b>IT</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#FF3300">&nbsp;</td>
+    <td width="6%" height="19" align="center" bgcolor="#FF0000">&nbsp;</td>
+    <td width="6%" height="19" align="center" bgcolor="#00FFFF"><font face="Arial" size="1"><b>x'59</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#FF99FF"><font FACE="Arial" size="1"><b>ß</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#00FF00"><font face="Arial" size="1"><b>x'DF</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#FFCC00"><font FACE="Arial" size="1"><b>ß</b></font></td>
+    <td width="7%" height="19" align="center" bgcolor="#00FFFF"><font face="Arial" size="1"><b>x'79</b></font></td>
+    <td width="7%" height="19" align="center" bgcolor="#FF99FF"><font face="Arial" size="1"><b>`</b></font></td>
+    <td width="7%" height="19" align="center" bgcolor="#00FF00"><font face="Arial" size="1"><b>x'5F</b></font></td>
+    <td width="7%" height="19" align="center" bgcolor="#0099FF"><font face="Arial" size="1"><b>`</b></font></td>
+  </tr>
+  <tr>
+    <td width="6%" height="19" align="center" bgcolor="#00FFFF"><b><font face="Arial" size="1">x'1A</font></b></td>
+    <td width="6%" height="19" align="center" bgcolor="#FFFF00"><b><font face="Arial" size="1">UBS</font></b></td>
+    <td width="6%" height="19" align="center" bgcolor="#FF3300">&nbsp;</td>
+    <td width="6%" height="19" align="center" bgcolor="#FF3300">&nbsp;</td>
+    <td width="6%" height="19" align="center" bgcolor="#00FFFF"><font face="Arial" size="1"><b>x'3A</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#FFFF00"><font face="Arial" size="1"><b>RFF</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#FF3300">&nbsp;</td>
+    <td width="6%" height="19" align="center" bgcolor="#FF0000">&nbsp;</td>
+    <td width="6%" height="19" align="center" bgcolor="#00FFFF"><font face="Arial" size="1"><b>x'5A</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#00FFFF"><font face="Arial" size="1"><b>!</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#00FF00"><font face="Arial" size="1"><b>x'21</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#0099FF"><font face="Arial" size="1"><b>!</b></font></td>
+    <td width="7%" height="19" align="center" bgcolor="#00FFFF"><font face="Arial" size="1"><b>x'7A</b></font></td>
+    <td width="7%" height="19" align="center" bgcolor="#00FFFF"><font face="Arial" size="1"><b>:</b></font></td>
+    <td width="7%" height="19" align="center" bgcolor="#00FF00"><font face="Arial" size="1"><b>x'3A</b></font></td>
+    <td width="7%" height="19" align="center" bgcolor="#0099FF"><font face="Arial" size="1"><b>:</b></font></td>
+  </tr>
+  <tr>
+    <td width="6%" height="19" align="center" bgcolor="#00FFFF"><b><font face="Arial" size="1">x'1B</font></b></td>
+    <td width="6%" height="19" align="center" bgcolor="#FFFF00"><b><font face="Arial" size="1">CU1</font></b></td>
+    <td width="6%" height="19" align="center" bgcolor="#FF3300">&nbsp;</td>
+    <td width="6%" height="19" align="center" bgcolor="#FF3300">&nbsp;</td>
+    <td width="6%" height="19" align="center" bgcolor="#00FFFF"><font face="Arial" size="1"><b>x'3B</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#FFFF00"><font face="Arial" size="1"><b>CU3</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#FF3300">&nbsp;</td>
+    <td width="6%" height="19" align="center" bgcolor="#FF0000">&nbsp;</td>
+    <td width="6%" height="19" align="center" bgcolor="#00FFFF"><font face="Arial" size="1"><b>x'5B</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#00FFFF"><font face="Arial" size="1"><b>$</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#00FF00"><font face="Arial" size="1"><b>x'24</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#0099FF"><font face="Arial" size="1"><b>$</b></font></td>
+    <td width="7%" height="19" align="center" bgcolor="#00FFFF"><font face="Arial" size="1"><b>x'7B</b></font></td>
+    <td width="7%" height="19" align="center" bgcolor="#00FFFF"><font face="Arial" size="1"><b>#</b></font></td>
+    <td width="7%" height="19" align="center" bgcolor="#00FF00"><font face="Arial" size="1"><b>x'23</b></font></td>
+    <td width="7%" height="19" align="center" bgcolor="#0099FF"><font face="Arial" size="1"><b>#</b></font></td>
+  </tr>
+  <tr>
+    <td width="6%" height="19" align="center" bgcolor="#00FFFF"><b><font face="Arial" size="1">x'1C</font></b></td>
+    <td width="6%" height="19" align="center" bgcolor="#FFFF00"><b><font face="Arial" size="1">FS</font></b></td>
+    <td width="6%" height="19" align="center" bgcolor="#99FF66"><font face="Arial" size="1"><b>x'1C</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#FFFF00"><font face="Arial" size="1"><b>FS</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#00FFFF"><font face="Arial" size="1"><b>x'3C</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#FFFF00"><font face="Arial" size="1"><b>DC4</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#99FF66"><font face="Arial" size="1"><b>x'14</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#FFFF00"><font face="Arial" size="1"><b>DC4</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#00FFFF"><font face="Arial" size="1"><b>x'5C</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#00FFFF"><font face="Arial" size="1"><b>*</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#00FF00"><font face="Arial" size="1"><b>x'2A</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#0099FF"><font face="Arial" size="1"><b>*</b></font></td>
+    <td width="7%" height="19" align="center" bgcolor="#00FFFF"><font face="Arial" size="1"><b>x'7C</b></font></td>
+    <td width="7%" height="19" align="center" bgcolor="#00FFFF"><font face="Arial" size="1"><b>@</b></font></td>
+    <td width="7%" height="19" align="center" bgcolor="#00FF00"><font face="Arial" size="1"><b>x'40</b></font></td>
+    <td width="7%" height="19" align="center" bgcolor="#0099FF"><font face="Arial" size="1"><b>@</b></font></td>
+  </tr>
+  <tr>
+    <td width="6%" height="19" align="center" bgcolor="#00FFFF"><b><font face="Arial" size="1">x'1D</font></b></td>
+    <td width="6%" height="19" align="center" bgcolor="#FFFF00"><b><font face="Arial" size="1">GS</font></b></td>
+    <td width="6%" height="19" align="center" bgcolor="#99FF66"><font face="Arial" size="1"><b>x'1D</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#FFFF00"><font face="Arial" size="1"><b>GS</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#00FFFF"><font face="Arial" size="1"><b>x'3D</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#FFFF00"><font face="Arial" size="1"><b>NAK</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#99FF66"><font face="Arial" size="1"><b>x'15</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#FFFF00"><font face="Arial" size="1"><b>NAK</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#00FFFF"><font face="Arial" size="1"><b>x'5D</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#00FFFF"><font face="Arial" size="1"><b>)</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#00FF00"><font face="Arial" size="1"><b>x'29</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#0099FF"><font face="Arial" size="1"><b>)</b></font></td>
+    <td width="7%" height="19" align="center" bgcolor="#00FFFF"><font face="Arial" size="1"><b>x'7D</b></font></td>
+    <td width="7%" height="19" align="center" bgcolor="#00FFFF"><font face="Arial" size="1"><b>'</b></font></td>
+    <td width="7%" height="19" align="center" bgcolor="#00FF00"><font face="Arial" size="1"><b>x'27</b></font></td>
+    <td width="7%" height="19" align="center" bgcolor="#0099FF"><font face="Arial" size="1"><b>'</b></font></td>
+  </tr>
+  <tr>
+    <td width="6%" height="19" align="center" bgcolor="#00FFFF"><b><font face="Arial" size="1">x'1E</font></b></td>
+    <td width="6%" height="19" align="center" bgcolor="#FFFF00"><b><font face="Arial" size="1">RS</font></b></td>
+    <td width="6%" height="19" align="center" bgcolor="#99FF66"><font face="Arial" size="1"><b>x'1E</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#FFFF00"><font face="Arial" size="1"><b>RS</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#00FFFF"><font face="Arial" size="1"><b>x'3E</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#000000">&nbsp;</td>
+    <td width="6%" height="19" align="center" bgcolor="#FF3300">&nbsp;</td>
+    <td width="6%" height="19" align="center" bgcolor="#FF0000">&nbsp;</td>
+    <td width="6%" height="19" align="center" bgcolor="#00FFFF"><font face="Arial" size="1"><b>x'5E</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#00FFFF"><font face="Arial" size="1"><b>;</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#00FF00"><font face="Arial" size="1"><b>x'3B</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#0099FF"><font face="Arial" size="1"><b>;</b></font></td>
+    <td width="7%" height="19" align="center" bgcolor="#00FFFF"><font face="Arial" size="1"><b>x'7E</b></font></td>
+    <td width="7%" height="19" align="center" bgcolor="#00FFFF"><font face="Arial" size="1"><b>=</b></font></td>
+    <td width="7%" height="19" align="center" bgcolor="#00FF00"><font face="Arial" size="1"><b>x'3D</b></font></td>
+    <td width="7%" height="19" align="center" bgcolor="#0099FF"><font face="Arial" size="1"><b>=</b></font></td>
+  </tr>
+  <tr>
+    <td width="6%" height="19" align="center" bgcolor="#00FFFF"><b><font face="Arial" size="1">x'1F</font></b></td>
+    <td width="6%" height="19" align="center" bgcolor="#FFFF00"><b><font face="Arial" size="1">US</font></b></td>
+    <td width="6%" height="19" align="center" bgcolor="#99FF66"><font face="Arial" size="1"><b>x'1F</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#FFFF00"><font face="Arial" size="1"><b>US</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#00FFFF"><font face="Arial" size="1"><b>x'3F</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#FFFF00"><font face="Arial" size="1"><b>SUB</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#99FF66"><font face="Arial" size="1"><b>x'1A</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#FFFF00"><font face="Arial" size="1"><b>SUB</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#00FFFF"><font face="Arial" size="1"><b>x'5F</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#FF99FF"><font face="Arial" size="1"><b>^</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#00FF00"><font face="Arial" size="1"><b>x'5E</b></font></td>
+    <td width="6%" height="19" align="center" bgcolor="#0099FF"><font face="Arial" size="1"><b>^</b></font></td>
+    <td width="7%" height="19" align="center" bgcolor="#00FFFF"><font face="Arial" size="1"><b>x'7F</b></font></td>
+    <td width="7%" height="19" align="center" bgcolor="#00FFFF"><font face="Arial" size="1"><b>&quot;</b></font></td>
+    <td width="7%" height="19" align="center" bgcolor="#00FF00"><font face="Arial" size="1"><b>x'22</b></font></td>
+    <td width="7%" height="19" align="center" bgcolor="#0099FF"><font face="Arial" size="1"><b>&quot;</b></font></td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<table border="1" width="100%">
+  <tr>
+    <td width="8%" bgcolor="#000000">&nbsp;</td>
+    <td width="92%">No EBCDIC character defined</td>
+  </tr>
+  <tr>
+    <td width="8%" bgcolor="#00FFFF">&nbsp;</td>
+    <td width="92%">EBCDIC standard character</td>
+  </tr>
+  <tr>
+    <td width="8%" bgcolor="#FFFF00">&nbsp;</td>
+    <td width="92%">EBCDIC or ASCII control character</td>
+  </tr>
+  <tr>
+    <td width="8%" bgcolor="#FF0000">&nbsp;</td>
+    <td width="92%">No equivalent ASCII character</td>
+  </tr>
+  <tr>
+    <td width="8%" bgcolor="#FF99FF">&nbsp;</td>
+    <td width="92%">EBCDIC extensions supporting Latin-1 glyph</td>
+  </tr>
+  <tr>
+    <td width="8%" bgcolor="#0099FF">&nbsp;</td>
+    <td width="92%">ASCII-7 character</td>
+  </tr>
+  <tr>
+    <td width="8%" bgcolor="#00FF00">&nbsp;</td>
+    <td width="92%">ASCII/Latin1 character code</td>
+  </tr>
+  <tr>
+    <td width="8%" bgcolor="#FFCC00">&nbsp;</td>
+    <td width="92%">Latin-1 extension character</td>
+  </tr>
+</table>
+<p align="center">
+<img src="http://www.nidhog.com/cgi-bin/Count.cgi?df=ebcdictoascii1.dat">  
+</body>
+
+</html>
