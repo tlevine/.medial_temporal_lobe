@@ -1,0 +1,296 @@
+<!DOCTYPE html><html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="author" content="Henry Laxen">
+<link rel="icon" href="/static/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="/static/favicon.ico" type="image/x-icon">
+<link rel="stylesheet" type="text/css" href="/static/css/style.css">
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script><script type="text/javascript" src="/static/js/jquery-tooltip/jquery.tooltip.min.js"></script><script type="text/javascript" src="/static/js/style.js"></script>
+<link rel="stylesheet" type="text/css" href="/static/js/hscolour.css">
+<title>Memoizing function in Haskell</title>
+</head>
+<div id="pageHeader">Memoizing function in Haskell</div>
+<div id="pageContent">
+<a name="top"></a>
+<div class="navcontainer">
+<ul class="hlist">
+<li>
+<a href="#w1">The Wiki Version 1</a>
+</li>
+<li>
+<a href="#w2">The Wiki Version 2</a>
+</li>
+<li>
+<a href="#memoize">Memoize in All Generality</a>
+</li>
+<li>
+<a href="#answer">And the Answer Is</a>
+</li>
+<li>
+<a href="#conclusion">Conclusion</a>
+</li>
+</ul>
+</div>
+<author>Henry Laxen</author>
+<dateWritten>April 3, 2008</dateWritten>
+
+
+<p>
+I have struggled many a time with memoizing something or other
+in Haskell, and I have to admit that the brief section found on
+the haskell.org wiki site was usefull, but certainly not
+transparent.  Here is their *easy* way to memoize the fibonacci
+sequence
+</p>
+
+<div class="itembox">
+<span class="item"><a name="w1">The Wiki Version 1 </a><a href="#top">[top]</a></span>
+</div>
+
+
+<pre>
+<span class="hs-varop">&gt;</span> <span class="hs-definition">slow_fib</span> <span class="hs-keyglyph">::</span> <span class="hs-conid">Int</span> <span class="hs-keyglyph">-&gt;</span> <span class="hs-conid">Integer</span>
+<span class="hs-varop">&gt;</span> <span class="hs-definition">slow_fib</span> <span class="hs-num">0</span> <span class="hs-keyglyph">=</span> <span class="hs-num">0</span>
+<span class="hs-varop">&gt;</span> <span class="hs-definition">slow_fib</span> <span class="hs-num">1</span> <span class="hs-keyglyph">=</span> <span class="hs-num">1</span>
+<span class="hs-varop">&gt;</span> <span class="hs-definition">slow_fib</span> <span class="hs-varid">n</span> <span class="hs-keyglyph">=</span> <span class="hs-varid">slow_fib</span> <span class="hs-layout">(</span><span class="hs-varid">n</span><span class="hs-comment">-</span><span class="hs-num">2</span><span class="hs-layout">)</span> <span class="hs-varop">+</span> <span class="hs-varid">slow_fib</span> <span class="hs-layout">(</span><span class="hs-varid">n</span><span class="hs-comment">-</span><span class="hs-num">1</span><span class="hs-layout">)</span>
+<span class="hs-varop">&gt;</span> 
+<span class="hs-varop">&gt;</span> <span class="hs-definition">memoized_fib</span> <span class="hs-keyglyph">::</span> <span class="hs-conid">Int</span> <span class="hs-keyglyph">-&gt;</span> <span class="hs-conid">Integer</span>
+<span class="hs-varop">&gt;</span> <span class="hs-definition">memoized_fib</span> <span class="hs-keyglyph">=</span>
+<span class="hs-varop">&gt;</span>    <span class="hs-keyword">let</span> <span class="hs-varid">fib</span> <span class="hs-num">0</span> <span class="hs-keyglyph">=</span> <span class="hs-num">0</span>
+<span class="hs-varop">&gt;</span>        <span class="hs-varid">fib</span> <span class="hs-num">1</span> <span class="hs-keyglyph">=</span> <span class="hs-num">1</span>
+<span class="hs-varop">&gt;</span>        <span class="hs-varid">fib</span> <span class="hs-varid">n</span> <span class="hs-keyglyph">=</span> <span class="hs-varid">memoized_fib</span> <span class="hs-layout">(</span><span class="hs-varid">n</span><span class="hs-comment">-</span><span class="hs-num">2</span><span class="hs-layout">)</span> <span class="hs-varop">+</span> <span class="hs-varid">memoized_fib</span> <span class="hs-layout">(</span><span class="hs-varid">n</span><span class="hs-comment">-</span><span class="hs-num">1</span><span class="hs-layout">)</span>
+<span class="hs-varop">&gt;</span>    <span class="hs-keyword">in</span>  <span class="hs-layout">(</span><span class="hs-varid">map</span> <span class="hs-varid">fib</span> <span class="hs-keyglyph">[</span><span class="hs-num">0</span> <span class="hs-keyglyph">..</span><span class="hs-keyglyph">]</span> <span class="hs-varop">!!</span><span class="hs-layout">)</span>
+</pre>
+<p>This works great, and it is very simple.  The idea is to look up
+the previous value of the fibonacci function in a list, rather
+than recompute it.  The problem is that you have to know in
+advance what the arguments are that the fibonacci function will
+be called with.  In the case of fibonacci that is pretty easy,
+but what if you don't know the arguments in advance?  This
+simple technique isn't going to work.</p>
+
+<p>The wiki goes on to mention something about fixed points and
+recursion, which I have to admit I didn't understand. </p>
+
+<div class="itembox">
+<span class="item"><a name="w2">The Wiki Version 2 </a><a href="#top">[top]</a></span>
+</div>
+
+
+<pre>
+<span class="hs-varop">&gt;</span> <span class="hs-definition">fib</span> <span class="hs-keyglyph">::</span> <span class="hs-layout">(</span><span class="hs-conid">Int</span> <span class="hs-keyglyph">-&gt;</span> <span class="hs-conid">Integer</span><span class="hs-layout">)</span> <span class="hs-keyglyph">-&gt;</span> <span class="hs-conid">Int</span> <span class="hs-keyglyph">-&gt;</span> <span class="hs-conid">Integer</span>
+<span class="hs-varop">&gt;</span> <span class="hs-definition">fib</span> <span class="hs-varid">f</span> <span class="hs-num">0</span> <span class="hs-keyglyph">=</span> <span class="hs-num">1</span>
+<span class="hs-varop">&gt;</span> <span class="hs-definition">fib</span> <span class="hs-varid">f</span> <span class="hs-num">1</span> <span class="hs-keyglyph">=</span> <span class="hs-num">1</span>
+<span class="hs-varop">&gt;</span> <span class="hs-definition">fib</span> <span class="hs-varid">f</span> <span class="hs-varid">n</span> <span class="hs-keyglyph">=</span> <span class="hs-varid">f</span> <span class="hs-layout">(</span><span class="hs-varid">n</span><span class="hs-comment">-</span><span class="hs-num">1</span><span class="hs-layout">)</span> <span class="hs-varop">+</span> <span class="hs-varid">f</span> <span class="hs-layout">(</span><span class="hs-varid">n</span><span class="hs-comment">-</span><span class="hs-num">2</span><span class="hs-layout">)</span>
+<span class="hs-varop">&gt;</span>  
+<span class="hs-varop">&gt;</span> <span class="hs-definition">fibonacci</span> <span class="hs-keyglyph">::</span> <span class="hs-conid">Int</span> <span class="hs-keyglyph">-&gt;</span> <span class="hs-conid">Integer</span>
+<span class="hs-varop">&gt;</span> <span class="hs-definition">fibonacci</span> <span class="hs-keyglyph">=</span> <span class="hs-varid">memoFix</span> <span class="hs-varid">fib</span>
+<span class="hs-varop">&gt;</span> 
+<span class="hs-varop">&gt;</span> <span class="hs-definition">memoFix</span> <span class="hs-keyglyph">::</span> <span class="hs-layout">(</span><span class="hs-layout">(</span><span class="hs-varid">a</span> <span class="hs-keyglyph">-&gt;</span> <span class="hs-varid">b</span><span class="hs-layout">)</span> <span class="hs-keyglyph">-&gt;</span> <span class="hs-layout">(</span><span class="hs-varid">a</span> <span class="hs-keyglyph">-&gt;</span> <span class="hs-varid">b</span><span class="hs-layout">)</span><span class="hs-layout">)</span> <span class="hs-keyglyph">-&gt;</span> <span class="hs-varid">a</span> <span class="hs-keyglyph">-&gt;</span> <span class="hs-varid">b</span>
+<span class="hs-varop">&gt;</span> <span class="hs-definition">memoFix</span> <span class="hs-varid">f</span> <span class="hs-keyglyph">=</span>
+<span class="hs-varop">&gt;</span>    <span class="hs-keyword">let</span> <span class="hs-varid">mf</span> <span class="hs-keyglyph">=</span> <span class="hs-varid">memoize</span> <span class="hs-layout">(</span><span class="hs-varid">f</span> <span class="hs-varid">mf</span><span class="hs-layout">)</span> <span class="hs-keyword">in</span> <span class="hs-varid">mf</span>   
+</pre>
+<p>I suppose the `memoize` function is left as an exercise for the
+reader, but this reader didn't quite get it.  Also the role of
+`f` as an argument in fib didn't make sense to me.</p>
+
+<p>It wasn't until I found <a href="http://groups.google.bs/group/comp.lang.haskell/browse_thread/thread/89703a5aad523dc5">this post</a>  by Dick Thierbach
+discussing the memoization of the Ackerman function that things
+finally began to make sense.  I hope the explanation that
+follows will spare you, gentle reader, the hours of frustration
+I endured to finally get to the bottom of this memoization thing
+in haskell.</p>
+
+<div class="itembox">
+<span class="item"><a name="memoize">Memoize in All Generality </a><a href="#top">[top]</a></span>
+</div>
+
+<pre>
+<span class="hs-varop">&gt;</span> <span class="hs-keyword">import</span> <span class="hs-conid">Debug</span><span class="hs-varop">.</span><span class="hs-conid">Trace</span>
+<span class="hs-varop">&gt;</span> <span class="hs-keyword">import</span> <span class="hs-conid">Data</span><span class="hs-varop">.</span><span class="hs-conid">Map</span> <span class="hs-keyword">as</span> <span class="hs-conid">Map</span>
+<span class="hs-varop">&gt;</span> <span class="hs-keyword">import</span> <span class="hs-conid">Control</span><span class="hs-varop">.</span><span class="hs-conid">Monad</span><span class="hs-varop">.</span><span class="hs-conid">State</span><span class="hs-varop">.</span><span class="hs-conid">Lazy</span> <span class="hs-keyword">as</span> <span class="hs-conid">State</span>
+<span class="hs-varop">&gt;</span> 
+<span class="hs-varop">&gt;</span> 
+<span class="hs-varop">&gt;</span> <span class="hs-definition">tfib</span> <span class="hs-varid">m</span> <span class="hs-varid">n</span> <span class="hs-keyglyph">=</span> <span class="hs-varid">trace</span> <span class="hs-layout">(</span><span class="hs-str">"fibM called with "</span> <span class="hs-varop">++</span> <span class="hs-varid">show</span> <span class="hs-varid">m</span> <span class="hs-varop">++</span> <span class="hs-str">" returning "</span> <span class="hs-varop">++</span> <span class="hs-varid">show</span> <span class="hs-varid">n</span><span class="hs-layout">)</span> <span class="hs-varid">n</span>
+<span class="hs-varop">&gt;</span> 
+<span class="hs-varop">&gt;</span> <span class="hs-definition">fibM</span> <span class="hs-keyglyph">::</span> <span class="hs-conid">Monad</span> <span class="hs-varid">m</span> <span class="hs-keyglyph">=&gt;</span>  <span class="hs-layout">(</span><span class="hs-conid">Integer</span> <span class="hs-keyglyph">-&gt;</span> <span class="hs-varid">m</span> <span class="hs-conid">Integer</span><span class="hs-layout">)</span> <span class="hs-keyglyph">-&gt;</span> <span class="hs-conid">Integer</span> <span class="hs-keyglyph">-&gt;</span> <span class="hs-varid">m</span> <span class="hs-conid">Integer</span>
+<span class="hs-varop">&gt;</span> <span class="hs-definition">fibM</span> <span class="hs-varid">f'</span> <span class="hs-num">0</span> <span class="hs-keyglyph">=</span> <span class="hs-varid">return</span> <span class="hs-varop">$</span> <span class="hs-varid">tfib</span> <span class="hs-num">0</span> <span class="hs-num">1</span>
+<span class="hs-varop">&gt;</span> <span class="hs-definition">fibM</span> <span class="hs-varid">f'</span> <span class="hs-num">1</span> <span class="hs-keyglyph">=</span> <span class="hs-varid">return</span> <span class="hs-varop">$</span> <span class="hs-varid">tfib</span> <span class="hs-num">1</span> <span class="hs-num">1</span>
+<span class="hs-varop">&gt;</span> <span class="hs-definition">fibM</span> <span class="hs-varid">f'</span> <span class="hs-varid">n</span> <span class="hs-keyglyph">=</span> <span class="hs-keyword">do</span>
+<span class="hs-varop">&gt;</span>   <span class="hs-varid">a</span> <span class="hs-keyglyph">&lt;-</span> <span class="hs-varid">f'</span> <span class="hs-layout">(</span><span class="hs-varid">n</span><span class="hs-comment">-</span><span class="hs-num">1</span><span class="hs-layout">)</span> 
+<span class="hs-varop">&gt;</span>   <span class="hs-varid">b</span> <span class="hs-keyglyph">&lt;-</span> <span class="hs-varid">f'</span> <span class="hs-layout">(</span><span class="hs-varid">n</span><span class="hs-comment">-</span><span class="hs-num">2</span><span class="hs-layout">)</span>
+<span class="hs-varop">&gt;</span>   <span class="hs-varid">return</span> <span class="hs-varop">$</span> <span class="hs-varid">tfib</span> <span class="hs-varid">n</span> <span class="hs-layout">(</span><span class="hs-varid">a</span><span class="hs-varop">+</span><span class="hs-varid">b</span><span class="hs-layout">)</span>
+<span class="hs-varop">&gt;</span> 
+<span class="hs-varop">&gt;</span> <span class="hs-keyword">type</span> <span class="hs-conid">StateMap</span> <span class="hs-varid">a</span> <span class="hs-varid">b</span> <span class="hs-keyglyph">=</span> <span class="hs-conid">State</span> <span class="hs-layout">(</span><span class="hs-conid">Map</span> <span class="hs-varid">a</span> <span class="hs-varid">b</span><span class="hs-layout">)</span> <span class="hs-varid">b</span>
+<span class="hs-varop">&gt;</span> 
+<span class="hs-varop">&gt;</span> <span class="hs-definition">memoizeM</span> <span class="hs-keyglyph">::</span> <span class="hs-layout">(</span><span class="hs-conid">Show</span> <span class="hs-varid">a</span><span class="hs-layout">,</span> <span class="hs-conid">Show</span> <span class="hs-varid">b</span><span class="hs-layout">,</span> <span class="hs-conid">Ord</span> <span class="hs-varid">a</span><span class="hs-layout">)</span> <span class="hs-keyglyph">=&gt;</span> 
+<span class="hs-varop">&gt;</span>             <span class="hs-layout">(</span><span class="hs-layout">(</span><span class="hs-varid">a</span> <span class="hs-keyglyph">-&gt;</span> <span class="hs-conid">StateMap</span> <span class="hs-varid">a</span> <span class="hs-varid">b</span><span class="hs-layout">)</span> <span class="hs-keyglyph">-&gt;</span> <span class="hs-layout">(</span><span class="hs-varid">a</span> <span class="hs-keyglyph">-&gt;</span> <span class="hs-conid">StateMap</span> <span class="hs-varid">a</span> <span class="hs-varid">b</span><span class="hs-layout">)</span><span class="hs-layout">)</span> <span class="hs-keyglyph">-&gt;</span> <span class="hs-layout">(</span><span class="hs-varid">a</span> <span class="hs-keyglyph">-&gt;</span> <span class="hs-varid">b</span><span class="hs-layout">)</span>
+<span class="hs-varop">&gt;</span> <span class="hs-definition">memoizeM</span> <span class="hs-varid">t</span> <span class="hs-varid">x</span> <span class="hs-keyglyph">=</span> <span class="hs-varid">evalState</span> <span class="hs-layout">(</span><span class="hs-varid">f</span> <span class="hs-varid">x</span><span class="hs-layout">)</span> <span class="hs-conid">Map</span><span class="hs-varop">.</span><span class="hs-varid">empty</span> <span class="hs-keyword">where</span>
+<span class="hs-varop">&gt;</span>   <span class="hs-varid">g</span> <span class="hs-varid">x</span> <span class="hs-keyglyph">=</span> <span class="hs-keyword">do</span>
+<span class="hs-varop">&gt;</span>     <span class="hs-varid">y</span> <span class="hs-keyglyph">&lt;-</span> <span class="hs-varid">t</span> <span class="hs-varid">f</span> <span class="hs-varid">x</span>  
+<span class="hs-varop">&gt;</span>     <span class="hs-varid">m</span> <span class="hs-keyglyph">&lt;-</span> <span class="hs-varid">get</span>
+<span class="hs-varop">&gt;</span>     <span class="hs-varid">put</span> <span class="hs-varop">$</span> <span class="hs-conid">Map</span><span class="hs-varop">.</span><span class="hs-varid">insert</span> <span class="hs-varid">x</span> <span class="hs-varid">y</span> <span class="hs-varid">m</span>
+<span class="hs-varop">&gt;</span>     <span class="hs-varid">newM</span> <span class="hs-keyglyph">&lt;-</span> <span class="hs-varid">get</span>
+<span class="hs-varop">&gt;</span>     <span class="hs-varid">return</span> <span class="hs-varop">$</span> <span class="hs-varid">trace</span> <span class="hs-layout">(</span><span class="hs-str">"Map now contains\n"</span> <span class="hs-varop">++</span> <span class="hs-conid">Map</span><span class="hs-varop">.</span><span class="hs-varid">showTree</span> <span class="hs-varid">newM</span><span class="hs-layout">)</span> <span class="hs-varid">y</span>
+<span class="hs-varop">&gt;</span>   <span class="hs-varid">f</span> <span class="hs-varid">x</span> <span class="hs-keyglyph">=</span> <span class="hs-varid">get</span> <span class="hs-varop">&gt;&gt;=</span> <span class="hs-keyglyph">\</span><span class="hs-varid">m</span> <span class="hs-keyglyph">-&gt;</span> <span class="hs-varid">maybe</span> <span class="hs-layout">(</span><span class="hs-varid">g</span> <span class="hs-varid">x</span><span class="hs-layout">)</span> <span class="hs-varid">return</span> <span class="hs-layout">(</span><span class="hs-conid">Map</span><span class="hs-varop">.</span><span class="hs-varid">lookup</span> <span class="hs-varid">x</span> <span class="hs-varid">m</span><span class="hs-layout">)</span>
+<span class="hs-varop">&gt;</span> 
+<span class="hs-varop">&gt;</span> 
+<span class="hs-varop">&gt;</span> <span class="hs-definition">fib</span> <span class="hs-varid">n</span> <span class="hs-keyglyph">=</span> <span class="hs-varid">memoizeM</span> <span class="hs-varid">fibM</span> <span class="hs-varid">n</span>
+<span class="hs-varop">&gt;</span> 
+</pre>
+<p>Let's look at this, a little at a time.  The interesting
+function is `memoizeM`, so we'll start there.  `evalState` lives
+in the Control.Mondad.State.Lazy library, and make it easy to
+keep an internal state within its "sphere."  The internal state
+we are keeping, in this instance, is a map of all of the
+previous calls to the `fibM` function, as well as the results it
+returns.  Let's take a closer look at how this works.  We start
+off with: `evalState (f x) Map.empty` where f is defined as: `f
+x = get &gt;&gt;= \m -&gt; maybe (g x) return (Map.lookup x m)`.  `f`
+gets the internal state, which is the current map, (initially
+empty of course.)  It then tries to lookup `x` in this map.  If
+`Map.lookup` succeeds, returning a `Just n` value, we are done,
+and strip the `Just` off with the maybe function.  Life is good.
+If `Map.lookup` returns `Nothing`, the maybe function returns is
+*default value*, which in this case is `(g x)`.  So next we must
+explore what `g` is doing.</p>
+
+<p>`g` is actually very simple, though there is one subtle feature
+that I was too dense to appreciate without some mental
+gymnastics.  The subtlety appears right off the bat in line 46,
+namely `y &lt;- t f x`. `t` is the function that we were originally
+called with, in this case it is `fibM`.  `t` is called with the
+function we just looked at, namely `f` as its first argument,
+and x, the value we are looking for, ie. the *x'th* Fibonacci
+number, as the second argument.  So, lets look at `fibM` and
+bathe in the glory of enlightenment.  The first argument to
+`fibM` is a function, which in this case is our old friend
+`f`. But `f` role in life is to lookup a previously computed
+result, and return it.  Since `f` is being called with `(n-1)`
+and `(n-2)`, this result will exist and be returned immediately.
+So now we finally understand why `fibM`'s first argument is a
+function, so we can *thread* the memoization function through
+it, grab the arguments and the result, and **memoize it!**.  The
+rest of `g` is just gravy now.  In line 47 we retrieve our map,
+an in line 48 we insert the argument and the result into the
+map.  The beauty of this approach is that we do not have to know
+the arguments in advance, as we did in the first version of the
+memoized fibonacci function.  Furthermore, this appoach will
+work with any function we want to memoize.  The scheme is to
+rewrite the function so that it takes exactly two arguments.
+The first is a fucntion which will do the memoization, and the
+second will be a tuple of all of the required arguments for the
+function.  That way, the tuple will be the key in the map, and
+whatever the function returns will be the value.  We **do not
+need to know the arguments in advance.** The `memoizeM` function
+takes care of keeping track of those for us.</p>
+
+<div class="itembox">
+<span class="item"><a name="answer">And the Answer Is </a><a href="#top">[top]</a></span>
+</div>
+
+
+<p>Here is the output of the above using the wonderful
+`Debug.Trace` module to allow us to watch the whole thing in
+action.  Notice that the map is built up piece by piece, as the
+fibonacci function is called, not all at once for all possible
+arguments.  This may not seem like a big deal for fibonacci, but
+for Ackerman, arguments get big, very big, and using a list or
+an array to hold the lookup table just isn't feasible.  Life is
+beautiful, once again.</p>
+
+<hr>
+
+<pre>
+
+*Main        fib 5  
+Loading package array-0.1.0.0 ... linking ... done.  
+Loading package containers-0.1.0.1 ... linking ... done.  
+Loading package mtl-1.1.0.0 ... linking ... done.  
+fibM called with 1 returning 1  
+fibM called with 0 returning 1  
+Map now contains  
+1:=1  
+  
+Map now contains  
+1:=1  
++--0:=1  
++--|  
+  
+fibM called with 2 returning 2  
+Map now contains  
+1:=1  
++--0:=1  
++--2:=2  
+  
+fibM called with 3 returning 3  
+Map now contains  
+1:=1  
++--0:=1  
++--2:=2  
+   +--|  
+   +--3:=3  p
+  
+fibM called with 4 returning 5  
+Map now contains  
+1:=1  
++--0:=1  
++--3:=3  
+   +--2:=2  
+   +--4:=5  
+  
+fibM called with 5 returning 8  
+Map now contains  
+1:=1  
++--0:=1  
++--3:=3  
+   +--2:=2  
+   +--4:=5  
+      +--|  
+      +--5:=8  
+  
+8  
+*Main          
+</pre>
+  
+<div class="itembox">
+<span class="item"><a name="conclusion">Conclusion </a><a href="#top">[top]</a></span>
+</div>
+
+<p>Well, gentle reader, there you have it.  At this point I hope it
+is obvious how to memoize just about any function you can dream
+up with Haskell.  If there is something in this article that you
+feel needs further explanation, please drop me a line at
+*nadine.and.henry@pobox.com* and I'll do my best to clarify
+things.  I will leave you with a thought that should be
+emblazoned deep within the brains of just about every programmer
+I know.  **Better is the enemy of good.** The rest is silence.</p>
+
+
+This file is also available 
+<a href="/haskell/memofib.lhs">as an lhs file</a> 
+if you want to play with it.  
+
+<a href="http://flattr.com/thing/599115/All-about-Nadine-and-Henry" target="_blank"><img src="http://api.flattr.com/button/flattr-badge-large.png" alt="Flattr this" title="Flattr this" border="0"></a>
+<div id="disqus_thread"></div>
+<script type="text/javascript" src="http://nadineloveshenry.disqus.com/combination_widget.js?num_items=5&amp;hide_mods=0&amp;color=blue&amp;default_tab=recent&amp;excerpt_length=200"></script><a href="http://disqus.com/">Powered by Disqus</a>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+</noscript>
+<div id="quote">
+<p></p>Quote of the day:<br>
+<em>Illegal aliens have always been a
+  problem in the United States. Ask any Indian.</em>
+<br>
+<strong>Robert Orben</strong>
+<p></p>
+</div>
+<p>
+<a href="/sitemap.html"> Sitemap </a>
+<br> Go up to <a href="/haskell/index.html">Haskell</a> Go up to <a href="/index.html">Home Page of Nadine Loves Henry</a>
+
+<br> Continue with <a href="/haskell/euler_problem_191.html">Solving Project Euler Problem 191</a>
+
+<br>
+</p>
+</div>
+</html>

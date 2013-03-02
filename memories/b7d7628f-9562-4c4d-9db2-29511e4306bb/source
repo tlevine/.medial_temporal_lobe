@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>
+ePDX: Portland's Tech Directory
+</title>
+<meta content='width=device-width, user-scalable=no' name='viewport'>
+<link href='/opensearch.xml' rel='search' title='ePDX' type='application/opensearchdescription+xml'>
+<link href="/stylesheets/compiled/basic_mobile.css?1336095336" media="all" rel="stylesheet" type="text/css" />
+<link href="/stylesheets/compiled/advanced_mobile.css?1336095333" media="only screen and (max-device-width: 960px)" rel="stylesheet" type="text/css" />
+<link href="/stylesheets/compiled/desktop.css?1336095338" media="all and (min-device-width: 961px)" rel="stylesheet" type="text/css" />
+
+<!--[if lt IE 9]>
+<link href="/stylesheets/compiled/desktop.css?1336095338" media="all" rel="stylesheet" type="text/css" />
+<![endif]-->
+<script src="/javascripts/lib/jquery-1.5.js?1336095255" type="text/javascript"></script>
+<script src="/javascripts/lib/jquery.hotkeys.js?1336095255" type="text/javascript"></script>
+<script src="/javascripts/lib/jquery.placeholder.min.js?1336095255" type="text/javascript"></script>
+<script src="/javascripts/lib/json2.js?1336095255" type="text/javascript"></script>
+<script src="/javascripts/lib/underscore.js?1336095255" type="text/javascript"></script>
+<script src="/javascripts/lib/backbone.js?1336095255" type="text/javascript"></script>
+<script src="/javascripts/citizenry.js?1336095255" type="text/javascript"></script>
+<script src="/javascripts/rails.js?1336095255" type="text/javascript"></script>
+<script>
+$(function() { $('#flash .message.success, #flash .message.notice').delay(4000).hide('blind'); });
+</script>
+<meta content="authenticity_token" name="csrf-param" />
+<meta content="GgKbXNORb4u448KDG96WFma1BIE2FnYvlwsiR1wSkbI=" name="csrf-token" />
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-168427-12']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+</head>
+<body class='site site_index not_signed_in'>
+<div id='header'>
+<div class='inner_container'>
+<h1>
+<a href='/'>
+<span>e</span>PDX
+<img class='home_marker' height='12' src='/images/home_12x12.png' width='12'>
+</a>
+</h1>
+<div id='account_box'>
+<div id='global_sign_in'>
+<a href="/sign_in" id="sign_in_link">Sign In / Join</a>
+</div>
+</div>
+<ul id='main_nav'>
+<li><a href="/people" class="people">People</a></li>
+<li><a href="/companies" class="companies">Companies</a></li>
+<li><a href="/groups" class="groups">Groups</a></li>
+<li><a href="/projects" class="projects">Projects &amp; Products</a></li>
+<li><a href="/resources" class="resources">Resources</a></li>
+<!-- %li= link_to "Events", 'http://calagator.org', :class => 'events' -->
+</ul>
+<form action='/search' id='global_search' method='get'>
+<input autosave='citizenry_global_search' name='q' placeholder='Search…' results='10' type='search'>
+</form>
+</div>
+<div id='global_sign_in_form'>
+<div class='sign_in_form'>
+<form accept-charset="UTF-8" action="/user_sessions" class="formtastic sign_in_data" id="new_sign_in_data" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="GgKbXNORb4u448KDG96WFma1BIE2FnYvlwsiR1wSkbI=" /></div>
+<li class="string required" id="sign_in_data_email_input"><label for="sign_in_data_email">Email address<abbr title="required">*</abbr></label><input autocapitalize="off" autocorrect="off" id="sign_in_data_email" name="sign_in_data[email]" type="text" /></li>
+<li class="select required" id="sign_in_data_provider_input"><label for="sign_in_data_provider">Sign in using…<abbr title="required">*</abbr></label><select id="sign_in_data_provider" name="sign_in_data[provider]"><option value="auto">Choose automatically</option>
+<option value="twitter">Twitter</option>
+<option value="open_id">OpenID</option>
+<option value="google">Google</option>
+<option value="yahoo">Yahoo</option>
+<option value="facebook">Facebook</option>
+<option value="linked_in">LinkedIn</option>
+<option value="github">GitHub</option>
+<option value="foursquare">Foursquare</option></select></li>
+<li class="commit"><input class="create" name="commit" type="submit" value="Sign In" /></li>
+</form>
+</div>
+
+</div>
+</div>
+<div id='content'>
+
+
+<div id='site_intro'>
+A community-edited guide to the <span class="awesome">awesome tech community</span> of Portland, Oregon
+</div>
+<ul id='front_nav'>
+<h2 id='home_to'>Home to</h2>
+<li class='people'><a href="/people"><span class="count">588 </span>People</a></li>
+<li class='companies'><a href="/companies"><span class="count">145 </span>Companies</a></li>
+<li class='groups'><a href="/groups"><span class="count">102 </span>Groups</a></li>
+<li class='projects'><a href="/projects"><span class="count">23 </span>Projects &amp; Products</a></li>
+<li class='resources'><a href="/resources"><span class="count">40 </span>Resources</a></li>
+<li class='events'><a href="http://calagator.org/events"><span class="count">126 </span>Upcoming events on Calagator</a></li>
+</ul>
+
+</div>
+<div id='footer'>
+<div id='citizenry_credit'>
+Powered by <a href="http://github.com/reidab/citizenry/">Citizenry</a>.
+</div>
+<div id='hosting_credit'>
+Hosting thanks to <a href="http://www.networkredux.com/">Network Redux</a>.
+</div>
+<div id='contact_link'>
+Questions? Comments? Desires? Email <a href="mailto:admin@epdx.org">admin@epdx.org</a>
+</div>
+<div id='twitter_link'>
+Follow <a href="https://twitter.com/e_pdx">@e_pdx</a> on Twitter
+</div>
+</div>
+</body>
+</html>

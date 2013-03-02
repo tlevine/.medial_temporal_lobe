@@ -1,0 +1,2108 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+        
+    <title>dictionary - How to define hash tables in bash? - Stack Overflow</title>
+    <link rel="shortcut icon" href="http://cdn.sstatic.net/stackoverflow/img/favicon.ico">
+    <link rel="apple-touch-icon image_src" href="http://cdn.sstatic.net/stackoverflow/img/apple-touch-icon.png">
+    <link rel="search" type="application/opensearchdescription+xml" title="Stack Overflow" href="/opensearch.xml">
+    
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script type="text/javascript" src="http://cdn.sstatic.net/js/stub.js?v=0e6659bdc0d4"></script>
+    <link rel="stylesheet" type="text/css" href="http://cdn.sstatic.net/stackoverflow/all.css?v=3e457d092e12">
+    
+    <meta name="relativepagescore" content="372239">
+    <link rel="canonical" href="http://stackoverflow.com/questions/1494178/how-to-define-hash-tables-in-bash">
+    <link rel="alternate" type="application/atom+xml" title="Feed for question 'How to define hash tables in bash?'" href="/feeds/question/1494178">
+    <script type="text/javascript">
+        
+        StackExchange.ready(function () {
+
+
+            
+            StackExchange.question.init({showAnswerHelp:true,totalCommentCount:2,shownCommentCount:2,highlightColor:'#F4A83D',backgroundColor:'#FFF',questionId:1494178});
+
+            styleCode();
+
+                StackExchange.realtime.subscribeToQuestion('1', '1494178');
+            
+                
+        });
+    </script>
+
+
+    <script type="text/javascript">
+        StackExchange.init({"stackAuthUrl":"https://stackauth.com","serverTime":1362149091,"styleCode":true,"enableUserHovercards":true,"site":{"name":"Stack Overflow","description":"Q&A for professional and enthusiast programmers","isNoticesTabEnabled":true,"recaptchaPublicKey":"6LdchgIAAAAAAJwGpIzRQSOFaO0pU6s44Xt8aTwc","enableSocialMediaInSharePopup":true,"useNewImageUploader":true},"user":{"fkey":"b1d6be481b40fd380234661292d90a70","isAnonymous":true}});
+        StackExchange.using.setCacheBreakers({"js/prettify-full.js":"c862bf93b3ec","js/moderator.js":"81010b001b1a","js/full-anon.js":"7191aa0ce777","js/full.js":"d41b10e6d878","js/wmd.js":"ad263f4afbf9","js/third-party/jquery.autocomplete.min.js":"e5f01e97f7c3","js/mobile.js":"6eb68240242f","js/help.js":"fc9fb0517db2","js/tageditor.js":"450c9e8426fc","js/tageditornew.js":"ef08d419a8ca","js/inline-tag-editing.js":"e4df58a07229","js/revisions.js":"7273bb714bba","js/review.js":"791d3545dc89","js/tagsuggestions.js":"c019341b234d","js/post-validation.js":"f8c360fec8ba"});
+        
+    </script>
+
+
+    <script type="text/javascript">
+        StackExchange.using(
+            "gps",
+            function () {
+                StackExchange.gps.init(false);
+            }
+        );
+    </script>
+
+</head>
+<body class="question-page">
+    <noscript><div id="noscript-padding"></div></noscript>
+    <div id="notify-container"></div>
+    <div id="overlay-header"></div>
+    <div id="custom-header"></div>
+
+    <div class="container">
+        <div id="header">
+            <div id="portalLink">
+                <a class="genu" href="http://stackexchange.com" onclick="StackExchange.ready(function(){genuwine.click();});return false;">Stack Exchange</a>
+            </div>
+            <div id="topbar">
+                <div id="hlinks">
+                    
+
+
+
+
+
+
+
+
+
+<span id="hlinks-user">
+
+</span>
+<span id="hlinks-nav">
+                   <a href="/users/login?returnurl=%2fquestions%2f1494178%2fhow-to-define-hash-tables-in-bash">log in</a>
+
+ <span class="lsep">|</span>
+                    <a href="http://careers.stackoverflow.com">careers 2.0</a>
+
+ <span class="lsep">|</span>
+
+</span>
+<span id="hlinks-custom">
+        <a href="http://chat.stackoverflow.com">chat</a>
+
+ <span class="lsep">|</span>
+            <a href="http://meta.stackoverflow.com">meta</a>
+
+ <span class="lsep">|</span>
+        <a href="/about">about</a>
+
+ <span class="lsep">|</span>
+    <a href="/faq">faq</a>
+
+</span>
+                </div>
+                <div id="hsearch">
+                    <form id="search" action="/search" method="get" autocomplete="off">
+                    <div>
+                        <input autocomplete="off" name="q" class="textbox" placeholder="search" tabindex="1" type="text" maxlength="240" size="28" value="">
+                    </div>
+                    </form>
+                </div>
+            </div>
+            <br class="cbt">
+            <div id="hlogo">
+                <a href="/" >Stack Overflow</a>
+            </div>
+            <div id="hmenus">
+                <div class="nav mainnavs">
+                    <ul>
+                        <li class="youarehere"><a id="nav-questions" href="/questions">Questions</a></li>
+                        <li><a id="nav-tags" href="/tags">Tags</a></li>
+                        <li><a id="nav-users" href="/users">Users</a></li>
+                        <li><a id="nav-badges" href="/badges">Badges</a></li>
+                        <li><a id="nav-unanswered" href="/unanswered">Unanswered</a></li>
+                    </ul>
+                </div>
+                <div class="nav askquestion">
+                    <ul>
+                        <li>
+                            <a id="nav-askquestion"  href="/questions/ask">Ask Question</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        
+
+
+
+        <div id="content">
+            
+
+<div itemscope itemtype="http://schema.org/Article">
+<link itemprop="image" href="http://cdn.sstatic.net/stackoverflow/img/apple-touch-icon.png">
+<div id="question-header">
+    <h1 itemprop="name"><a href="/questions/1494178/how-to-define-hash-tables-in-bash" class="question-hyperlink">How to define hash tables in bash?</a></h1>
+</div>
+<div id="mainbar">
+
+
+
+<div class="question" data-questionid="1494178"  id="question">
+    
+            <div class="everyonelovesstackoverflow" id="adzerk1">
+        </div>
+
+
+    <table>
+        <tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+    <input type="hidden" value="1494178">
+    <a class="vote-up-off" title="This question shows research effort; it is useful and clear (click again to undo)">up vote</a>
+    <span class="vote-count-post ">51</span>
+    <a class="vote-down-off" title="This question does not show any research effort; it is unclear or not useful (click again to undo)">down vote</a>
+    
+    <a class="star-off" href="#" title="This is a favorite question (click again to undo)">favorite</a>
+    <div class="favoritecount"><b>21</b></div>   
+
+ 
+</div>
+
+            </td>
+            
+<td class="postcell">
+<div>
+    <div class="post-text" itemprop="description">
+        <p>Just what title says. I am surprised by insufficiency of results in Google search for this question! What I want to is the equivalent of <a href="http://diveintopython.net/getting_to_know_python/dictionaries.html">Python dictionaries</a> but in bash (and hence, should work across OSX, Ubuntu and other major Linux distributions).</p>
+
+    </div>
+    <div class="post-taglist">
+        <a href="/questions/tagged/bash" class="post-tag" title="show questions tagged 'bash'" rel="tag">bash</a> <a href="/questions/tagged/dictionary" class="post-tag" title="show questions tagged 'dictionary'" rel="tag">dictionary</a> <a href="/questions/tagged/hashtable" class="post-tag" title="show questions tagged 'hashtable'" rel="tag">hashtable</a> <a href="/questions/tagged/associative-array" class="post-tag" title="show questions tagged 'associative-array'" rel="tag">associative-array</a> 
+    </div>
+    <table class="fw">
+    <tr>
+    <td class="vt">
+
+
+
+
+
+
+
+
+
+<div class="post-menu"><a href="/q/1494178" title="short permalink to this question" class="short-link" id="link-post-1494178">share</a><span class="lsep">|</span><a href="/posts/1494178/edit" class="suggest-edit-post" title="">improve this question</a></div>            </td>
+    <td align="right" class="post-signature">
+
+
+    <div class="user-info user-hover">
+        <div class="user-action-time">
+                            edited
+                             <a href="/posts/1494178/revisions" title="show all edits to this post"><span title="2012-08-04 01:55:22Z" class="relativetime">Aug 4 '12 at 1:55</span></a>
+
+        </div>
+        <div class="user-gravatar32">
+            <a href="/users/1288/bill-the-lizard"><div class=""><img src="http://www.gravatar.com/avatar/fc763c6ff6c160ddad05741e87e517b6?s=32&d=identicon&r=PG" alt="" width="32" height="32"></div></a>
+        </div>
+        <div class="user-details">
+            <a href="/users/1288/bill-the-lizard">Bill the Lizard</a><span class="mod-flair" title="moderator">&#9830;</span><br>
+            <span class="reputation-score" title="reputation score 105086" dir="ltr">105k</span><span title="79 gold badges"><span class="badge1"></span><span class="badgecount">79</span></span><span title="282 silver badges"><span class="badge2"></span><span class="badgecount">282</span></span><span title="538 bronze badges"><span class="badge3"></span><span class="badgecount">538</span></span>
+        </div>
+    </div>
+    </td>
+    <td class="post-signature owner">
+        
+
+    <div class="user-info ">
+        <div class="user-action-time">
+                                    asked
+ <span title="2009-09-29 18:29:38Z" class="relativetime">Sep 29 '09 at 18:29</span>
+        </div>
+        <div class="user-gravatar32">
+            <a href="/users/55246/sridhar-ratnakumar"><div class=""><img src="http://www.gravatar.com/avatar/c66c796793a4df79af4692c816244c81?s=32&d=identicon&r=PG" alt="" width="32" height="32"></div></a>
+        </div>
+        <div class="user-details">
+            <a href="/users/55246/sridhar-ratnakumar">Sridhar Ratnakumar</a><br>
+            <span class="reputation-score" title="reputation score" dir="ltr">7,008</span><span title="12 gold badges"><span class="badge1"></span><span class="badgecount">12</span></span><span title="52 silver badges"><span class="badge2"></span><span class="badgecount">52</span></span><span title="107 bronze badges"><span class="badge3"></span><span class="badgecount">107</span></span>
+        </div>
+    </div>
+
+    </td>
+    </tr>
+    </table>
+</div>
+</td>
+        </tr>
+
+
+<tr>
+<td class="votecell"></td>
+<td>
+    <div id="comments-1494178" class="comments">
+        <table>
+        <tbody>
+                    
+    <tr id="comment-1346434" class="comment">
+        <td class="comment-actions"><table><tbody><tr>
+<td class="comment-score">
+<span title="number of 'useful comment' votes received" class="cool">2</span>
+</td>
+<td>
+&nbsp;
+</td></tr>
+</tbody></table></td>
+        <td class="comment-text"><div><span class="comment-copy">duplicate of this? <a href="http://stackoverflow.com/questions/688849/associative-arrays-in-shell-scripts" title="associative arrays in shell scripts">stackoverflow.com/questions/688849/&hellip;</a></span> &ndash;&nbsp;<a href="/users/31884/simon-groenewolt" title="5531 reputation" class="comment-user">Simon Groenewolt</a> <span class="comment-date" dir="ltr"><span title="2009-09-29 18:38:14Z" class="relativetime-clean">Sep 29 '09 at 18:38</span></span></div></td>
+    </tr>
+            
+    <tr id="comment-1346530" class="comment">
+        <td></td>
+        <td class="comment-text"><div><span class="comment-copy">Yep, that&#39;s a duplicate.</span> &ndash;&nbsp;<a href="/users/7498/innam" title="16690 reputation" class="comment-user">innaM</a> <span class="comment-date" dir="ltr"><span title="2009-09-29 18:53:11Z" class="relativetime-clean">Sep 29 '09 at 18:53</span></span></div></td>
+    </tr>
+
+        </tbody>
+    
+        </table>
+    </div>
+    
+</td>
+</tr>            </table>    
+</div>
+
+
+    
+
+
+<div id="answers">
+
+    <a name="tab-top"></a>
+    <div id="answers-header">
+        <div class="subheader answers-subheader">
+            <h2>
+                    10 Answers
+            </h2>
+            <div id="tabs">
+                <a href="/questions/1494178/how-to-define-hash-tables-in-bash?answertab=active#tab-top" title="Answers with the latest activity first">active</a>
+<a href="/questions/1494178/how-to-define-hash-tables-in-bash?answertab=oldest#tab-top" title="Answers in the order they were provided">oldest</a>
+<a class="youarehere" href="/questions/1494178/how-to-define-hash-tables-in-bash?answertab=votes#tab-top" title="Answers with the highest score first">votes</a>
+
+            </div>
+        </div>    
+    </div>    
+
+
+
+
+  
+<a name="3467959"></a>
+<div id="answer-3467959" class="answer" data-answerid="3467959" >
+    <table>
+        <tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+    <input type="hidden" value="3467959">
+    <a class="vote-up-off" title="This answer is useful (click again to undo)">up vote</a>
+    <span class="vote-count-post ">84</span>
+    <a class="vote-down-off" title="This answer is not useful (click again to undo)">down vote</a>
+    
+
+ 
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text"><h1>Bash 4</h1>
+
+<p>Bash 4 natively supports this feature.  Make sure your script's hashbang is <code>#!/usr/bin/env bash</code> or <code>#!/bin/bash</code> or anything else that references <code>bash</code> and not <code>sh</code>.  Make sure you're executing your script, and not doing something silly like <code>sh script</code> which would cause your <code>bash</code> hashbang to be ignored.  This is basic stuff, but so many keep failing at it, hence the re-iteration.</p>
+
+<p>You declare an associative array by doing:</p>
+
+<pre><code>declare -A animals
+</code></pre>
+
+<p>You can fill it up with elements using the normal array assignment operator:</p>
+
+<pre><code>animals=( ["moo"]="cow" )
+</code></pre>
+
+<p>Or merge them:</p>
+
+<pre><code>declare -A animals=( ["moo"]="cow" )
+</code></pre>
+
+<p>Then use them just like normal arrays.  <code>"${animals[@]}"</code> expands the values, <code>"${!animals[@]}"</code> (notice the <code>!</code>) expands the keys.  Don't forget to quote them:</p>
+
+<pre><code>echo "${animals["moo"]}"
+for sound in "${!animals[@]}"; do echo "$sound - ${animals["$sound"]}"; done
+</code></pre>
+
+<h1>Bash 3</h1>
+
+<p>Before bash 4, you don't have associative arrays.  <strong>Do not use <code>eval</code> to emulate them</strong>.  You must avoid eval like the plague, because it <em>is</em> the plague of shell scripting.  The most important reason is that you don't want to treat your data as executable code (there are many other reasons too).</p>
+
+<p><em>First and foremost</em>: Just consider upgrading to bash 4.  Seriously.  <em>The future is now</em>, stop living in the past and <strong>suffering from it</strong> by forcing stupid broken and ugly hacks on your code and every poor soul stuck maintaining it.</p>
+
+<p>If you have some silly excuse why you "<em>can't upgrade</em>", <code>declare</code> is a far safer option.  It does not evaluate data as bash code like <code>eval</code> does, and as such it does not allow arbitrary code injection quite so easily.</p>
+
+<p>Let's prepare the answer by introducing the concepts:</p>
+
+<p>First, indirection (seriously; never use this unless you're mentally ill or have some other bad excuse for writing hacks).</p>
+
+<pre><code>$ animals_moo=cow; sound=moo; i="animals_$sound"; echo "${!i}"
+cow
+</code></pre>
+
+<p>Secondly, <code>declare</code>:</p>
+
+<pre><code>$ sound=moo; animal=cow; declare "animals_$sound=$animal"; echo "$animals_moo"
+cow
+</code></pre>
+
+<p>Bring them together:</p>
+
+<pre><code># Set a value:
+declare "array_$index=$value"
+
+# Get a value:
+arrayGet() { 
+    local array=$1 index=$2
+    local i="${array}_$index"
+    printf '%s' "${!i}"
+}
+</code></pre>
+
+<p>Let's use it:</p>
+
+<pre><code>$ sound=moo
+$ animal=cow
+$ declare "animals_$sound=$animal"
+$ arrayGet animals "$sound"
+cow
+</code></pre>
+
+<p>Note: <code>declare</code> cannot be put in a function.  Any use of <code>declare</code> inside a bash function turns the variable it creates <em>local</em> to the scope of that function, meaning we can't access or modify global arrays with it. (In bash 4 you can use declare -g to declare global variables - but in bash 4, you should be using associative arrays in the first place, not this hack.)</p>
+
+<h1>Summary</h1>
+
+<p>Upgrade to bash 4 and use <code>declare -A</code>.  If you can't, consider switching entirely to <code>awk</code> before doing ugly hacks as described above.  And definitely stay the heck away from <code>eval</code> hackery.</p>
+</div>
+    <table class="fw">
+    <tr>
+    <td class="vt">
+
+
+
+
+
+
+
+
+
+<div class="post-menu"><a href="/a/3467959" title="short permalink to this answer" class="short-link" id="link-post-3467959">share</a><span class="lsep">|</span><a href="/posts/3467959/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+    <td align="right" class="post-signature">
+
+
+    <div class="user-info ">
+        <div class="user-action-time">
+                            edited
+                             <a href="/posts/3467959/revisions" title="show all edits to this post"><span title="2012-12-08 16:06:19Z" class="relativetime">Dec 8 '12 at 16:06</span></a>
+
+        </div>
+        <div class="user-gravatar32">
+            
+        </div>
+        <div class="user-details">
+            <br>
+            
+        </div>
+    </div>
+    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    
+
+    <div class="user-info user-hover">
+        <div class="user-action-time">
+                                    answered
+ <span title="2010-08-12 13:09:35Z" class="relativetime">Aug 12 '10 at 13:09</span>
+        </div>
+        <div class="user-gravatar32">
+            <a href="/users/58803/lhunath"><div class=""><img src="http://www.gravatar.com/avatar/6388e539b56b3875cc9aceb9f404b3ad?s=32&d=identicon&r=PG" alt="" width="32" height="32"></div></a>
+        </div>
+        <div class="user-details">
+            <a href="/users/58803/lhunath">lhunath</a><br>
+            <span class="reputation-score" title="reputation score 13112" dir="ltr">13.1k</span><span title="2 gold badges"><span class="badge1"></span><span class="badgecount">2</span></span><span title="27 silver badges"><span class="badge2"></span><span class="badgecount">27</span></span><span title="49 bronze badges"><span class="badge3"></span><span class="badgecount">49</span></span>
+        </div>
+    </div>
+
+    </td>
+    </tr>
+    </table>
+</td>
+        </tr>
+
+
+
+<tr>
+<td class="votecell"></td>
+<td>
+    <div id="comments-3467959" class="comments">
+        <table>
+        <tbody>
+                    
+    <tr id="comment-6132278" class="comment">
+        <td></td>
+        <td class="comment-text"><div><span class="comment-copy">+1 for <code>declare -A</code>, I can&#39;t believe that I never used it before! I&#39;ve programmed bash for 10 years.</span> &ndash;&nbsp;<a href="/users/217071/xie-jilei" title="2181 reputation" class="comment-user">Xi&#232; J&#236;l&#233;i</a> <span class="comment-date" dir="ltr"><span title="2011-03-24 11:53:31Z" class="relativetime-clean">Mar 24 '11 at 11:53</span></span></div></td>
+    </tr>
+            
+    <tr id="comment-6484152" class="comment">
+        <td class="comment-actions"><table><tbody><tr>
+<td class="comment-score">
+<span title="number of 'useful comment' votes received" class="cool">2</span>
+</td>
+<td>
+&nbsp;
+</td></tr>
+</tbody></table></td>
+        <td class="comment-text"><div><span class="comment-copy">Don&#39;t beat yourself up. It&#39;s new in bash 4.</span> &ndash;&nbsp;<a href="/users/7552/glenn-jackman" title="31002 reputation" class="comment-user">glenn jackman</a> <span class="comment-date" dir="ltr"><span title="2011-04-15 16:07:29Z" class="relativetime-clean">Apr 15 '11 at 16:07</span></span></div></td>
+    </tr>
+            
+    <tr id="comment-11154688" class="comment">
+        <td class="comment-actions"><table><tbody><tr>
+<td class="comment-score">
+<span title="number of 'useful comment' votes received" class="cool">4</span>
+</td>
+<td>
+&nbsp;
+</td></tr>
+</tbody></table></td>
+        <td class="comment-text"><div><span class="comment-copy">Ahh, I appreciate the forward-looking sentiment, but &quot;I can&#39;t upgrade a server I&#39;m not in charge of&quot; is hardly a silly excuse why you can&#39;t upgrade.  Many people who have real work to do are, unfortunately, required to do it in a workplace owned by someone else, on servers run by someone else, and if you work in IT I&#39;m sure you know how enjoyable it is for users to come in and demand IT changes.  I know this is a sad and tragic state of affairs, but it&#39;s life!</span> &ndash;&nbsp;<a href="/users/580592/david-perlman" title="211 reputation" class="comment-user">David Perlman</a> <span class="comment-date" dir="ltr"><span title="2012-01-18 20:11:19Z" class="relativetime-clean">Jan 18 '12 at 20:11</span></span></div></td>
+    </tr>
+            
+    <tr id="comment-15820586" class="comment">
+        <td class="comment-actions"><table><tbody><tr>
+<td class="comment-score">
+<span title="number of 'useful comment' votes received" class="cool">1</span>
+</td>
+<td>
+&nbsp;
+</td></tr>
+</tbody></table></td>
+        <td class="comment-text"><div><span class="comment-copy">@Richard: Presumably, you aren&#39;t actually using bash.  Is your hashbang sh instead of bash, or are you otherwise invoking your code with sh?  Try putting this right before your declare: echo &quot;$BASH_VERSION $POSIXLY_CORRECT&quot;, it should output <code>4.x</code> and not <code>y</code>.</span> &ndash;&nbsp;<a href="/users/58803/lhunath" title="13112 reputation" class="comment-user">lhunath</a> <span class="comment-date" dir="ltr"><span title="2012-08-09 16:47:33Z" class="relativetime-clean">Aug 9 '12 at 16:47</span></span><span class="edited-yes" title="this comment was edited"></span></div></td>
+    </tr>
+            
+    <tr id="comment-18922739" class="comment">
+        <td class="comment-actions"><table><tbody><tr>
+<td class="comment-score">
+<span title="number of 'useful comment' votes received" class="cool">1</span>
+</td>
+<td>
+&nbsp;
+</td></tr>
+</tbody></table></td>
+        <td class="comment-text"><div><span class="comment-copy">I love hearing &quot;The future is now&quot; while talking about bash</span> &ndash;&nbsp;<a href="/users/1703537/arthur-jaouen" title="128 reputation" class="comment-user">Arthur Jaouen</a> <span class="comment-date" dir="ltr"><span title="2012-12-07 15:12:03Z" class="relativetime-clean">Dec 7 '12 at 15:12</span></span></div></td>
+    </tr>
+
+        </tbody>
+    
+        </table>
+    </div>
+    <a id="comments-link-3467959" class="comments-link" data-comments-count="1" title="expand to show all comments on this post">show <b>1</b> more comment</a>
+</td>
+</tr>
+   
+    
+    </table>
+</div>
+        <div class="everyonelovesstackoverflow" id="adzerk3">
+        </div>
+
+
+
+  
+<a name="4444733"></a>
+<div id="answer-4444733" class="answer" data-answerid="4444733" >
+    <table>
+        <tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+    <input type="hidden" value="4444733">
+    <a class="vote-up-off" title="This answer is useful (click again to undo)">up vote</a>
+    <span class="vote-count-post ">13</span>
+    <a class="vote-down-off" title="This answer is not useful (click again to undo)">down vote</a>
+    
+
+ 
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text"><p>There's parameter substitution, though it may be un-PC as well ...like indirection.</p>
+
+<pre><code>#!/bin/bash
+
+# Array pretending to be a Pythonic dictionary
+ARRAY=( "cow:moo"
+        "dinosaur:roar"
+        "bird:chirp"
+        "bash:rock" )
+
+for animal in "${ARRAY[@]}" ; do
+    KEY="${animal%%:*}"
+    VALUE="${animal##*:}"
+    printf "%s likes to %s.\n" "$KEY" "$VALUE"
+done
+
+printf "%s is an extinct animal which likes to %s\n" "${ARRAY[1]%%:*}" "${ARRAY[1]##*:}"
+</code></pre>
+
+<p>The BASH 4 way is better of course, but if you need a hack ...only a hack will do.
+You could search the array/hash with similar techniques.</p>
+</div>
+    <table class="fw">
+    <tr>
+    <td class="vt">
+
+
+
+
+
+
+
+
+
+<div class="post-menu"><a href="/a/4444733" title="short permalink to this answer" class="short-link" id="link-post-4444733">share</a><span class="lsep">|</span><a href="/posts/4444733/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+    <td align="right" class="post-signature">
+
+
+    <div class="user-info ">
+        <div class="user-action-time">
+                            edited
+                             <a href="/posts/4444733/revisions" title="show all edits to this post"><span title="2012-05-09 18:11:26Z" class="relativetime">May 9 '12 at 18:11</span></a>
+
+        </div>
+        <div class="user-gravatar32">
+            
+        </div>
+        <div class="user-details">
+            <br>
+            
+        </div>
+    </div>
+    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    
+
+    <div class="user-info ">
+        <div class="user-action-time">
+                                    answered
+ <span title="2010-12-14 22:02:06Z" class="relativetime">Dec 14 '10 at 22:02</span>
+        </div>
+        <div class="user-gravatar32">
+            <a href="/users/424747/bubnoff"><div class=""><img src="http://www.gravatar.com/avatar/c186b6b71d44c1c7f36878c9e60f71e0?s=32&d=identicon&r=PG" alt="" width="32" height="32"></div></a>
+        </div>
+        <div class="user-details">
+            <a href="/users/424747/bubnoff">Bubnoff</a><br>
+            <span class="reputation-score" title="reputation score" dir="ltr">743</span><span title="4 silver badges"><span class="badge2"></span><span class="badgecount">4</span></span><span title="11 bronze badges"><span class="badge3"></span><span class="badgecount">11</span></span>
+        </div>
+    </div>
+
+    </td>
+    </tr>
+    </table>
+</td>
+        </tr>
+
+
+
+<tr>
+<td class="votecell"></td>
+<td>
+    <div id="comments-4444733" class="comments">
+        <table>
+        <tbody>
+                    
+    <tr id="comment-6484233" class="comment">
+        <td class="comment-actions"><table><tbody><tr>
+<td class="comment-score">
+<span title="number of 'useful comment' votes received" class="cool">1</span>
+</td>
+<td>
+&nbsp;
+</td></tr>
+</tbody></table></td>
+        <td class="comment-text"><div><span class="comment-copy">I would change that to <code>VALUE=${animal#*:}</code> to protect the case where <code>ARRAY&#91;$x&#93;=&quot;caesar:come:see:conquer&quot;</code></span> &ndash;&nbsp;<a href="/users/7552/glenn-jackman" title="31002 reputation" class="comment-user">glenn jackman</a> <span class="comment-date" dir="ltr"><span title="2011-04-15 16:12:04Z" class="relativetime-clean">Apr 15 '11 at 16:12</span></span></div></td>
+    </tr>
+            
+    <tr id="comment-6778302" class="comment">
+        <td></td>
+        <td class="comment-text"><div><span class="comment-copy">@glenn jackmann ~ Good point!</span> &ndash;&nbsp;<a href="/users/424747/bubnoff" title="743 reputation" class="comment-user">Bubnoff</a> <span class="comment-date" dir="ltr"><span title="2011-05-05 01:07:25Z" class="relativetime-clean">May 5 '11 at 1:07</span></span></div></td>
+    </tr>
+            
+    <tr id="comment-8878301" class="comment">
+        <td></td>
+        <td class="comment-text"><div><span class="comment-copy">Excellent!! Just what I needed and quick. Thanks</span> &ndash;&nbsp;<a href="/users/452885/gurum" title="338 reputation" class="comment-user">GuruM</a> <span class="comment-date" dir="ltr"><span title="2011-09-09 07:06:29Z" class="relativetime-clean">Sep 9 '11 at 7:06</span></span></div></td>
+    </tr>
+            
+    <tr id="comment-13607429" class="comment">
+        <td></td>
+        <td class="comment-text"><div><span class="comment-copy">It&#39;s also useful to put double quotes around the ${ARRAY[@]} in case there are spaces in the keys or values, as in <code>for animal in &quot;${ARRAY&#91;@&#93;}&quot;; do</code></span> &ndash;&nbsp;<a href="/users/254603/david-m-brown" title="599 reputation" class="comment-user">David M. Brown</a> <span class="comment-date" dir="ltr"><span title="2012-05-09 18:05:23Z" class="relativetime-clean">May 9 '12 at 18:05</span></span><span class="edited-yes" title="this comment was edited"></span></div></td>
+    </tr>
+            
+    <tr id="comment-13607516" class="comment">
+        <td></td>
+        <td class="comment-text"><div><span class="comment-copy">Agreed! A lazy mistake ...will edit that.</span> &ndash;&nbsp;<a href="/users/424747/bubnoff" title="743 reputation" class="comment-user">Bubnoff</a> <span class="comment-date" dir="ltr"><span title="2012-05-09 18:08:55Z" class="relativetime-clean">May 9 '12 at 18:08</span></span></div></td>
+    </tr>
+
+        </tbody>
+    
+        </table>
+    </div>
+    
+</td>
+</tr>
+   
+    
+    </table>
+</div>
+
+  
+<a name="2225712"></a>
+<div id="answer-2225712" class="answer" data-answerid="2225712" >
+    <table>
+        <tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+    <input type="hidden" value="2225712">
+    <a class="vote-up-off" title="This answer is useful (click again to undo)">up vote</a>
+    <span class="vote-count-post ">10</span>
+    <a class="vote-down-off" title="This answer is not useful (click again to undo)">down vote</a>
+    
+
+ 
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text"><p>You can further modify the hput()/hget() interface so that you have named hashes as follows:</p>
+
+<pre><code>hput() {
+    eval "$1""$2"='$3'
+}
+
+hget() {
+    eval echo '${'"$1$2"'#hash}'
+}
+</code></pre>
+
+<p>and then</p>
+
+<pre><code>hput capitols France Paris
+hput capitols Netherlands Amsterdam
+hput capitols Spain Madrid
+echo `hget capitols France` and `hget capitols Netherlands` and `hget capitols Spain`
+</code></pre>
+
+<p>This lets you define other maps that don't conflict (e.g., 'rcapitols' which does country lookup by capitol city). But, either way, I think you'll find that this is all pretty terrible, performance-wise.</p>
+
+<p>If you really want fast hash lookup, there's a terrible, terrible hack that actually works really well. It is this: write your key/values out to a temporary file, one-per line, then use 'grep "^$key"' to get them out, using pipes with cut or awk or sed or whatever to retrieve the values.</p>
+
+<p>Like I said, it sounds terrible, and it sounds like it ought to be slow and do all sorts of unnecessary IO, but in practice it is very fast (disk cache is awesome, ain't it?), even for very large hash tables. You have to enforce key uniqueness yourself, etc. Even if you only have a few hundred entries, the output file/grep combo is going to be quite a bit faster - in my experience several times faster. It also eats less memory.</p>
+
+<p>Here's one way to do it:</p>
+
+<pre><code>hinit() {
+    rm -f /tmp/hashmap.$1
+}
+
+hput() {
+    echo "$2 $3" &gt;&gt; /tmp/hashmap.$1
+}
+
+hget() {
+    grep "^$2 " /tmp/hashmap.$1 | awk '{ print $2 };'
+}
+
+hinit capitols
+hput capitols France Paris
+hput capitols Netherlands Amsterdam
+hput capitols Spain Madrid
+
+echo `hget capitols France` and `hget capitols Netherlands` and `hget capitols Spain`
+</code></pre>
+</div>
+    <table class="fw">
+    <tr>
+    <td class="vt">
+
+
+
+
+
+
+
+
+
+<div class="post-menu"><a href="/a/2225712" title="short permalink to this answer" class="short-link" id="link-post-2225712">share</a><span class="lsep">|</span><a href="/posts/2225712/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+    <td align="right" class="post-signature">
+
+
+    <div class="user-info ">
+        <div class="user-action-time">
+                            edited
+                             <a href="/posts/2225712/revisions" title="show all edits to this post"><span title="2010-02-08 23:49:49Z" class="relativetime">Feb 8 '10 at 23:49</span></a>
+
+        </div>
+        <div class="user-gravatar32">
+            
+        </div>
+        <div class="user-details">
+            <br>
+            
+        </div>
+    </div>
+    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    
+
+    <div class="user-info ">
+        <div class="user-action-time">
+                                    answered
+ <span title="2010-02-08 23:38:29Z" class="relativetime">Feb 8 '10 at 23:38</span>
+        </div>
+        <div class="user-gravatar32">
+            <a href="/users/269091/al-p"><div class=""><img src="http://www.gravatar.com/avatar/a75514e31d81feaa5a1f18f598c8c6e6?s=32&d=identicon&r=PG" alt="" width="32" height="32"></div></a>
+        </div>
+        <div class="user-details">
+            <a href="/users/269091/al-p">Al P.</a><br>
+            <span class="reputation-score" title="reputation score" dir="ltr">235</span><span title="3 silver badges"><span class="badge2"></span><span class="badgecount">3</span></span><span title="4 bronze badges"><span class="badge3"></span><span class="badgecount">4</span></span>
+        </div>
+    </div>
+
+    </td>
+    </tr>
+    </table>
+</td>
+        </tr>
+
+
+
+<tr>
+<td class="votecell"></td>
+<td>
+    <div id="comments-2225712" class="comments">
+        <table>
+        <tbody>
+                    
+    <tr id="comment-4644200" class="comment">
+        <td class="comment-actions"><table><tbody><tr>
+<td class="comment-score">
+<span title="number of 'useful comment' votes received" class="cool">1</span>
+</td>
+<td>
+&nbsp;
+</td></tr>
+</tbody></table></td>
+        <td class="comment-text"><div><span class="comment-copy">Great! you can even iterate it:
+for i in $(compgen -A variable capitols); do
+	hget &quot;$i&quot; &quot;&quot;
+done</span> &ndash;&nbsp;<a href="/users/64469/" title="447 reputation" class="comment-user">赵如飞</a> <span class="comment-date" dir="ltr"><span title="2010-11-26 00:52:27Z" class="relativetime-clean">Nov 26 '10 at 0:52</span></span><span class="edited-yes" title="this comment was edited"></span></div></td>
+    </tr>
+
+        </tbody>
+    
+        </table>
+    </div>
+    
+</td>
+</tr>
+   
+    
+    </table>
+</div>
+
+  
+<a name="6091762"></a>
+<div id="answer-6091762" class="answer" data-answerid="6091762" >
+    <table>
+        <tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+    <input type="hidden" value="6091762">
+    <a class="vote-up-off" title="This answer is useful (click again to undo)">up vote</a>
+    <span class="vote-count-post ">7</span>
+    <a class="vote-down-off" title="This answer is not useful (click again to undo)">down vote</a>
+    
+
+ 
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text"><p>This is what I was looking for here:</p>
+
+<pre><code>declare -A hashmap
+hashmap["key"]="value"
+echo "${hashmap["key"]}"
+for key in ${!hashmap[@]}; do something; done
+for value in ${hashmap[@]}; do something; done
+echo hashmap has ${#hashmap[@]} elements
+</code></pre>
+
+<p>This did not work for me with bash 4.1.5:</p>
+
+<pre><code>animals=( ["moo"]="cow" )
+</code></pre>
+</div>
+    <table class="fw">
+    <tr>
+    <td class="vt">
+
+
+
+
+
+
+
+
+
+<div class="post-menu"><a href="/a/6091762" title="short permalink to this answer" class="short-link" id="link-post-6091762">share</a><span class="lsep">|</span><a href="/posts/6091762/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    
+
+    <div class="user-info ">
+        <div class="user-action-time">
+                                    answered
+ <span title="2011-05-23 00:30:08Z" class="relativetime">May 23 '11 at 0:30</span>
+        </div>
+        <div class="user-gravatar32">
+            <a href="/users/614299/aktivb"><div class=""><img src="http://www.gravatar.com/avatar/98473c217166d13cdf23570a6dd96cfa?s=32&d=identicon&r=PG" alt="" width="32" height="32"></div></a>
+        </div>
+        <div class="user-details">
+            <a href="/users/614299/aktivb">aktivb</a><br>
+            <span class="reputation-score" title="reputation score" dir="ltr">162</span><span title="1 silver badge"><span class="badge2"></span><span class="badgecount">1</span></span><span title="6 bronze badges"><span class="badge3"></span><span class="badgecount">6</span></span>
+        </div>
+    </div>
+
+    </td>
+    </tr>
+    </table>
+</td>
+        </tr>
+
+
+
+<tr>
+<td class="votecell"></td>
+<td>
+    <div id="comments-6091762" class="comments dno">
+        <table>
+        <tbody>
+        
+            <tr><td></td><td></td></tr>
+        
+        </tbody>
+    
+        </table>
+    </div>
+    
+</td>
+</tr>
+   
+    
+    </table>
+</div>
+
+  
+<a name="1495347"></a>
+<div id="answer-1495347" class="answer" data-answerid="1495347" >
+    <table>
+        <tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+    <input type="hidden" value="1495347">
+    <a class="vote-up-off" title="This answer is useful (click again to undo)">up vote</a>
+    <span class="vote-count-post ">6</span>
+    <a class="vote-down-off" title="This answer is not useful (click again to undo)">down vote</a>
+    
+
+ 
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text"><pre><code>hput () {
+  eval hash"$1"='$2'
+}
+
+hget () {
+  eval echo '${hash'"$1"'#hash}'
+}
+hput France Paris
+hput Netherlands Amsterdam
+hput Spain Madrid
+echo `hget France` and `hget Netherlands` and `hget Spain`
+</code></pre>
+
+<p><hr /></p>
+
+<pre><code>$ sh hash.sh
+Paris and Amsterdam and Madrid
+</code></pre>
+</div>
+    <table class="fw">
+    <tr>
+    <td class="vt">
+
+
+
+
+
+
+
+
+
+<div class="post-menu"><a href="/a/1495347" title="short permalink to this answer" class="short-link" id="link-post-1495347">share</a><span class="lsep">|</span><a href="/posts/1495347/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    
+
+    <div class="user-info user-hover">
+        <div class="user-action-time">
+                                    answered
+ <span title="2009-09-29 22:45:35Z" class="relativetime">Sep 29 '09 at 22:45</span>
+        </div>
+        <div class="user-gravatar32">
+            <a href="/users/140740/digitalross"><div class=""><img src="http://www.gravatar.com/avatar/bf6eddcd47c263a1a5d31bdb4f7b6424?s=32&d=identicon&r=PG" alt="" width="32" height="32"></div></a>
+        </div>
+        <div class="user-details">
+            <a href="/users/140740/digitalross">DigitalRoss</a><br>
+            <span class="reputation-score" title="reputation score 62384" dir="ltr">62.4k</span><span title="4 gold badges"><span class="badge1"></span><span class="badgecount">4</span></span><span title="74 silver badges"><span class="badge2"></span><span class="badgecount">74</span></span><span title="137 bronze badges"><span class="badge3"></span><span class="badgecount">137</span></span>
+        </div>
+    </div>
+
+    </td>
+    </tr>
+    </table>
+</td>
+        </tr>
+
+
+
+<tr>
+<td class="votecell"></td>
+<td>
+    <div id="comments-1495347" class="comments">
+        <table>
+        <tbody>
+                    
+    <tr id="comment-3617604" class="comment">
+        <td></td>
+        <td class="comment-text"><div><span class="comment-copy">It&#39;s always funny to see people still don&#39;t care about or understand arbitrary code injection.</span> &ndash;&nbsp;<a href="/users/58803/lhunath" title="13112 reputation" class="comment-user">lhunath</a> <span class="comment-date" dir="ltr"><span title="2010-08-12 13:13:51Z" class="relativetime-clean">Aug 12 '10 at 13:13</span></span></div></td>
+    </tr>
+            
+    <tr id="comment-3639310" class="comment">
+        <td class="comment-actions"><table><tbody><tr>
+<td class="comment-score">
+<span title="number of 'useful comment' votes received" class="warm">13</span>
+</td>
+<td>
+&nbsp;
+</td></tr>
+</tbody></table></td>
+        <td class="comment-text"><div><span class="comment-copy">Sigh, that seems unnecessarily insulting and it&#39;s inaccurate anyway. One would not put input validation, escaping, or encoding (see, I actually do know) in the guts of the hash table, but rather in a wrapper and as soon as possible after input.</span> &ndash;&nbsp;<a href="/users/140740/digitalross" title="62384 reputation" class="comment-user">DigitalRoss</a> <span class="comment-date" dir="ltr"><span title="2010-08-14 23:41:11Z" class="relativetime-clean">Aug 14 '10 at 23:41</span></span></div></td>
+    </tr>
+
+        </tbody>
+    
+        </table>
+    </div>
+    
+</td>
+</tr>
+   
+    
+    </table>
+</div>
+
+  
+<a name="4046092"></a>
+<div id="answer-4046092" class="answer" data-answerid="4046092" >
+    <table>
+        <tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+    <input type="hidden" value="4046092">
+    <a class="vote-up-off" title="This answer is useful (click again to undo)">up vote</a>
+    <span class="vote-count-post ">3</span>
+    <a class="vote-down-off" title="This answer is not useful (click again to undo)">down vote</a>
+    
+
+ 
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text"><p>I really liked Al P's answer but wanted uniqueness enforced cheaply so I took it one step further - use a directory. There are some obvious limitations (directory file limits, invalid file names) but it should work for most cases.</p>
+
+<pre><code>hinit() {
+    rm -rf /tmp/hashmap.$1
+    mkdir -p /tmp/hashmap.$1
+}
+
+hput() {
+    printf "$3" &gt; /tmp/hashmap.$1/$2
+}
+
+hget() {
+    cat /tmp/hashmap.$1/$2
+}
+
+hkeys() {
+    ls -1 /tmp/hashmap.$1
+}
+
+hdestroy() {
+    rm -rf /tmp/hashmap.$1
+}
+
+hinit ids
+
+for (( i = 0; i &lt; 10000; i++ )); do
+    hput ids "key$i" "value$i"
+done
+
+for (( i = 0; i &lt; 10000; i++ )); do
+    printf '%s\n' $(hget ids "key$i") &gt; /dev/null
+done
+
+hdestroy ids
+</code></pre>
+
+<p>It also performs a tad bit better in my tests.</p>
+
+<pre><code>$ time bash hash.sh 
+real    0m46.500s
+user    0m16.767s
+sys     0m51.473s
+
+$ time bash dirhash.sh 
+real    0m35.875s
+user    0m8.002s
+sys     0m24.666s
+</code></pre>
+
+<p>Just thought I'd pitch in. Cheers!</p>
+
+<p>Edit: Adding hdestroy()</p>
+</div>
+    <table class="fw">
+    <tr>
+    <td class="vt">
+
+
+
+
+
+
+
+
+
+<div class="post-menu"><a href="/a/4046092" title="short permalink to this answer" class="short-link" id="link-post-4046092">share</a><span class="lsep">|</span><a href="/posts/4046092/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+    <td align="right" class="post-signature">
+
+
+    <div class="user-info ">
+        <div class="user-action-time">
+                            edited
+                             <a href="/posts/4046092/revisions" title="show all edits to this post"><span title="2012-03-14 21:19:11Z" class="relativetime">Mar 14 '12 at 21:19</span></a>
+
+        </div>
+        <div class="user-gravatar32">
+            
+        </div>
+        <div class="user-details">
+            <br>
+            
+        </div>
+    </div>
+    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    
+
+    <div class="user-info ">
+        <div class="user-action-time">
+                                    answered
+ <span title="2010-10-28 18:36:34Z" class="relativetime">Oct 28 '10 at 18:36</span>
+        </div>
+        <div class="user-gravatar32">
+            <a href="/users/236241/cole-stanfield"><div class=""><img src="http://www.gravatar.com/avatar/b4f0db741bd2803e4d561b3f7217a08c?s=32&d=identicon&r=PG" alt="" width="32" height="32"></div></a>
+        </div>
+        <div class="user-details">
+            <a href="/users/236241/cole-stanfield">Cole Stanfield</a><br>
+            <span class="reputation-score" title="reputation score" dir="ltr">143</span><span title="7 bronze badges"><span class="badge3"></span><span class="badgecount">7</span></span>
+        </div>
+    </div>
+
+    </td>
+    </tr>
+    </table>
+</td>
+        </tr>
+
+
+
+<tr>
+<td class="votecell"></td>
+<td>
+    <div id="comments-4046092" class="comments dno">
+        <table>
+        <tbody>
+        
+            <tr><td></td><td></td></tr>
+        
+        </tbody>
+    
+        </table>
+    </div>
+    
+</td>
+</tr>
+   
+    
+    </table>
+</div>
+
+  
+<a name="3485596"></a>
+<div id="answer-3485596" class="answer" data-answerid="3485596" >
+    <table>
+        <tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+    <input type="hidden" value="3485596">
+    <a class="vote-up-off" title="This answer is useful (click again to undo)">up vote</a>
+    <span class="vote-count-post ">2</span>
+    <a class="vote-down-off" title="This answer is not useful (click again to undo)">down vote</a>
+    
+
+ 
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text"><p>Two things, you can use memory instead of /tmp in any kernel 2.6 by using /dev/shm (Redhat) other distros may vary. Also hget can be reimplemented using read as follows:</p>
+
+<pre><code>function hget {
+
+  while read key idx
+  do
+    if [ $key = $2 ]
+    then
+      echo $idx
+      return
+    fi
+  done &lt; /dev/shm/hashmap.$1
+}
+</code></pre>
+
+<p>In addition by assuming that all keys are unique, the return short circuits the read loop and prevents having to read through all entries. If your implementation can have duplicate keys, then simply leave out the return. This saves the expense of reading and forking both grep and awk. Using /dev/shm for both implementations yielded the following using time hget on a 3 entry hash searching for the last entry :</p>
+
+<p>Grep/Awk:</p>
+
+<pre><code>hget() {
+    grep "^$2 " /dev/shm/hashmap.$1 | awk '{ print $2 };'
+}
+
+$ time echo $(hget FD oracle)
+3
+
+real    0m0.011s
+user    0m0.002s
+sys     0m0.013s
+</code></pre>
+
+<p>Read/echo:</p>
+
+<pre><code>$ time echo $(hget FD oracle)
+3
+
+real    0m0.004s
+user    0m0.000s
+sys     0m0.004s
+</code></pre>
+
+<p>on multiple invocations I never saw less then a 50% improvement. 
+This can all be attributed to fork over head, due to the use of <code>/dev/shm</code>. </p>
+</div>
+    <table class="fw">
+    <tr>
+    <td class="vt">
+
+
+
+
+
+
+
+
+
+<div class="post-menu"><a href="/a/3485596" title="short permalink to this answer" class="short-link" id="link-post-3485596">share</a><span class="lsep">|</span><a href="/posts/3485596/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+    <td align="right" class="post-signature">
+
+
+    <div class="user-info user-hover">
+        <div class="user-action-time">
+                            edited
+                             <a href="/posts/3485596/revisions" title="show all edits to this post"><span title="2011-04-15 17:44:08Z" class="relativetime">Apr 15 '11 at 17:44</span></a>
+
+        </div>
+        <div class="user-gravatar32">
+            <a href="/users/257111/ninefingers"><div class=""><img src="http://www.gravatar.com/avatar/93e7e626a9493e05cb0e75dd246461b2?s=32&d=identicon&r=PG" alt="" width="32" height="32"></div></a>
+        </div>
+        <div class="user-details">
+            <a href="/users/257111/ninefingers">Ninefingers</a><br>
+            <span class="reputation-score" title="reputation score 15500" dir="ltr">15.5k</span><span title="4 gold badges"><span class="badge1"></span><span class="badgecount">4</span></span><span title="33 silver badges"><span class="badge2"></span><span class="badgecount">33</span></span><span title="74 bronze badges"><span class="badge3"></span><span class="badgecount">74</span></span>
+        </div>
+    </div>
+    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    
+
+    <div class="user-info ">
+        <div class="user-action-time">
+                                    answered
+ <span title="2010-08-14 23:45:30Z" class="relativetime">Aug 14 '10 at 23:45</span>
+        </div>
+        <div class="user-gravatar32">
+            <a href="/users/420701/jrichard"><div class=""><img src="http://www.gravatar.com/avatar/a3d6859a56970a854916ca83d0fbcc8c?s=32&d=identicon&r=PG" alt="" width="32" height="32"></div></a>
+        </div>
+        <div class="user-details">
+            <a href="/users/420701/jrichard">jrichard</a><br>
+            <span class="reputation-score" title="reputation score" dir="ltr">21</span><span title="1 bronze badge"><span class="badge3"></span><span class="badgecount">1</span></span>
+        </div>
+    </div>
+
+    </td>
+    </tr>
+    </table>
+</td>
+        </tr>
+
+
+
+<tr>
+<td class="votecell"></td>
+<td>
+    <div id="comments-3485596" class="comments dno">
+        <table>
+        <tbody>
+        
+            <tr><td></td><td></td></tr>
+        
+        </tbody>
+    
+        </table>
+    </div>
+    
+</td>
+</tr>
+   
+    
+    </table>
+</div>
+
+  
+<a name="3467821"></a>
+<div id="answer-3467821" class="answer" data-answerid="3467821" >
+    <table>
+        <tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+    <input type="hidden" value="3467821">
+    <a class="vote-up-off" title="This answer is useful (click again to undo)">up vote</a>
+    <span class="vote-count-post ">1</span>
+    <a class="vote-down-off" title="This answer is not useful (click again to undo)">down vote</a>
+    
+
+ 
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text"><p>Prior to bash 4 there is no good way to use associative arrays in bash. Your best bet is to use an interpreted language that actually has support for such things, like awk. On the other hand, bash 4 <em>does</em> support them.</p>
+
+<p>As for <em>less</em> good ways in bash 3, here is a reference than might help: <a href="http://mywiki.wooledge.org/BashFAQ/006" rel="nofollow">http://mywiki.wooledge.org/BashFAQ/006</a></p>
+</div>
+    <table class="fw">
+    <tr>
+    <td class="vt">
+
+
+
+
+
+
+
+
+
+<div class="post-menu"><a href="/a/3467821" title="short permalink to this answer" class="short-link" id="link-post-3467821">share</a><span class="lsep">|</span><a href="/posts/3467821/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    
+
+    <div class="user-info user-hover">
+        <div class="user-action-time">
+                                    answered
+ <span title="2010-08-12 12:53:37Z" class="relativetime">Aug 12 '10 at 12:53</span>
+        </div>
+        <div class="user-gravatar32">
+            <a href="/users/418413/kojiro"><div class=""><img src="http://www.gravatar.com/avatar/e459bf8123c85dc2c708ee8210c0320b?s=32&d=identicon&r=PG" alt="" width="32" height="32"></div></a>
+        </div>
+        <div class="user-details">
+            <a href="/users/418413/kojiro">kojiro</a><br>
+            <span class="reputation-score" title="reputation score" dir="ltr">9,429</span><span title="9 silver badges"><span class="badge2"></span><span class="badgecount">9</span></span><span title="32 bronze badges"><span class="badge3"></span><span class="badgecount">32</span></span>
+        </div>
+    </div>
+
+    </td>
+    </tr>
+    </table>
+</td>
+        </tr>
+
+
+
+<tr>
+<td class="votecell"></td>
+<td>
+    <div id="comments-3467821" class="comments dno">
+        <table>
+        <tbody>
+        
+            <tr><td></td><td></td></tr>
+        
+        </tbody>
+    
+        </table>
+    </div>
+    
+</td>
+</tr>
+   
+    
+    </table>
+</div>
+
+  
+<a name="2561682"></a>
+<div id="answer-2561682" class="answer" data-answerid="2561682" >
+    <table>
+        <tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+    <input type="hidden" value="2561682">
+    <a class="vote-up-off" title="This answer is useful (click again to undo)">up vote</a>
+    <span class="vote-count-post ">0</span>
+    <a class="vote-down-off" title="This answer is not useful (click again to undo)">down vote</a>
+    
+
+ 
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text"><p>To get a little more performance remember that grep has a stop function, to stop when it finds the nth match in this case n would be 1.</p>
+
+<p>grep --max_count=1 ... or
+grep -m 1 ...</p>
+</div>
+    <table class="fw">
+    <tr>
+    <td class="vt">
+
+
+
+
+
+
+
+
+
+<div class="post-menu"><a href="/a/2561682" title="short permalink to this answer" class="short-link" id="link-post-2561682">share</a><span class="lsep">|</span><a href="/posts/2561682/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    
+
+    <div class="user-info ">
+        <div class="user-action-time">
+                                    answered
+ <span title="2010-04-01 15:47:27Z" class="relativetime">Apr 1 '10 at 15:47</span>
+        </div>
+        <div class="user-gravatar32">
+            <a href="/users/307048/bozon"><div class=""><img src="http://www.gravatar.com/avatar/89b1baf648cba82661cd0c0253882e45?s=32&d=identicon&r=PG" alt="" width="32" height="32"></div></a>
+        </div>
+        <div class="user-details">
+            <a href="/users/307048/bozon">bozon</a><br>
+            <span class="reputation-score" title="reputation score" dir="ltr">1</span>
+        </div>
+    </div>
+
+    </td>
+    </tr>
+    </table>
+</td>
+        </tr>
+
+
+
+<tr>
+<td class="votecell"></td>
+<td>
+    <div id="comments-2561682" class="comments dno">
+        <table>
+        <tbody>
+        
+            <tr><td></td><td></td></tr>
+        
+        </tbody>
+    
+        </table>
+    </div>
+    
+</td>
+</tr>
+   
+    
+    </table>
+</div>
+
+  
+<a name="12945518"></a>
+<div id="answer-12945518" class="answer" data-answerid="12945518" >
+    <table>
+        <tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+    <input type="hidden" value="12945518">
+    <a class="vote-up-off" title="This answer is useful (click again to undo)">up vote</a>
+    <span class="vote-count-post ">0</span>
+    <a class="vote-down-off" title="This answer is not useful (click again to undo)">down vote</a>
+    
+
+ 
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text"><p>A coworker just mentioned this thread.  I've independently implemented hash tables within bash, and it's not dependent on version 4.  From a blog post of mine in March 2010 (before some of the answers here...) entitled <a href="http://khopesh.com/blog/adam-katz-musings/bash-hash" rel="nofollow">Hash tables in bash</a>:</p>
+
+<pre class="lang-bsh prettyprint-override"><code># Here's the hashing function
+ht() { local ht=`echo "$*" |cksum`; echo "${ht//[!0-9]}"; }
+
+# Example:
+
+myhash[`ht foo bar`]="a value"
+myhash[`ht baz baf`]="b value"
+
+echo ${myhash[`ht baz baf`]} # "b value"
+echo ${myhash[@]} # "a value b value" though perhaps reversed
+</code></pre>
+
+<p>Sure, it makes an external call for cksum and is therefore somewhat slowed, but the implementation is very clean and usable.  It's not bidirectional, and the built-in way is a lot better, but neither should really be used anyway.  Bash is for quick one-offs, and such things should quite rarely involve complexity that might require hashes, except perhaps in your .bashrc and friends.</p>
+</div>
+    <table class="fw">
+    <tr>
+    <td class="vt">
+
+
+
+
+
+
+
+
+
+<div class="post-menu"><a href="/a/12945518" title="short permalink to this answer" class="short-link" id="link-post-12945518">share</a><span class="lsep">|</span><a href="/posts/12945518/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    
+
+    <div class="user-info ">
+        <div class="user-action-time">
+                                    answered
+ <span title="2012-10-18 00:39:57Z" class="relativetime">Oct 18 '12 at 0:39</span>
+        </div>
+        <div class="user-gravatar32">
+            <a href="/users/519360/adam-katz"><div class=""><img src="http://www.gravatar.com/avatar/94f936fbaaa702325ace642f31ac1646?s=32&d=identicon&r=PG" alt="" width="32" height="32"></div></a>
+        </div>
+        <div class="user-details">
+            <a href="/users/519360/adam-katz">Adam Katz</a><br>
+            <span class="reputation-score" title="reputation score" dir="ltr">41</span><span title="1 bronze badge"><span class="badge3"></span><span class="badgecount">1</span></span>
+        </div>
+    </div>
+
+    </td>
+    </tr>
+    </table>
+</td>
+        </tr>
+
+
+
+<tr>
+<td class="votecell"></td>
+<td>
+    <div id="comments-12945518" class="comments dno">
+        <table>
+        <tbody>
+        
+            <tr><td></td><td></td></tr>
+        
+        </tbody>
+    
+        </table>
+    </div>
+    
+</td>
+</tr>
+   
+    
+    </table>
+</div>
+    <a name='new-answer'></a>
+    <form id="post-form" action="/questions/1494178/answer/submit" method="post"  class="post-form">
+        <h2 class="space">Your Answer</h2>
+
+
+
+    
+<script type="text/javascript">
+    StackExchange.ready(function() {
+        initTagRenderer("".split(" "), "".split(" "));
+         
+        prepareEditor({
+            heartbeatType: 'answer',
+            bindNavPrevention: true,
+            postfix: "",
+            onDemand: true,
+            discardSelector: ".discard-answer"
+            ,immediatelyShowMarkdownHelp:true
+        });
+        
+
+    });  
+</script>
+
+
+<div id="post-editor" class="post-editor">
+
+    <div style="position: relative;">     
+        <div class="wmd-container">
+            <div id="wmd-button-bar" class="wmd-button-bar"></div>
+            <textarea id="wmd-input" class="wmd-input" name="post-text" cols="92" rows="15" tabindex="101" data-min-length=""></textarea>
+        </div>
+    </div>
+
+    <div class="fl" style="margin-top: 8px; height:24px;">&nbsp;</div>
+    <div id="draft-saved" class="draft-saved community-option fl" style="margin-top: 8px; height:24px; display:none;">draft saved</div>
+
+    <div id="draft-discarded" class="draft-discarded community-option fl" style="margin-top: 8px; height:24px; display:none;">draft discarded</div>
+
+
+
+    <div id="wmd-preview" class="wmd-preview"></div>
+    <div></div>
+    <div class="edit-block">
+        <input id="fkey" name="fkey" type="hidden" value="b1d6be481b40fd380234661292d90a70">
+        <input id="author" name="author" type="text">
+    </div>
+</div>
+        <div style="position: relative;"> 
+    <div class="form-item">
+        <table>
+        <tr>
+                <td class="vm open-id-login">
+                    <a id="login-link" style="font-size: 200%; margin-left: 30px;" href="/users/login?returnurl=%2fquestions%2f1494178%2fhow-to-define-hash-tables-in-bash">log in</a>
+                    <script type="text/javascript">
+                        StackExchange.ready(function () {
+                            StackExchange.helpers.onClickDraftSave('#login-link');
+                        });
+                    </script>
+                </td>
+                    <script type="text/javascript">
+                StackExchange.ready(function () {
+                    StackExchange.helpers.bindHelpOverlayEvents($('.vm input'));
+                });
+            </script>
+                <td class="orcell">
+                    <div class="orword">or</div>
+                    <div class="orline"></div>
+                </td>
+            <td class="vm">
+                <div>
+                    <label for="display-name">Name</label>
+                    <input id="display-name" name="display-name" type="text" size="30" maxlength="30" value="" tabindex="105">
+                </div>
+                <div>
+                    <label for="m-address">Email</label>
+                    <input id="m-address" name="m-address" type="text" size="40" maxlength="100" value="" tabindex="106">
+                    <span class="edit-field-overlay">required, but never shown</span>
+                </div>
+                    <div>
+                        <label for="home-page">Home Page</label>
+                        <input id="home-page" name="home-page" type="text" size="40" maxlength="200" value="" tabindex="107">
+                    </div>
+            </td>
+        </tr>
+        </table>
+    </div>
+        </div>
+           
+            <div class="form-submit cbt">
+            <input id="submit-button" type="submit" value="Post Your Answer" tabindex="110">
+            <a href="#" class="discard-answer dno">discard</a>
+    <p class="privacy-policy-agreement">
+        By posting your answer, you agree to the 
+        <a href="http://stackexchange.com/legal/privacy-policy" target="_blank">privacy policy</a> and 
+        <a href="http://stackexchange.com/legal/terms-of-service" target="_blank">terms of service</a>.
+    </p>
+    <input type="hidden" name="legalLinksShown" value="1" />
+        </div>
+    </form>
+
+
+
+        <h2 class="bottom-notice">
+                Not the answer you're looking for? 
+            Browse other questions tagged <a href="/questions/tagged/bash" class="post-tag" title="show questions tagged 'bash'" rel="tag">bash</a> <a href="/questions/tagged/dictionary" class="post-tag" title="show questions tagged 'dictionary'" rel="tag">dictionary</a> <a href="/questions/tagged/hashtable" class="post-tag" title="show questions tagged 'hashtable'" rel="tag">hashtable</a> <a href="/questions/tagged/associative-array" class="post-tag" title="show questions tagged 'associative-array'" rel="tag">associative-array</a> 
+                or <a href="/questions/ask">ask your own question</a>.
+        </h2>
+</div>
+</div>
+<div id="sidebar">
+
+
+
+     <script type="text/javascript">
+        window.showNewUser = true;
+
+            
+                (function(){
+                    var cs = window.sessionStorage && window.sessionStorage['tNewsletter'];
+                    var m = /:\/\/([^\/]*)/.exec(document.referrer);
+                    var h = {'www.reddit.com':1,'news.ycombinator.com':1};
+                    if(window.sessionStorage && (cs || (m && m.length == 2 && h[m[1]]))){
+                        showNewUser = false;
+                        StackExchange.ready(function(){
+                            StackExchange.newsletterAd.loader(m[1], cs);
+                        });
+                    }
+                    if (window.localStorage && showNewUser){
+                        var c = parseInt(localStorage['nuCounter'],10); 
+                        c = isNaN(c) ? 1 : c+1;
+                        window.localStorage['nuCounter'] = c; 
+                        showNewUser = c < 10;
+                    }
+                })()
+            
+     </script>
+    <div class="module newuser newuser-greeting" id="newuser-box" style="display:none;">
+        <h4>Hello World!</h4>
+        <div>
+            <p>This is a collaboratively edited question and answer site for <b>professional and enthusiast programmers</b>. It's 100% free, no registration required.</p>
+            <p class="ar">
+                    <a href="/about?mnu=1">about &raquo;</a>&nbsp;&nbsp;&nbsp;
+                <a href="/faq?mnu=1">faq &raquo;</a>
+            </p>
+        </div>
+    </div>
+     <script type="text/javascript">
+        if (showNewUser) {
+            document.getElementById('newuser-box').style.display = '';
+        }
+     </script>
+        <div class="module question-stats">
+        <p class="label-key">tagged</p>
+        <div class="tagged"><a href="/questions/tagged/bash" class="post-tag" title="show questions tagged 'bash'" rel="tag">bash</a>&nbsp;<span class="item-multiplier"><span class="item-multiplier-x">&times;</span>&nbsp;<span class="item-multiplier-count">19468</span></span><br>
+<a href="/questions/tagged/dictionary" class="post-tag" title="show questions tagged 'dictionary'" rel="tag">dictionary</a>&nbsp;<span class="item-multiplier"><span class="item-multiplier-x">&times;</span>&nbsp;<span class="item-multiplier-count">5736</span></span><br>
+<a href="/questions/tagged/hashtable" class="post-tag" title="show questions tagged 'hashtable'" rel="tag">hashtable</a>&nbsp;<span class="item-multiplier"><span class="item-multiplier-x">&times;</span>&nbsp;<span class="item-multiplier-count">1444</span></span><br>
+<a href="/questions/tagged/associative-array" class="post-tag" title="show questions tagged 'associative-array'" rel="tag">associative-array</a>&nbsp;<span class="item-multiplier"><span class="item-multiplier-x">&times;</span>&nbsp;<span class="item-multiplier-count">702</span></span><br>
+</div>
+        <table id="qinfo">
+            <tr>
+                <td><p class="label-key">asked</p></td>
+                <td style="padding-left:10px"><p class="label-key" title="2009-09-29 18:29:38Z"><b>3 years ago</b></p></td>
+            </tr>
+            <tr>
+                <td><p class="label-key">viewed</p></td>
+
+                <td style="padding-left:10px">
+                    <p class="label-key">
+                        <b>42364 times</b>
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td><p class="label-key">active</p></td>
+                <td style="padding-left:10px"><p class="label-key"><b><a href="?lastactivity" class="lastactivity-link" title="2012-12-08 16:06:19Z">2 months ago</a></b></p></td>
+            </tr>
+        </table>
+    </div>
+    
+<div class="module community-bulletin" data-tracker="cb=1">
+    <h4>Community Bulletin</h4>
+    <div class="related">
+        <div class="spacer bulletin-item-important">
+            <div class="bulletin-item-type event-date">event</div>
+            <div class="bulletin-item-content">
+                <a href="http://stackoverflow.com/election" class="question-hyperlink" target="_blank">2013 Community Moderator Election</a> <span class="event-date" style="white-space: nowrap;">&ndash; ends <span title="2013-03-12 20:00:00Z">Mar 12</span></span>
+            </div>
+            <br class="cbt" />
+        </div>
+
+    </div>
+</div>    
+                <script type="text/javascript">
+                var scriptSrc = "http://engine.adzerk.net/z/8277/adzerk1_2_4_43,adzerk2_2_17_45,adzerk3_2_4_44?keywords=bash,dictionary,hashtable,associative-array";
+                if (document.referrer) {
+                    if (/\?/.test(scriptSrc))
+                        scriptSrc += "&";
+                    else
+                        scriptSrc += "?";
+                    scriptSrc += "xReferrer=" + document.referrer;
+                }
+                StackExchange.ready(function () {
+                    var z = document.createElement("script");
+                    z.type = "text/javascript";
+                    z.async = "true";
+                    z.src = scriptSrc;
+                    var s = document.getElementsByTagName("script")[0];
+                    s.parentNode.insertBefore(z, s);
+                });
+            </script>
+        <div class="everyonelovesstackoverflow" id="adzerk2">
+        </div>
+    <div id="hireme">
+        <script type="text/javascript">
+            var careers_adurl="http://careers.stackoverflow.com/gethired/js",careers_cssurl="//careerscdn.sstatic.net/careers/gethired/sidebar.css?fffffffff879eaa0",careers_leaderboardcssurl="//careerscdn.sstatic.net/careers/gethired/ninja.min.css?3a8f91",careers_companycssurl="//careerscdn.sstatic.net/careers/gethired/company",careers_adselector="div.hireme, div#hireme";StackExchange.ready(function(){$.ajax({url:"//careerscdn.sstatic.net/careers/gethired/loader.min.js?3a8f91",dataType:"script",cache:!0})})
+        </script>
+    </div>
+
+
+
+      
+    
+    <div class="module sidebar-linked">
+        <h4 id="h-linked">Linked</h4>
+        <div class="linked" data-tracker="lq=1">
+            <div class="spacer">
+<a href="/questions/688849/associative-arrays-in-shell-scripts" class="question-hyperlink">Associative arrays in Shell scripts</a>
+</div>
+<div class="spacer">
+<a href="/questions/5063835/how-can-i-make-a-hashmap-in-linux-shell" class="question-hyperlink">How can I make a Hashmap in Linux shell?</a>
+</div>
+<div class="spacer">
+<a href="/questions/12944674/how-to-export-an-associative-array-hash-in-bash" class="question-hyperlink">How to export an associative array (hash) in bash?</a>
+</div>
+<div class="spacer">
+<a href="/questions/9584314/perl-hash-equivalent-in-bash-scripting" class="question-hyperlink">Perl hash equivalent in bash scripting?</a>
+</div>
+
+        </div>
+    </div>
+    <div class="module sidebar-related">
+        <h4 id="h-related">Related</h4>
+        <div class="related" data-tracker="rq=1">
+            <div class="spacer">
+<a href="/questions/656758/where-do-i-store-hash-table-or-dictionary-key-names" class="question-hyperlink">Where Do I Store Hash Table or Dictionary Key Names</a>
+</div>
+<div class="spacer">
+<a href="/questions/688849/associative-arrays-in-shell-scripts" class="question-hyperlink">Associative arrays in Shell scripts</a>
+</div>
+<div class="spacer">
+<a href="/questions/1315194/hash-tables-in-prolog" class="question-hyperlink">Hash tables in prolog</a>
+</div>
+<div class="spacer">
+<a href="/questions/1368869/how-to-make-an-associative-array-in-actionscript-indexed-by-point" class="question-hyperlink">How to make an associative array in actionscript indexed by Point?</a>
+</div>
+<div class="spacer">
+<a href="/questions/2107944/how-to-implement-an-associative-array-map-hash-table-data-structure-in-general" class="question-hyperlink">How to implement an associative array/map/hash table data structure (in general and in C++)</a>
+</div>
+<div class="spacer">
+<a href="/questions/2179965/whats-the-point-of-a-hash-table" class="question-hyperlink">What&#39;s the point of a hash table?</a>
+</div>
+<div class="spacer">
+<a href="/questions/3112687/how-to-iterate-over-associative-array-in-bash" class="question-hyperlink">How to iterate over associative array in bash</a>
+</div>
+<div class="spacer">
+<a href="/questions/3134296/hash-tables-vs-associative-arrays-php" class="question-hyperlink">Hash tables VS associative arrays [PHP]</a>
+</div>
+<div class="spacer">
+<a href="/questions/4443632/how-to-get-nearest-key-index-in-associative-javascript-array-if-key-does-not-exi" class="question-hyperlink">How to get nearest key index in associative JavaScript array if key does not exist?</a>
+</div>
+<div class="spacer">
+<a href="/questions/5047424/value-to-great-for-base-error-from-bash-associative-array" class="question-hyperlink">value to great for base error from bash associative array</a>
+</div>
+<div class="spacer">
+<a href="/questions/5359908/hash-table-question" class="question-hyperlink">hash table question</a>
+</div>
+<div class="spacer">
+<a href="/questions/5671445/dictionary-implementation-balance-binary-search-tree-v-s-hash-table" class="question-hyperlink">Dictionary implementation (Balance Binary Search tree v.s. hash table)</a>
+</div>
+<div class="spacer">
+<a href="/questions/6047648/bash-4-associative-arrays-error-declare-a-invalid-option" class="question-hyperlink">Bash 4 associative arrays: error &ldquo;declare: -A: invalid option&rdquo;</a>
+</div>
+<div class="spacer">
+<a href="/questions/6149679/bash-need-some-help-with-multidimensional-associative-arrays" class="question-hyperlink">BASH: need some help with multidimensional associative arrays</a>
+</div>
+<div class="spacer">
+<a href="/questions/7804816/how-to-create-a-dictionary-hash-table-by-iterating-through-a-column" class="question-hyperlink">How to create a dictionary / hash table by iterating through a column?</a>
+</div>
+<div class="spacer">
+<a href="/questions/9495950/how-to-implement-associative-array-not-dictionary-in-python" class="question-hyperlink">How to implement associative array (not dictionary) in Python?</a>
+</div>
+<div class="spacer">
+<a href="/questions/10450625/direct-address-table-with-non-distinct-keys" class="question-hyperlink">Direct address table with non-distinct keys</a>
+</div>
+<div class="spacer">
+<a href="/questions/10940842/bash-send-associative-array-to-the-function" class="question-hyperlink">Bash: Send associative array to the function</a>
+</div>
+<div class="spacer">
+<a href="/questions/11183636/pass-hash-from-ruby-to-bash-script" class="question-hyperlink">Pass hash from ruby to bash script?</a>
+</div>
+<div class="spacer">
+<a href="/questions/11198465/create-dictionaryhash-table-maintaining-order" class="question-hyperlink">Create dictionary(hash table) maintaining order</a>
+</div>
+<div class="spacer">
+<a href="/questions/13605017/python-hash-table-for-fuzzy-matching" class="question-hyperlink">Python hash table for fuzzy matching</a>
+</div>
+<div class="spacer">
+<a href="/questions/13783065/hash-table-resizing-how-do-we-do-it-without-knowing-the-key" class="question-hyperlink">Hash table resizing: how do we do it without knowing the key?</a>
+</div>
+<div class="spacer">
+<a href="/questions/13795949/hash-functions-and-hash-tables" class="question-hyperlink">hash functions and hash tables</a>
+</div>
+<div class="spacer">
+<a href="/questions/14022864/python-dictionary-very-slow2-d-hash-table" class="question-hyperlink">Python dictionary very slow(2-D hash table)</a>
+</div>
+<div class="spacer">
+<a href="/questions/14372962/hash-table-lookup-time" class="question-hyperlink">hash table lookup time</a>
+</div>
+
+        </div>
+    </div>
+        <div class="everyonelovesstackoverflow" id="adzerk3">
+        </div>
+
+
+</div>
+
+<div id="feed-link">
+    <div id="feed-link-text"><a href="/feeds/question/1494178" title="feed of this question and its answers"><span class="feed-icon"></span>question feed</a></div>
+</div>
+<script type="text/javascript">
+StackExchange.ready(function(){$.get('/posts/1494178/ivc/2838');});
+</script>
+<noscript>
+    <div><img src="/posts/1494178/ivc/2838" class="dno" alt="" width="0" height="0"></div>
+</noscript><div style="display:none" id="prettify-lang">lang-bsh</div></div>
+        </div>
+    </div>
+    <div id="footer">
+        <div class="footerwrap">
+            <div id="footer-menu">
+                    <a href="/about">about</a> |
+                <a href="/faq">faq</a> |
+                <a href="http://blog.stackexchange.com?blb=1">blog</a> |
+                    <a href="http://chat.stackoverflow.com">chat</a> |
+                <a href="http://data.stackexchange.com">data</a> |
+                <a href="http://stackexchange.com/legal">legal</a> |
+                <a href="http://stackexchange.com/legal/privacy-policy">privacy policy</a> |
+                <a href="http://stackexchange.com/about/hiring">jobs</a> |
+                <a href="http://engine.adzerk.net/redirect/0/2776/2751/0/4de3c60f719c4dfcb1a57531c7050090/0">advertising info</a> |
+
+                <a onclick="StackExchange.switchMobile('on', '/questions/1494178/how-to-define-hash-tables-in-bash')">mobile</a> |
+
+                <b><a href="/help">contact us</a></b>
+                  | <b><a href="http://meta.stackoverflow.com">feedback</a></b>
+                <div id="footer-sites">
+                    
+                        <span style="color:#FE7A15;font-size:140%">&#9632;</span>&nbsp;<a href="http://stackoverflow.com">stackoverflow.com</a>&nbsp; 
+                        <span style="color:#FE7A15;font-size:140%">&#9632;</span>&nbsp;<a href="http://stackapps.com">api/apps</a>&nbsp; 
+                        <span style="color:#FE7A15;font-size:140%">&#9632;</span>&nbsp;<a href="http://careers.stackoverflow.com">careers 2.0</a>&nbsp; 
+                        <span style="color:#E8272C;font-size:140%">&#9632;</span>&nbsp;<a href="http://serverfault.com">serverfault.com</a>&nbsp; 
+                        <span style="color:#00AFEF;font-size:140%">&#9632;</span>&nbsp;<a href="http://superuser.com">superuser.com</a>&nbsp; 
+                        <span style="color:#969696;font-size:140%">&#9632;</span>&nbsp;<a href="http://meta.stackoverflow.com">meta</a>&nbsp; 
+                        <span style="color:#46937D;font-size:140%">&#9632;</span>&nbsp;<a href="http://area51.stackexchange.com">area&nbsp;51</a>&nbsp; 
+                        <span style="color:#C0D0DC;font-size:140%">&#9632;</span>&nbsp;<a href="http://webapps.stackexchange.com">webapps</a>&nbsp; 
+                        <span style="color:#000000;font-size:140%">&#9632;</span>&nbsp;<a href="http://gaming.stackexchange.com">gaming</a>&nbsp; 
+                        <span style="color:#dd4814;font-size:140%">&#9632;</span>&nbsp;<a href="http://askubuntu.com">ubuntu</a>&nbsp; 
+                        <span style="color:#9ce4fe;font-size:140%">&#9632;</span>&nbsp;<a href="http://webmasters.stackexchange.com">webmasters</a>&nbsp; 
+                        <span style="color:#cf4d3f;font-size:140%">&#9632;</span>&nbsp;<a href="http://cooking.stackexchange.com">cooking</a>&nbsp; 
+                        <span style="color:#f4f28d;font-size:140%">&#9632;</span>&nbsp;<a href="http://gamedev.stackexchange.com">game development</a>&nbsp; 
+                        <span style="color:#0f3559;font-size:140%">&#9632;</span>&nbsp;<a href="http://math.stackexchange.com">math</a>&nbsp; 
+                        <span style="color:#f2f2f2;font-size:140%">&#9632;</span>&nbsp;<a href="http://photo.stackexchange.com">photography</a>&nbsp; 
+                        <span style="color:#037187;font-size:140%">&#9632;</span>&nbsp;<a href="http://stats.stackexchange.com">stats</a>&nbsp; 
+                        <span style="color:#f1e7cc;font-size:140%">&#9632;</span>&nbsp;<a href="http://tex.stackexchange.com">tex</a>&nbsp; 
+                        <span style="color:#e1cdae;font-size:140%">&#9632;</span>&nbsp;<a href="http://english.stackexchange.com">english</a>&nbsp; 
+                        <span style="color:#a2d9f6;font-size:140%">&#9632;</span>&nbsp;<a href="http://cstheory.stackexchange.com">theoretical cs</a>&nbsp; 
+                        <span style="color:#1b3e6c;font-size:140%">&#9632;</span>&nbsp;<a href="http://programmers.stackexchange.com">programmers</a>&nbsp; 
+                        <span style="color:#293a5d;font-size:140%">&#9632;</span>&nbsp;<a href="http://unix.stackexchange.com">unix</a>&nbsp;
+                        <span style="color:#bec0cb;font-size:140%">&#9632;</span>&nbsp;<a href="http://apple.stackexchange.com">apple</a>&nbsp;
+                        <span style="color:#939185;font-size:140%">&#9632;</span>&nbsp;<a href="http://wordpress.stackexchange.com">wordpress</a>&nbsp;
+                        <span style="color:#ebf5f5;font-size:140%">&#9632;</span>&nbsp;<a href="http://physics.stackexchange.com">physics</a>&nbsp;
+                        <span style="color:#4176ab;font-size:140%">&#9632;</span>&nbsp;<a href="http://diy.stackexchange.com">home&nbsp;improvement</a>&nbsp;
+                        <span style="color:#d1d8d7;font-size:140%">&#9632;</span>&nbsp;<a href="http://gis.stackexchange.com">gis</a>&nbsp;
+                        <span style="color:#e5e2d3;font-size:140%">&#9632;</span>&nbsp;<a href="http://electronics.stackexchange.com">electrical&nbsp;engineering</a>&nbsp;
+                        <span style="color:#a4c639;font-size:140%">&#9632;</span>&nbsp;<a href="http://android.stackexchange.com">android</a>&nbsp;
+                        <span style="color:#2e4e60;font-size:140%">&#9632;</span>&nbsp;<a href="http://security.stackexchange.com">security</a>&nbsp;
+                        <span style="color:#45bcb5;font-size:140%">&#9632;</span>&nbsp;<a href="http://bicycles.stackexchange.com">bicycles</a>&nbsp;
+                        <span style="color:#00adee;font-size:140%">&#9632;</span>&nbsp;<a href="http://dba.stackexchange.com">dba</a>&nbsp;
+                        <span style="color:#2edaf0;font-size:140%">&#9632;</span>&nbsp;<a href="http://drupal.stackexchange.com">drupal</a>&nbsp;
+                        <span style="color:#213951;font-size:140%">&#9632;</span>&nbsp;<a href="http://sharepoint.stackexchange.com">sharepoint</a>&nbsp;
+                        <span style="color:#73abb3;font-size:140%">&#9632;</span>&nbsp;<a href="http://scifi.stackexchange.com">scifi&nbsp;&amp;&nbsp;fantasy</a>&nbsp;
+                        <span style="color:#23629F;font-size:140%">&#9632;</span>&nbsp;<a href="http://ux.stackexchange.com">user&nbsp;experience</a>&nbsp;
+                        <span style="color:#faff72;font-size:140%">&#9632;</span>&nbsp;<a href="http://skeptics.stackexchange.com">skeptics</a>&nbsp;
+                        <span style="color:#623121;font-size:140%">&#9632;</span>&nbsp;<a href="http://rpg.stackexchange.com">rpg</a>&nbsp;
+                        <span style="color:#e4be88;font-size:140%">&#9632;</span>&nbsp;<a href="http://judaism.stackexchange.com">judaism</a>&nbsp;
+                        <span style="color:#ffecb1;font-size:140%">&#9632;</span>&nbsp;<a href="http://mathematica.stackexchange.com">mathematica</a>&nbsp;
+                        <span style="color:#1b8598;font-size:140%">&#9632;</span>&nbsp;<a href="http://travel.stackexchange.com">travel</a>&nbsp;
+                </div>
+            </div>
+            <div id="footer-flair">
+                <a class="peer1" href="http://www.peer1.com/stackoverflow"></a>  
+	            <a href="http://creativecommons.org/licenses/by-sa/3.0/" class="cc-wiki-link"></a>
+                <div id="svnrev">rev 2013.3.1.530</div>
+                        </div>
+            <div id="copyright">
+                site design / logo &copy; 2013 stack exchange inc; 
+                user contributions licensed under <a href="http://creativecommons.org/licenses/by-sa/3.0/" rel="license">cc-wiki</a> with <a href="http://blog.stackoverflow.com/2009/06/attribution-required/" rel="license">attribution required</a>
+            </div>
+            
+
+        </div>
+    </div>
+    
+    <noscript>
+        <div id="noscript-warning">Stack Overflow works best with JavaScript enabled<img src="http://pixel.quantserve.com/pixel/p-c1rF4kxgLUzNc.gif" alt="" class="dno"></div>
+    </noscript>
+    <script type="text/javascript">var _gaq=_gaq||[];_gaq.push(['_setAccount','UA-5620270-1']);
+        _gaq.push(['_setCustomVar', 1, 'tags', '|bash|dictionary|hashtable|associative-array|']); 
+_gaq.push(['_trackPageview']);
+    var _qevents = _qevents || [];
+    (function(){
+        var s=document.getElementsByTagName('script')[0];
+        var ga=document.createElement('script');
+        ga.type='text/javascript';
+        ga.async=true;
+        ga.src='http://www.google-analytics.com/ga.js';
+        s.parentNode.insertBefore(ga,s);
+        var sc=document.createElement('script');
+        sc.type='text/javascript';
+        sc.async=true;
+        sc.src='http://edge.quantserve.com/quant.js'; 
+        s.parentNode.insertBefore(sc,s);
+    })();
+    </script>
+    <script type="text/javascript">
+        _qevents.push({ qacct: "p-c1rF4kxgLUzNc" });
+    </script>    
+    
+</body>
+</html>

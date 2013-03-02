@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>
+Portland Functional Programming Study Group
+&raquo;
+ePDX: Portland's Tech Directory
+</title>
+<meta content='width=device-width, user-scalable=no' name='viewport'>
+<link href='/opensearch.xml' rel='search' title='ePDX' type='application/opensearchdescription+xml'>
+<link href="/stylesheets/compiled/basic_mobile.css?1336095336" media="all" rel="stylesheet" type="text/css" />
+<link href="/stylesheets/compiled/advanced_mobile.css?1336095333" media="only screen and (max-device-width: 960px)" rel="stylesheet" type="text/css" />
+<link href="/stylesheets/compiled/desktop.css?1336095338" media="all and (min-device-width: 961px)" rel="stylesheet" type="text/css" />
+
+<!--[if lt IE 9]>
+<link href="/stylesheets/compiled/desktop.css?1336095338" media="all" rel="stylesheet" type="text/css" />
+<![endif]-->
+<script src="/javascripts/lib/jquery-1.5.js?1336095255" type="text/javascript"></script>
+<script src="/javascripts/lib/jquery.hotkeys.js?1336095255" type="text/javascript"></script>
+<script src="/javascripts/lib/jquery.placeholder.min.js?1336095255" type="text/javascript"></script>
+<script src="/javascripts/lib/json2.js?1336095255" type="text/javascript"></script>
+<script src="/javascripts/lib/underscore.js?1336095255" type="text/javascript"></script>
+<script src="/javascripts/lib/backbone.js?1336095255" type="text/javascript"></script>
+<script src="/javascripts/citizenry.js?1336095255" type="text/javascript"></script>
+<script src="/javascripts/rails.js?1336095255" type="text/javascript"></script>
+<script>
+$(function() { $('#flash .message.success, #flash .message.notice').delay(4000).hide('blind'); });
+</script>
+<meta content="authenticity_token" name="csrf-param" />
+<meta content="My+1bgH7evXKi9JuMkQP4laq5J28CQRCzQ6u0lHs/TE=" name="csrf-token" />
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-168427-12']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+</head>
+<body class='groups groups_show not_signed_in'>
+<div id='header'>
+<div class='inner_container'>
+<h1>
+<a href='/'>
+<span>e</span>PDX
+<img class='home_marker' height='12' src='/images/home_12x12.png' width='12'>
+</a>
+</h1>
+<div id='account_box'>
+<div id='global_sign_in'>
+<a href="/sign_in" id="sign_in_link">Sign In / Join</a>
+</div>
+</div>
+<ul id='main_nav'>
+<li><a href="/people" class="people">People</a></li>
+<li><a href="/companies" class="companies">Companies</a></li>
+<li><a href="/groups" class="groups">Groups</a></li>
+<li><a href="/projects" class="projects">Projects &amp; Products</a></li>
+<li><a href="/resources" class="resources">Resources</a></li>
+<!-- %li= link_to "Events", 'http://calagator.org', :class => 'events' -->
+</ul>
+<form action='/search' id='global_search' method='get'>
+<input autosave='citizenry_global_search' name='q' placeholder='Search…' results='10' type='search'>
+</form>
+</div>
+<div id='global_sign_in_form'>
+<div class='sign_in_form'>
+<form accept-charset="UTF-8" action="/user_sessions" class="formtastic sign_in_data" id="new_sign_in_data" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="My+1bgH7evXKi9JuMkQP4laq5J28CQRCzQ6u0lHs/TE=" /></div>
+<li class="string required" id="sign_in_data_email_input"><label for="sign_in_data_email">Email address<abbr title="required">*</abbr></label><input autocapitalize="off" autocorrect="off" id="sign_in_data_email" name="sign_in_data[email]" type="text" /></li>
+<li class="select required" id="sign_in_data_provider_input"><label for="sign_in_data_provider">Sign in using…<abbr title="required">*</abbr></label><select id="sign_in_data_provider" name="sign_in_data[provider]"><option value="auto">Choose automatically</option>
+<option value="twitter">Twitter</option>
+<option value="open_id">OpenID</option>
+<option value="google">Google</option>
+<option value="yahoo">Yahoo</option>
+<option value="facebook">Facebook</option>
+<option value="linked_in">LinkedIn</option>
+<option value="github">GitHub</option>
+<option value="foursquare">Foursquare</option></select></li>
+<li class="commit"><input class="create" name="commit" type="submit" value="Sign In" /></li>
+</form>
+</div>
+
+</div>
+</div>
+<div id='content'>
+
+
+<div class='group single_record with_image'>
+<img alt="Pdx_func" class="logo" src="/system/logos/11/medium/pdx_func.gif?1298981374" />
+<h1>Portland Functional Programming Study Group</h1>
+<div class='description'><p>pdxfunc is a study/user group exploring functional programming in Portland, Oregon. The group welcomes programmers with any level of experience or interest in any functional language, including Haskell, Lisp, OCaml, and others.</p></div>
+<h2>Meeting Info</h2>
+<div class='description'><p><a href="http://calagator.org/events/search?query=pdxfunc">Find future meetings on Calagator</a></p>
+
+<p>The group meets regularly, usually on the second Monday of the month from 7-9pm for technical presentations, demos and discussions; and then heads out for food, drink and socializing at a neighborhood restaurant. Meetings are free and open to the public.</p></div>
+<div class='links'>
+<h2>Links</h2>
+<a href="http://pdxfunc.org/" class="url">http://pdxfunc.org/</a>
+<a href="http://groups.google.com/group/pdxfunc" class="mailing_list">Mailing List</a>
+</div>
+<div class='record_actions'>
+<a href="/groups/pdxfunc/edit" class="edit">edit</a>
+<a href="/groups/pdxfunc" class="delete" data-confirm="Are you sure?" data-method="delete" rel="nofollow">Delete</a>
+</div>
+<div class='section members'>
+<h2>Members</h2>
+<ul class='resource_list people'>
+<li class='person'>
+<a href="/people/reid-beels" class="avatar"><img alt="Photo" src="/system/photos/1/thumb/photo.png?1298953455" /></a>
+<h3>
+<a href="/people/reid-beels">Reid Beels</a>
+</h3>
+<span class='twitter_link'>
+<a href="https://twitter.com/reidab">@reidab</a> on Twitter
+</span>
+<p class='bio'>Designer, developer, geonerd, community organizer, and generally nice guy. Works on @calagator, @osbridge, @wherecamppdx, @paydici, &amp; more.</p>
+</li>
+<li class='person'>
+<a href="/people/91" class="avatar"><img alt="Chess_pic" src="/system/photos/91/thumb/chess_pic.jpg?1298953697" /></a>
+<h3>
+<a href="/people/91">Leif Warner</a>
+</h3>
+<span class='twitter_link'>
+<a href="https://twitter.com/pdxleif">@pdxleif</a> on Twitter
+</span>
+<p class='bio'>R&amp;D&amp;D. Wires. Tubes. Patterns.  Ask me about linked data, graphs, OWL, markup languages, functional languages, and dead languages.</p>
+</li>
+<li class='person'>
+<a href="/people/201" class="avatar"><img alt="Avatar_eyes_hair_scarf" src="/system/photos/201/thumb/avatar_eyes_hair_scarf.png?1299087278" /></a>
+<h3>
+<a href="/people/201">Amy Farrell ☕</a>
+</h3>
+<p class='bio'></p>
+</li>
+<li class='person'>
+<a href="/people/831" class="avatar"><img alt="Bryanstearnsthumb" src="/system/photos/831/thumb/bryanstearnsthumb.png?1299201433" /></a>
+<h3>
+<a href="/people/831">Bryan Stearns</a>
+</h3>
+<p class='bio'></p>
+</li>
+<li class='person'>
+<a href="/people/igalko" class="avatar"><img alt="Igal-avatar-by-jimmymcwicked-flipped" src="/system/photos/21/thumb/igal-avatar-by-jimmymcwicked-flipped.png?1298982077" /></a>
+<h3>
+<a href="/people/igalko">Igal Koshevoy</a>
+</h3>
+<span class='twitter_link'>
+<a href="https://twitter.com/igalko">@igalko</a> on Twitter
+</span>
+<p class='bio'>Business and Technology Consultant working primarily with Ruby, Python, UNIX and DevOps. Open source contributor &amp; community organizer: Calagator, Open Source Bridge, pdxruby, pdxfunc, and pdxdevops.</p>
+</li>
+<li class='person'>
+<a href="/people/1091" class="avatar"><img alt="Alex" src="/system/photos/1091/thumb/alex.jpg?1299546862" /></a>
+<h3>
+<a href="/people/1091">Alex Payne</a>
+</h3>
+<p class='bio'>Co-founder and CTO of BankSimple. Programmer, writer, secular humanist, beverage enthusiast. Former Twitter Platform Lead.</p>
+</li>
+<li class='person'>
+<a href="/people/481" class="avatar"><img alt="Twitterprofilephoto" src="/system/photos/481/thumb/twitterProfilePhoto.jpg?1299129928" /></a>
+<h3>
+<a href="/people/481">Thomas Lockney</a>
+</h3>
+<p class='bio'>Engineer, Mad Scientist, DorkbotPDX overlord, PDXScala cat herder, Code mangler, Systems wrangler. Former Texan.</p>
+</li>
+<li class='person'>
+<a href="/people/551" class="avatar"><img alt="Avatar" src="/system/photos/551/thumb/avatar.jpg?1299141131" /></a>
+<h3>
+<a href="/people/551">Jesse Cooke</a>
+</h3>
+<p class='bio'>climber, fighter, lover, son, brother, and something called n-tier engineer</p>
+</li>
+<li class='person'>
+<a href="/people/2831" class="avatar"><img alt="Img_0601" src="/system/photos/2831/thumb/IMG_0601.jpg?1308935448" /></a>
+<h3>
+<a href="/people/2831">Todd Dombrowski</a>
+</h3>
+<p class='bio'>Developer &amp; System Administrator since 1998</p>
+</li>
+<li class='person'>
+<a href="/people/3441" class="avatar"><img alt="275477_1663252098_6573540_n" src="/system/photos/3441/thumb/275477_1663252098_6573540_n.jpg?1313781475" /></a>
+<h3>
+<a href="/people/3441">Jake Brownson</a>
+</h3>
+<p class='bio'>Cofounder of Brainium Studios making quality games for iOS and Mac (and soon Android). All-weather biker, working on some functional programming ideas on the side. Always up for geeky conversations.</p>
+</li>
+<li class='person'>
+<a href="/people/3481" class="avatar"><img alt="3fb04953d95a94367bb133f862402bce?d=retro&amp;f=y&amp;s=48" src="http://www.gravatar.com/avatar/3fb04953d95a94367bb133f862402bce?d=retro&amp;f=y&amp;s=48" /></a>
+<h3>
+<a href="/people/3481">john melesky</a>
+</h3>
+<p class='bio'>Been programming in Portland for a few years, and elsewhere for a couple-three decades before that.</p>
+</li>
+<li class='person'>
+<a href="/people/3741" class="avatar"><img alt="Smile-bw-250-2" src="/system/photos/3741/thumb/smile-bw-250-2.png?1318626582" /></a>
+<h3>
+<a href="/people/3741">Micah Elliott</a>
+</h3>
+<p class='bio'>Entrepreneurship (@Membean), Data Mining, Ruby/Rails, R, Clojure, Vim, Zsh, Gimp, Git, Ubuntu, FOSS, SysAdmin, Clouds, Vocabulary, Ukulele, Esperanto</p>
+</li>
+<li class='person'>
+<a href="/people/postfuturist" class="avatar"><img alt="A6197a578fe7778e8d49a95ac425bcfc?d=retro&amp;f=y&amp;s=48" src="http://www.gravatar.com/avatar/a6197a578fe7778e8d49a95ac425bcfc?d=retro&amp;f=y&amp;s=48" /></a>
+<h3>
+<a href="/people/postfuturist">Stephen A. Goss</a>
+</h3>
+<p class='bio'>Programmer.</p>
+</li>
+<li class='person'>
+<a href="/people/peterw" class="avatar"><img alt="39597_533536613340_214901291_31625272_262785_n" src="/system/photos/4071/thumb/39597_533536613340_214901291_31625272_262785_n.jpg?1325140274" /></a>
+<h3>
+<a href="/people/peterw">Peter W</a>
+</h3>
+<p class='bio'>For fun and profit, in no particular order: web &amp; mobile developer, and active transportation advocate.</p>
+</li>
+<li class='person'>
+<a href="/people/webframp" class="avatar"><img alt="Sme" src="/system/photos/4161/thumb/sme.jpg?1327092204" /></a>
+<h3>
+<a href="/people/webframp">Sean Escriva</a>
+</h3>
+<p class='bio'></p>
+</li>
+<li class='person'>
+<a href="/people/2911" class="avatar"><img alt="Adron1" src="/system/photos/2911/thumb/adron1.jpg?1309912467" /></a>
+<h3>
+<a href="/people/2911">Adron Hall</a>
+</h3>
+<p class='bio'>Cloud computing, software development &amp; architecture, heavy metal, transit &amp; logistics, economics, beautiful things, speaker, and adrenaline junkie.</p>
+</li>
+<li class='person'>
+<a href="/people/notbenh" class="avatar"><img alt="402936533_7fb8915162_o" src="/system/photos/1221/thumb/402936533_7fb8915162_o.jpg?1299554762" /></a>
+<h3>
+<a href="/people/notbenh">ben hengst</a>
+</h3>
+<p class='bio'>I'm just a guy that does stuff... </p>
+</li>
+
+</ul>
+
+
+</div>
+</div>
+
+</div>
+<div id='footer'>
+<div id='citizenry_credit'>
+Powered by <a href="http://github.com/reidab/citizenry/">Citizenry</a>.
+</div>
+<div id='hosting_credit'>
+Hosting thanks to <a href="http://www.networkredux.com/">Network Redux</a>.
+</div>
+<div id='contact_link'>
+Questions? Comments? Desires? Email <a href="mailto:admin@epdx.org">admin@epdx.org</a>
+</div>
+<div id='twitter_link'>
+Follow <a href="https://twitter.com/e_pdx">@e_pdx</a> on Twitter
+</div>
+</div>
+</body>
+</html>
