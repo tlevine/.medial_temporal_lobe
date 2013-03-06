@@ -1,0 +1,1450 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html dir='ltr'>
+<head>
+<meta content='text/html; charset=UTF-8' http-equiv='Content-Type'/>
+<script type="text/javascript">(function() { var b=window,e="jstiming",g="tick";(function(){function d(a){this.t={};this.tick=function(a,d,c){c=void 0!=c?c:(new Date).getTime();this.t[a]=[c,d]};this[g]("start",null,a)}var a=new d;b.jstiming={Timer:d,load:a};if(b.performance&&b.performance.timing){var a=b.performance.timing,c=b[e].load,f=a.navigationStart,a=a.responseStart;0<f&&a>=f&&(c[g]("_wtsrt",void 0,f),c[g]("wtsrt_","_wtsrt",a),c[g]("tbsd_","wtsrt_"))}try{a=null,b.chrome&&b.chrome.csi&&(a=Math.floor(b.chrome.csi().pageT),c&&0<f&&(c[g]("_tbnd",void 0,b.chrome.csi().startE),
+c[g]("tbnd_","_tbnd",f))),null==a&&b.gtbExternal&&(a=b.gtbExternal.pageT()),null==a&&b.external&&(a=b.external.pageT,c&&0<f&&(c[g]("_tbnd",void 0,b.external.startE),c[g]("tbnd_","_tbnd",f))),a&&(b[e].pt=a)}catch(l){}})();b.tickAboveFold=function(d){var a=0;if(d.offsetParent){do a+=d.offsetTop;while(d=d.offsetParent)}d=a;750>=d&&b[e].load[g]("aft")};var h=!1;function k(){h||(h=!0,b[e].load[g]("firstScrollTime"))}b.addEventListener?b.addEventListener("scroll",k,!1):b.attachEvent("onscroll",k);
+ })();</script>
+<meta content='true' name='MSSmartTagsPreventParsing'/>
+<meta content='blogger' name='generator'/>
+<link href='http://okasaki.blogspot.com/favicon.ico' rel='icon' type='image/x-icon'/>
+<link href='http://okasaki.blogspot.com/2008/02/ten-years-of-purely-functional-data.html' rel='canonical'/>
+<link rel="alternate" type="application/atom+xml" title="Teaching, Playing, and Programming - Atom" href="http://okasaki.blogspot.com/feeds/posts/default" />
+<link rel="alternate" type="application/rss+xml" title="Teaching, Playing, and Programming - RSS" href="http://okasaki.blogspot.com/feeds/posts/default?alt=rss" />
+<link rel="service.post" type="application/atom+xml" title="Teaching, Playing, and Programming - Atom" href="http://www.blogger.com/feeds/2564777502681463717/posts/default" />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://www.blogger.com/rsd.g?blogID=2564777502681463717" />
+<link rel="alternate" type="application/atom+xml" title="Teaching, Playing, and Programming - Atom" href="http://okasaki.blogspot.com/feeds/4783688804692941885/comments/default" />
+<!--[if IE]> <script> (function() { var html5 = ("abbr,article,aside,audio,canvas,datalist,details," + "figure,footer,header,hgroup,mark,menu,meter,nav,output," + "progress,section,time,video").split(','); for (var i = 0; i < html5.length; i++) { document.createElement(html5[i]); } try { document.execCommand('BackgroundImageCache', false, true); } catch(e) {} })(); </script> <![endif]-->
+<title>Teaching, Playing, and Programming: Ten Years of Purely Functional Data Structures</title>
+<link type='text/css' rel='stylesheet' href='//www.blogger.com/static/v1/widgets/3270118147-widget_css_bundle.css' />
+<link type="text/css" rel="stylesheet" href="//www.blogger.com/dyn-css/authorization.css?targetBlogID=2564777502681463717&zx=d56781a1-b2e7-48d5-a0eb-e20744c0f27f"/>
+<style id='page-skin-1' type='text/css'><!--
+/*
+-----------------------------------------------
+Blogger Template Style
+Name:     Minima Stretch
+Date:     26 Feb 2004
+----------------------------------------------- */
+/* Variable definitions
+====================
+<Variable name="bgcolor" description="Page Background Color"
+type="color" default="#fff">
+<Variable name="textcolor" description="Text Color"
+type="color" default="#333">
+<Variable name="linkcolor" description="Link Color"
+type="color" default="#58a">
+<Variable name="pagetitlecolor" description="Blog Title Color"
+type="color" default="#666">
+<Variable name="descriptioncolor" description="Blog Description Color"
+type="color" default="#999">
+<Variable name="titlecolor" description="Post Title Color"
+type="color" default="#c60">
+<Variable name="bordercolor" description="Border Color"
+type="color" default="#ccc">
+<Variable name="sidebarcolor" description="Sidebar Title Color"
+type="color" default="#999">
+<Variable name="sidebartextcolor" description="Sidebar Text Color"
+type="color" default="#666">
+<Variable name="visitedlinkcolor" description="Visited Link Color"
+type="color" default="#999">
+<Variable name="bodyfont" description="Text Font"
+type="font" default="normal normal 100% Georgia, Serif">
+<Variable name="headerfont" description="Sidebar Title Font"
+type="font"
+default="normal normal 78% 'Trebuchet MS',Trebuchet,Arial,Verdana,Sans-serif">
+<Variable name="pagetitlefont" description="Blog Title Font"
+type="font"
+default="normal normal 200% Georgia, Serif">
+<Variable name="descriptionfont" description="Blog Description Font"
+type="font"
+default="normal normal 78% 'Trebuchet MS', Trebuchet, Arial, Verdana, Sans-serif">
+<Variable name="postfooterfont" description="Post Footer Font"
+type="font"
+default="normal normal 78% 'Trebuchet MS', Trebuchet, Arial, Verdana, Sans-serif">
+<Variable name="startSide" description="Start side in blog language"
+type="automatic" default="left">
+<Variable name="endSide" description="End side in blog language"
+type="automatic" default="right">
+*/
+/* Use this with templates/template-twocol.html */
+body {
+background:#ffffff;
+margin:0;
+color:#333333;
+font:x-small Georgia Serif;
+font-size/* */:/**/small;
+font-size: /**/small;
+text-align: center;
+}
+a:link {
+color:#5588aa;
+text-decoration:none;
+}
+a:visited {
+color:#999999;
+text-decoration:none;
+}
+a:hover {
+color:#cc6600;
+text-decoration:underline;
+}
+a img {
+border-width:0;
+}
+/* Header
+-----------------------------------------------
+*/
+#header-wrapper {
+margin:0 2% 10px;
+border:1px solid #cccccc;
+}
+#header {
+margin: 5px;
+border: 1px solid #cccccc;
+text-align: center;
+color:#666666;
+}
+#header-inner {
+background-position: center;
+margin-left: auto;
+margin-right: auto;
+}
+#header h1 {
+margin:5px 5px 0;
+padding:15px 20px .25em;
+line-height:1.2em;
+text-transform:uppercase;
+letter-spacing:.2em;
+font: normal normal 200% Georgia, Serif;
+}
+#header a {
+color:#666666;
+text-decoration:none;
+}
+#header a:hover {
+color:#666666;
+}
+#header .description {
+margin:0 5px 5px;
+padding:0 20px 15px;
+text-transform:uppercase;
+letter-spacing:.2em;
+line-height: 1.4em;
+font: normal normal 78% 'Trebuchet MS', Trebuchet, Arial, Verdana, Sans-serif;
+color: #999999;
+}
+#header img {
+margin-left: auto;
+margin-right: auto;
+}
+/* Outer-Wrapper
+----------------------------------------------- */
+#outer-wrapper {
+margin:0;
+padding:10px;
+text-align:left;
+font: normal normal 100% Georgia, Serif;
+}
+#main-wrapper {
+margin-left: 2%;
+width: 67%;
+float: left;
+display: inline;       /* fix for doubling margin in IE */
+word-wrap: break-word; /* fix for long text breaking sidebar float in IE */
+overflow: hidden;      /* fix for long non-text content breaking IE sidebar float */
+}
+#sidebar-wrapper {
+margin-right: 2%;
+width: 25%;
+float: right;
+display: inline;       /* fix for doubling margin in IE */
+word-wrap: break-word; /* fix for long text breaking sidebar float in IE */
+overflow: hidden;      /* fix for long non-text content breaking IE sidebar float */
+}
+/* Headings
+----------------------------------------------- */
+h2 {
+margin:1.5em 0 .75em;
+font:normal normal 78% 'Trebuchet MS',Trebuchet,Arial,Verdana,Sans-serif;
+line-height: 1.4em;
+text-transform:uppercase;
+letter-spacing:.2em;
+color:#999999;
+}
+/* Posts
+-----------------------------------------------
+*/
+h2.date-header {
+margin:1.5em 0 .5em;
+}
+.post {
+margin:.5em 0 1.5em;
+border-bottom:1px dotted #cccccc;
+padding-bottom:1.5em;
+}
+.post h3 {
+margin:.25em 0 0;
+padding:0 0 4px;
+font-size:140%;
+font-weight:normal;
+line-height:1.4em;
+color:#cc6600;
+}
+.post h3 a, .post h3 a:visited, .post h3 strong {
+display:block;
+text-decoration:none;
+color:#cc6600;
+font-weight:normal;
+}
+.post h3 strong, .post h3 a:hover {
+color:#333333;
+}
+.post-body {
+margin:0 0 .75em;
+line-height:1.6em;
+}
+.post-body blockquote {
+line-height:1.3em;
+}
+.post-footer {
+margin: .75em 0;
+color:#999999;
+text-transform:uppercase;
+letter-spacing:.1em;
+font: normal normal 78% 'Trebuchet MS', Trebuchet, Arial, Verdana, Sans-serif;
+line-height: 1.4em;
+}
+.comment-link {
+margin-left:.6em;
+}
+.post img, table.tr-caption-container {
+padding:4px;
+border:1px solid #cccccc;
+}
+.tr-caption-container img {
+border: none;
+padding: 0;
+}
+.post blockquote {
+margin:1em 20px;
+}
+.post blockquote p {
+margin:.75em 0;
+}
+/* Comments
+----------------------------------------------- */
+#comments h4 {
+margin:1em 0;
+font-weight: bold;
+line-height: 1.4em;
+text-transform:uppercase;
+letter-spacing:.2em;
+color: #999999;
+}
+#comments-block {
+margin:1em 0 1.5em;
+line-height:1.6em;
+}
+#comments-block .comment-author {
+margin:.5em 0;
+}
+#comments-block .comment-body {
+margin:.25em 0 0;
+}
+#comments-block .comment-footer {
+margin:-.25em 0 2em;
+line-height: 1.4em;
+text-transform:uppercase;
+letter-spacing:.1em;
+}
+#comments-block .comment-body p {
+margin:0 0 .75em;
+}
+.deleted-comment {
+font-style:italic;
+color:gray;
+}
+.feed-links {
+clear: both;
+line-height: 2.5em;
+}
+#blog-pager-newer-link {
+float: left;
+}
+#blog-pager-older-link {
+float: right;
+}
+#blog-pager {
+text-align: center;
+}
+/* Sidebar Content
+----------------------------------------------- */
+.sidebar {
+color: #666666;
+line-height: 1.5em;
+}
+.sidebar ul {
+list-style:none;
+margin:0 0 0;
+padding:0 0 0;
+}
+.sidebar li {
+margin:0;
+padding-top:0;
+padding-right:0;
+padding-bottom:.25em;
+padding-left:15px;
+text-indent:-15px;
+line-height:1.5em;
+}
+.sidebar .widget, .main .widget {
+border-bottom:1px dotted #cccccc;
+margin:0 0 1.5em;
+padding:0 0 1.5em;
+}
+.main .Blog {
+border-bottom-width: 0;
+}
+/* Profile
+----------------------------------------------- */
+.profile-img {
+float: left;
+margin-top: 0;
+margin-right: 5px;
+margin-bottom: 5px;
+margin-left: 0;
+padding: 4px;
+border: 1px solid #cccccc;
+}
+.profile-data {
+margin:0;
+text-transform:uppercase;
+letter-spacing:.1em;
+font: normal normal 78% 'Trebuchet MS', Trebuchet, Arial, Verdana, Sans-serif;
+color: #999999;
+font-weight: bold;
+line-height: 1.6em;
+}
+.profile-datablock {
+margin:.5em 0 .5em;
+}
+.profile-textblock {
+margin: 0.5em 0;
+line-height: 1.6em;
+}
+.profile-link {
+font: normal normal 78% 'Trebuchet MS', Trebuchet, Arial, Verdana, Sans-serif;
+text-transform: uppercase;
+letter-spacing: .1em;
+}
+/* Footer
+----------------------------------------------- */
+#footer {
+width:660px;
+clear:both;
+margin:0 auto;
+padding-top:15px;
+line-height: 1.6em;
+text-transform:uppercase;
+letter-spacing:.1em;
+text-align: center;
+}
+
+--></style>
+<script type="text/javascript">var a=navigator,b="userAgent",c="indexOf",f="&m=1",g="(^|&)m=",h="?",k="?m=1";function l(){var d=window.location.href,e=d.split(h);switch(e.length){case 1:return d+k;case 2:return 0<=e[1].search(g)?null:d+f;default:return null}}if(-1!=a[b][c]("Mobile")&&-1!=a[b][c]("WebKit")&&-1==a[b][c]("iPad")||-1!=a[b][c]("Opera Mini")||-1!=a[b][c]("IEMobile")){var m=l();m&&window.location.replace(m)};
+</script><script type="text/javascript">
+if (window.jstiming) window.jstiming.load.tick('headEnd');
+</script></head>
+<body>
+<div class='navbar section' id='navbar'><div class='widget Navbar' id='Navbar1'><script type="text/javascript">
+    function setAttributeOnload(object, attribute, val) {
+      if(window.addEventListener) {
+        window.addEventListener('load',
+          function(){ object[attribute] = val; }, false);
+      } else {
+        window.attachEvent('onload', function(){ object[attribute] = val; });
+      }
+    }
+  </script>
+<div id="navbar-iframe-container"></div>
+<script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+<script type="text/javascript">
+        gapi.load("iframes-styles-bubble", function() {
+          if (window.iframes && iframes.open) {
+            iframes.open(
+                '//www.blogger.com/navbar.g?targetBlogID\0752564777502681463717\46blogName\75Teaching,+Playing,+and+Programming\46publishMode\75PUBLISH_MODE_BLOGSPOT\46navbarType\75BLUE\46layoutType\75LAYOUTS\46searchRoot\75http://okasaki.blogspot.com/search\46blogLocale\75en_US\46v\0752\46homepageUrl\75http://okasaki.blogspot.com/\46targetPostID\0754783688804692941885\46blogPostOrPageUrl\75http://okasaki.blogspot.com/2008/02/ten-years-of-purely-functional-data.html\46vt\0756261790463929611457',
+                {
+                  container: "navbar-iframe-container",
+                  id: "navbar-iframe"
+                },
+                {
+                });
+          }
+        });
+      </script><script type="text/javascript">
+(function() {
+var script = document.createElement('script');
+script.type = 'text/javascript';
+script.src = '//pagead2.googlesyndication.com/pagead/js/google_top_exp.js';
+var head = document.getElementsByTagName('head')[0];
+if (head) {
+head.appendChild(script);
+}})();
+</script>
+</div></div>
+<div id='outer-wrapper'><div id='wrap2'>
+<!-- skip links for text browsers -->
+<span id='skiplinks' style='display:none;'>
+<a href='#main'>skip to main </a> |
+      <a href='#sidebar'>skip to sidebar</a>
+</span>
+<div id='header-wrapper'>
+<div class='header section' id='header'><div class='widget Header' id='Header1'>
+<div id='header-inner'>
+<div class='titlewrapper'>
+<h1 class='title'>
+<a href='http://okasaki.blogspot.com/'>Teaching, Playing, and Programming</a>
+</h1>
+</div>
+<div class='descriptionwrapper'>
+<p class='description'><span>
+</span></p>
+</div>
+</div>
+</div></div>
+</div>
+<div id='content-wrapper'>
+<div id='crosscol-wrapper' style='text-align:center'>
+<div class='crosscol section' id='crosscol'></div>
+</div>
+<div id='main-wrapper'>
+<div class='main section' id='main'><div class='widget Blog' id='Blog1'>
+<div class='blog-posts hfeed'>
+<!-- google_ad_section_start(name=default) -->
+
+          <div class="date-outer">
+        
+<h2 class='date-header'><span>Friday, February 8, 2008</span></h2>
+
+          <div class="date-posts">
+        
+<div class='post-outer'>
+<div class='post hentry uncustomized-post-template' itemprop='blogPost' itemscope='itemscope' itemtype='http://schema.org/BlogPosting'>
+<meta content='2564777502681463717' itemprop='blogId'/>
+<meta content='4783688804692941885' itemprop='postId'/>
+<a name='4783688804692941885'></a>
+<h3 class='post-title entry-title' itemprop='name'>
+Ten Years of Purely Functional Data Structures
+</h3>
+<div class='post-header'>
+<div class='post-header-line-1'></div>
+</div>
+<div class='post-body entry-content' id='post-body-4783688804692941885' itemprop='description articleBody'>
+<p>In 1998, I published a book called <b>Purely Functional Data Structures</b>.  Ten years later, the book is still selling well.  (Every time I get a royalty check, my wife the skeptic says &ldquo;People are <i>still</i> buying that?!&rdquo;)  The ten-year anniversary seems like a good time to reflect back on my experience with this book.</p>
+<h3>Origins</h3>
+<p>My first introduction to functional programming was at Carnegie Mellon University, where I worked for <a href="http://www.cs.cmu.edu/~petel/">Peter Lee</a> and Phil Koopman on an implementation of a subset of <a href="http://www.haskell.org/">Haskell</a> (called &ldquo;<a href="http://en.wikipedia.org/wiki/Eddie_Haskell">Eddie</a>&rdquo;), written in <a href="http://www.smlnj.org/">Standard ML</a>.  So right from the very beginning, I was working with a mix of strict and lazy evaluation.</p>
+<p>I've always been fascinated by data structures, and I soon realized that something was strange about data structures in these two languages.  On the one hand, when they worked, data structures were more pleasant to work with than in any other languages I had ever used before.  On the other hand, sometimes they just didn't work.</p>
+<p>The issue was <i>immutability</i>.  In pure functional programming, all data structures are immutable, meaning that they cannot be changed once created.  Of course, data structures frequently need to be changed, so what happens is that you create a new copy of the data structure that incorporates the change, without actually modifying the old copy.  This can often be done efficiently by having the new structure share large chunks of the old one.  For example, stacks are trivial to implement this way.  Tree-like structures such as binary search trees and many kinds of priority queues are almost as easy.</p>
+<p>However, some common data structures, such as FIFO queues and arrays, can actually be quite difficult to implement this way.  Some people take this as a sign that functional languages are impractical.  However, it's not the fault of functional programming per se, but rather of immutability.  Immutable data structures are just as awkward to implement in conventional languages such as Java.  (Of course, immutable data structures also offer huge advantages, which is why, for example, strings are immutable in Java.)</p>
+<p>In 1993, I ran across an <a href="http://citeseer.ist.psu.edu/117501.html">interesting paper</a> by Tyng-Ruey Chuang and Benjamin Goldberg, showing how to implement efficient purely functional queues and double-ended queues.  Their result was quite nice, but rather complicated, so I started looking for a simpler approach.  Eventually, I came up a much simpler approach based on lazy evaluation, leading to my <a href="http://citeseer.ist.psu.edu/158610.html">first paper</a> in this area.  (When I say simpler here, I mean simpler to implement&#8212;the new structure was actually harder to analyze than Chuang and Goldberg's.)</p>
+<p>Almost immediately after my paper on queues, I worked on a paper about <a href="http://citeseer.ist.psu.edu/okasaki95purely.html">functional arrays</a>, here called <i>random-access lists</i> because they combined the extensibility of lists with the random access of arrays.  (Because the lead time on journal papers is longer than the lead time for conferences, this paper actually appeared before the paper on queues, even though it was written later.)  The approach I used, which turned out to be very similar to one used earlier by Gene Myers, was based on properties of an obscure number system called <i>skew binary numbers</i>.  This marked the beginning of a second theme of my work, that of designing implementations of data structures in analogy to number systems.  For example, inserting an element into a data structure is similar to incrementing a number, and merging two data structures is similar to adding two numbers.  I called this approach <i>numerical representations</i>.  The idea was to choose or create a number system with the properties you want (such as constant-time addition), and then build the data structure on top of that.  The advantage of this approach is that you can often do the hard work in a simplified setting, where you don't have to worry about carrying around the actual data in your data structure.</p>
+<p>Amusingly, this paper marked the second round of a circle dance between Rob Hoogerwoord, Tyng-Ruey Chuang, and me.  First, Hoogerwoord published a paper on functional queues, then Chuang, then me.  And again with functional arrays, first Hoogerwoord published a paper, then Chuang, then me.</p>
+<p>Around this time, I was looking for a thesis topic (that period that John Reynolds describes as &ldquo;making even the best student look bad&rdquo;).  Fortunately, my advisor Peter Lee had patience with me during this search.  I considered a bunch of topics related to functional programming, but none of them seemed right.  I was enjoying the work I was doing with functional data structures, but there didn't really seem to be enough meat there for a dissertation.  That changed one day during a walk in the snow.</p>
+<p>I had become fascinated by the idea of concatenation (appending two lists).  This is trivial to do in conventional languages using, say, doubly-linked lists.  But it's much harder to do efficiently with immutable lists.  I thought that I had come up with a new approach, so I made an appointment to talk to Danny Sleator about it.  He had been involved in some of the early work in this topic (along with Neil Sarnak and Bob Tarjan), and his office was just a few floors below mine.  The day before the meeting, I realized that my approach was completely broken.  Afraid of looking like an idiot, I went into a frenzy, playing with different variations, and a few hours later I came up with an approach again based on lazy evaluation.  I was sure that this approach worked, but I had no idea how to prove it.  (Again, this was a case where the implementation was simple, but the analysis was a bear.)  My wife had our car somewhere else that day, so I ended up walking home.  The walk usually took about 45 minutes, but it was snowing pretty hard, so it took about twice that long.  The whole way home I thought about nothing but how to analyze my data structure.  I knew it had something to do with amortization, but the usual techniques of amortization weren't working.  About halfway home, I came up with the idea of using <i>debits</i> instead of credits, and by the time I got home the entire framework of how to analyze data structures involving lazy evaluation had crystallized in my head.</p>
+<p>With this framework in mind, I now believed that there was enough meat there for a dissertation, and I sailed through my thesis proposal and, about a year later, my thesis defense.</p>
+<h3>The Book</h3>
+<p>After my defense, Peter Lee suggested that I try to publish my dissertation as a book.  He contacted two publishers he had worked with before, and one of them, Lauren Cowles of Cambridge University Press, bit.</p>
+<p>The process of turning my dissertation into a book was pure joy.  I thought that the basic organization of my dissertation was pretty solid, so mostly I was able to focus on adding and adjusting things to make it work better as a book.  For example, I no longer had the constraint from my dissertation of having to focus on original work, so I was free to add data structures that had been developed by other people.</p>
+<p>The main additions were expanded introductory material (such as my simplification of red-black trees, which was developed a few weeks after my thesis defense in a series of emails with Richard Bird), exercises, and an appendix including all the source code in Haskell (the main text used source code in Standard ML).</p>
+<p>After several months of hacking, I was able to ship off a giant Postscript file to Lauren Cowles, and that was that.</p>
+<p>Well, not quite.  Lauren asked me what I wanted for cover art.  My wife was an avid quilter, and I liked the idea of having a suitably geeky quilt pattern on the cover.  I adapted a quilt pattern called <i>Flying Geese</i>, and sent a sketch to Lauren, who got a graphic artist to draw up the final version.  I was quite happy with it.  Later, I found out that Flying geese was actually the name of a different pattern, and to this day, I don't know the correct name of the pattern.  It looks a little different on the book than in quilts because quilters usually only use two levels of the recursion, but I used three.</p>
+<h3>Reactions</h3>
+<p>Initial reviews were positive and the hardcover edition sold out pretty quickly, so Cambridge University Press released a paperback edition the following year.  I don't know of any courses that used it as the main textbook (it would have to be a pretty specialized course to do that), but several mainstream courses used it as a supplementary textbook.</p>
+<p>Sales were steady but trending downward, until 2004, when a book review by Andrew Cooke appeared on <a href="http://books.slashdot.org/article.pl?no_d2=1&sid=04/02/19/2257203">Slashdot</a>.  After that, sales doubled and have stayed at that level for several years.  Of course, I can't be sure this increase was because of Slashdot, but it seems likely.  Thanks, Andrew!</p>
+<p>The most interesting place the book has shown up was in the data of a <a href="http://www.topcoder.com/tc">TopCoder</a> programming contest problem involving sorting books on a bookshelf.  It was part of a list of CS textbooks.  (And, no, I wasn't the author of the problem, although I have written some problems for TopCoder.)</p>
+<p>The funniest moment about the book was when I worked at Columbia University.  A potential grad student from an unrelated field in CS was visiting from Germany, and I was talking to him about the department.  When I told him about my research, he said, &ldquo;My roommate has been reading a book about something like that.  I don't remember the name, but do you know which book I mean?&rdquo;  I reached over and pulled my book off the shelf and said, &ldquo;Do you mean this one?&rdquo;  His mouth fell open.</p>
+<p>The most flattering review of the book appeared a few years ago in a <a href="http://jaortega.wordpress.com/2006/03/28/a-haskell-bookshelf/">blog</a> by José Antonio Ortega Ruiz, who said<blockquote>&ldquo;The exposition is extremely elegant and synthetic, and i&#8217;ve spent many, many hours immersed in its 220 pages (i can&#8217;t think of any other programming book with a better signal to noise ratio, really).&rdquo;</blockquote>Thanks, jao!</p>
+<h3>Complaints</h3>
+<p>Of course, you can't please everybody.  The most common complaints I've heard are<ul><li><b>No hash tables.</b> This was mentioned in the first review of the book on <a href="http://www.amazon.com/gp/product/0521663504/">Amazon</a>, which called the lack of hash tables a &ldquo;major omission, likely because they don't fit well into a functional environment.&rdquo;  More than a year later, a second reviewer mentioned that hash tables are in fact in the book, but buried in an exercise.  Both reviewers are correct.  I only gave a very short description of hash tables in an exercise, because there just wasn't that much to say.  A hash table is basically the composition of two finite maps, one approximate and one exact.  The choice of what structures to use for those finite maps are up to you.  Typically, an array is used for the approximate map, but, as the first reviewer noted, arrays do not fit well into a functional environment.</li>
+<li><b>No delete for red-black trees.</b> I present my simplified form of red-black trees very early in the book as an introduction to functional data structures, but I only describe insertions, not deletions.  There were two main reasons for that omission.  First, deletions are much messier than insertions, and the introduction did not seem like the right place for a lot of messy details.  Second, and more importantly, probably 95+% of uses of functional red-black trees don't need deletions anyway.  Because the trees are immutable, when you want to delete something, you can simply revert back to a previous version of the tree from before the unwanted item was inserted.  This is almost always both the easiest and the right thing to do.  The exception is when you inserted something else that you want to keep after the item to be deleted, but this is extremely rare.</li>
+<li><b>Why Standard ML?</b> In the last 10 years, Haskell has become steadily more popular, while Standard ML has largely been replaced by OCaml.  A frequent complaint has been people wishing that Haskell was in the main text, with Standard ML (or OCaml) in the appendix, instead of the reverse.  Even at the time, I debated with myself about the choice of Standard ML, particularly because in some chapters I had to fake extensions to the language, such as lazy evaluation and polymorphic recursion.  I went with Standard ML for two main reasons.  First, I wanted to be able to distinguish between lazy evaluation and strict evaluation, which was much more difficult in Haskell.  Second, I <i>really</i> wanted to be able to give module signatures for all the common structures (stacks, queues, etc.) that I was going to be revisiting over and over.  You can sort of do this in Haskell, but not cleanly.</li>
+<li><b>Too esoteric/impractical.</b> Guilty as charged!  I did try to point out a few data structures along the way that were especially practical, but that was not my main focus.  If it was, I certainly would not have included umpteen different implementations of queues!  Instead, I was trying to focus on design techniques, so that readers could use those techniques to design their own data structures.  Many of the example data structures were included as illustrations of those design techniques, not because the examples were particularly practical or valuable by themselves.</li></ul>
+<h3>The Future?</h3>
+<p>People sometimes ask me if I'm planning a second edition.  The answer is maybe, but not anytime soon.  I'm still pretty happy with what I said and how I said it, so I don't feel a burning need to go back and correct things.  If I wrote a second edition, it would be to modernize the presentation and to add some new data structures and techniques.  For example, I might include the finger trees of Ralf Hinze and Ross Paterson.</p>
+<p>In terms of the presentation, however, the biggest question would be what language to use.  Standard ML probably doesn't make sense any more, but I'm still not sure Haskell is ready to take over, for the same reasons mentioned above.  I suppose I could switch to OCaml, but I'm not sure that's enough of a change to warrant a new edition.  I have faith that the vast majority of my readers are perfectly capable of making the translation from Standard ML to OCaml themselves.</p>
+<div style='clear: both;'></div>
+</div>
+<div class='post-footer'>
+<div class='post-footer-line post-footer-line-1'>
+<span class='post-author vcard'>
+Posted by
+<span class='fn' itemprop='author' itemscope='itemscope' itemtype='http://schema.org/Person'>
+<meta content='http://www.blogger.com/profile/18247315355264748920' itemprop='url'/>
+<a href='http://www.blogger.com/profile/18247315355264748920' rel='author' title='author profile'>
+<span itemprop='name'>Chris Okasaki</span>
+</a>
+</span>
+</span>
+<span class='post-timestamp'>
+at
+<meta content='http://okasaki.blogspot.com/2008/02/ten-years-of-purely-functional-data.html' itemprop='url'/>
+<a class='timestamp-link' href='http://okasaki.blogspot.com/2008/02/ten-years-of-purely-functional-data.html' rel='bookmark' title='permanent link'><abbr class='published' itemprop='datePublished' title='2008-02-08T13:08:00-05:00'>1:08 PM</abbr></a>
+</span>
+<span class='reaction-buttons'>
+</span>
+<span class='star-ratings'>
+</span>
+<span class='post-comment-link'>
+</span>
+<span class='post-backlinks post-comment-link'>
+</span>
+<span class='post-icons'>
+<span class='item-action'>
+<a href='http://www.blogger.com/email-post.g?blogID=2564777502681463717&postID=4783688804692941885' title='Email Post'>
+<img alt='' class='icon-action' height='13' src='http://img1.blogblog.com/img/icon18_email.gif' width='18'/>
+</a>
+</span>
+<span class='item-control blog-admin pid-588663408'>
+<a href='http://www.blogger.com/post-edit.g?blogID=2564777502681463717&postID=4783688804692941885&from=pencil' title='Edit Post'>
+<img alt='' class='icon-action' height='18' src='http://img2.blogblog.com/img/icon18_edit_allbkg.gif' width='18'/>
+</a>
+</span>
+</span>
+<div class='post-share-buttons goog-inline-block'>
+</div>
+</div>
+<div class='post-footer-line post-footer-line-2'>
+<span class='post-labels'>
+Labels:
+<a href='http://okasaki.blogspot.com/search/label/functional%20programming' rel='tag'>functional programming</a>,
+<a href='http://okasaki.blogspot.com/search/label/programming' rel='tag'>programming</a>
+</span>
+</div>
+<div class='post-footer-line post-footer-line-3'>
+<span class='post-location'>
+</span>
+</div>
+</div>
+</div>
+<div class='comments' id='comments'>
+<a name='comments'></a>
+<h4>20 comments:</h4>
+<div id='Blog1_comments-block-wrapper'>
+<dl class='avatar-comment-indent' id='comments-block'>
+<dt class='comment-author ' id='c5482388442533974082'>
+<a name='c5482388442533974082'></a>
+<div class="avatar-image-container avatar-stock"><span dir="ltr"><a href="http://www.blogger.com/profile/02990737394952724516" rel="nofollow" onclick="" class="avatar-hovercard" id="av-0-02990737394952724516"><img src="http://img2.blogblog.com/img/b16-rounded.gif" width="16" height="16" alt="" title="Jlouis">
+
+</a></span></div>
+<a href='http://www.blogger.com/profile/02990737394952724516' rel='nofollow'>Jlouis</a>
+said...
+</dt>
+<dd class='comment-body' id='Blog1_cmt-5482388442533974082'>
+<p>
+This book is a gem. <BR/><BR/>Thank you for spending the time putting the material together.
+</p>
+</dd>
+<dd class='comment-footer'>
+<span class='comment-timestamp'>
+<a href='http://okasaki.blogspot.com/2008/02/ten-years-of-purely-functional-data.html?showComment=1202498760000#c5482388442533974082' title='comment permalink'>
+February 8, 2008 at 2:26 PM
+</a>
+<span class='item-control blog-admin pid-1784163224'>
+<a class='comment-delete' href='http://www.blogger.com/delete-comment.g?blogID=2564777502681463717&postID=5482388442533974082' title='Delete Comment'>
+<img src='//www.blogger.com/img/icon_delete13.gif'/>
+</a>
+</span>
+</span>
+</dd>
+<dt class='comment-author ' id='c4407757674495187632'>
+<a name='c4407757674495187632'></a>
+<div class="avatar-image-container avatar-stock"><span dir="ltr"><a href="http://www.blogger.com/profile/10837472563653338726" rel="nofollow" onclick="" class="avatar-hovercard" id="av-1-10837472563653338726"><img src="http://img2.blogblog.com/img/b16-rounded.gif" width="16" height="16" alt="" title="sharvil">
+
+</a></span></div>
+<a href='http://www.blogger.com/profile/10837472563653338726' rel='nofollow'>sharvil</a>
+said...
+</dt>
+<dd class='comment-body' id='Blog1_cmt-4407757674495187632'>
+<p>
+A few months ago, I started learning OCaml and got into a brief online discussion with a friend over immutable data structures. A few days later, I unexpectedly found a copy of your book on my doorstep courtesy of my friend.<BR/><BR/>I opened the present with delight and immediately dropped everything else I was doing to dive into this fantastic view of data structures. I have come across few books that have been such a delight to read. When I thanked my friend for such a delightful gift, he mentioned that he, too, owns a copy and was just as excited reading it as I am.<BR/><BR/>Thank you for such a concise, straightforward, and honest look at immutable data structures.
+</p>
+</dd>
+<dd class='comment-footer'>
+<span class='comment-timestamp'>
+<a href='http://okasaki.blogspot.com/2008/02/ten-years-of-purely-functional-data.html?showComment=1202503080000#c4407757674495187632' title='comment permalink'>
+February 8, 2008 at 3:38 PM
+</a>
+<span class='item-control blog-admin pid-1116374265'>
+<a class='comment-delete' href='http://www.blogger.com/delete-comment.g?blogID=2564777502681463717&postID=4407757674495187632' title='Delete Comment'>
+<img src='//www.blogger.com/img/icon_delete13.gif'/>
+</a>
+</span>
+</span>
+</dd>
+<dt class='comment-author ' id='c6728864142419857491'>
+<a name='c6728864142419857491'></a>
+<div class="avatar-image-container avatar-stock"><span dir="ltr"><a href="http://www.blogger.com/profile/02233639532468393698" rel="nofollow" onclick="" class="avatar-hovercard" id="av-2-02233639532468393698"><img src="http://img2.blogblog.com/img/b16-rounded.gif" width="16" height="16" alt="" title="jeff">
+
+</a></span></div>
+<a href='http://www.blogger.com/profile/02233639532468393698' rel='nofollow'>jeff</a>
+said...
+</dt>
+<dd class='comment-body' id='Blog1_cmt-6728864142419857491'>
+<p>
+Your book has been on my bookshelf for about as long as it has been in print and I've read it, reread it and consulted it off and on.   <BR/><BR/>A wonderful (and challenging) read that has taught me a lot.   A book I recommend to my best students.  <BR/><BR/>Thanks.
+</p>
+</dd>
+<dd class='comment-footer'>
+<span class='comment-timestamp'>
+<a href='http://okasaki.blogspot.com/2008/02/ten-years-of-purely-functional-data.html?showComment=1202505060000#c6728864142419857491' title='comment permalink'>
+February 8, 2008 at 4:11 PM
+</a>
+<span class='item-control blog-admin pid-1322527249'>
+<a class='comment-delete' href='http://www.blogger.com/delete-comment.g?blogID=2564777502681463717&postID=6728864142419857491' title='Delete Comment'>
+<img src='//www.blogger.com/img/icon_delete13.gif'/>
+</a>
+</span>
+</span>
+</dd>
+<dt class='comment-author ' id='c1011254504182353198'>
+<a name='c1011254504182353198'></a>
+<div class="avatar-image-container avatar-stock"><span dir="ltr"><a href="http://www.blogger.com/profile/01963831188473263515" rel="nofollow" onclick="" class="avatar-hovercard" id="av-3-01963831188473263515"><img src="http://img2.blogblog.com/img/b16-rounded.gif" width="16" height="16" alt="" title="calvin">
+
+</a></span></div>
+<a href='http://www.blogger.com/profile/01963831188473263515' rel='nofollow'>calvin</a>
+said...
+</dt>
+<dd class='comment-body' id='Blog1_cmt-1011254504182353198'>
+<p>
+Haskell has recently become a lot more popular -- even within the last year -- and is poised to take a huge leap in popularity with the publishing of <A HREF="http://www.realworldhaskell.org/blog/" REL="nofollow">Real-World Haskell</A> by O'Reilly. <BR/><BR/>A newer edition of your book in Haskell, with some additional data structures, would have a <I>much</I> larger audience than you currently have -- meaning lots more royalties, as well as having a much greater impact.<BR/><BR/><B>Please, please, pretty please!</B>
+</p>
+</dd>
+<dd class='comment-footer'>
+<span class='comment-timestamp'>
+<a href='http://okasaki.blogspot.com/2008/02/ten-years-of-purely-functional-data.html?showComment=1202507940000#c1011254504182353198' title='comment permalink'>
+February 8, 2008 at 4:59 PM
+</a>
+<span class='item-control blog-admin pid-825468858'>
+<a class='comment-delete' href='http://www.blogger.com/delete-comment.g?blogID=2564777502681463717&postID=1011254504182353198' title='Delete Comment'>
+<img src='//www.blogger.com/img/icon_delete13.gif'/>
+</a>
+</span>
+</span>
+</dd>
+<dt class='comment-author ' id='c8341041038808572389'>
+<a name='c8341041038808572389'></a>
+<div class="avatar-image-container avatar-stock"><span dir="ltr"><a href="http://www.blogger.com/profile/05245796149619242061" rel="nofollow" onclick="" class="avatar-hovercard" id="av-4-05245796149619242061"><img src="http://img2.blogblog.com/img/b16-rounded.gif" width="16" height="16" alt="" title="Mietek">
+
+</a></span></div>
+<a href='http://www.blogger.com/profile/05245796149619242061' rel='nofollow'>Mietek</a>
+said...
+</dt>
+<dd class='comment-body' id='Blog1_cmt-8341041038808572389'>
+<p>
+Your book is used as a textbook for the Functional Algorithms and Data Structures course at the <A HREF="http://www.ii.uni.wroc.pl/" REL="nofollow">Institute of Computer Science</A> of the University of Wrocław, Poland. We're quite big on functional programming over there.
+</p>
+</dd>
+<dd class='comment-footer'>
+<span class='comment-timestamp'>
+<a href='http://okasaki.blogspot.com/2008/02/ten-years-of-purely-functional-data.html?showComment=1202577600000#c8341041038808572389' title='comment permalink'>
+February 9, 2008 at 12:20 PM
+</a>
+<span class='item-control blog-admin pid-1363450688'>
+<a class='comment-delete' href='http://www.blogger.com/delete-comment.g?blogID=2564777502681463717&postID=8341041038808572389' title='Delete Comment'>
+<img src='//www.blogger.com/img/icon_delete13.gif'/>
+</a>
+</span>
+</span>
+</dd>
+<dt class='comment-author ' id='c6354531547387214091'>
+<a name='c6354531547387214091'></a>
+<div class="avatar-image-container avatar-stock"><span dir="ltr"><a href="http://www.blogger.com/profile/09927743629478997946" rel="nofollow" onclick="" class="avatar-hovercard" id="av-5-09927743629478997946"><img src="http://img2.blogblog.com/img/b16-rounded.gif" width="16" height="16" alt="" title="sam">
+
+</a></span></div>
+<a href='http://www.blogger.com/profile/09927743629478997946' rel='nofollow'>sam</a>
+said...
+</dt>
+<dd class='comment-body' id='Blog1_cmt-6354531547387214091'>
+<p>
+Huh, I just bought your book recently.  I only really briefly skimmed through most of it, but it seems like the amortized costs of laziness could be quite interesting.  Is this a field that could be mined for much more material?
+</p>
+</dd>
+<dd class='comment-footer'>
+<span class='comment-timestamp'>
+<a href='http://okasaki.blogspot.com/2008/02/ten-years-of-purely-functional-data.html?showComment=1202590020000#c6354531547387214091' title='comment permalink'>
+February 9, 2008 at 3:47 PM
+</a>
+<span class='item-control blog-admin pid-201682499'>
+<a class='comment-delete' href='http://www.blogger.com/delete-comment.g?blogID=2564777502681463717&postID=6354531547387214091' title='Delete Comment'>
+<img src='//www.blogger.com/img/icon_delete13.gif'/>
+</a>
+</span>
+</span>
+</dd>
+<dt class='comment-author blog-author' id='c5147467442853225787'>
+<a name='c5147467442853225787'></a>
+<div class="avatar-image-container avatar-stock"><span dir="ltr"><a href="http://www.blogger.com/profile/18247315355264748920" rel="nofollow" onclick="" class="avatar-hovercard" id="av-6-18247315355264748920"><img src="http://img2.blogblog.com/img/b16-rounded.gif" width="16" height="16" alt="" title="Chris Okasaki">
+
+</a></span></div>
+<a href='http://www.blogger.com/profile/18247315355264748920' rel='nofollow'>Chris Okasaki</a>
+said...
+</dt>
+<dd class='comment-body' id='Blog1_cmt-5147467442853225787'>
+<p>
+Mietek, thanks for the info.  I'm curious, is this an undergraduate course or a graduate course?<BR/><BR/>sam, it depends on what you mean by "mining", whether you mean finding more that's been written about it or doing more original research in the area.  If the former, then not a lot.  There have been a number of papers that have used the technique to analyze a particular implementation.  There's also been some recent work on partially automating such analyses.<BR/><BR/>If the latter, then sure, there's lots more that could be done!  Practical time and space analyses that account for lazy evaluation are rather "thin on the ground" (to steal a phrase from my English friends).
+</p>
+</dd>
+<dd class='comment-footer'>
+<span class='comment-timestamp'>
+<a href='http://okasaki.blogspot.com/2008/02/ten-years-of-purely-functional-data.html?showComment=1202599320000#c5147467442853225787' title='comment permalink'>
+February 9, 2008 at 6:22 PM
+</a>
+<span class='item-control blog-admin pid-588663408'>
+<a class='comment-delete' href='http://www.blogger.com/delete-comment.g?blogID=2564777502681463717&postID=5147467442853225787' title='Delete Comment'>
+<img src='//www.blogger.com/img/icon_delete13.gif'/>
+</a>
+</span>
+</span>
+</dd>
+<dt class='comment-author ' id='c2784969031921737393'>
+<a name='c2784969031921737393'></a>
+<div class="avatar-image-container avatar-stock"><span dir="ltr"><a href="http://www.blogger.com/profile/04517193778611033674" rel="nofollow" onclick="" class="avatar-hovercard" id="av-7-04517193778611033674"><img src="http://img2.blogblog.com/img/b16-rounded.gif" width="16" height="16" alt="" title="Douglas">
+
+</a></span></div>
+<a href='http://www.blogger.com/profile/04517193778611033674' rel='nofollow'>Douglas</a>
+said...
+</dt>
+<dd class='comment-body' id='Blog1_cmt-2784969031921737393'>
+<p>
+First, thanks for the book, it's been a real education for me.<BR/><BR/>Second <I>"... to this day, I don't know the correct name of the pattern"</I>.<BR/><BR/>If it's the pattern shown on <A HREF="http://www.amazon.com/Purely-Functional-Structures-Chris-Okasaki/dp/0521663504" REL="nofollow"> this Amazon page</A>, I think it's an approximation to a <A HREF="http://images.google.com/images?q=sierpinski+triangle" REL="nofollow">Sierpinski </A> <A HREF="http://en.wikipedia.org/wiki/Sierpinski_triangle" REL="nofollow">Triangle</A>
+</p>
+</dd>
+<dd class='comment-footer'>
+<span class='comment-timestamp'>
+<a href='http://okasaki.blogspot.com/2008/02/ten-years-of-purely-functional-data.html?showComment=1202682900000#c2784969031921737393' title='comment permalink'>
+February 10, 2008 at 5:35 PM
+</a>
+<span class='item-control blog-admin pid-1414122335'>
+<a class='comment-delete' href='http://www.blogger.com/delete-comment.g?blogID=2564777502681463717&postID=2784969031921737393' title='Delete Comment'>
+<img src='//www.blogger.com/img/icon_delete13.gif'/>
+</a>
+</span>
+</span>
+</dd>
+<dt class='comment-author blog-author' id='c7680748084551971620'>
+<a name='c7680748084551971620'></a>
+<div class="avatar-image-container avatar-stock"><span dir="ltr"><a href="http://www.blogger.com/profile/18247315355264748920" rel="nofollow" onclick="" class="avatar-hovercard" id="av-8-18247315355264748920"><img src="http://img2.blogblog.com/img/b16-rounded.gif" width="16" height="16" alt="" title="Chris Okasaki">
+
+</a></span></div>
+<a href='http://www.blogger.com/profile/18247315355264748920' rel='nofollow'>Chris Okasaki</a>
+said...
+</dt>
+<dd class='comment-body' id='Blog1_cmt-7680748084551971620'>
+<p>
+Douglas, it's definitely a close relative of the Sierpinski Triangle.  I just wish I could find the name for the quilt pattern.  Quilters always find much more colorful names than mathematicians.  It's probably something like <I>Swallows Returning to Capistrano</I> or <I>Ginkgo Leaves Falling</I> or <I>Staggered Flight of B-2 Bombers</I>.  Ok, maybe not the last one.
+</p>
+</dd>
+<dd class='comment-footer'>
+<span class='comment-timestamp'>
+<a href='http://okasaki.blogspot.com/2008/02/ten-years-of-purely-functional-data.html?showComment=1202746980000#c7680748084551971620' title='comment permalink'>
+February 11, 2008 at 11:23 AM
+</a>
+<span class='item-control blog-admin pid-588663408'>
+<a class='comment-delete' href='http://www.blogger.com/delete-comment.g?blogID=2564777502681463717&postID=7680748084551971620' title='Delete Comment'>
+<img src='//www.blogger.com/img/icon_delete13.gif'/>
+</a>
+</span>
+</span>
+</dd>
+<dt class='comment-author ' id='c6875646046054067122'>
+<a name='c6875646046054067122'></a>
+<div class="avatar-image-container vcard"><span dir="ltr"><a href="http://www.blogger.com/profile/12025560607512616605" rel="nofollow" onclick="" class="avatar-hovercard" id="av-9-12025560607512616605"><img src="http://img1.blogblog.com/img/blank.gif" width="35" height="35" alt="" class="delayLoad" style="display: none;" longdesc="http://knauth.org/gsk/images/gsk-pa2000-48x48.jpg" title="Geoff Knauth">
+
+<noscript><img src="http://knauth.org/gsk/images/gsk-pa2000-48x48.jpg" width="35" height="35" class="photo" alt=""></noscript></a></span></div>
+<a href='http://www.blogger.com/profile/12025560607512616605' rel='nofollow'>Geoff Knauth</a>
+said...
+</dt>
+<dd class='comment-body' id='Blog1_cmt-6875646046054067122'>
+<p>
+I got here via LtU.  I'm one of those who bought the book after the Andrew Cooke review.  I had no idea the book was so old (grin)--the ideas were all pretty new to me.  Thank you for making a difficult subject enjoyable to read.
+</p>
+</dd>
+<dd class='comment-footer'>
+<span class='comment-timestamp'>
+<a href='http://okasaki.blogspot.com/2008/02/ten-years-of-purely-functional-data.html?showComment=1202773260000#c6875646046054067122' title='comment permalink'>
+February 11, 2008 at 6:41 PM
+</a>
+<span class='item-control blog-admin pid-827179050'>
+<a class='comment-delete' href='http://www.blogger.com/delete-comment.g?blogID=2564777502681463717&postID=6875646046054067122' title='Delete Comment'>
+<img src='//www.blogger.com/img/icon_delete13.gif'/>
+</a>
+</span>
+</span>
+</dd>
+<dt class='comment-author blog-author' id='c162261019822490271'>
+<a name='c162261019822490271'></a>
+<div class="avatar-image-container avatar-stock"><span dir="ltr"><a href="http://www.blogger.com/profile/18247315355264748920" rel="nofollow" onclick="" class="avatar-hovercard" id="av-10-18247315355264748920"><img src="http://img2.blogblog.com/img/b16-rounded.gif" width="16" height="16" alt="" title="Chris Okasaki">
+
+</a></span></div>
+<a href='http://www.blogger.com/profile/18247315355264748920' rel='nofollow'>Chris Okasaki</a>
+said...
+</dt>
+<dd class='comment-body' id='Blog1_cmt-162261019822490271'>
+<p>
+If you've ever wondered what this sort of thing would look like in a more mainstream language, Eric Lippert has just written part 11 in a huge series of posts about  <A HREF="http://blogs.msdn.com/ericlippert/archive/2008/02/12/immutability-in-c-part-eleven-a-working-double-ended-queue.aspx" REL="nofollow">immutability in C#</A>.
+</p>
+</dd>
+<dd class='comment-footer'>
+<span class='comment-timestamp'>
+<a href='http://okasaki.blogspot.com/2008/02/ten-years-of-purely-functional-data.html?showComment=1202880000000#c162261019822490271' title='comment permalink'>
+February 13, 2008 at 12:20 AM
+</a>
+<span class='item-control blog-admin pid-588663408'>
+<a class='comment-delete' href='http://www.blogger.com/delete-comment.g?blogID=2564777502681463717&postID=162261019822490271' title='Delete Comment'>
+<img src='//www.blogger.com/img/icon_delete13.gif'/>
+</a>
+</span>
+</span>
+</dd>
+<dt class='comment-author ' id='c8920988804513035736'>
+<a name='c8920988804513035736'></a>
+<div class="avatar-image-container avatar-stock"><span dir="ltr"><a href="http://www.blogger.com/profile/02232620214904583773" rel="nofollow" onclick="" class="avatar-hovercard" id="av-11-02232620214904583773"><img src="http://img2.blogblog.com/img/b16-rounded.gif" width="16" height="16" alt="" title="kHodel">
+
+</a></span></div>
+<a href='http://www.blogger.com/profile/02232620214904583773' rel='nofollow'>kHodel</a>
+said...
+</dt>
+<dd class='comment-body' id='Blog1_cmt-8920988804513035736'>
+<p>
+I did some Google-digging, and it looks like the inspiration for the book cover image is a variation of a quilt pattern called "Birds in the Air" (though it may go by other names as well). Here are a few links<BR/><BR/><A HREF="http://www.how-to-quilt.com/patterns/birdsintheair2.pdf" REL="nofollow">birdsintheair2.pdf, from how-to-quilt.com</A><BR/><A HREF="http://www.how-to-quilt.com/patterns/flockofgeese.pdf" REL="nofollow">flockofgeese.pdf, from how-to-quilt.com</A><BR/><A HREF="http://www.onestitchatatime.com/images/BookbirdsintheAir.jpg" REL="nofollow">cover of a birds in the air quilt book</A><BR/><A HREF="http://www.amazon.com/Birds-Air-Quilt-Eleanor-Burns/dp/189177607X" REL="nofollow">the afore-mentioned book on amazon</A><BR/><A HREF="http://www.amishcountrylanes.com/Pages/hs140.shtml" REL="nofollow">picture of a birds in the air quilt on a bed</A>
+</p>
+</dd>
+<dd class='comment-footer'>
+<span class='comment-timestamp'>
+<a href='http://okasaki.blogspot.com/2008/02/ten-years-of-purely-functional-data.html?showComment=1203007860000#c8920988804513035736' title='comment permalink'>
+February 14, 2008 at 11:51 AM
+</a>
+<span class='item-control blog-admin pid-1706299259'>
+<a class='comment-delete' href='http://www.blogger.com/delete-comment.g?blogID=2564777502681463717&postID=8920988804513035736' title='Delete Comment'>
+<img src='//www.blogger.com/img/icon_delete13.gif'/>
+</a>
+</span>
+</span>
+</dd>
+<dt class='comment-author blog-author' id='c4010672848726391886'>
+<a name='c4010672848726391886'></a>
+<div class="avatar-image-container avatar-stock"><span dir="ltr"><a href="http://www.blogger.com/profile/18247315355264748920" rel="nofollow" onclick="" class="avatar-hovercard" id="av-12-18247315355264748920"><img src="http://img2.blogblog.com/img/b16-rounded.gif" width="16" height="16" alt="" title="Chris Okasaki">
+
+</a></span></div>
+<a href='http://www.blogger.com/profile/18247315355264748920' rel='nofollow'>Chris Okasaki</a>
+said...
+</dt>
+<dd class='comment-body' id='Blog1_cmt-4010672848726391886'>
+<p>
+kHodel, thank you!  The second link lists Flying Geese as an alternate name for the pattern, so maybe that's why I was originally confused.  (Flying Geese is usually the name for a more linear pattern of triangles.)
+</p>
+</dd>
+<dd class='comment-footer'>
+<span class='comment-timestamp'>
+<a href='http://okasaki.blogspot.com/2008/02/ten-years-of-purely-functional-data.html?showComment=1203008280000#c4010672848726391886' title='comment permalink'>
+February 14, 2008 at 11:58 AM
+</a>
+<span class='item-control blog-admin pid-588663408'>
+<a class='comment-delete' href='http://www.blogger.com/delete-comment.g?blogID=2564777502681463717&postID=4010672848726391886' title='Delete Comment'>
+<img src='//www.blogger.com/img/icon_delete13.gif'/>
+</a>
+</span>
+</span>
+</dd>
+<dt class='comment-author ' id='c1808588102521315137'>
+<a name='c1808588102521315137'></a>
+<div class="avatar-image-container vcard"><span dir="ltr"><a href="http://www.blogger.com/profile/09358968282816697343" rel="nofollow" onclick="" class="avatar-hovercard" id="av-13-09358968282816697343"><img src="http://img1.blogblog.com/img/blank.gif" width="23" height="35" alt="" class="delayLoad" style="display: none;" longdesc="http://photos1.blogger.com/img/122/6879/640/davidbak-1.jpg" title="David">
+
+<noscript><img src="http://photos1.blogger.com/img/122/6879/640/davidbak-1.jpg" width="23" height="35" class="photo" alt=""></noscript></a></span></div>
+<a href='http://www.blogger.com/profile/09358968282816697343' rel='nofollow'>David</a>
+said...
+</dt>
+<dd class='comment-body' id='Blog1_cmt-1808588102521315137'>
+<p>
+I've liked <I>Purely Functional Data Structures</I> for so long and for so much that I made it the subject of my first (and so far only) book review: <A HREF="http://bakins-bits.com/archives/4" REL="nofollow">Persistent Data Structures  - now (possibly) practical</A>.<BR/><BR/>I have just started on a Python implementation of the data structures.  It would be a good language for a 2nd edition - popular, easy to read/understand (even if you don't know the language that well), and has the functional programming features needed (closures, polymorphism, GC).
+</p>
+</dd>
+<dd class='comment-footer'>
+<span class='comment-timestamp'>
+<a href='http://okasaki.blogspot.com/2008/02/ten-years-of-purely-functional-data.html?showComment=1204085280000#c1808588102521315137' title='comment permalink'>
+February 26, 2008 at 11:08 PM
+</a>
+<span class='item-control blog-admin pid-2146038648'>
+<a class='comment-delete' href='http://www.blogger.com/delete-comment.g?blogID=2564777502681463717&postID=1808588102521315137' title='Delete Comment'>
+<img src='//www.blogger.com/img/icon_delete13.gif'/>
+</a>
+</span>
+</span>
+</dd>
+<dt class='comment-author ' id='c7313910542668793968'>
+<a name='c7313910542668793968'></a>
+<div class="avatar-image-container avatar-stock"><span dir="ltr"><a href="http://www.blogger.com/profile/08326725206530909278" rel="nofollow" onclick="" class="avatar-hovercard" id="av-14-08326725206530909278"><img src="http://img2.blogblog.com/img/b16-rounded.gif" width="16" height="16" alt="" title="s9">
+
+</a></span></div>
+<a href='http://www.blogger.com/profile/08326725206530909278' rel='nofollow'>s9</a>
+said...
+</dt>
+<dd class='comment-body' id='Blog1_cmt-7313910542668793968'>
+<p>
+Some of the more interesting algorithms (to me, at least) in Dr. Okasaki's book have fleshed out OCaml implementions in the Cf library of my hobby project on sourceforge.net. You can download <A HREF="http://sf.net/projects/ocnae" REL="nofollow">here</A>. There's also an impure, but still functional, persistent real-time, catenable deque that runs pretty fast. It was inspired by Dr. Okasaki's work on the more complicated purely functional variant.
+</p>
+</dd>
+<dd class='comment-footer'>
+<span class='comment-timestamp'>
+<a href='http://okasaki.blogspot.com/2008/02/ten-years-of-purely-functional-data.html?showComment=1204151760000#c7313910542668793968' title='comment permalink'>
+February 27, 2008 at 5:36 PM
+</a>
+<span class='item-control blog-admin pid-57158061'>
+<a class='comment-delete' href='http://www.blogger.com/delete-comment.g?blogID=2564777502681463717&postID=7313910542668793968' title='Delete Comment'>
+<img src='//www.blogger.com/img/icon_delete13.gif'/>
+</a>
+</span>
+</span>
+</dd>
+<dt class='comment-author ' id='c2474351609339300596'>
+<a name='c2474351609339300596'></a>
+<div class="avatar-image-container avatar-stock"><span dir="ltr"><a href="http://www.blogger.com/profile/11915946249340014269" rel="nofollow" onclick="" class="avatar-hovercard" id="av-15-11915946249340014269"><img src="http://img2.blogblog.com/img/b16-rounded.gif" width="16" height="16" alt="" title="caracarn11">
+
+</a></span></div>
+<a href='http://www.blogger.com/profile/11915946249340014269' rel='nofollow'>caracarn11</a>
+said...
+</dt>
+<dd class='comment-body' id='Blog1_cmt-2474351609339300596'>
+<p>
+First let me say thank you for the book - it opened my eyes on what's possible.<BR/><BR/>Second - I imagine legions of developers like me will thank you for a fuller treatment of hash table, either in an updated edition or blogs.<BR/><BR/>The reason is - hash table is almost indispensible in many developers' day jobs since the internet revolution. The swiss army tool of data structures has shaped many developers' paradigm and it's simply difficult to see how things should and could be done otherwise. <BR/><BR/>While not everyone of them are interested to enhance their skills, a small portion of this group are interested to learn the FP way, and it's simply hard to go from one paradigm to the other directly without a good bridge. <BR/><BR/>A fuller functional hash table treatment, or a set of design principles to convert a imperative solution into a purely functional solutions would be *the* bridge for many of us who rely on hashtable every single day.<BR/><BR/>So - maybe academically there are not much more to say about hash table, practically there are a lot to learn for us who are on the other side of the canyon looking over ;)
+</p>
+</dd>
+<dd class='comment-footer'>
+<span class='comment-timestamp'>
+<a href='http://okasaki.blogspot.com/2008/02/ten-years-of-purely-functional-data.html?showComment=1213307280000#c2474351609339300596' title='comment permalink'>
+June 12, 2008 at 5:48 PM
+</a>
+<span class='item-control blog-admin pid-563613470'>
+<a class='comment-delete' href='http://www.blogger.com/delete-comment.g?blogID=2564777502681463717&postID=2474351609339300596' title='Delete Comment'>
+<img src='//www.blogger.com/img/icon_delete13.gif'/>
+</a>
+</span>
+</span>
+</dd>
+<dt class='comment-author ' id='c5455570747173997121'>
+<a name='c5455570747173997121'></a>
+<div class="avatar-image-container avatar-stock"><span dir="ltr"><a href="http://www.blogger.com/profile/10253205349391319347" rel="nofollow" onclick="" class="avatar-hovercard" id="av-16-10253205349391319347"><img src="http://img2.blogblog.com/img/b16-rounded.gif" width="16" height="16" alt="" title="Alex Slesarenko">
+
+</a></span></div>
+<a href='http://www.blogger.com/profile/10253205349391319347' rel='nofollow'>Alex Slesarenko</a>
+said...
+</dt>
+<dd class='comment-body' id='Blog1_cmt-5455570747173997121'>
+<p>
+I agree with caracarn11 that your book can help a lot on a way form imperative to FP world. <BR/><BR/>Being an imperative C# programmer, I have always been interested in FP, so reсently I started to play with F#.<BR/>I found it very natural way to functional world for .Net programmer.   <BR/><BR/>Luckily, <A HREF="http://blogs.msdn.com/dsyme/archive/2008/12/10/fsharp-to-ship-as-part-of-visual-studio-2010.aspx" REL="nofollow">F# is about to be next mainstream language</A>. <BR/><BR/>I guess, F# is a language of a choice for Second Edition, since all examples can also be cross-compiled with OCaml.
+</p>
+</dd>
+<dd class='comment-footer'>
+<span class='comment-timestamp'>
+<a href='http://okasaki.blogspot.com/2008/02/ten-years-of-purely-functional-data.html?showComment=1233502800000#c5455570747173997121' title='comment permalink'>
+February 1, 2009 at 10:40 AM
+</a>
+<span class='item-control blog-admin pid-1251537452'>
+<a class='comment-delete' href='http://www.blogger.com/delete-comment.g?blogID=2564777502681463717&postID=5455570747173997121' title='Delete Comment'>
+<img src='//www.blogger.com/img/icon_delete13.gif'/>
+</a>
+</span>
+</span>
+</dd>
+<dt class='comment-author ' id='c5174294761091495853'>
+<a name='c5174294761091495853'></a>
+<div class="avatar-image-container avatar-stock"><span dir="ltr"><a href="http://www.blogger.com/profile/15526399395097722268" rel="nofollow" onclick="" class="avatar-hovercard" id="av-17-15526399395097722268"><img src="http://img2.blogblog.com/img/b16-rounded.gif" width="16" height="16" alt="" title="George Colpitts">
+
+</a></span></div>
+<a href='http://www.blogger.com/profile/15526399395097722268' rel='nofollow'>George Colpitts</a>
+said...
+</dt>
+<dd class='comment-body' id='Blog1_cmt-5174294761091495853'>
+<p>
+I&#39;d love to see a second version. One of the languages should still be Haskell, maybe the other could be Scala?<br /><br />I&#39;d also like to see a section on graph data structures including a discussion of hybrid functional / imperative implementations.
+</p>
+</dd>
+<dd class='comment-footer'>
+<span class='comment-timestamp'>
+<a href='http://okasaki.blogspot.com/2008/02/ten-years-of-purely-functional-data.html?showComment=1337640613592#c5174294761091495853' title='comment permalink'>
+May 21, 2012 at 6:50 PM
+</a>
+<span class='item-control blog-admin pid-556826005'>
+<a class='comment-delete' href='http://www.blogger.com/delete-comment.g?blogID=2564777502681463717&postID=5174294761091495853' title='Delete Comment'>
+<img src='//www.blogger.com/img/icon_delete13.gif'/>
+</a>
+</span>
+</span>
+</dd>
+<dt class='comment-author ' id='c2722744211835308594'>
+<a name='c2722744211835308594'></a>
+<div class="avatar-image-container vcard"><span dir="ltr"><a href="http://www.blogger.com/profile/04382088443772501731" rel="nofollow" onclick="" class="avatar-hovercard" id="av-18-04382088443772501731"><img src="http://img1.blogblog.com/img/blank.gif" width="35" height="35" alt="" class="delayLoad" style="display: none;" longdesc="http://4.bp.blogspot.com/-QgHWnh04f1E/TtoLvoxR_GI/AAAAAAAAAXk/USeTH9-goSM/s45/IMG_0278_modified.JPG" title="Ning Ke">
+
+<noscript><img src="http://4.bp.blogspot.com/-QgHWnh04f1E/TtoLvoxR_GI/AAAAAAAAAXk/USeTH9-goSM/s45/IMG_0278_modified.JPG" width="35" height="35" class="photo" alt=""></noscript></a></span></div>
+<a href='http://www.blogger.com/profile/04382088443772501731' rel='nofollow'>Ning Ke</a>
+said...
+</dt>
+<dd class='comment-body' id='Blog1_cmt-2722744211835308594'>
+<p>
+Is there an implementation of the lazy notations used in the book? (the $ and lazy/force keyword)
+</p>
+</dd>
+<dd class='comment-footer'>
+<span class='comment-timestamp'>
+<a href='http://okasaki.blogspot.com/2008/02/ten-years-of-purely-functional-data.html?showComment=1338405768859#c2722744211835308594' title='comment permalink'>
+May 30, 2012 at 3:22 PM
+</a>
+<span class='item-control blog-admin pid-2066771088'>
+<a class='comment-delete' href='http://www.blogger.com/delete-comment.g?blogID=2564777502681463717&postID=2722744211835308594' title='Delete Comment'>
+<img src='//www.blogger.com/img/icon_delete13.gif'/>
+</a>
+</span>
+</span>
+</dd>
+<dt class='comment-author ' id='c5549836543865012630'>
+<a name='c5549836543865012630'></a>
+<div class="avatar-image-container vcard"><span dir="ltr"><a href="http://www.blogger.com/profile/16509764680257537430" rel="nofollow" onclick="" class="avatar-hovercard" id="av-19-16509764680257537430"><img src="http://img1.blogblog.com/img/blank.gif" width="35" height="35" alt="" class="delayLoad" style="display: none;" longdesc="http://4.bp.blogspot.com/_d8cOY8m-DOQ/SaqFTZpGdaI/AAAAAAAAAA0/DdO6itY3MMM/S45/mymohawkprofilepicmm6.jpg" title="jsalvati">
+
+<noscript><img src="http://4.bp.blogspot.com/_d8cOY8m-DOQ/SaqFTZpGdaI/AAAAAAAAAA0/DdO6itY3MMM/S45/mymohawkprofilepicmm6.jpg" width="35" height="35" class="photo" alt=""></noscript></a></span></div>
+<a href='http://www.blogger.com/profile/16509764680257537430' rel='nofollow'>jsalvati</a>
+said...
+</dt>
+<dd class='comment-body' id='Blog1_cmt-5549836543865012630'>
+<p>
+Do another version!
+</p>
+</dd>
+<dd class='comment-footer'>
+<span class='comment-timestamp'>
+<a href='http://okasaki.blogspot.com/2008/02/ten-years-of-purely-functional-data.html?showComment=1345748066193#c5549836543865012630' title='comment permalink'>
+August 23, 2012 at 2:54 PM
+</a>
+<span class='item-control blog-admin pid-286678848'>
+<a class='comment-delete' href='http://www.blogger.com/delete-comment.g?blogID=2564777502681463717&postID=5549836543865012630' title='Delete Comment'>
+<img src='//www.blogger.com/img/icon_delete13.gif'/>
+</a>
+</span>
+</span>
+</dd>
+</dl>
+</div>
+<p class='comment-footer'>
+<a href='http://www.blogger.com/comment.g?blogID=2564777502681463717&amp;postID=4783688804692941885' onclick=''>Post a Comment</a>
+</p>
+<div id='backlinks-container'>
+<div id='Blog1_backlinks-container'>
+<a name='links'></a><h4>
+</h4>
+<p class='comment-footer'>
+<a class='comment-link' href='' id='Blog1_backlinks-create-link' target='_blank'>
+</a>
+</p>
+</div>
+</div>
+</div>
+</div>
+
+        </div></div>
+      
+<!-- google_ad_section_end -->
+</div>
+<div class='blog-pager' id='blog-pager'>
+<span id='blog-pager-newer-link'>
+<a class='blog-pager-newer-link' href='http://okasaki.blogspot.com/2008/02/games-for-programmers-zendo.html' id='Blog1_blog-pager-newer-link' title='Newer Post'>Newer Post</a>
+</span>
+<span id='blog-pager-older-link'>
+<a class='blog-pager-older-link' href='http://okasaki.blogspot.com/2008/02/boolean-confusion.html' id='Blog1_blog-pager-older-link' title='Older Post'>Older Post</a>
+</span>
+<a class='home-link' href='http://okasaki.blogspot.com/'>Home</a>
+</div>
+<div class='clear'></div>
+<div class='post-feeds'>
+<div class='feed-links'>
+Subscribe to:
+<a class='feed-link' href='http://okasaki.blogspot.com/feeds/4783688804692941885/comments/default' target='_blank' type='application/atom+xml'>Post Comments (Atom)</a>
+</div>
+</div>
+<script type="text/javascript">window.___gcfg = {'lang': 'en_US'};</script>
+</div></div>
+</div>
+<div id='sidebar-wrapper'>
+<div class='sidebar section' id='sidebar'><div class='widget BlogArchive' id='BlogArchive1'>
+<h2>Blog Archive</h2>
+<div class='widget-content'>
+<div id='ArchiveList'>
+<div id='BlogArchive1_ArchiveList'>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+          &#9658;&#160;
+        
+</span>
+</a>
+<a class='post-count-link' href='http://okasaki.blogspot.com/search?updated-min=2011-01-01T00:00:00-05:00&amp;updated-max=2012-01-01T00:00:00-05:00&amp;max-results=1'>2011</a>
+<span class='post-count' dir='ltr'>(1)</span>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+          &#9658;&#160;
+        
+</span>
+</a>
+<a class='post-count-link' href='http://okasaki.blogspot.com/2011_11_01_archive.html'>November</a>
+<span class='post-count' dir='ltr'>(1)</span>
+</li>
+</ul>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+          &#9658;&#160;
+        
+</span>
+</a>
+<a class='post-count-link' href='http://okasaki.blogspot.com/search?updated-min=2010-01-01T00:00:00-05:00&amp;updated-max=2011-01-01T00:00:00-05:00&amp;max-results=2'>2010</a>
+<span class='post-count' dir='ltr'>(2)</span>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+          &#9658;&#160;
+        
+</span>
+</a>
+<a class='post-count-link' href='http://okasaki.blogspot.com/2010_07_01_archive.html'>July</a>
+<span class='post-count' dir='ltr'>(2)</span>
+</li>
+</ul>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+          &#9658;&#160;
+        
+</span>
+</a>
+<a class='post-count-link' href='http://okasaki.blogspot.com/search?updated-min=2009-01-01T00:00:00-05:00&amp;updated-max=2010-01-01T00:00:00-05:00&amp;max-results=2'>2009</a>
+<span class='post-count' dir='ltr'>(2)</span>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+          &#9658;&#160;
+        
+</span>
+</a>
+<a class='post-count-link' href='http://okasaki.blogspot.com/2009_11_01_archive.html'>November</a>
+<span class='post-count' dir='ltr'>(1)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+          &#9658;&#160;
+        
+</span>
+</a>
+<a class='post-count-link' href='http://okasaki.blogspot.com/2009_10_01_archive.html'>October</a>
+<span class='post-count' dir='ltr'>(1)</span>
+</li>
+</ul>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate expanded'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy toggle-open'>&#9660;&#160;</span>
+</a>
+<a class='post-count-link' href='http://okasaki.blogspot.com/search?updated-min=2008-01-01T00:00:00-05:00&amp;updated-max=2009-01-01T00:00:00-05:00&amp;max-results=28'>2008</a>
+<span class='post-count' dir='ltr'>(28)</span>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+          &#9658;&#160;
+        
+</span>
+</a>
+<a class='post-count-link' href='http://okasaki.blogspot.com/2008_10_01_archive.html'>October</a>
+<span class='post-count' dir='ltr'>(1)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+          &#9658;&#160;
+        
+</span>
+</a>
+<a class='post-count-link' href='http://okasaki.blogspot.com/2008_09_01_archive.html'>September</a>
+<span class='post-count' dir='ltr'>(2)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+          &#9658;&#160;
+        
+</span>
+</a>
+<a class='post-count-link' href='http://okasaki.blogspot.com/2008_07_01_archive.html'>July</a>
+<span class='post-count' dir='ltr'>(4)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+          &#9658;&#160;
+        
+</span>
+</a>
+<a class='post-count-link' href='http://okasaki.blogspot.com/2008_06_01_archive.html'>June</a>
+<span class='post-count' dir='ltr'>(1)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+          &#9658;&#160;
+        
+</span>
+</a>
+<a class='post-count-link' href='http://okasaki.blogspot.com/2008_05_01_archive.html'>May</a>
+<span class='post-count' dir='ltr'>(5)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+          &#9658;&#160;
+        
+</span>
+</a>
+<a class='post-count-link' href='http://okasaki.blogspot.com/2008_04_01_archive.html'>April</a>
+<span class='post-count' dir='ltr'>(4)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+          &#9658;&#160;
+        
+</span>
+</a>
+<a class='post-count-link' href='http://okasaki.blogspot.com/2008_03_01_archive.html'>March</a>
+<span class='post-count' dir='ltr'>(5)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate expanded'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy toggle-open'>&#9660;&#160;</span>
+</a>
+<a class='post-count-link' href='http://okasaki.blogspot.com/2008_02_01_archive.html'>February</a>
+<span class='post-count' dir='ltr'>(4)</span>
+<ul class='posts'>
+<li><a href='http://okasaki.blogspot.com/2008/02/in-praise-of-mandatory-indentation-for.html'>In praise of mandatory indentation for novice prog...</a></li>
+<li><a href='http://okasaki.blogspot.com/2008/02/games-for-programmers-zendo.html'>Games for Programmers: Zendo</a></li>
+<li><a href='http://okasaki.blogspot.com/2008/02/ten-years-of-purely-functional-data.html'>Ten Years of Purely Functional Data Structures</a></li>
+<li><a href='http://okasaki.blogspot.com/2008/02/boolean-confusion.html'>Boolean Confusion</a></li>
+</ul>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+          &#9658;&#160;
+        
+</span>
+</a>
+<a class='post-count-link' href='http://okasaki.blogspot.com/2008_01_01_archive.html'>January</a>
+<span class='post-count' dir='ltr'>(2)</span>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class='clear'></div>
+<span class='widget-item-control'>
+<span class='item-control blog-admin'>
+<a class='quickedit' href='//www.blogger.com/rearrange?blogID=2564777502681463717&widgetType=BlogArchive&widgetId=BlogArchive1&action=editWidget&sectionId=sidebar' onclick='return _WidgetManager._PopupConfig(document.getElementById("BlogArchive1"));' target='configBlogArchive1' title='Edit'>
+<img alt='' height='18' src='http://img1.blogblog.com/img/icon18_wrench_allbkg.png' width='18'/>
+</a>
+</span>
+</span>
+<div class='clear'></div>
+</div>
+</div><div class='widget Label' id='Label1'>
+<h2>Labels</h2>
+<div class='widget-content list-label-widget-content'>
+<ul>
+<li>
+<a dir='ltr' href='http://okasaki.blogspot.com/search/label/teaching'>teaching</a>
+<span dir='ltr'>(15)</span>
+</li>
+<li>
+<a dir='ltr' href='http://okasaki.blogspot.com/search/label/programming'>programming</a>
+<span dir='ltr'>(12)</span>
+</li>
+<li>
+<a dir='ltr' href='http://okasaki.blogspot.com/search/label/games'>games</a>
+<span dir='ltr'>(6)</span>
+</li>
+<li>
+<a dir='ltr' href='http://okasaki.blogspot.com/search/label/functional%20programming'>functional programming</a>
+<span dir='ltr'>(4)</span>
+</li>
+<li>
+<a dir='ltr' href='http://okasaki.blogspot.com/search/label/computational%20thinking'>computational thinking</a>
+<span dir='ltr'>(3)</span>
+</li>
+<li>
+<a dir='ltr' href='http://okasaki.blogspot.com/search/label/creativity'>creativity</a>
+<span dir='ltr'>(3)</span>
+</li>
+<li>
+<a dir='ltr' href='http://okasaki.blogspot.com/search/label/recursion'>recursion</a>
+<span dir='ltr'>(3)</span>
+</li>
+<li>
+<a dir='ltr' href='http://okasaki.blogspot.com/search/label/TradeMaximizer'>TradeMaximizer</a>
+<span dir='ltr'>(2)</span>
+</li>
+<li>
+<a dir='ltr' href='http://okasaki.blogspot.com/search/label/failure'>failure</a>
+<span dir='ltr'>(2)</span>
+</li>
+<li>
+<a dir='ltr' href='http://okasaki.blogspot.com/search/label/food'>food</a>
+<span dir='ltr'>(2)</span>
+</li>
+<li>
+<a dir='ltr' href='http://okasaki.blogspot.com/search/label/Ada'>Ada</a>
+<span dir='ltr'>(1)</span>
+</li>
+<li>
+<a dir='ltr' href='http://okasaki.blogspot.com/search/label/Haskell'>Haskell</a>
+<span dir='ltr'>(1)</span>
+</li>
+<li>
+<a dir='ltr' href='http://okasaki.blogspot.com/search/label/algorithm%20in%20pictures'>algorithm in pictures</a>
+<span dir='ltr'>(1)</span>
+</li>
+<li>
+<a dir='ltr' href='http://okasaki.blogspot.com/search/label/crazy%20types'>crazy types</a>
+<span dir='ltr'>(1)</span>
+</li>
+<li>
+<a dir='ltr' href='http://okasaki.blogspot.com/search/label/induction'>induction</a>
+<span dir='ltr'>(1)</span>
+</li>
+<li>
+<a dir='ltr' href='http://okasaki.blogspot.com/search/label/kids'>kids</a>
+<span dir='ltr'>(1)</span>
+</li>
+<li>
+<a dir='ltr' href='http://okasaki.blogspot.com/search/label/math'>math</a>
+<span dir='ltr'>(1)</span>
+</li>
+<li>
+<a dir='ltr' href='http://okasaki.blogspot.com/search/label/rant'>rant</a>
+<span dir='ltr'>(1)</span>
+</li>
+<li>
+<a dir='ltr' href='http://okasaki.blogspot.com/search/label/tournament'>tournament</a>
+<span dir='ltr'>(1)</span>
+</li>
+</ul>
+<div class='clear'></div>
+<span class='widget-item-control'>
+<span class='item-control blog-admin'>
+<a class='quickedit' href='//www.blogger.com/rearrange?blogID=2564777502681463717&widgetType=Label&widgetId=Label1&action=editWidget&sectionId=sidebar' onclick='return _WidgetManager._PopupConfig(document.getElementById("Label1"));' target='configLabel1' title='Edit'>
+<img alt='' height='18' src='http://img1.blogblog.com/img/icon18_wrench_allbkg.png' width='18'/>
+</a>
+</span>
+</span>
+<div class='clear'></div>
+</div>
+</div><div class='widget Profile' id='Profile1'>
+<h2>About Me</h2>
+<div class='widget-content'>
+<dl class='profile-datablock'>
+<dt class='profile-data'>
+<a class='profile-name-link g-profile' href='http://www.blogger.com/profile/18247315355264748920' rel='author' style='background-image: url(//www.blogger.com/img/logo-16.png);'>
+Chris Okasaki
+</a>
+</dt>
+</dl>
+<a class='profile-link' href='http://www.blogger.com/profile/18247315355264748920' rel='author'>View my complete profile</a>
+<div class='clear'></div>
+<span class='widget-item-control'>
+<span class='item-control blog-admin'>
+<a class='quickedit' href='//www.blogger.com/rearrange?blogID=2564777502681463717&widgetType=Profile&widgetId=Profile1&action=editWidget&sectionId=sidebar' onclick='return _WidgetManager._PopupConfig(document.getElementById("Profile1"));' target='configProfile1' title='Edit'>
+<img alt='' height='18' src='http://img1.blogblog.com/img/icon18_wrench_allbkg.png' width='18'/>
+</a>
+</span>
+</span>
+<div class='clear'></div>
+</div>
+</div></div>
+</div>
+<!-- spacer for skins that want sidebar and main to be the same height-->
+<div class='clear'>&#160;</div>
+</div>
+<!-- end content-wrapper -->
+<div id='footer-wrapper'>
+<div class='footer section' id='footer'></div>
+</div>
+</div></div>
+<!-- end outer-wrapper -->
+<script type="text/javascript">
+if (window.jstiming) window.jstiming.load.tick('widgetJsBefore');
+</script><script type="text/javascript" src="//www.blogger.com/static/v1/widgets/1035824715-widgets.js"></script>
+<script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+<script type='text/javascript'>
+if (typeof(BLOG_attachCsiOnload) != 'undefined' && BLOG_attachCsiOnload != null) { window['blogger_templates_experiment_id'] = "templatesV1";window['blogger_blog_id'] = '2564777502681463717';BLOG_attachCsiOnload('item_'); }_WidgetManager._Init('//www.blogger.com/rearrange?blogID\x3d2564777502681463717','//okasaki.blogspot.com/2008/02/ten-years-of-purely-functional-data.html','2564777502681463717');
+_WidgetManager._SetDataContext([{'name': 'blog', 'data': {'blogId': '2564777502681463717', 'bloggerUrl': 'http://www.blogger.com', 'title': 'Teaching, Playing, and Programming', 'pageType': 'item', 'url': 'http://okasaki.blogspot.com/2008/02/ten-years-of-purely-functional-data.html', 'canonicalUrl': 'http://okasaki.blogspot.com/2008/02/ten-years-of-purely-functional-data.html', 'canonicalHomepageUrl': 'http://okasaki.blogspot.com/', 'homepageUrl': 'http://okasaki.blogspot.com/', 'blogspotFaviconUrl': 'http://okasaki.blogspot.com/favicon.ico', 'enabledCommentProfileImages': true, 'adultContent': false, 'disableAdSenseWidget': false, 'analyticsAccountNumber': '', 'searchLabel': '', 'searchQuery': '', 'pageName': 'Ten Years of Purely Functional Data Structures', 'pageTitle': 'Teaching, Playing, and Programming: Ten Years of Purely Functional Data Structures', 'encoding': 'UTF-8', 'locale': 'en-US', 'localeLanguage': 'en', 'isPrivate': false, 'isMobile': false, 'isMobileRequest': false, 'mobileClass': '', 'isPrivateBlog': false, 'languageDirection': 'ltr', 'feedLinks': '\74link rel\75\42alternate\42 type\75\42application/atom+xml\42 title\75\42Teaching, Playing, and Programming - Atom\42 href\75\42http://okasaki.blogspot.com/feeds/posts/default\42 /\76\n\74link rel\75\42alternate\42 type\75\42application/rss+xml\42 title\75\42Teaching, Playing, and Programming - RSS\42 href\75\42http://okasaki.blogspot.com/feeds/posts/default?alt\75rss\42 /\76\n\74link rel\75\42service.post\42 type\75\42application/atom+xml\42 title\75\42Teaching, Playing, and Programming - Atom\42 href\75\42http://www.blogger.com/feeds/2564777502681463717/posts/default\42 /\76\n\74link rel\75\42EditURI\42 type\75\42application/rsd+xml\42 title\75\42RSD\42 href\75\42http://www.blogger.com/rsd.g?blogID\0752564777502681463717\42 /\76\n\74link rel\75\42alternate\42 type\75\42application/atom+xml\42 title\75\42Teaching, Playing, and Programming - Atom\42 href\75\42http://okasaki.blogspot.com/feeds/4783688804692941885/comments/default\42 /\76\n', 'meTag': '', 'openIdOpTag': '', 'imageSrcTag': '', 'latencyHeadScript': '\74script type\75\42text/javascript\42\76(function() { var b\75window,e\75\42jstiming\42,g\75\42tick\42;(function(){function d(a){this.t\75{};this.tick\75function(a,d,c){c\75void 0!\75c?c:(new Date).getTime();this.t[a]\75[c,d]};this[g](\42start\42,null,a)}var a\75new d;b.jstiming\75{Timer:d,load:a};if(b.performance\46\46b.performance.timing){var a\75b.performance.timing,c\75b[e].load,f\75a.navigationStart,a\75a.responseStart;0\74f\46\46a\76\75f\46\46(c[g](\42_wtsrt\42,void 0,f),c[g](\42wtsrt_\42,\42_wtsrt\42,a),c[g](\42tbsd_\42,\42wtsrt_\42))}try{a\75null,b.chrome\46\46b.chrome.csi\46\46(a\75Math.floor(b.chrome.csi().pageT),c\46\0460\74f\46\46(c[g](\42_tbnd\42,void 0,b.chrome.csi().startE),\nc[g](\42tbnd_\42,\42_tbnd\42,f))),null\75\75a\46\46b.gtbExternal\46\46(a\75b.gtbExternal.pageT()),null\75\75a\46\46b.external\46\46(a\75b.external.pageT,c\46\0460\74f\46\46(c[g](\42_tbnd\42,void 0,b.external.startE),c[g](\42tbnd_\42,\42_tbnd\42,f))),a\46\46(b[e].pt\75a)}catch(l){}})();b.tickAboveFold\75function(d){var a\0750;if(d.offsetParent){do a+\75d.offsetTop;while(d\75d.offsetParent)}d\75a;750\76\75d\46\46b[e].load[g](\42aft\42)};var h\75!1;function k(){h||(h\75!0,b[e].load[g](\42firstScrollTime\42))}b.addEventListener?b.addEventListener(\42scroll\42,k,!1):b.attachEvent(\42onscroll\42,k);\n })();\74/script\076', 'mobileHeadScript': '', 'view': '', 'dynamicViewsCommentsSrc': '//www.blogblog.com/dynamicviews/4224c15c4e7c9321/js/comments.js', 'dynamicViewsScriptSrc': '//www.blogblog.com/dynamicviews/08dafced2016eb32', 'plusOneApiSrc': 'https://apis.google.com/js/plusone.js'}}, {'name': 'skin', 'data': {'vars': {'sidebartextcolor': '#666666', 'linkcolor': '#5588aa', 'visitedlinkcolor': '#999999', 'textcolor': '#333333', 'headerfont': 'normal normal 78% \47Trebuchet MS\47,Trebuchet,Arial,Verdana,Sans-serif', 'pagetitlefont': 'normal normal 200% Georgia, Serif', 'bgcolor': '#ffffff', 'descriptioncolor': '#999999', 'titlecolor': '#cc6600', 'bordercolor': '#cccccc', 'postfooterfont': 'normal normal 78% \47Trebuchet MS\47, Trebuchet, Arial, Verdana, Sans-serif', 'pagetitlecolor': '#666666', 'bodyfont': 'normal normal 100% Georgia, Serif', 'endSide': 'right', 'startSide': 'left', 'descriptionfont': 'normal normal 78% \47Trebuchet MS\47, Trebuchet, Arial, Verdana, Sans-serif', 'sidebarcolor': '#999999'}, 'override': ''}}, {'name': 'view', 'data': {'classic': {'name': 'classic', 'url': '/?view\75classic'}, 'flipcard': {'name': 'flipcard', 'url': '/?view\75flipcard'}, 'magazine': {'name': 'magazine', 'url': '/?view\75magazine'}, 'mosaic': {'name': 'mosaic', 'url': '/?view\75mosaic'}, 'sidebar': {'name': 'sidebar', 'url': '/?view\75sidebar'}, 'snapshot': {'name': 'snapshot', 'url': '/?view\75snapshot'}, 'timeslide': {'name': 'timeslide', 'url': '/?view\75timeslide'}}}]);
+_WidgetManager._RegisterWidget('_BlogArchiveView', new _WidgetInfo('BlogArchive1', 'sidebar', null, document.getElementById('BlogArchive1'), {'languageDirection': 'ltr'}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_LabelView', new _WidgetInfo('Label1', 'sidebar', null, document.getElementById('Label1'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_ProfileView', new _WidgetInfo('Profile1', 'sidebar', null, document.getElementById('Profile1'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_HeaderView', new _WidgetInfo('Header1', 'header', null, document.getElementById('Header1'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_NavbarView', new _WidgetInfo('Navbar1', 'navbar', null, document.getElementById('Navbar1'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_BlogView', new _WidgetInfo('Blog1', 'main', null, document.getElementById('Blog1'), {'cmtInteractionsEnabled': false, 'showBacklinks': true, 'postId': '4783688804692941885', 'lightboxEnabled': true, 'lightboxModuleUrl': '//www.blogger.com/static/v1/jsbin/2751591148-lbx.js', 'lightboxCssUrl': '//www.blogger.com/static/v1/v-css/228702327-lightbox_bundle.css'}, 'displayModeFull'));
+</script>
+</body>
+</html>
