@@ -1,0 +1,1414 @@
+<!doctype html>  
+<html lang="en" >
+	
+	<!-- 
+         _______ _______ __  __ _______ _______    _______ _______ 
+        |   |   |   _   |  |/  |_     _|   |   |  |     __|    ___|
+        |       |       |     < _|   |_|       |__|__     |    ___|
+        |___|___|___|___|__|\__|_______|__|_|__|__|_______|_______|
+        
+        DAMN RIGHT, ASCII ART BABY.
+	-->
+	
+	<head>
+		<meta charset="utf-8">
+		
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		
+		<title>Hakim El Hattab</title>
+		
+		<meta name="description" content="The portfolio of interactive web developer Hakim El Hattab. Check out my latest projects, read about what I'm up to or browse through my interactive HTML5 experiments.">
+		<meta name="author" content="Hakim El Hattab">
+		
+		<meta name="viewport" content="width=900">
+		
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		
+		
+		<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+		
+		<link rel="alternate" type="application/rss+xml" href="/rss.xml" title="RSS 2.0">
+		
+		<link rel='stylesheet' href='/css/hakim-portfolio.css'>
+		
+		<script src="//ajax.googleapis.com/ajax/libs/webfont/1/webfont.js"></script>
+
+		<script>
+			// If we're entering on a deep-link and there's no support
+			// for the HTML5 history API, redirect and roll back to hash
+			if( window.location.pathname.length > 1 ) {
+				if( !('pushState' in window.history) && window.history['pushState'] === undefined ) {
+					window.location = '/#' + window.location.pathname;
+				}
+			}
+
+			// Include local copy as fallback
+			!window.WebFont && document.write(unescape('%3Cscript src="/js/libs/webfont.js"%3E%3C/script%3E'))
+
+			document.write('<link rel="stylesheet" media="all" href="/css/javascript.css" />');
+			
+			WebFont.load({
+				custom: {
+					families: [
+						'League+Gothic', 
+						'Crimson+Text'
+					],
+					urls: [ 
+						'/css/fonts/league-gothic.css',
+						'http://fonts.googleapis.com/css?family=Crimson+Text|Crimson+Text:400italic|Crimson+Text:700|Crimson+Text:700italic' 
+					]
+				}
+			});
+		</script>
+		
+	</head>
+	
+	<body>
+		
+		<div id="container">
+			<header>
+				<h1><a href="/" title="Home">Hakim</a></h1>
+				<nav>
+					<ul>
+						<li class="twitter external"><a href="http://twitter.com/hakimel" target="_blank"><span>@hakimel</span></a></li>
+						<li class="thoughts"><a href="/thoughts"><span>Thoughts</span></a></li>
+						<li class="experiments"><a href="/experiments"><span>Experiments</span></a></li>
+						<li class="projects"><a href="/projects"><span>Projects</span></a></li>
+						<li class="about"><a href="/about"><span>About</span></a></li>
+					</ul>
+				</nav>
+				<div class="clearfix"></div>
+			</header>
+			
+			<div id="overlay"></div>
+			
+			<div id="main">
+				<div id="grid">
+					
+					<article id='experiments-intro' class='experiments single' data-exclusive='true'><aside class='actions'><a class='comment' href='/experiments/experiments-intro'>25</a></aside><h2>Experiments</h2>
+<p>
+	This is my creative lab and interactive playground. It's focused on the exploration of
+	interaction, visual effects and technologies. 
+</p>
+
+<div class="sharing social-component">
+	<div class="facebook-button">
+		
+	</div>
+	<div class="plusone-button">
+		<div id="experiments-plus-one"></div>
+	</div>
+	<div class="tweet-button">
+		<a href="http://twitter.com/share" class="twitter-share-button" data-url="http://hakim.se/experiments" data-text="The HTML5 Experiments of Hakim El Hattab (@hakimel)." data-count="vertical" data-related="hakimel"></a>
+	</div>
+	<div class="flattr-button">
+		<script type="text/javascript">
+		/* <![CDATA[ */
+		    (function() {
+				if( window.jQuery !== undefined ) $('script[src="http://api.flattr.com/js/0.6/load.js?mode=auto"]').remove();
+		        var s = document.createElement('script'), t = document.getElementsByTagName('script')[0];
+		        s.type = 'text/javascript';
+		        s.async = true;
+		        s.src = 'http://api.flattr.com/js/0.6/load.js?mode=auto';
+		        t.parentNode.insertBefore(s, t);
+		    })();
+		/* ]]> */
+		</script>
+		<a class="FlattrButton" style="display:none;" rev="flattr;button:default;" href="http://hakim.se/experiments/"></a>
+	</div>
+
+	<script>
+		setTimeout( function() {
+			if( window.jQuery && $( '.sharing.social-component' && window.HE ).length ) {
+				HE.social.loadTwitterWidgets();
+				HE.social.loadFacebookLike();
+				HE.social.loadGooglePlusOne();
+			}
+		}, 500 );
+	</script>
+</div>
+
+</article><article id='twitter' class='about single'><h2>Latest Tweets</h2>
+<div id="twitter-feed-wrapper"></div>
+<div id="twitter-button-wrapper"></div>
+
+<div class="launch-dock">
+	<a class="launch-button" href="http://twitter.com/hakimel">Follow me on Twitter</a>
+</div>
+
+<script>
+	
+	if ( window.HE ) {
+		// To avoid having Twitter lock up our main page rendering,
+		// we delay setting the source of the iframe
+		setTimeout( function() {
+			
+			$.ajax( { url: '/server/tweets/' } ).success( function( data ) {
+				$( "#twitter-feed-wrapper" ).empty().html( data );
+
+				HE.articles.linkify( '#twitter-feed-wrapper a' );
+				
+				HE.navigation.update();
+			} );
+			
+		}, 700 );
+	}
+	
+
+</script>
+
+</article><article id='kontext' class='experiments single'><aside class='actions'><a class='comment' href='/experiments/kontext'>4</a></aside><h2>Kontext</h2>
+<a href="http://lab.hakim.se/kontext" class="image-link" title="Open Kontext">
+	<img src="http://s3.amazonaws.com/hakim-static/portfolio/images/kontext.png" alt="Kontext" width="320" height="205">
+</a>
+<p>
+	A context-shift transition inspired by iOS. Created using JavaScript, CSS 3D transforms and CSS Animations.
+</p>
+
+<div class="launch-dock">
+	<a class="launch-button" href="https://github.com/hakimel/kontext">Source on GitHub</a>
+	<a class="launch-button" href="http://lab.hakim.se/kontext">Live Demo</a>
+</div><footer><time datetime='2013-02-26'>2013-02-26</time><a class='footer-comment' href='/experiments/kontext'>4 comments</a></footer></article><article id='sketch-toy' class='projects double'><aside class='actions'><a class='comment' href='/projects/sketch-toy'>3</a></aside><h2>Sketch Toy</h2>
+<a href="http://sketchtoy.com" class="image-link" title="Visit sketchtoy.com">
+	<img src="http://d1835mevib0k1p.cloudfront.net/portfolio/images/sketchtoy.png" alt="Sketch Toy" width="695" height="320">
+</a>
+<div class="two-columns">
+	
+	<p>
+		In early 2011 I released a small experiment called Sketch. It's a drawing application where lines appear to vibrate slightly 
+		like in an old cartoon. Sketches can be saved to a unique link and when shared, the sketch will replay as it was originally 
+		drawn.
+	</p>
+	<p>
+		Sketch saw a good amount of interest right off the bat and I was really excited when it crossed 100,000 saved drawings. After 
+		that initial rush however it quieted down quickly. Nothing unexpected there, that's the lifecycle I've come to expect from 
+		releasing many different personal projects and experiments. 
+	</p>
+	<p>
+		Fast forward to late November 2012.
+	</p>
+	<p>
+		Out of nowhere Sketch started seeing a lot of traffic from a site that I'd never heard the name of before: <a href="http://ask.fm">ask.fm</a>. 
+		According to Wikipedia <q>"ask.fm is an interest-based social Q&amp;A website"</q> though I'm still not entirely sure what that means. From 
+		there it continued to spread to other sites and at the time of writing Facebook is the biggest referrer. 
+	</p>
+	<h3>Scaling up</h3>
+	<p>
+		The traffic spike ended up being much too heavy for my old host to handle and the server started breaking down during peak hours with a few
+		thousand concurrent visitors. It was pretty excruciating. 
+	</p>
+	<p>
+		I ended up migrating the project &mdash; including a 5GB MySQL databse &mdash; to a new Linux server on <a href="aws.amazon.com">AWS</a>. This 
+		was challenging considering I've never set up and configured a server before but it was definitely worth it. After working through the initial  
+		quirks of getting everything up and running it's been much easier to monitor and scale up further. There's also been further optimization like 
+		moving all static assets to a CDN, adding a large cache layer in front of database read/writes and frequently sharding tables. 
+	</p>
+	<p>
+		Beyond changing servers I also felt it was time for a new name since Sketch was too generic. I ended up going with Sketch Toy 
+		which had the big plus of a free domain, Facebook and Twitter name: 
+		<br>- <a href="http://sketchtoy.com">sketchtoy.com</a> 
+		<br>- <a href="http://twitter.com/sketchtoy">twitter.com/sketchtoy</a> 
+		<br>- <a href="http://facebook.com/sketchtoy">facebook.com/sketchtoy</a>
+	</p>
+	<h3>Challenges</h3>
+	<p>
+		It's been about a month since traffic first surged and it has now stabilized at 800k-1m visits per day. During peak hours that means 
+		somewhere around 10-13k concurrent visitors which is very strenuous even with the new setup and probably won't scale much further. 
+	</p>
+	<p>
+		The second challenge is storage. Sketches are saved as compressed JSON blobs but with around 400k saves per day, the databse is still 
+		growing by a few GB each week. Unfortunately I believe the only real solution to this is to delete old sketches with few views.
+	</p>
+	<p>
+		But these are fun problems to have. It's been a great opportunity to learn about server configuration and I look forward to continuing 
+		to learn more as I go.
+	</p>
+	
+</div>
+<div class="launch-dock">
+	<a class="launch-button" href="http://facebook.com/sketchtoy">Sketch Toy on Facebook</a>
+	<a class="launch-button" href="http://sketchtoy.com">http://sketchtoy.com</a>
+</div><footer><time datetime='2012-12-27'>2012-12-27</time><a class='footer-comment' href='/projects/sketch-toy'>3 comments</a></footer></article><article id='hypnos' class='experiments single'><aside class='actions'><a class='comment' href='/experiments/hypnos'>1</a></aside><h2>Hypnos</h2>
+<a href="http://lab.hakim.se/hypnos" class="image-link" title="Open Hypnos">
+	<img src="http://s3.amazonaws.com/hakim-static/portfolio/images/hypnos.jpg" alt="Hypnos" width="320" height="290">
+</a>
+<p>
+	An infinite and hypnotic animation on <code>&lt;canvas&gt;</code>.
+</p>
+
+<div class="launch-dock">
+	<a class="launch-button" href="http://lab.hakim.se/hypnos">View Hypnos</a>
+</div><footer><time datetime='2012-11-27'>2012-11-27</time><a class='footer-comment' href='/experiments/hypnos'>1 comment</a></footer></article><article id='kort' class='experiments single'><aside class='actions'><a class='comment' href='/experiments/kort'>5</a></aside><h2>Kort</h2>
+<a href="http://lab.hakim.se/kort/" class="image-link" title="View demo">
+	<img src="http://s3.amazonaws.com/hakim-static/portfolio/images/kort.jpg" alt="Kort" width="320" height="205">
+</a>
+<p>
+	A UI concept for thumbnail previews. Hover over a single thumbnail to reveal it as a 3D stack. Works well on touch devices using swiping gestures.
+</p>
+<p>
+	Kort is the Swedish word for cards.
+</p>
+
+<div class="launch-dock">
+	<a class="launch-button" href="https://github.com/hakimel/kort">Source on GitHub</a>
+	<a class="launch-button" href="http://lab.hakim.se/kort/">View Demo</a>
+</div><footer><time datetime='2012-10-29'>2012-10-29</time><a class='footer-comment' href='/experiments/kort'>5 comments</a></footer></article><article id='gdl-interview' class='thoughts single'><aside class='actions'><a class='comment' href='/thoughts/gdl-interview'>3</a></aside><h2>GDL Interview</h2>
+<a href="http://youtube.com/watch?v=ogumRA9LxR4" class="image-link" title="Watch on YouTube">
+	<img src="http://s3.amazonaws.com/hakim-static/portfolio/images/video-320x280.png" alt="Watch on YouTube" width="320" height="280">
+</a>
+<p>
+	Paul Irish interviewed me about some of my personal projects on <a href="http://youtube.com/watch?v=ogumRA9LxR4">GDL Presents</a>. 
+	We covered a broad range of projects and even a bit of workflow.
+</p>
+<p>
+<div class="launch-dock">
+	<a class="launch-button" href="http://youtube.com/watch?v=ogumRA9LxR4">Watch on YouTube</a>
+</div><footer><time datetime='2012-10-22'>2012-10-22</time><a class='footer-comment' href='/thoughts/gdl-interview'>3 comments</a></footer></article><article id='fokus' class='experiments single'><aside class='actions'><a class='comment' href='/experiments/fokus'>13</a></aside><h2>Fokus</h2>
+<a href="http://lab.hakim.se/fokus/" class="image-link" title="View demo">
+	<img src="http://s3.amazonaws.com/hakim-static/portfolio/images/fokus.png" alt="Fokus" width="320" height="320">
+</a>
+<p>
+	Fokus emphasizes anything you select by covering the rest of the page with semi-transparent black.
+</p>
+<p>
+	This was written in JavaScript and uses a <code>&lt;canvas&gt;</code> element to paint the cover. The library has no dependencies and weighs in at around 3kb. Works in most modern browsers except IE and touch devices. If you want to use this on your site you just need to include the <a href="https://github.com/hakimel/Fokus/blob/master/js/fokus.min.js">fokus.min.js</a> script.
+</p>
+<p>
+	Fokus is also available as a <a href="https://chrome.google.com/webstore/detail/flkkpmjbbpijiedjdgnhkcgopgnflehe">Chrome extension</a>.
+</p>
+
+<div class="launch-dock">
+	<a class="launch-button" href="https://github.com/hakimel/fokus">Source on GitHub</a>
+	<a class="launch-button" href="http://lab.hakim.se/fokus/">View Demo</a>
+</div><footer><time datetime='2012-09-23'>2012-09-23</time><a class='footer-comment' href='/experiments/fokus'>13 comments</a></footer></article><article id='rvl-io' class='projects single'><aside class='actions'><a class='comment' href='/projects/rvl-io'>24</a></aside><h2>rvl.io</h2>
+<a href="http://www.rvl.io/" class="image-link" title="Visit rvl.io">
+	<img src="http://s3.amazonaws.com/hakim-static/portfolio/images/rvl-io.jpg" alt="rvl.io" width="320" height="305">
+</a>
+<p>
+	As <a href="http://lab.hakim.se/reveal-js">reveal.js</a> has grown more popular there has been a lot of requests for an online editor and <a href="http://www.rvl.io/">rvl.io</a> is the answer. rvl.io is a service for authoring, storing and presenting slide decks without having to touch the underlying HTML of reveal.js. It was created by myself (frontend) and <a href="https://twitter.com/h__r__j">@h__r__j</a> (backend).
+</p>
+
+<div class="launch-dock">
+	<a class="launch-button" href="http://www.rvl.io/">www.rvl.io</a>
+</div><footer><time datetime='2012-09-16'>2012-09-16</time><a class='footer-comment' href='/projects/rvl-io'>24 comments</a></footer></article><article id='linjer' class='experiments single'><aside class='actions'><a class='comment' href='/experiments/linjer'>0</a></aside><h2>Linjer</h2>
+<a href="http://lab.hakim.se/linjer/" class="image-link" title="View demo">
+	<img src="http://s3.amazonaws.com/hakim-static/portfolio/images/linjer.jpg" alt="Meny" width="320" height="226">
+</a>
+<p>
+	An interactive experiment based on the visuals originally created for <a href="/experiments/radar">Radar</a>.
+</p>
+
+<div class="launch-dock">
+	<a class="launch-button" href="http://lab.hakim.se/linjer/">View Demo</a>
+</div><footer><time datetime='2012-08-22'>2012-08-22</time><a class='footer-comment' href='/experiments/linjer'>No comments</a></footer></article><article id='avgrund' class='experiments single'><aside class='actions'><a class='comment' href='/experiments/avgrund'>6</a></aside><h2>Avgrund</h2>
+<a href="http://lab.hakim.se/avgrund/" class="image-link" title="View demo">
+	<img src="http://s3.amazonaws.com/hakim-static/portfolio/images/avgrund.png" alt="Meny" width="320" height="219">
+</a>
+<p>
+	A conceptual modal which gives a sense of depth between the page and modal layers. 
+</p>
+
+<div class="launch-dock">
+	<a class="launch-button" href="http://lab.hakim.se/avgrund/">View Demo</a>
+</div><footer><time datetime='2012-08-14'>2012-08-14</time><a class='footer-comment' href='/experiments/avgrund'>6 comments</a></footer></article><article id='meny' class='experiments single'><aside class='actions'><a class='comment' href='/experiments/meny'>26</a></aside><h2>meny</h2>
+<a href="http://lab.hakim.se/meny/" class="image-link" title="View demo">
+	<img src="http://s3.amazonaws.com/hakim-static/portfolio/images/meny.png" alt="Meny" width="320" height="299">
+</a>
+<p>
+	An experimental CSS 3D fold-in menu. Works in any browser that supports CSS 3D transforms, that includes Mobile Safari so get your iPhone ready!
+</p>
+
+<div class="launch-dock">
+	<a class="launch-button" href="https://github.com/hakimel/meny">Source on GitHub</a>
+	<a class="launch-button" href="http://lab.hakim.se/meny/">View Demo</a>
+</div><footer><time datetime='2012-08-05'>2012-08-05</time><a class='footer-comment' href='/experiments/meny'>26 comments</a></footer></article><article id='radar' class='experiments single'><aside class='actions'><a class='comment' href='/experiments/radar'>1</a></aside><h2>Radar</h2>
+<a href="http://lab.hakim.se/radar/" class="image-link" title="View demo">
+	<img src="http://s3.amazonaws.com/hakim-static/portfolio/images/radar.jpg" alt="Radar" width="320" height="260">
+</a>
+<p>
+	An audio-visual experiment that uses <a href-"https://github.com/oampo/Audiolet">Audiolet</a> to synthesize sound in real-time. The visuals are rendered on <code>&lt;canvas&gt;</code>.
+</p>
+
+<div class="launch-dock">
+	<a class="launch-button" href="http://lab.hakim.se/radar">View Demo</a>
+</div><footer><time datetime='2012-07-31'>2012-07-31</time><a class='footer-comment' href='/experiments/radar'>1 comment</a></footer></article><article id='sinuous-ios' class='projects double' data-showin='experiments'><aside class='actions'><a class='comment' href='/projects/sinuous-ios'>2</a></aside><h2>Sinuous for iPhone &amp; iPad</h2>
+<a href="http://itunes.apple.com/us/app/sinuous/id543097218?ls=1&mt=8" class="image-link" title="Open in the App Store">
+	<img src="https://s3.amazonaws.com/hakim-static/portfolio/images/sinuous-ios.png" alt="Sinuous" width="695" height="300">
+</a>
+
+<div class="two-columns">
+	<p>
+		Almost two years after releasing the <a href="http://www.sinuousgame.com">web version</a> Sinuous has finally 
+		made its way to the App Store! The gameplay is very much alike the web but it ties into Game Center so that you 
+		can compete with friends. Oh, and keep and eye our for the new 'vortex'-boost! 
+	</p>
+	<p>
+		The game is still powered by JavaScript and rendered on HTML canvas. It relies on native code for 
+		audio and Game Center integration but that bit was easy thanks to the ever so lovely <a href="http://phonegap.com/">PhoneGap</a>. 
+		I'm very happy with how well the controls translated to touch and I hope you will be too. 
+	</p>
+	<p>
+		This runs as smooth as butter on the iPad but the framerate is a bit shaky on the iPhone 4. I will be releasing 
+		an update soon to address that as well as some other improvements. <a href="http://itunes.apple.com/us/app/sinuous/id543097218?ls=1&mt=8">Try it out</a>!
+	</p>
+</div>
+
+<div class="launch-dock">
+	<a class="launch-button" href="http://itunes.apple.com/us/app/sinuous/id543097218?ls=1&mt=8">Open in the App Store</a>
+</div><footer><time datetime='2012-07-12'>2012-07-12</time><a class='footer-comment' href='/projects/sinuous-ios'>2 comments</a></footer></article><article id='forkit-js' class='experiments single'><aside class='actions'><a class='comment' href='/experiments/forkit-js'>3</a></aside><h2>forkit.js</h2>
+<a href="http://lab.hakim.se/forkit-js/" class="image-link" title="View demo">
+	<img src="http://s3.amazonaws.com/hakim-static/portfolio/images/forkit-js.png" alt="forkit.js" width="320" height="260">
+</a>
+<p>
+	An experimental animated ribbon which lets you drag down a curtain of additional content. A fun twist on the 
+	"Fork me on GitHub" banner! Created with JavaScript-controlled CSS3 transforms.
+</p>
+
+<div class="launch-dock">
+	<a class="launch-button" href="http://lab.hakim.se/forkit-js">View Demo</a>
+</div><footer><time datetime='2012-07-11'>2012-07-11</time><a class='footer-comment' href='/experiments/forkit-js'>3 comments</a></footer></article><article id='scroll-effects' class='experiments single'><aside class='actions'><a class='comment' href='/experiments/scroll-effects'>40</a></aside><h2>CSS3 Scroll Effects</h2>
+<a href="http://lab.hakim.se/scroll-effects" class="image-link" title="Launch">
+	<img src="http://s3.amazonaws.com/hakim-static/portfolio/images/scroll-effects.png" alt="CSS3 Scroll Effects" width="320" height="383">
+</a>
+<p>
+	Decided it was time for some CSS tinkering again and ended up creating this set of CSS3 scrolling styles. 
+	Not intended for any practical use but the visuals are surprisingly impactful.
+</p>
+<p>
+	This works by applying a <code>future</code>/<code>past</code> class to list items outside of the viewport 
+	as you scroll. Based on this class a variety of transforms are transitioned to via CSS.
+</p>
+<p>
+	Thanks <a href="http://paulirish.com/">Paul Irish</a> for improving the JavaScript performance!
+</p>
+<div class="launch-dock">
+	<a class="launch-button" href="http://github.com/hakimel/scroll-effects">Source on GitHub</a>
+	<a class="launch-button" href="http://lab.hakim.se/scroll-effects">Live Demo</a>
+</div><footer><time datetime='2012-04-14'>2012-04-14</time><a class='footer-comment' href='/experiments/scroll-effects'>40 comments</a></footer></article><article id='2011' class='thoughts double'><aside class='actions'><a class='comment' href='/thoughts/2011'>3</a></aside><h2>Recap 2011</h2>
+<div class="two-columns">
+	<p>
+		It's that time of the year again! In late 2010, having spent five great years working at 
+		<a href="http://www.f-i.com">Fi</a>, I was determined to change up my professional life. After 
+		interviewing with <a href="http://www.qwiki.com">Qwiki</a> and accepting the position of Lead 
+		Interactive Developer it was decided; I was moving to San Francisco! It took a good few months of
+		hard work to sort out all of the practicalities but it was definitely worth it now that I'm here.
+	</p>
+	<p>
+		Fortunately I've still been able to keep this site updated and worked on a variety of projects 
+		and experiments throughout the year. 
+	</p>
+	<p>
+		The first project to see the light of day was <a href="http://hakim.se/experiments/html5/sketch/">Sketch</a>, 
+		a drawing tool that mimics the style of old cartoons. It was refreshing to build something that allows 
+		others to be creative. Now – almost a year later – over 78,000 sketches have been saved.
+	</p>
+	<p>
+		Sketch was followed by a short freelance project which involved building an interactive and animated 
+		logo for a Canadian media production company called Yugen. Try it out on their site;
+		<a href="http://yugen.ca/">http://yugen.ca/</a>.
+	</p>
+	<p>
+		Next I stumbled into the land of CSS3 3D transforms and ended up trying them out on two projects;
+		<a href="http://hakim.se/experiments/css/holobox/">Holobox</a> and CSS3 3D Slideshow (later renamed 
+		<a href="http://lab.hakim.se/reveal-js/">reveal.js</a>). A few weeks ago, in mid December, I resumed 
+		my CSS 3D pursuits by creating a <a href="http://hakim.se/thoughts/rolling-links">rolling effect</a> 
+		for links and building a <a href="http://hakim.se/experiments/domtree">Christmas tree</a> out of form elements.
+	</p>
+	<p>
+		Being far from tired of working with <code>&lt;canvas&gt;</code> I also created a new game called 
+		<a href="http://hakim.se/experiments/html5/coil/">Coil</a>, it's similar in design to <a href="http://sinuousgame.com">Sinuous</a> 
+		but adds a touch of WebGL and perhaps an element of stress to the gameplay. Shortly thereafter I worked on a 
+		tool called <a href="http://textify.it">Textify.it</a> which allows you to recreate images using thousands
+		of letters of text. Using Phonegap, I was able to easily port <a href="http://itunes.apple.com/app/textify-it/id441057755">Textify.it to iOS</a>.
+	</p>
+	<p>
+		It's been really encouraging to see that there's still a lot of activity on <a href="http://sinuousgame.com">sinuousgame.com</a>
+		even though it's been out since 2010 – meaning ancient, in internet-time. In the past year it saw more than 2,000,000 visits.
+	</p>
+	<p>
+		Now the new year is approaching and with it new adventures. 2012 will start with relocating to NYC and 
+		opening up Qwiki's new office. Can't wait to see where it goes from there!
+	</p>
+</div><footer><time datetime='2011-12-31'>2011-12-31</time><a class='footer-comment' href='/thoughts/2011'>3 comments</a></footer></article><article id='domtree' class='experiments single'><aside class='actions'><a class='comment' href='/experiments/domtree'>29</a></aside><h2>DOM Tree</h2>
+<a href="/experiments/css/domtree" class="image-link" title="View DOM Tree">
+	<img src="http://s3.amazonaws.com/hakim-static/portfolio/images/domtree.jpg" alt="Origami" width="320" height="384">
+</a>
+<p>
+	Happy holidays! I didn't get a pine tree for Christmas this year so I decided 
+	to compensate by creating a digital counterpart out of HTML form elements.
+</p>
+<p>
+	The DOM tree is generated via JavaScript every time you visit the page so you'll
+	never see the same one twice. All of the forms are filled with holiday greetings 
+	in a variety of languages. CSS3 3D transforms are used to position and rotate, via
+	<code>translate3d()</code> and <code>rotate3d()</code> respectively, the  elements 
+	when the page loads. The infinitely looping rotation on the tree is controlled by 
+	an infinitely looping CSS3 animation.
+</p>
+<p>
+	All of the form inputs are interactive so I challenge you to try and select some of 
+	those <code>&lt;input type="radio"&gt;</code> snow flakes!
+</p>
+
+<div class="launch-dock">
+	<a class="launch-button" href="/experiments/css/domtree">View DOM Tree</a>
+</div><footer><time datetime='2011-12-25'>2011-12-25</time><a class='footer-comment' href='/experiments/domtree'>29 comments</a></footer></article><article id='zoom-js' class='projects single'><aside class='actions'><a class='comment' href='/projects/zoom-js'>4</a></aside><h2>zoom.js</h2>
+<p>
+	<a href="http://lab.hakim.se/zoom-js/">zoom.js</a> is a small proof of concept JavaScript library for zooming in on DOM 
+	elements or points in a document. It uses CSS3 transitions and 2D transforms (scaling, translation, transform origin) 
+	on the <code>&lt;body&gt;</code> element to achieve animated magnification.
+</p>
+<p>
+	The API is very minimal;
+<pre>
+<code>zoom.in({ 
+  element: &lt;HTMLElement&gt;
+});
+
+zoom.in({ 
+  x: 150,
+  y: 50,
+  width: 300,
+  height: 300
+});
+
+zoom.out();</code>
+</pre>
+</p>
+
+<div class="launch-dock">
+	<a class="launch-button" href="http://github.com/hakimel/zoom.js">Source on GitHub</a>
+	<a class="launch-button" href="http://lab.hakim.se/zoom-js">Live Demo</a>
+</div><footer><time datetime='2011-12-24'>2011-12-24</time><a class='footer-comment' href='/projects/zoom-js'>4 comments</a></footer></article><article id='reveal-js' class='projects single'><aside class='actions'><a class='comment' href='/projects/reveal-js'>137</a></aside><h2>reveal.js</h2>
+<a href="http://lab.hakim.se/reveal-js/" class="image-link" title="View demo">
+	<img src="http://s3.amazonaws.com/hakim-static/portfolio/images/rvl-js.jpg" alt="reveal.js" width="320" height="156">
+</a>
+<p>
+	Reveal.js, formerly <a href="http://hakim.se/experiments/css3-3d-slideshow">CSS 3D Slideshow</a>, is a  
+	tool which allows you to quickly create good looking HTML presentations. Beyond the changed name, the updated 
+	slideshow includes a fair amount of new features:
+
+	<ul>
+		<li>New and improved style.</li>
+		<li>Added controls in bottom right which indicate where you can navigate.</li>
+		<li>Reveal views in iteratively by giving them the <code>.fragment</code> class.</li>
+		<li>Code sample syntax highlighting thanks to <a href="http://softwaremaniacs.org/soft/highlight/en/description/">highlight.js</a>.</li>
+		<li>Transition themes (available via init options) default/concave/linear.</li>
+		<li>Initialization options (toggling controls, toggling rolling links, transition theme).</li>
+	</ul>
+</p>
+
+<div class="launch-dock">
+	<a class="launch-button" href="http://github.com/hakimel/reveal.js">Source on GitHub</a>
+	<a class="launch-button" href="http://lab.hakim.se/reveal-js">Live Demo</a>
+</div><footer><time datetime='2011-12-04'>2011-12-04</time><a class='footer-comment' href='/projects/reveal-js'>137 comments</a></footer></article><article id='sphere-revisited' class='experiments single'><aside class='actions'><a class='comment' href='/experiments/sphere-revisited'>2</a></aside><h2>Sphere: Revisited</h2>
+<a href="http://jsfiddle.net/hakim/6YVEH/911/" class="image-link" title="Open Sphere on jsFiddle">
+	<img src="http://s3.amazonaws.com/hakim-static/portfolio/images/sphere-revisited.jpg" alt="Sphere" width="320" height="353">
+</a>
+<p>
+	The next <a href="http://js1k.com/">js1k</a> is still ways off but I felt like crunching some
+	JavaScript so I revisited my <a href="http://hakim.se/experiments/html5/sphere/">Sphere</a> experiment.
+	I was able to squeeze it down into <em>317 bytes</em> and that includes the code for creating 
+	and appending the <code>&lt;canvas&gt;</code> element to the body. Here's the full thing:
+</p>
+<code>
+	var a=document,b=a.body.appendChild(a.createElement("canvas")),c=b.getContext("2d"),d=0,e=b.width=innerWidth,f=b.height=innerHeight,g=Math,h=g.cos,j=g.sin,k=g.PI;setInterval(function(){b.width=b.width;d+=0.1;for(i=1E4;i--;)r=(e+f)/2*(h((d+i)*(0.05+0.2*(j(d/1E5)/k)))/k),c.fillRect(j(i)*r+e/2,h(i)*r+f/2,1.5,1.5)},16);
+</code>
+<p>
+	Leave a comment if you can think of more ways to reduce the size!
+</p>
+<p>
+	<strong>UPDATE 1:</strong>
+	<a href="http://www.p01.org/">Mathieu 'P01' Henri</a> was able to squeeze it down to 247 bytes <a href="http://jsfiddle.net/LBBmM/1/">http://jsfiddle.net/LBBmM/1/</a>
+</p>
+<p>
+	<strong>UPDATE 2:</strong>
+	As if 247 wasn't enough, P01's latest update drops the canvas element and hits <em>222 bytes</em>! <a href="http://jsfiddle.net/LBBmM/32/">http://jsfiddle.net/LBBmM/32/</a>
+</p>
+
+<div class="launch-dock">
+	<a class="launch-button" href="http://jsfiddle.net/hakim/6YVEH/911/">View on jsFiddle</a>
+</div><footer><time datetime='2011-12-03'>2011-12-03</time><a class='footer-comment' href='/experiments/sphere-revisited'>2 comments</a></footer></article><article id='rolling-links' class='thoughts single'><aside class='actions'><a class='comment' href='/thoughts/rolling-links'>14</a></aside><h2>Rolling Links</h2>
+<a href="http://jsfiddle.net/hakim/Ht6Ym/" class="image-link" title="View on jsFiddle">
+	<img src="http://s3.amazonaws.com/hakim-static/portfolio/images/rolling-links.jpg" alt="Rolling Links" width="320" height="200">
+</a>
+<p>
+	Decided to spice up the text links throughout my site by reviving an old Flash classic – the 3D roll! 
+	You'll only be able to see the new style if your browser <a href="http://caniuse.com/#search=3d%20transforms">supports CSS 3D transforms</a>, 
+	at the time of writing that means Firefox Nightly, Chrome or Safari.
+</p>
+<p>
+	The only HTML required for this effect is a <code>&lt;span&gt;</code> wrapper around the inner HTML of the target anchor node. The <code>:after</code> 
+	pseudo-element, and its <code>content: attr(...)</code> property, is used to create the flip side. The 3D transformation is carried out 
+	on the <code>&lt;span&gt;</code> wrapper since transitions are not possible on pseudo-elements.
+</p>
+<p>
+	If you're interested in the code, it's availalable over at <a href="http://jsfiddle.net/hakim/Ht6Ym/">jsFiddle.net</a> for all your forking pleasure.
+</p>
+<div class="launch-dock">
+	<a class="launch-button" href="http://jsfiddle.net/hakim/Ht6Ym/">View on jsFiddle</a>
+</div><footer><time datetime='2011-11-20'>2011-11-20</time><a class='footer-comment' href='/thoughts/rolling-links'>14 comments</a></footer></article><article id='origami' class='experiments single'><aside class='actions'><a class='comment' href='/experiments/origami'>6</a></aside><h2>Origami</h2>
+<a href="/experiments/html5/origami" class="image-link" title="View Origami">
+	<img src="http://s3.amazonaws.com/hakim-static/portfolio/images/origami.jpg" alt="Origami" width="320" height="320">
+</a>
+<p>
+	Simply a colorful folding doodle on <code>&lt;canvas&gt;</code>. Click anywhere 
+	on the drawing -- or use your keyboard -- to activate different layouts. 
+</p>
+
+<div class="launch-dock">
+	<a class="launch-button" href="/experiments/html5/origami">View Origami</a>
+</div><footer><time datetime='2011-09-15'>2011-09-15</time><a class='footer-comment' href='/experiments/origami'>6 comments</a></footer></article><article id='interview-techrant' class='thoughts single'><aside class='actions'><a class='comment' href='/thoughts/interview-techrant'>0</a></aside><h2>Interview: TechRant</h2>
+<a href="http://techrant.co.uk/2011/07/interview-with-hakim-el-hattab/" class="image-link" title="Read the interview on TechRant">
+	<img src="http://s3.amazonaws.com/hakim-static/portfolio/images/interview-techrant.jpg" alt="TechRant Logo" width="320" height="171">
+</a>
+<p>
+	I was interviewed by <a href="http://twitter.com/relequestual" class="test">Ben Hutton</a> of <a href="http://techrant.co.uk/">TechRant</a> 
+	and shared some of my thoughts about the open web, personal projects and professional life. 
+</p>
+<div class="launch-dock">
+	<a class="launch-button" href="http://techrant.co.uk/2011/07/interview-with-hakim-el-hattab/">Read the interview</a>
+</div><footer><time datetime='2011-08-02'>2011-08-02</time><a class='footer-comment' href='/thoughts/interview-techrant'>No comments</a></footer></article><article id='404' class='experiments single'><aside class='actions'><a class='comment' href='/experiments/404'>8</a></aside><h2>404</h2>
+<a href="/experiments/html5/404/netmag.html" class="image-link" title="View the 404 page">
+	<img src="http://s3.amazonaws.com/hakim-static/portfolio/images/404.jpg" alt="Sphere" width="320" height="214">
+</a>
+<p>
+	The folks over at <a href="http://netmagazine.com/">.net magazine</a> have decided 
+	to spruce up their 404 page with the help of a few guest artists. For my slot I 
+	decided to go for a creepy theme inspired by one of my 
+	<a href="http://hakim.se/experiments/html5/bakemono/01/">earlier experiments</a>. 
+	The animation is entirely code generated and drawn on an HTML5 canvas element. 
+</p>
+<p>
+	If you're interested in how this was created, have a look at the 
+	<a href="https://github.com/hakimel/404">source code on GitHub</a>. 
+</p>
+
+<div class="launch-dock">
+	<a class="launch-button" href="/experiments/html5/404/netmag.html">View the 404 page</a>
+</div><footer><time datetime='2011-08-01'>2011-08-01</time><a class='footer-comment' href='/experiments/404'>8 comments</a></footer></article><article id='sphere' class='experiments single'><aside class='actions'><a class='comment' href='/experiments/sphere'>7</a></aside><h2>Sphere</h2>
+<a href="/experiments/html5/sphere/" class="image-link" title="Open Sphere">
+	<img src="http://s3.amazonaws.com/hakim-static/portfolio/images/sphere.jpg" alt="Sphere" width="320" height="320">
+</a>
+<p>
+	When bored, I sometimes open a blank JavaScript file and start writing 
+	without any clear objective of where I want to take it. This is the result 
+	of one such coding session.
+</p>
+<p>
+	The sphere -- actually more of a spiral -- is built out of 10,000 particles 
+	and the structure changes over time. 
+</p>
+
+<div class="launch-dock">
+	<a class="launch-button" href="/experiments/html5/sphere/">View Sphere</a>
+</div><footer><time datetime='2011-07-29'>2011-07-29</time><a class='footer-comment' href='/experiments/sphere'>7 comments</a></footer></article><article id='appview' class='projects single'><aside class='actions'><a class='comment' href='/projects/appview'>1</a></aside><h2>AppView</h2>
+<a href="http://lab.hakim.se/appview" class="image-link" title="AppView">
+	<img src="http://s3.amazonaws.com/hakim-static/portfolio/images/appview.jpg" alt="AppView" width="320" height="250">
+</a>
+<p>
+	AppView was created to help iOS app developers track recent reviews in all markets 
+	of the App Store without having to use iTunes Connect's cumbersome UI. Reviews can be 
+	sorted on date, rating or store and are automatically translated to English via the 
+	Google Translate API.
+</p>
+
+<div class="launch-dock">
+	<a class="launch-button" href="http://lab.hakim.se/appview">Launch AppView</a>
+</div><footer><time datetime='2011-06-26'>2011-06-26</time><a class='footer-comment' href='/projects/appview'>1 comment</a></footer></article><article id='textify-ios' class='projects double'><aside class='actions'><a class='comment' href='/projects/textify-ios'>4</a></aside><h2>Textify.it for iOS</h2>
+<a href="http://itunes.apple.com/us/app/textify-it/id441057755" class="image-link" title="Textify.it for iOS">
+	<img src="http://s3.amazonaws.com/hakim-static/portfolio/images/textify-ios.jpg" alt="Textify.it" width="695" height="323">
+</a>
+<div class="two-columns">
+	<p>
+		I was really happy with how the <a href="http://textify.it">Textify.it</a> web app turned 
+		out and decided it was worthwhile creating a version targeted at iOS. I've been curious 
+		about the potential of building iOS apps using the standard array of open web technologies.
+	</p>
+	<p>
+		With the help of <a href="http://www.phonegap.com/">PhoneGap</a>, a framework which bridges 
+		JavaScript to native functionality, it was incredibly easy to get going. The iOS version of 
+		Textify.it is based on the same JavaScript core as the online version. Some code was added to 
+		fire up the camera/library as well as for saving images onto the device.
+	</p>
+	<p>
+		One challenge with any HTML app targeted at iOS and Mobile Safari is rendering performance, 
+		particularly so when using the HTML5 canvas element. The mobile version of Textify.it maintains
+		the original resolution of images and those images may well be 2048x1536 pixels large (iPhone 3GS). 
+		The most fruitful optimization for this was to use a CSS transform to scale the canvas rather
+		than doing so via its width/height properties. This seems to force the browser to apply a different, faster, 
+		image scaling method. Jonas Wagner has written a post about a similar technique for improved 
+		performance <a href="http://29a.ch/2011/5/27/fast-html5-canvas-on-iphone-mobile-safari-performance">here</a>.
+	</p>
+	<p>
+		Textify.it is <a href="http://itunes.apple.com/us/app/textify-it/id441057755">available for both iPhone and iPad</a>
+		with a $0.99 price tag. 
+	</p>
+</div>
+
+<div class="launch-dock">
+	<a class="launch-button" href="http://itunes.apple.com/us/app/textify-it/id441057755">Open in iTunes</a>
+	<a class="launch-button" href="http://textify.it">Try Online</a>
+</div><footer><time datetime='2011-06-07'>2011-06-07</time><a class='footer-comment' href='/projects/textify-ios'>4 comments</a></footer></article><article id='textify' class='experiments single'><aside class='actions'><a class='comment' href='/experiments/textify'>7</a></aside><h2>Textify.it</h2>
+<a href="http://textify.it" class="image-link" title="Textify Images">
+	<img src="http://s3.amazonaws.com/hakim-static/portfolio/images/textify.jpg" alt="Textify" width="320" height="207">
+</a>
+<p>
+	Browser for or drag an image onto the page and watch it be reconstructed purely out 
+	of text. The markup for the resulting textual image can be copied and used elsewhere.  
+</p>
+<p>
+	There are a lot of settings which allow you to control the characteristics of the text. 
+	Even the smallest tweak to the settings can result in a very different output. Beware that 
+	using very large amounts of text will cause heavy browser lag.
+</p>
+
+<div class="launch-dock">
+	<a class="launch-button" href="http://textify.it">Start Textifying</a>
+</div><footer><time datetime='2011-05-24'>2011-05-24</time><a class='footer-comment' href='/experiments/textify'>7 comments</a></footer></article><article id='particles-webgl' class='experiments single'><aside class='actions'><a class='comment' href='/experiments/particles-webgl'>4</a></aside><h2>WebGL Particles</h2>
+<a href="/experiments/webgl/particles/01/" class="image-link" title="Open Particles">
+	<img src="http://s3.amazonaws.com/hakim-static/portfolio/images/particles-webgl.jpg" alt="Particles" width="320" height="479">
+</a>
+<p>
+	Was curious about how to efficiently render particles with WebGL so
+	I built a tiny demo. Move your mouse to generate particles.
+</p>
+
+<div class="launch-dock">
+	<a class="launch-button" href="/experiments/webgl/particles/01/">Open Particles</a>
+</div><footer><time datetime='2011-05-11'>2011-05-11</time><a class='footer-comment' href='/experiments/particles-webgl'>4 comments</a></footer></article><article id='canvas-optimization' class='thoughts double'><aside class='actions'><a class='comment' href='/thoughts/canvas-optimization'>6</a></aside><h2>Canvas Optimization</h2>
+<a href="/experiments/html5/coil?debug=1" class="image-link" title="Play Coil with debug regions">
+	<img src="http://s3.amazonaws.com/hakim-static/portfolio/images/canvas-optimization.jpg" alt="Coil Debug Mode" width="695" height="280">
+</a>
+<div class="two-columns">
+	<p>
+		Building <a href="/experiments/html5/coil">Coil</a> presented me with a few interesting technical 
+		challenges. Primarily I had a hard time making the game operate at a reasonable framerate since it uses both 
+		2D Canvas <em>and</em> WebGL. Double whammy. Even though I am still not fully satisfied with how the game performs, 
+		I wanted to share some of the optimization techniques used. 
+	</p>
+	
+	<h3>Redraw Regions</h3>
+	<p>
+		The best <code>canvas</code> optimization technique for animations is to limit the amount of pixels 
+		that get cleared/painted on each frame. The easiest solution to implement is resetting the entire canvas element
+		and drawing everything anew but that is an expensive operation for your browser to process. 
+	</p>
+	<p>
+		To limit the areas which are cleared in Coil, I keep track of exactly which rectangular regions are being painted in 
+		so that I can then <code>clearRect(x,y,w,h)</code> only those. This results in the following flow:
+		<br/><br/>
+		1. Clear pixels of all redraw regions<br/>
+		2. Reset redraw region list<br/>
+		3. Paint all elements and store their individual redraw regions<br/>
+	</p>
+	<p>
+		Coil has a debug mode in which these redraw regions are displayed as green rectangles, 
+		<a href="/experiments/html5/coil?debug=1">try it out</a>.
+	</p>
+	
+	<h3>Procedural Sprites</h3>
+	<p>
+		Even though I'm an advocate for generating graphics procedurally, sometimes that's not the most efficient
+		approach. If you're drawing simple shapes with solid fills then by all means drawing them procedurally 
+		is the way to go. But if you're drawing more detailed entities with strokes, gradient fills and other
+		performance sensitive make-up you'd be better off using image sprites. 
+	</p>
+	<p>
+		In Coil I use a hybrid approach. Graphical entities are generated procedurally on <code>canvas</code>, but
+		only once as the game starts up. For the rest of the game's lifespan I paint copies of those sprites rather 
+		than repeatedly generate the same drop-shadow, gradient and strokes.
+	</p>
+	<p>
+		One final tip when working with image sprites is to always draw them on integer x/y coordinates for better
+		performance on OS X browsers. You can read about this in greater detail 
+		<a href="http://sebleedelisle.com/2011/02/html5-canvas-sprite-optimisation/">here</a>.
+	</p>
+	
+	<h3>Computation Distribution</h3>
+	<p>
+		The Chrome Developer Tools <a href="http://code.google.com/chrome/devtools/docs/profiles.html">profiler</a> is 
+		very useful for finding out what your performance bottlenecks are. In my case, for Coil, the two heaviest operations 
+		were the discovery of enclosures and rendering of WebGL. Both of these operations were being executed on every frame.
+	</p>
+	<p>
+		To distribute the processing for these two operations I changed it so that enclosure discovery only occurs on <em>even</em> 
+		frames while WebGL only gets rendered on <em>odd</em> frames.
+	</p>
+	
+	<h3>Performance Based Scoring</h3>
+	<p>
+		From a scoring point of view, bad performance can be beneficial when playing a reflex based game since it 
+		gives you more time to react. To combat this unfair advantage I scale down the scores by a factor of the
+		current FPS divided by the target FPS.
+	</p>
+	<p>
+		Another, perhaps more elegant, solution to this problem is to base all game mechanics on time rather than 
+		frames.
+	</p>
+</div><footer><time datetime='2011-04-24'>2011-04-24</time><a class='footer-comment' href='/thoughts/canvas-optimization'>6 comments</a></footer></article><article id='coil' class='experiments single'><aside class='actions'><a class='comment' href='/experiments/coil'>23</a></aside><h2>Coil</h2>
+<a href="/experiments/html5/coil/" class="image-link" title="Play Coil">
+	<img src="http://s3.amazonaws.com/hakim-static/portfolio/images/coil.jpg" alt="Coil" width="320" height="357">
+</a>
+<p>
+	While working on <a href="/experiments/sinuous/">Sinuous</a> I had an idea for a gameplay feature 
+	that involved drawing circles around your enemies to destroy them. Trying not to add too many 
+	features in one game I decided not to implement it at that point and instead revisit it as a separate 
+	game.
+</p>
+<p>
+	Much like Sinuous, Coil is a very straight forward game with as few features and gameplay elements as 
+	possible.
+</p>
+<p>
+	The objective is to defeat enemies by enclosing them in the trail formed by your tail. Enemies found 
+	within those closures are obliterated. There are two types of enemies; the <span style="color: blue">blue</span> 
+	kind explodes after time and causes you damage, <span style="color: red">red</span> enemies on the other 
+	hand are obstacles which should never be drawn into the enclosed area as that will also cause you damage.
+</p>
+<p>
+	Determining how to isolate enclosed areas, and enemies therein, was a very interesting challenge. 
+	The final implementation is a three-step process. First I check all line segments in the tail for 
+	intersections with each other. Once an intersection is discovered, that enclosed area is filled with
+	a unique color. Finally, collisions are found by checking if the color underneath an enemy matches the 
+	closure's unique fill color. 
+</p>
+
+<div class="launch-dock">
+	<a class="launch-button" href="/experiments/html5/coil/">Play Coil</a>
+</div><footer><time datetime='2011-04-13'>2011-04-13</time><a class='footer-comment' href='/experiments/coil'>23 comments</a></footer></article><article id='css3-hologram' class='experiments single'><aside class='actions'><a class='comment' href='/experiments/css3-hologram'>52</a></aside><h2>CSS3 3D Hologram</h2>
+<a href="/experiments/css/holobox/" class="image-link" title="Open Holobox">
+	<img src="http://s3.amazonaws.com/hakim-static/portfolio/images/holobox.jpg" alt="CSS 3D Hologram" width="320" height="232">
+</a>
+<p>
+	After seeing a <a href="http://www.youtube.com/watch?v=erf8yA_4pPI">video</a> demonstration 
+	of a holographic effect created with HTML/CSS I was inspired to build something similar. I ended up creating a 
+	3D box which alters perspective depending on device orientation.
+</p>
+<p>
+	CSS3 3D transforms are used to distort HTML elements and create the walls of the box. JavaScript then tracks 
+	the <code>deviceorientation</code> and <code>devicemotion</code> events and updates the 3D perspective 
+	accordingly. The only property that is being changed via JavaScript is the perspective origin, or
+	<code>-webkit-perspective-origin</code> to be exact.
+</p>
+<p>
+	Note that this requires a <strong>webkit</strong> browser and has only been tested on iPhone.
+</p>
+
+<div class="launch-dock">
+	<a class="launch-button" href="/experiments/css/holobox/">View Demo</a>
+</div><footer><time datetime='2011-04-12'>2011-04-12</time><a class='footer-comment' href='/experiments/css3-hologram'>52 comments</a></footer></article><article id='webgl-shaders' class='experiments single'><aside class='actions'><a class='comment' href='/experiments/webgl-shaders'>2</a></aside><h2>WebGL Shaders</h2>
+<a href="/experiments/webgl/shaders/03/" class="image-link" title="Open WebGL Shader #3">
+	<img src="http://s3.amazonaws.com/hakim-static/portfolio/images/webgl-shaders.jpg" alt="Trail" width="320" height="359">
+</a>
+<p>
+	WebGL's introduction is very exciting due to the powerful graphical capabilities it enables in the 
+	browser context. This power originates from the ability to run highly optimized programs on the GPU 
+	via <a href="http://en.wikipedia.org/wiki/Shader">shaders</a> written in the 
+	<a href="http://en.wikipedia.org/wiki/GLSL">OpenGL Shading Language</a> – or 
+	GLSL for short. 
+</p>
+<p>
+	There are two types of shaders; <strong>vertex shaders</strong> which are used to calculate 
+	transformations of vertices and <strong>fragment shaders</strong> which are used to process 
+	indiviual pixels.
+</p>
+<p>
+	Aiming to start learning more about the GLSL language I wrote a few abstract fragment shaders. 
+	To avoid some of the rudimentary work I used <a href="https://github.com/mrdoob/three.js/">three.js</a> 
+	to compile and run my shaders. I've also been referencing the wonderful 
+	<a href="http://www.iquilezles.org/apps/shadertoy/">Shader Toy</a> for learning examples.
+</p>
+
+<div class="launch-dock">
+	<a class="launch-button" href="/experiments/webgl/shaders/01/">01</a>
+	<a class="launch-button" href="/experiments/webgl/shaders/02/">02</a>
+	<a class="launch-button" href="/experiments/webgl/shaders/03/">03</a>
+</div><footer><time datetime='2011-04-10'>2011-04-10</time><a class='footer-comment' href='/experiments/webgl-shaders'>2 comments</a></footer></article><article id='css3-3d-slideshow' class='experiments single'><aside class='actions'><a class='comment' href='/experiments/css3-3d-slideshow'>63</a></aside><h2>CSS3 3D Slideshow</h2>
+<a href="/experiments/css/slideshow/" class="image-link" title="Open Slideshow">
+	<img src="http://s3.amazonaws.com/hakim-static/portfolio/images/slideshow.jpg" alt="CSS 3D Slideshow" width="320" height="178">
+</a>
+<p>
+	While preparing a presentation on SVG for an upcoming <a href="http://groups.google.com/group/stockholm-web-monkeys">Stockholm Web Monkeys</a> 
+	meetup I needed to construct a simple slideshow. Since this would only ever be presented in a 
+	controlled environment, I decided to take the opportunity and experiment with CSS 3D transforms.
+</p>
+<p>
+	The transition between slides is made possible by a combination of CSS 3D transforms and
+	transitions. JavaScript is in charge of updating the class names of all slides depending user
+	input and CSS takes it from there. Thanks to the limited logic involved I was also able to
+	avoid using any third party libraries.
+</p>
+<p>
+	Each slide can contain a nested slideshow. The top level slideshow is navigated via
+	keyboard left/right and the nested slideshows are then reached by using the up/down arrows.
+</p>
+<p>
+	Tip: you can improve the rendering performance of transitions/animations in mobile Safari by 
+	applying a dummy CSS 3D transform. For example: <code>-webkit-transform: translate3d(0,0,0)</code>.
+</p>
+<p>
+	Note that this requires a browser with support for CSS3 3D transforms, such as 
+	<a href="http://build.chromium.org/f/chromium/snapshots/">Chromium</a> or mobile Safari.
+</p>
+<p>
+	<strong>02-08-2011:</strong> The slideshow now provides unique URL's per slide which in turn 
+	enables support for internal links.
+</p>
+
+<div class="launch-dock">
+	<a class="launch-button" href="/experiments/css/slideshow/hakim-slideshow-0.3.zip">Download Source</a>
+	<a class="launch-button" href="/experiments/css/slideshow/">Live Demo</a>
+</div><footer><time datetime='2011-04-02'>2011-04-02</time><a class='footer-comment' href='/experiments/css3-3d-slideshow'>63 comments</a></footer></article><article id='breakdom' class='experiments single'><aside class='actions'><a class='comment' href='/experiments/breakdom'>7</a></aside><h2>BreakDOM</h2>
+<a href="/experiments/html5/breakdom/" class="image-link" title="Open BreakDOM">
+	<img src="http://s3.amazonaws.com/hakim-static/portfolio/images/breakdom.jpg" alt="BreakDOM" width="320" height="412">
+</a>
+<p>
+	Ever wondered what it would feel like to attack a bunch of checkboxes
+	with a radio button that's being steered by a scrollbar?
+</p>
+<p>
+	This is a remix of the classic <a href="http://en.wikipedia.org/wiki/Breakout_(video_game)">Breakout</a> 
+	game except all game elements have been replaced with HTML user interface 
+	elements.
+</p>
+
+<div class="launch-dock">
+	<a class="launch-button" href="/experiments/html5/breakdom/">Open BreakDOM</a>
+</div><footer><time datetime='2011-03-28'>2011-03-28</time><a class='footer-comment' href='/experiments/breakdom'>7 comments</a></footer></article><article id='meru' class='projects double'><aside class='actions'><a class='comment' href='/projects/meru'>15</a></aside><h2>Yugen Logo Animation</h2>
+<a href="http://yugen.ca/" class="image-link" title="Click to Activate Logo Animation">
+	<img src="http://s3.amazonaws.com/hakim-static/portfolio/images/yugen.jpg" width="695" height="370">
+	<iframe id="yugen-logo-iframe" class="social-component" width="695" height="370" scrolling="no" frameborder="0"></iframe>
+</a>
+
+<div class="two-columns">
+	<p>
+		In early 2011 I collaborated with Canadian media production company 
+		<a href="http://yugen.ca/">Yugen</a> on a small but very interesting project. 
+		The objective was to "...produce a code generated logo that reacts to various inputs..." 
+		and works on all platforms. Having looked at the fluid shape in the logo design I felt this 
+		would be a lot of fun to take on – and so I did.
+	</p>
+	<p>
+		I animated the logo using the HTML <code>&lt;canvas&gt;</code> element and created a fallback 
+		with rotating images for sans <code>&lt;canvas&gt;</code> browsers. The animtion consists of a
+		few core properties of the logo, such as shape and color, changing slowly using a fine 
+		combination of randomness and control. Realizing that it would take some value tweaking for 
+		everyone involved to be satisfied with the look and feel, I provided an easy way for Yugen to 
+		configure the logo. If you're curious about how this looks you can view the source of  
+		<a href="http://yugen.ca/">this page</a> and look for <code>YugenLogo.initialize</code>.
+	</p>
+	<p>
+		The animation also works with touch input and runs smoothly on most mobile devices. That latter 
+		part is somewhat of a surprise since everything I've done with <code>&lt;canvas&gt;</code> up 
+		till this point has always been dissapointingly slow in those environments. The primary reason 
+		for why it works so well in this case is that it's rendered at a relatively small resolution.
+	</p>
+	<p>
+		I'm really happy with how this turned out in the end. The organic nature of the animation 
+		compliments the logo design very well without sacrificing any of its core visual principles. 
+	</p>
+</div>
+
+<div class="launch-dock">
+	<a class="launch-button" href="http://yugen.ca/">View Yugen's Site</a>
+</div>
+
+<script>
+	if (window.HE) {
+		
+		$('#meru .image-link').click(function(event){
+		
+			$( '#yugen-logo-iframe' ).attr( "src", "/inc/components/yugen/logo.html" ).css( 'z-index', 1 ).show();
+			
+			$( this ).addClass( 'disabled' );
+			
+			event.preventDefault();
+			
+		});
+		
+	}
+</script><footer><time datetime='2011-03-23'>2011-03-23</time><a class='footer-comment' href='/projects/meru'>15 comments</a></footer></article><article id='spring-cleaning-2011' class='thoughts single'><aside class='actions'><a class='comment' href='/thoughts/spring-cleaning-2011'>7</a></aside><h2>Spring Cleaning</h2>
+<p>
+	Out with the old, in with the new! I finally got around to creating a new site for myself. 
+</p>
+<p>
+	Even though it hadn't grown very old, my <a href="/archive/2009/portfolio">previous portfolio</a> 
+	ended up being a limitation in what type of content I could publish so I decided it was 
+	time for a revamp.
+</p>
+<footer><time datetime='2011-03-20'>2011-03-20</time><a class='footer-comment' href='/thoughts/spring-cleaning-2011'>7 comments</a></footer></article><article id='joining-qwiki' class='thoughts double'><aside class='actions'><a class='comment' href='/thoughts/joining-qwiki'>2</a></aside><h2>I Joined the Qwiki team!</h2>
+<a href="http://qwiki.com/" class="image-link" title="Visit Qwiki.com">
+	<img src="http://s3.amazonaws.com/hakim-static/portfolio/images/joining-qwiki.jpg" alt="Project Image" width="695" height="240">
+</a>
+<div class="two-columns">
+	<p>
+		Translating information from a format aimed at computers into a narrated presentation tailored for human beings is 
+		a powerful idea. I realized this after discovering <a href="http://qwiki.com/">Qwiki</a> in late 2010 and couldn't 
+		stop playing around with it. Coincidentally I received an email a few weeks late from Doug Imbruce, founder and CEO 
+		of Qwiki, asking for a meeting. After that meeting – and many interviews – I was offered a job which I gladly accepted.
+	</p>
+	<p>
+		Having worked many years in the advertisement industry I'm excited about the move to a product oriented 
+		environment. Primarily because I have longed for an opportunity to invest all of my time and mental energy in <em>one</em> 
+		product that I personally believe in. I also want to broaden my scope and what better way to do so than diving into the 
+		San Francisco startup scene!
+	</p>
+</div>
+<footer><time datetime='2011-02-07'>2011-02-07</time><a class='footer-comment' href='/thoughts/joining-qwiki'>2 comments</a></footer></article><article id='twentythings-casestudy' class='thoughts single'><aside class='actions'><a class='comment' href='/thoughts/twentythings-casestudy'>2</a></aside><h2>20 Things - Page Flip</h2>
+<a href="http://www.html5rocks.com/tutorials/casestudies/20things_pageflip.html" class="image-link" title="Read the tutorial">
+	<img src="http://s3.amazonaws.com/hakim-static/portfolio/images/20things-casestudy.jpg" alt="Project Image" width="320" height="222">
+</a>
+<p>
+	Following the launch of <a href="http://20thingsilearned.com">20 Things I Learned About Browsers And The Web</a> 
+	there was a lot of interest regarding some of the HTML5 techniques empowering the site. In particular, 
+	the page flip transition was a hot topic.
+</p>
+<p>
+	To explain how the page flip works, and how to create one of your own, I wrote a tutorial 
+	which was published in .net Magazine (issue #211). This tutorial later went on to be available 
+	on Google's <a href="http://html5rocks.com">HTML5Rocks.com</a> as well.
+</p>
+<div class="launch-dock">
+	<a class="launch-button" href="http://www.html5rocks.com/tutorials/casestudies/20things_pageflip.html">Read Tutorial</a>
+</div><footer><time datetime='2011-01-31'>2011-01-31</time><a class='footer-comment' href='/thoughts/twentythings-casestudy'>2 comments</a></footer></article><article id='sketch' class='experiments single'><aside class='actions'><a class='comment' href='/experiments/sketch'>23</a></aside><h2>Sketch</h2>
+<a href="http://sketchtoy.com" class="image-link" title="Open Sketch">
+	<img src="http://s3.amazonaws.com/hakim-static/portfolio/images/sketch.jpg" alt="Sketch" width="320" height="160">
+</a>
+<p>
+	Remember those old cartoons where hand drawn lines appeared to vibrate because of 
+	differences between frames? That's what this experiment simulates. It also adds a 
+	third dimension to your drawings by allowing you to rotate the canvas.
+</p>
+<a href="http://sketchtoy.com" class="image-link" title="Open the Sketch gallery">
+	<img src="http://s3.amazonaws.com/hakim-static/portfolio/images/sketch-gallery.jpg" alt="Sketch Gallery" width="320" height="160">
+</a>
+
+<div class="launch-dock">
+	<a class="launch-button" href="http://sketchtoy.com">Start Sketching</a>
+</div><footer><time datetime='2011-01-26'>2011-01-26</time><a class='footer-comment' href='/experiments/sketch'>23 comments</a></footer></article><article id='about' class='about double'><h2>Hakim El Hattab</h2>
+
+<div class="two-columns">
+	<p>
+		I'm a Swedish developer that loves working with interactivity, graphics and animation. 
+		I'm motivated by a need to create distracting interactive contraptions and obsessive about 
+		pushing the open web into unexpected places. 
+	</p>
+	<p>
+		My work experience includes campaign sites in Flash, web apps in HTML, desktop apps in AIR, 
+		experimental HTML5 and CSS3 projects as well as mobile development. I used to work at 
+		<a href="http://www.f-i.com">Fi</a>, a digital production agency in Stockholm, but recently 
+		moved to New York to take on the role of Lead Interactive Developer at 
+		<a href="http://www.qwiki.com">Qwiki</a>.
+	</p>
+	<p>
+		During my time with Fi I lead the development of both small and large-scale projects for 
+		clients such as Google, BBC, Nintendo, Wacom and SAS.
+	</p>
+	<p>
+		My personal <a href="http://hakim.se/">projects</a> have received a resounding amount appreciation and recognition. 
+		They have been served to over 5,000,000 people around the globe in the past year alone.
+	</p>
+	<p>
+		I am an active part of the web development community and share the source code for most of my work on 
+		<a href="https://github.com/hakimel">GitHub</a>.
+	</p>
+	<div class="image-wrapper">
+		<img src="http://s3.amazonaws.com/hakim-static/portfolio/images/about-profile.jpg" width="320">
+	</div>
+	<ul style="line-height: 1.5em;">
+		<li><a href="http://www.qwiki.com">Qwiki</a></li>
+		<li><a href="http://www.20thingsilearned.com/">20 Things I Learned About Browsers and the Web</a></li>
+		<li><a href="http://www.oljenorge40ar.no/?language=en">Oil Norway 40 Years</a></li>
+		<!-- <li><a href="http://lifeis.bbcearth.com/">BBC Life Is</a></li> -->
+		<!-- <li><a href="http://www.atari.com/">Atari.com</a></li> -->
+		<li><a href="http://youtu.be/qBoMws1TaRU">Skaffold</a></li>
+		<li><a href="http://bamboo.wacom.eu/dock-minis/en/">Wacom (download the desktop app)</a></li>
+	</ul>
+</div>
+</article><article id='contact' class='about single'><aside class='actions'><a class='comment' href='/about/contact'>21</a></aside><h2>Where To Find Me</h2>
+<dl>
+	<dt>Mail:</dt>
+	<dd><ul class="email-address"><li>hakim</li><li>.</li><li>elhattab</li><li>@</li><li>gmail</li><li>.</li><li>com</li></ul> </dd>
+	
+	<dt>Twitter:</dt>
+	<dd><a href="http://twitter.com/hakimel">@hakimel</a></dd>
+	
+	<dt>GitHub:</dt>
+	<dd><a href="https://github.com/hakimel">https://github.com/hakimel</a></dd>
+	
+	<dt>LinkedIn:</dt>
+	<dd><a href="http://www.linkedin.com/in/elhattab">http://linkedin.com/in/elhattab</a></dd>
+
+	<dt>Google+:</dt>
+	<dd><a href="https://plus.google.com/u/0/110819624687392857345/posts">http://hakim.se/+</a></dd>
+
+	<dt>Instagram:</dt>
+	<dd><a href="http://instagram.com/hakimel">http://instagram.com/hakimel</a></dd>
+
+	<dt>CodePen:</dt>
+	<dd><a href="http://codepen.io/hakimel">http://codepen.io/hakimel</a></dd>
+	
+	<dt>jsdo.it:</dt>
+	<dd><a href="http://jsdo.it/hakim">http://jsdo.it/hakim</a></dd>
+</dl></article><article id='pool' class='experiments single'><aside class='actions'><a class='comment' href='/experiments/pool'>0</a></aside><h2>Pool</h2>
+<a href="/experiments/webgl/pool/01/" class="image-link" title="Open Pool">
+	<img src="http://s3.amazonaws.com/hakim-static/portfolio/images/pool.jpg" alt="Pool in WebGL" width="320" height="160">
+</a>
+<p>
+	This is my first experiment with WebGL. Even though I am very much for the idea of using
+	librares to abstract away some of the rudimentary work involved in programming, I
+	believe it is crucial to understand what happens behind the curtains. With that
+	reasoning in mind, I set off to create this very basic example only so that I would
+	gain an understanding of what makes WebGL tick.
+</p>
+<p>
+	Interested in getting started with WebGL? I highly recommend going through
+	<em>The Lessons</em> on <a href="http://learningwebgl.com/blog/?page_id=1217">learningwebgl.com</a>.
+</p>
+
+<div class="launch-dock">
+	<a class="launch-button" href="/experiments/webgl/pool/01/">Open Pool</a>
+</div><footer><time datetime='2010-12-20'>2010-12-20</time><a class='footer-comment' href='/experiments/pool'>No comments</a></footer></article><article id='canvas-tips' class='thoughts double'><aside class='actions'><a class='comment' href='/thoughts/canvas-tips'>1</a></aside><h2>HTML5 Canvas Tips</h2>
+<div class="two-columns">
+	<p>
+		As the HTML5 spec is slowly making its way from working draft to recommendation and browser implementations 
+		are solidifying – the urge to make use of these new features grows strong.
+	</p>
+	 
+	<p>
+		Coming from a Flash background, and being a sucker for anything that moves or can be interacted with, I am 
+		most excited about the introduction of the <code>&lt;canvas&gt;</code> element which allows for 
+		bitmap drawing through JavaScript. I started creating some <a href="/experiments/">visual experiments</a> 
+		using canvas a few months back and have gathered some tips for anyone dabbling in this neck of the woods.
+	</p>
+	
+	<h3>Performance</h3>
+	<p>
+		When working with animation on canvas, performance can be a challenge since bitmap operations are very 
+		processing expensive, especially at high resolutions. One important optimization rule to follow is to reuse 
+		as many pixels as possible between frames. What I mean by that is the fewer pixels that need to be processed 
+		each frame, the faster your program will run. For example, when erasing pixels with the 
+		<code>clearRect(x,y,w,h)</code> method, it is very beneficial to clear and redraw only the pixels 
+		that have changed and not the full canvas. Unlike the Flash Player’s redraw 
+		regions, this management of “dirty rectangles” needs to be done manually for canvas.
+	</p>
+	 
+	<h3>State Stack & Transformation</h3>
+	<p>
+		The canvas can be manipulated via transformations such as rotation and scaling, resulting in a change to the 
+		canvas coordinate system. This is where it’s important to know about the state stack for which two methods are 
+		available: <code>context.save()</code> (pushes the current state to the stack) and 
+		<code>context.restore()</code> (reverts to the previous state). This enables you to apply 
+		transformation to a drawing and then restore back to the previous state to make sure the next shape is not 
+		affected by any earlier transformation. The states also include properties such as the fill and stroke colors.
+	</p>
+	
+	<h3>Compositing</h3>
+	<p>
+		A very powerful tool at hand when working with canvas is compositing modes which, amongst other things, allow 
+		for masking and layering. As an example you can check out Bakemono, where composite modes are used to mask 
+		the eye and mouth. There's a wide array of available composite modes and they are all set through the canvas 
+		context's <code>globalCompositeOperation</code> property.
+	</p>
+	
+	<h3>Anti-Aliasing</h3>
+	<p>
+		To allow for sub-pixel drawings, all browser implementations of canvas employ anti-aliasing (although this 
+		does not seem to be a requirement in the HTML5 spec). Anti-aliasing can be important to keep in mind if you 
+		want to draw crisp lines and notice the result looks blurred. To work around this you will need to either 
+		round to integer values or offset by half a pixel depending on if you’re drawing fills or strokes.
+	</p>
+	 
+	<h3>Clearing the Canvas</h3>
+	<p>
+		To clear the entire canvas of any existing pixels <code>context.clearRect(x,y,w,h)</code> is
+		typically used – but there is another option available. Whenever the width/height of the canvas are set, even if they 
+		are set to the same value repeatedly, the canvas is reset. This is good to know when working with a 
+		dynamically sized canvas as you will notice drawings disappearing.
+	</p>
+	 
+	<h3>Next Steps</h3>
+	<p>
+		If you’re interested in learning more about canvas, I would suggest getting started by reading through Mark
+		Pilgrim's wonderful 
+		<a href="http://diveintohtml5.org/canvas.html">Dive Into HTML5 chapter</a>.
+		Once you're up and going this <a href="http://simon.html5.org/dump/html5-canvas-cheat-sheet.html">cheat sheet</a> 
+		is a great point of reference.
+	</p>
+	
+	<h3>Conclusion</h3>
+	<p>
+		Canvas has been around for quite a while already and is supported by all modern, and some not so modern, browsers. 
+		This being the case, I think it’s very much ready to be used for real production. Some suitable places to utilize 
+		canvas would be to enrich buttons, charts/data visualization and navigational elements such as a list of thumbnails 
+		for an image gallery.
+	</p>
+</div> 
+<footer><time datetime='2010-12-01'>2010-12-01</time><a class='footer-comment' href='/thoughts/canvas-tips'>1 comment</a></footer></article><article id='sinuous-chrome-web-store' class='thoughts single'><aside class='actions'><a class='comment' href='/thoughts/sinuous-chrome-web-store'>6</a></aside><h2>Sinuous on the Google Chrome Web Store</h2>
+<a href="/assets/images/sinuous-chrome-web-store.jpg" class="image-link" title="View full image">
+	<img src="http://s3.amazonaws.com/hakim-static/portfolio/images/sinuous-chrome-web-store-thumb.jpg" alt="Sinuous analytics" width="320" height="120">
+</a>
+<p>
+	Preceding the release of the Chrome Web Store (CWS) I collaborated with Google 
+	to prepare Sinuous as a launch title app. Following the launch in early 
+	December 2010, Sinuous saw a major increase in activity and players. In 
+	fact, <a href="http://sinuousgame.com">sinuousgame.com</a> has 
+	seen over <strong>900,000</strong> visits since its launch and traffic is now 
+	resting at about 5k visits/day.
+</p>
+<p>
+	There are two different ways to deploy apps on the CWS:
+</p>
+<ol>
+	<li>Offline apps that are downloaded to the client.</li>
+	<li>Online apps that open an existing app URL.</li>
+</ol>
+<p>
+	The latter has raised some discussion – and complaints – because it essentially 
+	means that the "app" is no more than a bookmark. In some ways I agree with 
+	this, but I still picked this route to avoid having to maintain and update separate 
+	versions of the game.
+</p>
+<p>
+	If my app is merely a link to the original game, why do I bother 
+	to use the CWS at all? One reason: exposure. The CWS is a very powerful 
+	promotional channel for finding an audience. 
+</p>
+<div class="launch-dock">
+	<a class="launch-button" href="https://chrome.google.com/webstore/detail/omlmnomieeknagejjojcpdomnbnbchdl/">Sinuous on the Chrome Web Store</a>
+</div><footer><time datetime='2010-11-28'>2010-11-28</time><a class='footer-comment' href='/thoughts/sinuous-chrome-web-store'>6 comments</a></footer></article><article id='bacterium' class='experiments single'><aside class='actions'><a class='comment' href='/experiments/bacterium'>4</a></aside><h2>Bacterium</h2>
+<a href="/experiments/html5/bacterium/01/" class="image-link" title="Open Bacterium">
+	<img src="http://s3.amazonaws.com/hakim-static/portfolio/images/bacterium.jpg" alt="Bacterium" width="320" height="330">
+</a>
+<p>An interactive experiment with bacteria in a playful and dynamic physics world.</p>
+
+<div class="launch-dock">
+	<a class="launch-button" href="/experiments/html5/bacterium/01/">Open Bacterium</a>
+</div><footer><time datetime='2010-11-22'>2010-11-22</time><a class='footer-comment' href='/experiments/bacterium'>4 comments</a></footer></article><article id='twentythings' class='projects double'><aside class='actions'><a class='comment' href='/projects/twentythings'>2</a></aside><h2>20 Things I Learned About Browsers and the Web / Fi</h2>
+<a href="http://www.20thingsilearned.com/" class="image-link" title="Open 20 Things I Learned About Browsers and the Web">
+	<img src="http://s3.amazonaws.com/hakim-static/portfolio/images/20things.jpg" alt="20 Things" width="695" height="323">
+</a>
+<div class="two-columns">
+	<p>
+		An online book that aims to better people's understanding about the inner workings 
+		of browsers and the web. This project was created for the Google Chrome Team while 
+		I was working at Fi and my primary responsibility was building the HTML5 front end.
+	</p>
+	<p>
+		Collaborating with the Google Chrome team on this project was a great experience. 
+		The expertise they brought to the table, both in terms of technology but also 
+		in general project process and structure, was invaluable.
+	</p>
+	<p>
+	 	I'm really proud of the end result. It demonstrates a use of HTML5 that 
+		can not be found in many other applications and has therefore shed light on what can 
+		actually be accomplished using these technologies.
+	</p>
+	<p class="credit-employer">
+		Created as part of a team while working at 
+		<a href="http://f-i.com" title="Opens in a new tab">Fi</a>.
+	</p>
+</div>
+
+<div class="launch-dock">
+	<a class="launch-button" href="http://www.20thingsilearned.com/">View Project</a>
+</div><footer><time datetime='2010-11-18'>2010-11-18</time><a class='footer-comment' href='/projects/twentythings'>2 comments</a></footer></article><article id='core' class='experiments single'><aside class='actions'><a class='comment' href='/experiments/core'>1</a></aside><h2>Core</h2>
+<a href="/experiments/html5/core/01/" class="image-link" title="Open Core">
+	<img src="http://s3.amazonaws.com/hakim-static/portfolio/images/core.jpg" alt="Core" width="320" height="160">
+</a>
+<p>Sinuous' sibling game. More evil red dots!</p>
+
+<div class="launch-dock">
+	<a class="launch-button" href="/experiments/html5/core/01/">Play Core</a>
+</div><footer><time datetime='2010-09-26'>2010-09-26</time><a class='footer-comment' href='/experiments/core'>1 comment</a></footer></article><article id='10k-apart' class='thoughts single'><aside class='actions'><a class='comment' href='/thoughts/10k-apart'>0</a></aside><h2>Sinuous Won 10k Apart</h2>
+<a href="http://10k.aneventapart.com/" class="image-link" title="Visit 10k Apart">
+	<img src="http://s3.amazonaws.com/hakim-static/portfolio/images/10k-apart.jpg" width="320" alt="Project Image" width="320" height="218">
+</a>
+<p>
+	The 10k Apart competition, organized by <a href="http://visitmix.com/">MIX Online</a> 
+	together with <a href="http://aneventapart.com/">An Event Apart</a>, challenged 
+	developers to build web apps in HTML5 using less than 10kb. 
+</p>
+<p>
+	In the end 367 applications had been submitted and out of those my game, <a href="/experiments/sinuous">Sinuous</a>, 
+	ended up taking home the grand prize!
+</p>
+<div class="launch-dock">
+	<a class="launch-button" href="http://10k.aneventapart.com/">Visit 10k Apart</a>
+</div><footer><time datetime='2010-09-16'>2010-09-16</time><a class='footer-comment' href='/thoughts/10k-apart'>No comments</a></footer></article><article id='bbc-lifeis' class='projects single'><h2>BBC - Life Is... / Fi</h2>
+<a href="http://lifeis.bbcearth.com/" class="image-link" title="Open BBC Life Is...">
+	<img src="http://s3.amazonaws.com/hakim-static/portfolio/images/bbc-lifeis.jpg" alt="Project Image" width="320" height="182">
+</a>
+<p>
+	This site, built entirely in Flash, is used to showcase some of BBC Earth's 
+	stunning nature photography. It's centered around a fluid interface that blends 
+	organically into the edges of the page so that you can focus on what matters; <em>the content</em>.
+</p>
+<p class="credit-employer">
+	Created as part of a team while working at 
+	<a href="http://f-i.com" title="Opens in a new tab">Fi</a>.
+	<br>
+	Update: unfortunately the site is no longer online.
+</p>
+
+<div class="launch-dock">
+	<a class="launch-button" href="http://lifeis.bbcearth.com/">View Project</a>
+</div><footer><time datetime='2010-09-03'>2010-09-03</time></footer></article><article id='sinuous' class='experiments double'><aside class='actions'><a class='comment' href='/experiments/sinuous'>25</a></aside><h2>Sinuous</h2>
+<a href="http://sinuousgame.com" class="image-link" title="Visit sinuousgame.com">
+	<img src="http://s3.amazonaws.com/hakim-static/portfolio/images/sinuous.jpg" alt="Sinuous" width="695" height="323">
+</a>
+<div class="two-columns">
+	
+	<p>
+		A game built on the HTMLCanvas element which will test your mouse pointer reflexes. The 
+		objective is to stay clear of the evil red dots and stay alive as long as possible. Even
+		though the game play is <del>linear</del> sinusoidal and the graphics are minimalist it can get quite addictive.
+	</p>
+	<p>
+		Sinuous is the grand prize winner of the <a href="http://10k.aneventapart.com/">10k Apart</a> 
+		competition for best HTML application in under 10 kb and has seen over <em>four million</em> visits 
+		to date. The game was also released, and featured on the  
+		<a href="https://chrome.google.com/webstore/detail/omlmnomieeknagejjojcpdomnbnbchdl">Google Chrome Web Store</a>.
+	</p>
+	
+</div>
+<div class="launch-dock">
+	<a class="launch-button" href="https://chrome.google.com/webstore/detail/omlmnomieeknagejjojcpdomnbnbchdl">Sinuous on the Chrome Web Store</a>
+	<!-- <a class="launch-button" href="http://www.facebook.com/apps/application.php?id=149009708494213">Sinuous on Facebook</a> -->
+	<a class="launch-button" href="http://sinuousgame.com">Play Sinuous</a>
+</div><footer><time datetime='2010-08-06'>2010-08-06</time><a class='footer-comment' href='/experiments/sinuous'>25 comments</a></footer></article><article id='sinuous' class='projects double' data-exclusive='true'><aside class='actions'><a class='comment' href='/projects/sinuous'>25</a></aside><h2>Sinuous</h2>
+<a href="http://sinuousgame.com" class="image-link" title="Visit sinuousgame.com">
+	<img src="http://s3.amazonaws.com/hakim-static/portfolio/images/sinuous.jpg" alt="Sinuous" width="695" height="323">
+</a>
+<div class="two-columns">
+	
+	<p>
+		A game built on the HTMLCanvas element which will test your mouse pointer reflexes. The 
+		objective is to stay clear of the evil red dots and stay alive as long as possible. Even
+		though the game play is <del>linear</del> sinusoidal and the graphics are minimalist it can get quite addictive.
+	</p>
+	<p>
+		Sinuous is the grand prize winner of the <a href="http://10k.aneventapart.com/">10k Apart</a> 
+		competition for best HTML application in under 10 kb and has seen over <em>four million</em> visits 
+		to date. The game was also released, and featured on the  
+		<a href="https://chrome.google.com/webstore/detail/omlmnomieeknagejjojcpdomnbnbchdl">Google Chrome Web Store</a>.
+	</p>
+	
+</div>
+<div class="launch-dock">
+	<a class="launch-button" href="https://chrome.google.com/webstore/detail/omlmnomieeknagejjojcpdomnbnbchdl">Sinuous on the Chrome Web Store</a>
+	<!-- <a class="launch-button" href="http://www.facebook.com/apps/application.php?id=149009708494213">Sinuous on Facebook</a> -->
+	<a class="launch-button" href="http://sinuousgame.com">Play Sinuous</a>
+</div><footer><time datetime='2010-08-01'>2010-08-01</time><a class='footer-comment' href='/projects/sinuous'>25 comments</a></footer></article><article id='bakemono' class='experiments single'><aside class='actions'><a class='comment' href='/experiments/bakemono'>6</a></aside><h2>Bakemono</h2>
+<a href="/experiments/html5/bakemono/01/" class="image-link" title="Open Bakemono">
+	<img src="http://s3.amazonaws.com/hakim-static/portfolio/images/bakemono.jpg" alt="Bakemono" width="320" height="160">
+</a>
+<p>A little monster that I brought to life with JavaScript. Bakemono is Japanese for monster.</p>
+
+<div class="launch-dock">
+	<a class="launch-button" href="/experiments/html5/bakemono/01/">Open Bakemono</a>
+</div><footer><time datetime='2010-07-22'>2010-07-22</time><a class='footer-comment' href='/experiments/bakemono'>6 comments</a></footer></article><article id='keylight' class='experiments single'><aside class='actions'><a class='comment' href='/experiments/keylight'>5</a></aside><h2>Keylight</h2>
+<a href="/experiments/html5/keylight/03/" class="image-link" title="Open Keylight">
+	<img src="http://s3.amazonaws.com/hakim-static/portfolio/images/keylight.jpg" alt="Keylight" width="320" height="160">
+</a>
+<p>A playhead travels between keys which resonate in sound depending on where they are placed in the room.</p>
+
+<div class="launch-dock">
+	<a class="launch-button" href="/experiments/html5/keylight/03/">Open Keylight</a>
+</div><footer><time datetime='2010-07-18'>2010-07-18</time><a class='footer-comment' href='/experiments/keylight'>5 comments</a></footer></article><article id='blob' class='experiments single'><aside class='actions'><a class='comment' href='/experiments/blob'>4</a></aside><h2>Blob</h2>
+<a href="/experiments/html5/blob/03/" class="image-link" title="Open Blob">
+	<img src="http://s3.amazonaws.com/hakim-static/portfolio/images/blob.jpg" alt="blob" width="320" height="160">
+</a>
+<p>Soft blobby physics. It's like, you know... jelly?</p>
+
+<div class="launch-dock">
+	<a class="launch-button" href="/experiments/html5/blob/03/">Open Blob</a>
+</div><footer><time datetime='2010-07-03'>2010-07-03</time><a class='footer-comment' href='/experiments/blob'>4 comments</a></footer></article><article id='magnetic' class='experiments single'><aside class='actions'><a class='comment' href='/experiments/magnetic'>4</a></aside><h2>Magnetic</h2>
+<a href="/experiments/html5/magnetic/02/" class="image-link" title="Open Magnetic">
+	<img src="http://s3.amazonaws.com/hakim-static/portfolio/images/magnetic.jpg" alt="Magnetic" width="320" height="160">
+</a>
+<p>Control and create currents of particles which react to magnetic nodes.</p>
+
+<div class="launch-dock">
+	<a class="launch-button" href="/experiments/html5/magnetic/02/">Open Magnetic</a>
+</div><footer><time datetime='2010-06-30'>2010-06-30</time><a class='footer-comment' href='/experiments/magnetic'>4 comments</a></footer></article><article id='trail' class='experiments single'><aside class='actions'><a class='comment' href='/experiments/trail'>6</a></aside><h2>Trail</h2>
+<a href="/experiments/html5/trail/03/" class="image-link" title="Open Trail">
+	<img src="http://s3.amazonaws.com/hakim-static/portfolio/images/trail.jpg" alt="Trail" width="320" height="160">
+</a>
+<p>Particle movement patterns that generate smooth trails.</p>
+
+<div class="launch-dock">
+	<a class="launch-button" href="/experiments/html5/trail/03/">Open Trail</a>
+</div><footer><time datetime='2010-06-19'>2010-06-19</time><a class='footer-comment' href='/experiments/trail'>6 comments</a></footer></article><article id='particledepth' class='experiments single'><aside class='actions'><a class='comment' href='/experiments/particledepth'>3</a></aside><h2>Particle Depth</h2>
+<a href="/experiments/html5/particledepth/02/" class="image-link" title="Open Particle Depth">
+	<img src="http://s3.amazonaws.com/hakim-static/portfolio/images/particledepth.jpg" alt="Particle Depth" width="320" height="160">
+</a>
+<p>Particle positioning patterns using depth.</p>
+
+<div class="launch-dock">
+	<a class="launch-button" href="/experiments/html5/particledepth/02/">Open Particle Depth</a>
+</div><footer><time datetime='2010-06-07'>2010-06-07</time><a class='footer-comment' href='/experiments/particledepth'>3 comments</a></footer></article><article id='wave' class='experiments single'><aside class='actions'><a class='comment' href='/experiments/wave'>18</a></aside><h2>Wave</h2>
+<a href="/experiments/html5/wave/03/" class="image-link" title="Open Wave">
+	<img src="http://s3.amazonaws.com/hakim-static/portfolio/images/wave.jpg" alt="Wave" width="320" height="160">
+</a>
+<p>A wave with bubbles floating on the surface, the bubbles each represent a tweet with the word "water" in it.</p>
+
+<div class="launch-dock">
+	<a class="launch-button" href="/experiments/html5/wave/03/">Open Wave</a>
+</div><footer><time datetime='2010-05-28'>2010-05-28</time><a class='footer-comment' href='/experiments/wave'>18 comments</a></footer></article><article id='particles' class='experiments single'><aside class='actions'><a class='comment' href='/experiments/particles'>4</a></aside><h2>Particles</h2>
+<a href="/experiments/html5/particles/01/" class="image-link" title="Open Particles">
+	<img src="http://s3.amazonaws.com/hakim-static/portfolio/images/particles.jpg" alt="Particles" width="320" height="160">
+</a>
+<p>Particles slide across the screen and grow as they get close to the mouse.</p>
+
+<div class="launch-dock">
+	<a class="launch-button" href="/experiments/html5/particles/01/">Open Particles</a>
+</div><footer><time datetime='2010-05-18'>2010-05-18</time><a class='footer-comment' href='/experiments/particles'>4 comments</a></footer></article><article id='more-projects' class='projects single' data-exclusive='true'><aside class='actions'><a class='comment' href='/projects/more-projects'>6</a></aside><h2>And then?</h2>
+<div class="image-wrapper">
+	<img class="image" src="http://s3.amazonaws.com/hakim-static/portfolio/images/plussign.jpg" alt="More Work" width="320" height="300">
+</div>
+<p>
+	There's much more to put in here but as it turns out – it takes time to write up descriptions
+	and collect old material. To be continued...
+</p></article>					
+				</div>
+			</div>
+			
+			<footer>
+				<small>&copy; 2012 Hakim El Hattab | <a href="http://twitter.com/hakimel">@hakimel</a> | <a href="/rss.xml">RSS Feed</a></small>
+			</footer>
+		</div>
+		
+		
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+		<script>!window.jQuery && document.write(unescape('%3Cscript src="/js/libs/jquery-1.6.2.min.js"%3E%3C/script%3E'))</script>
+		
+		<script src="/js/libs/jquery.masonry.min.js"></script>
+		
+		<script src='/js/hakim-portfolio.min.js'></script>
+		
+		<script>
+			HE.initialize();
+		</script>
+		
+		<!-- Google Analytics Tracking Code -->
+		<script>
+		var _gaq = [['_setAccount', 'UA-15240703-1'], ['_trackPageview']];
+		(function(d, t) {
+		var g = d.createElement(t),
+		    s = d.getElementsByTagName(t)[0];
+		g.async = true;
+		g.src = ('https:' == location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		s.parentNode.insertBefore(g, s);
+		})(document, 'script');
+		</script>
+		
+		<!-- Google+ -->
+		<script type="text/javascript" src="https://apis.google.com/js/plusone.js">
+		  {"parsetags": "explicit"}
+		</script>
+			
+	</body>
+</html>
