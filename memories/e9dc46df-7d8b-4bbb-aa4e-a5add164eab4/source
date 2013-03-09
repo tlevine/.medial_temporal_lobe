@@ -1,0 +1,250 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN""http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head><title>UNIX pipes as IO monads</title>
+<meta name="description" content="Discussion of uncanny similarities between monadic i/o in Haskell and UNIX filter compositions using pipes and redirections. At the level of UNIX programming, all i/o can be regarded monadic.">
+<meta name="AuthorAddress" content="oleg-at-okmij.org">
+<meta name="keywords" content="Haskell, shell, UNIX, pipe, monad">
+<meta name="Date-Revision-yyyymmdd" content="20010701">
+<meta name="Date-Creation-yyyymmdd" content="19980518">
+<link rel="start" href="index.html" title="Programming and Computation">
+<link rel="contents" href="index.html">
+<link rel="prev" href="index.html">
+<link rel="next" href="type-arithmetics.html">
+</head>
+<body bgcolor="#FFFFFF">
+<div align="center" class="navbar">  <a href="index.html">previous</a>
+ &nbsp; <a href="type-arithmetics.html">next</a>
+ &nbsp; <a href="index.html">contents</a>
+ &nbsp; <a href="../README.html">top</a>
+<hr>
+</div>
+<h1 align=center>Monadic i/o and UNIX shell programming</h1>
+<p>This is an essay inspired by Philip Wadler's paper &quot;How to
+Declare an Imperative&quot; [<a href="#Wadler97">Wadler97</a>]. We will show uncanny
+similarities between monadic i/o in Haskell, and UNIX filter
+compositions based on pipes and redirections. UNIX pipes (treated
+semantically as writing to temporary files) are quite similar to
+monads. Furthermore, at the level of UNIX programming, all i/o can be
+regarded monadic.</p>
+<div>
+<ol><li><a href="#IO monad in Unix shell">IO monad in Unix shell</a>
+
+<ol><li><a href="#Parallel vs. sequential execution of monadic commands">Parallel vs. sequential execution of monadic commands</a>
+</ol><li><a href="#All i/o is monadic">All i/o is monadic</a>
+<li><a href="#Acknowledgment">Acknowledgment</a>
+<li><a href="#References">References</a>
+</ol>
+</div>
+<br>&nbsp;<a name="IO monad in Unix shell">&nbsp;</a>
+<h2>IO monad in Unix shell</h2>
+<p>Let's consider the following UNIX command line:<pre>     echo 'aaa bbb' | cat &gt; /dev/tty
+</pre></p>
+<p>From shell's point of view, the filters --  <code>echo</code>
+ and <code>cat</code>
+ -- are pure,
+referentially-transparent functions of their arguments: input files
+and command-line parameters. Operator <code>|</code>
+ (a pipe), &quot;forces&quot; a command, which is 
+a promise of output, on its left producing a stream, an <em>argument</em>
+ for a command on the right-hand side of the pipe. A shell pipe thus is an
+equivalent of a monadic <code>&gt;&gt;=</code>
+ operator.</p>
+<p>Furthermore, we can write the following correspondence between
+Haskell's monadic i/o forms and UNIX shell operations:</p>
+<table cellspacing="2" border="0" align="center"><tr><th>Haskell</th>
+<td width="10%">&nbsp;</td>
+<th>Shell</th>
+</tr>
+<tr><td>bound variable</td>
+<td>&nbsp;</td>
+<td>the name of an existing file</td>
+</tr>
+<tr><td>command</td>
+<td>&nbsp;</td>
+<td>sh-command, executable, filter</td>
+</tr>
+<tr><td><code>a &gt;&gt; b</code>
+</td>
+<td>&nbsp;</td>
+<td><code>(a; b)</code>
+</td>
+</tr>
+<tr><td><code>a &gt;&gt;= b</code>
+</td>
+<td>&nbsp;</td>
+<td><code>a | b</code>
+</td>
+</tr>
+<tr><td><code>done</code>
+</td>
+<td>&nbsp;</td>
+<td><code>cat /dev/null</code>
+</td>
+</tr>
+<tr><td><code>return x</code>
+</td>
+<td>&nbsp;</td>
+<td><code>cat x</code>
+</td>
+</tr>
+<tr><td><code>puts</code>
+</td>
+<td>&nbsp;</td>
+<td><code>echo</code>
+</td>
+</tr>
+</table>
+<p>As in Haskell, <code>cat /dev/null</code>
+ and <code>(a; b)</code>
+ form a monoid; and so do <code>return x</code>
+ and <code>&gt;&gt;=</code>
+. Indeed, <code>cat /dev/null</code>
+ is the left and the right
+unit for the &quot;command concatenator&quot; <code>(a; b)</code>
+, and the command
+concatenation is associative. By the same token,</p>
+<table cellspacing="2" border="0" align="center"><tr><th>Haskell [<a href="#Wadler97">Wadler97</a>]</th>
+<td width="10%">&nbsp;</td>
+<th>Shell</th>
+</tr>
+<tr><td><code>return v &gt;&gt;= \x -&gt; m</code>
+&nbsp; is &nbsp;<code>m[x:=v]</code>
+</td>
+<td>&nbsp;</td>
+<td><code>cat v | cmd</code>
+&nbsp; is &nbsp;<code>cmd &lt; v</code>
+</td>
+</tr>
+<tr><td><code>m &gt;&gt;= \x -&gt; return x</code>
+&nbsp; is &nbsp;<code>m</code>
+</td>
+<td>&nbsp;</td>
+<td><code>cmd | cat</code>
+&nbsp; is &nbsp;<code>cmd</code>
+</td>
+</tr>
+<tr><td><code>m &gt;&gt;= \x -&gt; (n &gt;&gt;= \y -&gt; o)</code>
+<br>
+ is &nbsp;<code>(m &gt;&gt;= \x-&gt;n) &gt;&gt;= \y-&gt;o</code>
+</td>
+<td>&nbsp;</td>
+<td><code>cmd1 | (cmd2 | cmd3)</code>
+<br>
+ is &nbsp;<code>( cmd1 | cmd2 ) | cmd3</code>
+</td>
+</tr>
+</table>
+<p>We can have /bin/sh literally run both parts of the last
+expression: <code>cmd1 | (cmd2 | cmd3)</code>
+ and
+<code>( cmd1 | cmd2 ) | cmd3</code>
+. The shell will interpret the
+parentheses properly. Both expressions will produce the same output!</p>
+<p>Incidentally, a UNIX filter is expected to sequentially
+consume its input and produce a single output stream. Therefore, from the
+point of view of the shell and filters, the input and the output streams
+are 'linear', singularly referenced objects. No wonder i/o involving
+linear streams is monadic.</p>
+<p>Doug McIlroy, the inventor of pipes, is said to point out that both 
+pipes and lazy lists behave exactly like coroutines.</p>
+<br>&nbsp;<a name="Parallel vs. sequential execution of monadic commands">&nbsp;</a>
+<h3>Parallel vs. sequential execution of monadic commands</h3>
+<p>One may wonder if the analogy between pipes and monads is accurate, given that <code>m &gt;&gt;= \x-&gt; n</code>
+ first executes <code>m</code>
+
+and then <code>n</code>
+, whereas <code>m | n</code>
+ runs <code>m</code>
+ and <code>n</code>
+ in parallel.</p>
+<p>Let us consider a situation where command <code>m</code>
+ in a pipe <code> m | n </code>
+ produces only 100 bytes of output and finishes. We also assume that <code>m</code>
+ is scheduled to run first. As <code>m</code>
+'s output fits entirely into the pipe buffer (4k in most OSes) <code>m</code>
+ can finish before <code>n</code>
+ starts to run. The whole pipe then becomes equivalent to<pre>     m &gt; temp_file; n &lt; temp_file
+</pre></p>
+<p>Suppose that that both <code>m</code>
+ and <code>n</code>
+ are &quot;proper&quot; filters. That is, <code>m</code>
+ produces its output strictly sequentially and never reads or scans back what it already wrote; <code>n</code>
+ reads its input strictly sequentially and only once. For <code>m</code>
+ and <code>n</code>
+, their input and output are <em>linear</em>
+ datatypes -- the assumption that also holds for Haskell IO commands. We can claim therefore that if the output from <code>m</code>
+ is bounded, the pipe <code>m | n</code>
+ is semantically identical to<pre>     m &gt; temp_file; n &lt; temp_file
+</pre></p>
+<p>Incidentally, this is how pipes are implemented under MS-DOS,
+which is a single-task operating system. In any case, the operating
+system shields consumers and producers of sequential streams from
+details of the i/o. The processes will use the same OS primitives
+regardless of physical data exchange channels -- a local file, a
+remote file, a pipe, a TCP pipe, etc.</p>
+<p>A UNIX pipe may therefore be considered an optimization. A pipe
+has the same sequential semantics as the data exchange via a temporary file. A pipe however saves the OS trouble creating a
+file and doing any physical i/o. In addition, like any lazy
+contraption, pipes can handle an unbounded communication. That is
+the only thing that sets them apart from Haskell's <code>m &gt;&gt;= \x-&gt;
+n</code>
+. Still, if the result produced by <code>m</code>
+ is a lazy list or a stream
+and <code>n</code>
+ is not eager to evaluate its argument entirely, even that
+distinction between <code>|</code>
+ and <code>&gt;&gt;=</code>
+ becomes blurred.</p>
+<p>Thus with pipes treated as writing to temporary files,
+they are quite similar to monads.</p>
+<br>&nbsp;<a name="All i/o is monadic">&nbsp;</a>
+<h2>All i/o is monadic</h2>
+<p>A programmer writing an i/o processing code does not actually
+expect the code to run as he types it. The processing <em>will</em>
+
+occur when the code is compiled and submitted to an OS for
+execution. Or when the last parenthesis is closed and the code is (re)
+submitted to an evaluator/interpreter. It is highly unlikely that a
+piece of code than handles pushing of a GUI button is written on the fly, at
+the moment the button is pressed. Rather, a programmer wrote the
+handler well in advance, <em>anticipating</em>
+ what the program
+will do when the button actually gets pressed. Note the future tense
+in the above phrases. All data processing is programmed in advance and
+performed later, when submitted to an actor -- be it a CPU, an OS,
+an evaluator or a <code>do</code>
+ keyword.</p>
+<p>In classical PASCAL, the main program's code starts with<pre>     PROGRAM foo(input,output);
+</pre>That is, the &quot;world&quot;, the input and output files, are given
+explicitly to a program as arguments. As long as data processing done
+by this code is deterministic and the program refrains from opening
+other files (which the classical PASCAL disallowed), a PASCAL program, as a
+<em>whole</em>
+, is truly a <em>pure</em>
+ function of its argument, an input
+file. For example, if a program copies input into output, it would
+always produce the same output given the same input. Thus a PASCAL
+program - again, as a whole - is referentially transparent. Although
+it may use non-pure read/write operations to accomplish its job...</p>
+<br>&nbsp;<a name="Acknowledgment">&nbsp;</a>
+<h2>Acknowledgment</h2>
+<p>Philip Wadler's papers on monads, in particular, [<a href="#Wadler97">Wadler97</a>], as well as his additional comments have been the source
+of great inspiration, insight, and enjoyment.</p>
+<br>&nbsp;<a name="References">&nbsp;</a>
+<h2>References</h2>
+
+<p><a name="Wadler97">[Wadler97]</a> How to Declare an Imperative. ACM Comp. Surveys, Vol. 29, No. 3, September 1997
+<p><a name="Monadic-io-Scheme">[Monadic-io-Scheme]</a> Monadic scheme of i/o<br>&lt;<a href="http://pobox.com/~oleg/ftp/Scheme/misc.html#monadic-io">http://pobox.com/~oleg/ftp/Scheme/misc.html#monadic-io</a>&gt;
+<p><a name="exec-with-piped">[exec-with-piped]</a> Writing agents in sh: conversing through a pipe<br>&lt;<a href="http://pobox.com/~oleg/ftp/Communications.html#sh-agents">http://pobox.com/~oleg/ftp/Communications.html#sh-agents</a>&gt;<br>
+<p><hr>
+</p>
+<h3>Last updated July 1, 2001</h3>
+<p>This site's top page is <a href="http://pobox.com/~oleg/ftp/"><strong>http://pobox.com/~oleg/ftp/</strong>
+</a>
+</p>
+<p><address>oleg-at-pobox.com or oleg-at-okmij.org or oleg-at-computer.org<br>
+Your comments, problem reports, questions are very welcome!</address>
+</p>
+<p><font size="-2">Converted from SXML by SXML-&gt;HTML</font>
+</p>
+</body></html>
