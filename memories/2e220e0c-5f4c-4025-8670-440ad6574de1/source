@@ -1,0 +1,1496 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+        
+    <title>reference request - What&#39;s new in purely functional data structures since Okasaki? - Theoretical Computer Science</title>
+    <link rel="shortcut icon" href="http://cdn.sstatic.net/cstheory/img/favicon.ico">
+    <link rel="apple-touch-icon image_src" href="http://cdn.sstatic.net/cstheory/img/apple-touch-icon.png">
+    <link rel="search" type="application/opensearchdescription+xml" title="Theoretical Computer Science - Stack Exchange" href="/opensearch.xml">
+    
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script type="text/javascript" src="http://cdn.sstatic.net/js/stub.js?v=b75af659468f"></script>
+    <link rel="stylesheet" type="text/css" href="http://cdn.sstatic.net/cstheory/all.css?v=e3fd189fda98">
+    
+    <link rel="canonical" href="http://cstheory.stackexchange.com/questions/1539/whats-new-in-purely-functional-data-structures-since-okasaki">
+    <link rel="alternate" type="application/atom+xml" title="Feed for question 'What&#39;s new in purely functional data structures since Okasaki?'" href="/feeds/question/1539">
+<script src="http://cdn.sstatic.net/Js/citation.js?v=af43c1b65679" type="text/javascript"></script>    <script type="text/javascript">
+        
+        StackExchange.ready(function () {
+            StackExchange.using("postValidation", function () {
+                StackExchange.postValidation.initOnBlurAndSubmit($('#post-form'), 2, 'answer');
+            });
+
+            
+            StackExchange.question.init({showCitation:true,showAnswerHelp:true,totalCommentCount:4,shownCommentCount:4,highlightColor:'#F4A83D',backgroundColor:'#FFF',questionId:1539});
+
+            styleCode();
+
+                StackExchange.realtime.subscribeToQuestion('114', '1539');
+            
+                
+        });
+    </script>
+
+<script type="text/x-mathjax-config">
+                MathJax.Hub.Config({"HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"], linebreaks: { automatic:true }, EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50) },
+                                    tex2jax: { inlineMath: [ ["$", "$"], ["\\\\(","\\\\)"] ], displayMath: [ ["$$","$$"], ["\\[", "\\]"] ], processEscapes: true, ignoreClass: "tex2jax_ignore|dno" },
+                                    TeX: {  noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } } },
+                                    messageStyle: "none"
+                });
+         </script>
+        <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>               
+
+        <script type="text/javascript">
+             StackExchange.ready(function () {
+                 StackExchange.realtime.init('ws://sockets.ny.stackexchange.com:80');
+                StackExchange.realtime.subscribeToInboxNotifications();
+                                 StackExchange.realtime.subscribeToReputationNotifications('114');            
+                         });
+        </script>
+    <script type="text/javascript">
+        StackExchange.init({"stackAuthUrl":"https://stackauth.com","serverTime":1362533981,"enableUserHovercards":true,"site":{"name":"Theoretical Computer Science","description":"Q&A for theoretical computer scientists and researchers in related fields","isNoticesTabEnabled":true,"recaptchaPublicKey":"6LdsB7sSAAAAAAzjgEF_Hd8vXv-C42sa_KyofaGR","enableSocialMediaInSharePopup":true,"useNewImageUploader":true},"user":{"fkey":"8c0a45f7b5b98f3c2c467a52daabf116","isAnonymous":true}});
+        StackExchange.using.setCacheBreakers({"js/prettify-full.js":"c862bf93b3ec","js/moderator.js":"81010b001b1a","js/full-anon.js":"6fec0912b76a","js/full.js":"d0c56d791f63","js/wmd.js":"137e37992197","js/third-party/jquery.autocomplete.min.js":"e5f01e97f7c3","js/mobile.js":"6eb68240242f","js/help.js":"fc9fb0517db2","js/tageditor.js":"450c9e8426fc","js/tageditornew.js":"ef08d419a8ca","js/inline-tag-editing.js":"8e84e8a137f7","js/revisions.js":"7273bb714bba","js/review.js":"736a6971ff0c","js/tagsuggestions.js":"c019341b234d","js/post-validation.js":"2dca43b8e94d"});
+        StackExchange.using.setCacheBreakers({"js/mathjax-editing.js":"6da1b6cfe19f"});
+    </script>
+
+
+    <script type="text/javascript">
+        StackExchange.using(
+            "gps",
+            function () {
+                StackExchange.gps.init(true);
+            }
+        );
+    </script>
+
+</head>
+<body class="question-page">
+    <noscript><div id="noscript-padding"></div></noscript>
+    <div id="notify-container"></div>
+    <div id="overlay-header"></div>
+    <div id="custom-header"></div>
+
+    <div class="container">
+        <div id="header">
+            <div id="portalLink">
+                <a class="genu" href="http://stackexchange.com" onclick="StackExchange.ready(function(){genuwine.click();});return false;">Stack Exchange</a>
+            </div>
+            <div id="topbar">
+                <div id="hlinks">
+                    
+
+
+
+
+
+
+
+
+
+<span id="hlinks-user">
+
+</span>
+<span id="hlinks-nav">
+                   <a href="/users/login?returnurl=%2fquestions%2f1539%2fwhats-new-in-purely-functional-data-structures-since-okasaki">log in</a>
+
+ <span class="lsep">|</span>
+
+</span>
+<span id="hlinks-custom">
+        <a href="http://chat.stackexchange.com">chat</a>
+
+ <span class="lsep">|</span>
+                <a href="http://meta.cstheory.stackexchange.com">meta</a>
+
+ <span class="lsep">|</span>
+        <a href="/about">about</a>
+
+ <span class="lsep">|</span>
+    <a href="/faq">faq</a>
+
+</span>
+                </div>
+                <div id="hsearch">
+                    <form id="search" action="/search" method="get" autocomplete="off">
+                    <div>
+                        <input autocomplete="off" name="q" class="textbox" placeholder="search" tabindex="1" type="text" maxlength="240" size="28" value="">
+                    </div>
+                    </form>
+                </div>
+            </div>
+            <br class="cbt">
+            <div id="hlogo">
+                <a href="/" >Theoretical Computer Science</a>
+            </div>
+            <div id="hmenus">
+                <div class="nav mainnavs">
+                    <ul>
+                        <li class="youarehere"><a id="nav-questions" href="/questions">Questions</a></li>
+                        <li><a id="nav-tags" href="/tags">Tags</a></li>
+                        <li><a id="nav-users" href="/users">Users</a></li>
+                        <li><a id="nav-badges" href="/badges">Badges</a></li>
+                        <li><a id="nav-unanswered" href="/unanswered">Unanswered</a></li>
+                    </ul>
+                </div>
+                <div class="nav askquestion">
+                    <ul>
+                        <li>
+                            <a id="nav-askquestion"  href="/questions/ask">Ask Question</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        
+
+
+
+        <div id="content">
+            
+
+<div itemscope itemtype="http://schema.org/Article">
+<link itemprop="image" href="http://cdn.sstatic.net/cstheory/img/apple-touch-icon.png">
+<div id="question-header">
+    <h1 itemprop="name"><a href="/questions/1539/whats-new-in-purely-functional-data-structures-since-okasaki" class="question-hyperlink">What&#39;s new in purely functional data structures since Okasaki?</a></h1>
+</div>
+<div id="mainbar">
+
+
+
+<div class="question" data-questionid="1539"  id="question">
+    
+        <table>
+        <tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+    <input type="hidden" value="1539">
+    <a class="vote-up-off" title="This question shows research effort; it is useful and clear (click again to undo)">up vote</a>
+    <span class="vote-count-post ">193</span>
+    <a class="vote-down-off" title="This question does not show any research effort; it is unclear or not useful (click again to undo)">down vote</a>
+    
+    <a class="star-off" href="#" title="This is a favorite question (click again to undo)">favorite</a>
+    <div class="favoritecount"><b>228</b></div>   
+
+ 
+</div>
+
+            </td>
+            
+<td class="postcell">
+<div>
+    <div class="post-text" itemprop="description">
+        <p>Since Chris Okasaki's 1998 book "Purely functional data structures", I haven't seen too many new exciting purely functional data structures appear; I can name just a few:</p>
+
+<ul>
+<li><a href="http://hackage.haskell.org/packages/archive/containers/0.1.0.1/doc/html/Data-IntMap.html">IntMap</a> (also invented by Okasaki in 1998, but not present in that book)</li>
+<li><a href="http://apfelmus.nfshost.com/articles/monoid-fingertree.html">Finger trees</a> (and their generalization over monoids)</li>
+</ul>
+
+<p>There are also some interesting ways of implementing already known datastructures, such as using "nested types" or "generalized algebraic datatypes" to ensure tree invariants.</p>
+
+<p>Which other new ideas have appeared since 1998 in this area?</p>
+
+    </div>
+    <div class="post-taglist">
+        <a href="/questions/tagged/reference-request" class="post-tag" title="show questions tagged 'reference-request'" rel="tag">reference-request</a> <a href="/questions/tagged/big-list" class="post-tag" title="show questions tagged 'big-list'" rel="tag">big-list</a> <a href="/questions/tagged/ds.data-structures" class="post-tag" title="show questions tagged 'ds.data-structures'" rel="tag">ds.data-structures</a> <a href="/questions/tagged/functional-programming" class="post-tag" title="show questions tagged 'functional-programming'" rel="tag">functional-programming</a> 
+    </div>
+    <table class="fw">
+    <tr>
+    <td class="vt">
+
+
+
+
+
+
+
+
+
+<div class="post-menu"><a href="/q/1539" title="short permalink to this question" class="short-link" id="link-post-1539">share</a><span class="lsep">|</span><a href="/posts/1539/edit" class="suggest-edit-post" title="">improve this question</a></div>            </td>
+    <td class="post-signature owner">
+        
+
+    <div class="user-info user-hover">
+        <div class="user-action-time">
+                                    asked
+ <span title="2010-09-21 08:04:55Z" class="relativetime">Sep 21 '10 at 8:04</span>
+        </div>
+        <div class="user-gravatar32">
+            <a href="/users/326/jkff"><div class=""><img src="http://www.gravatar.com/avatar/cd3a7820c69adfd1e8c62152248343c3?s=32&d=identicon&r=PG" alt="" width="32" height="32"></div></a>
+        </div>
+        <div class="user-details">
+            <a href="/users/326/jkff">jkff</a><br>
+            <span class="reputation-score" title="reputation score" dir="ltr">1,933</span><span title="3 gold badges"><span class="badge1"></span><span class="badgecount">3</span></span><span title="8 silver badges"><span class="badge2"></span><span class="badgecount">8</span></span><span title="19 bronze badges"><span class="badge3"></span><span class="badgecount">19</span></span>
+        </div>
+    </div>
+
+    </td>
+    </tr>
+    </table>
+</div>
+</td>
+        </tr>
+
+
+<tr>
+<td class="votecell"></td>
+<td>
+    <div id="comments-1539" class="comments">
+        <table>
+        <tbody>
+                    
+    <tr id="comment-2844" class="comment">
+        <td class="comment-actions"><table><tbody><tr>
+<td class="comment-score">
+<span title="number of 'useful comment' votes received" class="warm">8</span>
+</td>
+<td>
+&nbsp;
+</td></tr>
+</tbody></table></td>
+        <td class="comment-text"><div><span class="comment-copy">Nice question. I just had a student asking me about this, and didn&#39;t know the answer.</span> &ndash;&nbsp;<a href="/users/80/suresh-venkat" title="19005 reputation" class="comment-user">Suresh Venkat<span class="mod-flair" title="moderator">&#9830;</span></a> <span class="comment-date" dir="ltr"><span title="2010-09-21 08:07:08Z" class="relativetime-clean">Sep 21 '10 at 8:07</span></span></div></td>
+    </tr>
+            
+    <tr id="comment-2865" class="comment">
+        <td></td>
+        <td class="comment-text"><div><span class="comment-copy">This is OK for here, but you might get better answers on Stack Overflow.  If you ask there, be sure and link to the discussion here.</span> &ndash;&nbsp;<a href="/users/270/charles-stewart" title="2711 reputation" class="comment-user">Charles Stewart</a> <span class="comment-date" dir="ltr"><span title="2010-09-21 13:01:24Z" class="relativetime-clean">Sep 21 '10 at 13:01</span></span></div></td>
+    </tr>
+            
+    <tr id="comment-2906" class="comment">
+        <td></td>
+        <td class="comment-text"><div><span class="comment-copy">Well the Haskell Reddit has seen this so there will be some good answers coming in from there too but excellent question. Just being halfway through Okasaki&#39;s book I was wondering the same think myself. +1</span> &ndash;&nbsp;<a href="/users/394/robert-massaioli" title="101 reputation" class="comment-user">Robert Massaioli</a> <span class="comment-date" dir="ltr"><span title="2010-09-21 22:52:32Z" class="relativetime-clean">Sep 21 '10 at 22:52</span></span></div></td>
+    </tr>
+            
+    <tr id="comment-3023" class="comment">
+        <td class="comment-actions"><table><tbody><tr>
+<td class="comment-score">
+<span title="number of 'useful comment' votes received" class="warm">5</span>
+</td>
+<td>
+&nbsp;
+</td></tr>
+</tbody></table></td>
+        <td class="comment-text"><div><span class="comment-copy"><a href="http://cstheory.stackexchange.com/questions/1586/what-are-the-outstanding-questions-in-purely-functional-data-structures">This inspired me to ask a related question</a>.</span> &ndash;&nbsp;<a href="/users/43/jbapple" title="1893 reputation" class="comment-user">jbapple</a> <span class="comment-date" dir="ltr"><span title="2010-09-22 18:44:41Z" class="relativetime-clean">Sep 22 '10 at 18:44</span></span></div></td>
+    </tr>
+
+        </tbody>
+    
+        </table>
+    </div>
+    
+</td>
+</tr>            </table>    
+</div>
+
+
+    
+
+
+<div id="answers">
+
+    <a name="tab-top"></a>
+    <div id="answers-header">
+        <div class="subheader answers-subheader">
+            <h2>
+                    5 Answers
+            </h2>
+            <div id="tabs">
+                <a href="/questions/1539/whats-new-in-purely-functional-data-structures-since-okasaki?answertab=active#tab-top" title="Answers with the latest activity first">active</a>
+<a href="/questions/1539/whats-new-in-purely-functional-data-structures-since-okasaki?answertab=oldest#tab-top" title="Answers in the order they were provided">oldest</a>
+<a class="youarehere" href="/questions/1539/whats-new-in-purely-functional-data-structures-since-okasaki?answertab=votes#tab-top" title="Answers with the highest score first">votes</a>
+
+            </div>
+        </div>    
+    </div>    
+
+
+
+
+  
+<a name="1550"></a>
+<div id="answer-1550" class="answer accepted-answer" data-answerid="1550" >
+    <table>
+        <tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+    <input type="hidden" value="1550">
+    <a class="vote-up-off" title="This answer is useful (click again to undo)">up vote</a>
+    <span class="vote-count-post ">181</span>
+    <a class="vote-down-off" title="This answer is not useful (click again to undo)">down vote</a>
+    
+
+            <span class="vote-accepted-on load-accepted-answer-date" title="loading when this answer was accepted...">accepted</span>
+ 
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text"><h3>New purely functional data structures published since 1998:</h3>
+
+<ul>
+<li><p>2001: <strong><a href="http://infoscience.epfl.ch/record/64398">Ideal Hash Trees</a>, and its 2000 predecessor, <a href="http://infoscience.epfl.ch/record/64394">Fast And Space Efficient Trie Searches</a>, by Phil Bagwell</strong>: Apparently used as a fundamental building block in Clojure's standard library.</p></li>
+<li><p>2001: <strong><a href="http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.18.1149">A Simple Implementation Technique for Priority Search Queues</a>, by Ralf Hinze</strong>: a really simple and beautiful technique for implementing this important datastructure (useful, say, in the Dijkstra algorithm). The implementation is particularly beautiful and readable due to heavy use of "view patterns".</p></li>
+<li><p>2002: <strong><a href="http://www.comlab.ox.ac.uk/people/ralf.hinze/publications/ICFP02.pdf">Bootstrapping one-sided flexible arrays</a>, by Ralf Hinze</strong>: Similar to Okasaki's random-access lists, but they can be tuned to alter the time tradeoff between <code>cons</code> and indexing.</p></li>
+<li><p>2003: <strong><a href="http://www.cs.princeton.edu/courses/archive/fall03/cs528/handouts/Notes%20on%20Catenable%20Deques.doc">New catenable and non-catenable deques</a>, by Radu Mihaescu and Robert Tarjan</strong>: A new take on some older work (by Kaplan and Tarjan) that Okasaki cites (The <a href="http://www.math.tau.ac.il/~haimk/adv-ds-2000/jacm-final.pdf">most recent version of Kaplan &amp; Tarjan's work was published in 2000</a>). This version is simpler in some ways.</p></li>
+<li><p>2005: <strong>Maxiphobic heaps (<a href="http://www.eecs.usma.edu/webs/people/okasaki/sigcse05.pdf">paper</a> and <a href="http://www.eecs.usma.edu/webs/people/okasaki/sigcse05/index.html">code</a>), by Chris Okasaki</strong>: Presented not as a new, more efficient structure, but as a way to teach priority queues.</p></li>
+<li><p>2006: <strong><a href="http://www.cs.au.dk/~gerth/pub/esa06trees.html">Purely Functional Worst Case Constant Time Catenable Sorted Lists</a>, by Gerth Stølting Brodal, Christos Makris, and Kostas Tsichlas</strong>: Answers an outstanding question of Kaplan and Tarjan by demonstrating a structure with O(lg n) insert, search, and delete and O(1) concat.</p></li>
+<li><p>2008: <strong><a href="http://erikdemaine.org/papers/ConfluentTries_Algorithmica/">Confluently Persistent Tries for Efficient Version Control</a>, by Erik D. Demaine, Stefan Langerman, and Eric Price</strong>: Presents several data structures for tries that have efficient navigation and modification near the leaves. Some are purely functional. Others actually improve a long-standing data structure by Dietz et al. for fully persistent (but not confluently persistent or purely functional) arrays. This paper also presente <strong>purely functional link-cut trees</strong>, sometimes called "dynamic trees".</p></li>
+<li><p>2010: <strong><a href="http://matt.might.net/articles/red-black-delete/">A new purely functional delete algorithm for red-black trees</a>, by Matt Might</strong>: Like Okasaki's red-black tree insertion algorithm, this is not a new data structure or a new operation on a data structure, but a new, simpler way to write a known operation.</p></li>
+</ul>
+
+<h3>Known in 1997, but not discussed in Okasaki's book:</h3>
+
+<ul>
+<li><p><strong>Many other styles of balanced search tree</strong>. AVL, brother, rank-balanced, bounded-balance, and many other balanced search trees can be (and have been) implemented purely functionally by path copying. Perhaps deserving special mention are:</p>
+
+<ul>
+<li><strong><a href="http://scholar.google.com/scholar?cluster=10425132226535600788">Biased Search Trees</a>, by Samuel W. Bent, Daniel D. Sleator, and Robert E. Tarjan</strong>: A key element in Brodal et al.'s 2006 paper and Demaine et al.'s 2008 paper.</li>
+</ul></li>
+<li><p><strong><a href="http://cs.bham.ac.uk/~mhe/papers/exhaustive.pdf">Infinite sets that admit fast exhaustive search</a>, by Martín Escardó</strong>: Perhaps not a data structure <em>per se</em>.</p></li>
+<li><p><strong><a href="http://www.eecs.usma.edu/webs/people/okasaki/jfp97.ps">Three algorithms on Braun Trees</a>, by Chris Okasaki</strong>: Braun trees offer many stack operations in worst-case O(lg n). This bound is surpassed by many other data structures, but Braun trees have a <code>cons</code> operation lazy in its second argument, and so can be used as infinite stacks in some ways that other structures cannot.</p></li>
+<li><p><strong><a href="http://scholar.google.com/scholar?cluster=2335375395981576930">The relaxed min-max heap: A mergeable double-ended priority queue</a> and <a href="http://scholar.google.com/scholar?cluster=9505131584786452948">The KD heap: An efficient multi-dimensional priority queue</a>, by Yuzheng Ding and Mark Allen Weiss</strong>: These happen to be purely functional, though this is not discussed in the papers. I do not think the time bounds achieved are any better than those that can be achieved by using finger trees (of Hinze &amp; Paterson or Kaplan &amp; Tarjan) as k-dimensional priority queues, but I think the structures of Ding &amp; Weiss uses less space.</p></li>
+<li><p><strong><a href="http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.185.2421">The Zipper</a>, by Gérard Huet</strong>: Used in many other data structures (such as Hinze &amp; Paterson's finger trees), this is a way of turning a data structure inside-out.</p></li>
+<li><p><strong>Difference lists</strong> are O(1) catenable lists with an O(n) transformation to usual <code>cons</code> lists. They have apparently been known since antiquity in the Prolog community, where they have an O(1) transformation to usual <code>cons</code> lists. The O(1) transformation seems to be impossible in traditional functional programming programming, but Minamide's <a href="http://dl.acm.org/citation.cfm?id=268953">hole abstraction</a>, from POPL '98, discusses a way of allowing O(1) append and O(1) transformation within pure functional programming. Unlike the usual functional programming implementations of difference lists, which are based on function closures, hole abstractions are essentially the same (in both their use and their implementation) as Prolog difference lists. However, it seems that for years the only person that noticed this was <a href="http://requestforlogic.blogspot.com/2011/08/holey-data-postscript-hole-abstraction.html">one of Minamide's reviewers</a>.</p></li>
+</ul>
+
+<h3>Mostly functional data structures, before, during, and after Okasaki's book:</h3>
+
+<ul>
+<li><p><strong>Many procedures for making data structures persistent, fully persistent, or confluently persistent</strong>: Haim Kaplan wrote <a href="http://www.math.tau.ac.il/~haimk/papers/persistent-survey.ps">an excellent survey on the topic</a>. See also above the work of Demaine et al., who demonstrate a fully persistent array in $O(m)$ space (where $m$ is the number of operations ever performed on the array) and $O(\lg \lg n)$ expected access time.</p></li>
+<li><p>1989: <strong><a href="http://acs.lbl.gov/~aragon/treaps.html">Randomized Search Trees</a> by Cecilia R. Aragon and Raimund Seidel</strong>: These were discussed in a purely functional setting by Guy E. Blelloch and Margaret Reid-Miller in <a href="http://www.cs.cmu.edu/afs/cs.cmu.edu/project/scandal/public/papers/treaps-spaa98.html">Fast Set Operations Using Treaps</a>
+and by Dan Blandford and Guy Blelloch in <a href="http://www.cs.cmu.edu/afs/cs/project/pscico/pscico/papers/fingertrees/main.pdf">Functional Set Operations with Treaps</a> (<a href="http://www.cs.cmu.edu/afs/cs/project/pscico/pscico/src/fingertrees/">code</a>). They provide all of the operations of purely functional fingertrees and biased search trees, but require a source of randomness, making them not purely functional. This may also invalidate the time complexity of the operations on treaps, assuming an adversary who can time operations and repeat the long ones. (This is the same reason why imperative amortization arguments aren't valid in a persistent setting, but it requires an adversary with a stopwatch)</p></li>
+<li><p>1997: <strong><a href="http://www.lsi.upc.edu/~peypoch/investigacio/reports.dir/RAIRO.ps.gz">Skip-trees, an alternative data structure to Skip-lists in a concurrent approach</a>, by Xavier Messeguer and <a href="http://www.cs.clemson.edu/~bcdean/paper11.html">Exploring the Duality Between Skip Lists and Binary Search Trees</a>, by Brian C. Dean and Zachary H. Jones</strong>: Skip lists are not purely functional, but they can be implemented functionally as trees. Like treaps, they require a source of random bits. (It is possible to make skip lists deterministic, but, after translating them to a tree, I think they are just another way of looking at 2-3 trees.)</p></li>
+<li><p>1998: <strong>All of the amortized structures in Okasaki's book!</strong> Okasaki invented this new method for mixing amortization and functional data structures, which were previously thought to be incompatible. It depends upon memoization, which, as Kaplan and Tarjan have sometimes mentioned, is actually a side effect. In some cases (<a href="http://rethinkdb.com/jobs/">such as PFDS on SSDs for performance reasons</a>), this may be inappropriate.</p></li>
+<li><p>1998: <strong><a href="http://www.math.tau.ac.il/~haimk/adv-ds-2000/okasaki-kaplan-tarjan-sicomp.ps">Simple Confluently Persistent Catenable Lists</a>, by Haim Kaplan, Chris Okasaki, and Robert E. Tarjan</strong>: Uses modification under the hood to give amortized O(1) catenable deques, presenting the same interface as an earlier (purely functional, but with memoization) version appearing in Okasaki's book. Kaplan and Tarjan had earlier created a purely functional O(1) worst-case structure, but it is substantially more complicated.</p></li>
+<li><p>2007: As mentioned in another answer on this page, <a href="http://www.lri.fr/~filliatr/ftp/publis/spds-rr.pdf">semi-persistent data structures</a> and <a href="http://www.lri.fr/~filliatr/puf/">persistent union-find</a> by Sylvain Conchon and Jean-Christophe Filliâtre</p></li>
+</ul>
+
+<h3>Techniques for verifying functional data structures, before, during, and after Okasaki's book:</h3>
+
+<ul>
+<li><p><strong>Phantom types</strong> are an old method for creating an API that does not allow certain ill-formed operations. A sophisticated use of them can be found in Oleg Kiselyov and Chung-chieh Shan's <a href="http://okmij.org/ftp/Computation/lightweight-dependent-typing.html#Lightweight">Lightweight Static Capabilities</a>.</p></li>
+<li><p><strong>Nested types</strong> are not actually more recent than 1998 - Okasaki even uses them in his book. There are many other examples that are not in Okasaki's book; some are new, and some are old. They include:</p>
+
+<ul>
+<li>Stefan Kahrs's <a href="http://www.cs.kent.ac.uk/pubs/2001/1293/index.html">Red-black trees with types</a> (<a href="http://www.cs.kent.ac.uk/people/staff/smk/redblack/rb.html">code</a>)</li>
+<li>Ross Paterson's <a href="http://www.haskell.org/pipermail/haskell/2003-April/011693.html">AVL trees</a> (<a href="http://www.cse.unsw.edu.au/~dons/haskell-1990-2006/msg14064.html">mirror</a>)</li>
+<li>Chris Okasaki's <a href="http://www.eecs.usma.edu/webs/people/okasaki/icfp99.ps">From fast exponentiation to square matrices: an adventure in types</a></li>
+<li>Richard S. Bird and Ross Peterson's <a href="http://web.comlab.ox.ac.uk/oucl/work/richard.bird/online/BirdPaterson99DeBruijn.pdf">de Bruijn notation as a nested datatype</a></li>
+<li>Ralf Hinze's <a href="http://web.comlab.ox.ac.uk/oucl/work/ralf.hinze/publications/IAI-TR-98-12.ps.gz">Numerical Representations as Higher-Order Nested Datatypes</a>.</li>
+</ul></li>
+<li><p><strong>GADTs</strong> are not all that new, either. They are a recent addition to Haskell and some MLs, but they have been present, I think, in <a href="https://sympa-roc.inria.fr/wws/arc/coq-club/2010-09/msg00072.html">various typed lambda calculi since the 1970s</a>.</p></li>
+<li><p>2004-2010: <strong>Coq and Isabelle for correctness</strong>. Several people have used theorem provers to verify the correctness of purely functional data structures. Coq can extract these verifications to working code in Haskell, OCaml, and Scheme; Isabelle can extract to Haskell, ML, and OCaml.</p>
+
+<ul>
+<li>Coq:
+<ul>
+<li>Pierre Letouzey and Jean-Christophe Filliâtre <a href="http://www.lri.fr/~filliatr/fsets/">formalized red-black and AVL(ish) trees, finding a bug in the OCaml standard library in the process</a>.</li>
+<li>I <a href="http://code.google.com/p/priority-queues/">formalized Brodal and Okasaki's asymptotically optimal priority queues</a>.</li>
+<li>Arthur Charguéraud <a href="http://www.chargueraud.org/softs/cfml/">formalized 825 of the 1,700 lines of ML in Okasaki's book</a>.</li>
+</ul></li>
+<li>Isabelle:
+<ul>
+<li>Tobias Nipkow and Cornelia Pusch <a href="http://afp.sourceforge.net/entries/AVL-Trees.shtml">formalized AVL trees</a>.</li>
+<li>Viktor Kuncak formalized <a href="http://afp.sourceforge.net/entries/BinarySearchTree.shtml">unbalanced binary search trees</a>.</li>
+<li>Peter Lammich published <a href="http://wwwmath.uni-muenster.de:8010/sev/staff/lammich/isabelle/#collections">The Isabelle Collections framework</a>, which includes formalizations of efficient purely functional data structures like red-black trees and tries, as well as data structures that are less efficient when used persistently, such as two-stack-queues (without Okasaki's laziness trick) and hash tables.</li>
+<li>Peter Lammich also published formalizations of <a href="http://afp.sourceforge.net/devel-entries/Tree-Automata.shtml">tree automata</a>, <a href="http://afp.sourceforge.net/devel-entries/Finger-Trees.shtml">Hinze &amp; Patterson's finger trees</a> (with Benedikt Nordhoff and Stefan Körner), and <a href="http://afp.sourceforge.net/devel-entries/Binomial-Heaps.shtml">Brodal and Okasaki's purely functional priority queues</a> (with Rene Meis and Finn Nielsen).</li>
+<li>René Neumann formalized <a href="http://afp.sourceforge.net/devel-entries/Binomial-Queues.shtml">binomial priority queues</a>.</li>
+</ul></li>
+</ul></li>
+<li><p>2007: <strong><a href="http://www.cs.cmu.edu/~joshuad/papers/stardust/">Refined Typechecking with Stardust</a>, by Joshua Dunfield</strong>: This paper uses refinement types for ML to find errors in SMLNJ's red-black tree delete function.</p></li>
+<li><p>2008: <strong><a href="http://www.cs.nott.ac.uk/~nad/publications/danielsson-popl2008.html">Lightweight Semiformal Time Complexity Analysis for Purely Functional Data Structures</a> by Nils Anders Danielsson</strong>: Uses Agda with manual annotation to prove time bounds for some PFDS.</p></li>
+</ul>
+
+<h3>Imperative data structures or analyses not discussed in Okasaki's book, but related to purely functional data structures:</h3>
+
+<ul>
+<li><p><strong><a href="http://www.cs.princeton.edu/~chazelle/pubs/sheap.pdf">The Soft Heap: An Approximate Priority Queue with Optimal Error Rate</a>, by Bernard Chazelle</strong>: This data structure does not use arrays, and so has tempted <a href="http://tunes.org/~nef//logs/haskell/10.05.11">first the #haskell IRC channel</a> and <a href="http://stackoverflow.com/questions/3402361/purely-functional-soft-heap">later Stack Overflow users</a>, but it includes <code>delete</code> in o(lg n), which is usually not possible in a functional setting, and imperative amortized analysis, which is not valid in a purely functional setting.</p></li>
+<li><p><strong>Balanced binary search trees with O(1) finger updates</strong>. In <a href="http://www.cs.cmu.edu/~sleator/papers/Persistence.htm">Making Data Structures Persistent</a>, James R Driscoll, Neil Sarnak, Daniel D. Sleator, and Robert E. Tarjan present a method for grouping the nodes in a red-black tree so that persistent updates require only O(1) space. The purely functional deques and finger trees designed by Tarjan, Kaplan, and Mihaescu all use a very similar grouping technique to allow O(1) updates at both ends. <a href="http://scholar.google.com/scholar?cluster=1646762318420773825">AVL-trees for localized search</a> by Athanasios K. Tsakalidis works similarly.</p></li>
+<li><p><strong>Faster pairing heaps or better bounds for pairing heaps</strong>: Since Okasaki's book was published, several new analyses of imperative pairing heaps have appeared, including <a href="http://siam.org/proceedings/soda/2009/SODA09_052_elmasrya.pdf">Pairing heaps with O(log log n) decrease Cost</a> by Amr Elmasry and <a href="http://www.eecs.umich.edu/~pettie/papers/focs05.pdf">Towards a Final Analysis of Pairing Heaps</a> by Seth Pettie. It may be possible to apply some of this work to Okasaki's lazy pairing heaps.</p></li>
+<li><p><strong>Deterministic biased finger trees</strong>: In <a href="http://www.ics.uci.edu/~goodrich/pubs/bsl.pdf">Biased Skip Lists</a>, by Amitabha Bagchi, Adam L. Buchsbaum, and Michael T. Goodrich, a design is presented for deterministic biased skip lists. Through the skip list/tree transformation mentioned above, it may be possible to make deterministic biased search trees. The finger biased skip lists described by John Iacono and Özgür Özkan in <a href="http://arxiv.org/abs/1002.4248">Mergeable Dictionaries</a> might then be possible on biased skip trees. A biased finger tree is suggested by Demaine et al. in their paper on purely functional tries (see above) as a way to reduce the time-and space bounds on finger update in tries.</p></li>
+<li><p><strong><a href="http://doi.acm.org/10.1145/301970.301973">The String B-Tree: A New Data Structure for String Search in External Memory and its Applications</a> by Paolo Ferragina and Roberto Grossi</strong> is a well studied data structure combining the benefits of tries and B-trees.</p></li>
+</ul>
+</div>
+    <table class="fw">
+    <tr>
+    <td class="vt">
+
+
+
+
+
+
+
+
+
+<div class="post-menu"><a href="/a/1550" title="short permalink to this answer" class="short-link" id="link-post-1550">share</a><span class="lsep">|</span><a href="/posts/1550/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+    <td align="right" class="post-signature">
+
+
+    <div class="user-info ">
+        <div class="user-action-time">
+                            edited
+                             <a href="/posts/1550/revisions" title="show all edits to this post"><span title="2012-06-15 02:55:39Z" class="relativetime">Jun 15 '12 at 2:55</span></a>
+
+        </div>
+        <div class="user-gravatar32">
+            
+        </div>
+        <div class="user-details">
+            <br>
+            
+        </div>
+    </div>
+    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    
+
+    <div class="user-info">
+        <div class="user-details">
+            <span class="community-wiki" title="This post is community owned as of Sep 21 &#39;10 at 20:00. Votes do not generate reputation, and it can be edited by users with 100 rep">
+                community wiki
+            </span>
+        </div><br>
+        <div class="user-details">
+            <a id="history-1550" href="/posts/1550/revisions" title="show revision history for this post">
+37 revs, 5 users 97%<br>jbapple            </a>
+        </div>
+    </div>
+
+    </td>
+    </tr>
+    </table>
+</td>
+        </tr>
+
+
+
+<tr>
+<td class="votecell"></td>
+<td>
+    <div id="comments-1550" class="comments">
+        <table>
+        <tbody>
+                    
+    <tr id="comment-3028" class="comment">
+        <td></td>
+        <td class="comment-text"><div><span class="comment-copy">And Brodal/Okasaki&#39;s Boostrapped Skew Binomial Heaps, unless I missed it in there.</span> &ndash;&nbsp;<a href="/users/1413/edward-kmett" title="161 reputation" class="comment-user">Edward Kmett</a> <span class="comment-date" dir="ltr"><span title="2010-09-22 19:39:48Z" class="relativetime-clean">Sep 22 '10 at 19:39</span></span></div></td>
+    </tr>
+            
+    <tr id="comment-3030" class="comment">
+        <td></td>
+        <td class="comment-text"><div><span class="comment-copy">Edward Kmett: Boostrapped Skew Binomial Heaps are described in the bootstrapping chapter of Okasaki&#39;s book.</span> &ndash;&nbsp;<a href="/users/43/jbapple" title="1893 reputation" class="comment-user">jbapple</a> <span class="comment-date" dir="ltr"><span title="2010-09-22 20:00:04Z" class="relativetime-clean">Sep 22 '10 at 20:00</span></span></div></td>
+    </tr>
+            
+    <tr id="comment-3063" class="comment">
+        <td class="comment-actions"><table><tbody><tr>
+<td class="comment-score">
+<span title="number of 'useful comment' votes received" class="warm">5</span>
+</td>
+<td>
+&nbsp;
+</td></tr>
+</tbody></table></td>
+        <td class="comment-text"><div><span class="comment-copy">@jbapple: after a certain number of edits, all posts become community wiki. That&#39;s an impressively thorough review there. Thank you.</span> &ndash;&nbsp;<a href="/users/1440/novelocrat" title="101 reputation" class="comment-user">Novelocrat</a> <span class="comment-date" dir="ltr"><span title="2010-09-23 03:07:47Z" class="relativetime-clean">Sep 23 '10 at 3:07</span></span></div></td>
+    </tr>
+            
+    <tr id="comment-3654" class="comment">
+        <td class="comment-actions"><table><tbody><tr>
+<td class="comment-score">
+<span title="number of 'useful comment' votes received" class="warm">12</span>
+</td>
+<td>
+&nbsp;
+</td></tr>
+</tbody></table></td>
+        <td class="comment-text"><div><span class="comment-copy">Great list! Which makes me wish Okasaki would publish a second edition.</span> &ndash;&nbsp;<a href="/users/236/radu-grigore" title="2434 reputation" class="comment-user">Radu GRIGore</a> <span class="comment-date" dir="ltr"><span title="2010-09-30 10:33:42Z" class="relativetime-clean">Sep 30 '10 at 10:33</span></span></div></td>
+    </tr>
+            
+    <tr id="comment-11788" class="comment">
+        <td class="comment-actions"><table><tbody><tr>
+<td class="comment-score">
+<span title="number of 'useful comment' votes received" class="cool">1</span>
+</td>
+<td>
+&nbsp;
+</td></tr>
+</tbody></table></td>
+        <td class="comment-text"><div><span class="comment-copy">+1: Probably the most informative answer I have ever seen on SO.</span> &ndash;&nbsp;<a href="/users/3550/jon-harrop" title="155 reputation" class="comment-user">Jon Harrop</a> <span class="comment-date" dir="ltr"><span title="2011-01-30 23:32:08Z" class="relativetime-clean">Jan 30 '11 at 23:32</span></span></div></td>
+    </tr>
+
+        </tbody>
+    
+        </table>
+    </div>
+    <a id="comments-link-1550" class="comments-link" data-comments-count="7" title="expand to show all comments on this post">show <b>7</b> more comments</a>
+</td>
+</tr>
+   
+    
+    </table>
+</div>
+
+  
+<a name="1552"></a>
+<div id="answer-1552" class="answer" data-answerid="1552" >
+    <table>
+        <tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+    <input type="hidden" value="1552">
+    <a class="vote-up-off" title="This answer is useful (click again to undo)">up vote</a>
+    <span class="vote-count-post ">31</span>
+    <a class="vote-down-off" title="This answer is not useful (click again to undo)">down vote</a>
+    
+
+ 
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text"><p>To the excellent notes already made, I'll add <strong>Zippers</strong>.</p>
+
+<p>Huet, Gerard. "Functional Pearl: The Zipper" Journal of Functional Programming 7 (5): 549-554, September 1997.</p>
+
+<p><a href="http://en.wikipedia.org/wiki/Zipper_%28data_structure%29">http://en.wikipedia.org/wiki/Zipper_%28data_structure%29</a></p>
+</div>
+    <table class="fw">
+    <tr>
+    <td class="vt">
+
+
+
+
+
+
+
+
+
+<div class="post-menu"><a href="/a/1552" title="short permalink to this answer" class="short-link" id="link-post-1552">share</a><span class="lsep">|</span><a href="/posts/1552/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    
+
+    <div class="user-info ">
+        <div class="user-action-time">
+                                    answered
+ <span title="2010-09-21 18:06:04Z" class="relativetime">Sep 21 '10 at 18:06</span>
+        </div>
+        <div class="user-gravatar32">
+            <a href="/users/706/matt-might"><div class=""><img src="http://www.gravatar.com/avatar/b4639677aef04b44d9299f60b7b12dab?s=32&d=identicon&r=PG" alt="" width="32" height="32"></div></a>
+        </div>
+        <div class="user-details">
+            <a href="/users/706/matt-might">Matt Might</a><br>
+            <span class="reputation-score" title="reputation score" dir="ltr">461</span><span title="3 silver badges"><span class="badge2"></span><span class="badgecount">3</span></span><span title="4 bronze badges"><span class="badge3"></span><span class="badgecount">4</span></span>
+        </div>
+    </div>
+
+    </td>
+    </tr>
+    </table>
+</td>
+        </tr>
+
+
+
+<tr>
+<td class="votecell"></td>
+<td>
+    <div id="comments-1552" class="comments">
+        <table>
+        <tbody>
+                    
+    <tr id="comment-8375" class="comment">
+        <td class="comment-actions"><table><tbody><tr>
+<td class="comment-score">
+<span title="number of 'useful comment' votes received" class="cool">1</span>
+</td>
+<td>
+&nbsp;
+</td></tr>
+</tbody></table></td>
+        <td class="comment-text"><div><span class="comment-copy">Zippers are AWESOME. For many use cases, they allow tree based representations to become the &quot;right&quot; choice for many kinds of data where otherwise it&#39;d be a bit more complicated</span> &ndash;&nbsp;<a href="/users/18/carter-tazio-schonwald" title="172 reputation" class="comment-user">Carter Tazio Schonwald</a> <span class="comment-date" dir="ltr"><span title="2010-12-01 22:52:26Z" class="relativetime-clean">Dec 1 '10 at 22:52</span></span><span class="edited-yes" title="this comment was edited"></span></div></td>
+    </tr>
+            
+    <tr id="comment-34137" class="comment">
+        <td></td>
+        <td class="comment-text"><div><span class="comment-copy">An example of their use for XML manipulation: <a href="http://anti-xml.org/zippers.html" rel="nofollow">anti-xml.org/zippers.html</a></span> &ndash;&nbsp;<a href="/users/5629/mechanical-snail" title="101 reputation" class="comment-user">Mechanical snail</a> <span class="comment-date" dir="ltr"><span title="2012-08-22 20:29:35Z" class="relativetime-clean">Aug 22 '12 at 20:29</span></span><span class="edited-yes" title="this comment was edited"></span></div></td>
+    </tr>
+
+        </tbody>
+    
+        </table>
+    </div>
+    
+</td>
+</tr>
+   
+    
+    </table>
+</div>
+
+  
+<a name="1540"></a>
+<div id="answer-1540" class="answer" data-answerid="1540" >
+    <table>
+        <tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+    <input type="hidden" value="1540">
+    <a class="vote-up-off" title="This answer is useful (click again to undo)">up vote</a>
+    <span class="vote-count-post ">21</span>
+    <a class="vote-down-off" title="This answer is not useful (click again to undo)">down vote</a>
+    
+
+ 
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text"><p>Conchon, Filliatre, <a href="http://scholar.google.com/scholar?cluster=8164878778013876774" rel="nofollow">A Persistent UNION-FIND Data Structure</a> and <a href="http://scholar.google.com/scholar?cluster=14247555920801182379" rel="nofollow">Semi-persistent Data Structures</a>.</p>
+</div>
+    <table class="fw">
+    <tr>
+    <td class="vt">
+
+
+
+
+
+
+
+
+
+<div class="post-menu"><a href="/a/1540" title="short permalink to this answer" class="short-link" id="link-post-1540">share</a><span class="lsep">|</span><a href="/posts/1540/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    
+
+    <div class="user-info ">
+        <div class="user-action-time">
+                                    answered
+ <span title="2010-09-21 08:13:06Z" class="relativetime">Sep 21 '10 at 8:13</span>
+        </div>
+        <div class="user-gravatar32">
+            <a href="/users/236/radu-grigore"><div class=""><img src="http://www.gravatar.com/avatar/fd91265e84931489c6ced077ea828506?s=32&d=identicon&r=PG" alt="" width="32" height="32"></div></a>
+        </div>
+        <div class="user-details">
+            <a href="/users/236/radu-grigore">Radu GRIGore</a><br>
+            <span class="reputation-score" title="reputation score" dir="ltr">2,434</span><span title="11 silver badges"><span class="badge2"></span><span class="badgecount">11</span></span><span title="34 bronze badges"><span class="badge3"></span><span class="badgecount">34</span></span>
+        </div>
+    </div>
+
+    </td>
+    </tr>
+    </table>
+</td>
+        </tr>
+
+
+
+<tr>
+<td class="votecell"></td>
+<td>
+    <div id="comments-1540" class="comments">
+        <table>
+        <tbody>
+                    
+    <tr id="comment-2845" class="comment">
+        <td></td>
+        <td class="comment-text"><div><span class="comment-copy">Wow, a persistent UNION-FIND! Thanks!</span> &ndash;&nbsp;<a href="/users/326/jkff" title="1933 reputation" class="comment-user owner">jkff</a> <span class="comment-date" dir="ltr"><span title="2010-09-21 08:17:29Z" class="relativetime-clean">Sep 21 '10 at 8:17</span></span></div></td>
+    </tr>
+            
+    <tr id="comment-2846" class="comment">
+        <td class="comment-actions"><table><tbody><tr>
+<td class="comment-score">
+<span title="number of 'useful comment' votes received" class="cool">2</span>
+</td>
+<td>
+&nbsp;
+</td></tr>
+</tbody></table></td>
+        <td class="comment-text"><div><span class="comment-copy">Well, kind of... See the article.</span> &ndash;&nbsp;<a href="/users/236/radu-grigore" title="2434 reputation" class="comment-user">Radu GRIGore</a> <span class="comment-date" dir="ltr"><span title="2010-09-21 08:18:50Z" class="relativetime-clean">Sep 21 '10 at 8:18</span></span></div></td>
+    </tr>
+            
+    <tr id="comment-2851" class="comment">
+        <td class="comment-actions"><table><tbody><tr>
+<td class="comment-score">
+<span title="number of 'useful comment' votes received" class="cool">1</span>
+</td>
+<td>
+&nbsp;
+</td></tr>
+</tbody></table></td>
+        <td class="comment-text"><div><span class="comment-copy">... or, if you prefer, see some code (by Matt Parkinson) <a href="http://github.com/septract/jstar/blob/master/src/utils/persistentarray.ml" rel="nofollow">github.com/septract/jstar/blob/master/src/utils/&hellip;</a></span> &ndash;&nbsp;<a href="/users/236/radu-grigore" title="2434 reputation" class="comment-user">Radu GRIGore</a> <span class="comment-date" dir="ltr"><span title="2010-09-21 08:50:37Z" class="relativetime-clean">Sep 21 '10 at 8:50</span></span></div></td>
+    </tr>
+            
+    <tr id="comment-2970" class="comment">
+        <td class="comment-actions"><table><tbody><tr>
+<td class="comment-score">
+<span title="number of 'useful comment' votes received" class="warm">5</span>
+</td>
+<td>
+&nbsp;
+</td></tr>
+</tbody></table></td>
+        <td class="comment-text"><div><span class="comment-copy">Now I see why the &quot;kind of..&quot; comment had an upvote. They have good performance only when one almost exclusively either does not use persistence, or backtracks all the time: if you often use both &quot;new&quot; and &quot;old&quot; versions, you&#39;re screwed. Cool rerooting idea though.</span> &ndash;&nbsp;<a href="/users/326/jkff" title="1933 reputation" class="comment-user owner">jkff</a> <span class="comment-date" dir="ltr"><span title="2010-09-22 11:13:42Z" class="relativetime-clean">Sep 22 '10 at 11:13</span></span><span class="edited-yes" title="this comment was edited"></span></div></td>
+    </tr>
+            
+    <tr id="comment-32201" class="comment">
+        <td></td>
+        <td class="comment-text"><div><span class="comment-copy">Radu&#39;s link can now be found at <a href="https://github.com/septract/jstar-old/blob/9ea84db498acab750b7c7dd5138aab19cd12bdf8/src/utils/persistentarray.ml" rel="nofollow">github.com/septract/jstar-old/blob/&hellip;</a></span> &ndash;&nbsp;<a href="/users/43/jbapple" title="1893 reputation" class="comment-user">jbapple</a> <span class="comment-date" dir="ltr"><span title="2012-06-17 02:36:00Z" class="relativetime-clean">Jun 17 '12 at 2:36</span></span></div></td>
+    </tr>
+
+        </tbody>
+    
+        </table>
+    </div>
+    
+</td>
+</tr>
+   
+    
+    </table>
+</div>
+
+  
+<a name="1560"></a>
+<div id="answer-1560" class="answer" data-answerid="1560" >
+    <table>
+        <tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+    <input type="hidden" value="1560">
+    <a class="vote-up-off" title="This answer is useful (click again to undo)">up vote</a>
+    <span class="vote-count-post ">8</span>
+    <a class="vote-down-off" title="This answer is not useful (click again to undo)">down vote</a>
+    
+
+ 
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text"><p>I'd add McBride's version of zippers as derivatives of data types.</p>
+</div>
+    <table class="fw">
+    <tr>
+    <td class="vt">
+
+
+
+
+
+
+
+
+
+<div class="post-menu"><a href="/a/1560" title="short permalink to this answer" class="short-link" id="link-post-1560">share</a><span class="lsep">|</span><a href="/posts/1560/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    
+
+    <div class="user-info ">
+        <div class="user-action-time">
+                                    answered
+ <span title="2010-09-22 02:05:48Z" class="relativetime">Sep 22 '10 at 2:05</span>
+        </div>
+        <div class="user-gravatar32">
+            <a href="/users/1371/none"><div class=""><img src="http://www.gravatar.com/avatar/f3cb0908274c7ca0edb59d99bdbbd202?s=32&d=identicon&r=PG" alt="" width="32" height="32"></div></a>
+        </div>
+        <div class="user-details">
+            <a href="/users/1371/none">none</a><br>
+            <span class="reputation-score" title="reputation score" dir="ltr">81</span><span title="1 bronze badge"><span class="badge3"></span><span class="badgecount">1</span></span>
+        </div>
+    </div>
+
+    </td>
+    </tr>
+    </table>
+</td>
+        </tr>
+
+
+
+<tr>
+<td class="votecell"></td>
+<td>
+    <div id="comments-1560" class="comments">
+        <table>
+        <tbody>
+                    
+    <tr id="comment-3043" class="comment">
+        <td></td>
+        <td class="comment-text"><div><span class="comment-copy">I love that stuff. It&#39;s just so cool that the derivative has an application so wildly different from finding rates of change!</span> &ndash;&nbsp;<a href="/users/1345/samb" title="101 reputation" class="comment-user">SamB</a> <span class="comment-date" dir="ltr"><span title="2010-09-22 22:00:37Z" class="relativetime-clean">Sep 22 '10 at 22:00</span></span></div></td>
+    </tr>
+            
+    <tr id="comment-3054" class="comment">
+        <td class="comment-actions"><table><tbody><tr>
+<td class="comment-score">
+<span title="number of 'useful comment' votes received" class="cool">1</span>
+</td>
+<td>
+&nbsp;
+</td></tr>
+</tbody></table></td>
+        <td class="comment-text"><div><span class="comment-copy">SamB, you might also be interested in derivatives of regular expressions (if you didn&#39;t already know about them).</span> &ndash;&nbsp;<a href="/users/43/jbapple" title="1893 reputation" class="comment-user">jbapple</a> <span class="comment-date" dir="ltr"><span title="2010-09-22 23:33:06Z" class="relativetime-clean">Sep 22 '10 at 23:33</span></span></div></td>
+    </tr>
+
+        </tbody>
+    
+        </table>
+    </div>
+    
+</td>
+</tr>
+   
+    
+    </table>
+</div>
+
+  
+<a name="4614"></a>
+<div id="answer-4614" class="answer" data-answerid="4614" >
+    <table>
+        <tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+    <input type="hidden" value="4614">
+    <a class="vote-up-off" title="This answer is useful (click again to undo)">up vote</a>
+    <span class="vote-count-post ">5</span>
+    <a class="vote-down-off" title="This answer is not useful (click again to undo)">down vote</a>
+    
+
+ 
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text"><p><a href="http://jfla.inria.fr/2010/actes/PDF/bonichon_cuoq.pdf">Rangemaps</a></p>
+
+<p>It is a specialized data structure, but it can be used as a substitute for Martin Erwig's DIET, with slightly different properties, so at least there is one existing data structure to compare it to. The DIET itself was described in an article in JFP in 1998, so perhaps it is not included in Purely Functional Data Structures.</p>
+</div>
+    <table class="fw">
+    <tr>
+    <td class="vt">
+
+
+
+
+
+
+
+
+
+<div class="post-menu"><a href="/a/4614" title="short permalink to this answer" class="short-link" id="link-post-4614">share</a><span class="lsep">|</span><a href="/posts/4614/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    
+
+    <div class="user-info ">
+        <div class="user-action-time">
+                                    answered
+ <span title="2011-01-28 09:07:31Z" class="relativetime">Jan 28 '11 at 9:07</span>
+        </div>
+        <div class="user-gravatar32">
+            <a href="/users/1234/complicated-see-bio"><div class=""><img src="http://www.gravatar.com/avatar/8334bd22b07c864166de24990d874bee?s=32&d=identicon&r=PG" alt="" width="32" height="32"></div></a>
+        </div>
+        <div class="user-details">
+            <a href="/users/1234/complicated-see-bio">Complicated see bio</a><br>
+            <span class="reputation-score" title="reputation score" dir="ltr">151</span><span title="1 silver badge"><span class="badge2"></span><span class="badgecount">1</span></span><span title="3 bronze badges"><span class="badge3"></span><span class="badgecount">3</span></span>
+        </div>
+    </div>
+
+    </td>
+    </tr>
+    </table>
+</td>
+        </tr>
+
+
+
+<tr>
+<td class="votecell"></td>
+<td>
+    <div id="comments-4614" class="comments dno">
+        <table>
+        <tbody>
+        
+            <tr><td></td><td></td></tr>
+        
+        </tbody>
+    
+        </table>
+    </div>
+    
+</td>
+</tr>
+   
+    
+    </table>
+</div>
+    <a name='new-answer'></a>
+    <form id="post-form" action="/questions/1539/answer/submit" method="post"  class="post-form">
+        <input type="hidden" id="post-id" value="1539" />
+        <h2 class="space">Your Answer</h2>
+
+
+        <script type="text/javascript">
+            StackExchange.ifUsing("editor", function () {
+                return StackExchange.using("mathjaxEditing", function () {
+                    StackExchange.MarkdownEditor.creationCallbacks.add(function (editor, postfix) {
+                        StackExchange.mathjaxEditing.prepareWmdForMathJax(editor, postfix, [["$", "$"], ["\\\\(","\\\\)"]]);
+                    });
+                });
+            }, "mathjax-editing");
+        </script>
+
+    
+<script type="text/javascript">
+    StackExchange.ready(function() {
+        initTagRenderer("".split(" "), "".split(" "));
+         
+        prepareEditor({
+            heartbeatType: 'answer',
+            bindNavPrevention: true,
+            postfix: "",
+noCode: true,            onDemand: true,
+            discardSelector: ".discard-answer"
+            ,immediatelyShowMarkdownHelp:true
+        });
+        
+
+    });  
+</script>
+
+
+<div id="post-editor" class="post-editor">
+
+    <div style="position: relative;">     
+        <div class="wmd-container">
+            <div id="wmd-button-bar" class="wmd-button-bar"></div>
+            <textarea id="wmd-input" class="wmd-input" name="post-text" cols="92" rows="15" tabindex="101" data-min-length=""></textarea>
+        </div>
+    </div>
+
+    <div class="fl" style="margin-top: 8px; height:24px;">&nbsp;</div>
+    <div id="draft-saved" class="draft-saved community-option fl" style="margin-top: 8px; height:24px; display:none;">draft saved</div>
+
+    <div id="draft-discarded" class="draft-discarded community-option fl" style="margin-top: 8px; height:24px; display:none;">draft discarded</div>
+
+
+
+    <div id="wmd-preview" class="wmd-preview"></div>
+    <div></div>
+    <div class="edit-block">
+        <input id="fkey" name="fkey" type="hidden" value="8c0a45f7b5b98f3c2c467a52daabf116">
+        <input id="author" name="author" type="text">
+    </div>
+</div>
+        <div style="position: relative;"> 
+    <div class="form-item">
+        <table>
+        <tr>
+                <td class="vm open-id-login">
+                    <a id="login-link" style="font-size: 200%; margin-left: 30px;" href="/users/login?returnurl=%2fquestions%2f1539%2fwhats-new-in-purely-functional-data-structures-since-okasaki">log in</a>
+                    <script type="text/javascript">
+                        StackExchange.ready(function () {
+                            StackExchange.helpers.onClickDraftSave('#login-link');
+                        });
+                    </script>
+                </td>
+                    <script type="text/javascript">
+                StackExchange.ready(function () {
+                    StackExchange.helpers.bindHelpOverlayEvents($('.vm input'));
+                });
+            </script>
+                <td class="orcell">
+                    <div class="orword">or</div>
+                    <div class="orline"></div>
+                </td>
+            <td class="vm">
+                <div>
+                    <label for="display-name">Screen name</label>
+                    <input id="display-name" name="display-name" type="text" size="30" maxlength="30" value="" tabindex="105">
+                </div>
+                <div>
+                    <label for="m-address">Email</label>
+                    <input id="m-address" name="m-address" type="text" size="40" maxlength="100" value="" tabindex="106">
+                    <span class="edit-field-overlay">required, but never shown</span>
+                </div>
+                    <div>
+                        <label for="home-page">Home Page</label>
+                        <input id="home-page" name="home-page" type="text" size="40" maxlength="200" value="" tabindex="107">
+                    </div>
+            </td>
+        </tr>
+        </table>
+    </div>
+        </div>
+           
+            <div class="form-submit cbt">
+            <input id="submit-button" type="submit" value="Post Your Answer" tabindex="110">
+            <a href="#" class="discard-answer dno">discard</a>
+    <p class="privacy-policy-agreement">
+        By posting your answer, you agree to the 
+        <a href="http://stackexchange.com/legal/privacy-policy" target="_blank">privacy policy</a> and 
+        <a href="http://stackexchange.com/legal/terms-of-service" target="_blank">terms of service</a>.
+    </p>
+    <input type="hidden" name="legalLinksShown" value="1" />
+        </div>
+    </form>
+
+
+
+        <h2 class="bottom-notice">
+                Not the answer you're looking for? 
+            Browse other questions tagged <a href="/questions/tagged/reference-request" class="post-tag" title="show questions tagged 'reference-request'" rel="tag">reference-request</a> <a href="/questions/tagged/big-list" class="post-tag" title="show questions tagged 'big-list'" rel="tag">big-list</a> <a href="/questions/tagged/ds.data-structures" class="post-tag" title="show questions tagged 'ds.data-structures'" rel="tag">ds.data-structures</a> <a href="/questions/tagged/functional-programming" class="post-tag" title="show questions tagged 'functional-programming'" rel="tag">functional-programming</a> 
+                or <a href="/questions/ask">ask your own question</a>.
+        </h2>
+</div>
+</div>
+<div id="sidebar">
+
+
+
+     <script type="text/javascript">
+        window.showNewUser = true;
+
+            
+                (function(){
+                    var cs = window.sessionStorage && window.sessionStorage['tNewsletter'];
+                    var m = /:\/\/([^\/]*)/.exec(document.referrer);
+                    var h = {'www.reddit.com':1,'news.ycombinator.com':1};
+                    if(window.sessionStorage && (cs || (m && m.length == 2 && h[m[1]]))){
+                        showNewUser = false;
+                        StackExchange.ready(function(){
+                            StackExchange.newsletterAd.loader(m[1], cs);
+                        });
+                    }
+                    if (window.localStorage && showNewUser){
+                        var c = parseInt(localStorage['nuCounter'],10); 
+                        c = isNaN(c) ? 1 : c+1;
+                        window.localStorage['nuCounter'] = c; 
+                        showNewUser = c < 10;
+                    }
+                })()
+            
+     </script>
+    <div class="module newuser newuser-greeting" id="newuser-box" style="display:none;">
+        <h4>Welcome!</h4>
+        <div>
+            <p>This is a collaboratively edited question and answer site for <b>theoretical computer scientists and researchers in related fields</b>. It's 100% free, no registration required.</p><p>Got a question about the site itself? <a href="http://meta.cstheory.stackexchange.com">meta</a> is the place to talk about things like what questions are appropriate, what tags we should use, etc.</p>
+            <p class="ar">
+                    <a href="/about?mnu=1">about &raquo;</a>&nbsp;&nbsp;&nbsp;
+                <a href="/faq?mnu=1">faq &raquo;</a>
+                    &nbsp; <a href="http://meta.cstheory.stackexchange.com">meta &raquo;</a>
+            </p>
+        </div>
+    </div>
+     <script type="text/javascript">
+        if (showNewUser) {
+            document.getElementById('newuser-box').style.display = '';
+        }
+     </script>
+        <div class="module question-stats">
+        <p class="label-key">tagged</p>
+        <div class="tagged"><a href="/questions/tagged/reference-request" class="post-tag" title="show questions tagged 'reference-request'" rel="tag">reference-request</a>&nbsp;<span class="item-multiplier"><span class="item-multiplier-x">&times;</span>&nbsp;<span class="item-multiplier-count">612</span></span><br>
+<a href="/questions/tagged/ds.data-structures" class="post-tag" title="show questions tagged 'ds.data-structures'" rel="tag">ds.data-structures</a>&nbsp;<span class="item-multiplier"><span class="item-multiplier-x">&times;</span>&nbsp;<span class="item-multiplier-count">169</span></span><br>
+<a href="/questions/tagged/big-list" class="post-tag" title="show questions tagged 'big-list'" rel="tag">big-list</a>&nbsp;<span class="item-multiplier"><span class="item-multiplier-x">&times;</span>&nbsp;<span class="item-multiplier-count">104</span></span><br>
+<a href="/questions/tagged/functional-programming" class="post-tag" title="show questions tagged 'functional-programming'" rel="tag">functional-programming</a>&nbsp;<span class="item-multiplier"><span class="item-multiplier-x">&times;</span>&nbsp;<span class="item-multiplier-count">45</span></span><br>
+</div>
+        <table id="qinfo">
+            <tr>
+                <td><p class="label-key">asked</p></td>
+                <td style="padding-left:10px"><p class="label-key" title="2010-09-21 08:04:55Z"><b>2 years ago</b></p></td>
+            </tr>
+            <tr>
+                <td><p class="label-key">viewed</p></td>
+
+                <td style="padding-left:10px">
+                    <p class="label-key">
+                        <b>38047 times</b>
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td><p class="label-key">active</p></td>
+                <td style="padding-left:10px"><p class="label-key"><b><a href="?lastactivity" class="lastactivity-link" title="2012-06-15 02:55:39Z">8 months ago</a></b></p></td>
+            </tr>
+        </table>
+    </div>
+        
+    
+
+<div class="module" id="chat-feature">
+    
+
+    
+<h4><a href="http://chat.stackexchange.com" id="h-chat-link">Visit Chat</a></h4>
+
+<div class="related" id="ad502-rooms"></div>
+<script type="text/javascript">
+// <!--
+    StackExchange.ready(
+    function () {
+        var options = {
+            chatUrl: 'http://chat.stackexchange.com',
+            reloadUrl: '/api/recent-chat',
+            preloadData: {"activeUsers":74,"activeRooms":42,"rooms":[{"name":"monotone circuits","id":6870,"lastPost":1362428205,"posts":1662,"users":[],"messages":[{"date":1362428205,"user":"vzn","userid":30568}],"singleImage":false,"tags":[]}]} 
+        };
+
+        StackExchange.chatAd.init(options);
+    });
+// -->
+</script>
+
+</div>
+<style type="text/css">
+    .ads { margin-left: 60px; }
+    .ad-container { width: 220px; height: 250px; margin-right: 20px; margin-bottom: 20px; }
+    .ad-container .ad { height: 250px; }
+    .ad-container .footer-container { overflow: hidden; height: 30px; position: relative; top: -30px; }
+    .ad-container .footer-container .footer { font-family: Arial,Helvetic,Sans-Serif; font-size: 12px; text-align: center; padding-top: 9px; background-color: #000; color: #EFF; opacity: 0.9; filter: alpha(opacity=90); top: 30px; height: 30px; position: relative; }
+    .ad-container a:hover { text-decoration: underline; }
+    #adzerk2 { height: 250px; }
+</style>
+<script type="text/javascript">
+    StackExchange.ready(function () {
+        $(".ad-container").hover(
+            function () {
+                $(".ad-container .footer-container .footer").stop(true, true).animate({ top: "0px" }, "fast");
+            },
+            function () {
+                $(".ad-container .footer-container .footer").animate({ top: "30px" }, "fast");
+            });
+    });
+</script>
+    <script type="text/javascript">
+        var z = document.createElement("script"); z.type = "text/javascript"; z.async = true; z.src = 'http://engine.adzerk.net/z/12057/adzerk2_2_17_76?keywords=x-host-cstheory.stackexchange.com'; var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(z, s);
+    </script>
+    <div class="everyonelovesstackoverflow" id="adzerk2">
+    </div>  
+    <div style="margin-bottom: 10px;">
+        
+
+<style type="text/css">
+#newsletter-ad {
+    width: 190px;
+    height: 250px;
+    overflow: hidden;
+    background: url('http://cdn.sstatic.net/cstheory/img/newsletter-ad.png');
+    padding: 0 15px 0 15px;
+}
+#newsletter-ad-header {
+    margin-top: 60px;
+}
+#newsletter-ad ul {
+    margin: 1em 0 1em 1.5em;
+}
+#newsletter-ad ul li {
+    margin-bottom: 5px;
+}
+#newsletter-signup-container {
+    text-align: center;
+}
+#newsletter-preview-container {
+    margin-top: 10px;
+    text-align: center;
+}
+#newsletter-email-input {
+    width: 200px;
+}
+</style>
+
+<script>
+    StackExchange.ready(function () {
+        StackExchange.newsletterAd.init();
+    });
+</script>
+
+<div id="newsletter-ad">
+    <p id="newsletter-ad-header">Get the <strong>weekly newsletter!</strong></p>
+    <ul>
+        <li>Top questions and answers</li>
+        <li>Important announcements</li>
+        <li>Unanswered questions</li>
+    </ul>
+    <div id="newsletter-signup-container"><input id="newsletter-signup" type="button" value="Sign up for the newsletter" /></div>
+    <p id="newsletter-preview-container">see an <a href="http://stackexchange.com/newsletters/newsletter?site=cstheory.stackexchange.com" id="newsletter-preview">example newsletter</a></p>
+    <div class="dno">
+            <p class="privacy-policy-agreement">
+        By subscribing, you agree to the 
+        <a href="http://stackexchange.com/legal/privacy-policy" target="_blank">privacy policy</a> and 
+        <a href="http://stackexchange.com/legal/terms-of-service" target="_blank">terms of service</a>.
+    </p>
+    <input type="hidden" name="legalLinksShown" value="1" />
+
+    </div>
+</div>
+
+    </div>
+
+      
+    
+    <div class="module sidebar-linked">
+        <h4 id="h-linked">Linked</h4>
+        <div class="linked" data-tracker="lq=1">
+            <div class="spacer">
+<a href="/questions/8851/how-important-is-knowing-how-to-program-for-tcs" class="question-hyperlink">How important is knowing how to program for TCS?</a>
+</div>
+<div class="spacer">
+<a href="/questions/1586/what-are-the-outstanding-questions-in-purely-functional-data-structures" class="question-hyperlink">What are the outstanding questions in purely functional data structures?</a>
+</div>
+<div class="spacer">
+<a href="/questions/2432/difference-lists-in-functional-programming" class="question-hyperlink">Difference lists in functional programming</a>
+</div>
+<div class="spacer">
+<a href="/questions/4007/how-do-i-choose-a-functional-dictionary-data-structure" class="question-hyperlink">How do I choose a functional dictionary data structure?</a>
+</div>
+
+        </div>
+    </div>
+    <div class="module sidebar-related">
+        <h4 id="h-related">Related</h4>
+        <div class="related" data-tracker="rq=1">
+            <div class="spacer">
+<a href="/questions/55/simple-balanced-trees-with-o1-concat" class="question-hyperlink">Simple balanced trees with O(1) concat?</a>
+</div>
+<div class="spacer">
+<a href="/questions/384/higher-order-algorithms" class="question-hyperlink">Higher-order algorithms</a>
+</div>
+<div class="spacer">
+<a href="/questions/697/given-the-following-set-of-lisp-primitives-is-it-possible-to-extend-the-eval-fu" class="question-hyperlink">Given the following set of LISP primitives, is it possible to extend the eval function to evaluate defmacro?</a>
+</div>
+<div class="spacer">
+<a href="/questions/1328/what-are-the-theoretical-limits-of-the-stratego-programming-language" class="question-hyperlink">What are the theoretical limits of the Stratego Programming Language?</a>
+</div>
+<div class="spacer">
+<a href="/questions/1586/what-are-the-outstanding-questions-in-purely-functional-data-structures" class="question-hyperlink">What are the outstanding questions in purely functional data structures?</a>
+</div>
+<div class="spacer">
+<a href="/questions/2432/difference-lists-in-functional-programming" class="question-hyperlink">Difference lists in functional programming</a>
+</div>
+<div class="spacer">
+<a href="/questions/2720/can-the-cost-of-gc-be-neglected-when-analyzing-the-running-time-of-worst-case-da" class="question-hyperlink">Can the cost of GC be neglected when analyzing the running time of worst-case data structures specified in a garbage-collected programming language?</a>
+</div>
+<div class="spacer">
+<a href="/questions/4007/how-do-i-choose-a-functional-dictionary-data-structure" class="question-hyperlink">How do I choose a functional dictionary data structure?</a>
+</div>
+<div class="spacer">
+<a href="/questions/4061/confluently-persistent-string-data-structure" class="question-hyperlink">Confluently Persistent String Data Structure</a>
+</div>
+<div class="spacer">
+<a href="/questions/4064/data-structure-for-functions-of-independent-sets" class="question-hyperlink">Data-structure for functions of independent sets</a>
+</div>
+<div class="spacer">
+<a href="/questions/4487/purely-functional-equivalent-of-b-tree" class="question-hyperlink">Purely Functional Equivalent of B-Tree?</a>
+</div>
+<div class="spacer">
+<a href="/questions/4661/functional-sparse-matrix-with-good-performance" class="question-hyperlink">Functional Sparse-Matrix with good performance?</a>
+</div>
+<div class="spacer">
+<a href="/questions/5356/bootstrapping-a-finger-tree-structure" class="question-hyperlink">Bootstrapping a Finger Tree Structure</a>
+</div>
+<div class="spacer">
+<a href="/questions/5517/lower-bounds-for-data-structures" class="question-hyperlink">Lower Bounds for Data Structures</a>
+</div>
+<div class="spacer">
+<a href="/questions/5812/array-slice-reversing-data-structure" class="question-hyperlink">Array slice reversing data-structure</a>
+</div>
+<div class="spacer">
+<a href="/questions/6199/a-data-structure-for-sets-of-trees" class="question-hyperlink">A data structure for sets of trees.</a>
+</div>
+<div class="spacer">
+<a href="/questions/7412/set-data-structure-for-efficient-repeated-insertions" class="question-hyperlink">Set data structure for efficient repeated insertions</a>
+</div>
+<div class="spacer">
+<a href="/questions/8503/what-persistent-data-structure-for-a-set-of-partially-ordered-elements" class="question-hyperlink">What persistent data structure for a set of partially ordered elements?</a>
+</div>
+<div class="spacer">
+<a href="/questions/9572/fortunes-algorithm-beach-line-data-structure" class="question-hyperlink">Fortunes Algorithm - Beach Line Data Structure</a>
+</div>
+<div class="spacer">
+<a href="/questions/11261/need-a-good-overview-for-succinct-data-structure-algorithms" class="question-hyperlink">Need a good overview for Succinct Data Structure algorithms</a>
+</div>
+<div class="spacer">
+<a href="/questions/11348/relational-model-for-data-structure-reasoning" class="question-hyperlink">Relational model for data structure reasoning</a>
+</div>
+<div class="spacer">
+<a href="/questions/12824/handbook-of-advanced-data-structures" class="question-hyperlink">Handbook of advanced data structures</a>
+</div>
+<div class="spacer">
+<a href="/questions/14671/what-is-a-zipper-and-how-does-it-relate-to-a-tree-like-structure" class="question-hyperlink">What is a zipper, and how does it relate to a tree-like structure?</a>
+</div>
+<div class="spacer">
+<a href="/questions/16368/is-there-any-work-on-purely-functional-approximation-algorithms" class="question-hyperlink">Is there any work on purely functional approximation algorithms?</a>
+</div>
+
+        </div>
+    </div>
+</div>
+
+<div id="feed-link">
+    <div id="feed-link-text"><a href="/feeds/question/1539" title="feed of this question and its answers"><span class="feed-icon"></span>question feed</a></div>
+</div>
+<script type="text/javascript">
+StackExchange.ready(function(){$.get('/posts/1539/ivc/0e19');});
+</script>
+<noscript>
+    <div><img src="/posts/1539/ivc/0e19" class="dno" alt="" width="0" height="0"></div>
+</noscript></div>
+        </div>
+    </div>
+    <div id="footer">
+        <div class="footerwrap">
+            <div id="footer-menu">
+                    <a href="/about">about</a> |
+                <a href="/faq">faq</a> |
+                <a href="http://cstheory.blogoverflow.com?blb=1">blog</a> |
+                    <a href="http://chat.stackexchange.com">chat</a> |
+                <a href="http://data.stackexchange.com">data</a> |
+                <a href="http://stackexchange.com/legal">legal</a> |
+                <a href="http://stackexchange.com/legal/privacy-policy">privacy policy</a> |
+                <a href="http://stackexchange.com/about/hiring">jobs</a> |
+                <a href="http://stackexchange.com/about/contact">advertising info</a> |
+
+                <a onclick='StackExchange.switchMobile("on", "/questions/1539/whats-new-in-purely-functional-data-structures-since-okasaki")'>mobile</a> |
+
+                <b><a href="/help">contact us</a></b>
+                  | <b><a href="http://meta.cstheory.stackexchange.com">feedback</a></b>
+                <div id="footer-sites">
+                    
+                        <span style="color:#FE7A15;font-size:140%">&#9632;</span>&nbsp;<a href="http://stackoverflow.com">stackoverflow.com</a>&nbsp; 
+                        <span style="color:#FE7A15;font-size:140%">&#9632;</span>&nbsp;<a href="http://stackapps.com">api/apps</a>&nbsp; 
+                        <span style="color:#FE7A15;font-size:140%">&#9632;</span>&nbsp;<a href="http://careers.stackoverflow.com">careers 2.0</a>&nbsp; 
+                        <span style="color:#E8272C;font-size:140%">&#9632;</span>&nbsp;<a href="http://serverfault.com">serverfault.com</a>&nbsp; 
+                        <span style="color:#00AFEF;font-size:140%">&#9632;</span>&nbsp;<a href="http://superuser.com">superuser.com</a>&nbsp; 
+                        <span style="color:#969696;font-size:140%">&#9632;</span>&nbsp;<a href="http://meta.stackoverflow.com">meta</a>&nbsp; 
+                        <span style="color:#46937D;font-size:140%">&#9632;</span>&nbsp;<a href="http://area51.stackexchange.com">area&nbsp;51</a>&nbsp; 
+                        <span style="color:#C0D0DC;font-size:140%">&#9632;</span>&nbsp;<a href="http://webapps.stackexchange.com">webapps</a>&nbsp; 
+                        <span style="color:#000000;font-size:140%">&#9632;</span>&nbsp;<a href="http://gaming.stackexchange.com">gaming</a>&nbsp; 
+                        <span style="color:#dd4814;font-size:140%">&#9632;</span>&nbsp;<a href="http://askubuntu.com">ubuntu</a>&nbsp; 
+                        <span style="color:#9ce4fe;font-size:140%">&#9632;</span>&nbsp;<a href="http://webmasters.stackexchange.com">webmasters</a>&nbsp; 
+                        <span style="color:#cf4d3f;font-size:140%">&#9632;</span>&nbsp;<a href="http://cooking.stackexchange.com">cooking</a>&nbsp; 
+                        <span style="color:#f4f28d;font-size:140%">&#9632;</span>&nbsp;<a href="http://gamedev.stackexchange.com">game development</a>&nbsp; 
+                        <span style="color:#0f3559;font-size:140%">&#9632;</span>&nbsp;<a href="http://math.stackexchange.com">math</a>&nbsp; 
+                        <span style="color:#f2f2f2;font-size:140%">&#9632;</span>&nbsp;<a href="http://photo.stackexchange.com">photography</a>&nbsp; 
+                        <span style="color:#037187;font-size:140%">&#9632;</span>&nbsp;<a href="http://stats.stackexchange.com">stats</a>&nbsp; 
+                        <span style="color:#f1e7cc;font-size:140%">&#9632;</span>&nbsp;<a href="http://tex.stackexchange.com">tex</a>&nbsp; 
+                        <span style="color:#e1cdae;font-size:140%">&#9632;</span>&nbsp;<a href="http://english.stackexchange.com">english</a>&nbsp; 
+                        <span style="color:#a2d9f6;font-size:140%">&#9632;</span>&nbsp;<a href="http://cstheory.stackexchange.com">theoretical cs</a>&nbsp; 
+                        <span style="color:#1b3e6c;font-size:140%">&#9632;</span>&nbsp;<a href="http://programmers.stackexchange.com">programmers</a>&nbsp; 
+                        <span style="color:#293a5d;font-size:140%">&#9632;</span>&nbsp;<a href="http://unix.stackexchange.com">unix</a>&nbsp;
+                        <span style="color:#bec0cb;font-size:140%">&#9632;</span>&nbsp;<a href="http://apple.stackexchange.com">apple</a>&nbsp;
+                        <span style="color:#939185;font-size:140%">&#9632;</span>&nbsp;<a href="http://wordpress.stackexchange.com">wordpress</a>&nbsp;
+                        <span style="color:#ebf5f5;font-size:140%">&#9632;</span>&nbsp;<a href="http://physics.stackexchange.com">physics</a>&nbsp;
+                        <span style="color:#4176ab;font-size:140%">&#9632;</span>&nbsp;<a href="http://diy.stackexchange.com">home&nbsp;improvement</a>&nbsp;
+                        <span style="color:#d1d8d7;font-size:140%">&#9632;</span>&nbsp;<a href="http://gis.stackexchange.com">gis</a>&nbsp;
+                        <span style="color:#e5e2d3;font-size:140%">&#9632;</span>&nbsp;<a href="http://electronics.stackexchange.com">electrical&nbsp;engineering</a>&nbsp;
+                        <span style="color:#a4c639;font-size:140%">&#9632;</span>&nbsp;<a href="http://android.stackexchange.com">android</a>&nbsp;
+                        <span style="color:#2e4e60;font-size:140%">&#9632;</span>&nbsp;<a href="http://security.stackexchange.com">security</a>&nbsp;
+                        <span style="color:#45bcb5;font-size:140%">&#9632;</span>&nbsp;<a href="http://bicycles.stackexchange.com">bicycles</a>&nbsp;
+                        <span style="color:#00adee;font-size:140%">&#9632;</span>&nbsp;<a href="http://dba.stackexchange.com">dba</a>&nbsp;
+                        <span style="color:#2edaf0;font-size:140%">&#9632;</span>&nbsp;<a href="http://drupal.stackexchange.com">drupal</a>&nbsp;
+                        <span style="color:#213951;font-size:140%">&#9632;</span>&nbsp;<a href="http://sharepoint.stackexchange.com">sharepoint</a>&nbsp;
+                        <span style="color:#73abb3;font-size:140%">&#9632;</span>&nbsp;<a href="http://scifi.stackexchange.com">scifi&nbsp;&amp;&nbsp;fantasy</a>&nbsp;
+                        <span style="color:#23629F;font-size:140%">&#9632;</span>&nbsp;<a href="http://ux.stackexchange.com">user&nbsp;experience</a>&nbsp;
+                        <span style="color:#faff72;font-size:140%">&#9632;</span>&nbsp;<a href="http://skeptics.stackexchange.com">skeptics</a>&nbsp;
+                        <span style="color:#623121;font-size:140%">&#9632;</span>&nbsp;<a href="http://rpg.stackexchange.com">rpg</a>&nbsp;
+                        <span style="color:#e4be88;font-size:140%">&#9632;</span>&nbsp;<a href="http://judaism.stackexchange.com">judaism</a>&nbsp;
+                        <span style="color:#ffecb1;font-size:140%">&#9632;</span>&nbsp;<a href="http://mathematica.stackexchange.com">mathematica</a>&nbsp;
+                        <span style="color:#1b8598;font-size:140%">&#9632;</span>&nbsp;<a href="http://travel.stackexchange.com">travel</a>&nbsp;
+                </div>
+            </div>
+            <div id="footer-flair">
+                <a class="peer1" href="http://www.peer1.com/stackoverflow"></a>  
+	            <a href="http://creativecommons.org/licenses/by-sa/3.0/" class="cc-wiki-link"></a>
+                <div id="svnrev">rev 2013.3.5.537</div>
+                        </div>
+            <div id="copyright">
+                site design / logo &copy; 2013 stack exchange inc; 
+                user contributions licensed under <a href="http://creativecommons.org/licenses/by-sa/3.0/" rel="license">cc-wiki</a> with <a href="http://blog.stackoverflow.com/2009/06/attribution-required/" rel="license">attribution required</a>
+            </div>
+            
+
+        </div>
+    </div>
+    
+    <noscript>
+        <div id="noscript-warning">Theoretical Computer Science - Stack Exchange works best with JavaScript enabled<img src="http://pixel.quantserve.com/pixel/p-c1rF4kxgLUzNc.gif" alt="" class="dno"></div>
+    </noscript>
+    <script type="text/javascript">var _gaq=_gaq||[];_gaq.push(['_setAccount','UA-5620270-24']);
+        _gaq.push(['_setDomainName','.stackexchange.com']);
+        _gaq.push(['_setCustomVar', 1, 'tags', '|reference-request|big-list|ds.data-structures|functional-programming|']); 
+_gaq.push(['_trackPageview']);
+    var _qevents = _qevents || [];
+    (function(){
+        var s=document.getElementsByTagName('script')[0];
+        var ga=document.createElement('script');
+        ga.type='text/javascript';
+        ga.async=true;
+        ga.src='http://www.google-analytics.com/ga.js';
+        s.parentNode.insertBefore(ga,s);
+        var sc=document.createElement('script');
+        sc.type='text/javascript';
+        sc.async=true;
+        sc.src='http://edge.quantserve.com/quant.js'; 
+        s.parentNode.insertBefore(sc,s);
+    })();
+    </script>
+    <script type="text/javascript">
+        _qevents.push({ qacct: "p-c1rF4kxgLUzNc" });
+    </script>        
+    
+</body>
+</html>

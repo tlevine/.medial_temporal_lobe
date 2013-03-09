@@ -1,0 +1,1665 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head profile="http://gmpg.org/xfn/11">
+
+<title>Events</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="robots" content="index, follow" />
+<meta name="google-site-verification" content="TYQWa8y1-HYt036S6Mdc_wQphOaNWZ3w95-TN1_rzjk" />
+<link rel="stylesheet" type="text/css" href="/css/style.css" media="screen" />
+
+<style type="text/css">
+#logo .site-title, #logo .site-description { display:block; }
+body {background-repeat:no-repeat;background-position:top center;border-top:4px solid #000000;}
+#header {background-repeat:repeat;background-position:top center;margin-top:0px;margin-bottom:0px;padding-top:20px;padding-bottom:15px;border:0px solid ;}
+#logo .site-title a {font:normal 40px/1em Georgia, serif;color:#222222}
+#logo .site-description {font:italic 14px/1em Georgia, serif;color:#999999}
+#logo .site-title a {font:normal 40px/1em Georgia, serif;color:#222222}
+#logo .site-description {font:italic 14px/1em Georgia, serif;color:#999999}
+body, p {font:normal 14px/1.5em Arial, sans-serif;color:#555555}
+h1 {font:normal 28px/1.5em Georgia, serif;color:#222222}h2 {font:normal 24px/1.5em Georgia, serif;color:#222222}h3 {font:normal 20px/1.5em Georgia, serif;color:#222222}h4 {font:normal 16px/1.5em Georgia, serif;color:#222222}h5 {font:normal 14px/1.5em Georgia, serif;color:#222222}h6 {font:normal 12px/1.5em Georgia, serif;color:#222222}
+.post .title, .page .title, .post .title a:link, .post .title a:visited, .page .title a:link, .page .title a:visited {font:bold 20px/1.2em Arial, sans-serif;color:#222222; padding-bottom: 15px;}
+.entry, .entry p{font:normal 14px/1.5em Georgia, serif;color:#555555}
+.post-more {font:normal 12px/1.5em Arial, sans-serif;color:#868686;border-top:4px solid #e6e6e6;border-bottom:1px solid #e6e6e6;}
+.nav-entries, .wp-pagenavi {border-top:1px solid #e6e6e6;border-bottom:4px solid #e6e6e6;}
+.nav-entries a, .wp-pagenavi a:link, .wp-pagenavi a:visited, .wp-pagenavi .current, .wp-pagenavi .on, .wp-pagenavi a:hover, .wp-pagenavi span.extend, .wp-pagenavi span.pages {font:italic 12px/1.5em Georgia, serif;color:#777777!important}
+.wp-pagenavi a:link, .wp-pagenavi a:visited, .wp-pagenavi span.extend, .wp-pagenavi span.pages, .wp-pagenavi span.current {color:#777777!important}
+
+.widget h3 {font:bold 14px/1.5em Arial, sans-serif;color:#555555;border-bottom:3px solid #e6e6e6;}
+.widget_recent_comments li, #twitter li { border-color: #e6e6e6;}
+
+.widget p, .widget .textwidget {font:normal 12px/1.5em Arial, sans-serif;color:#555555;}
+.widget {font:normal 12px/1.5em Arial, sans-serif;color:#555555;border-radius:0px;-moz-border-radius:0px;-webkit-border-radius:0px;}
+
+.widget ul{
+	margin-left: 35px;
+	list-style: disc;
+}
+
+.nav a, #navigation ul.rss a {font:normal 14px Arial, sans-serif;color:#555555}
+#navigation {border-top:1px solid #dbdbdb;border-bottom:4px solid #dbdbdb;border-left:0px solid #dbdbdb;border-right:0px solid #dbdbdb;border-radius:0px; -moz-border-radius:0px; -webkit-border-radius:0px;}
+#footer, #footer p {font:italic 14px Georgia, serif;color:#777777}
+#footer {border-top:4px solid #dbdbdb;border-bottom:0px solid ;border-left:0px solid ;border-right:0px solid ;border-radius:0px; -moz-border-radius:0px; -webkit-border-radius:0px;}
+
+.bodycontent{
+	margin: 8px 0 8px 40px;
+	padding: 0px 0px 0px 0px;
+}
+
+p
+	{
+	padding: 2px;	
+	}
+
+blockquote
+	{
+	margin-left: 30px;	
+	margin-right: 30px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	}
+
+.mainlist
+	{	
+	margin-top: 10px;
+	margin-left: 50px;
+	margin-bottom: 10px;
+	}
+.mainlist li
+	{
+	list-style-type:disc;	
+	}
+	
+.taglist
+	{	
+	margin-top: 10px;	
+	margin-left: 50px;
+	margin-bottom: 10px;
+	}	
+.taglist li
+	{
+	display:inline; 
+	list-style: none; 
+	padding-left: 7px;
+	}
+.bodylist
+	{	
+	margin-top: 5px;	
+	margin-left: 50px;
+	margin-bottom: 5px;
+	}	
+.taglist li
+	{
+	list-style-type:disc;
+	}	
+
+</style>
+
+<style type="text/css" media="all">
+	@import url("/dashboard/css/jquery.wysiwyg.css");
+	@import url("/dashboard/css/facebox.css");
+	@import url("/dashboard/css/visualize.css");
+	@import url("/dashboard/css/date_input.css");
+	@import url("/dashboard/css/thickbox.css");
+	@import url("/dashboard/css/accordion.css");
+	@import url("/dashboard/css/iframe.css");
+</style>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"></script>
+<!--- Accordion Menu--->
+<script type="text/javascript">
+	$(document).ready(function() {
+		
+	//Set default open/close settings
+	$('.acc_container').hide(); //Hide/close all containers
+	$('.acc_trigger:first').addClass('active').next().show(); //Add "active" class to first trigger, then show/open the immediate next container
+	
+	//On Click
+	$('.acc_trigger').click(function(){
+		if( $(this).next().is(':hidden') ) { //If immediate next container is closed...
+			$('.acc_trigger').removeClass('active').next().slideUp(); //Remove all "active" state and slide up the immediate next container
+			$(this).toggleClass('active').next().slideDown(); //Add "active" state to clicked trigger and slide down the immediate next container
+		}
+		return false; //Prevent the browser jump to the link anchor
+	});
+	});	
+</script>
+
+<!--[if lt IE 8]><style type="text/css" media="all">@import url("/dashboard/css/ie.css");</style><![endif]-->
+
+<script type="text/javascript" src="/jscripts/qtip.js"></script>
+<script type="text/javascript" src="/jscripts/master.js"></script>
+
+<script src="/jscripts/jquery.bxSlider.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('#slider1').bxSlider();
+  });
+</script>
+
+<link rel="stylesheet" type="text/css" href="/css/bx_styles.css" media="screen" />
+
+</head>
+<body class="home blog two-col-left width-940 two-col-left-940">
+
+<div id="wrapper">
+	<div id="header" class="col-full">
+		<div id="logo">
+			
+			<a href="" title=""><img src="http://kinlane-productions.s3.amazonaws.com/api-evangelist/api-evangelist-logo-400.png"></a>
+
+		</div><!-- /#logo -->
+
+	</div><!-- /#header -->
+	
+	<div id="navigation" class="col-full">
+
+		<ul id="main-nav" class="nav fl">
+			<li class="page_item page-item-2"><a href="/index.php" title="Home">API 101</a></li>
+			<li class="page_item page-item-2"><a href="/blog/" title="Blog">Blog</a></li>
+			<li class="page_item page-item-2"><a href="/news/" title="News">News</a></li>
+			<!--<li class="page_item page-item-2"><a href="/industries/" title="Industries">Industries</a></li>-->
+			<li class="page_item page-item-2"><a href="/buildingblocks/" title="Building Blocks">Building Blocks</a></li>
+			<li class="page_item page-item-2"><a href="/serviceproviders/" title="Service Providers">Service Providers</a></li>
+			<li class="page_item page-item-2"><a href="/apitools/" title="Tools">Tools</a></li>
+			<li class="page_item current_page_item"><a href="/events/" title="Events">Hackathons</a></li>
+			<li class="page_item page-item-2"><a href="/history/" title="History">History</a></li>
+			<li class="page_item page-item-2"><a href="/trends/" title="Trends">Trends</a></li>
+		
+			<li class="page_item page-item-2"><a href="http://kinlane.com/contact/" title="Contact">Contact</a></li>
+		</ul><!-- /#nav -->
+		
+		<ul class="rss fr">
+			<li class="sub-rss">
+								<a href="http://feeds.feedburner.com/ApiEvangelist" target="_blank">
+						<img src="http://kinlane-productions.s3.amazonaws.com/icon-set-roundedcorners/rss.png" />
+					</a>
+								
+			</li>
+			<li class="sub-rss">				
+				<a href="https://twitter.com/#!/kinlane" target="_blank">
+					<img src="http://kinlane-productions.s3.amazonaws.com/icon-set-roundedcorners/twitter.png" />
+				</a>
+			</li>
+			<li class="sub-rss">
+				<a href="http://www.linkedin.com/in/kinlane" target="_blank">
+					<img src="http://kinlane-productions.s3.amazonaws.com/icon-set-roundedcorners/linkedin.png" />
+				</a>
+			</li>
+			<li class="sub-rss">
+				<a href="https://plus.google.com/106460238807821851374" target="_blank">
+					<img src="http://kinlane-productions.s3.amazonaws.com/icon-set-roundedcorners/google.png" />
+				</a>
+			</li>			
+		</ul>
+
+	</div><!-- /#navigation -->
+
+	<!-- #content Starts -->
+	<div id="content" class="col-full">
+
+		<div id="main-sidebar-container">
+
+			<!-- #main Starts -->
+			<div id="main">      
+                                
+				<!-- Post Starts -->
+				<div class="post-1 post type-post hentry category-api-marketplace category-uncategorized">
+				
+	<div class="entry">	
+		
+		<h5 class="title"><a href="/events/index.php" rel="bookmark" title="Hackathons">Hackathons</a></h5>
+						<form action="index.php" method="get" name="filter">
+		<table cellpadding="5" cellspacing="5" width="100%" border="0">
+			<tr>
+				<td width="20%"><strong>Listing</strong></td>
+				<td width="20%"><strong>Month</strong></td>
+				<td width="20%"><strong>City</strong></td>
+				<td width="20%"><strong>Country</strong></td>
+				<td width="20%"><strong>Time Period</strong></td>
+			</tr>
+			<tr>
+				<td align="left" valign="top">
+					<select name="listingtype" style="width: 100%" onchange="document.filter.submit();">
+						<option value="Detail" selected>Detail</option>
+						<option value="Summary">Summary</option>
+					</select>
+				</td>
+				<td align="left" valign="top">
+					<select name="month" style="width: 100%" onchange="document.filter.submit();">
+						<option value="" selected>All Months</option>
+						<option value="01">January</option>
+						<option value="02">February</option>
+						<option value="03">March</option>
+						<option value="04">April</option>
+						<option value="05">May</option>
+						<option value="06">June</option>
+						<option value="07">July</option>
+						<option value="08">August</option>
+						<option value="09">September</option>
+						<option value="10">October</option>
+						<option value="11">November</option>
+						<option value="12">December</option>
+					</select>
+				</td>				
+				<td align="left" valign="top">
+											<select name="city" style="width: 100%" onchange="document.filter.submit();">
+							<option value="">All Cities</option>
+															<option value="Aberdeen">Aberdeen</option>
+																<option value="Albuquerque">Albuquerque</option>
+																<option value="Atlanta">Atlanta</option>
+																<option value="Austin">Austin</option>
+																<option value="Barcelona">Barcelona</option>
+																<option value="Bloomington">Bloomington</option>
+																<option value="Boston">Boston</option>
+																<option value="Bucuresti">Bucuresti</option>
+																<option value="Cambridge">Cambridge</option>
+																<option value="Cary">Cary</option>
+																<option value="Chicago">Chicago</option>
+																<option value="Coral Gables">Coral Gables</option>
+																<option value="Dundee">Dundee</option>
+																<option value="El Segundo">El Segundo</option>
+																<option value="Espoo">Espoo</option>
+																<option value="Ewing Township">Ewing Township</option>
+																<option value="Gainesville">Gainesville</option>
+																<option value="Gatineau">Gatineau</option>
+																<option value="Halifax">Halifax</option>
+																<option value="Heverlee">Heverlee</option>
+																<option value="Hyderabad">Hyderabad</option>
+																<option value="Istanbul">Istanbul</option>
+																<option value="Kansas City">Kansas City</option>
+																<option value="Leeds">Leeds</option>
+																<option value="London">London</option>
+																<option value="Louisville">Louisville</option>
+																<option value="Lusaka">Lusaka</option>
+																<option value="Mayagüez">Mayagüez</option>
+																<option value="Mesa">Mesa</option>
+																<option value="Miami">Miami</option>
+																<option value="Montreal">Montreal</option>
+																<option value="Nantes">Nantes</option>
+																<option value="New York">New York</option>
+																<option value="North Kansas City">North Kansas City</option>
+																<option value="San Diego">San Diego</option>
+																<option value="SANTA MONICA">SANTA MONICA</option>
+																<option value="Seattle">Seattle</option>
+																<option value="Singapore">Singapore</option>
+																<option value="Somerville">Somerville</option>
+																<option value="St. Catharines">St. Catharines</option>
+																<option value="Toronto">Toronto</option>
+																<option value="Vancouver">Vancouver</option>
+																<option value="Victoria">Victoria</option>
+																<option value="Vijayawada">Vijayawada</option>
+																<option value="Warangal">Warangal</option>
+																<option value="Washington">Washington</option>
+																<option value="Zaventem">Zaventem</option>
+														</select>
+										</td>				
+				<td align="left" valign="top">
+											<select name="country" style="width: 100%" onchange="document.filter.submit();">
+							<option value="">All Countries</option>
+															<option value="Belgium">Belgium</option>
+																<option value="Canada">Canada</option>
+																<option value="Finland">Finland</option>
+																<option value="France">France</option>
+																<option value="India">India</option>
+																<option value="Puerto Rico">Puerto Rico</option>
+																<option value="Romania">Romania</option>
+																<option value="Singapore">Singapore</option>
+																<option value="Spain">Spain</option>
+																<option value="Turkey">Turkey</option>
+																<option value="United Kingdom">United Kingdom</option>
+																<option value="United States">United States</option>
+																<option value="Zambia">Zambia</option>
+														</select>
+										</td>
+				<td align="left" valign="top">
+					<select name="period" style="width: 100%" onchange="document.filter.submit();">
+						<option value="Future">Future</option>
+						<option value="Past">Past</option>
+					</select>
+				</td>				
+			</tr>
+		</table>
+		<hr />
+		</form>
+		
+					
+			<table cellpadding="5" cellspacing="5" width="100%" border="0">
+				<tr>
+					<td align="left" valign="top">
+						<table cellpadding="5" cellspacing="5" width="100%" border="0">
+							<tr>
+								<td align="left">				
+										
+												<table cellpadding="5" cellspacing="5" width="100%" border="0">
+													<tr>
+														<td>
+															<a href="/events/edvantage-yappon-2013.php"><img src="" width="125" align="left" /></a>
+															<a href="/events/edvantage-yappon-2013.php" style="color: #000;"><strong>Edvantage Yappon 2013 - 02/16/2013 to 02/17/2013 -  Andhra Pradesh  India </strong></a>  YAPPON is India's largest coding hackathon organised by Edukinect and Microsoft for the aspiring Indian youth.  We are inviting developers across India from Engineering colleges, leading industry partners on a platform to collaborate.  Dream an idea, learn with us, build apps and be ready to launch your career with YAPPON.  For more details please visit us at www.  yappon.															<br /><br /><p align="center"><a href="/events/edvantage-yappon-2013.php">
+															<strong>View Details</strong>
+															</a></p>											
+														</td>										
+													</tr>
+												</table>
+												<hr style="padding:3px;" />
+													
+												<table cellpadding="5" cellspacing="5" width="100%" border="0">
+													<tr>
+														<td>
+															<a href="/events/ideathon.php"><img src="http://kinlane-productions.s3.amazonaws.com/api-evangelist-site/events/ideathon.jpeg" width="125" align="right" /></a>
+															<a href="/events/ideathon.php" style="color: #000;"><strong>IDEATHON - 02/16/2013 to 02/16/2013 - London England  United Kingdom </strong></a>  What in tarnation is an Ideathon?  It&rsquo;s like this.  You&rsquo;ve got an idea, but it&rsquo;s just that - An idea.  &nbsp; No business model.  No brand.  No real clue as to how to move forward with it.  Ring any bells?  An ideathon is a chance to pitch that idea and, in an afternoon, go from nothing to something.  What if I don&rsquo;t have an idea?  If you&rsquo;re looking to team up with someone with a great concept, this is a fantastic opportunity to hear lots of pitches and get involved at the earliest stage of development.  &nbsp;
+  Who should come?  If you have an idea&ndash; pitch it at one of our events, join forces with people to help develop your idea from nothing to something and maybe even meet your new Co-Founder!															<br /><br /><p align="center"><a href="/events/ideathon.php">
+															<strong>View Details</strong>
+															</a></p>
+														</td>										
+													</tr>
+												</table>
+												<hr style="padding:3px;" />
+													
+												<table cellpadding="5" cellspacing="5" width="100%" border="0">
+													<tr>
+														<td>
+															<a href="/events/edvantage-yappon-2013.php"><img src="" width="125" align="left" /></a>
+															<a href="/events/edvantage-yappon-2013.php" style="color: #000;"><strong>Edvantage Yappon 2013 - 02/17/2013 to 02/18/2013 - Hyderabad Andhra Pradesh  India </strong></a>  YAPPON is India's largest coding hackathon organised by Edukinect and Microsoft for the aspiring Indian youth.  We are inviting developers across India from Engineering colleges, leading industry partners on a platform to collaborate.  Dream an idea, learn with us, build apps and be ready to launch your career with YAPPON.  For more details please visit us at www.  yappon.															<br /><br /><p align="center"><a href="/events/edvantage-yappon-2013.php">
+															<strong>View Details</strong>
+															</a></p>											
+														</td>										
+													</tr>
+												</table>
+												<hr style="padding:3px;" />
+													
+												<table cellpadding="5" cellspacing="5" width="100%" border="0">
+													<tr>
+														<td>
+															<a href="/events/digitalwalletfoundry-identity.php"><img src="" width="125" align="right" /></a>
+															<a href="/events/digitalwalletfoundry-identity.php" style="color: #000;"><strong>#DigitalWalletFoundry: Identity - 02/18/2013 to 02/22/2013 - London London  United Kingdom </strong></a>  &nbsp;
+#DigitalWalletFoundry at Modern Jago&nbsp;
+A day to think, a week to design.  &nbsp;Complex and diverse offerings and intense competition, combined with the familiar refrain that &ldquo;next year is the year of mobile payments&rdquo; are delaying user adoption.  Activating consumer demand is the Industries greatest challenge.  &nbsp; 
+&nbsp;Digital Wallet Foundry, a three week mix &lsquo;n&rsquo; match event program in London starting 18th Feb seeks to focus the Industry on creating propositions that excite and engage, with the primary goal of encouraging the development of wallet applications.  #DigitalWalletFoundry invites developers, designers, industry leaders and people with a view to take the first steps in solving some of these challenges.															<br /><br /><p align="center"><a href="/events/digitalwalletfoundry-identity.php">
+															<strong>View Details</strong>
+															</a></p>
+														</td>										
+													</tr>
+												</table>
+												<hr style="padding:3px;" />
+													
+												<table cellpadding="5" cellspacing="5" width="100%" border="0">
+													<tr>
+														<td>
+															<a href="/events/hackathon-on-mobile-apps-for-equitable-access-to-quality-health-care.php"><img src="http://kinlane-productions.s3.amazonaws.com/api-evangelist-site/events/sais-logo.gif" width="125" align="left" /></a>
+															<a href="/events/hackathon-on-mobile-apps-for-equitable-access-to-quality-health-care.php" style="color: #000;"><strong>Hackathon on Mobile Apps for Equitable Access to Quality Health Care - 02/21/2013 to 02/22/2013 - Lusaka Lusaka  Zambia </strong></a>  Reports from the health sector on the status of health for the majority of Zambians point to notable reductions in infant and maternal mortality rates and in the disease burden in general.  Reductions have been recorded in the prevalence of malaria, HIV/AIDS infections and TB transmissions, among others.  However, these successes appear not to be commensurate with the newly acquired status of a lower middle income country.  Further, a concern has arisen that Zambia may not achieve its health targets under the Millennium Development Goals (MDGs).  Policy makers and experts attribute this to a weak health delivery system and are convinced that mainstreaming ICTs in the system could enhance its effectiveness and hence Zambia&rsquo;s chances of attaining the MDGs.															<br /><br /><p align="center"><a href="/events/hackathon-on-mobile-apps-for-equitable-access-to-quality-health-care.php">
+															<strong>View Details</strong>
+															</a></p>											
+														</td>										
+													</tr>
+												</table>
+												<hr style="padding:3px;" />
+													
+												<table cellpadding="5" cellspacing="5" width="100%" border="0">
+													<tr>
+														<td>
+															<a href="/events/hackathon-on-mobile-apps-for-increased-industrial-competitiveness.php"><img src="http://kinlane-productions.s3.amazonaws.com/api-evangelist-site/events/sais-logo.gif" width="125" align="right" /></a>
+															<a href="/events/hackathon-on-mobile-apps-for-increased-industrial-competitiveness.php" style="color: #000;"><strong>Hackathon on Mobile Apps for Increased Industrial Competitiveness - 02/21/2013 to 02/22/2013 - Lusaka Lusaka  Zambia </strong></a>  In spite of graduating into lower-middle income status, the incidence of poverty in Zambia remains at undesirable levels partly due to the relatively high cost of living induced by the high cost of doing business.  Industry experts and policy makers have identified low ICT use by way of e-commerce as a contributing factor.  Evidence from the developed and emerging economies reveals that e-commerce is a lot more economical especially for an enterprise in a developing country because it reduces logistical problems&nbsp;and transaction costs associated with limited physical infrastructure that characterizes these regions.  In this regard, Government has resolved &ldquo;to increase coverage, access and efficiency in the provision of Information and Communications Technology and meteorological services in order to contribute to sustainable national economic growth&rdquo;.															<br /><br /><p align="center"><a href="/events/hackathon-on-mobile-apps-for-increased-industrial-competitiveness.php">
+															<strong>View Details</strong>
+															</a></p>
+														</td>										
+													</tr>
+												</table>
+												<hr style="padding:3px;" />
+													
+												<table cellpadding="5" cellspacing="5" width="100%" border="0">
+													<tr>
+														<td>
+															<a href="/events/hackathon-on-mobile-apps-for-reliable-and-affordable-energy.php"><img src="http://kinlane-productions.s3.amazonaws.com/api-evangelist-site/events/sais-logo.gif" width="125" align="left" /></a>
+															<a href="/events/hackathon-on-mobile-apps-for-reliable-and-affordable-energy.php" style="color: #000;"><strong>Hackathon on Mobile Apps for Reliable and Affordable Energy - 02/21/2013 to 02/22/2013 - Lusaka Lusaka  Zambia </strong></a>  The Zambian consumer of electricity is currently faced with periodic interruptions in electricity power supply in addition to the widely perceived high cost of the commodity.  Against these challenges, it is the wish of Government to provide &ldquo;universal access to clean, reliable and affordable energy at the lowest total economic, financial, social and environmental cost to all Zambians consistent with national development goals by 2030&rdquo;.  &nbsp;  
+  In contributing towards the realisation of this vision, the Southern Africa Innovation Support (SAIS) Programme is promoting public discussions aimed at sharing knowledge on how best to reduce both the cost and interruption of electricity to consumers through the use of mobile phone technology.  One way of conducting such public discussions is by holding hackathons.  What is a Hackathon?															<br /><br /><p align="center"><a href="/events/hackathon-on-mobile-apps-for-reliable-and-affordable-energy.php">
+															<strong>View Details</strong>
+															</a></p>											
+														</td>										
+													</tr>
+												</table>
+												<hr style="padding:3px;" />
+													
+												<table cellpadding="5" cellspacing="5" width="100%" border="0">
+													<tr>
+														<td>
+															<a href="/events/sais-programme-zambia-innovations-hackathon--enhancing-productivity-through-mobile-apps.php"><img src="http://kinlane-productions.s3.amazonaws.com/api-evangelist-site/events/sais.gif" width="125" align="right" /></a>
+															<a href="/events/sais-programme-zambia-innovations-hackathon--enhancing-productivity-through-mobile-apps.php" style="color: #000;"><strong>SAIS Programme Zambia Innovations Hackathon : Enhancing Productivity through Mobile Apps - 02/21/2013 to 02/22/2013 - Lusaka Lusaka  Zambia </strong></a>  Mobile Apps for Sustainable Development&nbsp;
+  Zambia has joined the global community in crowd-sourcing knowledge to address social challenges as well as to take advantage of emerging opportunities.  Crowd-sourcing through Hackathons has hitherto proved to be the most effective open innovation platform for countries and enterprises to utlilize the immense potential that exist in the community.  Motivated by the many social and economic challenges, the SAIS Programme in Zambia is pioneering the use of Hackathons as one of the sustainable approaches to innovation promotion.  In this regard, the Programme has planned to hold a&nbsp; 2-day National Hackathon&nbsp;in Lusaka focusing on Mobile Applications&nbsp;from February 21 to 22, 2013.															<br /><br /><p align="center"><a href="/events/sais-programme-zambia-innovations-hackathon--enhancing-productivity-through-mobile-apps.php">
+															<strong>View Details</strong>
+															</a></p>
+														</td>										
+													</tr>
+												</table>
+												<hr style="padding:3px;" />
+													
+												<table cellpadding="5" cellspacing="5" width="100%" border="0">
+													<tr>
+														<td>
+															<a href="/events/ga-tech-hackathon-sponsored-by-ebay.php"><img src="http://kinlane-productions.s3.amazonaws.com/api-evangelist-site/events/ga-tech-hackathon.png" width="125" align="left" /></a>
+															<a href="/events/ga-tech-hackathon-sponsored-by-ebay.php" style="color: #000;"><strong>GA Tech Hackathon: Sponsored by eBay - 02/21/2013 to 02/24/2013 - Atlanta GA  United States </strong></a>   
+Information Session 
+Thursday February 21st, 2013 6:30-8:00 pm
+Bldg #153 Klaus Classroom 1456
+
+
+* Free food and drinks
+
+ 
+Hackathon
+Saturday February 23rd, 2013 7:00 pm start!  Through Sunday 
+February 24th; 2:00pm.															<br /><br /><p align="center"><a href="/events/ga-tech-hackathon-sponsored-by-ebay.php">
+															<strong>View Details</strong>
+															</a></p>											
+														</td>										
+													</tr>
+												</table>
+												<hr style="padding:3px;" />
+													
+												<table cellpadding="5" cellspacing="5" width="100%" border="0">
+													<tr>
+														<td>
+															<a href="/events/unleash-the-beast-how-to-hack-a-hackathon-save-the-world-and-make-your-parents-proud.php"><img src="http://kinlane-productions.s3.amazonaws.com/api-evangelist-site/events/innovation-unleashed.png" width="125" align="right" /></a>
+															<a href="/events/unleash-the-beast-how-to-hack-a-hackathon-save-the-world-and-make-your-parents-proud.php" style="color: #000;"><strong>Unleash the Beast: How to Hack a Hackathon, Save the World and Make Your Parents Proud - 02/21/2013 to 02/21/2013 - New York NY  United States </strong></a>  Unleash the Beast: How to Hack a Hackathon, Save the World and Make Your Parents Proud
+ 
+INSTRUCTORS:Marianne Bellotti (Hackathon vet, 5-time hackathon winner, Developer and Prototype Engineer)Christopher Kennedy (Hackathon vet - winner of numerous hackathons including Tech Crunch, web developer, UX designer and front-end developer)
+REGISTRATION INCLUDES:Downloadable Presentations  ♦  Free tickets to the first ever hackathon for Biz Dev and Marketing experts (to be judged by hackers)  ♦  Pizza and Beer  
+AGENDA:
+
+Feed the Beast: a brief overview of the evolutuion of hackthons  ♦ what are the various types of hackathons ♦ what's driving this worldwide insatiable thirst for innovation at hackathons and what threatens to destroy that spirit of innovation?  ♦ which are the most successful hackathons?															<br /><br /><p align="center"><a href="/events/unleash-the-beast-how-to-hack-a-hackathon-save-the-world-and-make-your-parents-proud.php">
+															<strong>View Details</strong>
+															</a></p>
+														</td>										
+													</tr>
+												</table>
+												<hr style="padding:3px;" />
+													
+												<table cellpadding="5" cellspacing="5" width="100%" border="0">
+													<tr>
+														<td>
+															<a href="/events/govathon--city-hackathon-by-startup-atlanta.php"><img src="http://kinlane-productions.s3.amazonaws.com/api-evangelist-site/events/govathon-logo.png" width="125" align="left" /></a>
+															<a href="/events/govathon--city-hackathon-by-startup-atlanta.php" style="color: #000;"><strong>Govathon - City Hackathon by Startup Atlanta - 02/22/2013 to 02/23/2013 - Atlanta GA  United States </strong></a>  Startup Atlanta and the City of Atlanta are engaging citizens to come together to help solve problems that affect the local government and the community.  A City of Atlanta first, at this hackathon we will be developing solutions using the experts from the community (you).  We will be making everything from websites and mobile apps to designing other types of innovative products and services that can help the city and the community.  Some ideas will be completed and others will be prototypes, but you will be amazed at what we can accomplish in just 24 hours.  The city is committed to continue working on the best ideas till completion.  Friday&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;6:00 p.  m.															<br /><br /><p align="center"><a href="/events/govathon--city-hackathon-by-startup-atlanta.php">
+															<strong>View Details</strong>
+															</a></p>											
+														</td>										
+													</tr>
+												</table>
+												<hr style="padding:3px;" />
+													
+												<table cellpadding="5" cellspacing="5" width="100%" border="0">
+													<tr>
+														<td>
+															<a href="/events/id-hack.php"><img src="http://kinlane-productions.s3.amazonaws.com/api-evangelist-site/events/id-hackathon.jpg" width="125" align="right" /></a>
+															<a href="/events/id-hack.php" style="color: #000;"><strong>ID Hack - 02/22/2013 to 02/23/2013 - Cambridge MA  United States </strong></a>  Technology is powerful.  Powerful enough to help solve poverty.  Come to ID Hack to join a community of developers using technology to develop practical solutions that can reform the world of international development.  With organizations like PeaceCorps, Sana, and sponsors from Microsoft, Dropbox, Athenahealth, Healthbox, and Kyruus, you won't want to miss out!  First 100 participants receive 5GB of free Dropbox space.  Best designs will receive 50 GB of Dropbox space and prize awards of either $500, $400, $200, or $150.  Networking, making a different in the world, and great prizes.   .  ID Hack, wouldn't you?   
+More information: https://sites.  google.															<br /><br /><p align="center"><a href="/events/id-hack.php">
+															<strong>View Details</strong>
+															</a></p>
+														</td>										
+													</tr>
+												</table>
+												<hr style="padding:3px;" />
+													
+												<table cellpadding="5" cellspacing="5" width="100%" border="0">
+													<tr>
+														<td>
+															<a href="/events/sprout--hackathon-11.php"><img src="http://kinlane-productions.s3.amazonaws.com/api-evangelist-site/events/sprout-logo.png" width="125" align="left" /></a>
+															<a href="/events/sprout--hackathon-11.php" style="color: #000;"><strong>Sprout - Hackathon 11 - 02/22/2013 to 02/23/2013 - Bloomington IL  United States </strong></a>															<br /><br /><p align="center"><a href="/events/sprout--hackathon-11.php">
+															<strong>View Details</strong>
+															</a></p>											
+														</td>										
+													</tr>
+												</table>
+												<hr style="padding:3px;" />
+													
+												<table cellpadding="5" cellspacing="5" width="100%" border="0">
+													<tr>
+														<td>
+															<a href="/events/tufts-hackathon-2013--presented-by-evernote.php"><img src="http://kinlane-productions.s3.amazonaws.com/api-evangelist-site/events/evernote-tuft-hackathon.png" width="125" align="right" /></a>
+															<a href="/events/tufts-hackathon-2013--presented-by-evernote.php" style="color: #000;"><strong>Tufts Hackathon 2013 - Presented By Evernote - 02/23/2013 to 02/24/2013 - Somerville MA  United States </strong></a>  For full schedule & Event details - Check out tuftshackathon.  com
+
+About the Tufts Hackathon 2013
+We are hosting Tufts' second Hackathon, an all-night coding/designing extravaganza.  Make your idea something tangible with a team of your friends in 24 hours.  Plenty of free food, caffeine, and swag.  The Hackathon will start off with a few short, informal pitches from our awesome Sponsors.  After that you can either hack away or go to their workshops and learn how to utilize their APIs and products.  And at the end of the event, there will be prizes donated by our sponsors!  Come alone, or with team.  YOU DON'T NEED AN IDEA TO COME.  We'll help you find people to work with and ideas to work on.															<br /><br /><p align="center"><a href="/events/tufts-hackathon-2013--presented-by-evernote.php">
+															<strong>View Details</strong>
+															</a></p>
+														</td>										
+													</tr>
+												</table>
+												<hr style="padding:3px;" />
+													
+												<table cellpadding="5" cellspacing="5" width="100%" border="0">
+													<tr>
+														<td>
+															<a href="/events/nodejs-boot-camp--la.php"><img src="http://kinlane-productions.s3.amazonaws.com/api-evangelist-site/events/logo.PNG" width="125" align="left" /></a>
+															<a href="/events/nodejs-boot-camp--la.php" style="color: #000;"><strong>Node.js Boot Camp - LA - 02/23/2013 to 02/23/2013 - Santa Monica CA  United States </strong></a>  What is a Node.  js Boot Camp?  Node Boot Camp is a free event for developers and designers who want to learn Node.  js from the ground up with hands-on instruction from Node experts in the community.  No prior Node experience is necessary to attend.  At Node Boot Camp you’ll learn how to build your first Node application from scratch, how to work with popular Node.  js development tools and editors, how to work with popular 3rd party Node frameworks, and how to deploy your applications to production hosting environments.  What’s the agenda?  8:30 am – Network and Breakfast.  9:00 am – Start.  Fundamentals.  10:00 am – Deployment.  10:30 am – App Development.  The Basics.  12:00 pm – Lunch.  12:30 pm – App Development.  Basic + Advanced.  1:30 pm – Hackathon.  4:30 pm – Presentations.															<br /><br /><p align="center"><a href="/events/nodejs-boot-camp--la.php">
+															<strong>View Details</strong>
+															</a></p>											
+														</td>										
+													</tr>
+												</table>
+												<hr style="padding:3px;" />
+													
+												<table cellpadding="5" cellspacing="5" width="100%" border="0">
+													<tr>
+														<td>
+															<a href="/events/edvantage-yappon-2013.php"><img src="" width="125" align="right" /></a>
+															<a href="/events/edvantage-yappon-2013.php" style="color: #000;"><strong>Edvantage Yappon 2013 - 02/23/2013 to 02/24/2013 - Vijayawada Andhra Pradesh  India </strong></a>  YAPPON is India's largest coding hackathon organised by Edukinect and Microsoft for the aspiring Indian youth.  We are inviting developers across India from Engineering colleges, leading industry partners on a platform to collaborate.  Dream an idea, learn with us, build apps and be ready to launch your career with YAPPON.  For more details please visit us at www.  yappon.															<br /><br /><p align="center"><a href="/events/edvantage-yappon-2013.php">
+															<strong>View Details</strong>
+															</a></p>
+														</td>										
+													</tr>
+												</table>
+												<hr style="padding:3px;" />
+													
+												<table cellpadding="5" cellspacing="5" width="100%" border="0">
+													<tr>
+														<td>
+															<a href="/events/journe-donnes-ouvertes-2013.php"><img src="http://kinlane-productions.s3.amazonaws.com/api-evangelist-site/events/quebec-oveurt.png" width="125" align="left" /></a>
+															<a href="/events/journe-donnes-ouvertes-2013.php" style="color: #000;"><strong>Journée données ouvertes 2013 - 02/23/2013 to 02/23/2013 - Montreal QC  Canada </strong></a>  English below
+Dans le contexte de la journée internationale des données ouvertes 2013, une journée de travail et discussion sera organisée.  Des développeurs, citoyens, politiciens et fonctionnaires se réuniront pour travailler à utiliser des données ouvertes de la Ville de Montréal, le gouvernement du Québec et d'autres gouvernements à travers le monde.  Tous citoyens, journalistes, développeurs et designeurs sont les bienvenus.  Des experts des données ouvertes seront sur place pour orienter les nouveaux initiés.   Des conférences seront tenues en parallèle du Hackathon.  Plus de détails à propos des données ouvertes ici.  Projets
+Proposer des projets et joignez-vous à des équipes pour la journée DO 2013 le 23 févr.  http://journeedo2013.  sparkboard.															<br /><br /><p align="center"><a href="/events/journe-donnes-ouvertes-2013.php">
+															<strong>View Details</strong>
+															</a></p>											
+														</td>										
+													</tr>
+												</table>
+												<hr style="padding:3px;" />
+													
+												<table cellpadding="5" cellspacing="5" width="100%" border="0">
+													<tr>
+														<td>
+															<a href="/events/2013-international-open-data-day-hackathon.php"><img src="" width="125" align="right" /></a>
+															<a href="/events/2013-international-open-data-day-hackathon.php" style="color: #000;"><strong>2013 International Open Data Day Hackathon - 02/23/2013 to 02/23/2013 - Cary nc  United States </strong></a>  We ask that you register so we will be prepared with space, etc.  The 2013 International Open Data Day Hackathon in Cary is part of the International Hackathon scheduled for February 23, 2013.   More information about the International event can be found in the links below:
+International Hackathon Site / Wiki Page
+More details will be supplied soon.															<br /><br /><p align="center"><a href="/events/2013-international-open-data-day-hackathon.php">
+															<strong>View Details</strong>
+															</a></p>
+														</td>										
+													</tr>
+												</table>
+												<hr style="padding:3px;" />
+													
+												<table cellpadding="5" cellspacing="5" width="100%" border="0">
+													<tr>
+														<td>
+															<a href="/events/louisville-metro-governmentcode-for-america-hackathon.php"><img src="http://kinlane-productions.s3.amazonaws.com/api-evangelist-site/events/louisville-code-for-america-hackathon.png" width="125" align="left" /></a>
+															<a href="/events/louisville-metro-governmentcode-for-america-hackathon.php" style="color: #000;"><strong>Louisville Metro Government/Code for America Hackathon - 02/23/2013 to 02/23/2013 - Louisville KY  United States </strong></a>  Do you have an idea for a smart-phone app that would improve the city?  Metro Government, in partnership with Code for America, is offering $10,000 in cash prizes for apps or computer coding ideas during an upcoming hackathon.  “The task is to design or prototype an app that helps improve the quality of life in our city,” Mayor Greg Fischer said.  “No idea is too strange or too bold.  We want to see interesting ideas and innovation at work.  ”
+Hackers need only to bring their laptop or other computer device that can be connected to a projector so people may view the final product.  Beth Niblock, the city’s Chief Information Officer, said people can be inspired by examining all the data that’s currently available in raw form at portal.  louisvilleky.  gov/service/data.															<br /><br /><p align="center"><a href="/events/louisville-metro-governmentcode-for-america-hackathon.php">
+															<strong>View Details</strong>
+															</a></p>											
+														</td>										
+													</tr>
+												</table>
+												<hr style="padding:3px;" />
+													
+												<table cellpadding="5" cellspacing="5" width="100%" border="0">
+													<tr>
+														<td>
+															<a href="/events/open-data-day-2013-hackathon.php"><img src="http://kinlane-productions.s3.amazonaws.com/api-evangelist-site/events/software-niagra-logo.png" width="125" align="right" /></a>
+															<a href="/events/open-data-day-2013-hackathon.php" style="color: #000;"><strong>Open Data Day 2013 Hackathon - 02/23/2013 to 02/23/2013 - St. Catharines ON  Canada </strong></a>  On February 23, 2013, we are hosting citizens from across the Niagara Region as they work collaboratively to find creative uses for open data as part of the International Open Data Day Hackathon.  The International Open Data Day Hackathon is:.  a gathering of citizens in cities around the world to write applications, liberate data, create visualizations and publish analyses using open public data to show support for and encourage the adoption open data policies by the world's local, regional and national governments.  Canadian cities paritcipating in the International Open Data Day Hackathon include: Calgary, Montreal, Niagara, Toronto, Vancouver, and Victoria.  &nbsp;
+  More details at http://opendata2013.  softwareniagara.															<br /><br /><p align="center"><a href="/events/open-data-day-2013-hackathon.php">
+															<strong>View Details</strong>
+															</a></p>
+														</td>										
+													</tr>
+												</table>
+												<hr style="padding:3px;" />
+													
+												<table cellpadding="5" cellspacing="5" width="100%" border="0">
+													<tr>
+														<td>
+															<a href="/events/open-data-day-toronto.php"><img src="" width="125" align="left" /></a>
+															<a href="/events/open-data-day-toronto.php" style="color: #000;"><strong>Open Data Day Toronto - 02/23/2013 to 02/23/2013 - Toronto ON  Canada </strong></a>  International Open Data Day is Februrary 23, 2013!  Open Data Day Toronto will bring together a wide range of people who use data in various ways to improve the lives of Torontonians.  (Planners, statisticians, designers, mobile app developers, journalists, epidemiologists, cartographers, hackers, librarians, policymakers, artists, etc.  , etc.  )
+It's a day-long event oriented towards sharing perspectives, projects, tools and ideas across disciplines.  In the morning we'll hear a panel discussion on government open data initiatives, followed by inspiring case studies, and in the afternoon there'll be a hackathon, workshops (intros on how to use data) and lightning talks.															<br /><br /><p align="center"><a href="/events/open-data-day-toronto.php">
+															<strong>View Details</strong>
+															</a></p>											
+														</td>										
+													</tr>
+												</table>
+												<hr style="padding:3px;" />
+													
+												<table cellpadding="5" cellspacing="5" width="100%" border="0">
+													<tr>
+														<td>
+															<a href="/events/thinkcodememe-impactobesity-hackathon.php"><img src="http://kinlane-productions.s3.amazonaws.com/api-evangelist-site/events/think-code-meme.png" width="125" align="right" /></a>
+															<a href="/events/thinkcodememe-impactobesity-hackathon.php" style="color: #000;"><strong>Think:Code:Meme ImpactObesity Hackathon - 02/23/2013 to 02/24/2013 - Miami FL  United States </strong></a>  ImpactObesity
+  A Hack-a-thon Focused on Obesity In Minority Communities and in Concert with the University of Miami Clinical and Translational Science Institute
+  Come join us for an event focused on the collective challenge of overcoming obesity in our community.  Our hackathon is an event in which computer programmers, entrepreneurs, innovators, and others in the field of software development, like designers, app developers, interface designers, and project managers collaborate intensively on software projects.  Some hackathons are intended simply for educational or social purposes, although this event&rsquo;s goal is to create usable practices and software.  Our hackathon is intended to bring together teams who have a business idea around the topic of managing and reducing obesity.  Who Should Participate?															<br /><br /><p align="center"><a href="/events/thinkcodememe-impactobesity-hackathon.php">
+															<strong>View Details</strong>
+															</a></p>
+														</td>										
+													</tr>
+												</table>
+												<hr style="padding:3px;" />
+													
+												<table cellpadding="5" cellspacing="5" width="100%" border="0">
+													<tr>
+														<td>
+															<a href="/events/open-data-day-2013-hackathon--dc-metro-area.php"><img src="http://kinlane-productions.s3.amazonaws.com/api-evangelist-site/events/logo.jpg" width="125" align="left" /></a>
+															<a href="/events/open-data-day-2013-hackathon--dc-metro-area.php" style="color: #000;"><strong>Open Data Day 2013 Hackathon - DC Metro Area - 02/23/2013 to 02/23/2013 - Washington DC  United States </strong></a>  International Open Data Day&nbsp;is Saturday, February 23, 2013.  We're holding a hackathon in the DC area, an event for technologists and data enthusiasts to collaborate on open data projects.  Anyone with an interest in open data is encouraged to come.  Bring ideas, your laptop, and help create solutions to make data more open and make better use of open data.  We'll decide on projects and form groups at the beginning of the event.  All other details are TBD.  Stay tuned.  This event is being organized by Josh Tauberer (GovTrack) and Eric Mill (Sunlight Foundation).  Last year.  The last open data day hackathon in DC was on Dec.  3, 2011.  It was co-hosted by POPVOX (Josh Tauberer) and Wikimedia DC (Katie Filbert).  See what we did on the post-event recap athttps://www.  popvox.  com/features/opendataday2011.															<br /><br /><p align="center"><a href="/events/open-data-day-2013-hackathon--dc-metro-area.php">
+															<strong>View Details</strong>
+															</a></p>											
+														</td>										
+													</tr>
+												</table>
+												<hr style="padding:3px;" />
+													
+												<table cellpadding="5" cellspacing="5" width="100%" border="0">
+													<tr>
+														<td>
+															<a href="/events/hackathon-journe-internationale-de-lopen-data.php"><img src="http://kinlane-productions.s3.amazonaws.com/api-evangelist-site/events/hackathon-open-ata.png" width="125" align="right" /></a>
+															<a href="/events/hackathon-journe-internationale-de-lopen-data.php" style="color: #000;"><strong>Hackathon: Journée Internationale de l'Open Data - 02/23/2013 to 02/24/2013 - Nantes Pays de la Loire  France </strong></a>   
+
+ 
+Ca va Swinguer!   
+ 
+ 
+ Pour la journée internationale du libre accès aux données publiques, des citoyens à travers le monde se donnent rendez-vous le 23 février pour libérer des données, développer des applications ou créer des visualisations à partir de données publiques afin de promouvoir le mouvement mondial des données ouvertes (Open Data).  Un petit film pour découvrir le sujet en 2 minutes?  Le principe d'un Hackathon est de réunir des développeurs, designers, professionnels ou amateurs et personnes aux compétences variées afin de travailler par équipes sur un projet libre à restituer dans un temps imparti, en l'occurrence 48 heures.  Les projets peuvent porter sur diverses thématiques, tourisme, mobilité, environnement.  Il peut s'agir de visualisations, cartographies, services sur support numérique.															<br /><br /><p align="center"><a href="/events/hackathon-journe-internationale-de-lopen-data.php">
+															<strong>View Details</strong>
+															</a></p>
+														</td>										
+													</tr>
+												</table>
+												<hr style="padding:3px;" />
+													
+												<table cellpadding="5" cellspacing="5" width="100%" border="0">
+													<tr>
+														<td>
+															<a href="/events/vancouver-open-data-day-hackathon.php"><img src="http://kinlane-productions.s3.amazonaws.com/api-evangelist-site/events/open-data-day-hackathon.png" width="125" align="left" /></a>
+															<a href="/events/vancouver-open-data-day-hackathon.php" style="color: #000;"><strong>Vancouver Open Data Day Hackathon - 02/23/2013 to 02/23/2013 - Vancouver BC  Canada </strong></a>  It&rsquo;s a gathering of citizens in cities around the world to write&nbsp;applications,&nbsp;liberate&nbsp;data, create&nbsp;visualizations&nbsp;and publish&nbsp;analyses&nbsp;using open public data to show support for and encourage the adoption open data policies by the world's local, regional and national governments.  Check out the wiki for more info:&nbsp;http://wiki.  opendataday.															<br /><br /><p align="center"><a href="/events/vancouver-open-data-day-hackathon.php">
+															<strong>View Details</strong>
+															</a></p>											
+														</td>										
+													</tr>
+												</table>
+												<hr style="padding:3px;" />
+													
+												<table cellpadding="5" cellspacing="5" width="100%" border="0">
+													<tr>
+														<td>
+															<a href="/events/screenland-brand-lab-24hour-hackathon.php"><img src="http://kinlane-productions.s3.amazonaws.com/api-evangelist-site/events/screenland-brand.jpg" width="125" align="right" /></a>
+															<a href="/events/screenland-brand-lab-24hour-hackathon.php" style="color: #000;"><strong>Screenland Brand Lab: 24-hour Hackathon - 02/23/2013 to 02/24/2013 - North Kansas City MO  United States </strong></a>  What is Screenland's Brand Lab Competition?  Screenland Theatres presents its first Brand Lab Competition, a 24 hour hackathon/brandathon event that celebrates the energetic startup scene in Kansas City.  &nbsp;The purpose of this event is to help build a great local brand for Screenland's Famous Popcorn.  Who?  Screenland is looking for local talent to participate in a 24 hour branding competition where any idea is welcome.  From logo design to packaging, marketing to website, mobile app to social media strategy, we are looking for the best ideas to help launch our brand.  &nbsp;Participation is open to designers, developers, marketing/branding, and geeks alike.															<br /><br /><p align="center"><a href="/events/screenland-brand-lab-24hour-hackathon.php">
+															<strong>View Details</strong>
+															</a></p>
+														</td>										
+													</tr>
+												</table>
+												<hr style="padding:3px;" />
+													
+												<table cellpadding="5" cellspacing="5" width="100%" border="0">
+													<tr>
+														<td>
+															<a href="/events/isobar-create-32-hackathon-2013.php"><img src="http://kinlane-productions.s3.amazonaws.com/api-evangelist-site/events/isobar-hackathon.jpg" width="125" align="left" /></a>
+															<a href="/events/isobar-create-32-hackathon-2013.php" style="color: #000;"><strong>Isobar Create 32 Hackathon 2013 - 02/23/2013 to 02/24/2013 - Singapore Singapore  Singapore </strong></a>  What is Isobar Create32?  It&rsquo;s a 32-hour hackathon that challenges developers in Singapore to create innovative new apps featuring Near Field Communication (NFC) technology.  Whether you&rsquo;re a developer, a designer or simply someone with great ideas, you&rsquo;re welcome to take part.  Only 60 spots are available on a first-come first-served basis though, so sign-up today!  Why you should join
+
+Receive pointers from the sharpest minds in the industry
+Team-up and exchange ideas with other like-minded individuals
+Test out your ideas on the latest NFC technology
+Not to forget, there are lots of great prizes to be won!  Signing up as a group?  Please register all members [up to a maximum 3] together&nbsp;in one session.  &nbsp;  
+  Not currently in a group?  Don&rsquo;t worry, just sign up now and we&rsquo;ll team you up with others on the day itself!															<br /><br /><p align="center"><a href="/events/isobar-create-32-hackathon-2013.php">
+															<strong>View Details</strong>
+															</a></p>											
+														</td>										
+													</tr>
+												</table>
+												<hr style="padding:3px;" />
+													
+												<table cellpadding="5" cellspacing="5" width="100%" border="0">
+													<tr>
+														<td>
+															<a href="/events/monthly-music-hackathon-nyc-february-2013.php"><img src="http://kinlane-productions.s3.amazonaws.com/api-evangelist-site/events/monthly-music-hackathon.png" width="125" align="right" /></a>
+															<a href="/events/monthly-music-hackathon-nyc-february-2013.php" style="color: #000;"><strong>Monthly Music Hackathon NYC February 2013 - 02/23/2013 to 02/23/2013 - New York NY  United States </strong></a>  Monthly Music Hackathon NYC is a monthly all-day event for musicians and engineers to create new music-related projects from scratch, develop them over a period of ~10 hours, then perform or present them in a concert format at 8pm.  When  Saturday, February 23rd 2013  10 AM Hacking begins  8 PM Concert of hacks
+  Where  199 Lafayette St, 3rd Floor  New York, NY 10012  (http://goo.  gl/maps/tUin)
+  FREE!  But space is limited, so please RSVP  http://monthlymusichackathonnyc.  eventbrite.  com
+  More info:  Blog:&nbsp;http://monthlymusichackathon.  org/  Twitter:&nbsp;http://twitter.  com/musichackathon  Mailing list:&nbsp;http://eepurl.															<br /><br /><p align="center"><a href="/events/monthly-music-hackathon-nyc-february-2013.php">
+															<strong>View Details</strong>
+															</a></p>
+														</td>										
+													</tr>
+												</table>
+												<hr style="padding:3px;" />
+													
+												<table cellpadding="5" cellspacing="5" width="100%" border="0">
+													<tr>
+														<td>
+															<a href="/events/code-across-san-diego--open-data-day.php"><img src="http://kinlane-productions.s3.amazonaws.com/api-evangelist-site/events/logo.png" width="125" align="left" /></a>
+															<a href="/events/code-across-san-diego--open-data-day.php" style="color: #000;"><strong>Code Across San Diego - Open Data Day - 02/23/2013 to 02/23/2013 - San Diego CA  United States </strong></a>  Part Code Sprint (hackathon if you will), part Unconference.  Please Join us at Co-merge San Diego to discuss and work on all things civic tech, open government and open data as part of Code across America&nbsp;http://brigade.  codeforamerica.  org/pages/codeacrossand International OpenDataDay&nbsp;http://opendataday.  org/
+  We plan to work on a few projects that are just getting going and are in need of new devs and UX gurus.  We will also devote some portion of the day to discussing these general topics BarCamp Style.  Come prepared with your skills, ideas, use cases, problems and dreams and lets work together to make our City and Region a better place by being more engaged as citizens.  This event is sponsored by:
+  RedHat OpenShift&nbsp;https://openshift.  redhat.  com/&nbsp;  OpenGeo&nbsp;http://opengeo.  org/&nbsp;  Measured Voice&nbsp;http://measuredvoice.															<br /><br /><p align="center"><a href="/events/code-across-san-diego--open-data-day.php">
+															<strong>View Details</strong>
+															</a></p>											
+														</td>										
+													</tr>
+												</table>
+												<hr style="padding:3px;" />
+													
+												<table cellpadding="5" cellspacing="5" width="100%" border="0">
+													<tr>
+														<td>
+															<a href="/events/goinstant-nodejs-hackathon-v20.php"><img src="http://kinlane-productions.s3.amazonaws.com/api-evangelist-site/events/go-instant.png" width="125" align="right" /></a>
+															<a href="/events/goinstant-nodejs-hackathon-v20.php" style="color: #000;"><strong>GoInstant node.js Hackathon v2.0 - 02/23/2013 to 02/23/2013 - Halifax NS  Canada </strong></a>  Want to build awesome interactive web apps?  Well, here&rsquo;s your shot!  On Saturday, February 23rd, the second ever GoInstant Hackathon will be going down at our fancy new offices on Barrington Street, and it&rsquo;s all about the nodes.  Node.  js, that is.  You can win sweet prizes, get lots of high fives, and consume free pizza and beer - all for free.  If you&rsquo;re a dev who uses or wants to learn more about node.  js, this is the Hackathon for you.  And if you&rsquo;re a web designer who has great ideas for web apps, then get on board.  This day will be all about building beautiful and amazing things.  The Schedule  Intro: 11:00-11:30AM.  Our superwizard CTO Gavin Uhma will talk a little bit about GoInstant and the tech that makes it run - like node.  js.  Pitch: &nbsp;11:30AM-12:00PM.															<br /><br /><p align="center"><a href="/events/goinstant-nodejs-hackathon-v20.php">
+															<strong>View Details</strong>
+															</a></p>
+														</td>										
+													</tr>
+												</table>
+												<hr style="padding:3px;" />
+													
+												<table cellpadding="5" cellspacing="5" width="100%" border="0">
+													<tr>
+														<td>
+															<a href="/events/uhack--university-of-miami-hackathon.php"><img src="http://kinlane-productions.s3.amazonaws.com/api-evangelist-site/events/uhack-logo.png" width="125" align="left" /></a>
+															<a href="/events/uhack--university-of-miami-hackathon.php" style="color: #000;"><strong>UHack - University of Miami Hackathon - 02/23/2013 to 02/24/2013 - Coral Gables FL  United States </strong></a>  The University of Miami IEEE and ACM would like to bring you&nbsp;UHack, a 24-hour hackathon (app creation event).  UHack will take place at the end of National E-Week, Saturday February 23rd, and finish the next day, Sunday February 24th.  Taking place at the University of Miami, we are open to any student from any educational institution who would like to win great prizes and take some time off their semester by making something fun and possibly win some great prizes from our amazing sponsors.  All for&nbsp;free!  This year, we are embracing&nbsp;ART&nbsp;as a central theme for the apps designed this weekend.  And by art, we mean all types of art and its interpretations.  Want to make the instagram of music, or the Spotify of Images, or have you been thinking of something really cool with videos?  Go ahead.  This is your time to work on that side project you've been putting off.															<br /><br /><p align="center"><a href="/events/uhack--university-of-miami-hackathon.php">
+															<strong>View Details</strong>
+															</a></p>											
+														</td>										
+													</tr>
+												</table>
+												<hr style="padding:3px;" />
+													
+												<table cellpadding="5" cellspacing="5" width="100%" border="0">
+													<tr>
+														<td>
+															<a href="/events/international-open-data-day---hackathon-victoria-bc.php"><img src="http://kinlane-productions.s3.amazonaws.com/api-evangelist-site/events/international-open-day-hackathon.png" width="125" align="right" /></a>
+															<a href="/events/international-open-data-day---hackathon-victoria-bc.php" style="color: #000;"><strong>International Open Data Day -  Hackathon (Victoria BC) - 02/23/2013 to 03/19/2013 - Victoria British Columbia  Canada </strong></a>  &nbsp;
+  City Hall,&nbsp;Antechamber
+  Lunch Provided!  Full Agenda can be found here:&nbsp;&nbsp;  Open Data Day Victoria (Wiki)
+  Open Data Day is&nbsp;(from http://opendataday.  org/)
+  A gathering of citizens in cities around the world to write&nbsp;applications,&nbsp;liberate&nbsp;data, create&nbsp;visualizations&nbsp;and publishanalyses&nbsp;using open public data to show support for and encourage the adoption open data policies by the world's local, regional and national governments.  Webmaker Hackathon
+  The youth portion of this event will be a fun and creative opportunity to learn the potential of the open web.  &nbsp; Using Webmaker tools participants will create stories, share ideas and make cool things with open data!															<br /><br /><p align="center"><a href="/events/international-open-data-day---hackathon-victoria-bc.php">
+															<strong>View Details</strong>
+															</a></p>
+														</td>										
+													</tr>
+												</table>
+												<hr style="padding:3px;" />
+													
+												<table cellpadding="5" cellspacing="5" width="100%" border="0">
+													<tr>
+														<td>
+															<a href="/events/monkeybars-build.php"><img src="" width="125" align="left" /></a>
+															<a href="/events/monkeybars-build.php" style="color: #000;"><strong>MonkeyBars Build - 02/23/2013 to 02/24/2013 - Chicago IL  United States </strong></a>  MonkeyBars present a new twist on the Hackathon.															<br /><br /><p align="center"><a href="/events/monkeybars-build.php">
+															<strong>View Details</strong>
+															</a></p>											
+														</td>										
+													</tr>
+												</table>
+												<hr style="padding:3px;" />
+													
+												<table cellpadding="5" cellspacing="5" width="100%" border="0">
+													<tr>
+														<td>
+															<a href="/events/ericsson-and-att-mwc-communications-hackathon--barcelona.php"><img src="" width="125" align="right" /></a>
+															<a href="/events/ericsson-and-att-mwc-communications-hackathon--barcelona.php" style="color: #000;"><strong>Ericsson and AT&T MWC Communications Hackathon - Barcelona - 02/24/2013 to 02/26/2013 - Barcelona Catalonia  Spain </strong></a>  Build a Mobile App, Support Sustainable Cities, Go to Brazil!  We are specially reaching out to you.  Ericsson and AT&amp;T are hosting an exclusive hackathon event at MWC for 30 rock star developers to develop mobile applications targeting the sustainable connected city of the future.  Seats are limited so please register early.  Lucky participants will be notified as soon as possible.  This is a winner-take-all competition.  First prize is an all-expenses paid trip to the&nbsp;NEW CITIES SUMMIT, to be held in Brazil,&nbsp;&nbsp;plus&nbsp;&euro;3.  500&nbsp;This Mobile App Hackathon is produced by Ericsson and the AT&amp;T Developer Program.  Additionally, those lucky 30 developers selected to participate will receive free MWC passes.  Event Schedule.															<br /><br /><p align="center"><a href="/events/ericsson-and-att-mwc-communications-hackathon--barcelona.php">
+															<strong>View Details</strong>
+															</a></p>
+														</td>										
+													</tr>
+												</table>
+												<hr style="padding:3px;" />
+													
+												<table cellpadding="5" cellspacing="5" width="100%" border="0">
+													<tr>
+														<td>
+															<a href="/events/the-make-web-not-war-hackathon--confoo.php"><img src="http://kinlane-productions.s3.amazonaws.com/api-evangelist-site/events/confoo-hackathon.jpg" width="125" align="left" /></a>
+															<a href="/events/the-make-web-not-war-hackathon--confoo.php" style="color: #000;"><strong>The MAKE WEB NOT WAR Hackathon @ Confoo - 02/25/2013 to 02/26/2013 - Montreal QC  Canada </strong></a>  English version will follow.  Joignez-vous au Hackathon Make Web Not War @ Confoo 2013!  Nous recherchons des d&eacute;veloppeurs qui sont pr&ecirc;t pour un nouveau d&eacute;fi, soit se joindre &agrave; nous pour notre hackathon du 25 et 26 f&eacute;vrier prochain au Hilton Bonaventure.  LES D&Eacute;TAILS:
+  Vous cr&eacute;er des choses.  Sites Web.  Applications mobiles.  Des villes en Lego?  Vous respirez des APIs.  Parlez couramment JavaScript.  Grignoter sur GIT.  Buvez du HTML5 avec un soup&ccedil;on de CSS.  Vous &ecirc;tes pr&ecirc;t pour un nouveau d&eacute;fi?  Vous &ecirc;tes un ninja PHP.  Un guerrier Python.  Un ma&icirc;tre Java.  Un guru Node.  hs.  Vous voulez que vos applications atteignent un autre niveau.  Dans les nuages.  Un service qui fonctionne bien avec vos outils.  Avez-vous entendu parler d'Azure?  Vous d&eacute;velopp&eacute; pour iOS.  Jongl&eacute; avec Android.															<br /><br /><p align="center"><a href="/events/the-make-web-not-war-hackathon--confoo.php">
+															<strong>View Details</strong>
+															</a></p>											
+														</td>										
+													</tr>
+												</table>
+												<hr style="padding:3px;" />
+													
+												<table cellpadding="5" cellspacing="5" width="100%" border="0">
+													<tr>
+														<td>
+															<a href="/events/ibm-mobile-hackathon-at-mobile-world-congress.php"><img src="http://kinlane-productions.s3.amazonaws.com/api-evangelist-site/events/ibm-hackathon-mobile-congress.png" width="125" align="right" /></a>
+															<a href="/events/ibm-mobile-hackathon-at-mobile-world-congress.php" style="color: #000;"><strong>IBM Mobile Hackathon at Mobile World Congress - 02/25/2013 to 02/25/2013 - Barcelona CT  Spain </strong></a>  Eager to get your hands on IBM Worklight and develop a cool hybrid app while at Mobile World Congress?  Join IBM Mobile (@IBMMobile) and host Ajit Jaokar (@AjitJaokar) for a mobile app hackathon on Monday, February 25th from 3-5pm in Hall 8, Theatre D.  Ajit brings his wealth of expertise and enthusiasm to this hackathon combining his background from research, academia and technology.  This hackathon presents a unique opportunity to interact with IBM Worklight experts, and experiment with advanced capabilities of the IBM Worklight mobile application development platform.  Use push notifications, geo location, hybrid capabilities and other mobile services to build compelling apps with rich user experience.															<br /><br /><p align="center"><a href="/events/ibm-mobile-hackathon-at-mobile-world-congress.php">
+															<strong>View Details</strong>
+															</a></p>
+														</td>										
+													</tr>
+												</table>
+												<hr style="padding:3px;" />
+													
+												<table cellpadding="5" cellspacing="5" width="100%" border="0">
+													<tr>
+														<td>
+															<a href="/events/cleanweb-hackathon-atlanta.php"><img src="" width="125" align="left" /></a>
+															<a href="/events/cleanweb-hackathon-atlanta.php" style="color: #000;"><strong>Cleanweb Hackathon Atlanta - 02/25/2013 to 02/28/2013 - Atlanta GA  United States </strong></a>  Cleanweb is a grassroots movement committed to solving the world&rsquo;s most profound issues related to resource constraints through the application of information technology.  Since its inception in mid-2011, communities have popped up organically around the world.															<br /><br /><p align="center"><a href="/events/cleanweb-hackathon-atlanta.php">
+															<strong>View Details</strong>
+															</a></p>											
+														</td>										
+													</tr>
+												</table>
+												<hr style="padding:3px;" />
+													
+												<table cellpadding="5" cellspacing="5" width="100%" border="0">
+													<tr>
+														<td>
+															<a href="/events/hackomotive.php"><img src="http://kinlane-productions.s3.amazonaws.com/api-evangelist-site/events/Hackomotive-2013.png" width="125" align="right" /></a>
+															<a href="/events/hackomotive.php" style="color: #000;"><strong>Hack-o-motive - 02/26/2013 to 02/28/2013 - SANTA MONICA CA  United States </strong></a>  WHAT IS HACK-O-MOTIVE?  Hack-o-motive is a two-day challenge that focuses on re-imagining the car shopping experience by bringing together consumers, dealers, manufacturers, designers and technologists to shatter the status quo.  In providing this creative, collaborative platform for groups of intellectually diverse thinkers, our goal is to generate a surge of bold and innovative new ideas.  A panel of judges will then evaluate the proposed solutions to determine the winners.  WHY HAVE THIS EVENT?  Car buying is the second biggest purchase behind a home for most consumers and remains an unpleasant, anxiety-filled experience that has changed little even with the benefit of online resources.															<br /><br /><p align="center"><a href="/events/hackomotive.php">
+															<strong>View Details</strong>
+															</a></p>
+														</td>										
+													</tr>
+												</table>
+												<hr style="padding:3px;" />
+													
+												<table cellpadding="5" cellspacing="5" width="100%" border="0">
+													<tr>
+														<td>
+															<a href="/events/edvantage-yappon-2013.php"><img src="" width="125" align="left" /></a>
+															<a href="/events/edvantage-yappon-2013.php" style="color: #000;"><strong>Edvantage Yappon 2013 - 02/26/2013 to 02/27/2013 - Hyderabad Andhra Pradesh  India </strong></a>  YAPPON is India's largest coding hackathon organised by Edukinect and Microsoft for the aspiring Indian youth.  We are inviting developers across India from Engineering colleges, leading industry partners on a platform to collaborate.  Dream an idea, learn with us, build apps and be ready to launch your career with YAPPON.  For more details please visit us at www.  yappon.															<br /><br /><p align="center"><a href="/events/edvantage-yappon-2013.php">
+															<strong>View Details</strong>
+															</a></p>											
+														</td>										
+													</tr>
+												</table>
+												<hr style="padding:3px;" />
+													
+												<table cellpadding="5" cellspacing="5" width="100%" border="0">
+													<tr>
+														<td>
+															<a href="/events/bytelight-hackathon.php"><img src="http://kinlane-productions.s3.amazonaws.com/api-evangelist-site/events/byte-light-hackathon.jpg" width="125" align="right" /></a>
+															<a href="/events/bytelight-hackathon.php" style="color: #000;"><strong>ByteLight Hackathon - 02/26/2013 to 02/26/2013 - Boston MA  United States </strong></a>  Come join the ByteLight team as we explore uncharted territory in the world of mobile app development: indoor location.  We're inviting developers, hobbyists, and tinkerers to the ByteLight office for a night of hacking on our indoor location platform.  &nbsp;
+  Use our simple, web based editor for creating ByteLight widgets.  &nbsp;No SDK download is required.  &nbsp;Write all of your code in HTML, CSS, and Javascript.  &nbsp;Hit deploy, and see your creation running live in the ByteLight community app.  We'll provide the food, drinks, and all the tools you need to get up and running quickly.  Our goals are to 1) explore new ideas for indoor location, and 2) showcase how quickly you can build a ByteLight powered app using our editor.  &nbsp;
+  Prizes
+  At the end of the night, we'll have a demo day to show off everyone's creations.															<br /><br /><p align="center"><a href="/events/bytelight-hackathon.php">
+															<strong>View Details</strong>
+															</a></p>
+														</td>										
+													</tr>
+												</table>
+												<hr style="padding:3px;" />
+													
+												<table cellpadding="5" cellspacing="5" width="100%" border="0">
+													<tr>
+														<td>
+															<a href="/events/kansas-city-service-jam-2013.php"><img src="http://kinlane-productions.s3.amazonaws.com/api-evangelist-site/events/kansas-city-jam.png" width="125" align="left" /></a>
+															<a href="/events/kansas-city-service-jam-2013.php" style="color: #000;"><strong>Kansas City Service Jam 2013 - 03/01/2013 to 03/03/2013 -     </strong></a>  Are you ready for a weekend of doing not talking?  On March 1st-3rd Global Service Jam is held for the third time in Kansas City and in cities all over the world.  Come and collaborate with other dedicated people to design a completely new service!  The result is shared with other jams worldwide.  It is not necessary to know anything about service design.  The most important thing to bring is interest and creative openness!  The first jam was held in 2011 with nearly 800 participants in 40 cities across globe and resulting in over 100 new service concepts.  The event continues to grow each year with over 100 locations scheduled to host a Jam in 2013.  When:March 1st, 2013, 5:00pm - March 3rd, 2013, 5:00pm.  Where: Friday and Sunday venue has not been locked down yet, but we assure you it will be in Kansas City.															<br /><br /><p align="center"><a href="/events/kansas-city-service-jam-2013.php">
+															<strong>View Details</strong>
+															</a></p>											
+														</td>										
+													</tr>
+												</table>
+												<hr style="padding:3px;" />
+													
+												<table cellpadding="5" cellspacing="5" width="100%" border="0">
+													<tr>
+														<td>
+															<a href="/events/global-service-jam-los-angeles--2013.php"><img src="http://kinlane-productions.s3.amazonaws.com/api-evangelist-site/events/global-service-jam.png" width="125" align="right" /></a>
+															<a href="/events/global-service-jam-los-angeles--2013.php" style="color: #000;"><strong>Global Service Jam, Los Angeles / 2013 - 03/01/2013 to 03/03/2013 - El Segundo CA  United States </strong></a>  48 HOURS TO CREATE SOMETHING AMAZING!  facebook event page
+servicedesignjam.  org
+&nbsp;
+The first weekend in March (3/1 &ndash; 3/3), people interested in creative problem solving, service design, design thinking and customer experience will meet at locations all over the globe.  &nbsp;In the spirit of experimentation, innovation, collaboration and friendly competition, teams will have one weekend to create completely new services inspired by a shared theme.  At the end of the weekend, their collection of brand new services will be published to the world.  &nbsp;
+Is it a start-up weekend?  A hackathon?  Kind of, but not quite&hellip;
+  
+Imagine 48 hours to come up with an idea and bring that idea to life&hellip;but instead of creating lines of code or a new business (although you may end up doing those things), you will be creating new services and experiences.															<br /><br /><p align="center"><a href="/events/global-service-jam-los-angeles--2013.php">
+															<strong>View Details</strong>
+															</a></p>
+														</td>										
+													</tr>
+												</table>
+												<hr style="padding:3px;" />
+													
+												<table cellpadding="5" cellspacing="5" width="100%" border="0">
+													<tr>
+														<td>
+															<a href="/events/hackphx--arduino-hackathon.php"><img src="" width="125" align="left" /></a>
+															<a href="/events/hackphx--arduino-hackathon.php" style="color: #000;"><strong>hackPHX - Arduino Hackathon - 03/01/2013 to 03/02/2013 - Mesa AZ  United States </strong></a>  Your Arduino toolkit and skills.  Our secret ingredient.  The hackerspace's resources.  A small budget for additional stuff.  After 12 hours of hacking a winner will arise, but every team is going home with hardware!  Seats Limited.  FREE.  Please choose a ticket based on your experience.  Arduino Rookie&nbsp;(you dabble with arduino)
+Arduino Rookie + hackerspace skills&nbsp;(2d, 3d design, laser cutter, woodworking, welding, etc)&nbsp;
+Arduino Veteran&nbsp;( You know how to install libraries and maybe even make your own-- or maybe you go bare metal Atmel C code?  )
+
+  Well meet friday night @heatsynclabs, unveil the secret ingredient, find teams, and start planning your attack as long as the beer and coffee flows.  Saturday morning at 10am we reconvene @heatsynclabs and you'll be given your hardware and let loose for 12 hours of hacking!															<br /><br /><p align="center"><a href="/events/hackphx--arduino-hackathon.php">
+															<strong>View Details</strong>
+															</a></p>											
+														</td>										
+													</tr>
+												</table>
+												<hr style="padding:3px;" />
+													
+												<table cellpadding="5" cellspacing="5" width="100%" border="0">
+													<tr>
+														<td>
+															<a href="/events/2nd-hackathon-by-hackpr.php"><img src="http://kinlane-productions.s3.amazonaws.com/api-evangelist-site/events/hack-pr.png" width="125" align="right" /></a>
+															<a href="/events/2nd-hackathon-by-hackpr.php" style="color: #000;"><strong>2nd Hackathon by HackPR - 03/02/2013 to 03/02/2013 - Mayagüez Mayagüez  Puerto Rico </strong></a>  The 2nd Hackathon by HackPR will be held in the University of Puerto Rico, Mayag&uuml;ez Campus.  Students and developers who share a passion for coding will gather to develop mobile, web and hardware applications with no topic restrictions.  We only ask that all code developed towards the application be written on-site.  &nbsp;
+&nbsp;
+Our HackPR will be held on Saturday, March 2,13.															<br /><br /><p align="center"><a href="/events/2nd-hackathon-by-hackpr.php">
+															<strong>View Details</strong>
+															</a></p>
+														</td>										
+													</tr>
+												</table>
+												<hr style="padding:3px;" />
+													
+												<table cellpadding="5" cellspacing="5" width="100%" border="0">
+													<tr>
+														<td>
+															<a href="/events/edvantage-yappon-2013.php"><img src="" width="125" align="left" /></a>
+															<a href="/events/edvantage-yappon-2013.php" style="color: #000;"><strong>Edvantage Yappon 2013 - 03/02/2013 to 03/03/2013 - Warangal Andhra Pradesh  India </strong></a>  YAPPON is India's largest coding hackathon organised by Edukinect and Microsoft for the aspiring Indian youth.  We are inviting developers across India from Engineering colleges, leading industry partners on a platform to collaborate.  Dream an idea, learn with us, build apps and be ready to launch your career with YAPPON.  For more details please visit us at www.  yappon.															<br /><br /><p align="center"><a href="/events/edvantage-yappon-2013.php">
+															<strong>View Details</strong>
+															</a></p>											
+														</td>										
+													</tr>
+												</table>
+												<hr style="padding:3px;" />
+													
+												<table cellpadding="5" cellspacing="5" width="100%" border="0">
+													<tr>
+														<td>
+															<a href="/events/hadoop-hackathon.php"><img src="http://kinlane-productions.s3.amazonaws.com/api-evangelist-site/events/hadoop-hackathon.png" width="125" align="right" /></a>
+															<a href="/events/hadoop-hackathon.php" style="color: #000;"><strong>Hadoop Hackathon - 03/02/2013 to 03/02/2013 -    India </strong></a>  We need teams of 4 people participating in the Hadoop Hackathon Challenge.  &nbsp;
+  Few specific usecases like Recommendation Engine, Predictive analytics, Sentiment Analysis will be provided to the teams with necessary CDH VM, Data and explanation of the problem.  &nbsp;
+  Teams participating will have to come up with a solution and in a given time frame and present it to the entire audience and team of Judges.  Rules for Team:
+  1) Team should be having good knowledge of Hadoop eco system.  &nbsp;
+  2) Solution can be developed in Java, Hive or Pig
+  3) Everybody should bring their own laptops with 4GB RAM and VMWare Player Installed on it.  &nbsp;
+  Top 3 Winning Teams will be given with Individual idustry recognized memontos and certificates.															<br /><br /><p align="center"><a href="/events/hadoop-hackathon.php">
+															<strong>View Details</strong>
+															</a></p>
+														</td>										
+													</tr>
+												</table>
+												<hr style="padding:3px;" />
+													
+												<table cellpadding="5" cellspacing="5" width="100%" border="0">
+													<tr>
+														<td>
+															<a href="/events/appnet-hackathon.php"><img src="http://kinlane-productions.s3.amazonaws.com/api-evangelist-site/events/AppNet-Logo.png" width="125" align="left" /></a>
+															<a href="/events/appnet-hackathon.php" style="color: #000;"><strong>App.net Hackathon - 03/02/2013 to 03/02/2013 -  San Francisco  United States </strong></a>  We're excited to announce our second hackathon!  We've added a ton of stuff to the API since our last event so this event will be focused on creative uses of our new Messaging, File and Place APIs.  We're still in the planning stages for the event, so consider this a save-the-date announcement.  We'll be adding a venue and schedule soon.  When registering, please pick a ticket type that roughly represents your tech focus.  While you're waiting for the hackathon to roll around, you can:
+
+Join App.  net!  Check out the API docs.  Browse the app directory.  Questions or comments?  Contact our Developer Advocate @orian (orian@app.															<br /><br /><p align="center"><a href="/events/appnet-hackathon.php">
+															<strong>View Details</strong>
+															</a></p>											
+														</td>										
+													</tr>
+												</table>
+												<hr style="padding:3px;" />
+													
+												<table cellpadding="5" cellspacing="5" width="100%" border="0">
+													<tr>
+														<td>
+															<a href="/events/bostonwp-hack-day.php"><img src="" width="125" align="right" /></a>
+															<a href="/events/bostonwp-hack-day.php" style="color: #000;"><strong>BostonWP Hack Day - 03/02/2013 to 03/02/2013 - Boston MA  United States </strong></a>  Have you ever been interested in contributing to WordPress, but didn't know how to start?  We've all been in that position.  That's why we're putting together a day long WordPress hackathon!  We'll kick off the day with an introduction to core contributing and some information about the WordPress 3.  6 development cycle, then we'll have some lunch and spend the rest of the day working individually or in groups on tickets for core.															<br /><br /><p align="center"><a href="/events/bostonwp-hack-day.php">
+															<strong>View Details</strong>
+															</a></p>
+														</td>										
+													</tr>
+												</table>
+												<hr style="padding:3px;" />
+													
+												<table cellpadding="5" cellspacing="5" width="100%" border="0">
+													<tr>
+														<td>
+															<a href="/events/one-day-digital-dundee.php"><img src="http://kinlane-productions.s3.amazonaws.com/api-evangelist-site/events/one-day-digital-dundee.jpg" width="125" align="left" /></a>
+															<a href="/events/one-day-digital-dundee.php" style="color: #000;"><strong>One Day Digital Dundee - 03/02/2013 to 03/02/2013 - Dundee Scotland  United Kingdom </strong></a>  Are you aged 13 -16?  Would you like to design and make your own app/website/ animation or try out a 3D printer?  Book your ticket for One Day Digital Dundee!  We are working with Industry experts to bring you an action-packed day of digital making.  Whether you would like to learn how to code, use a 3D printer or learn some digital media skills we have the session for you!  Choose from the sessions below to secure your spot.  Why should I take part?  A fun day with digital industry experts
+Free event, with limited spaces
+A unique opportunity for you to meet real world digital experts and your own app, website, animation, game or try out a 3D printer.  Meet new, likeminded people
+There will be Free Raspberry Pi&rsquo;s and Arduino kits to give away!  Free lunch will be provided!															<br /><br /><p align="center"><a href="/events/one-day-digital-dundee.php">
+															<strong>View Details</strong>
+															</a></p>											
+														</td>										
+													</tr>
+												</table>
+												<hr style="padding:3px;" />
+													
+												<table cellpadding="5" cellspacing="5" width="100%" border="0">
+													<tr>
+														<td>
+															<a href="/events/innovation-labs-hackathon.php"><img src="http://kinlane-productions.s3.amazonaws.com/api-evangelist-site/events/innovation-labs-hackathon.jpg" width="125" align="right" /></a>
+															<a href="/events/innovation-labs-hackathon.php" style="color: #000;"><strong>Innovation Labs Hackathon - 03/02/2013 to 03/03/2013 - Bucuresti Bucuresti  Romania </strong></a>  Join us for the greatest fun you ever had since the invention of Pac Man.  Bring your laptop/computer and sign-up now for a continuous 24 hour event in which over 100 participants will form teams that will work on developing personal mobile products (in the area of health, gaming and lifestyle-and-fitness).  The teams will be mentored in areas like product development, marketing and sales and at the end of the event they will try to impress a panel of judges that their application is viable and has more potential that that of their competition.  Aside from the amazing experience that you will be getting by meeting and interacting with the mentors, the top teams will get the chance to enter in theInnovation Labs Workshop program&nbsp;that will help them form a start-up around their 24 hour previous effort and deliver a prototype technical wise and business wise.															<br /><br /><p align="center"><a href="/events/innovation-labs-hackathon.php">
+															<strong>View Details</strong>
+															</a></p>
+														</td>										
+													</tr>
+												</table>
+												<hr style="padding:3px;" />
+													
+												<table cellpadding="5" cellspacing="5" width="100%" border="0">
+													<tr>
+														<td>
+															<a href="/events/apps-for-students.php"><img src="http://kinlane-productions.s3.amazonaws.com/api-evangelist-site/events/apps-for-students.png" width="125" align="left" /></a>
+															<a href="/events/apps-for-students.php" style="color: #000;"><strong>Apps For Students - 03/08/2013 to 03/08/2013 - Heverlee Brabant  Belgium </strong></a>  Trissen organiseert op zaterdag 2 maart 2013 de eerste editie van Apps For Students in samenwerking met Open Knowledge Foundation en KULeuven.  Studenten met IT skills worden uitgenodigd voor een dag programmeren, waarin ze een idee naar keuze kunnen uitwerken.  's Avonds zijn ook jonge ondernemers welkom voor de presentatie van de resultaten, een paar inspirerende talks, en de prijsuitreiking bij te wonen.															<br /><br /><p align="center"><a href="/events/apps-for-students.php">
+															<strong>View Details</strong>
+															</a></p>											
+														</td>										
+													</tr>
+												</table>
+												<hr style="padding:3px;" />
+													
+												<table cellpadding="5" cellspacing="5" width="100%" border="0">
+													<tr>
+														<td>
+															<a href="/events/sxsw-hackathon-for-social-good.php"><img src="" width="125" align="right" /></a>
+															<a href="/events/sxsw-hackathon-for-social-good.php" style="color: #000;"><strong>SXSW Hackathon for Social Good - 03/08/2013 to 03/08/2013 - Austin TX  United States </strong></a>  Join web and mobile experts on Fri.  , March 8th at the SXSW Hackathon for Social Good.  Hackathons are events when programmers and designers meet to work collaboratively to build programs and applications.  The day will begin with short presentations by educators and non-profit organizations, followed by informational sessions on building sites and web applications to help benefit non-profit organizations:
+Habitat for Humanity:Austin Habitat for Humanity was founded in 1985 as an affiliate of Habitat for Humanity International.  Our entire mission and vision are anchored around our dedication to ending the cycle of poverty housing and the deeply held belief that everyone deserves a decent, affordable place to live.															<br /><br /><p align="center"><a href="/events/sxsw-hackathon-for-social-good.php">
+															<strong>View Details</strong>
+															</a></p>
+														</td>										
+													</tr>
+												</table>
+												<hr style="padding:3px;" />
+													
+												<table cellpadding="5" cellspacing="5" width="100%" border="0">
+													<tr>
+														<td>
+															<a href="/events/hack-the-hackathon--istanbul.php"><img src="http://kinlane-productions.s3.amazonaws.com/api-evangelist-site/events/hack-the-hackathon.jpg" width="125" align="left" /></a>
+															<a href="/events/hack-the-hackathon--istanbul.php" style="color: #000;"><strong>Hack The Hackathon - Istanbul - 03/08/2013 to 03/10/2013 - Istanbul Istanbul  Turkey </strong></a>  Event Detail
+  Hack The Hackathon is coming to Istanbul!  All three of our core themes will be represented in this event: Smarter Living, Sustainable Business, and Social Good.  Get a great education, eat lots of food, and get together with like-minded people to spend 48 hours building something cool.  Show the world that Istanbul competes on the main stage.  Hack The Hackathon&rsquo;s developer competition is an event designed for attendees (technical &amp; non-technical) to build apps/mobile apps, get fed, compete for prizes across different categories, work with expert mentors, meet new people, and scout for teammates to work on new or current projects.															<br /><br /><p align="center"><a href="/events/hack-the-hackathon--istanbul.php">
+															<strong>View Details</strong>
+															</a></p>											
+														</td>										
+													</tr>
+												</table>
+												<hr style="padding:3px;" />
+													
+												<table cellpadding="5" cellspacing="5" width="100%" border="0">
+													<tr>
+														<td>
+															<a href="/events/importio-open-data-hackathon-with-kpmg-and-the-open-data-institute.php"><img src="" width="125" align="right" /></a>
+															<a href="/events/importio-open-data-hackathon-with-kpmg-and-the-open-data-institute.php" style="color: #000;"><strong>Import•io Open Data Hackathon, with KPMG and the Open Data Institute - 03/08/2013 to 03/10/2013 - London London  United Kingdom </strong></a>  We are pleased to&nbsp;announce&nbsp;that from the 8th to 10th March 2013&nbsp;import&bull;io&nbsp;in&nbsp;collaboration with&nbsp;KPMG&nbsp;and the&nbsp;Open Data Institute, will be running our first hackathon, with a theme of Open Data.  As well as four category prizes, the Best In Show&nbsp;Prize includes an incubation space for three months from&nbsp;import&bull;io&nbsp;and advisory&nbsp;services from&nbsp;KPMG!  If you wish to&nbsp;attend registration will open on 11th&nbsp;February&nbsp;at 9am.  Registration will include a fee of &pound;20 which will be donated to charity.  With&nbsp;companies and&nbsp;entire industries being built to exploit the value that is held in the increasing amounts of data&nbsp;being created and stored, this hackathon aims to find out&nbsp;where all this data is and what can we do with it.															<br /><br /><p align="center"><a href="/events/importio-open-data-hackathon-with-kpmg-and-the-open-data-institute.php">
+															<strong>View Details</strong>
+															</a></p>
+														</td>										
+													</tr>
+												</table>
+												<hr style="padding:3px;" />
+													
+												<table cellpadding="5" cellspacing="5" width="100%" border="0">
+													<tr>
+														<td>
+															<a href="/events/sxsw-hackatx-hack-for-convenience.php"><img src="http://kinlane-productions.s3.amazonaws.com/api-evangelist-site/events/hack-atx.png" width="125" align="left" /></a>
+															<a href="/events/sxsw-hackatx-hack-for-convenience.php" style="color: #000;"><strong>SXSW HackATX: Hack for Convenience - 03/08/2013 to 03/09/2013 - Austin TX  United States </strong></a>  You're invited to join us on Friday, March 8 at HackATX, an all-night hackathon hosted byT3&nbsp;and&nbsp;7-Eleven.  This is an official SXSW event, but badges are not required to attend or participate.  We supply the caffeine, snacks, T-shirts, prizes and some professional guidance.  You bring a Wi-Fi-enabled computer &ndash; and then you&nbsp;bring&nbsp;it.  It all starts at 6 p.  m.  with a kick-off party at T3 Headquarters featuring local bands and beer.  Coding begins at 8 p.  m.  and ends at 8 a.  m.  Saturday morning, followed by a presentation.  Hackers are welcome to stay the night at T3 or work virtually.  Teams will be given access to a suite of 7-Eleven APIs developed by T3 to use.  The winner will be selected by a panel of industry-leading judges based on a combination of functionality, design and presentation.  Bragging rights are on the line&nbsp;&ndash;&nbsp;and cold, hard cash.															<br /><br /><p align="center"><a href="/events/sxsw-hackatx-hack-for-convenience.php">
+															<strong>View Details</strong>
+															</a></p>											
+														</td>										
+													</tr>
+												</table>
+												<hr style="padding:3px;" />
+													
+												<table cellpadding="5" cellspacing="5" width="100%" border="0">
+													<tr>
+														<td>
+															<a href="/events/mlab-zambia-mobile-apps-hackathonunza.php"><img src="http://kinlane-productions.s3.amazonaws.com/api-evangelist-site/events/mlab.gif" width="125" align="right" /></a>
+															<a href="/events/mlab-zambia-mobile-apps-hackathonunza.php" style="color: #000;"><strong>mLab Zambia: Mobile Apps Hackathon-UNZA - 03/09/2013 to 03/09/2013 - Lusaka Lusaka  Zambia </strong></a>  CONNECTING ZAMBIA TO A RESILIENT GLOBAL NETWORT
+  This very special mLab Zambia Mobile App Hackathon, an event produced by mLab Zambia and TRADESQR, is designed for University of Zambia students both technical &amp; non-technical to build apps/mobile apps to benefit our education, commerce, energy and health systems.  We will have free food, great speakers, and some awesome prizes provided by our sponsors.  Developers, health practitioners, energy experts, entrepreneurs, teachers, and students are heavily encouraged to meet new people, scout for teammates, and collaborate to help improve our education, trade, health and energy sectors.  We Supply: Quick presentations and code samples that help to bootstrap your hacking, food to keep you going, and caffeine to keep you awake.  Along with technical senseis to assist you in building faster, smarter, and with new tools.															<br /><br /><p align="center"><a href="/events/mlab-zambia-mobile-apps-hackathonunza.php">
+															<strong>View Details</strong>
+															</a></p>
+														</td>										
+													</tr>
+												</table>
+												<hr style="padding:3px;" />
+													
+												<table cellpadding="5" cellspacing="5" width="100%" border="0">
+													<tr>
+														<td>
+															<a href="/events/hackathon-30-gatineau-ouverte.php"><img src="http://kinlane-productions.s3.amazonaws.com/api-evangelist-site/events/3286729697-1.png" width="125" align="left" /></a>
+															<a href="/events/hackathon-30-gatineau-ouverte.php" style="color: #000;"><strong>Hackathon 3.0 Gatineau Ouverte - 03/09/2013 to 03/09/2013 - Gatineau Ontario  Canada </strong></a>  &Agrave; ajouter &agrave; vos calendriers!  Gatineau Ouverte vous invite au prochain hackathon le&nbsp;samedi 9 mars&nbsp;prochain.  En guise de c&eacute;l&eacute;bration pour la r&eacute;cente publication du portail des donn&eacute;es ouvertes de la Ville de Gatineau -&nbsp;http://www.  gatineau.  ca/donneesouvertes/
+  Gatineau Ouverte vous propose une journ&eacute;e de rassemblement.  Le but sera de continuer &agrave; travailler sur les projets existants et d&rsquo;en initier de nouveau.  Nous voulons encourager la communaut&eacute; gatinoise de donn&eacute;es ouvertes en donnant aux initiateurs de projets le soutien, les id&eacute;es, et l&rsquo;assistance dont ils ont besoin pour maintenir leurs projets.  &nbsp;Venez apprendre &agrave; comment utiliser et explorer les donn&eacute;es ouvertes de la Ville de Gatineau.															<br /><br /><p align="center"><a href="/events/hackathon-30-gatineau-ouverte.php">
+															<strong>View Details</strong>
+															</a></p>											
+														</td>										
+													</tr>
+												</table>
+												<hr style="padding:3px;" />
+													
+												<table cellpadding="5" cellspacing="5" width="100%" border="0">
+													<tr>
+														<td>
+															<a href="/events/the-worlds-first-attitudinal-hackathon.php"><img src="http://kinlane-productions.s3.amazonaws.com/api-evangelist-site/events/attudinal-hackathon.png" width="125" align="right" /></a>
+															<a href="/events/the-worlds-first-attitudinal-hackathon.php" style="color: #000;"><strong>The World's First Attitudinal Hackathon - 03/09/2013 to 03/09/2013 - London London  United Kingdom </strong></a>  The World's First Attitudinal Hackathon
+  Saturday, 9th March from 11:00 - 5:30 pm
+  Hosted by General Assembly and Inspire For Tech
+  Self-celebration?  Get-rich-or-die-trying?  Fail fast!  And sing it from the rooftops.  These are the mantras of an entrepreneurial mindset, echoing across startup communities since the Californian gold rush.  The world's first attitundinal hackathon is about embracing change, taking chances and living to learn from both success and failure.  &nbsp;Throw caution to the wind.  Check risk-averse natures at the door.  &nbsp;This is a day to let your hair down and get down with it.  &nbsp;
+  Schedule:  
+
+Morning Yoga
+Founder Story #1 - Passion is the New Pivot
+Lunch
+Barbara Mariposa: "Creating Health - Success in All Areas"
+Founder Story #2 - Getting Over Fear of Failure
+"Pitch Workshop" with Annette Kramer and Bianca Praetorius
+Fireside Chat - Get Involved!															<br /><br /><p align="center"><a href="/events/the-worlds-first-attitudinal-hackathon.php">
+															<strong>View Details</strong>
+															</a></p>
+														</td>										
+													</tr>
+												</table>
+												<hr style="padding:3px;" />
+													
+												<table cellpadding="5" cellspacing="5" width="100%" border="0">
+													<tr>
+														<td>
+															<a href="/events/blackhack-hollywood--sxsw.php"><img src="http://kinlane-productions.s3.amazonaws.com/api-evangelist-site/events/blackgirls-hack.png" width="125" align="left" /></a>
+															<a href="/events/blackhack-hollywood--sxsw.php" style="color: #000;"><strong>#blackhack Hollywood @ SXSW - 03/09/2013 to 03/10/2013 - Austin TX  United States </strong></a>  What?  &nbsp;A&nbsp;hackathon for the black tech community at SXSW
+  Where?  BiT House- SXSW
+  Why?  &nbsp;We're bringing together the hacker/designer/founder community to design mobile and web applications for the film and music industry.  &nbsp;
+  What&rsquo;s in it for you?  Network with the #blacktech community from across the country
+  Create gorgeous new apps for film and music
+  Eat amazing food all night plus brunch on Sunday morning!  Make the most of your SXSW experience
+  Share your resume with startups and corporations who are on the lookout for amazing talent
+  Best of all?  &nbsp;Tickets are free!  &nbsp;
+  For more information visit&nbsp;BlackGirlsHack.  com,
+  follow us at&nbsp;@blackgirlshack&nbsp;or
+  email&nbsp;pr@blackgirlshack.															<br /><br /><p align="center"><a href="/events/blackhack-hollywood--sxsw.php">
+															<strong>View Details</strong>
+															</a></p>											
+														</td>										
+													</tr>
+												</table>
+												<hr style="padding:3px;" />
+													
+												<table cellpadding="5" cellspacing="5" width="100%" border="0">
+													<tr>
+														<td>
+															<a href="/events/spruce-hackathon-leeds-unified-characterisation.php"><img src="http://kinlane-productions.s3.amazonaws.com/api-evangelist-site/events/spruce-hackathons.png" width="125" align="right" /></a>
+															<a href="/events/spruce-hackathon-leeds-unified-characterisation.php" style="color: #000;"><strong>SPRUCE Hackathon Leeds, Unified Characterisation - 03/11/2013 to 03/12/2013 - Leeds Leeds  United Kingdom </strong></a>  What's it all about?  A two day, dev only, hackathon focusing on characterisation for digital preservation.  This is a chance to hack with the experts and develop a unified approach to characterising and understanding digital data.  Full event details can be found on the OPF wiki here.  If you'd like to contribute ideas for what we will work on, check out the hackathon scratch space here.  What does it cost?  We provide your accomodation and meals at the event.  All you have to do is get to Leeds with your laptop and your best coding boots on.  Note that we expect all attendees to join us for the whole event.  Arriving late or leaving early is *not an option*.  Who is it for?  The hackathon is primarily aimed at software developers from the Libraries and Archives community, but we will consider registrations from anyone with an interest and enthusiasm for understanding digital content.															<br /><br /><p align="center"><a href="/events/spruce-hackathon-leeds-unified-characterisation.php">
+															<strong>View Details</strong>
+															</a></p>
+														</td>										
+													</tr>
+												</table>
+												<hr style="padding:3px;" />
+													
+												<table cellpadding="5" cellspacing="5" width="100%" border="0">
+													<tr>
+														<td>
+															<a href="/events/open-week--windows-phone-hackathon.php"><img src="http://kinlane-productions.s3.amazonaws.com/api-evangelist-site/events/open-week.png" width="125" align="left" /></a>
+															<a href="/events/open-week--windows-phone-hackathon.php" style="color: #000;"><strong>Open Week - Windows Phone Hackathon! - 03/15/2013 to 03/15/2013 - Zaventem Brabant  Belgium </strong></a>  Join the Windows Phone Hackathon!  Mobile app development is skyrocketing, as is sales of smartphones and tablets.  &nbsp;This provides a huge opportunity for developers.  &nbsp;Experience first-hand how to build a Windows Phone app and network with other mobile developers!  Feel free to also join the session on Azure&nbsp;and get&nbsp;an overview of how you can build mobile apps that take advantage of the Windows Azure platform.  &nbsp;Mobile developers will be there to show you&nbsp;how they take advantage of the platform.  (Go to&nbsp;http://openweekmobile.  eventbrite.  com&nbsp;to&nbsp;register for the Azure&nbsp;session.  )&nbsp;
+  More details on the program on&nbsp;http://aka.															<br /><br /><p align="center"><a href="/events/open-week--windows-phone-hackathon.php">
+															<strong>View Details</strong>
+															</a></p>											
+														</td>										
+													</tr>
+												</table>
+												<hr style="padding:3px;" />
+													
+												<table cellpadding="5" cellspacing="5" width="100%" border="0">
+													<tr>
+														<td>
+															<a href="/events/war-of-the-worlds--ufs-1st-annual-code-and-design-war.php"><img src="http://kinlane-productions.s3.amazonaws.com/api-evangelist-site/events/war-of-the-worlds.jpg" width="125" align="right" /></a>
+															<a href="/events/war-of-the-worlds--ufs-1st-annual-code-and-design-war.php" style="color: #000;"><strong>War of the Worlds - UF's 1st Annual Code and Design War - 03/15/2013 to 03/17/2013 - Gainesville FL  United States </strong></a>  Developer?  Designer?  or Mobile Apps expert?  We have a mission for you!  War of the Worlds - UF's 1st Annual Code and Design War, is a team coding/design competition with a common goal: to develop the app that will "save the world".  Together with your team, you will spend 54 hours hacking on code to develop an application designed to "save humanity".  But this is no ordinary competition.  Everytime your team completes a goal, you receive a "powerup" that can change the rules of the game, push your team into the lead, or set other teams behind.  Only the best teams will survive.  Throughout the competition you'll receive mentorship from our sponsors, FREE FOOD AND DRINKS, and FREE T-SHIRTS!  Besides "saving humanity", winning teams will be endowed with illustrious prizes!  &nbsp;
+  Register before February 16th, and get FREE ADMISSION!  &nbsp;
+  Planning your team in advance?															<br /><br /><p align="center"><a href="/events/war-of-the-worlds--ufs-1st-annual-code-and-design-war.php">
+															<strong>View Details</strong>
+															</a></p>
+														</td>										
+													</tr>
+												</table>
+												<hr style="padding:3px;" />
+													
+												<table cellpadding="5" cellspacing="5" width="100%" border="0">
+													<tr>
+														<td>
+															<a href="/events/one-day-digital-aberdeen.php"><img src="http://kinlane-productions.s3.amazonaws.com/api-evangelist-site/events/one-day-digital-dundee.jpg" width="125" align="left" /></a>
+															<a href="/events/one-day-digital-aberdeen.php" style="color: #000;"><strong>One Day Digital Aberdeen - 03/16/2013 to 03/16/2013 - Aberdeen Aberdeen City  United Kingdom </strong></a>  Are you aged 13 -16?  Would you like to design and make your own app/website/ animation or try out a 3D printer?  Book your ticket for One Day Digital Aberdeen!  We are working with Industry experts to bring you an action-packed day of digital making.  Whether you would like to learn how to code, use a 3D printer or learn some digital media skills we have the session for you!  Choose from the sessions below to secure your spot.  Why should I take part?  A fun day with digital industry experts
+Free event, with limited spaces
+A unique opportunity for you to meet real world digital experts and your own app, website, animation, game or try out a 3D printer.  Meet new, likeminded people
+There will be Free Raspberry Pi&rsquo;s and Arduino kits to give away!  Free lunch will be provided!															<br /><br /><p align="center"><a href="/events/one-day-digital-aberdeen.php">
+															<strong>View Details</strong>
+															</a></p>											
+														</td>										
+													</tr>
+												</table>
+												<hr style="padding:3px;" />
+													
+												<table cellpadding="5" cellspacing="5" width="100%" border="0">
+													<tr>
+														<td>
+															<a href="/events/hack-tcnj-2013.php"><img src="http://kinlane-productions.s3.amazonaws.com/api-evangelist-site/events/hack-tcjn.png" width="125" align="right" /></a>
+															<a href="/events/hack-tcnj-2013.php" style="color: #000;"><strong>Hack TCNJ 2013 - 03/16/2013 to 03/17/2013 - Ewing Township NJ  United States </strong></a>  Calling all students in the greater NYC/NJ/Philly/DC corridor.  Come hack your best app and compete for fame, glory and prices at Hack TCNJ 2013!															<br /><br /><p align="center"><a href="/events/hack-tcnj-2013.php">
+															<strong>View Details</strong>
+															</a></p>
+														</td>										
+													</tr>
+												</table>
+												<hr style="padding:3px;" />
+													
+												<table cellpadding="5" cellspacing="5" width="100%" border="0">
+													<tr>
+														<td>
+															<a href="/events/galafest-haxathon.php"><img src="http://kinlane-productions.s3.amazonaws.com/api-evangelist-site/events/galafest.png" width="125" align="left" /></a>
+															<a href="/events/galafest-haxathon.php" style="color: #000;"><strong>GalaFest Haxathon - 03/16/2013 to 03/17/2013 - Espoo Espoo  Finland </strong></a>  Festivities and Celebrations are all around us.  Heres a chance to reap all that epic gaety and mirth.  Its a 24 hour Rendevous with Culture folks!  Whether its Chinese New Year, Easters, Diwali, Chirstmas or whatever.  &nbsp; Develop an application under 24 hours around a theme that speaks to you tradionally and &nbsp;you want others to experience.  &nbsp;
+  Here are&nbsp;some examples:
+  - App that aggregates all the exotic delish&nbsp;dishes from the festival itself.  -Holiday themed game.  like Shoot the turkey?  (Thanksgiving theme)
+  - Find that Egg!  .  (Easter themed)
+  -Voodoo App.  (Halloween Theme)
+  - Desi Calender.  Dates of all the festivals to look forward to.  Or simply&nbsp;ruin the mood with a wicked "Grinchmas" app &gt;:)
+  The&nbsp;choice is all yours!  The Hackathon takes place at Aalto Open Innovation Center&nbsp;on the&nbsp;AppSpace Floor.															<br /><br /><p align="center"><a href="/events/galafest-haxathon.php">
+															<strong>View Details</strong>
+															</a></p>											
+														</td>										
+													</tr>
+												</table>
+												<hr style="padding:3px;" />
+													
+												<table cellpadding="5" cellspacing="5" width="100%" border="0">
+													<tr>
+														<td>
+															<a href="/events/digitalwalletfoundry-payment.php"><img src="" width="125" align="right" /></a>
+															<a href="/events/digitalwalletfoundry-payment.php" style="color: #000;"><strong>#DigitalWalletFoundry: Payment - 03/18/2013 to 03/22/2013 - London London  United Kingdom </strong></a>  &nbsp;#DigitalWalletFoundry&nbsp;at&nbsp;Modern Jago&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; A day to think, a week to design.  &nbsp;  &nbsp;
+  Complex and diverse offerings and intense competition, combined with the familiar refrain that&nbsp;&ldquo;next year is the year of mobile payments&rdquo;&nbsp;are delaying user adoption.  Activating consumer demand is the Industries greatest challenge.  &nbsp;
+  Digital Wallet Foundry, a three week mix &lsquo;n&rsquo; match event program in London starting 18th March seeks to focus the Industry on creating propositions that excite and engage, with the primary goal of encouraging the development of wallet applications.  #DigitalWalletFoundry invites developers, designers, industry leaders and people with a view to take the first steps in solving some of these challenges.															<br /><br /><p align="center"><a href="/events/digitalwalletfoundry-payment.php">
+															<strong>View Details</strong>
+															</a></p>
+														</td>										
+													</tr>
+												</table>
+												<hr style="padding:3px;" />
+													
+												<table cellpadding="5" cellspacing="5" width="100%" border="0">
+													<tr>
+														<td>
+															<a href="/events/hacking-the-gigabit-city.php"><img src="http://kinlane-productions.s3.amazonaws.com/api-evangelist-site/events/hacking-the-gigabit-city.jpg" width="125" align="left" /></a>
+															<a href="/events/hacking-the-gigabit-city.php" style="color: #000;"><strong>Hacking the Gigabit City - 03/22/2013 to 03/24/2013 - Kansas City MO  United States </strong></a>  The future is here in Kansas City, home of broadband and barbecue.  Help define the future at Hacking the Gigabit City, March 22-24th in Kansas City!   
+Gigabit networks just might be to the 21st century what railroads, electricity, highways, and telephones were to the 20th: a foundation for new generations of entrepreneurs and makers to create immense value.   
+With superfast internet like Google Fiber rolling out in Kansas City (and in communities like Chattanooga, TN) startups, social enterprises and makers have an enormous opportunity to build the future on broadband that's up to 100 times faster than the typical home connection.   
+This gives us the opportunity to ask—and answer—some important questions:
+
+
+How will people of all ages use this new infrastructure to live, learn, and make?  How might the typical internet experience become richer than it is today?															<br /><br /><p align="center"><a href="/events/hacking-the-gigabit-city.php">
+															<strong>View Details</strong>
+															</a></p>											
+														</td>										
+													</tr>
+												</table>
+												<hr style="padding:3px;" />
+													
+												<table cellpadding="5" cellspacing="5" width="100%" border="0">
+													<tr>
+														<td>
+															<a href="/events/hackathon-for-autism.php"><img src="" width="125" align="right" /></a>
+															<a href="/events/hackathon-for-autism.php" style="color: #000;"><strong>Hackathon for Autism - 03/22/2013 to 03/24/2013 - Seattle WA  United States </strong></a>  www.  bingfund.  com/autism
+March 22nd - 24th
+&nbsp;
+&nbsp;
+  Microsoft's Bing Fund is creating a series of Hackathon&rsquo;s around Autism, where we will invite technologists, designers, subject matter experts, and people living with Autism (both families and individuals) to participate and help us produce prototypes which we will continue to build on at subsequent Hackathons.  &nbsp;Depending on the feedback from the first event we will likely modify the themes at each subsequent events to focus on specific areas.  &nbsp; If you have any comments or questions about our Hackathon for Autism or you would like to volunteer please reach out to us&nbsp;here.  &nbsp;
+WHERE
+
+  Husky Union Building (North Ballroom)
+Seattle, WA&nbsp;
+SPECIAL GUESTS
+
+  &nbsp;
+
+
+Wendy Stone, PhD, UW Autism Center
+
+
+Raphael Bernier, PhD, UW Autism Center
+
+
+Dr.															<br /><br /><p align="center"><a href="/events/hackathon-for-autism.php">
+															<strong>View Details</strong>
+															</a></p>
+														</td>										
+													</tr>
+												</table>
+												<hr style="padding:3px;" />
+													
+												<table cellpadding="5" cellspacing="5" width="100%" border="0">
+													<tr>
+														<td>
+															<a href="/events/strategyhack.php"><img src="http://kinlane-productions.s3.amazonaws.com/api-evangelist-site/events/strategy-hack.jpg" width="125" align="left" /></a>
+															<a href="/events/strategyhack.php" style="color: #000;"><strong>StrategyHack - 03/23/2013 to 03/23/2013 - New York NY  United States </strong></a>  StrategyHack is designed to match young companies with teams of marketing strategists.  &nbsp; Each team will do everything it can, over the course of the five hour event, to craft and (begin to) execute a marketing strategy.  Much like a hackathon, teams are formed at the beginning of the event and will make a final presentation at the end.  &nbsp; Unlike a traditional hackathon, there will be little to no programming required.  &nbsp; The emphasis is on using communications skills and marketing technologies to attract new customers and build lasting businesses.															<br /><br /><p align="center"><a href="/events/strategyhack.php">
+															<strong>View Details</strong>
+															</a></p>											
+														</td>										
+													</tr>
+												</table>
+												<hr style="padding:3px;" />
+													
+												<table cellpadding="5" cellspacing="5" width="100%" border="0">
+													<tr>
+														<td>
+															<a href="/events/code-66-new-mexico-hackathon.php"><img src="http://kinlane-productions.s3.amazonaws.com/api-evangelist-site/events/code-66.png" width="125" align="right" /></a>
+															<a href="/events/code-66-new-mexico-hackathon.php" style="color: #000;"><strong>Code 66 New Mexico Hackathon - 04/12/2013 to 04/14/2013 - Albuquerque NM  United States </strong></a>  &nbsp;
+  It's the Albuquerque area's first 48-hour Hackathon!  Join us at 5:30 today to get in on the action!  THE BASICS:
+  A hackathon is an intense period dedicated to designing, coding, making and deploying.  Whether you seek to demonstrate a concept for a product or tool built with code, hardware.  or something else, hackathons can provide a high energy, low risk environment for bringing teams together to make something happen.  Hackathons are about doing.  Orientation and Kickoff - Your event coordinators will welcome you and present an introduction to Code 66.  Team pitches - Each prospective team leader will present a quick (2 minutes max!  ) sketch of their idea and needs to engage potential team members.  Hacking - Teams will hack on their demos.  Demos - Each team will demo their projects for the group and judges.															<br /><br /><p align="center"><a href="/events/code-66-new-mexico-hackathon.php">
+															<strong>View Details</strong>
+															</a></p>
+														</td>										
+													</tr>
+												</table>
+												<hr style="padding:3px;" />
+													
+								</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+			</table>
+		
+					</div>
+	
+				</div><!-- /.post -->
+
+			</div><!-- /#main -->
+
+			
+<div id="sidebar">
+	
+	<div class="widget widget_recent_entries">
+		<center>
+			<a href="http://www.apistrategyconference.com/" target="_blank" title="API Strategy & Practice Conference">
+				<img src="https://s3.amazonaws.com/kinlane-productions/events/api-strategy-practice-conference/api-strategy-practice-event-2-sold-out.png" align="center" width="250" style="" title="API Strategy & Practice Conference" />
+			</a>
+		</center>
+	</div>
+	
+
+	<div class="widget widget_recent_entries">	
+	<h3>Federal Government</h3>
+	<center>
+		<a href="http://www.apievangelist.com/federal_government.php" target="_blank" style="font-size: 18px; color:#000;text-decoration: underline;">
+			<img src="http://kinlane-productions.s3.amazonaws.com/api-evangelist-site/blog/Building-a-21st-century-platform-to-better-serve-the-american-people-1.png" width="150" />
+		</a>
+		<br />
+	</center>
+	
+	</div>
+
+	
+		
+	
+	<div class="widget widget_recent_entries">
+		<h3>Business of APIs</h3>
+		<center>
+			<a href="/business_of_apis.php">
+				<img src="http://kinlane-productions.s3.amazonaws.com/business-of-apis/Business-of-APIs-Front-Cover-Cropped.png" align="center" width="150" style="border: 1px solid #000; padding: 10px;" />
+			</a>
+		</center>
+	</div>
+	
+	<!--
+	<center>
+		<a href="http://developer.citygridmedia.com/" target="_blank">
+			<img src="http://kinlane-productions.s3.amazonaws.com/citygrid/citygrid_logo.jpg" width="200" />
+		</a>
+		<br /><br />
+	</center>	
+	-->
+	
+		<div class="widget widget_recent_entries">
+				<h3>API Podcast</h3>
+		<center>
+		<table cellpadding="5" cellspacing="5">
+			<tr>
+				<td align="center"><a href="http://trafficandweather.io/" target="_blank"><img src="https://s3.amazonaws.com/kinlane-productions/api-evangelist/traffic-and-weather/Traffic-and-Weather.png" width="200" /></a></td>
+			</tr>
+			<tr>
+				<td align="center" style="padding-top:10px;"><a href="Episode 6: "I'm going to take this all out."" target="_blanK" style="color:#000;"><strong>Episode 6: "I'm going to take this all out."</a></strong></td>
+			</tr>
+		</table>
+		</center>
+	</div>	
+	
+	<div class="widget widget_recent_entries">	
+	<h3>Latest Blog Posts</h3>
+	<ul>
+	
+							
+			<li><a href="http://apievangelist.com/2013/02/13/salesforce-plans-to-move-code-share-to-github/">Salesforce Plans to Move Code Share to Github</a></li>				
+								
+			<li><a href="http://apievangelist.com/2013/02/13/google-launches-html-game-development-course-with-udacity/">Google Launches HTML Game Development Course with Udacity</a></li>				
+								
+			<li><a href="http://apievangelist.com/2013/02/13/aws-api-reference-architecture/">AWS API Reference Architecture</a></li>				
+								
+			<li><a href="http://apievangelist.com/2013/02/13/stripe-adds-jquery-tools-to-its-api-embed-strategy/">Stripe Adds Jquery Tools To Its API Embed Strategy</a></li>				
+								
+			<li><a href="http://apievangelist.com/2013/02/12/public-library-operations-machine-readable-by-default/">Public Library Operations Machine-Readable By Default</a></li>				
+								
+			<li><a href="http://apievangelist.com/2013/02/12/facebook-launches-a-new-video-channel-for-developers-called-facebook-developers-live/">Facebook Launches a New Video Channel for Developers</a></li>				
+								
+			<li><a href="http://apievangelist.com/2013/02/12/open-source-baas-project-in-the-european-union/">Open Source BaaS Project In The European Union</a></li>				
+								
+			<li><a href="http://apievangelist.com/2013/02/12/companies-that-are-speaking-at-api-strategy-practice/">The 72 Companies Speaking At API Strategy & Practice</a></li>				
+								
+			<li><a href="http://apievangelist.com/2013/02/10/bringing-etl-to-the-masses-with-apis/">Bringing ETL to the Masses with APIs</a></li>				
+								
+			<li><a href="http://apievangelist.com/2013/02/07/which-baas-pricing-model-is-better/">Which BaaS Pricing Model Is Better?</a></li>				
+								
+			<li><a href="http://apievangelist.com/2013/02/05/round-two-of-the-presidential-innovation-fellows-/">White House Announces Round Two of the Presidential Innovation Fellows </a></li>				
+								
+			<li><a href="http://apievangelist.com/2013/02/05/augmenting-popular-platforms-with-new-features-using-apis/">Augmenting Popular Platforms With New Features Using APIs</a></li>				
+								
+			<li><a href="http://apievangelist.com/2013/02/04/salesforce-discusses-its-eclipse-plugin-release-approach/">Salesforce Discusses Its Eclipse Plugin Release Approach</a></li>				
+								
+			<li><a href="http://apievangelist.com/2013/02/04/google-adjusts-adwords-api-access-tiers/">Google Adjusts Adwords API Access Tiers</a></li>				
+								
+			<li><a href="http://apievangelist.com/2013/02/03/open-by-default-for-new-generation-of-api-integrators/">Open By Default for New Generation of API Integrators</a></li>				
+								
+			<li><a href="http://apievangelist.com/2013/02/03/deploy-and-manage-api-on-amazon-web-services-aws/">Deploy and Manage API on Amazon Web Services (AWS)</a></li>				
+								
+			<li><a href="http://apievangelist.com/2013/02/02/the-api-evangelist-toolbox/">The API Evangelist Toolbox</a></li>				
+								
+			<li><a href="http://apievangelist.com/2013/02/02/api-server-mashups-will-increase-but-client-mashups-will-decline/">API Server Mashups Will Increase But Client Mashups Will Decline</a></li>				
+								
+			<li><a href="http://apievangelist.com/2013/02/02/the-scientific-archive-of-biodiversity-audio-and-video-recordings-needs-an-api/">The Scientific Archive of Biodiversity Audio and Video Recordings Needs an API</a></li>				
+								
+			<li><a href="http://apievangelist.com/2013/02/02/individual-api-deployments-will-get-smaller-and-more-numerous/">Individual API Deployments Will Get Smaller and More Numerous</a></li>				
+								
+			<li><a href="http://apievangelist.com/2013/02/02/one-api-discovery-definition-to-rule-them-all/">One API Discovery Definition to Rule Them All</a></li>				
+								
+			<li><a href="http://apievangelist.com/2013/02/01/new-open-source-backend-as-a-services-platform-for-game-developers/">New Open Source Backend as a Services Platform for Game Developers</a></li>				
+								
+			<li><a href="http://apievangelist.com/2013/02/01/traffic-and-weather-virtualized-api-stacks/">Traffic and Weather - Virtualized API Stacks</a></li>				
+								
+			<li><a href="http://apievangelist.com/2013/02/01/storytelling-is-essential-companion-to-open-data-and-apis-at-world-bank/">Storytelling Is Essential Companion To Open Data and APIs at World Bank</a></li>				
+								
+			<li><a href="http://apievangelist.com/2013/02/01/a-conversation-about-apis-in-washington-dc/">A Conversation About APIs in Washington DC</a></li>				
+				
+	
+	</ul>
+	</div>	
+	
+	<div class="widget widget_recent_entries">	
+	<h3>Building Blocks</h3>
+	<ul>
+	
+							
+			<li><a href="http://apievangelist.com/buildingblocks/qa_seeding.php">QA Seeding</a></li>				
+								
+			<li><a href="http://apievangelist.com/buildingblocks/forum_posting.php">Forum Posting</a></li>				
+								
+			<li><a href="http://apievangelist.com/buildingblocks/stumbleupon.php">StumbleUpon</a></li>				
+								
+			<li><a href="http://apievangelist.com/buildingblocks/list_of_endpoints.php">List of Endpoints</a></li>				
+								
+			<li><a href="http://apievangelist.com/buildingblocks/email_newsletter.php">Email Newsletter</a></li>				
+				
+	
+	</ul>
+	</div>	
+
+	<div class="widget widget_recent_entries">	
+	<h3>Industries</h3>
+	<ul>
+	
+							
+			<li><a href="http://apievangelist.com/industries/blogging.php">Blogging</a></li>				
+								
+			<li><a href="http://apievangelist.com/industries/public_transit.php">Public Transit</a></li>				
+								
+			<li><a href="http://apievangelist.com/industries/education.php">Education</a></li>				
+								
+			<li><a href="http://apievangelist.com/industries/bookmarking.php">Bookmarking</a></li>				
+								
+			<li><a href="http://apievangelist.com/industries/energy.php">Energy</a></li>				
+				
+	
+	</ul>
+	</div>
+	
+	<div class="widget widget_recent_entries">	
+	<h3>Service Providers</h3>
+	<ul>
+	
+							
+			<li><a href="http://apievangelist.com/serviceproviders/3scale.php">3Scale</a></li>				
+								
+			<li><a href="http://apievangelist.com/serviceproviders/get_satisfaction.php">Get Satisfaction</a></li>				
+								
+			<li><a href="http://apievangelist.com/serviceproviders/openmobster.php">OpenMobster</a></li>				
+								
+			<li><a href="http://apievangelist.com/serviceproviders/apify.php">Apify</a></li>				
+								
+			<li><a href="http://apievangelist.com/serviceproviders/iknode.php">iKnode</a></li>				
+				
+	
+	</ul>
+	</div>	
+	
+	<div class="widget widget_recent_entries">	
+	<h3>Tools</h3>
+	<ul>
+	
+							
+			<li><a href="http://apievangelist.com/apitools/slim.php">Slim</a></li>				
+								
+			<li><a href="http://apievangelist.com/apitools/fiddler.php">Fiddler</a></li>				
+								
+			<li><a href="http://apievangelist.com/apitools/rest_in_place.php">REST in Place</a></li>				
+								
+			<li><a href="http://apievangelist.com/apitools/zita.php">Zita</a></li>				
+								
+			<li><a href="http://apievangelist.com/apitools/localtunnel.php">localtunnel</a></li>				
+				
+	
+	</ul>
+	</div>	
+	
+	<div class="widget widget_recent_entries">	
+	<h3>APIs</h3>
+	<ul>
+	
+							
+			<li><a href="http://apievangelist.com/apis/3scale_billing.php">3Scale Billing</a></li>				
+								
+			<li><a href="http://apievangelist.com/apis/curriculum_u_api.php">Curriculum U API</a></li>				
+								
+			<li><a href="http://apievangelist.com/apis/amazon_s3.php">Amazon S3</a></li>				
+								
+			<li><a href="http://apievangelist.com/apis/digg.php">DHL</a></li>				
+								
+			<li><a href="http://apievangelist.com/apis/3scale_service_management.php">3scale Service Management</a></li>				
+				
+	
+	</ul>
+	</div>	
+	
+	
+	<div class="widget widget_recent_entries">	
+	
+		<h3>Partner Sites</h3>
+		
+		<center>
+			<a href="http://www.singly.com/" target="_blank" title="Singly">
+				<img src="http://kinlane-productions.s3.amazonaws.com/singly/singly-logo-horizontal.png" width="150" />
+			</a>
+			<br /><br />
+		</center>	
+		<center>
+			<a href="http://www.apihub.com/" target="_blank" title="APIhub">
+				<img src="https://s3.amazonaws.com/kinlane-productions/api-evangelist/mulesoft/APIhub-by-mulesoft.png" width="170" />
+			</a>
+			<br /><br />
+		</center>					
+		<center>
+			<a href="http://www.programmableweb.com/" target="_blank" title="ProgrammableWeb">
+				<img src="http://kinlane-productions.s3.amazonaws.com/api-evangelist/programmableweb-logo.png" width="150" />
+			</a>
+			<br /><br />
+		</center>			
+		<center>
+			<a href="http://www.3scale.net" target="_blank" title="3Scale">
+				<img src="http://kinlane-productions.s3.amazonaws.com/api-service-providers/3scale-logo.jpg" width="200" />
+			</a>			
+			<br /><br />
+		</center>	
+		
+	</div>
+	
+	<div id="text-9" class="widget widget_text">
+		
+		<h3>Search</h3>
+		<form action="/blog/search.php" method="post"><input type="text" name="SearchQuery" value"search" style="border: 1px solid #CCC;" size="35" value="" />&nbsp;&nbsp;<input type="submit" value="Search Blog" style="padding-right: 10px;" /></form>	
+	
+	</div>		
+
+</div>
+
+	
+
+		</div><!-- /#main-sidebar-container -->         
+
+	</div><!-- /#content -->
+
+	<div id="footer" class="col-full">
+
+		<div id="copyright" class="col-left">
+			<p><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/3.0/88x31.png" /></a></p>		
+		</div>
+
+		<div id="credit" class="col-right">
+	
+            <p><a href="http://kinlane.com/about/">About</a></p>    
+            <p>|</p>
+            <p><a href="http://theapistack.com">API Stack</a></p>   
+            <p>|</p>
+            <p><a href="http://apievangelist.com">API Evangelist</a></p>     
+            <p>|</p>
+            <p><a href="http://ipaevangelist.com">IPA Evangelist</a></p>                 
+            <p>|</p>
+            <p><a href="http://apivoice.com">API Voice</a></p>
+            <p>|</p>
+            <p><a href="http://hackweekends.com">Hack Weekends</a></p>  
+            <p>|</p>
+            <p><a href="http://kinlane.com/contact/">Contact</a></p>                
+        		
+		
+		</div>
+
+	</div><!-- /#footer  -->
+
+</div><!-- /#wrapper -->
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-1119465-51']);
+  _gaq.push(['_setDomainName', 'apievangelist.com']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+<script type="text/javascript" src="/jscripts/thickbox.js"></script>
+
+
+<script type="text/javascript">
+adroll_adv_id = "VMTWB5ED65CABO4U5ETVFP";
+adroll_pix_id = "3LUGJEC4GZDETOSBFIU6EE";
+(function () {
+var oldonload = window.onload;
+window.onload = function(){
+   __adroll_loaded=true;
+   var scr = document.createElement("script");
+   var host = (("https:" == document.location.protocol) ? "https://s.adroll.com" : "http://a.adroll.com");
+   scr.setAttribute('async', 'true');
+   scr.type = "text/javascript";
+   scr.src = host + "/j/roundtrip.js";
+   ((document.getElementsByTagName('head') || [null])[0] ||
+    document.getElementsByTagName('script')[0].parentNode).appendChild(scr);
+   if(oldonload){oldonload()}};
+}());
+</script>
+
+</body>
+</html>
