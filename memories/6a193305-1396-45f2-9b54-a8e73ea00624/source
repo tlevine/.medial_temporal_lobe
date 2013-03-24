@@ -1,0 +1,1097 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<meta charset="utf-8">
+	<title>mvanier: Yet Another Monad Tutorial (part 2: &gt;&gt;= and return)</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+
+	<link rel="home" title="Home" href="http://www.livejournal.com/">
+	<link rel="contents" title="Site Map" href="http://www.livejournal.com/site/">
+	<link rel="help" title="Technical Support" href="http://www.livejournal.com/support/">
+
+	<link rel="apple-touch-icon" href="http://l-stat.livejournal.com/img/apple-touch-icon.png?v=6037">
+	
+		<!--[if IE]><link rel="shortcut icon" type="image/x-icon" href="http://l-stat.livejournal.com/img/userinfo.ico"><![endif]-->
+		<link rel="icon" type="image/gif" href="http://l-stat.livejournal.com/img/userinfo.gif">
+	
+
+	
+	
+
+	
+
+	
+
+	<link rel="stylesheet" type="text/css" href="http://l-stat.livejournal.com/??.cb37?v=1363865222" />
+<!--[if lt IE 7]><link rel="stylesheet" type="text/css" href="http://l-stat.livejournal.com/??lj_base-ie.css,horizon/ie.css?v=1363865222" /><![endif]-->
+<!--[if lte IE 7]><link rel="stylesheet" type="text/css" href="http://l-stat.livejournal.com/??interstitial_banner_us.css?v=1363865222" /><![endif]-->
+<!--[if lte IE 8]><link rel="stylesheet" type="text/css" href="http://l-stat.livejournal.com/??ie.css,popup/popupus-ie.css?v=1363865222" /><![endif]-->
+
+	            <script type="text/javascript">
+                Site = window.Site || {};
+                Site.ml_text = {"fotki.photo.upload.error.file_type_not_supported":"File type is not supported","fotki.album.link.click.to.upload":"Click to upload <br> new images","talk.link.button":"Insert","fotki.privacy":"Privacy","fotki.album.description":"Add your description","fotki.album.no.pics":"There are no photos in this album.","fotki.album.add.photos":"To add multiple files, hold down the CTRL or Shift button.","fotki.album.link.from.image":"Link from this image (optional)","fotki.album.stop.upload.confirm":"Do you really want to stop the upload and close without saving? ","fotki.photo.upload.error.file_not_selected":"File not selected","confirm.bubble.no":"No","fotki.album.upload.unknown.error":"Unknown error","fotki.photo.upload.error.not_enough_space":"Scrapbook: not enough space","fotki.album.add.images":"Add to post","fotki.album.change":"Your current selection will be lost. Do you really want to change albums? ","fotki.album.album_cover":"Album cover","talk.postcomment":"Add a comment","fotki.album.close.without.saving.confirm":"Do you really want to close without saving?","fotki.album.new.album.name":"New album name","fotki.album.custom.size":"Custom","fotki.photo.upload.error.no_access_to_storage_media":"No access to storage media","talk.link.button.delete":"Delete","talk.editcomment":"Save comment","fotki.album.stop.upload":"Stop uploading?","fotki.album.comment.images":"Add to comment","confirm.bubble.yes":"Yes","talk.answer":"Reply","fotki.album.paste.from.album":"From Album","fotki.album.resize.to.post":"Resize","fotki.album.browse.photo":"Browse","fotki.album.click.image":"Click on image to remove it.","fotki.album.remove.this.image":"Remove this image","talk.spamcount":"[[count]] [[?count|suspicious comment|suspicious comments]]","talk.replycount":"[[count]] [[?count|comment|comments]]","fotki.album.save.images":"Save images","fotki.photo.upload.error.common_error":"Common error","fotki.album.upgrade":"Extra Storage Space","widget.form.skip_word":"Skip word","fotki.album.create.new":"(Create new)","fotki.album.select_album":"Select album:","fotki.album.uploading.image":"Uploading image...","fotki.album.upload.images":"Upload images","fotki.album.add.image.name":"Add image name","fotki.photo.upload.error.forbidden":"You cannot access this page because this journal is not visible.","pics.ui.link_to_original_title":"Check to include a link to the full size image","fotki.photo.upload.error.cant_get_storage_space":"Can't get count of used storage space","fotki.album.remove.image":"Remove this image","fotki.album.uploading.message":"Uploading...","fotki.album.load.more":"Loading more..","fotki.album.available.now":"Available now","fotki.branding_04_2012.html":"<a href=\"http://url\">link</a>","fotki.album.cancel.album":"Cancel","fotki.album.upload.io.error":"","fotki.album.resize.width":"Width","fotki.photo.upload.error.no_access_rpc":"Internal Error","talk.general.save":"Save","entry.reference.label.reposted":"Reposted","talk.replytothis":"Reply","fotki.album.paste.url":"Paste URL","fotki.photo.upload.error.auth_token_invalid":"Auth error","fotki.album.post.images":"Add to post","pics.ui.link_to_original":"Add a link to the original image","fotki.album.default.sizes":"Default sizes","widget.form.no_suggestions":"No suggestions","entry.reference.label.title":"Remove repost","fotki.album.resize.height":"Height","fotki.album.paste.url.here":"Paste image URL here"};
+                Site.page = {"hasactiveuserpic":0,"ajaxPagination":1,"fotki":{"uploader":{"albumsData":[],"action":"add_new_post","privacyData":[{"groupname":"Everyone (Public)","security":"public"},{"groupname":"Friends","security":"allfriends"},{"groupname":"Just Me (Private)","security":"private"}],"tracking_opendialog":"tracking_photouploaded","sizesData":[{"is_default":0,"text":"100","size":"100"},{"is_default":0,"text":"300","size":"300"},{"is_default":0,"text":"600","size":"600"},{"is_default":1,"text":"900","size":"900"},{"is_default":0,"text":"1000","size":"1000"},{"is_default":0,"text":"Original","size":"original"}],"type":"upload","guid":""},"migration":0,"upload":0,"enabled":0},"hasdefaultuserpic":0,"hasuserpics":0,"spamcount":0,"replycount":6,"comments_page":1,"scheme":"horizon","D":{},"activeuserpic":""};
+                Site.timer = +(new Date());
+                (function(){
+                    var p = {"remote_is_identity":null,"remote_is_maintainer":0,"auth_token":"sessionless:1363874400:/__api/::3929cd599655004659f68c3a96cadfd6f0567d86","locale":"en_US","remoteUser":null,"remote_is_sup":0,"remoteJournalBase":null,"statprefix":"http://l-stat.livejournal.com","ctx_popup":1,"jsonrpcprefix":"http://l-api.livejournal.com","siteroot":"http://www.livejournal.com","country":"US","templates_update_time":900,"media_embed_enabled":1,"inbox_update_poll":0,"rpc":{"public":["sitemessage.get_message","comment.get_thread"]},"v":1363865222,"has_remote":0,"currentEntryRecommendations":0,"remoteLocale":"en_US","server_time":1363874902,"picsUploadDomain":"up.pics.livejournal.com","remote_is_suspended":0,"logprefix":"","imgprefix":"http://l-stat.livejournal.com/img","esn_async":1,"remote_can_track_threads":null,"currentJournal":"mvanier","pics_production":"","currentEntry":"http://mvanier.livejournal.com/4305.html","currentJournalBase":"http://mvanier.livejournal.com"}, i;
+                    for (i in p) Site[i] = p[i];
+                })();
+                Site.current_journal = {"url_profile":"http://mvanier.livejournal.com/profile","url_journal":"http://mvanier.livejournal.com","is_identity":"","userid":14687195,"is_shared":"","display_name":"mvanier","is_comm":"","username":"mvanier","is_syndicated":"","can_receive_vgifts":1,"url_allpics":"http://www.livejournal.com/allpics.bml?user=mvanier","is_person":"1","url_message":"http://www.livejournal.com/inbox/compose.bml?user=mvanier","display_username":"mvanier"};
+                Site.version = '102.1';
+           </script>
+<script type="text/javascript" src="http://l-stat.livejournal.com/js/??.ljlib.js?v=1363865222"></script>
+<script type="text/javascript" src="http://l-stat.livejournal.com/js/??.comments.js?v=1363865222"></script>
+<script type="text/javascript" src="http://l-stat.livejournal.com/js/??.b8aa?v=1363865222"></script>
+<!--[if IE]><script type="text/javascript" src="http://l-stat.livejournal.com/js/??jquery/jquery.ie6multipleclass.min.js?v=1363865222"></script><![endif]-->
+<!--[if lt IE 9]><script type="text/javascript" src="http://l-stat.livejournal.com/js/??lib/html5shiv.js?v=1363865222"></script><![endif]-->
+<!--[if lte IE 9]><script type="text/javascript" src="http://l-stat.livejournal.com/js/??ie9pinned.js?v=1363865222"></script><![endif]-->
+<script type="text/javascript">
+LJShare.init({"ml":{"close":"Close","title":"Share"},"services":{"stumbleupon":{"bindLink":"http://www.livejournal.com/redirect/SHARING_stumbleupon?url=http%3A%2F%2Fwww.stumbleupon.com%2Fsubmit%3Furl%3D{url}","title":"StumbleUpon"},"moimir":{"bindLink":"http://www.livejournal.com/redirect/SHARING_moimir?url=http%3A%2F%2Fconnect.mail.ru%2Fshare%3Furl%3D{url}","title":"Moi mir"},"twitter":{"bindLink":"http://www.livejournal.com/redirect/SHARING_twitter?url=http%3A%2F%2Ftwitter.com%2Fshare%3Furl%3D{url}%26text%3D{title}","title":"Twitter"},"digg":{"bindLink":"http://www.livejournal.com/redirect/SHARING_digg?url=http%3A%2F%2Fdigg.com%2Fsubmit%3Furl%3D{url}","title":"Digg"},"email":{"bindLink":"http://www.livejournal.com/redirect/SHARING_email?url=http%3A%2F%2Fapi.addthis.com%2Foexchange%2F0.8%2Fforward%2Femail%2Foffer%3Fusername%3Dinternal%26url%3D{url}%26title%3D{title}","title":"E-mail"},"livejournal":{"bindLink":"http://www.livejournal.com/redirect/SHARING_livejournal?url=http%3A%2F%2Fwww.livejournal.com%2Fupdate.bml%3Frepost_type%3Dc%26repost%3D{url}","title":"LiveJournal"},"vkontakte":{"bindLink":"http://www.livejournal.com/redirect/SHARING_vkontakte?url=http%3A%2F%2Fvkontakte.ru%2Fshare.php%3Furl%3D{url}","title":"VKontakte"},"facebook":{"bindLink":"http://www.livejournal.com/redirect/SHARING_facebook?url=http%3A%2F%2Fwww.facebook.com%2Fsharer.php%3Fu%3D{url}","title":"Facebook"},"odnoklassniki":{"bindLink":"http://www.livejournal.com/redirect/SHARING_odnoklassniki?url=http%3A%2F%2Fwww.odnoklassniki.ru%2Fdk%3Fst.cmd%3DaddShare%26st.s%3D1%26st._surl%3D{url}","title":"Odnoklassniki"},"tumblr":{"bindLink":"http://www.livejournal.com/redirect/SHARING_tumblr?url=http%3A%2F%2Fwww.tumblr.com%2Fshare%3Fv%3D3%26u%3D{url}","title":"Tumblr"}},"links":["livejournal","facebook","twitter","digg","tumblr","stumbleupon","email"]})</script>
+<script type="text/javascript">if (jQuery.VK) { jQuery.VK.init({apiId: 2244371, onlyWidgets: true})} </script> 
+	<meta property="og:description" content="In the previous article I gave the conceptual background necessary to understand what monads are. Now I&#39;m going to get into more of the details. The two fundamental monadic operations Remember when I said above that monads generalize function composition and function application? We&#39;ll work …" /><meta property="og:image" content="http://l-stat.livejournal.com/img/userinfo.gif?v=3" /><meta property="og:title" content="Yet Another Monad Tutorial (part 2: &amp;gt;&amp;gt;= and return )" /><meta property="og:type" content="website" /><meta property="og:url" content="http://mvanier.livejournal.com/4305.html" /><meta property="twitter:card" content="summary" /><meta property="twitter:site" content="@livejournal" /><link href='http://www.livejournal.com/go.bml?journal=mvanier&amp;itemid=4305&amp;dir=prev' rel='Previous' />
+<link href='http://www.livejournal.com/go.bml?journal=mvanier&amp;itemid=4305&amp;dir=next' rel='Next' />
+<noscript><meta http-equiv="refresh" content="0; url=http://mvanier.livejournal.com/4305.html?nojs=1" /></noscript><script>jQuery('noscript').last().remove()</script>
+
+	
+
+	<script type="text/javascript" src="http://l-stat.livejournal.com/tmpl/??Widgets/bubble.tmpl,Form/UpicSelect.tmpl,Widgets/photouploader/photouploader.tmpl,Widgets/photouploader/insertedItem.tmpl,Widgets/photouploader/uploadedItem.tmpl,Comments/Twig.tmpl?v=1363247955&tm=1515416;uselang=en_LJ"></script>
+<script type="text/javascript" src="http://l-stat.livejournal.com/tmpl/??Widgets/contextualhover.jqtmpl?v=1343758569&tm=1515416;uselang=en_LJ"></script>
+
+</head>
+<body class="s-horizon p-footer-lite logged-out"  >
+	
+
+	<!-- Content Wrapper -->
+	<div class="s-content-wrapper">
+
+		
+
+		
+
+		<!-- Header -->
+		<header class="s-header">
+			
+			
+				<p class="s-header-logo">
+					<a href="http://www.livejournal.com">
+						LiveJournal
+					</a>
+				</p>
+			
+
+			
+
+			
+
+			
+
+
+			<!-- Navbar -->
+			<nav class="s-navbar s-show-local-menu" role="navigation">
+					
+
+				<ul class='s-navmenu'>
+					
+						<li class='s-navmenu-item horizon-menu-home'>
+							<a class="s-navmenu-rootlink" href='http://www.livejournal.com/'><span>Home</span></a>
+
+							
+								
+							
+						</li>
+					
+						<li class='s-navmenu-item horizon-menu-create'>
+							<a class="s-navmenu-rootlink" href='http://www.livejournal.com/create.bml'>Create an account</a>
+
+							
+								
+							
+						</li>
+					
+						<li class='s-navmenu-item horizon-menu-explore'>
+							<a class="s-navmenu-rootlink" href='http://www.livejournal.com/search/'>Explore</a>
+
+							
+								
+									<ul class='s-navmenu-submenu'>
+									<li  ><a href='http://www.livejournal.com/interests.bml'>Search by Interest</a></li><li  ><a href='http://www.livejournal.com/schools/'>Search by School</a></li><li  ><a href='http://www.livejournal.com/ratings/'>Ratings</a></li><li  ><a href='http://www.livejournal.com/browse/'>Community Directory</a></li><li  ><a href='http://www.livejournal.com/syn/'>Feeds</a></li><li  ><a href='http://www.livejournal.com/radio/'>FRNK Radio</a></li>
+									</ul>
+								
+							
+						</li>
+					
+						<li class='s-navmenu-item horizon-menu-shop'>
+							<a class="s-navmenu-rootlink" href='http://www.livejournal.com/shop/'>Shop</a>
+
+							
+								
+									<ul class='s-navmenu-submenu'>
+									<li  ><a href='http://www.livejournal.com/shop/vgift.bml'>Virtual Gifts</a></li><li  ><a href='http://www.livejournal.com/shop/theme/'>Themes</a></li><li  ><a href='http://www.livejournal.com/shop/userheads.bml'>Custom Userheads</a></li><li  ><a href='http://www.livejournal.com/shop/domain_ru.bml'>Domains RF</a></li><li  ><a href='http://www.zazzle.com/livejournal'>Merchandise</a></li>
+									</ul>
+								
+							
+						</li>
+					
+						<li class='s-navmenu-item horizon-menu-apps'>
+							<a class="s-navmenu-rootlink" href='http://www.livejournal.com/extra/'>LJ Extras</a>
+
+							
+								
+									<ul class='s-navmenu-submenu'>
+									<li  ><a href='http://www.livejournal.com/devices'>Mobile</a></li><li  ><a href='http://www.livejournal.com/chat/'>LJ Talk</a></li><li  ><a href='http://www.livejournal.com/download/'>Downloads</a></li>
+									</ul>
+								
+							
+						</li>
+					
+				</ul>
+
+				
+
+			</nav>
+			<!--/ Navbar -->
+
+		</header>
+		<!--/ Header -->
+
+		
+		<!-- Login -->
+			<div class="lj_loginform s-login">
+				<form method="post" action="https://www.livejournal.com/login.bml?ret=1" id="login" class="lj_login_form">
+					
+					<input type='hidden' name='mode' value='login'>
+					
+					<fieldset class="s-login-lj">
+						<dl class="s-login-lj-username">
+							<dt><label for='login_user'>Username</label></dt>
+							<dd><input type="text" name="user" size="24" id='login_user' tabindex="1" placeholder="Username"></dd>
+						</dl>
+						<dl class="s-login-lj-password">
+							<dt><label for='login_password'>Password</label></dt>
+							<dd>
+								<input type="password" id="login_password" name="password" size="15" class="lj_login_password" tabindex="2" placeholder="Password">
+								<input type='submit' value="Log in" tabindex='3'>
+							</dd>
+						</dl>
+						<dl class="s-login-lj-remember">
+							<dt></dt>
+							<dd><label><input type="checkbox" name="remember_me" value="1" tabindex="4" /> Remember Me</label></dd>
+						</dl>
+						<dl class="s-login-langs">
+							<dt>Change language:</dt>
+							<dd>
+								<a href="http://www.livejournal.com/manage/settings/?cat=display">
+									<ul>
+										<li>English</li>
+										<li>Español</li> 
+										<li>Deutsch</li> 
+										<li>Русский&hellip;</li>
+									</ul>
+								</a>
+							</dd>
+						</dl>					
+					</fieldset>
+					<fieldset class="s-login-options">
+						<p class="s-login-option"><a href="http://www.livejournal.com/create.bml">Create an Account</a></p>
+						<p class="s-login-option"><a href="http://www.livejournal.com/lostinfo.bml">Forgot your login or password?</a></p>
+						<p class="s-login-more"><a href="http://www.livejournal.com/identity/login.bml?type=facebook" title="Facebook" class="i-auth"><img src="http://l-stat.livejournal.com/img/icons/facebook-16.gif?v=17127" width="16" height="16" alt="Facebook"></a>
+						<a href="http://www.livejournal.com/identity/login.bml?type=twitter" title="Twitter" class="i-auth"><img src="http://l-stat.livejournal.com/img/icons/twitter-16.gif?v=18540" width="16" height="16" alt="Twitter"></a>
+						<a href="#login-more" class="i-auth i-loginpopup-show"><img src="http://l-stat.livejournal.com/img/icons/showmore.gif?v=11430" width="16" height="16" alt="More login options" /></a></p>
+						<div class="b-loginpopup" id="login-more">
+							<ul class="b-loginpopup-items">
+								<li class="b-loginpopup-item">
+									<a href="http://www.livejournal.com/identity/login.bml?type=openid" title="OpenID"><img src="http://l-stat.livejournal.com/img/icons/openid-16.gif?v=17127" width="16" height="16" alt="OpenID" />OpenID</a>
+								</li>
+								<li class="b-loginpopup-item">
+									<a href="http://www.livejournal.com/identity/login.bml?type=google" title="Google"><img src="http://l-stat.livejournal.com/img/icons/google-16.png?v=12457" width="16" height="16" alt="Google" />Google</a>
+								</li>
+								<li class="b-loginpopup-item">
+									<a href="http://www.livejournal.com/identity/login.bml?type=mailru" title="Mail.Ru"><img src="http://l-stat.livejournal.com/img/icons/mailru-16.gif?v=11910" width="16" height="16" alt="Mail.Ru" />Mail.Ru</a>
+								</li>
+								<li class="b-loginpopup-item">
+									<a href="http://www.livejournal.com/identity/login.bml?type=vkontakte" title="VKontakte"><img src="http://l-stat.livejournal.com/img/icons/vkontakte-16.gif?v=10284" width="16" height="16" alt="VKontakte" />VKontakte</a>
+								</li>
+							</ul>
+						</div>
+						<script type="text/javascript">
+							jQuery('div.b-loginpopup').bubble({ target: jQuery('a.i-loginpopup-show'), closeControl: false, showOn: 'click' });
+						</script>
+					</fieldset>
+				</form>
+			</div>
+		<!--/ Login -->
+		
+
+		
+
+		<!-- Content -->
+		<div class="s-content">
+
+			
+
+				
+
+				
+
+				
+
+				
+
+				
+
+				
+
+				
+
+				<!-- Text Wrapper -->
+				<div class='s-text-wrapper ' style='margin-right: px; height: 1%'>
+
+					
+
+					
+
+					<div class="b-singlepost"> <div class="b-singlepost-about"> <dl class="b-singlepost-author"> <dt class="b-singlepost-author-userpic">  <img src="http://l-stat.livejournal.com/img/userpics/userpic-user.png?v=15821" alt="">  </dt> <dd class="b-singlepost-author-userinfo"> Mike Vanier (<span  class="ljuser  i-ljuser     "  lj:user="mvanier"><a href="http://mvanier.livejournal.com/profile" ><img width="16" height="16"  class="i-ljuser-userhead"  src="http://l-stat.livejournal.com/img/userinfo.gif?v=102.1" /></a><a href="http://mvanier.livejournal.com/" class="i-ljuser-username"   ><b>mvanier</b></a></span>) wrote,<br/> <span class="b-singlepost-author-date"><a href="http://mvanier.livejournal.com/2010/">2010</a>-<a href="http://mvanier.livejournal.com/2010/07/">07</a>-<a href="http://mvanier.livejournal.com/2010/07/25/">25</a> 19:08:00</span> </dd> </dl> <div class="b-singlepost-standout"> <ul class="b-linkbar">  <li class="b-linkbar-item"><a href="http://www.livejournal.com/go.bml?journal=mvanier&amp;itemid=4305&amp;dir=prev" rel="nofollow" title="Previous" class="b-controls b-controls-prev"><i class="b-controls-bg"></i>Previous</a></li>  <li class="b-linkbar-item"><a href="http://www.livejournal.com/tools/memadd.bml?journal=mvanier&amp;itemid=4305" rel="nofollow" title="Memorize" class="b-controls b-controls-memadd"><i class="b-controls-bg"></i>Memorize</a></li>  <li class="b-linkbar-item"><a href="#" rel="nofollow" title="Share" class="b-controls b-controls-share"><i class="b-controls-bg"></i>Share</a><script type="text/javascript">LJShare.link({"url":"http://mvanier.livejournal.com/4305.html","title":"Yet Another Monad Tutorial (part 2: &gt;&gt;= and return )"});</script></li>  <li class="b-linkbar-item"><a href="http://www.livejournal.com/go.bml?journal=mvanier&amp;itemid=4305&amp;dir=next" rel="nofollow" title="Next" class="b-controls b-controls-next"><i class="b-controls-bg"></i>Next</a></li>  </ul> </div> </div>    <div class="b-singlepost-wrapper">    <h1 class="b-singlepost-title">     Yet Another Monad Tutorial (part 2: &gt;&gt;= and return)  </h1>  <div class="b-singlepost-body"> <p>In the <a href="http://mvanier.livejournal.com/3917.html" rel="nofollow">previous
+article</a> I gave the conceptual background necessary to understand what monads
+are.  Now I'm going to get into more of the details.</p>
+
+<a name="cutid1"></a>
+
+<h2>The two fundamental monadic operations</h2>
+
+<p>Remember when I said above that monads generalize function composition and
+function application?  We'll work through that here.  Have patience: it'll
+take a while.</p>
+
+<p>By this point, I hope you have at least a vague sense of what monads "are" and
+what they are used for.  However, as I said before, one of the keys to
+functional programming is the ability to compose functions to create new
+functions.  Functional programmers talk about "composability" all the time, with
+the implication that if some aspect of a programming language isn't composable,
+it's probably not worth much.  So if our newly-minted monadic functions were not
+composable, they wouldn't be nearly as useful as they would be if they were.
+But as we'll see, they aren't composable using the standard Haskell function
+composition operator.  Something more will be needed, and this will lead us to
+derive the two fundamental monadic operations (or at least their types).</p>
+
+<p>Let's say that we have two monadic functions:</p>
+
+<pre><code>  f :: a -&gt; m b
+  g :: b -&gt; m c
+</code></pre>
+
+<p>for some monad <code>m</code>.  If you want a more specific example, you can imagine
+that <code>f</code> and <code>g</code> are in the <code>IO</code> monad, so we'd have</p>
+
+<pre><code>  f :: a -&gt; IO b
+  g :: b -&gt; IO c
+</code></pre>
+
+<p>but the same argument will apply for all monads.  Remember that (for the <code>IO</code>
+case) the function <code>f</code> takes a value of type <code>a</code> and outputs a value of type
+<code>b</code>, possibly doing some (file or terminal) I/O along the way.  Similarly,
+<code>g</code> takes a value of type <code>b</code> and outputs a value of type <code>c</code>, possibly doing
+some I/O along the way.  Therefore, if we wanted to compose them, we'd
+hopefully end up with a function like this:</p>
+
+<pre><code>  h :: a -&gt; IO c
+</code></pre>
+
+<p><em>i.e.</em> a function that takes a value of type <code>a</code>, outputs a value of type
+<code>c</code>, and possibly does some I/O along the way (with the I/O somehow being the
+combination of the I/O activity for functions <code>f</code> and <code>g</code>).  We can write
+this out as follows:</p>
+
+<pre><code>  compose: 
+    (f :: a -&gt; IO b) 
+  with: 
+    (g :: b -&gt; IO c) 
+  to get: 
+    (h :: a -&gt; IO c)
+</code></pre>
+
+<p>However, our normal Haskell function composition operators won't work for
+this purpose, because they don't want the <code>IO</code> in the types.  Let's compare
+with similarly-typed pure functions <code>p</code>, <code>q</code>, and <code>r</code> that don't do I/O:</p>
+
+<pre><code>  p :: a -&gt; b
+  q :: b -&gt; c
+  r :: a -&gt; c
+</code></pre>
+
+<p>Then we could compose them using either the <code>(.)</code> or the <code>(&gt;.&gt;)</code> operator as
+described above:</p>
+
+<pre><code>  (.) :: (b -&gt; c) -&gt; (a -&gt; b) -&gt; (a -&gt; c)
+  r = q . p
+  (&gt;.&gt;) :: (a -&gt; b) -&gt; (b -&gt; c) -&gt; (a -&gt; c)
+  r = p &gt;.&gt; q
+</code></pre>
+
+<p>Neither <code>(.)</code> or <code>(&gt;.&gt;)</code> will work with our monadic functions:</p>
+
+<pre><code>  f :: a -&gt; IO b
+  g :: b -&gt; IO c
+  h :: a -&gt; IO c
+  g . f     --&gt; type error! mismatch between IO b and b
+  f &gt;.&gt; g   --&gt; type error! mismatch between IO b and b
+</code></pre>
+
+<p>The point is, you can't use a monadic value of type <code>IO b</code> when a type of <code>b</code>
+is needed.  (This is a very common bug when writing monadic Haskell
+programs.)  What we want is a special monadic composition function which I'll
+call <code>mcompose</code> (standing for "monadic compose") which has the following type
+signature:</p>
+
+<pre><code>  mcompose :: (a -&gt; m b) -&gt; (b -&gt; m c) -&gt; (a -&gt; m c)
+</code></pre>
+
+<p>This will work for any monad <code>m</code>, including the <code>IO</code> monad.  Specialized to
+the <code>IO</code> monad, it will have the following type signature:</p>
+
+<pre><code>  mcompose :: (a -&gt; IO b) -&gt; (b -&gt; IO c) -&gt; (a -&gt; IO c)
+</code></pre>
+
+<p>Then we could use it like this:</p>
+
+<pre><code>  f :: a -&gt; IO b
+  g :: b -&gt; IO c
+  h :: a -&gt; IO c
+  h = f `mcompose` g
+</code></pre>
+
+<p>and <code>h</code> would have the correct type signature.  (We're using a spiffy
+syntactic feature of Haskell here, whereby any two-argument function can be
+turned into an infix operator by putting backquotes around it.  Remember,
+operators in Haskell are just functions which happen to be placed between
+their operands.)  Somehow, through (currently) mysterious means, the
+<code>mcompose</code> function (or operator, if you like) is able to</p>
+
+<ol>
+<li>take the original input value of type <code>a</code></li>
+<li>apply <code>f</code> to it (this is just normal function application) to get a result
+of type <code>IO b</code></li>
+<li>take the value of type <code>IO b</code> output from <code>f</code> and extract the value of type
+<code>b</code> (this is what we couldn't do before)</li>
+<li>take the value of type <code>b</code> and apply <code>g</code> to it (again, this is just normal
+function application) to get the value of type <code>IO c</code>, which is the result.</li>
+</ol>
+
+<p>The only thing we can't already do is step (3), extracting a value of type <code>b</code>
+from a value of type <code>IO b</code>.  Now, we <em>could</em> do this if we had a function
+called <code>extract</code> with this type:</p>
+
+<pre><code>  extract :: IO b -&gt; b
+</code></pre>
+
+<p>or more generally for arbitrary monads,</p>
+
+<pre><code>  extract :: m b -&gt; b
+</code></pre>
+
+<p>It turns out that such a function, if it existed, would destroy all the
+advantages of monads and pure functional programming!  One of the reasons we
+wanted monads in the first place was to keep these special notions of
+computation (monadic functions) separate from normal (pure) functions, because
+otherwise there would be no way to guarantee that pure functions were in fact
+pure.  This is an important point, so I'm going to spend a little bit of time on
+it, after which we'll return to monadic composition.</p>
+
+<blockquote>
+  <p><strong>Side note</strong>: In fact, some monads <em>do</em> have the equivalent of an <code>extract</code>
+  function, and for most of those monads it doesn't cause problems.  All I'm
+  saying is that a generic <code>extract</code> function that works for <em>all</em> monads is not
+  allowed.</p>
+</blockquote>
+
+<p>What we would like is to ensure that functions that have non-monadic type
+signatures are pure functions.  Now, in a sense, even our monadic functions are
+pure functions, because they are implemented in Haskell as pure functions that
+return monadic values.  But what we want to guarantee is that non-monadic (pure)
+functions don't even do that <em>i.e.</em> don't even return monadic values.  If that's
+the case, they are certainly going to be pure functions.  So a pure function
+<code>hh</code> of type</p>
+
+<pre><code>  hh :: a -&gt; c
+</code></pre>
+
+<p>should never do (file or terminal) input/output, for instance, because if it did
+it would be required by the type system to have the type</p>
+
+<pre><code>  hh :: a -&gt; IO c
+</code></pre>
+
+<p>instead. Guarantees like this, enforced by the type system, are one of the major
+strengths of Haskell.  They allow us to glance at the type of a function and be
+100% sure that that function doesn't do input/output, for instance.</p>
+
+<p>However, if we had the <code>extract</code> function, we could compose the supposedly pure
+function <code>hh</code> it out of monadic functions that do I/O like this:</p>
+
+<pre><code>  ff :: a -&gt; IO b
+  gg :: b -&gt; c
+  hh = ff &gt;.&gt; extract &gt;.&gt; gg  -- or equivalently: hh = gg . extract . ff
+</code></pre>
+
+<p>So even though <code>hh</code> is never supposed to be doing I/O, if there was an
+<code>extract</code> function then you could build an <code>hh</code> function using normal
+function composition, it would have the type signature of a pure function,
+and yet it would do I/O.  So much for separating I/O (and other monadic
+computations) from pure computations (recall that this was one of the main
+reasons for wanting monads in the first place).  Note, by the way, that this
+is exactly the situation in most conventional programming languages, which is
+why the type systems of those languages can offer no guarantees that a
+function is pure.  In Haskell we like pure functions and we use the type
+system to give us guarantees that pure functions are actually pure &mdash;
+and that means no <code>extract</code> function.</p>
+
+<p>There's one slight problem with what I just said: technically, it's a lie.
+There is a function called <code>unsafePerformIO</code> that has the type &nbsp; <code>IO a -&gt;
+a</code> &nbsp; <em>i.e.</em> it's an <code>extract</code> function for the <code>IO</code> monad only.  The word
+"unsafe" is a clue that tells you that you should avoid using it unless you know
+exactly what you're doing and are prepared for weird failures.  I myself have
+never needed to use <code>unsafePerformIO</code>, but there are legitimate uses for it (for
+instance, deep down in the implementation of Haskell compilers).  Just forget I
+even brought this up, OK?  It's embarrassing.  Excuse me while I go wash my
+hands.</p>
+
+<p>OK, I'm back.  So far, we've established that (a) we want to be able to compose
+monadic functions, (b) we can't do that with normal function composition in
+Haskell because we can't convert monadic types into regular types, and (c) we
+can't define an <code>extract</code> function to do that conversion, because that would
+screw up the purity of the rest of the language.  So what do we do?</p>
+
+<p>Well, first of all, note that we can get by with something simpler than an
+<code>mcompose</code> function.  Let's say we had an <code>mapply</code> (monadic apply) function
+that had this type signature:</p>
+
+<pre><code>  mapply :: m b -&gt; (b -&gt; m c) -&gt; m c
+</code></pre>
+
+<p>or, more specifically for the <code>IO</code> monad:</p>
+
+<pre><code>  mapply :: IO b -&gt; (b -&gt; IO c) -&gt; IO c
+</code></pre>
+
+<p>It's called <code>mapply</code> because it's very similar to the regular function
+application operators.  For instance, recall the <code>&gt;$&gt;</code> operator we defined
+previously, which had this type signature (using <code>b</code> and <code>c</code> instead of <code>a</code> and <code>b</code>
+for type variables):</p>
+
+<pre><code> (&gt;$&gt;) :: b -&gt; (b -&gt; c) -&gt; c
+</code></pre>
+
+<p>This is the same as <code>mapply</code> except that the <code>m</code>s are gone (the types are not
+monadic types).  With <code>mapply</code>, we could trivially define <code>mcompose</code> as follows:</p>
+
+<pre><code>  mcompose :: (a -&gt; m b) -&gt; (b -&gt; m c) -&gt; (a -&gt; m c)
+  mcompose f g x = (f x) `mapply` g  -- or: mapply (f x) g
+</code></pre>
+
+<p>Note that since the <code>-&gt;</code> associates to the right in type signatures, the type
+signature of <code>mcompose</code> can be written without the final set of parentheses
+as:</p>
+
+<pre><code>  mcompose :: (a -&gt; m b) -&gt; (b -&gt; m c) -&gt; a -&gt; m c
+  mcompose f g x = (f x) `mapply` g
+</code></pre>
+
+<p>This may be easier to understand than the previous version, but they are
+equivalent.  Note that <code>x</code> has type <code>a</code> and the result has type <code>m c</code>.  So what
+we're doing here is applying <code>f</code> to <code>x</code> to get a value of type <code>m b</code>, and using
+<code>mapply</code> on the <code>m b</code> value and the <code>g</code> function to get a value of type <code>m c</code>.
+So the upshot is, we don't need <code>mcompose</code> to be defined for us if we have
+<code>mapply</code>, because we can use <code>mapply</code> to define <code>mcompose</code> ourselves.  And, in
+fact, <code>mapply</code> is one of the two fundamental monadic operations.  It's normally
+called "bind" and is written as an infix operator with the symbol <code>&gt;&gt;=</code> as
+follows:</p>
+
+<pre><code>  (&gt;&gt;=) :: m a -&gt; (a -&gt; m b) -&gt; m b
+</code></pre>
+
+<p>Note that I did a switch in the type signature, using <code>a</code> in place of <code>b</code> and
+<code>b</code> in place of <code>c</code>.  It doesn't matter since <code>a</code>, <code>b</code>, and <code>c</code> are type
+variables &mdash; they work for any types.</p>
+
+<p>I'd just like to point out here that <code>&gt;&gt;=</code> has an incredibly abstract type.  Its
+first argument is a value of type <code>m a</code>, where <code>a</code> can be any type at all and
+<code>m</code> is any monadic type constructor whatsoever.  The second argument is a
+function of type <code>a -&gt; m b</code>, where <code>a</code> and <code>b</code> can be any types at all and <code>m</code>
+is again any monadic type constructor.  The return value has type <code>m b</code>, where
+again <code>b</code> can be any type and <code>m</code> is any monadic type constructor.  When you
+program in Haskell for long enough, this kind of type signature becomes second
+nature, but it can be intimidating to new Haskell programmers.  If you
+specialize it to the <code>IO</code> monad, you get:</p>
+
+<pre><code>  (&gt;&gt;=) :: IO a -&gt; (a -&gt; IO b) -&gt; IO b
+</code></pre>
+
+<p>which, of course, is the type signature of an <code>IO</code>-specific monadic apply
+operator.  We'll see below that Haskell's type class mechanism allows us to use
+the same operator name <code>&gt;&gt;=</code> for all the different specializations of this
+operator to different monads (how cool is that?).</p>
+
+<p>Assuming we have the <code>&gt;&gt;=</code> operator, we can now compose <code>f</code> and <code>g</code> to get
+<code>h</code> as follows:</p>
+
+<pre><code>  -- assume we have:
+  f :: a -&gt; m b
+  g :: b -&gt; m c
+
+  -- definition of h:
+  h :: a -&gt; m c
+  h x = f x &gt;&gt;= g
+</code></pre>
+
+<p>We can also write <code>h</code> directly as:</p>
+
+<pre><code>  h = \x -&gt; f x &gt;&gt;= g
+</code></pre>
+
+<p>where the <code>\x -&gt; ...</code> is, as I mentioned above, Haskell's notation for an
+anonymous function (in this case with a single argument <code>x</code>); both versions of
+<code>h</code> mean the same thing.  Using <code>mcompose</code> we can write this as:</p>
+
+<pre><code>  h = f `mcompose` g = mcompose f g = \x -&gt; (f x &gt;&gt;= g)
+</code></pre>
+
+<p>Our definition of <code>mcompose</code> is thus just:</p>
+
+<pre><code>  mcompose f g = \x -&gt; (f x &gt;&gt;= g)
+</code></pre>
+
+<p>and in fact, Haskell has a standard operator for monadic composition called
+<code>&gt;=&gt;</code>:</p>
+
+<pre><code>  f &gt;=&gt; g = \x -&gt; (f x &gt;&gt;= g)  -- same as (f `mcompose` g) but more concise
+</code></pre>
+
+<p>So, assuming we have this monadic apply operator <code>&gt;&gt;=</code>, we can easily define the
+monadic composition operator <code>&gt;=&gt;</code>.  So the monadic apply operator (the bind
+operator) is the important concept here.  As we'll see, each individual monad
+has to define its own specific version of this operator, which will be different
+from every other monad's version.  That's where Haskell's type classes will come
+in very handy.  Incidentally, in the <a href="http://www.haskell.org/ghc" rel="nofollow">ghc</a> Haskell 
+compiler, the <code>&gt;=&gt;</code> operator is defined in the <code>Control.Monad</code> module.</p>
+
+<p>Now remember that we could write the normal apply operator in two ways:</p>
+
+<pre><code>  ($) :: (a -&gt; b) -&gt; a -&gt; b
+</code></pre>
+
+<p>and</p>
+
+<pre><code>  (&gt;$&gt;) :: a -&gt; (a -&gt; b) -&gt; b
+</code></pre>
+
+<p>depending on what order we wanted the arguments to be in.  (Of course, it's also
+fine to define both operators and use whichever one is most convenient in any
+given situation.)  Similarly, we can write the monadic apply operator in two
+ways.  The first way is as the bind operator <code>&gt;&gt;=</code> with type</p>
+
+<pre><code>  (&gt;&gt;=) :: m a -&gt; (a -&gt; m b) -&gt; m b
+</code></pre>
+
+<p>which is analogous to the non-monadic <code>&gt;$&gt;</code> apply operator.  We can also
+trivially define a monadic apply operator that takes its operands in the reverse
+order:</p>
+
+<pre><code>  (=&lt;&lt;) :: (a -&gt; m b) -&gt; m a -&gt; m b
+  f =&lt;&lt; x  =  x &gt;&gt;= f
+</code></pre>
+
+<p>You can also use the <code>flip</code> function, which takes a function of two arguments
+and returns a new function which is the same as the old one except that it
+takes the arguments in the reverse order:</p>
+
+<pre><code>  flip :: (a -&gt; b -&gt; c) -&gt; (b -&gt; a -&gt; c)
+  flip f = \x y -&gt; f y x
+</code></pre>
+
+<p>Then we can define <code>=&lt;&lt;</code> as follows:</p>
+
+<pre><code>  (=&lt;&lt;) = flip (&gt;&gt;=)
+</code></pre>
+
+<p>You get extra points for functional coolness if you write concise definitions
+like this.</p>
+
+<p>Similarly again, we can define a monadic composition operator that takes its
+operands in the reverse order:</p>
+
+<pre><code>  (&gt;=&gt;) :: (a -&gt; m b) -&gt; (b -&gt; m c) -&gt; (a -&gt; m c)  -- already defined
+
+  (&lt;=&lt;) :: (b -&gt; m c) -&gt; (a -&gt; m b) -&gt; (a -&gt; m c)
+  (&lt;=&lt;) = flip (&gt;=&gt;)
+</code></pre>
+
+<p>So just as was the case for the regular (non-monadic) apply and compose
+operators, we can define monadic apply and compose operators which take their
+operands in whichever order we want.  In practice, though, the monadic operator
+Haskell programmers seem to use the most is the <code>&gt;&gt;=</code> operator (or at least,
+it's the one <em>I</em> use the most).</p>
+
+<p>If you've understood everything so far, congratulations!  It's all downhill
+from here.  Or so I hope.</p>
+
+<p>There is one more fundamental monadic operation I need to talk about.  To
+motivate it, consider this scenario.  You want to compose a monadic function
+with a non-monadic function.  In other words, you have these functions</p>
+
+<pre><code>  f :: a -&gt; m b   -- monadic
+  g :: b -&gt; c     -- non-monadic
+</code></pre>
+
+<p>The problem is this: you can't use regular function composition to compose
+<code>f</code> and <code>g</code>, because <code>m b</code> is not the same type as <code>b</code>.  And you can't use
+monadic function composition either, because <code>g</code> doesn't have the type <code>b -&gt;
+m c</code>, which is what monadic composition would require.  So what can you do?</p>
+
+<p>If we had the <code>extract</code> function I described above, you could compose the two
+functions the way I showed there:</p>
+
+<pre><code>  h :: a -&gt; c
+  h = f &gt;.&gt; extract &gt;.&gt; g
+</code></pre>
+
+<p>but as I mentioned, you're not allowed to do this.  In other words, you're not
+allowed to compose a monadic function with a non-monadic function to get a
+non-monadic function (because that would screw up the functional purity of the
+language).  What you <em>are</em> allowed to do is to compose a monadic function with a
+non-monadic function to get a monadic function, which would work like this:</p>
+
+<pre><code>  h :: a -&gt; m c
+  h = f [somehow composed with] g
+</code></pre>
+
+<p>Now, we know we can't use our monadic composition operator for this, because
+<code>g</code> doesn't have the right type (which would be <code>b -&gt; m c</code>).  But we <em>could</em>
+use the monadic composition operator if we had some way to convert a
+non-monadic function to a monadic one.  In other words, if we had a function
+<code>functionToMonadicFunction</code> with this type signature:</p>
+
+<pre><code>  functionToMonadicFunction :: (b -&gt; c) -&gt; (b -&gt; m c)
+</code></pre>
+
+<p>then we could define <code>h</code> as:</p>
+
+<pre><code>  h :: a -&gt; m c
+  h = f &gt;=&gt; (functionToMonadicFunction g)
+</code></pre>
+
+<p>It turns out that all you need in order to define <code>functionToMonadicFunction</code>
+is an even simpler thing, which is a monadic function with the (possibly
+confusing) name of <code>return</code>.  It has the following type signature:</p>
+
+<pre><code>  return :: a -&gt; m a
+</code></pre>
+
+<p>for any type <code>a</code> and any monadic type constructor <code>m</code>.  What <code>return</code> does is
+convert a regular value into the corresponding monadic value for a given monad
+<code>m</code>.  We'll see the specifics of this below.</p>
+
+<p>If you have <code>return</code>, then <code>functionToMonadicFunction</code> can trivially be defined
+as:</p>
+
+<pre><code>  functionToMonadicFunction :: (a -&gt; b) -&gt; (a -&gt; m b)
+  functionToMonadicFunction f = \x -&gt; return (f x)
+</code></pre>
+
+<p>or, if I wanted to be cool and use function composition, as:</p>
+
+<pre><code>  functionToMonadicFunction :: (a -&gt; b) -&gt; (a -&gt; m b)
+  functionToMonadicFunction f = return . f
+</code></pre>
+
+<p>or even as:</p>
+
+<pre><code>  functionToMonadicFunction :: (a -&gt; b) -&gt; (a -&gt; m b)
+  functionToMonadicFunction = (return .)
+</code></pre>
+
+<p>using a cool syntactic feature of Haskell called operator sections.  All three
+functions are equivalent.</p>
+
+<p>Note that I once again switched <code>b</code> for <code>a</code> and <code>c</code> for <code>b</code> in the type
+signature of <code>functionToMonadicFunction</code>; again, it doesn't matter.  The point
+is, with this <code>return</code> function, we can now compose monadic functions with
+non-monadic ones to create new monadic functions.  And <code>return</code> is the second
+fundamental monadic operation.</p>
+
+<blockquote>
+  <p><b>Side note</b>: If you've done a lot of imperative programming, you will
+  probably find the name <code>return</code> more than a little annoying at first.  Just
+  remember that it is <em>not</em> a keyword in Haskell and it has <em>nothing</em> to do
+  with returning from a function.  So try to keep those ideas out of your head
+  when dealing with <code>return</code>.</p>
+</blockquote>
+
+<p>The name "return" actually comes from the characterization of monadic values
+as "actions"; seen in that light, the function <code>return</code> takes a value and
+produces a monadic value which is an "action" which "does something" and then
+"returns" the original value unchanged.  Note also that <code>return</code> is in fact a
+monadic function.  Putting these two ideas together, you can see (or at least
+guess) that <code>return</code> is the monadic version of the identity function (the
+function that maps a value to itself, <em>i.e.</em> <code>\x -&gt; x</code>). We'll see this again
+later when I talk about monad laws.</p>
+
+<p>Let's put <code>return</code> to work composing our monadic function <code>f</code> with the
+non-monadic function <code>g</code> to get the monadic function <code>h</code>.  Here's the
+definition:</p>
+
+<pre><code>  h = f &gt;=&gt; (return . g)
+</code></pre>
+
+<p>because, as we saw above, <code>return . g</code> will convert <code>g</code> into a monadic function.</p>
+
+<p>After all this, you might wonder how many more monadic operations we're going
+to have to plow through before we're done defining them all.  As Professor
+Farnsworth would say: Good news, everybody!  There are only two!  There are
+also a couple of non-critical operations that we will eventually want to
+define for convenience, but <code>&gt;&gt;=</code> and <code>return</code> are the only ones that
+absolutely have to be there.</p>
+
+<p>There is one rather peculiar aspect of <code>return</code>.  We say that <code>return</code> has
+the type <code>a -&gt; m a</code>, but when we say <em>e.g.</em> <code>return 10</code>, what is the type of
+the output?  It could have the type <code>IO Int</code>, or <code>Maybe Int</code> or some other
+monadic type involving <code>Int</code>.  How do we know which of the many possibilities
+is the correct one?  Note, by the way, that the monadic value of type <code>IO
+Int</code> is a completely different value than the monadic value of type <code>Maybe
+Int</code>, so it's not just about getting the right type &mdash; it's not even
+obvious what kind of value <code>return 10</code> <em>is</em>!</p>
+
+<p>In Haskell, this is worked out by the context in which <code>return 10</code> is found.
+The type checker has to make sure that all the functions get the right type
+of input arguments, and so if <code>return 10</code> is the input to a function
+expecting a value of type <code>IO Int</code>, the type checker will decide that <code>return
+10</code> has the type <code>IO Int</code> (and similarly for other monads).  Put differently,
+the value computed by <code>return 10</code> depends on the type it has to have
+according to its context.  If you want to, you can annotate <code>return 10</code> with the
+type you want it to have by writing <code>(return 10 :: IO Int)</code>, for instance, but
+this is rarely necessary.</p>
+
+<p>To recap this section:</p>
+
+<ul>
+<li><p>There are two fundamental monadic operations, called "bind" (the <code>&gt;&gt;=</code>
+operator) and <code>return</code>.</p></li>
+<li><p>The bind (<code>&gt;&gt;=</code>) operator is a monadic apply operator. It can be used to
+define a monadic composition operator, which is written <code>&gt;=&gt;</code>.</p></li>
+<li><p>The <code>return</code> operator transforms regular values into monadic values.  It
+can be used to define a function to convert regular functions into monadic
+functions.</p></li>
+</ul>
+
+<h2>What do monadic application and composition <em>mean</em>?</h2>
+
+<p>By now, you should have a reasonable understanding of the mechanics of monadic
+composition and monadic application, but that's not the same thing as
+understanding what they mean intuitively.  So let's expand on this a bit.</p>
+
+<p>I said above that we can't define an <code>extract</code> function which takes a monadic
+value and returns a regular value.  However, if we want to compose two
+monadic functions to get a third using the monadic composition operator, we
+need some way to extract values from monadic values.</p>
+
+<pre><code>  (&gt;=&gt;) :: (a -&gt; m b) -&gt; (b -&gt; m c) -&gt; (a -&gt; m c)
+  f &gt;=&gt; g = {- whatever -}
+</code></pre>
+
+<p>Here we see that the function <code>f</code> takes in a value of type <code>a</code> and returns a
+monadic value of type <code>m b</code>, whereas <code>g</code> takes in a value of type <code>b</code> and
+returns a value of type <code>m c</code>.  So it certainly <em>looks</em> like some "unpacking" of
+the monadic value into a regular value must be happening for this to be
+possible.  As we showed above, we can define the monadic composition operator
+<code>&gt;=&gt;</code> in terms of the monadic apply operator <code>&gt;&gt;=</code>, so we can just look at
+<code>&gt;&gt;=</code>.</p>
+
+<pre><code>  (&gt;&gt;=) :: m b -&gt; (b -&gt; m c) -&gt; m c
+  mv &gt;&gt;= g
+</code></pre>
+
+<p>where <code>mv</code> refers to some monadic value of type <code>m b</code>.  But again, without an
+<code>extract</code> function, how do we get the value of type <code>b</code> out of the value of
+type <code>m b</code> so we can pass it to the function <code>g</code>?</p>
+
+<p>The answer is different for every monad.  Every monad has its own way of
+"unpacking" a value from a monadic value and passing it on to a monadic
+function.  Put differently, every monad has to define its own monadic apply
+operator <code>&gt;&gt;=</code>, and the details of how a monadic value gets unpacked and passed
+to a monadic function are handled in the definition of that operator.
+Similarly, every monad has to define its own <code>return</code> function.</p>
+
+<p>From now on, though, when dealing with arbitrary monads, I'll use the following
+terminology.  The <code>&gt;&gt;=</code> operator takes as its input a monadic value (also known
+as an "action"), "unpacks" a regular (non-monadic) value from it (the details of
+which are specific to the particular monad), and passes that value as the input
+to the monadic function, which produces a monadic value ("action") as its final
+result.</p>
+
+<p>Now that we've got that straight, let's talk about the <code>Monad</code> type class.
+Later, we will go over the definition of the <code>&gt;&gt;=</code> operator for several
+different monads, and you'll see for yourself how the unpacking is done in those
+cases.</p>
+
+<h2>The <code>Monad</code> type class</h2>
+
+<p>I've mentioned above that <code>&gt;&gt;=</code> is "the" monadic apply operator, and <code>return</code> is
+"the" function which converts a value into (any kind of) monadic value.  But
+this is sloppy terminology, since, as I've also mentioned, every monad has to
+define its own version of these operators/functions, and these are completely
+different operators/functions for each monad.  On the other hand, it would be a
+pain to have to use completely different <em>names</em> for every version of <code>&gt;&gt;=</code> and
+<code>return</code>; we'd need to have nasty stuff like:</p>
+
+<pre><code>  IO&gt;&gt;= :: IO a -&gt; (a -&gt; IO b) -&gt; IO b
+  IOreturn :: a -&gt; IO a
+
+  Maybe&gt;&gt;= :: Maybe a -&gt; (a -&gt; Maybe b) -&gt; Maybe b
+  Maybereturn :: a -&gt; Maybe a
+</code></pre>
+
+<p>and these function names aren't even legal Haskell syntax, because you can't mix
+symbolic and non-symbolic characters in identifiers and function names can't
+start with capital letters.</p>
+
+<p>Haskell handles this kind of problem elegantly by using what is called a "type
+class". (Remember, I said that this tutorial would be easier to understand if
+you already knew about type classes.  If you don't, be aware that this has
+absolutely nothing, zero, zilch to do with the notion of classes in
+object-oriented programming; a Haskell class is more like a compile-time
+interface.)  A type class is a way of saying that a bunch of different types
+have different definitions for the same named functions (or operators) which
+have particular types.  So, for instance, the <code>Eq</code> type class defines an
+operator called <code>==</code> which has the type <code>a -&gt; a -&gt; Bool</code> (where each <code>a</code>
+represents the same type).  This says that for type <code>a</code> to be in type class
+<code>Eq</code>, it has to define what <code>==</code> (equality comparison) means for that type.  The
+numeric types <code>Int</code> and <code>Float</code> are both in type class <code>Eq</code> (they are instances
+of type class <code>Eq</code>), and thus they have to define what <code>==</code> means for those
+types.  We write this as follows in Haskell:</p>
+
+<pre><code>  class Eq a where
+    (==) :: a -&gt; a -&gt; Bool
+
+  instance Eq Int where
+    (==) = intEquals     -- intEquals has type (Int -&gt; Int -&gt; Bool)
+
+  instance Eq Float where
+    (==) = floatEquals   -- floatEquals has type (Float -&gt; Float -&gt; Bool)
+</code></pre>
+
+<p>assuming that <code>intEquals</code> is the equality function for <code>Int</code>s, and
+<code>floatEquals</code> is the equality function for <code>Float</code>s.  (There is also an
+inequality operator I've left out, but the idea is the same.)  What this does
+is allow us to use the same operator <code>==</code> when comparing <code>Int</code>s, or <code>Float</code>s,
+or any type which is an instance of the type class <code>Eq</code>.  This is a great
+notational convenience.  Note, though, that <code>==</code> requires that both its
+arguments have the same types, so it won't allow you to compare <em>e.g.</em> an <code>Int</code>
+and a <code>Float</code>.  (Nor should you want to!)</p>
+
+<p>Now, I mentioned above that all monads in Haskell are type constructors, and
+we've seen that all monads have to provide independent definitions for the <code>&gt;&gt;=</code>
+operator and the <code>return</code> function.  Putting this all together, we find that in
+Haskell, there is a type class called (you guessed it) <code>Monad</code> which looks
+basically like this:</p>
+
+<pre><code>  class Monad m where
+    (&gt;&gt;=)  :: m a -&gt; (a -&gt; m b) -&gt; m b
+    return :: a -&gt; m a
+</code></pre>
+
+<p>This is actually a little more complicated than the <code>Eq</code> type class.  There
+are two functions/operators, but that's no big deal, since we already knew
+that we'd have to define two functions for every monad.  The types of the two
+functions/operators are familiar from the discussion above.</p>
+
+<p>The weird part is that <code>Monad</code> isn't a type class the way <code>Eq</code> is.  <code>Monad</code> is
+what's called a "constructor class" which means that its instances (called <code>m</code>
+here) are not types but type constructors &mdash; and we saw above that all
+monads have to be type constructors, so this has to be the case.  To define an
+instance of a constructor class, we'd write this (using <code>Maybe</code> as our example
+instance):</p>
+
+<pre><code>  instance Monad Maybe where
+    (&gt;&gt;=)  = {- the Maybe version of (&gt;&gt;=) -}
+    return = {- the Maybe version of return -}
+</code></pre>
+
+<p>The fact that the same notation is used for regular classes and constructor
+classes can be a bit confusing, but it works out well enough in practice.
+Perhaps Haskell would be more precise if it used this notation:</p>
+
+<pre><code>  constructorClass Monad m where
+    (&gt;&gt;=) :: m a -&gt; (a -&gt; m b) -&gt; m b
+    return :: a -&gt; m a
+
+  constructorInstance Monad Maybe where
+    (&gt;&gt;=)  = {- the Maybe version of (&gt;&gt;=) -}
+    return = {- the Maybe version of return -}
+</code></pre>
+
+<p>but that's pretty verbose and you can usually tell what's going on from context
+anyway.</p>
+
+<p>Now let's look at a simple example and then continue talking about the
+<code>Monad</code> type class.</p>
+
+<h2>An example</h2>
+
+<p>One of the simplest examples of a function in the <code>IO</code> monad is a function
+which reads a line from the terminal and prints it right back out (with a
+newline at the end).  The natural way to write this is to use the <code>getLine</code>
+and <code>putStrLn</code> functions.  As we saw above, they have the types:</p>
+
+<pre><code>  getLine  :: IO String
+  putStrLn :: String -&gt; IO ()
+</code></pre>
+
+<p>We can't use the monadic composition operator <code>&gt;=&gt;</code> to combine these,
+because <code>getLine</code> is a monadic value, not a monadic function.  But we <em>can</em>
+use the monadic apply operator <code>&gt;&gt;=</code> as follows:</p>
+
+<pre><code>  readAndPrintLine = getLine &gt;&gt;= putStrLn
+</code></pre>
+
+<p>All we are doing here is (monadically) applying the <code>putStrLn</code> monadic function
+to the <code>getLine</code> monadic value.  Using the "action" terminology we discussed
+above, we can think of this as follows: <code>getLine</code> is an "action" which reads a
+line of text input to the terminal and "returns" it as a monadic value, and the
+<code>&gt;&gt;=</code> operator "unpacks" that line of text from the monadic value, passing it to
+<code>putStrLn</code>, which prints it back to the terminal and returns nothing (actually
+it returns the meaningless <code>()</code> value as a monadic value).</p>
+
+<p>We could have written this out more explicitly as follows:</p>
+
+<pre><code>  readAndPrintLine = getLine &gt;&gt;= (\s -&gt; putStrLn s)
+</code></pre>
+
+<p>Notice that <code>(\s -&gt; putStrLn s)</code> is exactly the same function as <code>putStrLn</code>,
+in the same way that <code>(\x -&gt; cos x)</code> is the same function as just <code>cos</code>.  So
+we haven't changed anything important here.  But writing it this way makes it
+clearer that <em>something</em> (a text string) is somehow being returned from
+<code>getLine</code>, and what the <code>&gt;&gt;=</code> operator is doing is taking that string
+(called <code>s</code> here) and printing it.</p>
+
+<p>We'll expand on this simple example with some variations once we've covered
+some more features of the <code>Monad</code> type class, which we will do in the
+<a href="http://mvanier.livejournal.com/4586.html" rel="nofollow">next article</a> of this
+series.</p> </div>  </div>   <div  id="comments"  class=" b-grove b-grove-hover  ljtimes-disabled     lj-widget" data-authtoken="c0:1363874400:502:86400:3wKWhkpCTX-0-:4dbc70f9a025ee57cb0e26b95c2c6362" data-widget="comments"> <div class="b-xylem b-xylem-first"> <ul class="b-xylem-cells">  <li class="b-xylem-cell b-xylem-cell-add">  <a class="b-addcomment" href="http://mvanier.livejournal.com/4305.html?mode=reply#add_comment"><span class="b-addcomment-inner"><i class="b-addcomment-icon"></i>Post a new comment</span></a>   <div class=" b-watering  b-watering-trueauth-anonymous b-watering-realauth-anonymous b-watering-authtype-anonymous     b-watering-user-notafriend b-watering-user-regonly   b-watering-user-logips b-watering-user-logips-anon  b-watering-user-screened b-watering-user-screened-all     b-watering-captcha-all  "> <form action="http://www.livejournal.com/talkpost_do.bml" method="post" id="postform"> <div class="b-watering-wrapper"> <input type='hidden' name="journal" value="mvanier" /> <input type='hidden' name="itemid" value="4305" /> <input type='hidden' name="response" value="" /> <input type='hidden' name="lj_form_auth" value="c0:1363874400:502:86400:3wKWhkpCTX-0-:4dbc70f9a025ee57cb0e26b95c2c6362" id="lj_form_auth" /> <input type='hidden' name="chrp1" value="4305-14687195-1363874400-BtLEHfrFtkRGGwH4GWyQ-15eccd3e81d4f7b7d5a0743feae92366" /> <input type='hidden' name="chal" value="c0:1363874400:502:900:TitAIu8GoL6bsyFijPZW:2c14d34f52d4af9a1fdd02151ed947c2" /> <input type='hidden' name="cookieuser" value="" /> <input type='hidden' name="replyto" value="0" id="replyto" /> <input type='hidden' name="parenttalkid" value="0" id="parenttalkid" /> <input type='hidden' name="editid" value="0" /> <input type='hidden' name="json" value="0" /> <input type='hidden' name="talkpost_do" value="0" /> <input type='hidden' name="subject" /> <input type='hidden' name="stylemine" value="0" /> <input type='hidden' name="viewing_thread" value="" id="viewing_thread" /> <div class="b-msgsystem-errorbox"> <h4 class="b-msgsystem-errorbox-head">Error</h4> <p class="b-msgsystem-error b-msgsystem-error-ajax"></p>          <p class="b-msgsystem-error b-msgsystem-error-regonly">Anonymous comments are disabled in this journal</p>   </div> <div class="b-watering-outer"> <div class="b-watering-fields"> <div class="b-watering-inner"> <div class="b-watering-user"> <div class="b-watering-user-login"> <ul class="b-watering-user-login-items">   <li class="b-watering-user-login-item b-watering-user-login-user">  <input name="usertype" value="user"  id="user" class="b-watering-user-login-checkbox" type="radio">  <i class="b-watering-user-login-pic"></i>  <span class="b-watering-user-login-details"> <input placeholder="Username" name="userpost" type="text" tabindex="25" autocomplete="off" class="auth-input"> <input placeholder="Password" name="password" type="password" tabindex="25" autocomplete="off" class="auth-input"> </span>  </li>    <li class="b-watering-user-login-item b-watering-user-login-facebook">  <input name="usertype" value="facebook"  id="facebook" class="b-watering-user-login-checkbox" type="radio">  <i class="b-watering-user-login-pic"></i>   <span class="b-watering-user-login-details">  We will log you in after post  </span>   </li>    <li class="b-watering-user-login-item b-watering-user-login-twitter">  <input name="usertype" value="twitter"  id="twitter" class="b-watering-user-login-checkbox" type="radio">  <i class="b-watering-user-login-pic"></i>   <span class="b-watering-user-login-details">  We will log you in after post  </span>   </li>    <li class="b-watering-user-login-item b-watering-user-login-openid">  <input name="usertype" value="openid"  id="openid" class="b-watering-user-login-checkbox" type="radio">  <i class="b-watering-user-login-pic"></i>   <span class="b-watering-user-login-details">  <input id="openid" name="openid:url" placeholder="openid" type="text"  tabindex="25" autocomplete="off" class="auth-input">  </span>   </li>    <li class="b-watering-user-login-item b-watering-user-login-google">  <input name="usertype" value="google"  id="google" class="b-watering-user-login-checkbox" type="radio">  <i class="b-watering-user-login-pic"></i>   <span class="b-watering-user-login-details">  We will log you in after post  </span>   </li>    <li class="b-watering-user-login-item b-watering-user-login-mailru">  <input name="usertype" value="mailru"  id="mailru" class="b-watering-user-login-checkbox" type="radio">  <i class="b-watering-user-login-pic"></i>   <span class="b-watering-user-login-details">  We will log you in after post  </span>   </li>    <li class="b-watering-user-login-item b-watering-user-login-vkontakte">  <input name="usertype" value="vkontakte"  id="vkontakte" class="b-watering-user-login-checkbox" type="radio">  <i class="b-watering-user-login-pic"></i>   <span class="b-watering-user-login-details">  We will log you in after post  </span>   </li>    <li class="b-watering-user-login-item b-watering-user-login-anonymous">  <input name="usertype" value="anonymous" checked id="anonymous" class="b-watering-user-login-checkbox" type="radio">  <i class="b-watering-user-login-pic"></i>   <span class="b-watering-user-login-details">  Anonymously  </span>   </li>   </ul> </div> <div class="b-watering-user-options">  <a href="javascript:void(0);" class="b-watering-user-change b-pseudo" tabindex="10">switch</a>  <div class="b-watering-user-services"> <ul class="b-watering-user-services-items">  <li class="b-watering-user-services-item b-watering-user-services-user"> <a href="#user" tabindex="20"><i class="b-watering-user-services-pic"></i><span class="b-watering-user-services-name">LiveJournal</span> </a> </li>  <li class="b-watering-user-services-item b-watering-user-services-facebook"> <a href="#facebook" tabindex="20"><i class="b-watering-user-services-pic"></i><span class="b-watering-user-services-name">Facebook</span> </a> </li>  <li class="b-watering-user-services-item b-watering-user-services-twitter"> <a href="#twitter" tabindex="20"><i class="b-watering-user-services-pic"></i><span class="b-watering-user-services-name">Twitter</span> </a> </li>  <li class="b-watering-user-services-item b-watering-user-services-openid"> <a href="#openid" tabindex="20"><i class="b-watering-user-services-pic"></i><span class="b-watering-user-services-name">OpenId</span> </a> </li>  <li class="b-watering-user-services-item b-watering-user-services-google"> <a href="#google" tabindex="20"><i class="b-watering-user-services-pic"></i><span class="b-watering-user-services-name">Google</span> </a> </li>  <li class="b-watering-user-services-item b-watering-user-services-mailru"> <a href="#mailru" tabindex="20"><i class="b-watering-user-services-pic"></i><span class="b-watering-user-services-name">MailRu</span> </a> </li>  <li class="b-watering-user-services-item b-watering-user-services-vkontakte"> <a href="#vkontakte" tabindex="20"><i class="b-watering-user-services-pic"></i><span class="b-watering-user-services-name">VKontakte</span> </a> </li>  <li class="b-watering-user-services-item b-watering-user-services-anonymous"> <a href="#anonymous" tabindex="20"><i class="b-watering-user-services-pic"></i><span class="b-watering-user-services-name">Anonymously</span> </a> </li>  </ul> </div>   </div> </div> <div class="  b-ljuserpic   b-ljuserpic-nopics  ">  <input type="hidden" name="prop_picture_keyword" id="prop_picture_keyword" value="">  <span class="b-ljuserpic-default">default userpic</span> <div class=" b-myuserpic  b-myuserpic-anonymous "> <a href="javascript:void(0);" class="b-myuserpic-current"  data-nodefpic="url(http://l-stat.livejournal.com/img/userpics/userpic-user.png?v=15821)" data-nodeflabel="default userpic"  style="background-image: url(  http://l-stat.livejournal.com/img/userpics/userpic-anonymous.png?v=15821  );" tabindex="30"></a>  </div> </div> <div class=" b-updateform lj-widget " data-widget="commentsFormToolbar" > <div class="b-updateform-bar"> <ul class="b-updateform-buttons b-updateform-buttons-firstsection">   <li class="b-updateform-buttons-item"> <a href="javascript:void(0);" class="b-updateform-button b-updateform-button-bold" title="Insert Bold" tabindex="151" data-type="bold" data-role="style"> <i class="b-updateform-button-pic"></i> <span class="b-updateform-button-title b-pseudo">Insert Bold</span> </a> </li>    <li class="b-updateform-buttons-item"> <a href="javascript:void(0);" class="b-updateform-button b-updateform-button-italic" title="Insert Italic" tabindex="151" data-type="italic" data-role="style"> <i class="b-updateform-button-pic"></i> <span class="b-updateform-button-title b-pseudo">Insert Italic</span> </a> </li>    <li class="b-updateform-buttons-item"> <a href="javascript:void(0);" class="b-updateform-button b-updateform-button-underline" title="Insert Underline" tabindex="151" data-type="underline" data-role="style"> <i class="b-updateform-button-pic"></i> <span class="b-updateform-button-title b-pseudo">Insert Underline</span> </a> </li>    <li class="b-updateform-buttons-item"> <a href="javascript:void(0);" class="b-updateform-button b-updateform-button-strikethrough" title="Insert Strikethrough" tabindex="151" data-type="strikethrough" data-role="style"> <i class="b-updateform-button-pic"></i> <span class="b-updateform-button-title b-pseudo">Insert Strikethrough</span> </a> </li>             </ul> <ul class="b-updateform-buttons b-updateform-buttons-secondsection">           <li class="b-updateform-buttons-item"> <a href="javascript:void(0);" class="b-updateform-button b-updateform-button-link" title="Insert Link" tabindex="151" data-type="link" data-role="bubble"> <i class="b-updateform-button-pic"></i> <span class="b-updateform-button-title b-pseudo">Insert Link</span> </a> </li>    <li class="b-updateform-buttons-item"> <a href="javascript:void(0);" class="b-updateform-button b-updateform-button-user" title="Insert LJ User" tabindex="151" data-type="user" data-role="bubble"> <i class="b-updateform-button-pic"></i> <span class="b-updateform-button-title b-pseudo">Insert LJ User</span> </a> </li>         </ul> <ul class="b-updateform-buttons b-updateform-buttons-thirdsection">               <li class="b-updateform-buttons-item"> <a href="javascript:void(0);" class="b-updateform-button b-updateform-button-photo" title="Insert Photo" tabindex="151" data-type="photo" data-role="photouploader"> <i class="b-updateform-button-pic"></i> <span class="b-updateform-button-title b-pseudo">Insert Photo</span> </a> </li>    <li class="b-updateform-buttons-item"> <a href="javascript:void(0);" class="b-updateform-button b-updateform-button-video" title="Insert Video" tabindex="151" data-type="video" data-role="bubble"> <i class="b-updateform-button-pic"></i> <span class="b-updateform-button-title b-pseudo">Insert Video</span> </a> </li>     </ul> <ul class="b-updateform-buttons b-updateform-buttons-aside">                   <li class="b-updateform-buttons-item">  <a href="javascript:void(0);" class="b-updateform-button b-updateform-button-spell" title="Spell check" tabindex="151" data-type="spell" data-role="spell"> <i class="b-updateform-button-pic"></i> <span class="b-updateform-button-title b-pseudo">Spell check</span> </a>  </li>   </ul> </div> <textarea  name="body" id="body" cols="60" rows="10" class="b-updateform-textarea" tabindex="50" autocomplete="off"></textarea> </div> <div class="b-watering-msgbox">    <p class="b-msgsystem-error b-msgsystem-error-screened">Your reply will be screened</p>    <p class="b-msgsystem-error b-msgsystem-error-logcommentips"> Your IP address will be recorded &nbsp; <a href="http://www.livejournal.com/support/faq/66.html" class="b-watering-help-link" target="_blank"><i class="b-watering-help-icon"></i></a> </p>  </div>  <div class="b-watering-captchabox b-watering-captchabox-active" id="captcha-container">  <script type="text/javascript">
+//<![CDATA[
+var RecaptchaOptions = {"lang":"en_LJ","theme":"clean"};
+//]]>
+</script>
+<script src="http://www.google.com/recaptcha/api/challenge?k=6LegWAEAAAAAANJcmtbLTuHlG7AbDzLPxvimCw_Z" type="text/javascript"></script>
+<noscript><iframe frameborder="0" height="300" src="http://www.google.com/recaptcha/api/noscript?k=6LegWAEAAAAAANJcmtbLTuHlG7AbDzLPxvimCw_Z" width="500"></iframe><textarea cols="40" name="recaptcha_challenge_field" rows="3"></textarea><input name="recaptcha_response_field" type="hidden" value="manual_challenge" /></noscript>
+  </div> <div class="b-watering-submit"> <div class="b-ljbutton b-ljbutton-submit"> <button type="submit" name="submitpost" tabindex="80">Post a new comment</button> </div> </div> </div> </div> <div class="b-watering-aside"> <div class="b-watering-help"> <a href="http://www.livejournal.com/support/faq/46.html" class="b-watering-help-link" target="_blank"><i class="b-watering-help-icon"></i>Help</a> </div> </div> </div> </div> <script id="tmpl-updateform-link" type="text/html"> <i class="b-updateform-bubble-bg"></i> <div class="b-updateform-bubble-wrapper b-updateform-bubble-link-empty"> <div class="b-updateform-bubble-link-fields"><label for="updateform-link-url">Link</label><br><input type="text" id="updateform-link-url" size="50" value="" class="b-updateform-bubble-input"><br><span class="b-updateform-bubble-option"><input type="checkbox" id="updateform-link-target" class="b-updateform-bubble-checkbox" tabindex="50" checked disabled><label for="updateform-link-target" class="b-updateform-bubble-option-label">open in new window</label></span></div> <div class="b-updateform-bubble-link-button"><div class="b-ljbutton b-ljbutton-delete b-updateform-bubble-link-button-remove"><button name="removelinks" type="button">Remove all links in selection</button></div><div class="b-ljbutton b-ljbutton-submit b-ljbutton-disabled"><button name="submitpost" type="button" disabled="disabled">Insert</button></div></div> </div> </script> <script id="tmpl-updateform-photo" type="text/html"> <i class="b-updateform-bubble-bg"></i> <div class="b-updateform-bubble-wrapper"> <div class="b-updateform-bubble-photo-pic"><span class="b-updateform-bubble-photo-inner"><img src="http://l-stat.livejournal.com/img/spacer.gif?v=13339" alt="" class="b-updateform-bubble-photo-preview"></span></div> <div class="b-updateform-bubble-photo-fields"><label for="updateform-bubble-photo-url">Photo</label><br><input type="text" id="updateform-photo-url" size="50" value="" class="b-updateform-bubble-input"><br><span class="b-updateform-bubble-hint">Hint&nbsp;<span class="b-pseudo b-updateform-bubble-example">http://pics.livejournal.com/igrick/pic/000r1edq</span></span></div> <div class="b-updateform-bubble-photo-button"><div class="b-ljbutton b-ljbutton-submit b-ljbutton-disabled"><button name="submitpost" type="button" disabled="disabled">Insert</button></div></div> </div> </script> <script id="tmpl-updateform-video" type="text/html"> <i class="b-updateform-bubble-bg"></i> <div class="b-updateform-bubble-wrapper"> <div class="b-updateform-bubble-video-fields"><label for="updateform-video-url">Video</label><br><textarea rows="5" cols="60" id="updateform-video-url" class="b-updateform-bubble-input" ></textarea><span class="b-updateform-bubble-hint" data-hint-target="#updateform-video-url">Embed, iframe, <a href="http://www.youtube.com/watch?v=-LMebrVm-uU" target="_blank">youtube</a> or <a href="http://vimeo.com/59545564" target="_blank">vimeo</a></span></div> <div class="b-updateform-bubble-video-button"><div class="b-ljbutton b-ljbutton-submit b-ljbutton-disabled"><button name="submitpost" type="button" disabled="disabled">Insert</button></div></div> </div> </script> <script id="tmpl-updateform-user" type="text/html"> <i class="b-updateform-bubble-bg"></i> <div class="b-updateform-bubble-wrapper"> <div class="b-updateform-bubble-user-fields"><label for="updateform-bubble-user-name">User</label><br><span class="b-updateform-bubble-input-wrapper b-updateform-bubble-input-username"><input type="text" id="updateform-bubble-user-name" size="30" maxlength="15" value="" class="b-updateform-bubble-input"><i class="b-updateform-bubble-input-pic"></i></span><span class="b-updateform-bubble-hint">Example:&nbsp;<span class="b-pseudo b-updateform-bubble-example">igrick</span></span><span class="b-updateform-bubble-warning b-bubble b-bubble-warning b-bubble-intext">No such user</span><span class="b-updateform-bubble-input-title"><label for="updateform-bubble-user-title">User title (optional)</label><br><input type="text" id="updateform-bubble-user-title" size="30" maxlength="255" value="" class="b-updateform-bubble-input"></span></div> <div class="b-updateform-bubble-user-button"><div class="b-ljbutton b-ljbutton-submit b-ljbutton-disabled"><button name="submitpost" type="button" disabled="disabled">Insert user</button></div></div> </div> </script> </form> <script type="text/javascript"> jQuery('#body').spellchecker() .spellchecker('option', 'minHeight', 180) .spellchecker('subscribe') .spellchecker('start'); </script> <i class="b-watering-close"></i> <i class="b-watering-arrows"> <i class="b-watering-arrow-border"></i> <i class="b-watering-arrow"></i> </i> </div> <script> (function() { var node = jQuery('.b-watering'); node.commentator({ publicKey: '6LegWAEAAAAAANJcmtbLTuHlG7AbDzLPxvimCw_Z', captchaContainerId: 'captcha-container', selectors: { errorBlock: '.b-msgsystem-error-ajax', blockingErrorBlocks: '.b-msgsystem-error', preloaderElem: '.b-watering-preload', submitControl: '.b-ljbutton-submit', captchaBox: '.b-watering-captchabox' }, classNames: { captchaActive: 'b-watering-captchabox-active', replyPage: 'b-watering-replypage' } }) .commentform();  node.authtype({ forceStartupCaptcha: !!(Number('1')), classNames: { expanded: 'b-watering-user-options-show', startAuthTypePrefix: 'b-watering-trueauth-', captchaForAnonymous: 'b-watering-captcha-anon', captchaForNonFriends: 'b-watering-captcha-nonfriend', notfriend: 'b-watering-user-notafriend', notaspammer: 'b-watering-notaspammer', captchaForAll: 'b-watering-captcha-all', authTypePrefix: 'b-watering-authtype-' }, selectors: { activeSelectItem: 'a[href=#{authType}]', selectControl: '.b-watering-user-options', authTypesControls: '.b-watering-user-services-item a', authTypeRadios: '.b-watering-user-login-{authType} .b-watering-user-login-checkbox' } }); }()); </script>  </li>  <li class="b-xylem-cell b-xylem-cell-amount">    6 comments    </li>  </ul>  </div>      <div class="b-tree b-tree-root"> </div> <script id="comments_json" type="text/plain"> [{"userpic":null,"uname":"","loaded":1,"statprefix":"http://l-stat.livejournal.com","talkid":102,"controls":null,"siteroot":"http://www.livejournal.com","ipaddr":null,"parent":0,"subject":"","username":null,"thread":26321,"level":1,"dname":"","shown":1,"collapsed":0,"actions":[{"allowed":1,"href":"http://mvanier.livejournal.com/4305.html?replyto=26321","name":"reply","title":"Reply","footer":1},{"allowed":1,"href":"http://mvanier.livejournal.com/4305.html?thread=26321#t26321","name":"permalink","title":"link"},{"allowed":1,"href":"http://mvanier.livejournal.com/4305.html?thread=26321#t26321","name":"collapse","title":"Collapse"},{"allowed":1,"href":"http://mvanier.livejournal.com/4305.html?thread=26321#t26321","name":"expand","title":"Expand"}],"p_tracked":0,"dtalkid":26321,"etime_ts":null,"above":null,"upictitle":null,"article":"Spelling error.<br />\"we'd write this (using Maybe as our example instnace):\"<br /><br />\"putStrLn \"unpacks\" that line of text from the monadic value, prints it back to the terminal, \"<br />Doesn't &gt;&gt;= unpacks the value<br /><br />\"what the &gt;&gt;= operator is doing is taking that string (called s here) and printing it.\"<br />Isn't putStrLn doing the printing?<br /><br />-Lakshmi Narasimhan","stime":"2 years ago","ctime":"September 18 2010, 15:27:37 UTC","deleted_poster":null,"below":null,"massactions":null,"deleted":0,"etime":null,"ctime_ts":"1284823657","subclass":null,"suspended":null,"leafclass":null,"margin":0,"tracked":0},{"userpic":null,"uname":"mvanier","loaded":1,"statprefix":"http://l-stat.livejournal.com","talkid":103,"controls":null,"siteroot":"http://www.livejournal.com","ipaddr":null,"parent":26321,"subject":"Thanks!","username":[{"attrs":null,"inline_css":0,"journal_url":"http://mvanier.livejournal.com/","is_identity":0,"bold":1,"striked":null,"userhead_url":"http://l-stat.livejournal.com/img/userinfo.gif?v=102.1","username":"mvanier","color":null,"user_alias":null,"noctxpopup":0,"profile_url":"http://mvanier.livejournal.com/profile","alias":0,"side_alias":0,"journal":"mvanier"}],"thread":26577,"level":2,"dname":"mvanier","shown":1,"collapsed":0,"actions":[{"allowed":1,"href":"http://mvanier.livejournal.com/4305.html?replyto=26577","name":"reply","title":"Reply","footer":1},{"allowed":1,"href":"http://mvanier.livejournal.com/4305.html?thread=26577#t26577","name":"permalink","title":"link"},{"allowed":1,"href":"http://mvanier.livejournal.com/4305.html?thread=26577#t26577","name":"collapse","title":"Collapse"},{"allowed":1,"href":"http://mvanier.livejournal.com/4305.html?thread=26577#t26577","name":"expand","title":"Expand"}],"p_tracked":0,"dtalkid":26577,"etime_ts":null,"above":26321,"upictitle":"Mike Vanier: pic#0","article":"Good catch!  I'll fix it momentarily.","stime":"2 years ago","ctime":"September 19 2010, 04:23:11 UTC","deleted_poster":null,"below":null,"massactions":null,"deleted":0,"etime":null,"ctime_ts":"1284870191","subclass":null,"suspended":null,"leafclass":null,"margin":30,"tracked":0},{"userpic":null,"uname":"","loaded":1,"statprefix":"http://l-stat.livejournal.com","talkid":174,"controls":null,"siteroot":"http://www.livejournal.com","ipaddr":null,"parent":0,"subject":"good tutorial","username":null,"thread":44753,"level":1,"dname":"","shown":1,"collapsed":0,"actions":[{"allowed":1,"href":"http://mvanier.livejournal.com/4305.html?replyto=44753","name":"reply","title":"Reply","footer":1},{"allowed":1,"href":"http://mvanier.livejournal.com/4305.html?thread=44753#t44753","name":"permalink","title":"link"},{"allowed":1,"href":"http://mvanier.livejournal.com/4305.html?thread=44753#t44753","name":"collapse","title":"Collapse"},{"allowed":1,"href":"http://mvanier.livejournal.com/4305.html?thread=44753#t44753","name":"expand","title":"Expand"}],"p_tracked":0,"dtalkid":44753,"etime_ts":null,"above":null,"upictitle":null,"article":"Thanks for this very comprehensive tutorial. I have absolutely no experience with Haskell, but have read something about Monads, which I did not understand (in \"Beautiful Code\", btw, a great book). Now it makes perfect sense. <br /><br />I think the topic cannot be explained much better, assuming only some programming experience and the tiniest bit of understanding of functional programming.","stime":"2 years ago","ctime":"March 19 2011, 13:24:00 UTC","deleted_poster":null,"below":null,"massactions":null,"deleted":0,"etime":null,"ctime_ts":"1300541040","subclass":null,"suspended":null,"leafclass":null,"margin":0,"tracked":0},{"userpic":null,"uname":"mvanier","loaded":1,"statprefix":"http://l-stat.livejournal.com","talkid":175,"controls":null,"siteroot":"http://www.livejournal.com","ipaddr":null,"parent":44753,"subject":"Re: good tutorial","username":[{"attrs":null,"inline_css":0,"journal_url":"http://mvanier.livejournal.com/","is_identity":0,"bold":1,"striked":null,"userhead_url":"http://l-stat.livejournal.com/img/userinfo.gif?v=102.1","username":"mvanier","color":null,"user_alias":null,"noctxpopup":0,"profile_url":"http://mvanier.livejournal.com/profile","alias":0,"side_alias":0,"journal":"mvanier"}],"thread":45009,"level":2,"dname":"mvanier","shown":1,"collapsed":0,"actions":[{"allowed":1,"href":"http://mvanier.livejournal.com/4305.html?replyto=45009","name":"reply","title":"Reply","footer":1},{"allowed":1,"href":"http://mvanier.livejournal.com/4305.html?thread=45009#t45009","name":"permalink","title":"link"},{"allowed":1,"href":"http://mvanier.livejournal.com/4305.html?thread=45009#t45009","name":"collapse","title":"Collapse"},{"allowed":1,"href":"http://mvanier.livejournal.com/4305.html?thread=45009#t45009","name":"expand","title":"Expand"}],"p_tracked":0,"dtalkid":45009,"etime_ts":null,"above":44753,"upictitle":"Mike Vanier: pic#0","article":"Thank you very much!","stime":"2 years ago","ctime":"March 20 2011, 02:40:17 UTC","deleted_poster":null,"below":null,"massactions":null,"deleted":0,"etime":null,"ctime_ts":"1300588817","subclass":null,"suspended":null,"leafclass":null,"margin":30,"tracked":0},{"userpic":null,"uname":"","loaded":1,"statprefix":"http://l-stat.livejournal.com","talkid":235,"controls":null,"siteroot":"http://www.livejournal.com","ipaddr":null,"parent":0,"subject":"Thanks","username":null,"thread":60369,"level":1,"dname":"","shown":1,"collapsed":0,"actions":[{"allowed":1,"href":"http://mvanier.livejournal.com/4305.html?replyto=60369","name":"reply","title":"Reply","footer":1},{"allowed":1,"href":"http://mvanier.livejournal.com/4305.html?thread=60369#t60369","name":"permalink","title":"link"},{"allowed":1,"href":"http://mvanier.livejournal.com/4305.html?thread=60369#t60369","name":"collapse","title":"Collapse"},{"allowed":1,"href":"http://mvanier.livejournal.com/4305.html?thread=60369#t60369","name":"expand","title":"Expand"}],"p_tracked":0,"dtalkid":60369,"etime_ts":null,"above":null,"upictitle":null,"article":"Great article! Thanks you. Greetings from Poland","stime":"1 year ago","ctime":"June 12 2011, 17:38:31 UTC","deleted_poster":null,"below":null,"massactions":null,"deleted":0,"etime":null,"ctime_ts":"1307900311","subclass":null,"suspended":null,"leafclass":null,"margin":0,"tracked":0},{"userpic":null,"uname":"mvanier","loaded":1,"statprefix":"http://l-stat.livejournal.com","talkid":236,"controls":null,"siteroot":"http://www.livejournal.com","ipaddr":null,"parent":60369,"subject":"Re: Thanks","username":[{"attrs":null,"inline_css":0,"journal_url":"http://mvanier.livejournal.com/","is_identity":0,"bold":1,"striked":null,"userhead_url":"http://l-stat.livejournal.com/img/userinfo.gif?v=102.1","username":"mvanier","color":null,"user_alias":null,"noctxpopup":0,"profile_url":"http://mvanier.livejournal.com/profile","alias":0,"side_alias":0,"journal":"mvanier"}],"thread":60625,"level":2,"dname":"mvanier","shown":1,"collapsed":0,"actions":[{"allowed":1,"href":"http://mvanier.livejournal.com/4305.html?replyto=60625","name":"reply","title":"Reply","footer":1},{"allowed":1,"href":"http://mvanier.livejournal.com/4305.html?thread=60625#t60625","name":"permalink","title":"link"},{"allowed":1,"href":"http://mvanier.livejournal.com/4305.html?thread=60625#t60625","name":"collapse","title":"Collapse"},{"allowed":1,"href":"http://mvanier.livejournal.com/4305.html?thread=60625#t60625","name":"expand","title":"Expand"}],"p_tracked":0,"dtalkid":60625,"etime_ts":null,"above":60369,"upictitle":"Mike Vanier: pic#0","article":"You're welcome!","stime":"1 year ago","ctime":"June 13 2011, 03:42:31 UTC","deleted_poster":null,"below":null,"massactions":null,"deleted":0,"etime":null,"ctime_ts":"1307936551","subclass":null,"suspended":null,"leafclass":null,"margin":30,"tracked":0}] </script>  <div class="b-xylem"> <ul class="b-xylem-cells">  <li class="b-xylem-cell b-xylem-cell-add"> <a class="b-addcomment" href="http://mvanier.livejournal.com/4305.html?mode=reply#add_comment"><span class="b-addcomment-inner"><i class="b-addcomment-icon"></i>Post a new comment</span></a> </li>  <li class="b-xylem-cell b-xylem-cell-amount">    6 comments    </li>  </ul>  </div>     </div>  </div>
+					<div class='clear'></div>
+
+				</div>
+				<!--/ Text Wrapper -->
+
+				
+
+			
+
+		</div>
+		<!--/ Content -->
+
+		
+
+	</div>
+	<!--/ Content Wrapper -->
+
+
+
+
+
+
+
+	
+		<footer class="s-footer s-footer-lite">
+			<div class="s-footer-nav-inner">
+				<div class="s-footer-copyright">Copyright &copy; 1999 LiveJournal, Inc.  All rights reserved.</div>
+			</div>	
+		</footer>
+		
+	
+
+	<div id='hello-world' style='text-align: left; font-size:0; line-height:0; height:0; overflow:hidden;'>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-24823174-1']);
+  _gaq.push(['_setDomainName', '.livejournal.com']);
+  _gaq.push(['_trackPageview']);
+  _gaq.push(['_trackPageLoadTime']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+<!-- tns-counter.ru --> 
+<script language="JavaScript" type="text/javascript"> 
+var img = new Image();
+img.src = 'http://www.tns-counter.ru/V13a***R>' + document.referrer.replace(/*/g,'%2a') + '*sup_ru/ru/UTF-8/tmsec=lj_noncyr/' + Math.round(Math.random() * 1000000000);
+</script> 
+<noscript> 
+<img src="http://www.tns-counter.ru/V13a****sup_ru/ru/UTF-8/tmsec=lj_noncyr/" width="1" height="1" alt="">
+</noscript>
+<!--/ tns-counter.ru -->
+<!-- Begin comScore Tag 1.1111.15 -->
+<script type="text/javascript">
+// <![CDATA[
+function udm_(a){var b="comScore=",c=document,d=c.cookie,e="",f="indexOf",g="substring",h="length",i=2048,j,k="&ns_",l="&",m,n,o,p,q=window,r=q.encodeURIComponent||escape;if(d[f](b)+1)for(o=0,n=d.split(";"),p=n[h];o<p;o++)m=n[o][f](b),m+1&&(e=l+unescape(n[o][g](m+b[h])));a+=k+"_t="+ +(new Date)+k+"c="+(c.characterSet||c.defaultCharset||"")+"&c8="+r(c.title)+e+"&c7="+r(c.URL)+"&c9="+r(c.referrer),a[h]>i&&a[f](l)>0&&(j=a[g](0,i-8).lastIndexOf(l),a=(a[g](0,j)+k+"cut="+r(a[g](j+1)))[g](0,i)),c.images?(m=new Image,q.ns_p||(ns_p=m),m.src=a):c.write("<","p","><",'img src="',a,'" height="1" width="1" alt="*"',"><","/p",">")}
+udm_('http'+(document.location.href.charAt(4)=='s'?'s://sb':'://b')+'.scorecardresearch.com/b?c1=2&c2=7602110&sm_vd_cyrillic_status=nonCyr&sm_vd_view_own_journal=undef&sm_vd_id=undef&sm_vd_login_status=logout&sm_vd_account_level=undef&sm_vd_premium_package=undef&sm_vd_early_adopter=undef&sm_vd_log_in_service=undef&sm_vd_viewing_scheme=lanzelot&sm_vd_view_in_my_style=undef&sm_pd_visited_journal_account_type=personal&sm_pd_visited_journal_log_in_service=lj&sm_pd_ads_onpage=0&sm_pd_ad_eligible=no&sm_pd_adult_content=none&sm_pd_comments_style=undef&sm_pd_error_pages=undef&sm_pd_visited_journal_name=mvanier&sm_pd_page_type=journal&sm_pd_style_layout=undef&sm_pd_style_design=undef&sm_pd_style_system=undef&sm_pd_visited_journal_account_level=basic&sm_pd_early_adopter=no&sm_pd_visited_journal_premium_package=no&sm_pd_page_group=PostMainPage');
+// ]]>
+</script>
+<noscript><p><img src="http://b.scorecardresearch.com/p?c1=2&c2=7602110&sm_vd_cyrillic_status=nonCyr&sm_vd_view_own_journal=undef&sm_vd_id=undef&sm_vd_login_status=logout&sm_vd_account_level=undef&sm_vd_premium_package=undef&sm_vd_early_adopter=undef&sm_vd_log_in_service=undef&sm_vd_viewing_scheme=lanzelot&sm_vd_view_in_my_style=undef&sm_pd_visited_journal_account_type=personal&sm_pd_visited_journal_log_in_service=lj&sm_pd_ads_onpage=0&sm_pd_ad_eligible=no&sm_pd_adult_content=none&sm_pd_comments_style=undef&sm_pd_error_pages=undef&sm_pd_visited_journal_name=mvanier&sm_pd_page_type=journal&sm_pd_style_layout=undef&sm_pd_style_design=undef&sm_pd_style_system=undef&sm_pd_visited_journal_account_level=basic&sm_pd_early_adopter=no&sm_pd_visited_journal_premium_package=no&sm_pd_page_group=PostMainPage" height="1" width="1" alt="*"></p></noscript>
+<script type="text/javascript" language="JavaScript1.3" src="http://b.scorecardresearch.com/c2/7602110/cs.js"></script>
+<!-- End comScore Tag --><!-- Quantcast Tag -->
+<script type="text/javascript">
+var _qevents = _qevents || [];
+
+(function() {
+var elem = document.createElement('script');
+elem.src = (document.location.protocol == "https:" ? "https://secure" : "http://edge") + ".quantserve.com/quant.js";
+elem.async = true;
+elem.type = "text/javascript";
+var scpt = document.getElementsByTagName('script')[0];
+scpt.parentNode.insertBefore(elem, scpt);
+})();
+
+_qevents.push({
+qacct:"p-2945K0QbJw0BA"
+});
+</script>
+
+<noscript>
+<div style="display:none;">
+<img src="//pixel.quantserve.com/pixel/p-2945K0QbJw0BA.gif" border="0" height="1" width="1" alt="Quantcast"/>
+</div>
+</noscript>
+<!-- End Quantcast tag -->
+<!-- LiveJournal COUNTER -->
+<img src="http://xc3.services.livejournal.com/ljcounter?d=srv:bil1-ws04,r:0,j:14687195,uri:%22%2F4305.html%22,ref:%22http:%2F%2Fmvanier.livejournal.com%2F3917.html%22,vig:0,extra:AOAb2wDgG9sAABDR" alt="" />
+<!-- /COUNTER -->
+</div>
+	
+	<script type="text/javascript">LiveJournal.injectScript('http://apis.google.com/js/plusone.js',{text:"{lang: 'en'}"});</script><div id="fb-root"></div>
+        <script type="text/javascript">
+          window.fbAsyncInit = function() {
+            FB.init({appId: '214181831945836', xfbml: true});
+          };
+
+          LiveJournal.injectScript(document.location.protocol + '//connect.facebook.net/en_US/all.js', null, document.getElementById('fb-root'))
+        </script>
+    <script type="text/javascript">LiveJournal.injectScript('http://surfingbird.ru/share/share.min.js');</script> <script type="text/javascript">LiveJournal.injectScript('http://platform.twitter.com/widgets.js');</script><script type="application/javascript">var _prum={id:"50e69c3994fe9c2c10000003"};var PRUM_EPISODES=PRUM_EPISODES||{};PRUM_EPISODES.q=[];PRUM_EPISODES.mark=function(b,a){PRUM_EPISODES.q.push(["mark",b,a||new Date().getTime()])};PRUM_EPISODES.measure=function(b,a,b){PRUM_EPISODES.q.push(["measure",b,a,b||new Date().getTime()])};PRUM_EPISODES.done=function(a){PRUM_EPISODES.q.push(["done",a])};PRUM_EPISODES.mark("firstbyte");(function(){var b=document.getElementsByTagName("script")[0];var a=document.createElement("script");a.type="text/javascript";a.async=true;a.charset="UTF-8";a.src="//rum-static.pingdom.net/prum.min.js";b.parentNode.insertBefore(a,b)})();</script>
+
+
+</body>
+
+</html>
