@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<!--[if IE 6]>
+<html id="ie6" lang="en-US">
+<![endif]-->
+<!--[if IE 7]>
+<html id="ie7" lang="en-US">
+<![endif]-->
+<!--[if IE 8]>
+<html id="ie8" lang="en-US">
+<![endif]-->
+<!--[if !(IE 6) | !(IE 7) | !(IE 8) ]><!-->
+<html lang="en-US">
+<!--<![endif]-->
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<title>Interdependent Thoughts | by Ton Zijlstra</title>
+<link rel="profile" href="http://gmpg.org/xfn/11" />
+<link rel="stylesheet" type="text/css" media="all" href="http://www.zylstra.org/wp/wp-content/themes/piha/style.css" />
+<link rel="pingback" href="http://www.zylstra.org/wp/xmlrpc.php" />
+
+<!-- HTML5 enabling script for IE7+8 -->
+<!--[if lt IE 9]>
+<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+
+<link rel="alternate" type="application/rss+xml" title="Interdependent Thoughts &raquo; Feed" href="http://www.zylstra.org/blog/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Interdependent Thoughts &raquo; Comments Feed" href="http://www.zylstra.org/blog/comments/feed/" />
+<script type='text/javascript' src='http://www.zylstra.org/wp/wp-includes/js/jquery/jquery.js?ver=1.8.3'></script>
+<script type='text/javascript' src='http://www.zylstra.org/wp/wp-content/themes/piha/js/jquery.fitvids.js?ver=1.0'></script>
+<script type='text/javascript' src='http://www.zylstra.org/wp/wp-content/themes/piha/js/respond.min.js?ver=1.0.1'></script>
+<script type='text/javascript' src='http://www.zylstra.org/wp/wp-content/themes/piha/js/custom.js?ver=1.0.1'></script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://www.zylstra.org/wp/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://www.zylstra.org/wp/wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 3.5.1" />
+<style type="text/css">
+@media screen and (max-width: 1110px) {
+#main-nav-mobile span.nav-mobile-menu {display:none;}
+#main-nav-mobile .menu {display:block !important;}
+}
+</style>
+<style type="text/css">
+/* Custom link color */
+a, #content .entry-header h2.entry-title a:hover,ul.share li.post-shortlink input,#content .comment-header p a:hover,#smart-archives-list a:hover,#content .related-posts ul li a:hover, #main-nav-mobile ul li a, #main-nav-mobile ul li ul li a:hover, #main-nav-mobile li:hover > a, #main-nav-mobile li li:hover > a {color:#89b558;}
+#content a.post-format,#content .post-format-single{background:#89b558 url(http://www.zylstra.org/wp/wp-content/themes/piha/images/postformat-icons.png) 0 0 no-repeat;}
+#content .format-link .entry-content a.link-format-btn{background:#89b558 url(http://www.zylstra.org/wp/wp-content/themes/piha/images/icon-sprites.png) right -245px  no-repeat;}
+input#submit,input.wpcf7-submit, .jetpack_subscription_widget form#subscribe-blog input[type="submit"] {background-color:#89b558;}
+.widget_search .searchsubmit{background:#89b558 url(http://www.zylstra.org/wp/wp-content/themes/piha/images/icon-sprites.png) 67% -43px no-repeat;}
+#top-nav .search-mobile a.search-mobile-btn {background:#89b558 url(http://www.zylstra.org/wp/wp-content/themes/piha/images/icon-sprites.png) 11px -43px no-repeat;}
+#main-nav-mobile a.nav-mobile-btn {background:#89b558 url(http://www.zylstra.org/wp/wp-content/themes/piha/images/icon-sprites.png) 10px -202px no-repeat;
+</style>
+	<style type="text/css">.recentcomments a{display:inline !important;padding:0 !important;margin:0 !important;}</style>
+</head>
+
+<body class="home blog frame">
+	<div id="container" class="row expand">
+		<div id="page">
+			<header id="header">
+	
+						
+				<div id="branding">
+					<hgroup id="site-title">
+											
+						<h1><a href="http://www.zylstra.org/blog/" title="Interdependent Thoughts">Interdependent Thoughts</a></h1>
+							<h2 id="site-description">by Ton Zijlstra</h2>
+					
+										
+					</hgroup><!-- end #site-title -->
+			
+					
+										
+										
+						<img src="http://www.zylstra.org/wp/wp-content/uploads/2012/03/cropped-557438937_6068dc5893_b.jpg" width="750" height="200" class="header-image" /><!-- end .header-image -->
+
+						
+								
+					<nav id="main-nav" class="clearfix">
+						<div class="menu-menu-on-top-container"><ul id="menu-menu-on-top" class="menu"><li id="menu-item-14" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-14"><a href="http://zylstra.org/blog">Home</a></li>
+<li id="menu-item-15" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-15"><a title="my posts on open data" href="http://www.zylstra.org/blog/category/open-data/">Open Data</a></li>
+<li id="menu-item-13" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-13"><a title="Get to know Ton" href="http://www.zylstra.org/blog/about-me/">About me</a></li>
+<li id="menu-item-16" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-16"><a href="http://tonzijlstra.eu/">Company website</a></li>
+</ul></div>					</nav><!-- end #main-nav -->
+					
+					<nav id="main-nav-mobile" class="clearfix">
+						<span class="nav-mobile-menu"><a href="#" class="nav-mobile-btn">Menu</a></span>
+						<ul id="menu-menu-on-top-1" class="menu"><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-14"><a href="http://zylstra.org/blog">Home</a></li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-15"><a title="my posts on open data" href="http://www.zylstra.org/blog/category/open-data/">Open Data</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-13"><a title="Get to know Ton" href="http://www.zylstra.org/blog/about-me/">About me</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-16"><a href="http://tonzijlstra.eu/">Company website</a></li>
+</ul>					</nav><!-- end #main-nav-mobile -->
+
+				</div><!-- end #branding -->
+			</header><!-- end #header -->
+	<div id="content" class="clearfix">
+	
+				
+				
+<article id="post-173" class="post-173 post type-post status-publish format-standard hentry category-open-data tag-epsiconf tag-epsiplatform tag-warsaw tag-workshop">
+
+			<a href="http://www.zylstra.org/blog/2013/03/the-value-of-open-data-to-the-public-sector/" class="post-format standard">Permalink</a>
+	
+	<div class="entry-wrap">
+			<header class="entry-header">
+									<a class="post-date" href="http://www.zylstra.org/blog/2013/03/the-value-of-open-data-to-the-public-sector/">March 16, 2013</a>
+								<h2 class="entry-title"><a href="http://www.zylstra.org/blog/2013/03/the-value-of-open-data-to-the-public-sector/" title="Permalink to The Value of Open Data to the Public Sector" rel="bookmark">The Value of Open Data to the Public Sector</a></h2>
+			</header><!--end .entry-header -->
+        
+						
+			<div class="entry-content">
+								
+				<p>Three weeks ago I and my colleague Frank Verschoor took about 30 civil servants from 10 countries through a workshop (in Warsaw) on seeing Open Data as a policy instrument that has value to the public sector itself.</p>
+<p>A lot of the discussion on the potential of open data focuses on the economic potential, and the impact on transparency. Important things, but the benefits of it don&#8217;t accrue at the public sector body (PSB) that opens up the data. To make sure that a PSB keeps routinely publishing open data, having a direct benefit for the PSB itself is a great motivator.</p>
+<p>Open data can be a policy instrument to help reach policy goals. At different levels of maturity examples are available, starting at improving (internal) efficiency by reducing transaction costs, through seeing how third party usage impacts own policy goals, and stimulating that usage, to the emergence of new services created by citizens/organisations and public sector bodies collaboratively that would not be possible otherwise.</p>
+<p>In the workshop we explored where the participants were now on that spectrum, and how to start the path to the next level of maturity. </p>
+<p>Below you find the slides to my introductory remarks, the workshop output, and a video impression made by Elmine.</p>
+<p><iframe src="http://www.slideshare.net/slideshow/embed_code/16720113" width="427" height="356" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" allowfullscreen webkitallowfullscreen mozallowfullscreen> </iframe>
+<div style="margin-bottom:5px"> <strong> <a href="http://www.slideshare.net/TonZijlstra/epsiplatform-workshop-value-of-opendata-to-the-public-sector" title="Epsiplatform workshop value of opendata to the public sector" target="_blank">Epsiplatform workshop value of opendata to the public sector</a> </strong> from <strong><a href="http://www.slideshare.net/TonZijlstra" target="_blank">Ton Zijlstra</a></strong> </div>
+<p  style=" margin: 12px auto 6px auto; font-family: Helvetica,Arial,Sans-serif; font-style: normal; font-variant: normal; font-weight: normal; font-size: 14px; line-height: normal; font-size-adjust: none; font-stretch: normal; -x-system-font: none; display: block;">   <a title="View 20130221 ePSI Workshop Warsaw the Results on Scribd" href="http://www.scribd.com/doc/129594242/20130221-ePSI-Workshop-Warsaw-the-Results"  style="text-decoration: underline;" >20130221 ePSI Workshop Warsaw the Results</a> by <a title="View The Green Land's profile on Scribd" href="http://www.scribd.com/TheGreenLand"  style="text-decoration: underline;" >The Green Land</a></p>
+<p><iframe class="scribd_iframe_embed" src="http://www.scribd.com/embeds/129594242/content?start_page=1&#038;view_mode=scroll&#038;access_key=key-mnu8ophk1b44dblpu52" data-auto-height="false" data-aspect-ratio="1.4160125588697" scrolling="no" id="doc_11276" width="100%" height="600" frameborder="0"></iframe></p>
+<p><iframe src="http://player.vimeo.com/video/60815825" width="560" height="315" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe></p>
+							</div><!-- end .entry-content -->
+			
+						
+	</div><!-- end .entry-wrap -->
+		
+		
+		<footer class="entry-meta">
+			<p><span>Posted by:</span> 
+				<a href="http://www.zylstra.org/blog/author/admin/" title="View all posts by Ton Zijlstra">Ton Zijlstra</a>			<span>| Conversation:</span> <a href="http://www.zylstra.org/blog/2013/03/the-value-of-open-data-to-the-public-sector/#respond" class="comments-link"  title="Comment on The Value of Open Data to the Public Sector">0 comments</a>			<span>| Category:</span> <a href="http://www.zylstra.org/blog/category/open-data/" title="View all posts in Open Data" rel="category tag">Open Data</a>	
+				
+			<span>| Tags:</span> <a href="http://www.zylstra.org/blog/tag/epsiconf/" rel="tag">epsiconf</a>, <a href="http://www.zylstra.org/blog/tag/epsiplatform/" rel="tag">epsiplatform</a>, <a href="http://www.zylstra.org/blog/tag/warsaw/" rel="tag">warsaw</a>, <a href="http://www.zylstra.org/blog/tag/workshop/" rel="tag">workshop</a>						</p>
+
+							
+<ul class="share">
+	<li class="post-shortlink">Short URL <input type='text' value='http://www.zylstra.org/blog/?p=173' onclick='this.focus(); this.select();' /></li>
+	<li class="post-twitter"><a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-url="http://www.zylstra.org/blog/2013/03/the-value-of-open-data-to-the-public-sector/" data-text="The Value of Open Data to the Public Sector">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script></li>
+	<li class="post-fb"><iframe src="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fwww.zylstra.org%2Fblog%2F2013%2F03%2Fthe-value-of-open-data-to-the-public-sector%2F&amp;layout=button_count&amp;show_faces=false&amp;width=120&amp;action=like&amp;colorscheme=light" scrolling="no" frameborder="0" allowTransparency="true"></iframe></li>
+	<li class="post-googleplus"><g:plusone size="medium" href="http://www.zylstra.org/blog/2013/03/the-value-of-open-data-to-the-public-sector/"></g:plusone></li>
+</ul><!-- end .share -->			
+		</footer><!-- end .entry-meta -->
+
+		
+</article><!-- end post -173 -->
+		
+				
+<article id="post-165" class="post-165 post type-post status-publish format-standard hentry category-open-data tag-opendata tag-opengov tag-tedx tag-tedxzwolle tag-zwolle">
+
+			<a href="http://www.zylstra.org/blog/2013/03/my-tedxzwolle-talk-get-to-know-our-ant-hill-with-open-data/" class="post-format standard">Permalink</a>
+	
+	<div class="entry-wrap">
+			<header class="entry-header">
+									<a class="post-date" href="http://www.zylstra.org/blog/2013/03/my-tedxzwolle-talk-get-to-know-our-ant-hill-with-open-data/">March 13, 2013</a>
+								<h2 class="entry-title"><a href="http://www.zylstra.org/blog/2013/03/my-tedxzwolle-talk-get-to-know-our-ant-hill-with-open-data/" title="Permalink to My TEDxZwolle talk: Get to Know Our Ant Hill With Open Data" rel="bookmark">My TEDxZwolle talk: Get to Know Our Ant Hill With Open Data</a></h2>
+			</header><!--end .entry-header -->
+        
+						
+			<div class="entry-content">
+								
+				<p>Yesterday I presented at <a href="http://www.tedxzwolle.nl/">TEDxZwolle</a>. For a general audience I presented the case for Open Data, and called upon them to get involved. Because of the potential, but mostly because it is necessary to understand and deal with the complexity of our societies and lives.</p>
+<p>Otherwise we are just ants, with no clue of how the ant hill works, even though we help create it with our actions. In our networked society we need to understand the ant hill.</p>
+<p>Don&#8217;t be an ant, understand our ant hill. Get involved. Use Open Data. Understand your world.</p>
+<p><iframe src="http://www.slideshare.net/slideshow/embed_code/17159509" width="479" height="511" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" allowfullscreen webkitallowfullscreen mozallowfullscreen> </iframe>
+<div style="margin-bottom:5px"> <strong> <a href="http://www.slideshare.net/TonZijlstra/open-data-get-to-know-our-ant-hill" title="Open Data: Get to know our ant hill" target="_blank">Open Data: Get to know our ant hill</a> </strong> from <strong><a href="http://www.slideshare.net/TonZijlstra" target="_blank">Ton Zijlstra</a></strong> </div>
+<p><br/><br/></p>
+<p>Early May I will be speaking at <a href="http://www.tedxtallinn.org/">TEDxTallinn</a> 2013.</p>
+							</div><!-- end .entry-content -->
+			
+						
+	</div><!-- end .entry-wrap -->
+		
+		
+		<footer class="entry-meta">
+			<p><span>Posted by:</span> 
+				<a href="http://www.zylstra.org/blog/author/admin/" title="View all posts by Ton Zijlstra">Ton Zijlstra</a>			<span>| Conversation:</span> <a href="http://www.zylstra.org/blog/2013/03/my-tedxzwolle-talk-get-to-know-our-ant-hill-with-open-data/#respond" class="comments-link"  title="Comment on My TEDxZwolle talk: Get to Know Our Ant Hill With Open Data">0 comments</a>			<span>| Category:</span> <a href="http://www.zylstra.org/blog/category/open-data/" title="View all posts in Open Data" rel="category tag">Open Data</a>	
+				
+			<span>| Tags:</span> <a href="http://www.zylstra.org/blog/tag/opendata/" rel="tag">opendata</a>, <a href="http://www.zylstra.org/blog/tag/opengov/" rel="tag">opengov</a>, <a href="http://www.zylstra.org/blog/tag/tedx/" rel="tag">tedx</a>, <a href="http://www.zylstra.org/blog/tag/tedxzwolle/" rel="tag">tedxzwolle</a>, <a href="http://www.zylstra.org/blog/tag/zwolle/" rel="tag">zwolle</a>						</p>
+
+							
+<ul class="share">
+	<li class="post-shortlink">Short URL <input type='text' value='http://www.zylstra.org/blog/?p=165' onclick='this.focus(); this.select();' /></li>
+	<li class="post-twitter"><a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-url="http://www.zylstra.org/blog/2013/03/my-tedxzwolle-talk-get-to-know-our-ant-hill-with-open-data/" data-text="My TEDxZwolle talk: Get to Know Our Ant Hill With Open Data">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script></li>
+	<li class="post-fb"><iframe src="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fwww.zylstra.org%2Fblog%2F2013%2F03%2Fmy-tedxzwolle-talk-get-to-know-our-ant-hill-with-open-data%2F&amp;layout=button_count&amp;show_faces=false&amp;width=120&amp;action=like&amp;colorscheme=light" scrolling="no" frameborder="0" allowTransparency="true"></iframe></li>
+	<li class="post-googleplus"><g:plusone size="medium" href="http://www.zylstra.org/blog/2013/03/my-tedxzwolle-talk-get-to-know-our-ant-hill-with-open-data/"></g:plusone></li>
+</ul><!-- end .share -->			
+		</footer><!-- end .entry-meta -->
+
+		
+</article><!-- end post -165 -->
+		
+				
+<article id="post-171" class="post-171 post type-post status-publish format-standard hentry category-open-data tag-epsiplatform tag-eu tag-europe tag-keynote">
+
+			<a href="http://www.zylstra.org/blog/2013/02/the-state-of-open-data-in-europe-achievements-and-challenges/" class="post-format standard">Permalink</a>
+	
+	<div class="entry-wrap">
+			<header class="entry-header">
+									<a class="post-date" href="http://www.zylstra.org/blog/2013/02/the-state-of-open-data-in-europe-achievements-and-challenges/">February 28, 2013</a>
+								<h2 class="entry-title"><a href="http://www.zylstra.org/blog/2013/02/the-state-of-open-data-in-europe-achievements-and-challenges/" title="Permalink to The State of Open Data in Europe &#8211; Achievements and Challenges" rel="bookmark">The State of Open Data in Europe &#8211; Achievements and Challenges</a></h2>
+			</header><!--end .entry-header -->
+        
+						
+			<div class="entry-content">
+								
+				<p>On 22 February we as the ePSIplatform team organized a big conference in Warsaw on Open Government Data. With 300 people registered from 30 countries, and 40 speakers, it was almost as big as last year&#8217;s conference we organized in Rotterdam.</p>
+<p>As this was our last big event under the ePSIplatform contract, which ended 1 March, we decided to use the Opening Keynote to provide an overview of what was achieved in the past few years in Open Data, and especially what is still to be done, and the challenges and pitfalls connected to that. I will provide a full transcript later, but below you find the slides and the video (first 20 minutes) of the presentation.</p>
+<p><iframe src="http://www.slideshare.net/slideshow/embed_code/17005959" width="427" height="356" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" allowfullscreen webkitallowfullscreen mozallowfullscreen> </iframe>
+<div style="margin-bottom:5px"> <strong> <a href="http://www.slideshare.net/TonZijlstra/epsiconf-keynote-tontgl" title="The State of Open Data in Europe: Achievements and Challenges" target="_blank">The State of Open Data in Europe: Achievements and Challenges</a> </strong> from <strong><a href="http://www.slideshare.net/TonZijlstra" target="_blank">Ton Zijlstra</a></strong> </div>
+<p><iframe src="http://player.vimeo.com/video/60747637" width="560" height="315" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe></p>
+							</div><!-- end .entry-content -->
+			
+						
+	</div><!-- end .entry-wrap -->
+		
+		
+		<footer class="entry-meta">
+			<p><span>Posted by:</span> 
+				<a href="http://www.zylstra.org/blog/author/admin/" title="View all posts by Ton Zijlstra">Ton Zijlstra</a>			<span>| Conversation:</span> <a href="http://www.zylstra.org/blog/2013/02/the-state-of-open-data-in-europe-achievements-and-challenges/#respond" class="comments-link"  title="Comment on The State of Open Data in Europe &#8211; Achievements and Challenges">0 comments</a>			<span>| Category:</span> <a href="http://www.zylstra.org/blog/category/open-data/" title="View all posts in Open Data" rel="category tag">Open Data</a>	
+				
+			<span>| Tags:</span> <a href="http://www.zylstra.org/blog/tag/epsiplatform/" rel="tag">epsiplatform</a>, <a href="http://www.zylstra.org/blog/tag/eu/" rel="tag">EU</a>, <a href="http://www.zylstra.org/blog/tag/europe/" rel="tag">Europe</a>, <a href="http://www.zylstra.org/blog/tag/keynote/" rel="tag">keynote</a>						</p>
+
+							
+<ul class="share">
+	<li class="post-shortlink">Short URL <input type='text' value='http://www.zylstra.org/blog/?p=171' onclick='this.focus(); this.select();' /></li>
+	<li class="post-twitter"><a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-url="http://www.zylstra.org/blog/2013/02/the-state-of-open-data-in-europe-achievements-and-challenges/" data-text="The State of Open Data in Europe &#8211; Achievements and Challenges">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script></li>
+	<li class="post-fb"><iframe src="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fwww.zylstra.org%2Fblog%2F2013%2F02%2Fthe-state-of-open-data-in-europe-achievements-and-challenges%2F&amp;layout=button_count&amp;show_faces=false&amp;width=120&amp;action=like&amp;colorscheme=light" scrolling="no" frameborder="0" allowTransparency="true"></iframe></li>
+	<li class="post-googleplus"><g:plusone size="medium" href="http://www.zylstra.org/blog/2013/02/the-state-of-open-data-in-europe-achievements-and-challenges/"></g:plusone></li>
+</ul><!-- end .share -->			
+		</footer><!-- end .entry-meta -->
+
+		
+</article><!-- end post -171 -->
+		
+				
+<article id="post-156" class="post-156 post type-post status-publish format-standard hentry category-knowledgemanagement category-sensemaking-complexity tag-mmc13">
+
+			<a href="http://www.zylstra.org/blog/2013/01/on-openness-and-its-limits/" class="post-format standard">Permalink</a>
+	
+	<div class="entry-wrap">
+			<header class="entry-header">
+									<a class="post-date" href="http://www.zylstra.org/blog/2013/01/on-openness-and-its-limits/">January 31, 2013</a>
+								<h2 class="entry-title"><a href="http://www.zylstra.org/blog/2013/01/on-openness-and-its-limits/" title="Permalink to On Openness and its Limits" rel="bookmark">On Openness and its Limits</a></h2>
+			</header><!--end .entry-header -->
+        
+						
+			<div class="entry-content">
+								
+				<p>Openness is a consequence of adopting a network metaphor for our societies. It is limited by what facilitates healthy functioning groups and individuals. That&#8217;s the balance to strike.</p>
+<p><a href="http://www.flickr.com/photos/tonz/4846128346/" title="Cognitive Edge Business Network Europe by TonZ, on Flickr"><img src="http://farm5.staticflickr.com/4113/4846128346_0fb3691997.jpg" width="500" height="375" alt="Cognitive Edge Business Network Europe"></a><br/><em>Vibrant connected network, aka society</em></p>
+<p><strong>Open Everything</strong><br />
+There seems to be a conference on Open [Your Fav Topic Here] just about every day somewhere. Open Data, Open Access, Open Economy, Open Design, Open Source, Open Manufacturing, Open Innovation, Open Government, Open Science, Open Knowledge, Open Courseware, Open Corporates, Open Hardware, Open Energy: Open Anything and Open Everything.</p>
+<p>For those not easily adapting to change, this is good news: Open is clearly a hype, so it can be ignored without peril, and it can be fought by denouncing it as empty hype.<br />
+For those embracing Open, this is also good news as it seems openness is a worthy goal in itself, a panacea, on the brink of going mainstream. <a href="http://www.zylstra.org/blog/archives/2003/08/monsters_again.html">Monster killers and monster embracers</a> alike are missing something I think.</p>
+<p>To me something more profound is happening on the middle ground between those two extremes.</p>
+<p><strong>New infrastructure begets new metaphors</strong><br />
+Internet and mobile communications are a pervasive new infrastructure. They connect people, not geographic endpoints (as all other infrastructures do), and do so instantaneous and globally. New infrastructures push their principles as dominant metaphors on other areas. Railroads pushed &#8216;<a href="http://en.wikipedia.org/wiki/Railway_time">railroad time</a>&#8216; upon our daily lives and rhythms. Internet is pushing the network metaphor upon us.</p>
+<p>That network metaphor impacts our organizations, work, and our social life. The network metaphor is making itself felt offline just as much as online. It increases complexity through its myriad of newly created pathways and feedback loops, and thus increases the need for resilience of any given node.</p>
+<p><strong>Networks necessitate Open</strong><br />
+The network metaphor necessitates openness: in a network you must share, you must be visible and responsive, otherwise you don&#8217;t exist and you will not be engaged with. Dark nodes in a network, those that don&#8217;t share or even announce their presence, are treated as damage in a network. Traffic, i.e. interaction with other nodes, gets routed around them. Dark nodes are simply ignored. To be part of the network a node must share, must allow others to connect and see what it&#8217;s doing. If you don&#8217;t open up to the world, you don&#8217;t exist to others. If you don&#8217;t open up, you will not be resilient, you will not be able to deal with increased complexity.</p>
+<p>Open is not a hype, it is a <em>prerequisite</em> for, as well as a consequence of, a networked society, induced by our new infrastructure.</p>
+<p>Open is not limitless however. It is bounded in order to deal with complexity and by our own humanity.</p>
+<p><a href="http://www.flickr.com/photos/tonz/2659994444/" title="P1000721.JPG by TonZ, on Flickr"><img src="http://farm4.staticflickr.com/3138/2659994444_2b25c026fa.jpg" width="500" height="375" alt="P1000721.JPG"></a><br/><em>Being closed for good reasons.</em></p>
+<p><strong>Openness has limits in complexity</strong><br />
+Dealing with complexity is balancing being very open to the world, with maintaining strict boundaries. Lines in the sand, that you don&#8217;t allow to be violated without consequences. Bumping into those boundaries will not feel very open at all to those doing the bumping. I am very welcoming to visitors in our home, but you will be made to leave when you don&#8217;t respect it is indeed my home. While the network necessitates openness, the resulting complexity of global connectedness necessitates boundaries at the same time. Without setting boundaries a node is fully transparent, which makes it just as invisible to the network as a dark node. It is the difference between <a href="http://en.wikipedia.org/wiki/Project_X_(2012_film)">Project X</a> and the open invitation to my <a href="http://www.facebook.com/pages/How-to-Unconference-Your-Birthday-The-Book/210781468991546">birthday unconference</a>.</p>
+<p><strong>Openness has limits in human group dynamics</strong><br />
+In many interactions being shielded from others is needed to get somewhere. If something makes you feel vulnerable (some learning situations, negotiations, idea generation etc come to mind), you can&#8217;t deal with it in a very public setting, but need a space in which there&#8217;s more privacy. It is a deliberate short reprieve from the social pressures that would otherwise inhibit you in a negative way. Results of that seclusion, or the fact that you are entering such a more closed off space for a while, could very well be open.</p>
+<p>Healthy <a href="http://www.slideshare.net/TonZijlstra/community-building-some-guidelines">communities of practice can be characterized</a> by the way they deal with rhythms, spaces, evolution, value, excitement vs. feeling secure, internal and external perspectives, and multiple levels of engagement (from lurking to leading and back).</p>
+<p>Openness can foster a wider variety of levels of engagement (as that is an aspect of networks), bring diversity of perspectives (idem), bring excitement, better allow evolution by exposure, and create more value for all involved.</p>
+<p>Openness however needs to be limited when there&#8217;s a need for more opaque and smaller spaces, and to make group members feel secure enough to engage. It needs to be limited where it diminishes value for all involved e.g. when it dissolves a groups cohesion and identity or that of its members.</p>
+<p><strong>Openness is the default, to be limited by our human needs</strong><br />
+Openness needs to be the default: we live in a networked world and open sharing is what makes networks function. Openness is limited by our humanity, for the health of individuals, groups and communities. That limitation ideally is temporary and clearly demarcated.</p>
+<p><a href="http://www.flickr.com/photos/tonz/4612261693/" title="Pedro's Play Session by TonZ, on Flickr"><img src="http://farm4.staticflickr.com/3412/4612261693_684d76863a.jpg" width="500" height="375" alt="Pedro's Play Session"></a><br/><em>Open and bounded simultaneously: my 2010 birthday unconference</em></p>
+							</div><!-- end .entry-content -->
+			
+						
+	</div><!-- end .entry-wrap -->
+		
+		
+		<footer class="entry-meta">
+			<p><span>Posted by:</span> 
+				<a href="http://www.zylstra.org/blog/author/admin/" title="View all posts by Ton Zijlstra">Ton Zijlstra</a>			<span>| Conversation:</span> <a href="http://www.zylstra.org/blog/2013/01/on-openness-and-its-limits/#comments" class="comments-link"  title="Comment on On Openness and its Limits">1 comment</a>			<span>| Category:</span> <a href="http://www.zylstra.org/blog/category/knowledgemanagement/" title="View all posts in Knowledgemanagement" rel="category tag">Knowledgemanagement</a>, <a href="http://www.zylstra.org/blog/category/sensemaking-complexity/" title="View all posts in Sensemaking - Complexity" rel="category tag">Sensemaking - Complexity</a>	
+				
+			<span>| Tags:</span> <a href="http://www.zylstra.org/blog/tag/mmc13/" rel="tag">mmc13</a>						</p>
+
+							
+<ul class="share">
+	<li class="post-shortlink">Short URL <input type='text' value='http://www.zylstra.org/blog/?p=156' onclick='this.focus(); this.select();' /></li>
+	<li class="post-twitter"><a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-url="http://www.zylstra.org/blog/2013/01/on-openness-and-its-limits/" data-text="On Openness and its Limits">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script></li>
+	<li class="post-fb"><iframe src="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fwww.zylstra.org%2Fblog%2F2013%2F01%2Fon-openness-and-its-limits%2F&amp;layout=button_count&amp;show_faces=false&amp;width=120&amp;action=like&amp;colorscheme=light" scrolling="no" frameborder="0" allowTransparency="true"></iframe></li>
+	<li class="post-googleplus"><g:plusone size="medium" href="http://www.zylstra.org/blog/2013/01/on-openness-and-its-limits/"></g:plusone></li>
+</ul><!-- end .share -->			
+		</footer><!-- end .entry-meta -->
+
+		
+</article><!-- end post -156 -->
+		
+				
+<article id="post-145" class="post-145 post type-post status-publish format-standard hentry category-personal">
+
+			<a href="http://www.zylstra.org/blog/2013/01/looking-back-on-2012/" class="post-format standard">Permalink</a>
+	
+	<div class="entry-wrap">
+			<header class="entry-header">
+									<a class="post-date" href="http://www.zylstra.org/blog/2013/01/looking-back-on-2012/">January 3, 2013</a>
+								<h2 class="entry-title"><a href="http://www.zylstra.org/blog/2013/01/looking-back-on-2012/" title="Permalink to Looking Back on 2012" rel="bookmark">Looking Back on 2012</a></h2>
+			</header><!--end .entry-header -->
+        
+						
+			<div class="entry-content">
+								
+				<div>In the past 2 years (<a href="http://www.zylstra.org/blog/archives/2011/01/looking_back_on_1.html">2010,</a> <a href="http://www.zylstra.org/blog/2012/01/looking-back-on-2011-quite-a-ride-again/">2011</a>), <a href="http://wearethepilgrims.blogspot.com/2010/12/reflections.html">triggered</a> by my friend Ernst Phaff, I&#8217;ve posted a list of things that gave me a sense of accomplishment that year. The list of things that made me go &#8216;Tadaa!&#8217;. It is often all to easy to loose track of all the different things I&#8217;ve done, and just bear in mind the unfinished, the yet to achieve, the not-quite-up-to-standard, that make up the lists of things-to-do that rule my every day work. So at the end of the year I look back at my calendar and note the things that I think were pretty damn great in the last year. In no particular order, and roughly chronologic 2012&#8242;s (mostly profession related) &#8216;Tadaa!&#8217; moments are:</div>
+<p>&nbsp;</p>
+<ul>
+<li>Landed a project competing against three well established big consultancy firms, winning on expertise;</li>
+<li>A <a href="http://www.flickr.com/photos/tonz/7533700666/in/photostream/">beautiful</a> summer <a href="http://www.flickr.com/photos/tonz/7533706270/in/photostream/">evening</a> with awesome friends and great food on lake Zug;</li>
+<li>Provided training at the <a href="http://www.flickr.com/photos/tonz/sets/72157629480600301/with/6940812437/">World Bank</a>in the US;<br />
+<a title="Icy Canada from above: enormous power lines by TonZ, on Flickr" href="http://www.flickr.com/photos/tonz/6928838743/"><img src="http://farm8.staticflickr.com/7179/6928838743_b151a07afa_m.jpg" alt="Icy Canada from above: enormous power lines" width="240" height="180" /></a> <a title="US Flags by TonZ, on Flickr" href="http://www.flickr.com/photos/tonz/6785761250/"><img src="http://farm8.staticflickr.com/7051/6785761250_b511d5ee84_m.jpg" alt="US Flags" width="240" height="180" /></a><em><br />
+Enormous power lines in Labrador, Canada, from plane. US flags at Washington Memorial</em></li>
+<li>Organizing a <a href="http://www.flickr.com/photos/tonz/sets/72157629480505401/">hack day</a> in my hometown on the occasion of the beta release of <a href="http://opendata.enschede.nl/">our city&#8217;s open data portal</a>;</li>
+<li>With the <a href="http://epsiplatform.eu">ePSIplatform</a> team organized a large (300+ people) international conference on open government data in Rotterdam;<br />
+<iframe src="http://player.vimeo.com/video/39003435" frameborder="0" width="360" height="202"></iframe></li>
+<li>Doing a fun and energy giving project on open data in the city of Leeuwarden, covering aspects from community building to designing information processes, and to positioning open data as a real policy instrument;</li>
+<li>Seeing a dinner in late 2011 morph into a starting business &#8216;The Green Land&#8217; in open data consultancy, with several good projects delivered in 2012;<br />
+<a title="The Green Land Strategie sessie by TonZ, on Flickr" href="http://www.flickr.com/photos/tonz/8249645809/"><img src="http://farm9.staticflickr.com/8486/8249645809_02d126c57e_m.jpg" alt="The Green Land Strategie sessie" width="240" height="180" /></a><br />
+<em>Future backwards session with Paul, Frank and Marc, my The Green Land partners</em></li>
+<li>Create new Open Data workshop formats with my colleague Frank which never fail te generate lots of energy with the participants;</li>
+<li>Spending a week in Moldova working on <a href="http://inovatii.gov.md/index.php/en/">open government</a> and open government <a href="http://www.youtube.com/watch?v=4tsF7OItUmQ">data</a>;</li>
+<li>Working a week from Helsinki;<br />
+<a title="On Kauppatori by TonZ, on Flickr" href="http://www.flickr.com/photos/tonz/8082282758/"><img src="http://farm9.staticflickr.com/8048/8082282758_fd2d881983_m.jpg" alt="On Kauppatori" width="240" height="180" /></a> <a title="Laboratory by TonZ, on Flickr" href="http://www.flickr.com/photos/tonz/8082402425/"><img src="http://farm9.staticflickr.com/8472/8082402425_2c2f6af5a8_m.jpg" alt="Laboratory" width="240" height="180" /></a><br />
+<em>Berries on Helsinki market, Design District</em></li>
+<li>Spending time with dear friends, old and new, living close and far away, in good and bad times;<br />
+<a title="Visiting K20 / Düsseldorf by TonZ, on Flickr" href="http://www.flickr.com/photos/tonz/6967451392/"><img src="http://farm8.staticflickr.com/7110/6967451392_9da8e22d0b_m.jpg" alt="Visiting K20 / Düsseldorf" width="240" height="180" /></a> <a title="Coworking Boat PAN by TonZ, on Flickr" href="http://www.flickr.com/photos/tonz/8128450875/"><img src="http://farm9.staticflickr.com/8475/8128450875_93abd45e4e_m.jpg" alt="Coworking Boat PAN" width="240" height="180" /></a><br />
+<em>With Pedro &amp; Patricia, with Henriette and Thomas</em></li>
+<li>Tried outsourcing some work to speed execution of ideas up, working with my friend <a href="http://ruk.ca">Peter</a> (both remote and in our living room when he visited from Canada). Will need to do more of that in 2013;</li>
+<li>Taking good care of my well being by immediately switching hotels when the one I was in was way too noisy;</li>
+<li>Organizing a great <a href="http://www.zylstra.org/blog/2012/03/the-bbq-at-the-end-of-the-universe/">BBQ for my 42nd</a> birthday with friends, family, clients, raising money for charity in the process. I enjoyed the party tremendously!</li>
+<li>Got rid of half (500+) of our books, keeping those that changed me, I haven&#8217;t read, or are there for future reference;</li>
+<li>Visiting the <a href="http://www.flickr.com/photos/tonz/collections/72157630902335874/">Olympic Games in London</a> for a week (thanks Elmine for making that happen!);<br />
+<a title="Excel by TonZ, on Flickr" href="http://www.flickr.com/photos/tonz/7704015880/"><img src="http://farm9.staticflickr.com/8286/7704015880_a537c581c8_m.jpg" alt="Excel" width="180" height="240" /></a> <a title="Italy-Russia by TonZ, on Flickr" href="http://www.flickr.com/photos/tonz/7704264672/"><img src="http://farm8.staticflickr.com/7256/7704264672_327afb420d_m.jpg" alt="Italy-Russia" width="240" height="180" /></a><br />
+<em>At the Olympic fencing tournament</em></li>
+<li>Being on the jury for <a href="http://apps4deutschland.de/">Apps for Germany</a>;</li>
+<li>Started getting the machines (<a href="http://makerhouseholds.net/2012/07/bringing-a-laser-cutter-to-life-phase-one/">lasercutter</a>, <a href="http://makerhouseholds.net/2012/04/first-step-to-mini-fablab-milling-machine/">CNC milling machine</a>) for our home FabLab, to be continued in 2013;</li>
+<li>Giving a <a href="http://www.youtube.com/watch?v=lrBnHxu5lNo">keynote</a> presentation at the great <a href="http://sotn.it/">State of the Net conference</a> that <a href="https://twitter.com/paolovalde">Paolo</a>(co-) organizes in Trieste, finally making it to this conference after trying several times;<br/><a title="Trieste by TonZ, on Flickr" href="http://www.flickr.com/photos/tonz/7478577884/"><img src="http://farm8.staticflickr.com/7128/7478577884_d8c130c612_m.jpg" alt="Trieste" width="240" height="180" /></a> <a title="Trieste by TonZ, on Flickr" href="http://www.flickr.com/photos/tonz/7478619862/"><img src="http://farm9.staticflickr.com/8024/7478619862_c8a8532652_m.jpg" alt="Trieste" width="180" height="240" /></a><br />
+<em>At State of the Net 2012, sunset in Trieste</em></li>
+<li>Working in Belgium, France, Germany, Austria, Switzerland, Italy, Czech Republic, Luxembourg, Ireland, next to as already mentioned in USA, Finland, Denmark, and Moldova;</li>
+<li>Giving a <a href="http://www.youtube.com/watch?v=xG3caLZ2rPw">keynote</a> (in German) at <a href="http://www.zukunft-basisbildung.at/">Zukunft Basisbildung</a> on the impact of networked society in educational settings, visiting that topic again after a few years (bringing back memories from the <a href="http://www.zylstra.org/blog/archives/2009/06/rotterdam_unive.html">Rotterdam</a> <a href="http://www.zylstra.org/blog/archives/2009/06/rotterdam_unive_1.html">project</a> and the <a href="http://www.zylstra.org/blog/archives/2008/12/online_educa_be.html">Online Educa 2008 keynote</a>);</li>
+<li>Trying and more often succeeding in enjoying the places I visited, and not just fly in / fly out with merely seeing hotel room and conference venue or client office in between. Sushi with <a href="http://wittenbrink.net/lostandfound/">Heinz</a>, Guinness and European championship football with Keith, both in Graz, a great late night <a href="http://www.flickr.com/photos/tonz/7533677640/in/photostream/">dinner on the Piazza Unita d&#8217;Italia</a> in Trieste, a wine tasting in Moldova, great crab cakes in Washington, espresso in the sun in <a href="http://www.flickr.com/photos/tonz/7279425664/in/photostream/">Nantes</a>, and an amazing dinner with Elmine and very dear friends in Switzerland. A car ride through Slovenia, a small neighborhood pub in Prague, and Leberkäse in Linz. Strolling through Zurich and a surprising exhibition at <a href="http://www.kunsthaus.ch/en/">Kunsthaus</a>, <a href="http://www.flickr.com/photos/tonz/8125634034/in/set-72157631757698740">artisanal shops</a> in Copenhagen, <a href="http://www.flickr.com/photos/tonz/8082394309/in/set-72157631551623951/">interior design</a> and a <a href="http://www.flickr.com/photos/tonz/8082313931/in/set-72157631765077257">ferry to a fortress island</a> in Helsinki;</li>
+<li>Relocating for a month to Copenhagen with Elmine, a month living in a foreign city together (posting on week <a href="http://www.zylstra.org/blog/2012/10/cph-week-1/">1</a>, <a href="http://www.zylstra.org/blog/2012/10/cph-week-2/">2</a>, <a href="http://www.zylstra.org/blog/2012/10/cph-week-3/">3</a>, <a href="http://www.zylstra.org/blog/2012/10/cph-week-4/">4</a>);<br />
+<a title="Chairs by TonZ, on Flickr" href="http://www.flickr.com/photos/tonz/8103807403/"><img src="http://farm9.staticflickr.com/8192/8103807403_55de809557_m.jpg" alt="Chairs" width="240" height="180" /></a> <a title="Apples by TonZ, on Flickr" href="http://www.flickr.com/photos/tonz/8103874707/"><img src="http://farm9.staticflickr.com/8055/8103874707_08feecda5d_m.jpg" alt="Apples" width="240" height="180" /></a><br />
+<em>Colorful chairs in CPH, Halloween with Elmine in Tivoli</em></li>
+<li>Starting the <a href="http://www.meetup.com/CPH-Data-Drinks/">Copenhagen Data Drinks</a>;</li>
+<li>Deciding to lay down my role as chairman in the <a href="http://fablab.nl/">Dutch FabLab Foundation</a>, acknowledging that is a decision I needed to make because it is good for myself and to prevent a situation where I can&#8217;t live up to promised commitment.</li>
+</ul>
+<p>Some of the things that gave me great pleasure this past year are connected to metrics that are not all that healthy, which is the challenge I think for 2013. I spent 112 days abroad (in 16 countries) this year, or about 1 in 3. That is too much to feel balanced, and causes the trips to blur into each other, and time spent on a plane is no fun. I worked over 2200 hours, which although 200 hours less than 2011, makes for 275 working days. (My calendar says there are only 261 weekdays and thus workdays in the year, even if I never take time off). I have worked to exhaustion on too many points this past year. Rationally I know I get more done if I work less but I find it very hard to let go every now and then, so that again is something to get better at in 2013.</p>
+<p>All in all it has been a good year. Onwards!</p>
+<p><a title="P1020534 by TonZ, on Flickr" href="http://www.flickr.com/photos/tonz/8249617657/"><img src="http://farm9.staticflickr.com/8481/8249617657_8171ce93c8.jpg" alt="P1020534" width="500" height="375" /></a><br />
+<em>Occupy your imagination! (in Dublin)</em></p>
+							</div><!-- end .entry-content -->
+			
+						
+	</div><!-- end .entry-wrap -->
+		
+		
+		<footer class="entry-meta">
+			<p><span>Posted by:</span> 
+				<a href="http://www.zylstra.org/blog/author/admin/" title="View all posts by Ton Zijlstra">Ton Zijlstra</a>			<span>| Conversation:</span> <span class="comments-link">comments off</span>			<span>| Category:</span> <a href="http://www.zylstra.org/blog/category/personal/" title="View all posts in Personal" rel="category tag">Personal</a>	
+						</p>
+
+							
+<ul class="share">
+	<li class="post-shortlink">Short URL <input type='text' value='http://www.zylstra.org/blog/?p=145' onclick='this.focus(); this.select();' /></li>
+	<li class="post-twitter"><a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-url="http://www.zylstra.org/blog/2013/01/looking-back-on-2012/" data-text="Looking Back on 2012">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script></li>
+	<li class="post-fb"><iframe src="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fwww.zylstra.org%2Fblog%2F2013%2F01%2Flooking-back-on-2012%2F&amp;layout=button_count&amp;show_faces=false&amp;width=120&amp;action=like&amp;colorscheme=light" scrolling="no" frameborder="0" allowTransparency="true"></iframe></li>
+	<li class="post-googleplus"><g:plusone size="medium" href="http://www.zylstra.org/blog/2013/01/looking-back-on-2012/"></g:plusone></li>
+</ul><!-- end .share -->			
+		</footer><!-- end .entry-meta -->
+
+		
+</article><!-- end post -145 -->
+		
+				
+<article id="post-138" class="post-138 post type-post status-publish format-standard hentry category-open-data tag-context tag-dataquality tag-job tag-quality">
+
+			<a href="http://www.zylstra.org/blog/2012/11/on-data-quality/" class="post-format standard">Permalink</a>
+	
+	<div class="entry-wrap">
+			<header class="entry-header">
+									<a class="post-date" href="http://www.zylstra.org/blog/2012/11/on-data-quality/">November 11, 2012</a>
+								<h2 class="entry-title"><a href="http://www.zylstra.org/blog/2012/11/on-data-quality/" title="Permalink to On Data Quality" rel="bookmark">On Data Quality</a></h2>
+			</header><!--end .entry-header -->
+        
+						
+			<div class="entry-content">
+								
+				<p>In a conversation in <a href="http://bigclean.techlib.cz/">Prague</a> last weekend, I formulated some thoughts on data quality I am blogging here so I can find them back again later.</p>
+<p>Often in the context of opening up government data the data quality gets mentioned as a barrier.  Data quality, or rather absence thereof, is put forward as a reason to not publish the data, or as a reason why re-use is not happening. (To the former <a href="https://twitter.com/DirDigEng">Andrew Stott</a> always replies that keeping the data inside government for the past decades has not improved it, so why think not publishing now would change anything?)</p>
+<p>To me data quality is not an intrinsic aspect of the data. It is an external aspect. Data quality only becomes visible, gets noticed, in the context of usage. The job for which the data is being used determines whether the data is of the right quality to do so.</p>
+<p>Also data quality is not the same as data granularity.</p>
+<p>Only through making data available for re-use, and attempting to re-use that data in various settings, do notions of quality and questions on quality get formulated and discussed, and eventually dealt with (such as when Open Street Map corrected the location of 18.000 out of 360.000 busstops in the UK). This then may or may not reflect back on the public task for which the data was originally collected, and hence on the original data collection process.</p>
+							</div><!-- end .entry-content -->
+			
+						
+	</div><!-- end .entry-wrap -->
+		
+		
+		<footer class="entry-meta">
+			<p><span>Posted by:</span> 
+				<a href="http://www.zylstra.org/blog/author/admin/" title="View all posts by Ton Zijlstra">Ton Zijlstra</a>			<span>| Conversation:</span> <a href="http://www.zylstra.org/blog/2012/11/on-data-quality/#comments" class="comments-link"  title="Comment on On Data Quality">2 comments</a>			<span>| Category:</span> <a href="http://www.zylstra.org/blog/category/open-data/" title="View all posts in Open Data" rel="category tag">Open Data</a>	
+				
+			<span>| Tags:</span> <a href="http://www.zylstra.org/blog/tag/context/" rel="tag">context</a>, <a href="http://www.zylstra.org/blog/tag/dataquality/" rel="tag">dataquality</a>, <a href="http://www.zylstra.org/blog/tag/job/" rel="tag">job</a>, <a href="http://www.zylstra.org/blog/tag/quality/" rel="tag">quality</a>						</p>
+
+							
+<ul class="share">
+	<li class="post-shortlink">Short URL <input type='text' value='http://www.zylstra.org/blog/?p=138' onclick='this.focus(); this.select();' /></li>
+	<li class="post-twitter"><a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-url="http://www.zylstra.org/blog/2012/11/on-data-quality/" data-text="On Data Quality">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script></li>
+	<li class="post-fb"><iframe src="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fwww.zylstra.org%2Fblog%2F2012%2F11%2Fon-data-quality%2F&amp;layout=button_count&amp;show_faces=false&amp;width=120&amp;action=like&amp;colorscheme=light" scrolling="no" frameborder="0" allowTransparency="true"></iframe></li>
+	<li class="post-googleplus"><g:plusone size="medium" href="http://www.zylstra.org/blog/2012/11/on-data-quality/"></g:plusone></li>
+</ul><!-- end .share -->			
+		</footer><!-- end .entry-meta -->
+
+		
+</article><!-- end post -138 -->
+		
+				
+<article id="post-132" class="post-132 post type-post status-publish format-standard hentry category-open-data">
+
+			<a href="http://www.zylstra.org/blog/2012/11/key-note-at-the-big-clean-in-prague/" class="post-format standard">Permalink</a>
+	
+	<div class="entry-wrap">
+			<header class="entry-header">
+									<a class="post-date" href="http://www.zylstra.org/blog/2012/11/key-note-at-the-big-clean-in-prague/">November 4, 2012</a>
+								<h2 class="entry-title"><a href="http://www.zylstra.org/blog/2012/11/key-note-at-the-big-clean-in-prague/" title="Permalink to Key-note at the Big Clean in Prague" rel="bookmark">Key-note at the Big Clean in Prague</a></h2>
+			</header><!--end .entry-header -->
+        
+						
+			<div class="entry-content">
+								
+				<p>Yesterday I was in Prague for the <a href="http://bigclean.techlib.cz/en/">Big Clean</a> conference, a day with the express purpose of cleaning up government data so it can be better used, e.g. for data driven journalism. This way the &#8216;life cycle&#8217; of data is extended beyond its original use for a public task.</p>
+<p><a href="http://www.zylstra.org/wp/wp-content/uploads/2012/11/big-clean-logo.png"><img class="alignnone size-medium wp-image-134" title="big-clean-logo" src="http://www.zylstra.org/wp/wp-content/uploads/2012/11/big-clean-logo-300x300.png" alt="" width="300" height="300" /></a></p>
+<p><em>The Big Clean: not a commercial for soap, but a conference on open government data</em></p>
+<p>I had been asked to provide the opening key-note presentation. As my knowledge of scraping data, refining it and turning it into journalistic products is limited, and a large number of people with precisely those skills <a href="http://bigclean.techlib.cz/en/789-programme/">was present</a> to give hands-on workshops as well as present their projects, I decided to position my presentation in a bit wider context.</p>
+<p>Titled &#8220;Cleaning up data as well as the relationship with our government&#8221; I outlined the following ideas:</p>
+<ul>
+<li>Scraping, coding, refining data are much needed skills, but doing that we must not forget to include the data-holders in our work. They are part of the picture.</li>
+<li>Government institutions are in transition and those with the skills need to help make that happen</li>
+<li>By building collaborative e-government services: services that increase in value when more people use them</li>
+<li>By showing that open data is of huge value to the functioning of government itself, as a policy instrument</li>
+<li>While it may be hard to change institutions, it is much easier to connect to change agents inside them: that is the starting point</li>
+<li>In two places this may be most effective: locally where there is a wide variety of data and likely a lower level of skills inside government bodies, and around large data sets, that take a higher level of understanding and analysis to be used in new valuable ways</li>
+<li>By building this ecosystem we can turn government into a platform: open to all comers, including newly emerging stakeholders, transparent about our own agendas, two-way interaction (also by adding citizen generated data), and creating conditions in which the ecosystem can evolve and grow</li>
+<li>From the top down there is a strong wind blowing in the same direction: the European Open Data Strategy and the legal frameworks already in place are supportive of these developments</li>
+<li>Making yourself visible, sharing your stories, will foster stronger networks and will help to create more impact</li>
+<li>Be an Optimistic Radical, optimistic in your work with civil servants, and radical in applying your skills to where it counts</li>
+</ul>
+<p>&nbsp;</p>
+<p><iframe style="border: none;" src="http://www.slideshare.net/epsiplatform/slideshelf" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" width="615px" height="470px"></iframe></p>
+<p>It was a good day, and great to connect to the open data community in the Czech Republic in person. After the conference a large group went <a href="https://twitter.com/BigCleanCZ/status/264783532348542976/photo/1">for drinks and food</a>, at a nearby Czech pub, which provided more great conversations and fun.</p>
+<p>Thank you to the organizing team of the National Technical Library for a fun conference.</p>
+							</div><!-- end .entry-content -->
+			
+						
+	</div><!-- end .entry-wrap -->
+		
+		
+		<footer class="entry-meta">
+			<p><span>Posted by:</span> 
+				<a href="http://www.zylstra.org/blog/author/admin/" title="View all posts by Ton Zijlstra">Ton Zijlstra</a>			<span>| Conversation:</span> <span class="comments-link">comments off</span>			<span>| Category:</span> <a href="http://www.zylstra.org/blog/category/open-data/" title="View all posts in Open Data" rel="category tag">Open Data</a>	
+						</p>
+
+							
+<ul class="share">
+	<li class="post-shortlink">Short URL <input type='text' value='http://www.zylstra.org/blog/?p=132' onclick='this.focus(); this.select();' /></li>
+	<li class="post-twitter"><a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-url="http://www.zylstra.org/blog/2012/11/key-note-at-the-big-clean-in-prague/" data-text="Key-note at the Big Clean in Prague">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script></li>
+	<li class="post-fb"><iframe src="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fwww.zylstra.org%2Fblog%2F2012%2F11%2Fkey-note-at-the-big-clean-in-prague%2F&amp;layout=button_count&amp;show_faces=false&amp;width=120&amp;action=like&amp;colorscheme=light" scrolling="no" frameborder="0" allowTransparency="true"></iframe></li>
+	<li class="post-googleplus"><g:plusone size="medium" href="http://www.zylstra.org/blog/2012/11/key-note-at-the-big-clean-in-prague/"></g:plusone></li>
+</ul><!-- end .share -->			
+		</footer><!-- end .entry-meta -->
+
+		
+</article><!-- end post -132 -->
+		
+				
+<article id="post-125" class="post-125 post type-post status-publish format-standard hentry category-uncategorized">
+
+			<a href="http://www.zylstra.org/blog/2012/10/cph-week-4/" class="post-format standard">Permalink</a>
+	
+	<div class="entry-wrap">
+			<header class="entry-header">
+									<a class="post-date" href="http://www.zylstra.org/blog/2012/10/cph-week-4/">October 29, 2012</a>
+								<h2 class="entry-title"><a href="http://www.zylstra.org/blog/2012/10/cph-week-4/" title="Permalink to CPH Week 4" rel="bookmark">CPH Week 4</a></h2>
+			</header><!--end .entry-header -->
+        
+						
+			<div class="entry-content">
+								
+				<p>The past and last full week in Copenhagen was a busy one, filled with appointments and presentations.</p>
+<p>I started Tuesday, after discussing a workshop with a Dutch client for next month, with preparing a <a href="http://www.slideshare.net/TonZijlstra/creating-impact-with-open-data">presentation</a> for the Danish Ministry of Housing, Urban and Rural Affairs (<a href="http://mbbl.dk/">MBBL</a>), that I gave later that afternoon. The Danish government has <a href="http://epsiplatform.eu/content/denmark-goes-open-data-big-time">announced</a> a major open data release, with wanting to stimulate growth and innovation as a key part of the rationale behind it. Now, all the <a href="http://epsiplatform.eu/content/making-case-open-data-0">general research</a> makes that growth highly likely, but how do you actually on an operational level make sure the right conditions are there for it to happen? And what is the role of public sector bodies on that highly operational level? This was a timely request by the MBBL for me to talk about, as it is helping me to further frame open data as a change management issue. That is exactly what is currently needed to help me set up The Green Land, my / our open data consulting start-up.</p>
+<p>In between I finally got around to some reading, absorbing John Robb&#8217;s &#8216;<a href="http://www.amazon.com/gp/product/0470261951/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&amp;camp=1789&amp;creative=9325&amp;creativeASIN=0470261951&amp;linkCode=as2&amp;tag=tonsinterdepe-20">Brave New War</a>&#8216;, &#8216;<a href="http://www.amazon.com/gp/product/1422134814/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&amp;camp=1789&amp;creative=9325&amp;creativeASIN=1422134814&amp;linkCode=as2&amp;tag=tonsinterdepe-20">The Innovator&#8217;s DNA</a>&#8216; (Christensen) and Lane Becker&#8217;s &#8216;<a href="http://www.amazon.com/gp/product/1118249755/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&amp;camp=1789&amp;creative=9325&amp;creativeASIN=1118249755&amp;linkCode=as2&amp;tag=tonsinterdepe-20">Get Lucky</a>&#8216; (triggered by our dinner with him <a href="http://www.zylstra.org/blog/2012/10/cph-week-1/">earlier this month</a>) in parallel. As usual in my mind they are all very much connected, and if you look closely at my MBBL presentation above you will see traces of it in the slides.</p>
+<p>Early Wednesday morning I met up with <a href="https://twitter.com/parraguezr">Pedro Parraguez Ruiz</a>, at the welcoming <a href="http://paludan-cafe.dk/">Paludan</a>. He&#8217;s a PhD looking at open innovation networks and ecosystems, trying to see if social network analysis and other aspects can be fruitfully applied to it. Pedro described most existing open innovation set-ups as being too transactional in their focus, creating closed groups that treat the network as just another asset. Saying that &#8216;the long tail of university held patents&#8217; is just wasted (as in, not exploited, but also not open to build upon), he wondered what would happen if you put open design thinking at the core of the scientific and university process. Made me think of some of the discussion triggered by Elsevier&#8217;s Michael Habib on scientific reputation building in <a href="http://www.zylstra.org/blog/archives/2009/10/social_software_1.html">Düsseldorf in 2009</a>, and some of the good presentations at <a href="http://conference2012.artilect.fr/">last week&#8217;s FabLab Toulouse conference</a>. Later that day in Fredriksberg I had another stimulating conversation with another PhD, <a href="https://twitter.com/HildaJetzek">Thorhildur Jetzek Hansdottir</a>. She is looking into (economic) modeling of open data impacts. Again here there was a tension between &#8216;classic&#8217; structures and networked structures in creating value. It helped me formulate a bit more clearly where I think the transition from social transactions to monetized transactions takes place, and that rather than treating &#8216;social activity&#8217; and &#8216;economic activity&#8217; as separate domains, economic activity is a subset of social activity where monetization becomes sort-of a proxy for social distance or trust differences in a network. At the end of the day I was interviewed for the Dutch magazine <a href="http://www.viceversaonline.nl/">Vice Versa</a> on the potential and role of open data for international development aid, as part of their &#8216;Smart Aid Debate&#8217;. A very thought provoking day, all in all.</p>
+<p><a title="New Subway Construction by TonZ, on Flickr" href="http://www.flickr.com/photos/tonz/8125659674/"><img src="http://farm9.staticflickr.com/8191/8125659674_2f82856dc4.jpg" alt="New Subway Construction" width="500" height="375" /></a><br />
+<em>Subway construction in Frederiksberg</em></p>
+<p><a href="http://dit.dk/">Dansk IT</a>, the Danish association for IT professionals, had invited me to give a <a href="http://www.slideshare.net/TonZijlstra/open-data-opportunities-14887344">presentation on open data potential</a> on Thursday. I spent most of the day preparing the talk, rearranging some of the arguments I used on Tuesday for the MBBL session for this private sector audience&#8217;s context. Basically the presentations for MBBL and Dansk IT are two sides of the same story, as public sector and private sector need each other to really create open data impact. <a href="https://twitter.com/cathrinelippert">Cathrine Lippert</a> of the <a href="www.digst.dk">Digitaliseringsstyrelsen</a> first explained the <a href="http://epsiplatform.eu/content/danish-roadmap-basic-registries-release">Danish open data steps</a>, and then I tried to put that in a broader context of <a href="http://epsiplatform.eu">public sector information re-use</a> in Europe.</p>
+<p><a title="Room filling up by TonZ, on Flickr" href="http://www.flickr.com/photos/tonz/8125666970/"><img src="http://farm9.staticflickr.com/8327/8125666970_2ca0caa4b4_m.jpg" alt="Room filling up" width="240" height="180" /></a> <a title="Cathrine Lippert presenting by TonZ, on Flickr" href="http://www.flickr.com/photos/tonz/8125670922/"><img src="http://farm9.staticflickr.com/8333/8125670922_a908e8ef95_m.jpg" alt="Cathrine Lippert presenting" width="240" height="180" /></a><br />
+<em>Room filling up at Dansk IT and Cathrine Lippert presenting Danish OGD steps</em></p>
+<p>Friday I met up with Simon of <a href="http://kl7.dk/">KL7</a> who has volunteered to organize the next <a href="http://meetup.com/CPH-Data-Drinks/">Copenhagen Data Drinks</a> on 28 November. KL7, housed in the great <a href="http://www.soho.dk/">SOHO co-working facility</a>, have a very interesting approach in using data to shape narratives and interaction between stakeholders, and it was an inspiring meeting with Simon and his colleague Mikkel. Good observations on how to link-up this (open) data work, with things like <a href="http://cognitive-edge.com/">Sensemaking</a>, and the bridge to social media, which inspired some new insights in how I can combine those various aspects of my work and interests. I certainly aim to continue our conversation.</p>
+<p>Elmine and I explored the hip Jaegersborggade in Nørrebro, which is in the process of (early) gentrification: <a href="http://www.flickr.com/photos/tonz/8125709695/in/photostream">hipsters</a> <a href="http://www.flickr.com/photos/tonz/8125624057/in/photostream">taking</a> <a href="http://www.flickr.com/photos/tonz/8125643586/in/photostream">over</a> <a href="http://www.flickr.com/photos/tonz/8125609671/in/photostream">the</a> <a href="http://www.flickr.com/photos/tonz/8125599585/in/photostream/">shops</a>, rising prices for the small apartments, and people with Macs working in the corner café, but drug dealing taking place in the open and <a href="http://www.flickr.com/photos/tonz/8125697391/in/set-72157631757698740">signs in the shop windows warning burglars</a> that there is no money or computer worth stealing inside. In 2009 we bought some cool ceramics in Copenhagen, and now found the artisan who made them, <a href="http://www.vincents.dk/">Inge Vincents</a>, in this street. So we added a few items to our collection.</p>
+<p><a title="SOHO Reception by TonZ, on Flickr" href="http://www.flickr.com/photos/tonz/8125701730/"><img src="http://farm9.staticflickr.com/8183/8125701730_cfa0561b2b_m.jpg" alt="SOHO Reception" width="240" height="180" /></a> <a title="Thinware, Inge Vincents ceramics by TonZ, on Flickr" href="http://www.flickr.com/photos/tonz/8125634034/"><img src="http://farm9.staticflickr.com/8332/8125634034_373a6ef1c9_m.jpg" alt="Thinware, Inge Vincents ceramics" width="240" height="180" /></a><br />
+<em>SOHO, and Inge Vincents ceramics</em></p>
+<p>Also accepted invitations to speak on <a href="http://www.dublinked.ie/?q=publicsectorevent">open data in Dublin</a> and contribute to the <a href="http://www.oif2012.nl/fryslan/">Open Innovation Festival in Leeuwarden</a> (NL) next month.</p>
+<p>The weekend brought freezing temperatures but also clear blue skies and lots of sunshine. Saturday we visited our friends <a href="http://toothlesstiger.com/">Henriëtte</a> and Thomas and their daughter Penny in Helsingør, right on time to see <a href="http://www.facebook.com/coworkingboatpan">Coworking boat PAN</a>, of which <a href="http://www.zylstra.org/blog/archives/2009/07/reboot_11_cowor.html">we are shareholders</a>, being lifted from the water for the winter. Hanging out together was fun and relaxing, so we headed back up there on Monday evening again for a dinner together. Sunday we walked for hours, starting in Østerbro in Faelled park, where Elmine and I extensively discussed various questions and ideas, while letting our feet take us where they happened to be heading. Over a nice lunch we wrote some of the fruits of walking and thinking down, before continuing on foot along the city lakes towards Nørreport and the city center, where we hit the Lego store for some early <a href="http://en.wikipedia.org/wiki/Sinterklaas">Sinterklaas</a> preparations.</p>
+<p><a title="PAN leaves the water by TonZ, on Flickr" href="http://www.flickr.com/photos/tonz/8128458363/"><img src="http://farm9.staticflickr.com/8332/8128458363_c52e2321c9.jpg" alt="PAN leaves the water" width="500" height="375" /></a><br />
+<em>PAN leaves the water</em></p>
+<p>The fourth week in Copenhagen ended this Monday with a day in the office at SocialSquare, where Magnus and I also took the opportunity to talk about <a href="http://cognitive-edge.com/">Sensemaking</a>, and I handed back the office keys when I left. After work, as mentioned we headed up to Helsingør again for a &#8216;hyggelig&#8217; dinner with Henriëtte, Thomas and Penny.</p>
+<p>Tomorrow is the last full day in Copenhagen after a month that zipped by at high speed, and we&#8217;ll be &#8216;closing down the Copenhagen operation&#8217; as <a href="http://ruk.ca/content/closing-down-copenhagen-operation">Peter would put it</a>, which includes returning our rented bikes. But not before I meet up with the people behind the Copenhagen bicycle policies at city hall to talk about open data. On Wednesday we&#8217;ll drive back home, taking a day to unpack and rest, before I head out <a href="http://bigclean.techlib.cz/en/">to Prague for new open data adventures</a> on Friday. By the end of next week I hope to post some thoughts on how this month-long stay worked out as an experiment.</p>
+							</div><!-- end .entry-content -->
+			
+						
+	</div><!-- end .entry-wrap -->
+		
+		
+		<footer class="entry-meta">
+			<p><span>Posted by:</span> 
+				<a href="http://www.zylstra.org/blog/author/admin/" title="View all posts by Ton Zijlstra">Ton Zijlstra</a>			<span>| Conversation:</span> <span class="comments-link">comments off</span>			<span>| Category:</span> <a href="http://www.zylstra.org/blog/category/uncategorized/" title="View all posts in Uncategorized" rel="category tag">Uncategorized</a>	
+						</p>
+
+							
+<ul class="share">
+	<li class="post-shortlink">Short URL <input type='text' value='http://www.zylstra.org/blog/?p=125' onclick='this.focus(); this.select();' /></li>
+	<li class="post-twitter"><a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-url="http://www.zylstra.org/blog/2012/10/cph-week-4/" data-text="CPH Week 4">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script></li>
+	<li class="post-fb"><iframe src="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fwww.zylstra.org%2Fblog%2F2012%2F10%2Fcph-week-4%2F&amp;layout=button_count&amp;show_faces=false&amp;width=120&amp;action=like&amp;colorscheme=light" scrolling="no" frameborder="0" allowTransparency="true"></iframe></li>
+	<li class="post-googleplus"><g:plusone size="medium" href="http://www.zylstra.org/blog/2012/10/cph-week-4/"></g:plusone></li>
+</ul><!-- end .share -->			
+		</footer><!-- end .entry-meta -->
+
+		
+</article><!-- end post -125 -->
+		
+				
+<article id="post-119" class="post-119 post type-post status-publish format-standard hentry category-uncategorized">
+
+			<a href="http://www.zylstra.org/blog/2012/10/cph-week-3/" class="post-format standard">Permalink</a>
+	
+	<div class="entry-wrap">
+			<header class="entry-header">
+									<a class="post-date" href="http://www.zylstra.org/blog/2012/10/cph-week-3/">October 22, 2012</a>
+								<h2 class="entry-title"><a href="http://www.zylstra.org/blog/2012/10/cph-week-3/" title="Permalink to CPH Week 3" rel="bookmark">CPH Week 3</a></h2>
+			</header><!--end .entry-header -->
+        
+						
+			<div class="entry-content">
+								
+				<p>This week started off on the wrong foot, with high fever and being ill. Which was awful timing as this was also the first week I had a feeling of really being here. Fever was mostly gone by Wednesday, allowing us to take a walk in the sun in the <a href="http://www.flickr.com/search/?w=96947578@N00&amp;q=sydhavn">neighbourhood</a>, just in time for the CPH Data Drinks that evening!</p>
+<p>The First <a href="http://www.meetup.com/CPH-Data-Drinks/">CPH Data Drinks</a> was an attempt by me to create an informal meet-up place and set a rhythm for open data interested people to come together. It seems to me here in Denmark, while stakeholders are mostly aware of each other they are also organized in little islands. Obviously the interesting stuff happens if those islands get connected a bit more, when people become routinely exposed to what is going on in other areas. So, I was glad that CPH Data Drinks <a href="http://www.meetup.com/CPH-Data-Drinks/events/85665792/">brought together</a> some 30 people! We had a fun evening with lots of conversations, and created a <a href="http://www.meetup.com/CPH-Data-Drinks/pages/The_Data_Wishlist/">Data Wishlist</a> of data sets participants would like to see published first. The Danish Statistics Office was high on the list. Immediately volunteers stepped forward to organize the next <a href="http://www.meetup.com/CPH-Data-Drinks/events/87519202/">CPH Data Drinks on 28 November</a>, and I will be supporting them with some hands on tips on how to keep things going.</p>
+<p><a title="P1020116 by TonZ, on Flickr" href="http://www.flickr.com/photos/tonz/8108132782/"><img src="http://farm9.staticflickr.com/8327/8108132782_a462dc178c.jpg" alt="P1020116" width="500" height="375" /></a><br />
+<em>The handwritten cards used for input to build the Data Wishlist</em></p>
+<p>The next day I of course had to pay for the previous nights exertions so shortly after a bout of fever. Around mid day we left to explore the city, in particular to visit the <a href="http://www.smk.dk/en/explore-the-art/exhibitions/matisse-doubles-and-variations/">Matisse exhibit</a> in the Danish state museum for art, <a href="http://www.smk.dk/en/">SMK</a>. The exhibition focussed on the repetition and variation in Matisse&#8217;s work, which gave some great glimpses into his work flow and methods. Afterwards we strolled back to the city center, and found me a winter coat, just in time as the temperatures are scheduled to drop in the coming days.</p>
+<p><a title="Brow and nose, just 1 line by TonZ, on Flickr" href="http://www.flickr.com/photos/tonz/8100957579/"><img src="http://farm9.staticflickr.com/8183/8100957579_f7a4e30ca2.jpg" alt="Brow and nose, just 1 line" width="500" height="375" /></a></p>
+<p>Friday morning I revisited the <a href="&lt;a href=&quot;http://www.flickr.com/photos/tonz/8100957579/&quot; title=&quot;Brow and nose, just 1 line by TonZ, on Flickr&quot;&gt;&lt;img src=&quot;http://farm9.staticflickr.com/8183/8100957579_f7a4e30ca2.jpg&quot; width=&quot;500&quot; height=&quot;375&quot; alt=&quot;Brow and nose, just 1 line&quot;&gt;&lt;/a&gt;  ">Social Square</a> offices for the first time in a full week. They hadn&#8217;t particularly missed me as the illness that hit me also hit everyone (except one) at the office as well. Over lunch I caught up with <a href="http://www.richardlalleman.com/">Richard Lalleman</a>, discussing culture change and changing deeply entrenched work routines to be able to allow his employer to be better at operating in a networked environment. Not easy when the first response in this global business has been one of control, centralization of authority and standardization. Afterwards I met Elmine at the pleasant <a href="http://www.phcafeen.dk/">PH Cafeen</a> for some tea in the sun.</p>
+<p><a title="Chairs by TonZ, on Flickr" href="http://www.flickr.com/photos/tonz/8103807403/"><img src="http://farm9.staticflickr.com/8192/8103807403_55de809557_m.jpg" alt="Chairs" width="240" height="180" /></a> <a title="Flid by TonZ, on Flickr" href="http://www.flickr.com/photos/tonz/8103792503/"><img src="http://farm9.staticflickr.com/8043/8103792503_d4c6938aff_m.jpg" alt="Flid" width="240" height="180" /></a><br />
+<em>Old chairs, and one of the many examples of signage design on Istedgade</em></p>
+<p>The rest of the afternoon, deciding to work half days for now, Elmine and I explored Istedgade, lined with various small fashion shops (allowing Elmine to run up some credit card transactions), ending with some lovely <a href="http://restaurantspicylicious.dk/dk/">Thai food</a> and <a href="http://www.sortkaffeogvinyl.dk/">coffee</a>. The evening we spent in Tivoli, which was fully decorated for Halloween. Simply enjoying the stroll through the crowds, taking in the surroundings, and enjoying each others presence.</p>
+<p><a title="Apples by TonZ, on Flickr" href="http://www.flickr.com/photos/tonz/8103874707/"><img src="http://farm9.staticflickr.com/8055/8103874707_08feecda5d_m.jpg" alt="Apples" width="240" height="180" /></a> <a title="Halloween at Tivoli by TonZ, on Flickr" href="http://www.flickr.com/photos/tonz/8103836936/"><img src="http://farm9.staticflickr.com/8325/8103836936_df932bc1ec_m.jpg" alt="Halloween at Tivoli" width="240" height="180" /></a><br />
+<em>Tivoli Halloween style</em></p>
+<p>Sunshine drew us out of the apartment the next day. Cycling along the water front we went to Christianshavn. We&#8217;ve been visiting Copenhagen for 10 years on a regular basis, but had never been to this part of town before. Taking some coffee on the go from <a href="http://www.sweettreat.dk/">Sweet Treat</a> we enjoyed the sun at the edge of the canal, alongside what seemed most of the other people living there. Strolling a little while through <a href="http://www.christiania.org/">Christiania</a>, the old provo-initiated &#8216;free town&#8217; on the old military grounds, we cycled over the old ramparts ending at a restaurant that couldn&#8217;t serve food anymore: the sunshine had apparently unexpectedly brought out much more people, so they ran out. As the ferry across the water was full, and couldn&#8217;t take us, we cycled back to the bridge to get us to the other side, and ended up for tea and snacks at the edge of Nørrebro. After a nice dinner at <a href="http://bibendum.dk/velkommen/">Bibendum</a> (awesome chocolate truffels!) it was time to finally cycle home after a sun filled day.</p>
+<p><a title="Christiania by TonZ, on Flickr" href="http://www.flickr.com/photos/tonz/8108172595/"><img src="http://farm9.staticflickr.com/8055/8108172595_5524614115_m.jpg" alt="Christiania" width="240" height="180" /></a> <a title="Christiania by TonZ, on Flickr" href="http://www.flickr.com/photos/tonz/8108171022/"><img src="http://farm9.staticflickr.com/8328/8108171022_699d16645c_m.jpg" alt="Christiania" width="240" height="180" /></a></p>
+<p><a title="Christiania by TonZ, on Flickr" href="http://www.flickr.com/photos/tonz/8108167338/"><img src="http://farm9.staticflickr.com/8050/8108167338_8636253c3e_m.jpg" alt="Christiania" width="240" height="180" /></a> <a title="Christiania by TonZ, on Flickr" href="http://www.flickr.com/photos/tonz/8108185460/"><img src="http://farm9.staticflickr.com/8192/8108185460_b146bb2f44_m.jpg" alt="Christiania" width="240" height="180" /></a><br />
+<em>Some snapshots from Christiania</em></p>
+<p>A lot less sunny Sunday was spend talking and doing some conceptual work on a few open data services, as well as MakerHouseholds.eu. Which brings us to today, where I continued the conceptualizing, as well as started preparing a presentation I will be giving tomorrow.</p>
+<p>This coming week is already our last in Copenhagen, and a busy one.</p>
+							</div><!-- end .entry-content -->
+			
+						
+	</div><!-- end .entry-wrap -->
+		
+		
+		<footer class="entry-meta">
+			<p><span>Posted by:</span> 
+				<a href="http://www.zylstra.org/blog/author/admin/" title="View all posts by Ton Zijlstra">Ton Zijlstra</a>			<span>| Conversation:</span> <span class="comments-link">comments off</span>			<span>| Category:</span> <a href="http://www.zylstra.org/blog/category/uncategorized/" title="View all posts in Uncategorized" rel="category tag">Uncategorized</a>	
+						</p>
+
+							
+<ul class="share">
+	<li class="post-shortlink">Short URL <input type='text' value='http://www.zylstra.org/blog/?p=119' onclick='this.focus(); this.select();' /></li>
+	<li class="post-twitter"><a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-url="http://www.zylstra.org/blog/2012/10/cph-week-3/" data-text="CPH Week 3">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script></li>
+	<li class="post-fb"><iframe src="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fwww.zylstra.org%2Fblog%2F2012%2F10%2Fcph-week-3%2F&amp;layout=button_count&amp;show_faces=false&amp;width=120&amp;action=like&amp;colorscheme=light" scrolling="no" frameborder="0" allowTransparency="true"></iframe></li>
+	<li class="post-googleplus"><g:plusone size="medium" href="http://www.zylstra.org/blog/2012/10/cph-week-3/"></g:plusone></li>
+</ul><!-- end .share -->			
+		</footer><!-- end .entry-meta -->
+
+		
+</article><!-- end post -119 -->
+		
+				
+<article id="post-115" class="post-115 post type-post status-publish format-standard hentry category-uncategorized">
+
+			<a href="http://www.zylstra.org/blog/2012/10/cph-week-2/" class="post-format standard">Permalink</a>
+	
+	<div class="entry-wrap">
+			<header class="entry-header">
+									<a class="post-date" href="http://www.zylstra.org/blog/2012/10/cph-week-2/">October 15, 2012</a>
+								<h2 class="entry-title"><a href="http://www.zylstra.org/blog/2012/10/cph-week-2/" title="Permalink to CPH Week 2" rel="bookmark">CPH Week 2</a></h2>
+			</header><!--end .entry-header -->
+        
+						
+			<div class="entry-content">
+								
+				<p>Already the second week has zipped by. Before coming to Copenhagen I had created a list of things I could work on in case of having nothing else to do. Haven&#8217;t even looked at the list yet. Still this is the point in the month where I am asking &#8220;what am I doing here?&#8221;. It seems only now I am winding down from all the stuff that needed to be done and ready to take a look at what lies ahead. With several speaking engagements coming up that is already shaping up.</p>
+<p>Tuesday I had a conversation with Jonas Ask Homaa, head developer of <a href="http://www.Rejseplanen.dk">Rejseplanen.dk</a> the Danish leading public transport website, whom I met at <a href="http://hack4dk.tumblr.com/">#hack4dk</a> last week. Main question was how providing open data through their API is helpful to themselves, and what current developments I saw that tie into this. Aspects we discussed, also based on the <a href="http://epsiplatform.eu/transport">recent workshop in Helsinki</a> I did last month with the <a href="http://epsiplatform.eu">ePSIplatform</a> team, was the <a href="http://epsiplatform.eu/content/intelligent-traffic-systems-need-open-data">European push for intelligent transport systems using open data</a>, being able to use the same app for public transport in different places (in stead of having to download apps for each city I visit), and how with small interventions one can stimulate the ecosystem around you, so that the type of apps may emerge that you will not do yourself as they are outside your core mission.</p>
+<p>Dinner that day was enjoyed with lots of stimulating conversation in the good company of <a href="https://twitter.com/olleolleolle">Olle</a> and <a href="https://twitter.com/luisac">Luisa</a> in Malmö, Sweden. Over loads of veggies, some great venison and ample wine, world domination was discussed, as were internet gentlemen, and the new killerapp: drones serving &#8216;<a href="http://www.google.com/search?q=kapsalon+eten&amp;hl=en&amp;tbo=u&amp;prmd=imvns&amp;tbm=isch&amp;source=univ&amp;sa=X&amp;ei=NsZ5UOmVINHMswbtyIGACQ&amp;ved=0CC4QsAQ&amp;biw=1231&amp;bih=683">kapsalon</a>&#8216; whenever the internet gentleman finds himself getting somewhat peckish. Some shopping got done beforehand, where <a href="http://www.zylstra.org/blog/2012/10/60-euro-for-2-t-shirts-and-1-story/">t-shirts turned out to be a good source of stories</a>.</p>
+<p>Being able to join the <a href="http://www.flickr.com/photos/tonz/8074691428/in/set-72157631757698740">celebration</a> of the <a href="http://epsiplatform.eu/content/denmark-goes-open-data-big-time">big open data announcement</a> at the Digitalstyrelsen of the Danish government as an outsider on Wednesday was an honor. It also allowed me to (re)connect to various public sector bodies here in Denmark, which resulted in a speaking engagement later this month. It was also good to reaffirm the connection that the Netherlands and Denmark have had in the past years when it comes to learning from each other about organizing and opening up core registers, as well as being able to receive and pass on praise for my colleagues Marc and Udo for their assisting role in motivating this new Danish step.</p>
+<p>Early morning conference calls were scheduled on Thursday to further plot open data world domination. In this case I discussed with Frank how we could turn our lessons learned from a recent local government open data project into several products and services. It turned into working out an idea on how to build a new important asset for our little open data company, something I will try and work out in more detail before leaving Copenhagen. This was followed by a conference call on the draft program and speakers list for the <a href="http://epsiplatform.eu/content/save-date-22-february-2013-epsiplatform-conference">February 2013 Conference</a> in Poland me and the ePSIplatform team are organizing.</p>
+<p><a title="Resting Buddha by TonZ, on Flickr" href="http://www.flickr.com/photos/tonz/8083305272/"><img src="http://farm9.staticflickr.com/8334/8083305272_b46169fa42.jpg" alt="Resting Buddha" width="500" height="375" /></a><br />
+<em>In the Louisiana Museum park</em></p>
+<p>Friday was a day dedicated to absorbing culture, high and low. During the day we visited the <a href="http://www.louisiana.dk/dk">truly magnificent Louisiana Museum</a>, as we try to do every time we visit Copenhagen. Three main exhibits, on Nordic architecture, one installation by <a href="http://en.wikipedia.org/wiki/Edward_Kienholz">Ed Kienholz</a>, and a massive exhibition on self portraits by a wide range of artist made for a very intensive visit. It was a beautiful sunny autumn day, so we also very much got to enjoy the museum&#8217;s park, right on the coast. In the evening we got ourselves &#8216;culture kits&#8217; to join &#8216;<a href="http://www.kulturnatten.dk/da/kulturnatten">Kulturnatten</a>&#8216; or culture night. One night a year many groups, organizations, institutions, musea, public bodies, stores and whatnot open up to the public. Everybody seemed to be out on the (increasingly cold) streets, enjoying themselves. We strolled into the royal city palace, through Copenhagen city hall, the Arsenal museum and National museum. We also got to see some normally closed inner courtyards of some of the oldest parts of the inner city. Part of the culture kit was not just a free public transport pass for the night, but also a free pass for all the major musea in town. We&#8217;ll be using that in the coming days for certain.</p>
+<p><a title="CPH City Hall by TonZ, on Flickr" href="http://www.flickr.com/photos/tonz/8083318653/"><img src="http://farm9.staticflickr.com/8327/8083318653_5a49522b1e.jpg" alt="CPH City Hall" width="500" height="375" /></a><br />
+<em>In Copenhagen City Hall</em></p>
+<p>Late breakfast at home on Saturday morning spilled over into coffee at Pate Pate in the meat packing district, which turned into a very pleasant lunch at <a href="http://vonfressen.com/">Von Fressen</a> catching up with <a href="https://twitter.com/froda">Jon Froda</a>. It was very good to see Jon again and catch up. Afterwards some Saturday shopping before crashing at the apartment. Sunday started as a lazy day, but soon turned into a bedridden day for me with a 39 degrees fever, which turns out to be the case for today as well.</p>
+<p>That rounds up the second week in Copenhagen. We met great people, saw cool things, but work-wise I am only now coming around to &#8216;being here&#8217;, in stead of working through a back-log of other things.</p>
+							</div><!-- end .entry-content -->
+			
+						
+	</div><!-- end .entry-wrap -->
+		
+		
+		<footer class="entry-meta">
+			<p><span>Posted by:</span> 
+				<a href="http://www.zylstra.org/blog/author/admin/" title="View all posts by Ton Zijlstra">Ton Zijlstra</a>			<span>| Conversation:</span> <span class="comments-link">comments off</span>			<span>| Category:</span> <a href="http://www.zylstra.org/blog/category/uncategorized/" title="View all posts in Uncategorized" rel="category tag">Uncategorized</a>	
+						</p>
+
+							
+<ul class="share">
+	<li class="post-shortlink">Short URL <input type='text' value='http://www.zylstra.org/blog/?p=115' onclick='this.focus(); this.select();' /></li>
+	<li class="post-twitter"><a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-url="http://www.zylstra.org/blog/2012/10/cph-week-2/" data-text="CPH Week 2">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script></li>
+	<li class="post-fb"><iframe src="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fwww.zylstra.org%2Fblog%2F2012%2F10%2Fcph-week-2%2F&amp;layout=button_count&amp;show_faces=false&amp;width=120&amp;action=like&amp;colorscheme=light" scrolling="no" frameborder="0" allowTransparency="true"></iframe></li>
+	<li class="post-googleplus"><g:plusone size="medium" href="http://www.zylstra.org/blog/2012/10/cph-week-2/"></g:plusone></li>
+</ul><!-- end .share -->			
+		</footer><!-- end .entry-meta -->
+
+		
+</article><!-- end post -115 -->
+						
+								
+							
+				<nav id="nav-below">
+					<div class="nav-previous"><a href="http://www.zylstra.org/blog/page/2/" >&laquo; Older posts</a></div>
+					<div class="nav-next"></div>
+				</nav><!-- end #nav-below -->
+				
+			
+		
+	</div><!-- end #content -->
+</div><!-- end #page -->
+
+
+	<div id="secondary" class="widget-area" role="complementary">
+		<aside id="search-2" class="widget widget_search">	<form method="get" class="searchform" action="http://www.zylstra.org/blog">
+			<input type="text" class="field s" name="s" placeholder="Search" />
+			<input type="submit" class="searchsubmit" name="submit" value="Search" />
+	</form></aside><aside id="text-2" class="widget widget_text"><h3 class="widget-title">About</h3>			<div class="textwidget">Weblog by Ton Zijlstra,
+Enschede, Netherlands
+I write about knowledge work and management, and the tools and strategies that help us navigate the networked world.
+I am passionate about increasing people's ability to act (knowledge), and their ability to change (learning). 
+
+Contacting me is easy and appreciated!
+</div>
+		</aside><aside id="piha_sociallinks-2" class="widget widget_piha_sociallinks">		<h3 class="widget-title">Connect with me</h3>            
+        <ul class="sociallinks">
+			<li><a href="http://twitter.com/#!/ton_zylstra" class="twitter" title="Twitter">Twitter</a></li>									<li><a href="http://www.flickr.com/photos/tonz" class="flickr" title="Flickr">Flickr</a></li>		
+						
+				
+																														<li><a href="http://www.slideshare.net/TonZijlstra/" class="slideshare" title="Slideshare">Slideshare</a></li>																		<li><a href="http://nl.linkedin.com/in/tonzijlstra" class="linkedin" title="LinkedIn">LinkedIn</a></li>												<li><a href="http://www.zylstra.org/blog/?feed=rss2" class="rss" title="RSS Feed">RSS Feed</a></li>				
+		</ul><!-- end .sociallinks -->
+
+	   </aside><aside id="text-3" class="widget widget_text"><h3 class="widget-title">Read my book!</h3>			<div class="textwidget"><a href="http://zylstra.org/blog/How_to_Unconference_Your_Birthday.pdf"><img src="http://elmine.wijnia.com/weblog/wp-content/uploads/2011/10/Schermafbeelding-2011-10-25-om-12.17.01.png" width="200">
+<p>
+How to Unconference Your Birthday, by Ton & Elmine</a>
+
+<p>
+<a href="http://www.facebook.com/pages/How-to-Unconference-Your-Birthday-The-Book/210781468991546">Share your thoughts on Facebook!</a></div>
+		</aside><aside id="piha_flickr-2" class="widget widget_piha_flickr">		<h3 class="widget-title">Latest photo's</h3>            
+        <div class="flickr_badge_wrapper"><script type="text/javascript" src="http://www.flickr.com/badge_code_v2.gne?count=4&amp;display=latest&amp;&amp;source=user&amp;user=96947578@N00&amp;size=m"></script><div class="clear"></div>
+				</div><!-- end .flickr_badge_wrapper -->
+		
+	
+	   </aside>		<aside id="recent-posts-2" class="widget widget_recent_entries">		<h3 class="widget-title">Recent Posts</h3>		<ul>
+					<li>
+				<a href="http://www.zylstra.org/blog/2013/03/the-value-of-open-data-to-the-public-sector/" title="The Value of Open Data to the Public Sector">The Value of Open Data to the Public Sector</a>
+						</li>
+					<li>
+				<a href="http://www.zylstra.org/blog/2013/03/my-tedxzwolle-talk-get-to-know-our-ant-hill-with-open-data/" title="My TEDxZwolle talk: Get to Know Our Ant Hill With Open Data">My TEDxZwolle talk: Get to Know Our Ant Hill With Open Data</a>
+						</li>
+					<li>
+				<a href="http://www.zylstra.org/blog/2013/02/the-state-of-open-data-in-europe-achievements-and-challenges/" title="The State of Open Data in Europe &#8211; Achievements and Challenges">The State of Open Data in Europe &#8211; Achievements and Challenges</a>
+						</li>
+					<li>
+				<a href="http://www.zylstra.org/blog/2013/01/on-openness-and-its-limits/" title="On Openness and its Limits">On Openness and its Limits</a>
+						</li>
+					<li>
+				<a href="http://www.zylstra.org/blog/2013/01/looking-back-on-2012/" title="Looking Back on 2012">Looking Back on 2012</a>
+						</li>
+				</ul>
+		</aside><aside id="recent-comments-2" class="widget widget_recent_comments"><h3 class="widget-title">Recent Comments</h3><ul id="recentcomments"><li class="recentcomments"><a href='http://howtomooc.org/abschlussbericht-der-woche-3-eine-ganz-subjektive-zwischenbilanz/' rel='external nofollow' class='url'>Abschlussbericht der Woche 3. Eine ganz subjektive Zwischenbilanz - #MMC13 - der Open MOOC-Maker Course 2013</a> on <a href="http://www.zylstra.org/blog/2013/01/on-openness-and-its-limits/#comment-2448">On Openness and its Limits</a></li><li class="recentcomments"><a href='http://zylstra.org/blog' rel='external nofollow' class='url'>Ton Zijlstra</a> on <a href="http://www.zylstra.org/blog/2012/11/on-data-quality/#comment-2387">On Data Quality</a></li><li class="recentcomments"><a href='http://inferringvalue.wordpress.com' rel='external nofollow' class='url'>Ankit Sharma</a> on <a href="http://www.zylstra.org/blog/2012/11/on-data-quality/#comment-2373">On Data Quality</a></li><li class="recentcomments"><a href='http://ruk.ca/' rel='external nofollow' class='url'>Peter Rukavina</a> on <a href="http://www.zylstra.org/blog/2012/07/making-is-contagious/#comment-1387">Making Is a Contagious Meme</a></li><li class="recentcomments"><a href='http://marc.digitalcitymechanics.com/2012/07/17/mid-july-2012-blogging/' rel='external nofollow' class='url'>Marc's Voice &raquo; Mid-July 2012 blogging</a> on <a href="http://www.zylstra.org/blog/2012/07/open-data-works-in-triangles/#comment-1271">Open Data Works In Triangles</a></li></ul></aside><aside id="tag_cloud-2" class="widget widget_tag_cloud"><h3 class="widget-title">Tags</h3><div class="tagcloud"><a href='http://www.zylstra.org/blog/tag/2011/' class='tag-link-11' title='1 topic' style='font-size: 8pt;'>2011</a>
+<a href='http://www.zylstra.org/blog/tag/bbq/' class='tag-link-29' title='1 topic' style='font-size: 8pt;'>bbq</a>
+<a href='http://www.zylstra.org/blog/tag/birthday/' class='tag-link-25' title='1 topic' style='font-size: 8pt;'>birthday</a>
+<a href='http://www.zylstra.org/blog/tag/challenges/' class='tag-link-7' title='1 topic' style='font-size: 8pt;'>challenges</a>
+<a href='http://www.zylstra.org/blog/tag/communitybuilding/' class='tag-link-17' title='1 topic' style='font-size: 8pt;'>communitybuilding</a>
+<a href='http://www.zylstra.org/blog/tag/context/' class='tag-link-47' title='1 topic' style='font-size: 8pt;'>context</a>
+<a href='http://www.zylstra.org/blog/tag/dataquality/' class='tag-link-48' title='1 topic' style='font-size: 8pt;'>dataquality</a>
+<a href='http://www.zylstra.org/blog/tag/design/' class='tag-link-45' title='1 topic' style='font-size: 8pt;'>design</a>
+<a href='http://www.zylstra.org/blog/tag/ebook/' class='tag-link-26' title='1 topic' style='font-size: 8pt;'>ebook</a>
+<a href='http://www.zylstra.org/blog/tag/enschede/' class='tag-link-18' title='1 topic' style='font-size: 8pt;'>enschede</a>
+<a href='http://www.zylstra.org/blog/tag/epsiplatform/' class='tag-link-55' title='2 topics' style='font-size: 13.25pt;'>epsiplatform</a>
+<a href='http://www.zylstra.org/blog/tag/fablab/' class='tag-link-35' title='1 topic' style='font-size: 8pt;'>fablab</a>
+<a href='http://www.zylstra.org/blog/tag/fundraising/' class='tag-link-30' title='1 topic' style='font-size: 8pt;'>fundraising</a>
+<a href='http://www.zylstra.org/blog/tag/heatherwick/' class='tag-link-40' title='1 topic' style='font-size: 8pt;'>heatherwick</a>
+<a href='http://www.zylstra.org/blog/tag/innovation/' class='tag-link-38' title='1 topic' style='font-size: 8pt;'>innovation</a>
+<a href='http://www.zylstra.org/blog/tag/job/' class='tag-link-46' title='1 topic' style='font-size: 8pt;'>job</a>
+<a href='http://www.zylstra.org/blog/tag/johnsheridan/' class='tag-link-20' title='1 topic' style='font-size: 8pt;'>JohnSheridan</a>
+<a href='http://www.zylstra.org/blog/tag/legislation/' class='tag-link-21' title='1 topic' style='font-size: 8pt;'>legislation</a>
+<a href='http://www.zylstra.org/blog/tag/london/' class='tag-link-42' title='1 topic' style='font-size: 8pt;'>london</a>
+<a href='http://www.zylstra.org/blog/tag/london2012/' class='tag-link-41' title='1 topic' style='font-size: 8pt;'>london2012</a>
+<a href='http://www.zylstra.org/blog/tag/makerhouseholds/' class='tag-link-36' title='1 topic' style='font-size: 8pt;'>makerhouseholds</a>
+<a href='http://www.zylstra.org/blog/tag/making-2/' class='tag-link-39' title='1 topic' style='font-size: 8pt;'>making</a>
+<a href='http://www.zylstra.org/blog/tag/milling/' class='tag-link-33' title='1 topic' style='font-size: 8pt;'>milling</a>
+<a href='http://www.zylstra.org/blog/tag/minifablab/' class='tag-link-34' title='1 topic' style='font-size: 8pt;'>minifablab</a>
+<a href='http://www.zylstra.org/blog/tag/mmc13/' class='tag-link-50' title='1 topic' style='font-size: 8pt;'>mmc13</a>
+<a href='http://www.zylstra.org/blog/tag/ogd2011/' class='tag-link-22' title='1 topic' style='font-size: 8pt;'>ogd2011</a>
+<a href='http://www.zylstra.org/blog/tag/opendata/' class='tag-link-6' title='5 topics' style='font-size: 22pt;'>opendata</a>
+<a href='http://www.zylstra.org/blog/tag/opengov/' class='tag-link-52' title='1 topic' style='font-size: 8pt;'>opengov</a>
+<a href='http://www.zylstra.org/blog/tag/personal-2/' class='tag-link-12' title='1 topic' style='font-size: 8pt;'>personal</a>
+<a href='http://www.zylstra.org/blog/tag/quality/' class='tag-link-49' title='1 topic' style='font-size: 8pt;'>quality</a>
+<a href='http://www.zylstra.org/blog/tag/roland/' class='tag-link-32' title='1 topic' style='font-size: 8pt;'>roland</a>
+<a href='http://www.zylstra.org/blog/tag/socialobjects/' class='tag-link-23' title='1 topic' style='font-size: 8pt;'>socialobjects</a>
+<a href='http://www.zylstra.org/blog/tag/tadaalist/' class='tag-link-13' title='1 topic' style='font-size: 8pt;'>tadaalist</a>
+<a href='http://www.zylstra.org/blog/tag/tedx/' class='tag-link-53' title='1 topic' style='font-size: 8pt;'>tedx</a>
+<a href='http://www.zylstra.org/blog/tag/tedxzwolle/' class='tag-link-51' title='1 topic' style='font-size: 8pt;'>tedxzwolle</a>
+<a href='http://www.zylstra.org/blog/tag/ton40/' class='tag-link-14' title='2 topics' style='font-size: 13.25pt;'>ton40</a>
+<a href='http://www.zylstra.org/blog/tag/ton42/' class='tag-link-28' title='1 topic' style='font-size: 8pt;'>ton42</a>
+<a href='http://www.zylstra.org/blog/tag/tonzijlstra/' class='tag-link-15' title='1 topic' style='font-size: 8pt;'>tonzijlstra</a>
+<a href='http://www.zylstra.org/blog/tag/uk/' class='tag-link-24' title='1 topic' style='font-size: 8pt;'>uk</a>
+<a href='http://www.zylstra.org/blog/tag/unconference/' class='tag-link-27' title='1 topic' style='font-size: 8pt;'>unconference</a>
+<a href='http://www.zylstra.org/blog/tag/vamuseum/' class='tag-link-44' title='1 topic' style='font-size: 8pt;'>vamuseum</a>
+<a href='http://www.zylstra.org/blog/tag/victoriaandalbert/' class='tag-link-43' title='1 topic' style='font-size: 8pt;'>victoriaandalbert</a>
+<a href='http://www.zylstra.org/blog/tag/workshop/' class='tag-link-19' title='2 topics' style='font-size: 13.25pt;'>workshop</a>
+<a href='http://www.zylstra.org/blog/tag/world-bank/' class='tag-link-8' title='1 topic' style='font-size: 8pt;'>World Bank</a>
+<a href='http://www.zylstra.org/blog/tag/wstm/' class='tag-link-16' title='2 topics' style='font-size: 13.25pt;'>wstm</a></div>
+</aside>		</div><!-- #secondary --> 
+<div class="clear"></div>
+</div><!-- end #container -->
+
+	<footer id="footer-wrap" class="row">
+		<div id="colophon">
+			<div id="site-generator"><p>
+							<span class="footertext"><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/nl/"><img alt="Creative Commons Licentie" style="border-width:0" src="http://i.creativecommons.org/l/by-nc-sa/3.0/nl/80x15.png" /></a> 2013 Interdependent Thoughts</span><span class="sep"> | </span><span class="footertext">Proudly powered by <a href="http://wordpress.org/" >WordPress</a></span><span class="sep"> | </span><span class="footertext">Theme: Piha by <a href="http://www.elmastudio.de/wordpress-themes/">Elmastudio</a></span>
+				</p>
+
+				<ul class="footer-rss">
+					<li><a href="http://www.zylstra.org/blog/feed/" title="RSS Feed of all posts">RSS Feed</a></li> 
+					<li><a href="http://www.zylstra.org/blog/comments/feed/" title="The latest comments of all posts in RSS">RSS Comments</a></li>
+				</ul><!-- end .footer-rss -->
+			
+				
+				<a href="#container" class="top">Back to Top &uArr;</a>
+			</div><!-- end #site-generator -->
+		</div><!-- end #colophon -->
+	</footer><!-- end #footer-wrap -->
+
+	<script type="text/javascript">
+	(function() {
+		var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+		po.src = 'https://apis.google.com/js/plusone.js';
+		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+	})();
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,1159 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<meta charset="utf-8">
+	<title>mvanier: Yet Another Monad Tutorial (part 5: error-handling monads)</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+
+	<link rel="home" title="Home" href="http://www.livejournal.com/">
+	<link rel="contents" title="Site Map" href="http://www.livejournal.com/site/">
+	<link rel="help" title="Technical Support" href="http://www.livejournal.com/support/">
+
+	<link rel="apple-touch-icon" href="http://l-stat.livejournal.com/img/apple-touch-icon.png?v=6037">
+	
+		<!--[if IE]><link rel="shortcut icon" type="image/x-icon" href="http://l-stat.livejournal.com/img/userinfo.ico"><![endif]-->
+		<link rel="icon" type="image/gif" href="http://l-stat.livejournal.com/img/userinfo.gif">
+	
+
+	
+	
+
+	
+
+	
+
+	<link rel="stylesheet" type="text/css" href="http://l-stat.livejournal.com/??.b4be?v=1363723174" />
+<!--[if lt IE 7]><link rel="stylesheet" type="text/css" href="http://l-stat.livejournal.com/??lj_base-ie.css,horizon/ie.css?v=1363723174" /><![endif]-->
+<!--[if lte IE 7]><link rel="stylesheet" type="text/css" href="http://l-stat.livejournal.com/??interstitial_banner_us.css?v=1363723174" /><![endif]-->
+<!--[if lte IE 8]><link rel="stylesheet" type="text/css" href="http://l-stat.livejournal.com/??ie.css,popup/popupus-ie.css?v=1363723174" /><![endif]-->
+
+	            <script type="text/javascript">
+                Site = window.Site || {};
+                Site.ml_text = {"fotki.album.paste.from.album":"From Album","fotki.album.resize.to.post":"Resize","fotki.photo.upload.error.file_type_not_supported":"File type is not supported","fotki.album.browse.photo":"Browse","fotki.album.click.image":"Click on image to remove it.","fotki.album.remove.this.image":"Remove this image","fotki.album.link.click.to.upload":"Click to upload <br> new images","talk.spamcount":"[[count]] [[?count|suspicious comment|suspicious comments]]","talk.replycount":"[[count]] [[?count|comment|comments]]","fotki.album.save.images":"Save images","talk.link.button":"Insert","fotki.privacy":"Privacy","fotki.photo.upload.error.common_error":"Common error","fotki.album.upgrade":"Extra Storage Space","widget.form.skip_word":"Skip word","fotki.album.create.new":"(Create new)","fotki.album.select_album":"Select album:","fotki.album.description":"Add your description","fotki.album.uploading.image":"Uploading image...","fotki.album.upload.images":"Upload images","fotki.album.add.image.name":"Add image name","fotki.album.no.pics":"There are no photos in this album.","fotki.album.add.photos":"To add multiple files, hold down the CTRL or Shift button.","fotki.album.link.from.image":"Link from this image (optional)","fotki.photo.upload.error.forbidden":"You cannot access this page because this journal is not visible.","pics.ui.link_to_original_title":"Check to include a link to the full size image","fotki.album.stop.upload.confirm":"Do you really want to stop the upload and close without saving? ","fotki.photo.upload.error.cant_get_storage_space":"Can't get count of used storage space","fotki.photo.upload.error.file_not_selected":"File not selected","fotki.album.remove.image":"Remove this image","fotki.album.uploading.message":"Uploading...","confirm.bubble.no":"No","fotki.album.load.more":"Loading more..","fotki.album.upload.unknown.error":"Unknown error","fotki.photo.upload.error.not_enough_space":"Scrapbook: not enough space","fotki.album.add.images":"Add to post","fotki.album.change":"Your current selection will be lost. Do you really want to change albums? ","fotki.album.available.now":"Available now","fotki.branding_04_2012.html":"<a href=\"http://url\">link</a>","fotki.album.cancel.album":"Cancel","fotki.album.upload.io.error":"","fotki.album.album_cover":"Album cover","talk.postcomment":"Add a comment","fotki.album.resize.width":"Width","fotki.photo.upload.error.no_access_rpc":"Internal Error","fotki.album.close.without.saving.confirm":"Do you really want to close without saving?","talk.general.save":"Save","entry.reference.label.reposted":"Reposted","talk.replytothis":"Reply","fotki.album.paste.url":"Paste URL","fotki.photo.upload.error.auth_token_invalid":"Auth error","fotki.album.new.album.name":"New album name","fotki.album.custom.size":"Custom","fotki.album.post.images":"Add to post","pics.ui.link_to_original":"Add a link to the original image","fotki.photo.upload.error.no_access_to_storage_media":"No access to storage media","talk.link.button.delete":"Delete","talk.editcomment":"Save comment","fotki.album.default.sizes":"Default sizes","widget.form.no_suggestions":"No suggestions","fotki.album.stop.upload":"Stop uploading?","entry.reference.label.title":"Remove repost","fotki.album.comment.images":"Add to comment","confirm.bubble.yes":"Yes","talk.answer":"Reply","fotki.album.resize.height":"Height","fotki.album.paste.url.here":"Paste image URL here"};
+                Site.page = {"spamcount":0,"hasactiveuserpic":0,"replycount":0,"ajaxPagination":1,"comments_page":1,"scheme":"horizon","fotki":{"uploader":{"albumsData":[],"action":"add_new_post","privacyData":[{"groupname":"Everyone (Public)","security":"public"},{"groupname":"Friends","security":"allfriends"},{"groupname":"Just Me (Private)","security":"private"}],"tracking_opendialog":"tracking_photouploaded","sizesData":[{"is_default":0,"text":"100","size":"100"},{"is_default":0,"text":"300","size":"300"},{"is_default":0,"text":"600","size":"600"},{"is_default":1,"text":"900","size":"900"},{"is_default":0,"text":"1000","size":"1000"},{"is_default":0,"text":"Original","size":"original"}],"type":"upload","guid":""},"migration":0,"upload":0,"enabled":0},"D":{},"hasdefaultuserpic":0,"hasuserpics":0,"activeuserpic":""};
+                Site.timer = +(new Date());
+                (function(){
+                    var p = {"remote_is_identity":null,"remote_is_maintainer":0,"auth_token":"sessionless:1363852800:/__api/::b06e6196536ddb48f57d7db52ba0937aaa6c8d95","locale":"en_US","remoteUser":null,"remote_is_sup":0,"remoteJournalBase":null,"statprefix":"http://l-stat.livejournal.com","ctx_popup":1,"jsonrpcprefix":"http://l-api.livejournal.com","siteroot":"http://www.livejournal.com","country":"US","templates_update_time":900,"media_embed_enabled":1,"inbox_update_poll":0,"rpc":{"public":["sitemessage.get_message","comment.get_thread"]},"v":1363723174,"has_remote":0,"currentEntryRecommendations":0,"remoteLocale":"en_US","server_time":1363855717,"picsUploadDomain":"up.pics.livejournal.com","remote_is_suspended":0,"logprefix":"","imgprefix":"http://l-stat.livejournal.com/img","esn_async":1,"remote_can_track_threads":null,"currentJournal":"mvanier","pics_production":"","currentEntry":"http://mvanier.livejournal.com/5103.html","currentJournalBase":"http://mvanier.livejournal.com"}, i;
+                    for (i in p) Site[i] = p[i];
+                })();
+                Site.current_journal = {"url_profile":"http://mvanier.livejournal.com/profile","url_journal":"http://mvanier.livejournal.com","is_identity":"","userid":14687195,"is_shared":"","display_name":"mvanier","is_comm":"","username":"mvanier","is_syndicated":"","can_receive_vgifts":1,"url_allpics":"http://www.livejournal.com/allpics.bml?user=mvanier","is_person":"1","url_message":"http://www.livejournal.com/inbox/compose.bml?user=mvanier","display_username":"mvanier"};
+                Site.version = '102.1';
+           </script>
+<script type="text/javascript" src="http://l-stat.livejournal.com/js/??.ljlib.js?v=1363723174"></script>
+<script type="text/javascript" src="http://l-stat.livejournal.com/js/??.comments.js?v=1363723174"></script>
+<script type="text/javascript" src="http://l-stat.livejournal.com/js/??.b8aa?v=1363723174"></script>
+<!--[if IE]><script type="text/javascript" src="http://l-stat.livejournal.com/js/??jquery/jquery.ie6multipleclass.min.js?v=1363723174"></script><![endif]-->
+<!--[if lt IE 9]><script type="text/javascript" src="http://l-stat.livejournal.com/js/??lib/html5shiv.js?v=1363723174"></script><![endif]-->
+<!--[if lte IE 9]><script type="text/javascript" src="http://l-stat.livejournal.com/js/??ie9pinned.js?v=1363723174"></script><![endif]-->
+<script type="text/javascript">
+LJShare.init({"ml":{"close":"Close","title":"Share"},"services":{"stumbleupon":{"bindLink":"http://www.livejournal.com/redirect/SHARING_stumbleupon?url=http%3A%2F%2Fwww.stumbleupon.com%2Fsubmit%3Furl%3D{url}","title":"StumbleUpon"},"moimir":{"bindLink":"http://www.livejournal.com/redirect/SHARING_moimir?url=http%3A%2F%2Fconnect.mail.ru%2Fshare%3Furl%3D{url}","title":"Moi mir"},"twitter":{"bindLink":"http://www.livejournal.com/redirect/SHARING_twitter?url=http%3A%2F%2Ftwitter.com%2Fshare%3Furl%3D{url}%26text%3D{title}","title":"Twitter"},"digg":{"bindLink":"http://www.livejournal.com/redirect/SHARING_digg?url=http%3A%2F%2Fdigg.com%2Fsubmit%3Furl%3D{url}","title":"Digg"},"email":{"bindLink":"http://www.livejournal.com/redirect/SHARING_email?url=http%3A%2F%2Fapi.addthis.com%2Foexchange%2F0.8%2Fforward%2Femail%2Foffer%3Fusername%3Dinternal%26url%3D{url}%26title%3D{title}","title":"E-mail"},"livejournal":{"bindLink":"http://www.livejournal.com/redirect/SHARING_livejournal?url=http%3A%2F%2Fwww.livejournal.com%2Fupdate.bml%3Frepost_type%3Dc%26repost%3D{url}","title":"LiveJournal"},"vkontakte":{"bindLink":"http://www.livejournal.com/redirect/SHARING_vkontakte?url=http%3A%2F%2Fvkontakte.ru%2Fshare.php%3Furl%3D{url}","title":"VKontakte"},"facebook":{"bindLink":"http://www.livejournal.com/redirect/SHARING_facebook?url=http%3A%2F%2Fwww.facebook.com%2Fsharer.php%3Fu%3D{url}","title":"Facebook"},"odnoklassniki":{"bindLink":"http://www.livejournal.com/redirect/SHARING_odnoklassniki?url=http%3A%2F%2Fwww.odnoklassniki.ru%2Fdk%3Fst.cmd%3DaddShare%26st.s%3D1%26st._surl%3D{url}","title":"Odnoklassniki"},"tumblr":{"bindLink":"http://www.livejournal.com/redirect/SHARING_tumblr?url=http%3A%2F%2Fwww.tumblr.com%2Fshare%3Fv%3D3%26u%3D{url}","title":"Tumblr"}},"links":["livejournal","facebook","twitter","digg","tumblr","stumbleupon","email"]})</script>
+<script type="text/javascript">if (jQuery.VK) { jQuery.VK.init({apiId: 2244371, onlyWidgets: true})} </script> 
+	<meta property="og:description" content="In the previous article we showed how to derive and use the Maybe and list monads. In this article and the next we&#39;re going to look at how to use monads for error handling, also known as exception handling. Error-handling computations The kind of computation that we want to model with our …" /><meta property="og:image" content="http://l-stat.livejournal.com/img/userinfo.gif?v=3" /><meta property="og:title" content="Yet Another Monad Tutorial (part 5: error-handling monads)" /><meta property="og:type" content="website" /><meta property="og:url" content="http://mvanier.livejournal.com/5103.html" /><meta property="twitter:card" content="summary" /><meta property="twitter:site" content="@livejournal" /><link href='http://www.livejournal.com/go.bml?journal=mvanier&amp;itemid=5103&amp;dir=prev' rel='Previous' />
+<link href='http://www.livejournal.com/go.bml?journal=mvanier&amp;itemid=5103&amp;dir=next' rel='Next' />
+<noscript><meta http-equiv="refresh" content="0; url=http://mvanier.livejournal.com/5103.html?nojs=1" /></noscript><script>jQuery('noscript').last().remove()</script>
+
+	
+
+	<script type="text/javascript" src="http://l-stat.livejournal.com/tmpl/??Widgets/bubble.tmpl,Form/UpicSelect.tmpl,Widgets/photouploader/photouploader.tmpl,Widgets/photouploader/insertedItem.tmpl,Widgets/photouploader/uploadedItem.tmpl,Comments/Twig.tmpl?v=1363247955&tm=1515395;uselang=en_LJ"></script>
+<script type="text/javascript" src="http://l-stat.livejournal.com/tmpl/??Widgets/contextualhover.jqtmpl?v=1343758569&tm=1515395;uselang=en_LJ"></script>
+
+</head>
+<body class="s-horizon p-footer-lite logged-out"  >
+	
+
+	<!-- Content Wrapper -->
+	<div class="s-content-wrapper">
+
+		
+
+		
+
+		<!-- Header -->
+		<header class="s-header">
+			
+			
+				<p class="s-header-logo">
+					<a href="http://www.livejournal.com">
+						LiveJournal
+					</a>
+				</p>
+			
+
+			
+
+			
+
+			
+
+
+			<!-- Navbar -->
+			<nav class="s-navbar s-show-local-menu" role="navigation">
+					
+
+				<ul class='s-navmenu'>
+					
+						<li class='s-navmenu-item horizon-menu-home'>
+							<a class="s-navmenu-rootlink" href='http://www.livejournal.com/'><span>Home</span></a>
+
+							
+								
+							
+						</li>
+					
+						<li class='s-navmenu-item horizon-menu-create'>
+							<a class="s-navmenu-rootlink" href='http://www.livejournal.com/create.bml'>Create an account</a>
+
+							
+								
+							
+						</li>
+					
+						<li class='s-navmenu-item horizon-menu-explore'>
+							<a class="s-navmenu-rootlink" href='http://www.livejournal.com/search/'>Explore</a>
+
+							
+								
+									<ul class='s-navmenu-submenu'>
+									<li  ><a href='http://www.livejournal.com/interests.bml'>Search by Interest</a></li><li  ><a href='http://www.livejournal.com/schools/'>Search by School</a></li><li  ><a href='http://www.livejournal.com/ratings/'>Ratings</a></li><li  ><a href='http://www.livejournal.com/browse/'>Community Directory</a></li><li  ><a href='http://www.livejournal.com/syn/'>Feeds</a></li><li  ><a href='http://www.livejournal.com/radio/'>FRNK Radio</a></li>
+									</ul>
+								
+							
+						</li>
+					
+						<li class='s-navmenu-item horizon-menu-shop'>
+							<a class="s-navmenu-rootlink" href='http://www.livejournal.com/shop/'>Shop</a>
+
+							
+								
+									<ul class='s-navmenu-submenu'>
+									<li  ><a href='http://www.livejournal.com/shop/vgift.bml'>Virtual Gifts</a></li><li  ><a href='http://www.livejournal.com/shop/theme/'>Themes</a></li><li  ><a href='http://www.livejournal.com/shop/userheads.bml'>Custom Userheads</a></li><li  ><a href='http://www.livejournal.com/shop/domain_ru.bml'>Domains RF</a></li><li  ><a href='http://www.zazzle.com/livejournal'>Merchandise</a></li>
+									</ul>
+								
+							
+						</li>
+					
+						<li class='s-navmenu-item horizon-menu-apps'>
+							<a class="s-navmenu-rootlink" href='http://www.livejournal.com/extra/'>LJ Extras</a>
+
+							
+								
+									<ul class='s-navmenu-submenu'>
+									<li  ><a href='http://www.livejournal.com/devices'>Mobile</a></li><li  ><a href='http://www.livejournal.com/chat/'>LJ Talk</a></li><li  ><a href='http://www.livejournal.com/download/'>Downloads</a></li>
+									</ul>
+								
+							
+						</li>
+					
+				</ul>
+
+				
+
+			</nav>
+			<!--/ Navbar -->
+
+		</header>
+		<!--/ Header -->
+
+		
+		<!-- Login -->
+			<div class="lj_loginform s-login">
+				<form method="post" action="https://www.livejournal.com/login.bml?ret=1" id="login" class="lj_login_form">
+					
+					<input type='hidden' name='mode' value='login'>
+					
+					<fieldset class="s-login-lj">
+						<dl class="s-login-lj-username">
+							<dt><label for='login_user'>Username</label></dt>
+							<dd><input type="text" name="user" size="24" id='login_user' tabindex="1" placeholder="Username"></dd>
+						</dl>
+						<dl class="s-login-lj-password">
+							<dt><label for='login_password'>Password</label></dt>
+							<dd>
+								<input type="password" id="login_password" name="password" size="15" class="lj_login_password" tabindex="2" placeholder="Password">
+								<input type='submit' value="Log in" tabindex='3'>
+							</dd>
+						</dl>
+						<dl class="s-login-lj-remember">
+							<dt></dt>
+							<dd><label><input type="checkbox" name="remember_me" value="1" tabindex="4" /> Remember Me</label></dd>
+						</dl>
+						<dl class="s-login-langs">
+							<dt>Change language:</dt>
+							<dd>
+								<a href="http://www.livejournal.com/manage/settings/?cat=display">
+									<ul>
+										<li>English</li>
+										<li>Español</li> 
+										<li>Deutsch</li> 
+										<li>Русский&hellip;</li>
+									</ul>
+								</a>
+							</dd>
+						</dl>					
+					</fieldset>
+					<fieldset class="s-login-options">
+						<p class="s-login-option"><a href="http://www.livejournal.com/create.bml">Create an Account</a></p>
+						<p class="s-login-option"><a href="http://www.livejournal.com/lostinfo.bml">Forgot your login or password?</a></p>
+						<p class="s-login-more"><a href="http://www.livejournal.com/identity/login.bml?type=facebook" title="Facebook" class="i-auth"><img src="http://l-stat.livejournal.com/img/icons/facebook-16.gif?v=17127" width="16" height="16" alt="Facebook"></a>
+						<a href="http://www.livejournal.com/identity/login.bml?type=twitter" title="Twitter" class="i-auth"><img src="http://l-stat.livejournal.com/img/icons/twitter-16.gif?v=18540" width="16" height="16" alt="Twitter"></a>
+						<a href="#login-more" class="i-auth i-loginpopup-show"><img src="http://l-stat.livejournal.com/img/icons/showmore.gif?v=11430" width="16" height="16" alt="More login options" /></a></p>
+						<div class="b-loginpopup" id="login-more">
+							<ul class="b-loginpopup-items">
+								<li class="b-loginpopup-item">
+									<a href="http://www.livejournal.com/identity/login.bml?type=openid" title="OpenID"><img src="http://l-stat.livejournal.com/img/icons/openid-16.gif?v=17127" width="16" height="16" alt="OpenID" />OpenID</a>
+								</li>
+								<li class="b-loginpopup-item">
+									<a href="http://www.livejournal.com/identity/login.bml?type=google" title="Google"><img src="http://l-stat.livejournal.com/img/icons/google-16.png?v=12457" width="16" height="16" alt="Google" />Google</a>
+								</li>
+								<li class="b-loginpopup-item">
+									<a href="http://www.livejournal.com/identity/login.bml?type=mailru" title="Mail.Ru"><img src="http://l-stat.livejournal.com/img/icons/mailru-16.gif?v=11910" width="16" height="16" alt="Mail.Ru" />Mail.Ru</a>
+								</li>
+								<li class="b-loginpopup-item">
+									<a href="http://www.livejournal.com/identity/login.bml?type=vkontakte" title="VKontakte"><img src="http://l-stat.livejournal.com/img/icons/vkontakte-16.gif?v=10284" width="16" height="16" alt="VKontakte" />VKontakte</a>
+								</li>
+							</ul>
+						</div>
+						<script type="text/javascript">
+							jQuery('div.b-loginpopup').bubble({ target: jQuery('a.i-loginpopup-show'), closeControl: false, showOn: 'click' });
+						</script>
+					</fieldset>
+				</form>
+			</div>
+		<!--/ Login -->
+		
+
+		
+
+		<!-- Content -->
+		<div class="s-content">
+
+			
+
+				
+
+				
+
+				
+
+				
+
+				
+
+				
+
+				
+
+				<!-- Text Wrapper -->
+				<div class='s-text-wrapper ' style='margin-right: px; height: 1%'>
+
+					
+
+					
+
+					<div class="b-singlepost"> <div class="b-singlepost-about"> <dl class="b-singlepost-author"> <dt class="b-singlepost-author-userpic">  <img src="http://l-stat.livejournal.com/img/userpics/userpic-user.png?v=15821" alt="">  </dt> <dd class="b-singlepost-author-userinfo"> Mike Vanier (<span  class="ljuser  i-ljuser     "  lj:user="mvanier"><a href="http://mvanier.livejournal.com/profile" ><img width="16" height="16"  class="i-ljuser-userhead"  src="http://l-stat.livejournal.com/img/userinfo.gif?v=102.1" /></a><a href="http://mvanier.livejournal.com/" class="i-ljuser-username"   ><b>mvanier</b></a></span>) wrote,<br/> <span class="b-singlepost-author-date"><a href="http://mvanier.livejournal.com/2010/">2010</a>-<a href="http://mvanier.livejournal.com/2010/08/">08</a>-<a href="http://mvanier.livejournal.com/2010/08/16/">16</a> 19:42:00</span> </dd> </dl> <div class="b-singlepost-standout"> <ul class="b-linkbar">  <li class="b-linkbar-item"><a href="http://www.livejournal.com/go.bml?journal=mvanier&amp;itemid=5103&amp;dir=prev" rel="nofollow" title="Previous" class="b-controls b-controls-prev"><i class="b-controls-bg"></i>Previous</a></li>  <li class="b-linkbar-item"><a href="http://www.livejournal.com/tools/memadd.bml?journal=mvanier&amp;itemid=5103" rel="nofollow" title="Memorize" class="b-controls b-controls-memadd"><i class="b-controls-bg"></i>Memorize</a></li>  <li class="b-linkbar-item"><a href="#" rel="nofollow" title="Share" class="b-controls b-controls-share"><i class="b-controls-bg"></i>Share</a><script type="text/javascript">LJShare.link({"url":"http://mvanier.livejournal.com/5103.html","title":"Yet Another Monad Tutorial (part 5: error-handling monads)"});</script></li>  <li class="b-linkbar-item"><a href="http://www.livejournal.com/go.bml?journal=mvanier&amp;itemid=5103&amp;dir=next" rel="nofollow" title="Next" class="b-controls b-controls-next"><i class="b-controls-bg"></i>Next</a></li>  </ul> </div> </div>    <div class="b-singlepost-wrapper">    <h1 class="b-singlepost-title">     Yet Another Monad Tutorial (part 5: error-handling monads)  </h1>  <div class="b-singlepost-body"> <p>In the <a href="http://mvanier.livejournal.com/4647.html" rel="nofollow">previous article</a> we showed how to derive and use the <code>Maybe</code> and list
+monads.  In this article and the next we're going to look at how to use monads
+for error handling, also known as exception handling.</p>
+
+<p><a name="cutid1"></a></p>
+
+<h2>Error-handling computations</h2>
+
+<p>The kind of computation that we want to model with our error-handling monads
+will have types that are schematically like this:</p>
+
+<pre><code>  a --[possibly fail with a specified error condition]--&gt; b
+</code></pre>
+
+<p>In words, this kind of computation maps an input value of type <code>a</code> to an output
+value of type <code>b</code>, but instead of returning a value of type <code>b</code>, it may fail
+with a specified error condition.  This is clearly very similar to the <code>Maybe</code>
+monad.  One difference is that all failures in the <code>Maybe</code> monad are
+indistinguishable (they return the <code>Nothing</code> value).  In contrast, in error
+monads there are usually a variety of distinguishable error conditions that can
+cause a computation to fail.  Another difference is that when running error
+handling computations it's desirable to have a mechanism for trapping errors and
+recovering from error situations in a controlled way (this goes by the name
+<em>exception handling</em> in most programming languages).  As we'll see, using error
+monads you can easily roll your own exception handling system.</p>
+
+<h2>Error handling in Haskell</h2>
+
+<p>A programmer who wants to write code that may fail with specific error
+conditions has a large number of options in Haskell (maybe too large).  Some of
+the more common ones include:</p>
+
+<ul>
+<li>The <code>error</code> function</li>
+<li>Exceptions in the <code>IO</code> monad</li>
+<li>Extensible exceptions</li>
+<li>Monadic exceptions</li>
+</ul>
+
+<p>Let's look at these one at a time.</p>
+
+<h3>The <code>error</code> function</h3>
+
+<p>Most Haskell programmers are familiar with the <code>error</code> function.  It is
+generally used just to abort a computation that cannot succeed.  A good example
+is calling a <code>factorial</code> function with a negative integer:</p>
+
+<pre><code>  factorial :: Integer -&gt; Integer
+  factorial n | n &lt; 0 = error "factorial: negative argument"
+  factorial 0 = 1
+  factorial n = n * factorial (n - 1)
+</code></pre>
+
+<p>The <code>error</code> function has a very interesting type:</p>
+
+<pre><code>  error :: String -&gt; a
+</code></pre>
+
+<p>This means that the <code>error</code> function takes a <code>String</code> as argument and can
+"return" a value of any type whatsoever.  In fact, of course, the <code>error</code>
+function <em>doesn't</em> return in the normal sense (that's the whole point: it's
+called to abort a computation).  Therefore, what <code>error</code>'s type really says is
+that its return type is of no consequence and can be whatever makes the type
+checker happy (in the <code>factorial</code> example, <code>error</code>'s return type would thus be
+<code>Integer</code>).</p>
+
+<p>Normally <code>error</code> is not used as an exception-handling mechanism.  In other
+words, usually <code>error</code> is not used in situations where errors need to be
+recovered from.  It's possible to catch errors thrown by <code>error</code>, but the
+recovery code has to be in the <code>IO</code> monad.  I don't want to go into this any
+further (see the GHC documentation for more information), but I consider this to
+be a hack.  Functional code should be <em>functional</em>, and that means not having
+weird behaviors that are not specified by the type signature.  On the other
+hand, I understand why this approach was taken.  Consider this version of the
+factorial function:</p>
+
+<pre><code>  factorial :: Integer -&gt; Integer
+  factorial 0 = 1
+  factorial n = n * factorial (n - 1)
+</code></pre>
+
+<p>There's no ugly <code>error</code> call here, but if <code>factorial</code> is ever called with a
+negative input, the function will go into an infinite loop.  If you restricted
+the second clause to just positive inputs:</p>
+
+<pre><code>  factorial :: Integer -&gt; Integer
+  factorial 0 = 1
+  factorial n | n &gt; 0 = n * factorial (n - 1)
+</code></pre>
+
+<p>then if <code>factorial</code> is called with a negative number, a pattern match error will occur
+which will also abort the computation and not result in an <code>Integer</code> being
+returned.  The <code>error</code> function is a compromise to allow programmers to write
+functions which are <em>total</em> (<em>i.e.</em> have defined and terminating behaviors for
+all possible inputs) even when some of the inputs are invalid (<em>i.e.</em> the
+function is conceptually a <em>partial</em> function, like <code>factorial</code>).</p>
+
+<p>We'll see a cleaner way to handle this below.</p>
+
+<h3>Error handling in the <code>IO</code> monad</h3>
+
+<p>The Haskell 98 standard specifies a way to deal with error conditions in the
+<code>IO</code> monad.  There is a datatype called <code>IOException</code> (aliased to <code>IOError</code>),
+which can contain various kinds of error-related information, as well as the
+type of error condition.  The number of error conditions is fixed (although
+there is a catch-all <code>UserError</code> category), so this isn't very sophisticated.
+Errors are raised in the <code>IO</code> monad using the <code>ioError</code> function and can be
+caught in the <code>IO</code> monad with the <code>catch</code> function.  This approach is actually
+quite similar to what we will derive below, except that it runs inside the <code>IO</code>
+monad instead of inside a custom error-handling monad.</p>
+
+<h3>Extensible exceptions</h3>
+
+<p>A more general version of the Haskell 98 error handling system is found in the
+GHC module <code>Control.Exception</code>, which implements <em>extensible exceptions</em> in the
+<code>IO</code> monad.  I don't want to get into the details here, but the main idea is
+that you can add your own exception types to the system as long as these types
+are instances of the <code>Exception</code> type class.  This is an elegant system, except
+for the fact that these exceptions can once again only be caught in the <code>IO</code>
+monad.</p>
+
+<blockquote>
+  <p>Side note: There is a saying that the <code>IO</code> monad is the great "sin-bin" of the
+  Haskell language, because so much functionality has been dumped into this
+  monad which has nothing whatsoever to do with input or output.  Using the <code>IO</code>
+  monad for error handling is a good example of this.  Haskell programmers are
+  increasingly moving away from over-using the <code>IO</code> monad and towards a style
+  where special-purpose monads are used to handle aspects of functionality that
+  previously were dumped into the <code>IO</code> monad.</p>
+</blockquote>
+
+<h3>Monadic exceptions</h3>
+
+<p>The cleanest way to handle errors is to use a special-purpose error-handling
+monad, which is the topic of the rest of this article and the next.</p>
+
+<h2>The <code>Either</code> datatype</h2>
+
+<p>Recall the definition of the <code>Maybe</code> datatype:</p>
+
+<pre><code>  data Maybe a = Nothing | Just a
+</code></pre>
+
+<p><code>Maybe</code> is a type constructor which maps a type (like <code>Int</code>) to a different type
+(like <code>Maybe Int</code>).  Since <code>Maybe</code> only takes a single type argument, it is a
+<em>unary</em> type constructor.  However, we don't want to use <code>Maybe</code> for a
+general-purpose error-handling system because we want to be able to represent
+information about errors that occur (if all errors result in a <code>Nothing</code> value,
+there can be no error-specific information).  It turns out that we can get this
+with a slightly more complicated datatype called <code>Either</code>.  It looks like this:</p>
+
+<pre><code>  data Either a b = Left a | Right b
+</code></pre>
+
+<p><code>Either</code>, like <code>Maybe</code>, is a type constructor.  However, unlike <code>Maybe</code>, it
+takes <em>two</em> type arguments, and is thus a <em>binary</em> type constructor.  What
+<code>Either</code> allows you to do is to say of a data value "this data value can be one
+of these two types, but nothing else", and it can do this for <em>any</em> two types.
+For instance, let's consider the type <code>Either String Int</code>.  A value of this type
+can be either <code>Left s</code> where <code>s</code> is a <code>String</code>, or <code>Right i</code> where <code>i</code> is an
+<code>Int</code>.  <code>Either</code> has nothing fundamentally to do with error handling, but we
+will be able to use it to create an error handling system.  In this case, the
+convention we will adopt is that the <code>Left</code> constructor will represent error
+values and the <code>Right</code> constructor will represent successful results of
+computations.</p>
+
+<p>For instance, if we wanted a version of integer division that checks for
+divide-by-zero conditions, we might write something like this:</p>
+
+<pre><code>  safe_divide :: Int -&gt; Int -&gt; Either String Int
+  safe_divide _ 0 = Left "divide by zero"
+  safe_divide i j = Right (i `div` j)
+</code></pre>
+
+<p>Let's test it in <code>ghci</code>:</p>
+
+<pre><code>  ghci&gt; 36 `safe_divide` 6
+  Right 6
+  ghci&gt; 1 `safe_divide` 0
+  Left "divide by zero"
+</code></pre>
+
+<p>The good news is that we have a clean way to say that a computation has failed,
+and we can give information about why it failed as well.  The bad news is that
+this function is going to be tedious to use.  For instance:</p>
+
+<pre><code>  -- f i j k = i + j / k
+  f :: Int -&gt; Int -&gt; Int -&gt; Either String Int
+  f i j k = 
+    case j `safe_divide` k of
+      Left msg -&gt; Left msg
+      Right r -&gt; Right (i + r)
+</code></pre>
+
+<p>This is pretty complicated considering what we are trying to do.  In addition,
+the output type (<code>Either String Int</code>) is different from the input types (which
+are all <code>Int</code>s), so it's going to be hard to compose functions which return
+these <code>Either</code> values with functions that don't.  But let's press on for now and
+deal with those problems later.</p>
+
+<p>We can use the <code>Either</code> datatype to represent multiple kinds of error
+conditions.  For instance, with integer division, we might want to fail if the
+two numbers are not evenly divisible as well as checking for division by zero.
+We can improve our <code>safe_divide</code> function accordingly:</p>
+
+<pre><code>  safe_divide :: Int -&gt; Int -&gt; Either String Int
+  safe_divide _ 0 = Left "divide by zero"
+  safe_divide i j | i `mod` j /= 0 = Left "not divisible"
+  safe_divide i j = Right (i `div` j)
+</code></pre>
+
+<p>Now we have a division function for integers that can handle two error
+conditions.  However, it's not easy to write code which detects which of the two
+conditions occurred.  For instance, we might have situations where dividing two
+integers which are not evenly divisible is OK (we just throw away the remainder)
+but division by zero is probably never going to be OK.  Let's try to write this
+using our <code>safe_divide</code> function:</p>
+
+<pre><code>  divide :: Int -&gt; Int -&gt; Either String Int
+  divide i j = case i `safe_divide` j of
+                 Left "divide by zero" -&gt; Left "divide by zero"
+                 Left "not divisible"  -&gt; Right (i `div` j)
+                 Right k               -&gt; Right k
+</code></pre>
+
+<p>Do you see what the problem is here?  We are actually pattern-matching on an
+error message!  That was not supposed to be the purpose of error messages.
+Furthermore, if the error message was long and complicated, not only would it be
+tedious to re-type, but there is a good chance that we would make a typo which
+would show up as a run-time error, because this pattern match is not exhaustive
+(even though we know that these are the only errors that can occur).  There has
+to be a better way.  And there is!  Let's define an algebraic datatype for our
+errors:</p>
+
+<pre><code>  data ArithmeticError =
+      DivideByZero
+    | NotDivisible
+    -- could add more cases here
+      deriving Show
+</code></pre>
+
+<p>The <code>deriving Show</code> part is just so that <code>ArithmeticError</code> values can be printed
+when testing the code in <code>ghci</code>.  Now our definitions become:</p>
+
+<pre><code>  safe_divide :: Int -&gt; Int -&gt; Either ArithmeticError Int
+  safe_divide _ 0 = Left DivideByZero
+  safe_divide i j | i `mod` j /= 0 = Left NotDivisible
+  safe_divide i j = Right (i `div` j)
+
+  divide :: Int -&gt; Int -&gt; Either ArithmeticError Int
+  divide i j = case i `safe_divide` j of
+                 Left DivideByZero -&gt; Left DivideByZero
+                 Left NotDivisible -&gt; Right (i `div` j)
+                 Right k           -&gt; Right k
+</code></pre>
+
+<p>Notice that the types of our functions are no longer <code>Either String Int</code>;
+because the error representation has changed to use <code>ArithmeticError</code>s, the
+types are <code>Either ArithmeticError Int</code>.  What's nice about the definition of
+<code>divide</code> is that if we forget one of the <code>ArithmeticError</code> cases, the compiler
+will let us know (assuming we've enabled exhaustive pattern match checking,
+which I always do).</p>
+
+<p>One limitation is that if we decide later that we want to add another
+constructor to the <code>ArithmeticError</code> datatype, we will potentially need to
+modify a lot of code to handle the extra case.  A more extensible approach (and
+the one used in GHC's <code>Control.Exception</code> module) is to use an <em>existential
+type</em> for error values.  This is a fascinating topic, but it would lead us too
+far afield, so I'm going to stick to the simple algebraic datatype in what
+follows.</p>
+
+<p>Let's recap.  Our error-handling functions will return values which have the
+type <code>Either e a</code>, with a custom error type <code>e</code> as the datatype used in the
+<code>Left</code> constructor.  This custom error type will itself be an algebraic datatype
+with one constructor for each class of errors.  The arguments to the constructor
+(if any) will provide whatever information we want to attach to that class of
+errors.  And with this, we can write clean functions that either succeed or
+result in specific errors.</p>
+
+<p>What we <em>haven't</em> done is shown how to use these error-handling functions in a
+way which is not completely gross.  Every time we call a function that may
+result in an error condition, we have to use a <code>case</code> statement to check for
+those error conditions.  This is very reminiscent of the case in the C
+programming language where some functions return error codes which have to be
+analyzed before continuing in case an error occurred.  Doing this is tedious in
+C, and it's just as tedious in Haskell.  In other languages, this kind of
+problem led to the development of exception-handling systems.  What's Haskell
+going to do about it?  Hmmm, I wonder...</p>
+
+<h2>Making an error-handling monad</h2>
+
+<p>When we work with monads, we are working with monadic functions which have the
+general type <code>a -&gt; m b</code> for arbitrary types <code>a</code> and <code>b</code>, and for a type
+constructor <code>m</code>.  This type constructor must be a <em>unary</em> type constructor
+<em>i.e.</em> a "type function" which maps a type to a type.  We saw this with the
+<code>Maybe</code> monad, where <code>Maybe</code> is a unary type constructor which maps a type (say,
+<code>Int</code>) to another type (<code>Maybe Int</code>).  In this case, the type of the monadic
+functions will thus be <code>a -&gt; Maybe b</code>.</p>
+
+<p>All well and good, but how do we adapt this result to work with error-handling
+types?  First of all, we have to figure out what the type of our monadic
+functions is going to be.  It should come as no surprise that the basic
+error-handling function type is:</p>
+
+<pre><code>  a -&gt; Either e b
+</code></pre>
+
+<p>for arbitrary types <code>a</code> and <code>b</code>, and for some error type <code>e</code>, which will
+typically be an algebraic data type like the <code>ArithmeticError</code> type shown
+above.  Note that this is the error-handling counterpart to a non-error-handling
+function of type <code>a -&gt; b</code>.  Note also that via currying we can have
+error-handling functions with arbitrary numbers of arguments, for instance:</p>
+
+<pre><code>  a -&gt; b -&gt; Either e c
+</code></pre>
+
+<p>The <code>safe_divide</code> and <code>divide</code> functions above happen to have two input
+arguments (of type <code>Int</code>) and one output argument (of type <code>Either
+ArithmeticError Int</code>), so they are cases in point.  Without loss of generality,
+we will only deal with one-argument functions of the form</p>
+
+<pre><code>  a -&gt; Either e b
+</code></pre>
+
+<p>while realizing that through currying, our functions can actually have as many
+arguments as we want.</p>
+
+<p>The problem now is that it might appear that the type</p>
+
+<pre><code>  a -&gt; Either e b
+</code></pre>
+
+<p>is not in the shape of the standard monadic function type</p>
+
+<pre><code>  a -&gt; m b
+</code></pre>
+
+<p>because this requires a unary type constructor <code>m</code> and what we have is the
+binary type constructor <code>Either</code>.  But Haskell allows us to curry type
+constructor "applications" as well as function applications!  In other words, we
+can rewrite the <code>Either</code>-containing type signature as:</p>
+
+<pre><code>  a -&gt; (Either e) b
+</code></pre>
+
+<p>and <code>Either e</code> is a perfectly valid <em>unary</em> type constructor, since it is a
+partially-applied <em>binary</em> type constructor (applied here to some error type
+<code>e</code>).  In the case of our <code>ArithmeticError</code> type, we can write </p>
+
+<pre><code>  a -&gt; (Either ArithmeticError) b
+</code></pre>
+
+<p>and <code>Either ArithmeticError</code> is a unary type constructor: it takes as its
+"input" a type (<code>b</code>) and produces the type <code>Either ArithmeticError b</code>.</p>
+
+<p>The reason that this is important is that it allows us to treat <code>Either e</code> (for
+any error type <code>e</code>) as a monad!  Compare:</p>
+
+<pre><code>  a -&gt; m b            -- general type of monadic functions
+  a -&gt; (Either e) b   -- type of monadic error-handling functions
+</code></pre>
+
+<p>So the monad <code>m</code> in the first case is just <code>Either e</code> for error-handling monads.
+In fact, of course, the parentheses can be omitted, so we write these types as
+just</p>
+
+<pre><code>  a -&gt; Either e b
+</code></pre>
+
+<p>as you'd expect.  Given all this, it shouldn't come as a surprise that the
+definition of the relevant monad would look like this:</p>
+
+<pre><code>  instance Monad (Either e) where
+    (&gt;&gt;=)  = {- definition of &gt;&gt;= for error-handling monads -}
+    return = {- definition of return for error-handling monads -}
+</code></pre>
+
+<p>As before, we will first derive the <code>&gt;&gt;=</code> operator based on what we want the
+monad to do for us, and then we'll derive the <code>return</code> function using the monad
+laws.</p>
+
+<h3>Deriving the <code>&gt;&gt;=</code> operator</h3>
+
+<p>In the context of our error-handling monad, the <code>&gt;&gt;=</code> operator will have the
+type:</p>
+
+<pre><code>  (Either e) a -&gt; (a -&gt; (Either e) b) -&gt; (Either e) b
+</code></pre>
+
+<p>which we might as well write without superfluous parentheses as:</p>
+
+<pre><code>  Either e a -&gt; (a -&gt; Either e b) -&gt; Either e b
+</code></pre>
+
+<p>The interpretation of this is similar to that of the <code>Maybe</code> monad.  We are
+taking the result of an error-handling computation as our input.  That input has
+the type <code>Either e a</code>, which means that it is "either" an error of type <code>e</code> or a
+non-erroneous value of type <code>a</code>.  If it's an error, that error is just passed
+through unchanged.  If it's not an error, the value of type <code>a</code> is extracted and
+passed to the function of type <code>a -&gt; Either e b</code>, yielding the result of type
+<code>Either e b</code>.  Writing the definition is very straightforward:</p>
+
+<pre><code>  (&gt;&gt;=) :: Either e a -&gt; (a -&gt; Either e b) -&gt; Either e b
+  Left err  &gt;&gt;= f  =  Left err
+  Right val &gt;&gt;= f  =  f val
+</code></pre>
+
+<p>What this means in practice is that if you have a bunch of error-handling
+computations being carried out one after another, and an error happens in one of
+them, all the computations subsequent to that error (represented by the monadic
+function <code>f</code>, which may be made up of a bunch of other monadic functions
+composed together) are not carried out; instead, the error value is the return
+value of the entire computation.</p>
+
+<p>Although this definition is plausible, we still have to verify that it doesn't
+violate the monad laws.  Before we do that, we have to define what <code>return</code>
+means in this monad.</p>
+
+<h3>Deriving the <code>return</code> function</h3>
+
+<p>The type of the <code>return</code> function in this monad is:</p>
+
+<pre><code>  return :: a -&gt; Either e a
+</code></pre>
+
+<p>Recall that the type <code>Either e a</code> is:</p>
+
+<pre><code>  data Either e a = Left e | Right a
+</code></pre>
+
+<p>It wouldn't make much sense to return a <code>Left</code> value from <code>return</code>; for one
+thing, no error has occurred, and even if it had, which error would we use?  So
+it's plausible that <code>return</code> will return a <code>Right ???</code> value for some <code>???</code>.  We
+need to fill in this definition:</p>
+
+<pre><code>  return :: a -&gt; Either e a
+  return x = Right ???
+</code></pre>
+
+<p>Since we know nothing whatsoever about the value <code>x</code> other than that it has the
+type <code>a</code>, the simplest thing we can put on the right-hand side is just <code>x</code>.
+This also makes sense given that we know that <code>return</code> is the monadic equivalent
+of the identity function.  So this definition is plausible:</p>
+
+<pre><code>  return :: a -&gt; Either e a
+  return x = Right x
+</code></pre>
+
+<p>Again, we need to check that this doesn't violate the monad laws.</p>
+
+<h3>The monad laws</h3>
+
+<p>The first monad law, written in terms of <code>return</code> and <code>&gt;&gt;=</code>, is:</p>
+
+<pre><code>  return x &gt;&gt;= f  ==  f x
+</code></pre>
+
+<p>Using our definitions for the <code>Either e</code> monad, we have:</p>
+
+<pre><code>  return x &gt;&gt;= f
+    = Right x &gt;&gt;= f  -- definition of return
+    = f x            -- definition of &gt;&gt;=
+    -- Q.E.D.
+</code></pre>
+
+<p>Check.  The second monad law is:</p>
+
+<pre><code>  mv &gt;&gt;= return  ==  mv
+</code></pre>
+
+<p>Let's see if this works:</p>
+
+<pre><code>  -- Case 1: mv == Left err
+  mv &gt;&gt;= return
+    = Left err &gt;&gt;= return      -- definition of mv
+    = Left err                 -- definition of &gt;&gt;=
+    = mv                       -- definition of mv
+  -- Case 2: mv == Right val
+  mv &gt;&gt;= return
+    = Right val &gt;&gt;= return     -- definition of mv
+    = return val               -- definition of &gt;&gt;=
+    = Right val                -- definition of return
+    = mv                       -- definition of mv
+  -- Both cases correct, so Q.E.D.
+</code></pre>
+
+<p>Yup.  That was pretty easy.  Now let's attempt the somewhat harder task of
+proving monad law 3 correct.  The third law is:</p>
+
+<pre><code>  (mv &gt;&gt;= f) &gt;&gt;= g  ==  mv &gt;&gt;= (\x -&gt; (f x &gt;&gt;= g))
+</code></pre>
+
+<p>And so then:</p>
+
+<pre><code>  -- Case 1: mv == Left err
+  -- Left-hand side:
+  (mv &gt;&gt;= f) &gt;&gt;= g
+    = (Left err &gt;&gt;= f) &gt;&gt;= g               -- definition of mv
+    = Left err &gt;&gt;= g                       -- definition of &gt;&gt;=
+    = Left err                             -- definition of &gt;&gt;=
+  -- Right-hand side:
+  mv &gt;&gt;= (\x -&gt; (f x &gt;&gt;= g))
+    = Left err &gt;&gt;= (\x -&gt; (f x &gt;&gt;= g))     -- definition of mv
+    = Left err                             -- definition of &gt;&gt;=
+  -- Case 1 checks out.
+
+  -- Case 2: mv == Right val
+  -- Left-hand side:
+  (mv &gt;&gt;= f) &gt;&gt;= g
+    = (Right val &gt;&gt;= f) &gt;&gt;= g              -- definition of mv
+    = (f val) &gt;&gt;= g                        -- definition of &gt;&gt;=
+    = f val &gt;&gt;= g                          -- remove unnecessary parentheses
+  -- Right-hand side:
+  mv &gt;&gt;= (\x -&gt; (f x &gt;&gt;= g))
+    = Right val &gt;&gt;= (\x -&gt; (f x &gt;&gt;= g))    -- definition of mv
+    = (\x -&gt; (f x &gt;&gt;= g)) val              -- definition of &gt;&gt;=
+    = (f val &gt;&gt;= g)                        -- function application (beta reduction)
+    = f val &gt;&gt;= g                          -- remove unnecessary parentheses
+  -- Case 2 checks out, so Q.E.D.
+</code></pre>
+
+<p>And we're done.  <code>Either e</code> is indeed a monad.  The complete definition of the
+monad is thus:</p>
+
+<pre><code>   instance Monad (Either e) where
+     return x = Right x   -- or just: return = Right
+
+     (Left x)  &gt;&gt;= f = Left x
+     (Right x) &gt;&gt;= f = f x
+</code></pre>
+
+<p>Notice that the specific error type <code>e</code> is irrelevant.  This means that <code>Either
+e</code> is a monad <em>regardless</em> of what error type <code>e</code> is used.  So <code>Either
+ArithmeticError</code> is a monad, <code>Either String</code> is a monad, and <code>Either [any other
+type]</code> is a monad too.  (Generic code like this gives Haskell programmers a warm
+fuzzy feeling.)  Of course, as we saw above, the error type <em>does</em> matter, but
+not for the monad-ness (monadnicity?) of the computation.</p>
+
+<p>Also notice that if we wanted to, we could write the definition of <code>&gt;&gt;=</code> in a
+slightly different (but equivalent) way:</p>
+
+<pre><code>    xx &gt;&gt;= f =
+      case xx of
+        Left x  -&gt; Left x
+        Right x -&gt; f x
+</code></pre>
+
+<p>All we've done here is replace two equations with an explicit <code>case</code> statement,
+which is something that Haskell compilers do for us when compiling code.  This
+way of writing the <code>&gt;&gt;=</code> operator will help you solve an exercise I give below.</p>
+
+<p>Now that we've established that, it's time to see it in action (pun intended!).</p>
+
+<h2>Example: using the <code>Either e</code> monad in a computation </h2>
+
+<p>Consider this very simple function on integers:</p>
+
+<pre><code>  -- f i j k = i / k + j / k
+  f :: Int -&gt; Int -&gt; Int -&gt; Int
+  f i j k = (i `div` k) + (j `div` k)
+</code></pre>
+
+<p>We use <code>div</code> instead of the <code>/</code> operator because <code>/</code> is not defined for integers
+in Haskell.  This function will fail if <code>k</code> is <code>0</code>.  In addition, if we want to
+have it fail when either <code>i</code> or <code>j</code> are not evenly divisible by <code>k</code>, we're out
+of luck; because of the way <code>div</code> works, it will just throw away the remainders.</p>
+
+<p>Let's try it out:</p>
+
+<pre><code>  ghci&gt; f 6 4 2
+  5
+  ghci&gt; f 6 4 0
+  *** Exception: divide by zero
+  ghci&gt; f 6 3 2
+  4
+</code></pre>
+
+<p><code>f 6 4 2</code> is a nice case where both of the first two arguments are divisible by
+the third, giving the expected result <code>5</code>.  When the third argument is <code>0</code> we
+get an exception, and when the second argument is not divisible by the third,
+the remainder is thrown away.</p>
+
+<p>Before I show you the monadic version of this, I want to rewrite the function
+<code>f</code> slightly:</p>
+
+<pre><code>  -- f' i j k = i / k + j / k
+  f' :: Int -&gt; Int -&gt; Int -&gt; Int
+  f' i j k = 
+    let q1 = i `div` k
+        q2 = j `div` k
+    in q1 + q2
+</code></pre>
+
+<p>What we're doing here is giving names to all the subexpressions, so that only
+one arithmetic expression is computed on a line.  This may look different from
+the previous example, but after it passes through GHC's optimization passes,
+both forms reduce to the exact same code.  You'll see why I did this shortly.</p>
+
+<p>Now let's write this code using an <code>Either ArithmeticError Int</code> return type, but
+without using the monadic machinery.  We get this:</p>
+
+<pre><code>  -- g i j k = i / k + j / k
+  g :: Int -&gt; Int -&gt; Int -&gt; Either ArithmeticError Int
+  g i j k = 
+    case i `safe_divide` k of
+      Left  err1 -&gt; Left err1
+      Right q1   -&gt; 
+        case j `safe_divide` k of
+          Left  err2 -&gt; Left err2
+          Right q2   -&gt; Right (q1 + q2)
+</code></pre>
+
+<p>This is kind of gross, but we'll let that pass for now.  Let's test it:</p>
+
+<pre><code>  ghci&gt; g 6 4 2
+  Right 5
+  ghci&gt; g 6 4 0
+  Left DivideByZero
+  ghci&gt; g 6 3 2
+  Left NotDivisible
+</code></pre>
+
+<p>This is nice in the sense that whenever there is an error (as we have defined
+it) we get a specific error result.  Now let's rewrite this using the <code>Either
+e</code> monad:</p>
+
+<pre><code>  -- g' i j k = i / k + j / k
+  g' :: Int -&gt; Int -&gt; Int -&gt; Either ArithmeticError Int
+  g' i j k = 
+    do q1 &lt;- i `safe_divide` k
+       q2 &lt;- j `safe_divide` k
+       return (q1 + q2)
+</code></pre>
+
+<p>This gives the exact same results as the previous version:</p>
+
+<pre><code>  ghci&gt; g' 6 4 2
+  Right 5
+  ghci&gt; g' 6 4 0
+  Left DivideByZero
+  ghci&gt; g' 6 3 2
+  Left NotDivisible
+</code></pre>
+
+<p>However, the function <code>g'</code> is much simpler and clearer than <code>g</code> because it
+doesn't have to explicitly handle any of the error cases.  When an error case
+occurs, it is returned as the result of the function, but if not, the correct
+result of a subexpression is bound to a name (<code>q1</code> or <code>q2</code>), and that result can
+be used in later parts of the computation.  So what monads buy us here is
+exactly what they buy us for the <code>Maybe</code> monad: the code is a lot simpler to
+write.  The more complicated the error-handling function, the more important
+this will be.</p>
+
+<p>Note that, as always, we can rewrite this without using the <code>do</code>-notation as
+follows:</p>
+
+<pre><code>  -- g'' i j k = i / k + j / k
+  g'' :: Int -&gt; Int -&gt; Int -&gt; Either ArithmeticError Int
+  g'' i j k = 
+    i `safe_divide` k &gt;&gt;= \q1 -&gt; 
+      j `safe_divide` k &gt;&gt;= \q2 -&gt;
+        return (q1 + q2)
+</code></pre>
+
+<p>This is identical to the function <code>g'</code>.  We rarely do this in practice (except
+for very short functions) because the <code>do</code> form is usually more readable, but it
+would be a really good exercise at this point to make sure that you understand
+the desugaring of the <code>do</code> form into the form with explicit <code>&gt;&gt;=</code> operators.</p>
+
+<blockquote>
+  <p><em>NOTE</em>: There are situations in which the translation from the <code>do</code>-notation
+  into the version with explicit <code>&gt;&gt;=</code> operators is a bit more complicated than
+  what I've described.  If the left-hand side of the <code>-&gt;</code> is a single name, it's
+  valid, but if it's something more complicated, a pattern-match failure can
+  result, which will result in the <code>fail</code> function of the monad being called.
+  We will talk about this at length in the next article, because there will be a
+  connection between this and certain error-handling type classes that we will
+  be discussing.</p>
+</blockquote>
+
+<p>Once you've done that, you should then take the definition of <code>g''</code> and reduce
+it to the function <code>g</code> using the definitions of <code>&gt;&gt;=</code> and <code>return</code> for the
+<code>Either e</code> monad.  (See the hint above.)</p>
+
+<p>The last lines in <code>g'</code> and <code>g''</code> contain an explicit <code>return</code>.  However, you can
+put <code>return</code>s anywhere, since all they do is lift regular values into the
+<code>Either e</code> monad.  For instance, we could define a function <code>gg</code> as follows:</p>
+
+<pre><code>  gg :: Int -&gt; Int -&gt; Int -&gt; Either ArithmeticError Int
+  gg i j k = 
+    do q1 &lt;- i `safe_divide` k
+       x1 &lt;- return (q1 * 2 - i)
+       q2 &lt;- j `safe_divide` k
+       x2 &lt;- return (q2 * 3 + j)
+       return (q1 * x1 + q2 * x2)
+</code></pre>
+
+<p>What this does isn't important, but it does show that you can put <code>return</code>s in
+the interior of a monadic function.  Lines of the form:</p>
+
+<pre><code>       x &lt;- return y
+</code></pre>
+
+<p>are converting <code>y</code> to a monadic value and then unpacking that value into <code>x</code>.
+Thus <code>x</code> and <code>y</code> must have the same type.  I emphasize again that <code>return</code> in
+Haskell has <em>nothing whatsoever</em> to do with returning from a function!  Make
+sure you understand this before you continue.</p>
+
+<p>The last thing I want to do in this section is to contrast three functions: <code>f</code>,
+<code>f'</code>, and <code>g'</code>:</p>
+
+<pre><code>  f :: Int -&gt; Int -&gt; Int -&gt; Int
+  f i j k = (i `div` k) + (j `div` k)
+
+  f' :: Int -&gt; Int -&gt; Int -&gt; Int
+  f' i j k = 
+    let q1 = i `div` k
+        q2 = j `div` k
+    in q1 + q2
+
+  g' :: Int -&gt; Int -&gt; Int -&gt; Either ArithmeticError Int
+  g' i j k = 
+    do q1 &lt;- i `safe_divide` k
+       q2 &lt;- j `safe_divide` k
+       return (q1 + q2)
+</code></pre>
+
+<p>As you can see, the monadic function <code>g'</code> is structurally very similar to the
+non-monadic function <code>f'</code>.  Unlike <code>f</code> or <code>f'</code>, though, <code>g'</code> will catch
+division-by-zero errors and not-divisible errors and report them in a usable
+form.  The monadic machinery has made it possible to turn grungy error-handling
+functions like <code>g</code> into error-handling functions no grungier than (non
+error-handling) functions like <code>f'</code>.  You might wonder if you can go further
+than this and write monadic functions like <code>g'</code> in a form like the non-monadic
+function <code>f</code>, <em>i.e.</em> something like:</p>
+
+<pre><code>  -- not valid Haskell!
+  g''' :: Int -&gt; Int -&gt; Int -&gt; Either ArithmeticError Int
+  g''' i j k = (i `safe_divide` k) + (j `safe_divide` k)
+</code></pre>
+
+<p>The answer is: no, you can't.  The reason is that, in a monad, you are enforcing
+a certain order of operations: the expression <code>i `safe_divide` k</code> will be
+evaluated before the expression <code>j `safe_divide` k</code>.  This is necessary in
+order to let us abort the computation early if the first expression results in
+an error.  On the other hand, for normal Haskell expressions like <code>(i `div` k)
++ (j `div` k)</code> the order of operations is not specified; Haskell is a lazy
+language and can evaluate this expression in whatever order it wants.  So,
+unfortunately, we can't make our monadic computation look just as simple as the
+corresponding non-monadic one, but we can come pretty close.</p>
+
+<blockquote>
+  <p><em>NOTE</em>: Some monadic computations care more about sequencing than others.  For
+  any computation in the <code>IO</code> monad and most computations in state monads (to be
+  discussed later), sequencing is absolutely essential (for instance, if you
+  print two strings one after the other, you want them to come out in the order
+  you specified, not in some other order!).  For some computations in other
+  monads, sequencing is less important.  In the present case, whether <code>i
+  `safe_divide` k</code> or <code>j `safe_divide` k</code> is evaluated first is not that
+  important; the error handling is the same for both functions and whether one
+  expression or the other fails first is irrelevant.  Nevertheless, whether we
+  like it or not, monads impose the sequencing of operations on their
+  computations and we have to be explicit about this when writing monadic code.</p>
+</blockquote>
+
+<p>So far, we've used the <code>Either e</code> monad and the <code>ArithmeticError</code> datatype to
+achieve two things:</p>
+
+<ol>
+<li><p>writing an error-handling function which gives specific errors for all the
+error conditions we care about;</p></li>
+<li><p>writing these functions in a clean way that doesn't involve lots of ugly
+nested <code>case</code> statements and redundant boilerplate code.</p></li>
+</ol>
+
+<p>What we <em>haven't</em> done yet is to create a system in which errors can be
+recovered from in a selective manner.  This is what other languages offer in
+their exception handling systems.  As we will see next time, in Haskell it's
+incredibly easy to define your own exception handling system in a way which
+builds upon what we've just done.</p>
+
+<h2>Next time</h2>
+
+<p>In the <a href="http://mvanier.livejournal.com/5343.html" rel="nofollow">next installment</a> we'll finish our discussion of error-handling monads by
+talking about the <code>MonadError</code> and <code>Error</code> type classes, two type classes that
+will enable us to use the monadic machinery we've already developed to do
+exception handling (error recovery) in a reasonable way.</p> </div>  </div>   <div  id="comments"  class=" b-grove b-grove-hover  ljtimes-disabled  b-grove-3comments    lj-widget" data-authtoken="c0:1363852800:2917:86400:ZohiRuP2PC-0-:4b756b6eeae6d3e6a974ddf5c6d2dd35" data-widget="comments"> <div class="b-xylem b-xylem-first"> <ul class="b-xylem-cells">  <li class="b-xylem-cell b-xylem-cell-add">  <a class="b-addcomment" href="http://mvanier.livejournal.com/5103.html?mode=reply#add_comment"><span class="b-addcomment-inner"><i class="b-addcomment-icon"></i>Post a new comment</span></a>   <div class=" b-watering  b-watering-trueauth-anonymous b-watering-realauth-anonymous b-watering-authtype-anonymous     b-watering-user-notafriend b-watering-user-regonly   b-watering-user-logips b-watering-user-logips-anon  b-watering-user-screened b-watering-user-screened-all     b-watering-captcha-all  "> <form action="http://www.livejournal.com/talkpost_do.bml" method="post" id="postform"> <div class="b-watering-wrapper"> <input type='hidden' name="journal" value="mvanier" /> <input type='hidden' name="itemid" value="5103" /> <input type='hidden' name="response" value="" /> <input type='hidden' name="lj_form_auth" value="c0:1363852800:2917:86400:ZohiRuP2PC-0-:4b756b6eeae6d3e6a974ddf5c6d2dd35" id="lj_form_auth" /> <input type='hidden' name="chrp1" value="5103-14687195-1363852800-3NRxDgiIMUhRYSlOtJJv-334d89b5947dae5fc3e479a1bcda06b8" /> <input type='hidden' name="chal" value="c0:1363852800:2917:900:TaT5DHxclwifHzLjSPd5:5024bcaa756c40235c7d61c1289ba97a" /> <input type='hidden' name="cookieuser" value="" /> <input type='hidden' name="replyto" value="0" id="replyto" /> <input type='hidden' name="parenttalkid" value="0" id="parenttalkid" /> <input type='hidden' name="editid" value="0" /> <input type='hidden' name="json" value="0" /> <input type='hidden' name="talkpost_do" value="0" /> <input type='hidden' name="subject" /> <input type='hidden' name="stylemine" value="0" /> <input type='hidden' name="viewing_thread" value="" id="viewing_thread" /> <div class="b-msgsystem-errorbox"> <h4 class="b-msgsystem-errorbox-head">Error</h4> <p class="b-msgsystem-error b-msgsystem-error-ajax"></p>          <p class="b-msgsystem-error b-msgsystem-error-regonly">Anonymous comments are disabled in this journal</p>   </div> <div class="b-watering-outer"> <div class="b-watering-fields"> <div class="b-watering-inner"> <div class="b-watering-user"> <div class="b-watering-user-login"> <ul class="b-watering-user-login-items">   <li class="b-watering-user-login-item b-watering-user-login-user">  <input name="usertype" value="user"  id="user" class="b-watering-user-login-checkbox" type="radio">  <i class="b-watering-user-login-pic"></i>  <span class="b-watering-user-login-details"> <input placeholder="Username" name="userpost" type="text" tabindex="25" autocomplete="off" class="auth-input"> <input placeholder="Password" name="password" type="password" tabindex="25" autocomplete="off" class="auth-input"> </span>  </li>    <li class="b-watering-user-login-item b-watering-user-login-facebook">  <input name="usertype" value="facebook"  id="facebook" class="b-watering-user-login-checkbox" type="radio">  <i class="b-watering-user-login-pic"></i>   <span class="b-watering-user-login-details">  We will log you in after post  </span>   </li>    <li class="b-watering-user-login-item b-watering-user-login-twitter">  <input name="usertype" value="twitter"  id="twitter" class="b-watering-user-login-checkbox" type="radio">  <i class="b-watering-user-login-pic"></i>   <span class="b-watering-user-login-details">  We will log you in after post  </span>   </li>    <li class="b-watering-user-login-item b-watering-user-login-openid">  <input name="usertype" value="openid"  id="openid" class="b-watering-user-login-checkbox" type="radio">  <i class="b-watering-user-login-pic"></i>   <span class="b-watering-user-login-details">  <input id="openid" name="openid:url" placeholder="openid" type="text"  tabindex="25" autocomplete="off" class="auth-input">  </span>   </li>    <li class="b-watering-user-login-item b-watering-user-login-google">  <input name="usertype" value="google"  id="google" class="b-watering-user-login-checkbox" type="radio">  <i class="b-watering-user-login-pic"></i>   <span class="b-watering-user-login-details">  We will log you in after post  </span>   </li>    <li class="b-watering-user-login-item b-watering-user-login-mailru">  <input name="usertype" value="mailru"  id="mailru" class="b-watering-user-login-checkbox" type="radio">  <i class="b-watering-user-login-pic"></i>   <span class="b-watering-user-login-details">  We will log you in after post  </span>   </li>    <li class="b-watering-user-login-item b-watering-user-login-vkontakte">  <input name="usertype" value="vkontakte"  id="vkontakte" class="b-watering-user-login-checkbox" type="radio">  <i class="b-watering-user-login-pic"></i>   <span class="b-watering-user-login-details">  We will log you in after post  </span>   </li>    <li class="b-watering-user-login-item b-watering-user-login-anonymous">  <input name="usertype" value="anonymous" checked id="anonymous" class="b-watering-user-login-checkbox" type="radio">  <i class="b-watering-user-login-pic"></i>   <span class="b-watering-user-login-details">  Anonymously  </span>   </li>   </ul> </div> <div class="b-watering-user-options">  <a href="javascript:void(0);" class="b-watering-user-change b-pseudo" tabindex="10">switch</a>  <div class="b-watering-user-services"> <ul class="b-watering-user-services-items">  <li class="b-watering-user-services-item b-watering-user-services-user"> <a href="#user" tabindex="20"><i class="b-watering-user-services-pic"></i><span class="b-watering-user-services-name">LiveJournal</span> </a> </li>  <li class="b-watering-user-services-item b-watering-user-services-facebook"> <a href="#facebook" tabindex="20"><i class="b-watering-user-services-pic"></i><span class="b-watering-user-services-name">Facebook</span> </a> </li>  <li class="b-watering-user-services-item b-watering-user-services-twitter"> <a href="#twitter" tabindex="20"><i class="b-watering-user-services-pic"></i><span class="b-watering-user-services-name">Twitter</span> </a> </li>  <li class="b-watering-user-services-item b-watering-user-services-openid"> <a href="#openid" tabindex="20"><i class="b-watering-user-services-pic"></i><span class="b-watering-user-services-name">OpenId</span> </a> </li>  <li class="b-watering-user-services-item b-watering-user-services-google"> <a href="#google" tabindex="20"><i class="b-watering-user-services-pic"></i><span class="b-watering-user-services-name">Google</span> </a> </li>  <li class="b-watering-user-services-item b-watering-user-services-mailru"> <a href="#mailru" tabindex="20"><i class="b-watering-user-services-pic"></i><span class="b-watering-user-services-name">MailRu</span> </a> </li>  <li class="b-watering-user-services-item b-watering-user-services-vkontakte"> <a href="#vkontakte" tabindex="20"><i class="b-watering-user-services-pic"></i><span class="b-watering-user-services-name">VKontakte</span> </a> </li>  <li class="b-watering-user-services-item b-watering-user-services-anonymous"> <a href="#anonymous" tabindex="20"><i class="b-watering-user-services-pic"></i><span class="b-watering-user-services-name">Anonymously</span> </a> </li>  </ul> </div>   </div> </div> <div class="  b-ljuserpic   b-ljuserpic-nopics  ">  <input type="hidden" name="prop_picture_keyword" id="prop_picture_keyword" value="">  <span class="b-ljuserpic-default">default userpic</span> <div class=" b-myuserpic  b-myuserpic-anonymous "> <a href="javascript:void(0);" class="b-myuserpic-current"  data-nodefpic="url(http://l-stat.livejournal.com/img/userpics/userpic-user.png?v=15821)" data-nodeflabel="default userpic"  style="background-image: url(  http://l-stat.livejournal.com/img/userpics/userpic-anonymous.png?v=15821  );" tabindex="30"></a>  </div> </div> <div class=" b-updateform lj-widget " data-widget="commentsFormToolbar" > <div class="b-updateform-bar"> <ul class="b-updateform-buttons b-updateform-buttons-firstsection">   <li class="b-updateform-buttons-item"> <a href="javascript:void(0);" class="b-updateform-button b-updateform-button-bold" title="Insert Bold" tabindex="151" data-type="bold" data-role="style"> <i class="b-updateform-button-pic"></i> <span class="b-updateform-button-title b-pseudo">Insert Bold</span> </a> </li>    <li class="b-updateform-buttons-item"> <a href="javascript:void(0);" class="b-updateform-button b-updateform-button-italic" title="Insert Italic" tabindex="151" data-type="italic" data-role="style"> <i class="b-updateform-button-pic"></i> <span class="b-updateform-button-title b-pseudo">Insert Italic</span> </a> </li>    <li class="b-updateform-buttons-item"> <a href="javascript:void(0);" class="b-updateform-button b-updateform-button-underline" title="Insert Underline" tabindex="151" data-type="underline" data-role="style"> <i class="b-updateform-button-pic"></i> <span class="b-updateform-button-title b-pseudo">Insert Underline</span> </a> </li>    <li class="b-updateform-buttons-item"> <a href="javascript:void(0);" class="b-updateform-button b-updateform-button-strikethrough" title="Insert Strikethrough" tabindex="151" data-type="strikethrough" data-role="style"> <i class="b-updateform-button-pic"></i> <span class="b-updateform-button-title b-pseudo">Insert Strikethrough</span> </a> </li>             </ul> <ul class="b-updateform-buttons b-updateform-buttons-secondsection">           <li class="b-updateform-buttons-item"> <a href="javascript:void(0);" class="b-updateform-button b-updateform-button-link" title="Insert Link" tabindex="151" data-type="link" data-role="bubble"> <i class="b-updateform-button-pic"></i> <span class="b-updateform-button-title b-pseudo">Insert Link</span> </a> </li>    <li class="b-updateform-buttons-item"> <a href="javascript:void(0);" class="b-updateform-button b-updateform-button-user" title="Insert LJ User" tabindex="151" data-type="user" data-role="bubble"> <i class="b-updateform-button-pic"></i> <span class="b-updateform-button-title b-pseudo">Insert LJ User</span> </a> </li>         </ul> <ul class="b-updateform-buttons b-updateform-buttons-thirdsection">               <li class="b-updateform-buttons-item"> <a href="javascript:void(0);" class="b-updateform-button b-updateform-button-photo" title="Insert Photo" tabindex="151" data-type="photo" data-role="photouploader"> <i class="b-updateform-button-pic"></i> <span class="b-updateform-button-title b-pseudo">Insert Photo</span> </a> </li>    <li class="b-updateform-buttons-item"> <a href="javascript:void(0);" class="b-updateform-button b-updateform-button-video" title="Insert Video" tabindex="151" data-type="video" data-role="bubble"> <i class="b-updateform-button-pic"></i> <span class="b-updateform-button-title b-pseudo">Insert Video</span> </a> </li>     </ul> <ul class="b-updateform-buttons b-updateform-buttons-aside">                   <li class="b-updateform-buttons-item">  <a href="javascript:void(0);" class="b-updateform-button b-updateform-button-spell" title="Spell check" tabindex="151" data-type="spell" data-role="spell"> <i class="b-updateform-button-pic"></i> <span class="b-updateform-button-title b-pseudo">Spell check</span> </a>  </li>   </ul> </div> <textarea  name="body" id="body" cols="60" rows="10" class="b-updateform-textarea" tabindex="50" autocomplete="off"></textarea> </div> <div class="b-watering-msgbox">    <p class="b-msgsystem-error b-msgsystem-error-screened">Your reply will be screened</p>    <p class="b-msgsystem-error b-msgsystem-error-logcommentips"> Your IP address will be recorded &nbsp; <a href="http://www.livejournal.com/support/faq/66.html" class="b-watering-help-link" target="_blank"><i class="b-watering-help-icon"></i></a> </p>  </div>  <div class="b-watering-captchabox b-watering-captchabox-active" id="captcha-container">  <script type="text/javascript">
+//<![CDATA[
+var RecaptchaOptions = {"lang":"en_LJ","theme":"clean"};
+//]]>
+</script>
+<script src="http://www.google.com/recaptcha/api/challenge?k=6LegWAEAAAAAANJcmtbLTuHlG7AbDzLPxvimCw_Z" type="text/javascript"></script>
+<noscript><iframe frameborder="0" height="300" src="http://www.google.com/recaptcha/api/noscript?k=6LegWAEAAAAAANJcmtbLTuHlG7AbDzLPxvimCw_Z" width="500"></iframe><textarea cols="40" name="recaptcha_challenge_field" rows="3"></textarea><input name="recaptcha_response_field" type="hidden" value="manual_challenge" /></noscript>
+  </div> <div class="b-watering-submit"> <div class="b-ljbutton b-ljbutton-submit"> <button type="submit" name="submitpost" tabindex="80">Post a new comment</button> </div> </div> </div> </div> <div class="b-watering-aside"> <div class="b-watering-help"> <a href="http://www.livejournal.com/support/faq/46.html" class="b-watering-help-link" target="_blank"><i class="b-watering-help-icon"></i>Help</a> </div> </div> </div> </div> <script id="tmpl-updateform-link" type="text/html"> <i class="b-updateform-bubble-bg"></i> <div class="b-updateform-bubble-wrapper b-updateform-bubble-link-empty"> <div class="b-updateform-bubble-link-fields"><label for="updateform-link-url">Link</label><br><input type="text" id="updateform-link-url" size="50" value="" class="b-updateform-bubble-input"><br><span class="b-updateform-bubble-option"><input type="checkbox" id="updateform-link-target" class="b-updateform-bubble-checkbox" tabindex="50" checked disabled><label for="updateform-link-target" class="b-updateform-bubble-option-label">open in new window</label></span></div> <div class="b-updateform-bubble-link-button"><div class="b-ljbutton b-ljbutton-delete b-updateform-bubble-link-button-remove"><button name="removelinks" type="button">Remove all links in selection</button></div><div class="b-ljbutton b-ljbutton-submit b-ljbutton-disabled"><button name="submitpost" type="button" disabled="disabled">Insert</button></div></div> </div> </script> <script id="tmpl-updateform-photo" type="text/html"> <i class="b-updateform-bubble-bg"></i> <div class="b-updateform-bubble-wrapper"> <div class="b-updateform-bubble-photo-pic"><span class="b-updateform-bubble-photo-inner"><img src="http://l-stat.livejournal.com/img/spacer.gif?v=13339" alt="" class="b-updateform-bubble-photo-preview"></span></div> <div class="b-updateform-bubble-photo-fields"><label for="updateform-bubble-photo-url">Photo</label><br><input type="text" id="updateform-photo-url" size="50" value="" class="b-updateform-bubble-input"><br><span class="b-updateform-bubble-hint">Hint&nbsp;<span class="b-pseudo b-updateform-bubble-example">http://pics.livejournal.com/igrick/pic/000r1edq</span></span></div> <div class="b-updateform-bubble-photo-button"><div class="b-ljbutton b-ljbutton-submit b-ljbutton-disabled"><button name="submitpost" type="button" disabled="disabled">Insert</button></div></div> </div> </script> <script id="tmpl-updateform-video" type="text/html"> <i class="b-updateform-bubble-bg"></i> <div class="b-updateform-bubble-wrapper"> <div class="b-updateform-bubble-video-fields"><label for="updateform-video-url">Video</label><br><textarea rows="5" cols="60" id="updateform-video-url" class="b-updateform-bubble-input" ></textarea><span class="b-updateform-bubble-hint" data-hint-target="#updateform-video-url">Embed, iframe, <a href="http://www.youtube.com/watch?v=-LMebrVm-uU" target="_blank">youtube</a> or <a href="http://vimeo.com/59545564" target="_blank">vimeo</a></span></div> <div class="b-updateform-bubble-video-button"><div class="b-ljbutton b-ljbutton-submit b-ljbutton-disabled"><button name="submitpost" type="button" disabled="disabled">Insert</button></div></div> </div> </script> <script id="tmpl-updateform-user" type="text/html"> <i class="b-updateform-bubble-bg"></i> <div class="b-updateform-bubble-wrapper"> <div class="b-updateform-bubble-user-fields"><label for="updateform-bubble-user-name">User</label><br><span class="b-updateform-bubble-input-wrapper b-updateform-bubble-input-username"><input type="text" id="updateform-bubble-user-name" size="30" maxlength="15" value="" class="b-updateform-bubble-input"><i class="b-updateform-bubble-input-pic"></i></span><span class="b-updateform-bubble-hint">Example:&nbsp;<span class="b-pseudo b-updateform-bubble-example">igrick</span></span><span class="b-updateform-bubble-warning b-bubble b-bubble-warning b-bubble-intext">No such user</span><span class="b-updateform-bubble-input-title"><label for="updateform-bubble-user-title">User title (optional)</label><br><input type="text" id="updateform-bubble-user-title" size="30" maxlength="255" value="" class="b-updateform-bubble-input"></span></div> <div class="b-updateform-bubble-user-button"><div class="b-ljbutton b-ljbutton-submit b-ljbutton-disabled"><button name="submitpost" type="button" disabled="disabled">Insert user</button></div></div> </div> </script> </form> <script type="text/javascript"> jQuery('#body').spellchecker() .spellchecker('option', 'minHeight', 180) .spellchecker('subscribe') .spellchecker('start'); </script> <i class="b-watering-close"></i> <i class="b-watering-arrows"> <i class="b-watering-arrow-border"></i> <i class="b-watering-arrow"></i> </i> </div> <script> (function() { var node = jQuery('.b-watering'); node.commentator({ publicKey: '6LegWAEAAAAAANJcmtbLTuHlG7AbDzLPxvimCw_Z', captchaContainerId: 'captcha-container', selectors: { errorBlock: '.b-msgsystem-error-ajax', blockingErrorBlocks: '.b-msgsystem-error', preloaderElem: '.b-watering-preload', submitControl: '.b-ljbutton-submit', captchaBox: '.b-watering-captchabox' }, classNames: { captchaActive: 'b-watering-captchabox-active', replyPage: 'b-watering-replypage' } }) .commentform();  node.authtype({ forceStartupCaptcha: !!(Number('1')), classNames: { expanded: 'b-watering-user-options-show', startAuthTypePrefix: 'b-watering-trueauth-', captchaForAnonymous: 'b-watering-captcha-anon', captchaForNonFriends: 'b-watering-captcha-nonfriend', notfriend: 'b-watering-user-notafriend', notaspammer: 'b-watering-notaspammer', captchaForAll: 'b-watering-captcha-all', authTypePrefix: 'b-watering-authtype-' }, selectors: { activeSelectItem: 'a[href=#{authType}]', selectControl: '.b-watering-user-options', authTypesControls: '.b-watering-user-services-item a', authTypeRadios: '.b-watering-user-login-{authType} .b-watering-user-login-checkbox' } }); }()); </script>  </li>  <li class="b-xylem-cell b-xylem-cell-amount">    0 comments    </li>  </ul>  </div>      <div class="b-tree b-tree-root"> </div> <script id="comments_json" type="text/plain"> [] </script>  <div class="b-xylem"> <ul class="b-xylem-cells">  <li class="b-xylem-cell b-xylem-cell-add"> <a class="b-addcomment" href="http://mvanier.livejournal.com/5103.html?mode=reply#add_comment"><span class="b-addcomment-inner"><i class="b-addcomment-icon"></i>Post a new comment</span></a> </li>  <li class="b-xylem-cell b-xylem-cell-amount">    0 comments    </li>  </ul>  </div>     </div>  </div>
+					<div class='clear'></div>
+
+				</div>
+				<!--/ Text Wrapper -->
+
+				
+
+			
+
+		</div>
+		<!--/ Content -->
+
+		
+
+	</div>
+	<!--/ Content Wrapper -->
+
+
+
+
+
+
+
+	
+		<footer class="s-footer s-footer-lite">
+			<div class="s-footer-nav-inner">
+				<div class="s-footer-copyright">Copyright &copy; 1999 LiveJournal, Inc.  All rights reserved.</div>
+			</div>	
+		</footer>
+		
+	
+
+	<div id='hello-world' style='text-align: left; font-size:0; line-height:0; height:0; overflow:hidden;'>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-24823174-1']);
+  _gaq.push(['_setDomainName', '.livejournal.com']);
+  _gaq.push(['_trackPageview']);
+  _gaq.push(['_trackPageLoadTime']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+<!-- tns-counter.ru --> 
+<script language="JavaScript" type="text/javascript"> 
+var img = new Image();
+img.src = 'http://www.tns-counter.ru/V13a***R>' + document.referrer.replace(/*/g,'%2a') + '*sup_ru/ru/UTF-8/tmsec=lj_noncyr/' + Math.round(Math.random() * 1000000000);
+</script> 
+<noscript> 
+<img src="http://www.tns-counter.ru/V13a****sup_ru/ru/UTF-8/tmsec=lj_noncyr/" width="1" height="1" alt="">
+</noscript>
+<!--/ tns-counter.ru -->
+<!-- Begin comScore Tag 1.1111.15 -->
+<script type="text/javascript">
+// <![CDATA[
+function udm_(a){var b="comScore=",c=document,d=c.cookie,e="",f="indexOf",g="substring",h="length",i=2048,j,k="&ns_",l="&",m,n,o,p,q=window,r=q.encodeURIComponent||escape;if(d[f](b)+1)for(o=0,n=d.split(";"),p=n[h];o<p;o++)m=n[o][f](b),m+1&&(e=l+unescape(n[o][g](m+b[h])));a+=k+"_t="+ +(new Date)+k+"c="+(c.characterSet||c.defaultCharset||"")+"&c8="+r(c.title)+e+"&c7="+r(c.URL)+"&c9="+r(c.referrer),a[h]>i&&a[f](l)>0&&(j=a[g](0,i-8).lastIndexOf(l),a=(a[g](0,j)+k+"cut="+r(a[g](j+1)))[g](0,i)),c.images?(m=new Image,q.ns_p||(ns_p=m),m.src=a):c.write("<","p","><",'img src="',a,'" height="1" width="1" alt="*"',"><","/p",">")}
+udm_('http'+(document.location.href.charAt(4)=='s'?'s://sb':'://b')+'.scorecardresearch.com/b?c1=2&c2=7602110&sm_vd_cyrillic_status=nonCyr&sm_vd_view_own_journal=undef&sm_vd_id=undef&sm_vd_login_status=logout&sm_vd_account_level=undef&sm_vd_premium_package=undef&sm_vd_early_adopter=undef&sm_vd_log_in_service=undef&sm_vd_viewing_scheme=lanzelot&sm_vd_view_in_my_style=undef&sm_pd_visited_journal_account_type=personal&sm_pd_visited_journal_log_in_service=lj&sm_pd_ads_onpage=0&sm_pd_ad_eligible=no&sm_pd_adult_content=none&sm_pd_comments_style=undef&sm_pd_error_pages=undef&sm_pd_visited_journal_name=mvanier&sm_pd_page_type=journal&sm_pd_style_layout=undef&sm_pd_style_design=undef&sm_pd_style_system=undef&sm_pd_visited_journal_account_level=basic&sm_pd_early_adopter=no&sm_pd_visited_journal_premium_package=no&sm_pd_page_group=PostMainPage');
+// ]]>
+</script>
+<noscript><p><img src="http://b.scorecardresearch.com/p?c1=2&c2=7602110&sm_vd_cyrillic_status=nonCyr&sm_vd_view_own_journal=undef&sm_vd_id=undef&sm_vd_login_status=logout&sm_vd_account_level=undef&sm_vd_premium_package=undef&sm_vd_early_adopter=undef&sm_vd_log_in_service=undef&sm_vd_viewing_scheme=lanzelot&sm_vd_view_in_my_style=undef&sm_pd_visited_journal_account_type=personal&sm_pd_visited_journal_log_in_service=lj&sm_pd_ads_onpage=0&sm_pd_ad_eligible=no&sm_pd_adult_content=none&sm_pd_comments_style=undef&sm_pd_error_pages=undef&sm_pd_visited_journal_name=mvanier&sm_pd_page_type=journal&sm_pd_style_layout=undef&sm_pd_style_design=undef&sm_pd_style_system=undef&sm_pd_visited_journal_account_level=basic&sm_pd_early_adopter=no&sm_pd_visited_journal_premium_package=no&sm_pd_page_group=PostMainPage" height="1" width="1" alt="*"></p></noscript>
+<script type="text/javascript" language="JavaScript1.3" src="http://b.scorecardresearch.com/c2/7602110/cs.js"></script>
+<!-- End comScore Tag --><!-- Quantcast Tag -->
+<script type="text/javascript">
+var _qevents = _qevents || [];
+
+(function() {
+var elem = document.createElement('script');
+elem.src = (document.location.protocol == "https:" ? "https://secure" : "http://edge") + ".quantserve.com/quant.js";
+elem.async = true;
+elem.type = "text/javascript";
+var scpt = document.getElementsByTagName('script')[0];
+scpt.parentNode.insertBefore(elem, scpt);
+})();
+
+_qevents.push({
+qacct:"p-2945K0QbJw0BA"
+});
+</script>
+
+<noscript>
+<div style="display:none;">
+<img src="//pixel.quantserve.com/pixel/p-2945K0QbJw0BA.gif" border="0" height="1" width="1" alt="Quantcast"/>
+</div>
+</noscript>
+<!-- End Quantcast tag -->
+<!-- LiveJournal COUNTER -->
+<img src="http://xc3.services.livejournal.com/ljcounter?d=srv:bil1-ws48,r:0,j:14687195,uri:%22%2F5103.html%22,vig:0,extra:AOAb2wDgG9sAABPv" alt="" />
+<!-- /COUNTER -->
+</div>
+	
+	<script type="text/javascript">LiveJournal.injectScript('http://apis.google.com/js/plusone.js',{text:"{lang: 'en'}"});</script><div id="fb-root"></div>
+        <script type="text/javascript">
+          window.fbAsyncInit = function() {
+            FB.init({appId: '214181831945836', xfbml: true});
+          };
+
+          LiveJournal.injectScript(document.location.protocol + '//connect.facebook.net/en_US/all.js', null, document.getElementById('fb-root'))
+        </script>
+    <script type="text/javascript">LiveJournal.injectScript('http://surfingbird.ru/share/share.min.js');</script> <script type="text/javascript">LiveJournal.injectScript('http://platform.twitter.com/widgets.js');</script><script type="application/javascript">var _prum={id:"50e69c3994fe9c2c10000003"};var PRUM_EPISODES=PRUM_EPISODES||{};PRUM_EPISODES.q=[];PRUM_EPISODES.mark=function(b,a){PRUM_EPISODES.q.push(["mark",b,a||new Date().getTime()])};PRUM_EPISODES.measure=function(b,a,b){PRUM_EPISODES.q.push(["measure",b,a,b||new Date().getTime()])};PRUM_EPISODES.done=function(a){PRUM_EPISODES.q.push(["done",a])};PRUM_EPISODES.mark("firstbyte");(function(){var b=document.getElementsByTagName("script")[0];var a=document.createElement("script");a.type="text/javascript";a.async=true;a.charset="UTF-8";a.src="//rum-static.pingdom.net/prum.min.js";b.parentNode.insertBefore(a,b)})();</script>
+
+
+</body>
+
+</html>

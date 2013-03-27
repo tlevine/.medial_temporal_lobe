@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head><script type="text/javascript">var NREUMQ=NREUMQ||[];NREUMQ.push(["mark","firstbyte",new Date().getTime()]);</script>
+<title>Apply - Hacker School</title>
+<meta charset='utf-8'>
+<link href="https://www.hackerschool.com/blog.rss" rel="alternate" title="Hacker School Blog" type="application/rss+xml" />
+<link href="/assets/application-22a933155da2a1327e331534cd84485d.css" media="screen" rel="stylesheet" type="text/css" />
+<link href="/assets/screen-cfb15754fa4400da724469c6120d7a24.css" media="screen, projection" rel="stylesheet" type="text/css" />
+<link href="/assets/print-bd37ebd343cd22c80a5be33f654e9a59.css" media="print" rel="stylesheet" type="text/css" />
+<!--[if lt IE 8]>
+<link href="/assets/ie-932109afa3eab14cc83c8dbc06d8cace.css" media="screen, projection" rel="stylesheet" type="text/css" />
+<![endif]-->
+<!--[if lt IE 9]>
+<script src='//html5shim.googlecode.com/svn/trunk/html5.js'></script>
+<![endif]-->
+<script src="/assets/application-2a1b33176219e77f51f9a37c48d67e93.js" type="text/javascript"></script>
+<meta content="authenticity_token" name="csrf-param" />
+<meta content="8S0ShW+thHB0PyDITbjqFx5Pnl9ydlqQKH1ZgcB1GKU=" name="csrf-token" />
+</head>
+<body>
+<div id='apply-bar'>
+Applications are open for our summer 2013 batch.
+<a href="/apply?r=top">Apply now!</a>
+</div>
+<div id='login-link'>
+<a href="/private">Log in</a>
+</div>
+<div id='container'>
+<div id='logo'>
+<a href="/"><img alt="Hacker School logo" src="/assets/logo_140-608c421d92dd0c687b06fce47ec95a21.png" /></a>
+</div>
+
+<nav class='main'>
+<ul>
+<li><a href="/">Home</a></li>
+<li><a href="/about">About</a></li>
+<li><a href="/attending">Attending</a></li>
+<li><a href="/faq">FAQ</a></li>
+<li><a href="/residents">Residents</a></li>
+<li><a href="/testimonials">Testimonials</a></li>
+<li><a href="/blog">Blog</a></li>
+<li class='last'>Apply</li>
+</ul>
+</nav>
+<div id='content'>
+<h2>Apply to the Summer 2013 Batch of Hacker School</h2>
+<p>
+Apply by <strong>Thursday, March 28 at 11:59 PM ET</strong> to be guaranteed an admissions decision by Friday, April 26.
+(For more details, see
+<a href="/faq#admissions-timeline-question" target="_blank">our admissions timeline</a>.)
+</p>
+<p>In general, clear and concise answers are better than long ones. Most answers have a 1500 character max length, but you don't need to write that much. All fields are required.</p>
+<form accept-charset="UTF-8" action="/applications" class="application-form" id="new_application" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="8S0ShW+thHB0PyDITbjqFx5Pnl9ydlqQKH1ZgcB1GKU=" /></div>
+<ul>
+<li>
+<label for="application_name">Name</label>
+<input data-validate="notEmpty" id="application_name" name="application[name]" size="30" type="text" />
+<span class='error-apply'>Please enter your name</span>
+</li>
+<li>
+<label for="application_email">Email</label>
+<input data-validate="notEmpty, email" id="application_email" name="application[email]" size="30" type="text" />
+<span class='error-apply'>Please enter a valid email address</span>
+</li>
+<li>
+<label for="application_skype">Skype</label>
+<input id="application_skype" name="application[skype]" size="30" type="text" />
+<span class='application-directions directions'>(for interviews)</span>
+</li>
+<li>
+<label class="questions" for="application_links">Links</label>
+<span class='application-directions directions'>(include any that you have: GitHub, LinkedIn, personal web site, etc)</span>
+<textarea cols="40" data-validate="notEmpty" id="application_links" name="application[links]" rows="20">
+</textarea>
+<div class='error-apply'>Please enter your GitHub, LinkedIn and other URLs.</div>
+</li>
+<li>
+<label class="questions" for="application_fizzbuzz">Code FizzBuzz</label>
+<span class='application-directions directions'>(you can use any language) <a href="#" id="fizzbuzz-help-link">What's FizzBuzz?</a></span>
+<div id='fizzbuzz-help'>
+<p>Write a program that prints out the numbers 1 to 100 (inclusive).</p>
+<p>If the number is divisible by 3, print <em>Fizz</em> instead of the number. If it's divisible by 5, print <em>Buzz</em>. If it's divisible by both 3 and 5, print <em>FizzBuzz</em>.</p>
+</div>
+<textarea cols="40" data-validate="notEmpty" id="application_fizzbuzz" name="application[fizzbuzz]" rows="20">
+</textarea>
+<div class='error-apply'>Please solve FizzBuzz.</div>
+</li>
+<li>
+<label class="questions" for="application_questions_0">Please paste in or link to a program you&#x27;ve written from scratch.</label>
+<div class='application-directions directions'>It doesn't need to be long, but it should be something you've written yourself, and not using a framework (e.g., Rails).  If you don't have anything to submit, code something small, like a game of tic-tac-toe.</div>
+<textarea cols="40" data-validate="notEmpty" id="application_questions_0" maxlength="" name="application[questions][0]" rows="20">
+</textarea>
+<div class='error-apply'>Please share a program you've written.</div>
+</li>
+<li>
+<label class="questions" for="application_questions_1">What is the most fascinating thing you&#x27;ve learned in the past month?</label>
+<div class='application-directions directions'>This doesn't have to be about programming.</div>
+<textarea cols="40" data-validate="notEmpty" id="application_questions_1" maxlength="1500" name="application[questions][1]" rows="20">
+</textarea>
+<div class='error-apply'>Please share a fascinating thing you've learned recently.</div>
+</li>
+<li>
+<label class="questions" for="application_questions_2">What do you want to be doing in two years?</label>
+<textarea cols="40" data-validate="notEmpty" id="application_questions_2" maxlength="1500" name="application[questions][2]" rows="20">
+</textarea>
+<div class='error-apply'>Please tell us what you'd like to be doing in two years. It's ok to say, &quot;I don't know.&quot;</div>
+</li>
+<li>
+<label class="questions" for="application_questions_3">Why do you want to do Hacker School?</label>
+<textarea cols="40" data-validate="notEmpty" id="application_questions_3" maxlength="1500" name="application[questions][3]" rows="20">
+</textarea>
+<div class='error-apply'>Please tell us why you want to do Hacker School.</div>
+</li>
+<li>
+<label class="questions" for="application_questions_4">What would you like to work on at Hacker School?</label>
+<div class='application-directions directions'>E.g., things you want to learn or understand better, projects you want to build or contribute to, etc.</div>
+<textarea cols="40" data-validate="notEmpty" id="application_questions_4" maxlength="" name="application[questions][4]" rows="20">
+</textarea>
+<div class='error-apply'>Please tell us what you'd like to work on at Hacker School.</div>
+</li>
+<li>
+<input name="application[is_female]" type="hidden" value="0" /><input id="application_is_female" name="application[is_female]" type="checkbox" value="1" />
+<label class="questions" for="application_is_female">I&#x27;m a woman</label>
+</li>
+<li>
+<input name="application[needs_financial_assistance]" type="hidden" value="0" /><input id="application_needs_financial_assistance" name="application[needs_financial_assistance]" type="checkbox" value="1" />
+<label class="questions" for="application_needs_financial_assistance">I&#x27;d need financial assistance to do Hacker School</label>
+<a href="/faq#scholarships-question" target="_blank">Learn more.</a>
+</li>
+<li>
+<input id="application_batch_id" name="application[batch_id]" type="hidden" value="8" />
+<input id="application_referred_by" name="application[referred_by]" type="hidden" />
+<input name="commit" type="submit" value="Apply" />
+</li>
+</ul>
+</form>
+<br>
+<p>
+Have questions? Check our
+<a href="/faq">FAQ</a>
+and <a href="mailto:admissions@hackerschool.com">email us</a> if it's not answered there.
+</p>
+
+
+</div>
+<div id='footer'>
+Hacker School <img alt="Heart" src="/assets/heart-68742940257ecd4cc25b609308cc1102.png" /> NY. We also write the <a href="http://www.linkedlistnyc.org/">LinkedList</a>.
+</div>
+</div>
+<script type="text/javascript">if (!NREUMQ.f) { NREUMQ.f=function() {
+NREUMQ.push(["load",new Date().getTime()]);
+var e=document.createElement("script");
+e.type="text/javascript";
+e.src=(("http:"===document.location.protocol)?"http:":"https:") + "//" +
+  "d1ros97qkrwjf5.cloudfront.net/42/eum/rum.js";
+document.body.appendChild(e);
+if(NREUMQ.a)NREUMQ.a();
+};
+NREUMQ.a=window.onload;window.onload=NREUMQ.f;
+};
+NREUMQ.push(["nrfj","beacon-4.newrelic.com","d25814a1dc","957280","cw5dRUtfVVwGEBtQQ0ANWlJYRFBfDREbX1ZH",15,55,new Date().getTime(),"","","","",""]);</script></body>
+</html>

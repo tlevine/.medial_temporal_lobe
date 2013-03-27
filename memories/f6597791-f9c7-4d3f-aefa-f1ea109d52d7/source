@@ -1,0 +1,990 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+        
+    <title>Better Way to Define an Enum in Haskell - Stack Overflow</title>
+    <link rel="shortcut icon" href="http://cdn.sstatic.net/stackoverflow/img/favicon.ico">
+    <link rel="apple-touch-icon image_src" href="http://cdn.sstatic.net/stackoverflow/img/apple-touch-icon.png">
+    <link rel="search" type="application/opensearchdescription+xml" title="Stack Overflow" href="/opensearch.xml">
+    
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script type="text/javascript" src="http://cdn.sstatic.net/js/stub.js?v=78fa3e3bb4ec"></script>
+    <link rel="stylesheet" type="text/css" href="http://cdn.sstatic.net/stackoverflow/all.css?v=c63e8cce6a42">
+    
+    <meta name="relativepagescore" content="181504">
+    <link rel="canonical" href="http://stackoverflow.com/questions/6000511/better-way-to-define-an-enum-in-haskell">
+    <link rel="alternate" type="application/atom+xml" title="Feed for question 'Better Way to Define an Enum in Haskell'" href="/feeds/question/6000511">
+    <script type="text/javascript">
+        
+        StackExchange.ready(function () {
+            StackExchange.using("postValidation", function () {
+                StackExchange.postValidation.initOnBlurAndSubmit($('#post-form'), 2, 'answer');
+            });
+
+            
+            StackExchange.question.init({showAnswerHelp:true,totalCommentCount:5,shownCommentCount:5,highlightColor:'#F4A83D',backgroundColor:'#FFF',questionId:6000511});
+
+            styleCode();
+
+                StackExchange.realtime.subscribeToQuestion('1', '6000511');
+            
+                
+        });
+    </script>
+
+
+    <script type="text/javascript">
+        StackExchange.init({"stackAuthUrl":"https://stackauth.com","serverTime":1364055466,"styleCode":true,"enableUserHovercards":true,"site":{"name":"Stack Overflow","description":"Q&A for professional and enthusiast programmers","isNoticesTabEnabled":true,"recaptchaPublicKey":"6LdchgIAAAAAAJwGpIzRQSOFaO0pU6s44Xt8aTwc","enableSocialMediaInSharePopup":true},"user":{"fkey":"d0615068e3c3076f06594260c4587286","isAnonymous":true}});
+        StackExchange.using.setCacheBreakers({"js/prettify-full.js":"6c261bebf56a","js/moderator.js":"81010b001b1a","js/full-anon.js":"64770a5d7107","js/full.js":"7966df3e0cdb","js/wmd.js":"bb9dbf9364a2","js/third-party/jquery.autocomplete.min.js":"e5f01e97f7c3","js/mobile.js":"6eb68240242f","js/help.js":"fc9fb0517db2","js/tageditor.js":"450c9e8426fc","js/tageditornew.js":"b6c68ad4c7dd","js/inline-tag-editing.js":"8e84e8a137f7","js/revisions.js":"7273bb714bba","js/review.js":"51a50e83c754","js/tagsuggestions.js":"aa48ef6154df","js/post-validation.js":"cd619678f5d6"});
+        
+    </script>
+
+
+    <script type="text/javascript">
+        StackExchange.using(
+            "gps",
+            function () {
+                StackExchange.gps.init(false);
+            }
+        );
+    </script>
+
+</head>
+<body class="question-page">
+    <noscript><div id="noscript-padding"></div></noscript>
+    <div id="notify-container"></div>
+    <div id="overlay-header"></div>
+    <div id="custom-header"></div>
+
+    <div class="container">
+        <div id="header">
+            <div id="portalLink">
+                <a class="genu" href="http://stackexchange.com" onclick="StackExchange.ready(function(){genuwine.click();});return false;">Stack Exchange</a>
+            </div>
+            <div id="topbar">
+                <div id="hlinks">
+                    
+
+
+
+
+
+
+
+
+
+<span id="hlinks-user">
+
+</span>
+<span id="hlinks-nav">
+                   <a href="/users/login?returnurl=%2fquestions%2f6000511%2fbetter-way-to-define-an-enum-in-haskell">log in</a>
+
+ <span class="lsep">|</span>
+                    <a href="http://careers.stackoverflow.com">careers 2.0</a>
+
+ <span class="lsep">|</span>
+
+</span>
+<span id="hlinks-custom">
+        <a href="http://chat.stackoverflow.com">chat</a>
+
+ <span class="lsep">|</span>
+            <a href="http://meta.stackoverflow.com">meta</a>
+
+ <span class="lsep">|</span>
+        <a href="/about">about</a>
+
+ <span class="lsep">|</span>
+    <a href="/faq">faq</a>
+
+</span>
+                </div>
+                <div id="hsearch">
+                    <form id="search" action="/search" method="get" autocomplete="off">
+                    <div>
+                        <input autocomplete="off" name="q" class="textbox" placeholder="search" tabindex="1" type="text" maxlength="240" size="28" value="">
+                    </div>
+                    </form>
+                </div>
+            </div>
+            <br class="cbt">
+            <div id="hlogo">
+                <a href="/" >Stack Overflow</a>
+            </div>
+            <div id="hmenus">
+                <div class="nav mainnavs">
+                    <ul>
+                        <li class="youarehere"><a id="nav-questions" href="/questions">Questions</a></li>
+                        <li><a id="nav-tags" href="/tags">Tags</a></li>
+                        <li><a id="nav-users" href="/users">Users</a></li>
+                        <li><a id="nav-badges" href="/badges">Badges</a></li>
+                        <li><a id="nav-unanswered" href="/unanswered">Unanswered</a></li>
+                    </ul>
+                </div>
+                <div class="nav askquestion">
+                    <ul>
+                        <li>
+                            <a id="nav-askquestion"  href="/questions/ask">Ask Question</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        
+
+
+
+        <div id="content">
+            
+
+<div itemscope itemtype="http://schema.org/Article">
+<link itemprop="image" href="http://cdn.sstatic.net/stackoverflow/img/apple-touch-icon.png">
+<div id="question-header">
+    <h1 itemprop="name"><a href="/questions/6000511/better-way-to-define-an-enum-in-haskell" class="question-hyperlink">Better Way to Define an Enum in Haskell</a></h1>
+</div>
+<div id="mainbar">
+
+
+
+<div class="question" data-questionid="6000511"  id="question">
+    
+            <div class="everyonelovesstackoverflow" id="adzerk1">
+        </div>
+
+
+    <table>
+        <tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+    <input type="hidden" value="6000511">
+    <a class="vote-up-off" title="This question shows research effort; it is useful and clear (click again to undo)">up vote</a>
+    <span class="vote-count-post ">5</span>
+    <a class="vote-down-off" title="This question does not show any research effort; it is unclear or not useful (click again to undo)">down vote</a>
+    
+    <a class="star-off" href="#" title="This is a favorite question (click again to undo)">favorite</a>
+    <div class="favoritecount"><b>1</b></div>   
+
+ 
+</div>
+
+            </td>
+            
+<td class="postcell">
+<div>
+    <div class="post-text" itemprop="description">
+        <p>I want a datatype to represent a finite set of integers that can be addressed by specific names. I figure the best way to do that is to use <code>Enum</code>. However, there is one small problem. The only way I know for defining an Enum is something like this:</p>
+
+<pre><code>data MyDataType = Foo | Bar | Baz
+
+instance Enum MyDataType 
+ toEnum 0 = Foo
+ toEnum 1 = Bar
+ toEnum 2 = Baz
+
+ fromEnum Foo = 0
+ fromEnum Bar = 1
+ fromEnum Baz = 2 
+</code></pre>
+
+<p>Note that I have to repeat the same pair two times - one time when defining an integer-to-enum mapping and the other time when defining an enum-to-integer mapping. Is there a way to avoid this repetition?</p>
+
+<p>Thanks.</p>
+
+    </div>
+    <div class="post-taglist">
+        <a href="/questions/tagged/haskell" class="post-tag" title="show questions tagged 'haskell'" rel="tag">haskell</a> <a href="/questions/tagged/enums" class="post-tag" title="show questions tagged 'enums'" rel="tag">enums</a> 
+    </div>
+    <table class="fw">
+    <tr>
+    <td class="vt">
+
+
+
+
+
+
+
+
+
+<div class="post-menu"><a href="/q/6000511" title="short permalink to this question" class="short-link" id="link-post-6000511">share</a><span class="lsep">|</span><a href="/posts/6000511/edit" class="suggest-edit-post" title="">improve this question</a></div>            </td>
+    <td class="post-signature owner">
+        
+
+    <div class="user-info user-hover">
+        <div class="user-action-time">
+                                    asked
+ <span title="2011-05-14 07:47:35Z" class="relativetime">May 14 '11 at 7:47</span>
+        </div>
+        <div class="user-gravatar32">
+            <a href="/users/500944/grigory"><div class=""><img src="http://www.gravatar.com/avatar/0766de0bd785ca75e169ab5fc11bd88b?s=32&d=identicon&r=PG" alt="" width="32" height="32"></div></a>
+        </div>
+        <div class="user-details">
+            <a href="/users/500944/grigory">Grigory</a><br>
+            <span class="reputation-score" title="reputation score" dir="ltr">4,749</span><span title="1 gold badge"><span class="badge1"></span><span class="badgecount">1</span></span><span title="13 silver badges"><span class="badge2"></span><span class="badgecount">13</span></span><span title="45 bronze badges"><span class="badge3"></span><span class="badgecount">45</span></span>
+        </div>
+    </div>
+
+    </td>
+    </tr>
+    </table>
+</div>
+</td>
+        </tr>
+
+
+<tr>
+<td class="votecell"></td>
+<td>
+    <div id="comments-6000511" class="comments">
+        <table>
+        <tbody>
+                    
+    <tr id="comment-6931298" class="comment">
+        <td class="comment-actions"><table><tbody><tr>
+<td class="comment-score">
+<span title="number of 'useful comment' votes received" class="cool">1</span>
+</td>
+<td>
+&nbsp;
+</td></tr>
+</tbody></table></td>
+        <td class="comment-text"><div><span class="comment-copy">Do you know about <code>deriving Enum</code> ? It is magical!</span> &ndash;&nbsp;<a href="/users/83805/don-stewart" title="75803 reputation" class="comment-user">Don Stewart</a> <span class="comment-date" dir="ltr"><span title="2011-05-14 07:50:18Z" class="relativetime-clean">May 14 '11 at 7:50</span></span></div></td>
+    </tr>
+            
+    <tr id="comment-6931315" class="comment">
+        <td></td>
+        <td class="comment-text"><div><span class="comment-copy">Ok, but it probably will not work if the values that are assigned to the names are not sequential, e.g. Foo should be 2, Bar should be 4, Baz should be 8, etc.</span> &ndash;&nbsp;<a href="/users/500944/grigory" title="4749 reputation" class="comment-user owner">Grigory</a> <span class="comment-date" dir="ltr"><span title="2011-05-14 07:52:56Z" class="relativetime-clean">May 14 '11 at 7:52</span></span></div></td>
+    </tr>
+            
+    <tr id="comment-6931771" class="comment">
+        <td></td>
+        <td class="comment-text"><div><span class="comment-copy">Aside from Augustss&#39;s suggestion, a method I&#39;ve used is to derive Enum and place filler types in the gaps (when the gaps are small):  <code>data SomeEnum = ValueA | Reserved1 | Reserved2 | ValueB | Reserved3 | ValueC</code></span> &ndash;&nbsp;<a href="/users/216164/thomas-m-dubuisson" title="21387 reputation" class="comment-user">Thomas M. DuBuisson</a> <span class="comment-date" dir="ltr"><span title="2011-05-14 09:17:36Z" class="relativetime-clean">May 14 '11 at 9:17</span></span></div></td>
+    </tr>
+            
+    <tr id="comment-6932576" class="comment">
+        <td></td>
+        <td class="comment-text"><div><span class="comment-copy">Something to note, though - long hand, as per the code in the question, is both efficient and clear. Sometimes scraping boilerplate isn&#39;t the best path.</span> &ndash;&nbsp;<a href="/users/493366/stephen-tetley" title="3129 reputation" class="comment-user">stephen tetley</a> <span class="comment-date" dir="ltr"><span title="2011-05-14 11:10:27Z" class="relativetime-clean">May 14 '11 at 11:10</span></span><span class="edited-yes" title="this comment was edited"></span></div></td>
+    </tr>
+            
+    <tr id="comment-6939695" class="comment">
+        <td></td>
+        <td class="comment-text"><div><span class="comment-copy">If the values you want are in fact 2, 4, 8, 16, etc. it seems to me there might be another way. Like, use <code>deriving Enum</code>, but then write your own version of the <code>toEnum&#39;</code> and <code>fromEnum&#39;</code> which call <code>toEnum</code> and <code>fromEnum</code> and then do the 2^x conversion. Whether this is any better, I don&#39;t know.</span> &ndash;&nbsp;<a href="/users/65977/matrixfrog" title="8339 reputation" class="comment-user">MatrixFrog</a> <span class="comment-date" dir="ltr"><span title="2011-05-15 03:39:52Z" class="relativetime-clean">May 15 '11 at 3:39</span></span></div></td>
+    </tr>
+
+        </tbody>
+    
+        </table>
+    </div>
+    
+</td>
+</tr>            </table>    
+</div>
+
+
+    
+
+
+<div id="answers">
+
+    <a name="tab-top"></a>
+    <div id="answers-header">
+        <div class="subheader answers-subheader">
+            <h2>
+                    3 Answers
+            </h2>
+            <div id="tabs">
+                <a href="/questions/6000511/better-way-to-define-an-enum-in-haskell?answertab=active#tab-top" title="Answers with the latest activity first">active</a>
+<a href="/questions/6000511/better-way-to-define-an-enum-in-haskell?answertab=oldest#tab-top" title="Answers in the order they were provided">oldest</a>
+<a class="youarehere" href="/questions/6000511/better-way-to-define-an-enum-in-haskell?answertab=votes#tab-top" title="Answers with the highest score first">votes</a>
+
+            </div>
+        </div>    
+    </div>    
+
+
+
+
+  
+<a name="6000818"></a>
+<div id="answer-6000818" class="answer accepted-answer" data-answerid="6000818" >
+    <table>
+        <tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+    <input type="hidden" value="6000818">
+    <a class="vote-up-off" title="This answer is useful (click again to undo)">up vote</a>
+    <span class="vote-count-post ">10</span>
+    <a class="vote-down-off" title="This answer is not useful (click again to undo)">down vote</a>
+    
+
+            <span class="vote-accepted-on load-accepted-answer-date" title="loading when this answer was accepted...">accepted</span>
+ 
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text"><pre><code>instance Enum MyDataType where
+    fromEnum = fromJust . flip lookup table
+    toEnum = fromJust . flip lookup (map swap table)
+table = [(Foo, 0), (Bar, 1), (Baz, 2)]
+</code></pre>
+</div>
+    <table class="fw">
+    <tr>
+    <td class="vt">
+
+
+
+
+
+
+
+
+
+<div class="post-menu"><a href="/a/6000818" title="short permalink to this answer" class="short-link" id="link-post-6000818">share</a><span class="lsep">|</span><a href="/posts/6000818/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+    <td align="right" class="post-signature">
+
+
+    <div class="user-info ">
+        <div class="user-action-time">
+                            edited
+                             <a href="/posts/6000818/revisions" title="show all edits to this post"><span title="2011-05-14 09:06:54Z" class="relativetime">May 14 '11 at 9:06</span></a>
+
+        </div>
+        <div class="user-gravatar32">
+            <a href="/users/86622/dave4420"><div class=""><img src="http://www.gravatar.com/avatar/57fa516b39564cee730319d9686f5f62?s=32&d=identicon&r=PG" alt="" width="32" height="32"></div></a>
+        </div>
+        <div class="user-details">
+            <a href="/users/86622/dave4420">dave4420</a><br>
+            <span class="reputation-score" title="reputation score 25835" dir="ltr">25.8k</span><span title="2 gold badges"><span class="badge1"></span><span class="badgecount">2</span></span><span title="40 silver badges"><span class="badge2"></span><span class="badgecount">40</span></span><span title="81 bronze badges"><span class="badge3"></span><span class="badgecount">81</span></span>
+        </div>
+    </div>
+    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    
+
+    <div class="user-info ">
+        <div class="user-action-time">
+                                    answered
+ <span title="2011-05-14 09:02:26Z" class="relativetime">May 14 '11 at 9:02</span>
+        </div>
+        <div class="user-gravatar32">
+            <a href="/users/649287/augustss"><div class=""><img src="http://www.gravatar.com/avatar/7c0ea0055b84020bf860c05f53ba53d5?s=32&d=identicon&r=PG" alt="" width="32" height="32"></div></a>
+        </div>
+        <div class="user-details">
+            <a href="/users/649287/augustss">augustss</a><br>
+            <span class="reputation-score" title="reputation score 11343" dir="ltr">11.3k</span><span title="1 gold badge"><span class="badge1"></span><span class="badgecount">1</span></span><span title="16 silver badges"><span class="badge2"></span><span class="badgecount">16</span></span><span title="48 bronze badges"><span class="badge3"></span><span class="badgecount">48</span></span>
+        </div>
+    </div>
+
+    </td>
+    </tr>
+    </table>
+</td>
+        </tr>
+
+
+
+<tr>
+<td class="votecell"></td>
+<td>
+    <div id="comments-6000818" class="comments">
+        <table>
+        <tbody>
+                    
+    <tr id="comment-6931736" class="comment">
+        <td></td>
+        <td class="comment-text"><div><span class="comment-copy">...where <code>swap</code> is the obvious <code>swap (x,y) = (y,x)</code> (defined in <code>Data.Tuple</code> in the latest Haskell Platform)</span> &ndash;&nbsp;<a href="/users/495796/robin-green" title="4352 reputation" class="comment-user">Robin Green</a> <span class="comment-date" dir="ltr"><span title="2011-05-14 09:10:59Z" class="relativetime-clean">May 14 '11 at 9:10</span></span></div></td>
+    </tr>
+
+        </tbody>
+    
+        </table>
+    </div>
+    
+</td>
+</tr>
+   
+    </table>
+</div>
+        <div class="everyonelovesstackoverflow" id="adzerk3">
+        </div>
+
+
+
+  
+<a name="6000520"></a>
+<div id="answer-6000520" class="answer" data-answerid="6000520" >
+    <table>
+        <tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+    <input type="hidden" value="6000520">
+    <a class="vote-up-off" title="This answer is useful (click again to undo)">up vote</a>
+    <span class="vote-count-post ">7</span>
+    <a class="vote-down-off" title="This answer is not useful (click again to undo)">down vote</a>
+    
+
+ 
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text"><pre><code>data MyDataType = Foo | Bar | Baz deriving (Enum)
+</code></pre>
+</div>
+    <table class="fw">
+    <tr>
+    <td class="vt">
+
+
+
+
+
+
+
+
+
+<div class="post-menu"><a href="/a/6000520" title="short permalink to this answer" class="short-link" id="link-post-6000520">share</a><span class="lsep">|</span><a href="/posts/6000520/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    
+
+    <div class="user-info user-hover">
+        <div class="user-action-time">
+                                    answered
+ <span title="2011-05-14 07:48:57Z" class="relativetime">May 14 '11 at 7:48</span>
+        </div>
+        <div class="user-gravatar32">
+            <a href="/users/495796/robin-green"><div class=""><img src="http://www.gravatar.com/avatar/86637c99f25d60157aa0f2e7eab90148?s=32&d=identicon&r=PG" alt="" width="32" height="32"></div></a>
+        </div>
+        <div class="user-details">
+            <a href="/users/495796/robin-green">Robin Green</a><br>
+            <span class="reputation-score" title="reputation score" dir="ltr">4,352</span><span title="1 gold badge"><span class="badge1"></span><span class="badgecount">1</span></span><span title="8 silver badges"><span class="badge2"></span><span class="badgecount">8</span></span><span title="35 bronze badges"><span class="badge3"></span><span class="badgecount">35</span></span>
+        </div>
+    </div>
+
+    </td>
+    </tr>
+    </table>
+</td>
+        </tr>
+
+
+
+<tr>
+<td class="votecell"></td>
+<td>
+    <div id="comments-6000520" class="comments">
+        <table>
+        <tbody>
+                    
+    <tr id="comment-6931321" class="comment">
+        <td></td>
+        <td class="comment-text"><div><span class="comment-copy">Good for sequential enum values (like in my example), but will it work if the values are not sequential (e.g. Foo should be 2, Bar should be 4, and so on?)</span> &ndash;&nbsp;<a href="/users/500944/grigory" title="4749 reputation" class="comment-user owner">Grigory</a> <span class="comment-date" dir="ltr"><span title="2011-05-14 07:53:57Z" class="relativetime-clean">May 14 '11 at 7:53</span></span></div></td>
+    </tr>
+            
+    <tr id="comment-6931358" class="comment">
+        <td></td>
+        <td class="comment-text"><div><span class="comment-copy">Not directly - but if you can write a bijective function <code>f</code> which turns the consecutive integers from 0..n into the integers you want, you can define a <code>newtype MyRealDataType = MyRealDataType MyDataType</code> and give it an <code>Enum</code> instance which &quot;corrects&quot; the values produced by the <code>Enum</code> instance of <code>MyDataType</code>. The disadvantage is you have to unwrap it when you want to pattern match directly on the names, etc.</span> &ndash;&nbsp;<a href="/users/495796/robin-green" title="4352 reputation" class="comment-user">Robin Green</a> <span class="comment-date" dir="ltr"><span title="2011-05-14 08:02:42Z" class="relativetime-clean">May 14 '11 at 8:02</span></span></div></td>
+    </tr>
+            
+    <tr id="comment-6931372" class="comment">
+        <td></td>
+        <td class="comment-text"><div><span class="comment-copy">Problem is, there is no specific law according to which the values change (they are not powers of 2, for example).</span> &ndash;&nbsp;<a href="/users/500944/grigory" title="4749 reputation" class="comment-user owner">Grigory</a> <span class="comment-date" dir="ltr"><span title="2011-05-14 08:06:49Z" class="relativetime-clean">May 14 '11 at 8:06</span></span></div></td>
+    </tr>
+
+        </tbody>
+    
+        </table>
+    </div>
+    
+</td>
+</tr>
+   
+    </table>
+</div>
+
+  
+<a name="6000633"></a>
+<div id="answer-6000633" class="answer" data-answerid="6000633" >
+    <table>
+        <tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+    <input type="hidden" value="6000633">
+    <a class="vote-up-off" title="This answer is useful (click again to undo)">up vote</a>
+    <span class="vote-count-post ">2</span>
+    <a class="vote-down-off" title="This answer is not useful (click again to undo)">down vote</a>
+    
+
+ 
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text"><p>Since you say the numbers are not generated by any regular law, you could use generic programming (e.g. with Scrap Your Boilerplate) or Template Haskell to implement a generic solution to this problem. I tend to prefer Template Haskell because it actually generates code and compiles it, so you get all the type-checking and optimisation benefits of GHC.</p>
+
+<p>I wouldn't be surprised if someone had implemented this already. It should be trivial.</p>
+</div>
+    <table class="fw">
+    <tr>
+    <td class="vt">
+
+
+
+
+
+
+
+
+
+<div class="post-menu"><a href="/a/6000633" title="short permalink to this answer" class="short-link" id="link-post-6000633">share</a><span class="lsep">|</span><a href="/posts/6000633/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    
+
+    <div class="user-info user-hover">
+        <div class="user-action-time">
+                                    answered
+ <span title="2011-05-14 08:21:18Z" class="relativetime">May 14 '11 at 8:21</span>
+        </div>
+        <div class="user-gravatar32">
+            <a href="/users/495796/robin-green"><div class=""><img src="http://www.gravatar.com/avatar/86637c99f25d60157aa0f2e7eab90148?s=32&d=identicon&r=PG" alt="" width="32" height="32"></div></a>
+        </div>
+        <div class="user-details">
+            <a href="/users/495796/robin-green">Robin Green</a><br>
+            <span class="reputation-score" title="reputation score" dir="ltr">4,352</span><span title="1 gold badge"><span class="badge1"></span><span class="badgecount">1</span></span><span title="8 silver badges"><span class="badge2"></span><span class="badgecount">8</span></span><span title="35 bronze badges"><span class="badge3"></span><span class="badgecount">35</span></span>
+        </div>
+    </div>
+
+    </td>
+    </tr>
+    </table>
+</td>
+        </tr>
+
+
+
+<tr>
+<td class="votecell"></td>
+<td>
+    <div id="comments-6000633" class="comments">
+        <table>
+        <tbody>
+                    
+    <tr id="comment-6931696" class="comment">
+        <td></td>
+        <td class="comment-text"><div><span class="comment-copy">OK, I should have thought of augustss&#39;s solution. The only advantage of this one is that you don&#39;t need to list out all the constructor names twice.</span> &ndash;&nbsp;<a href="/users/495796/robin-green" title="4352 reputation" class="comment-user">Robin Green</a> <span class="comment-date" dir="ltr"><span title="2011-05-14 09:05:42Z" class="relativetime-clean">May 14 '11 at 9:05</span></span><span class="edited-yes" title="this comment was edited"></span></div></td>
+    </tr>
+
+        </tbody>
+    
+        </table>
+    </div>
+    
+</td>
+</tr>
+   
+    </table>
+</div>
+    <a name='new-answer'></a>
+    <form id="post-form" action="/questions/6000511/answer/submit" method="post"  class="post-form">
+        <input type="hidden" id="post-id" value="6000511" />
+        <h2 class="space">Your Answer</h2>
+
+
+
+    
+<script type="text/javascript">
+    StackExchange.ready(function() {
+        initTagRenderer("".split(" "), "".split(" "));
+         
+        prepareEditor({
+            heartbeatType: 'answer',
+            bindNavPrevention: true,
+            postfix: "",
+            onDemand: true,
+            discardSelector: ".discard-answer"
+            ,immediatelyShowMarkdownHelp:true
+        });
+        
+
+    });  
+</script>
+
+
+<div id="post-editor" class="post-editor">
+
+    <div style="position: relative;">     
+        <div class="wmd-container">
+            <div id="wmd-button-bar" class="wmd-button-bar"></div>
+            <textarea id="wmd-input" class="wmd-input" name="post-text" cols="92" rows="15" tabindex="101" data-min-length=""></textarea>
+        </div>
+    </div>
+
+    <div class="fl" style="margin-top: 8px; height:24px;">&nbsp;</div>
+    <div id="draft-saved" class="draft-saved community-option fl" style="margin-top: 8px; height:24px; display:none;">draft saved</div>
+
+    <div id="draft-discarded" class="draft-discarded community-option fl" style="margin-top: 8px; height:24px; display:none;">draft discarded</div>
+
+
+
+    <div id="wmd-preview" class="wmd-preview"></div>
+    <div></div>
+    <div class="edit-block">
+        <input id="fkey" name="fkey" type="hidden" value="d0615068e3c3076f06594260c4587286">
+        <input id="author" name="author" type="text">
+    </div>
+</div>
+        <div style="position: relative;"> 
+    <div class="form-item">
+        <table>
+        <tr>
+                <td class="vm open-id-login">
+                    <a id="login-link" style="font-size: 200%; margin-left: 30px;" href="/users/login?returnurl=%2fquestions%2f6000511%2fbetter-way-to-define-an-enum-in-haskell">log in</a>
+                    <script type="text/javascript">
+                        StackExchange.ready(function () {
+                            StackExchange.helpers.onClickDraftSave('#login-link');
+                        });
+                    </script>
+                </td>
+                    <script type="text/javascript">
+                StackExchange.ready(function () {
+                    StackExchange.helpers.bindHelpOverlayEvents($('.vm input'));
+                });
+            </script>
+                <td class="orcell">
+                    <div class="orword">or</div>
+                    <div class="orline"></div>
+                </td>
+            <td class="vm">
+                <div>
+                    <label for="display-name">Name</label>
+                    <input id="display-name" name="display-name" type="text" size="30" maxlength="30" value="" tabindex="105">
+                </div>
+                <div>
+                    <label for="m-address">Email</label>
+                    <input id="m-address" name="m-address" type="text" size="40" maxlength="100" value="" tabindex="106">
+                    <span class="edit-field-overlay">required, but never shown</span>
+                </div>
+                    <div>
+                        <label for="home-page">Home Page</label>
+                        <input id="home-page" name="home-page" type="text" size="40" maxlength="200" value="" tabindex="107">
+                    </div>
+            </td>
+        </tr>
+        </table>
+    </div>
+        </div>
+           
+            <div class="form-submit cbt">
+            <input id="submit-button" type="submit" value="Post Your Answer" tabindex="110">
+            <a href="#" class="discard-answer dno">discard</a>
+    <p class="privacy-policy-agreement">
+        By posting your answer, you agree to the 
+        <a href="http://stackexchange.com/legal/privacy-policy" target="_blank">privacy policy</a> and 
+        <a href="http://stackexchange.com/legal/terms-of-service" target="_blank">terms of service</a>.
+    </p>
+    <input type="hidden" name="legalLinksShown" value="1" />
+        </div>
+    </form>
+
+
+
+        <h2 class="bottom-notice">
+                Not the answer you're looking for? 
+            Browse other questions tagged <a href="/questions/tagged/haskell" class="post-tag" title="show questions tagged 'haskell'" rel="tag">haskell</a> <a href="/questions/tagged/enums" class="post-tag" title="show questions tagged 'enums'" rel="tag">enums</a> 
+                or <a href="/questions/ask">ask your own question</a>.
+        </h2>
+</div>
+</div>
+<div id="sidebar" >
+        <div class="module question-stats">
+        <p class="label-key">tagged</p>
+        <div class="tagged"><a href="/questions/tagged/haskell" class="post-tag" title="show questions tagged 'haskell'" rel="tag">haskell</a>&nbsp;<span class="item-multiplier"><span class="item-multiplier-x">&times;</span>&nbsp;<span class="item-multiplier-count">10489</span></span><br>
+<a href="/questions/tagged/enums" class="post-tag" title="show questions tagged 'enums'" rel="tag">enums</a>&nbsp;<span class="item-multiplier"><span class="item-multiplier-x">&times;</span>&nbsp;<span class="item-multiplier-count">4484</span></span><br>
+</div>
+        <table id="qinfo">
+            <tr>
+                <td><p class="label-key">asked</p></td>
+                <td style="padding-left:10px"><p class="label-key" title="2011-05-14 07:47:35Z"><b>1 year ago</b></p></td>
+            </tr>
+            <tr>
+                <td><p class="label-key">viewed</p></td>
+
+                <td style="padding-left:10px">
+                    <p class="label-key">
+                        <b>1648 times</b>
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td><p class="label-key">active</p></td>
+                <td style="padding-left:10px"><p class="label-key"><b><a href="?lastactivity" class="lastactivity-link" title="2011-05-14 09:06:54Z">1 year ago</a></b></p></td>
+            </tr>
+        </table>
+    </div>
+        
+                <script type="text/javascript">
+                var scriptSrc = "http://engine.adzerk.net/z/8277/adzerk1_2_4_43,adzerk2_2_17_45,adzerk3_2_4_44?keywords=haskell,enums";
+                if (document.referrer) {
+                    if (/\?/.test(scriptSrc))
+                        scriptSrc += "&";
+                    else
+                        scriptSrc += "?";
+                    scriptSrc += "xReferrer=" + document.referrer;
+                }
+                StackExchange.ready(function () {
+                    var z = document.createElement("script");
+                    z.type = "text/javascript";
+                    z.async = "true";
+                    z.src = scriptSrc;
+                    var s = document.getElementsByTagName("script")[0];
+                    s.parentNode.insertBefore(z, s);
+                });
+            </script>
+        <div class="everyonelovesstackoverflow" id="adzerk2">
+        </div>
+    <div id="hireme">
+        <script type="text/javascript">
+            var careers_adurl="http://careers.stackoverflow.com/gethired/js",careers_cssurl="//careerscdn.sstatic.net/careers/gethired/sidebar.css?fffffffff879eaa0",careers_leaderboardcssurl="//careerscdn.sstatic.net/careers/gethired/ninja.min.css?3ad9d8",careers_companycssurl="//careerscdn.sstatic.net/careers/gethired/company",careers_adselector="div.hireme, div#hireme";StackExchange.ready(function(){$.ajax({url:"//careerscdn.sstatic.net/careers/gethired/loader.min.js?3ad9d8",dataType:"script",cache:!0})})
+        </script>
+    </div>
+
+
+
+      
+    
+    <div class="module sidebar-related">
+        <h4 id="h-related">Related</h4>
+        <div class="related" data-tracker="rq=1">
+            <div class="spacer">
+<a href="/questions/1582940/should-i-be-trying-to-create-a-reversible-enum-in-java-or-is-there-a-better-way" class="question-hyperlink">Should I be trying to create a reversible enum in Java or is there a better way?</a>
+</div>
+<div class="spacer">
+<a href="/questions/2134204/multiple-ways-to-define-c-sharp-enums-with-flags-attribute" class="question-hyperlink">Multiple ways to define C# Enums with [Flags] attribute?</a>
+</div>
+<div class="spacer">
+<a href="/questions/2656107/is-there-a-better-way-to-create-a-generic-convert-string-to-enum-method-or-enum" class="question-hyperlink">Is there a better way to create a generic convert string to enum method or enum extension?</a>
+</div>
+<div class="spacer">
+<a href="/questions/3285130/standards-compliant-way-to-typedef-my-enums" class="question-hyperlink">standards compliant way to typedef my enums</a>
+</div>
+<div class="spacer">
+<a href="/questions/3376114/design-problem-with-respect-to-inheriting-enums" class="question-hyperlink">Design problem with respect to inheriting enums</a>
+</div>
+<div class="spacer">
+<a href="/questions/4294652/haskell-want-a-better-way-of-doing-value-x-value-y" class="question-hyperlink">Haskell: Want a better way of doing: value == x || value == y || </a>
+</div>
+<div class="spacer">
+<a href="/questions/5243269/why-use-enum-when-define-is-just-as-efficient" class="question-hyperlink">Why use enum when #define is just as efficient?</a>
+</div>
+<div class="spacer">
+<a href="/questions/5684049/is-there-some-way-to-define-an-enum-in-haskell-that-wraps-around" class="question-hyperlink">Is there some way to define an Enum in haskell that wraps around?</a>
+</div>
+<div class="spacer">
+<a href="/questions/6476319/better-way-to-write-the-following-program-in-haskell" class="question-hyperlink">Better way to write the following program in Haskell</a>
+</div>
+<div class="spacer">
+<a href="/questions/6689969/how-does-one-interface-with-a-c-enum-using-haskell-and-ffi" class="question-hyperlink">How does one interface with a C enum using Haskell and FFI?</a>
+</div>
+<div class="spacer">
+<a href="/questions/7489968/is-there-a-better-way-to-implement-a-multi-channel-writer-monad-in-haskell" class="question-hyperlink">Is there a better way to implement a multi-channel Writer monad in Haskell?</a>
+</div>
+<div class="spacer">
+<a href="/questions/7763718/what-is-the-best-way-to-know-if-a-value-is-defined-in-an-enum" class="question-hyperlink">What is the best way to know if a value is defined in an enum?</a>
+</div>
+<div class="spacer">
+<a href="/questions/7781096/is-there-a-better-way-to-have-optional-arguments-in-haskell" class="question-hyperlink">Is there a better way to have optional arguments in Haskell?</a>
+</div>
+<div class="spacer">
+<a href="/questions/8116152/better-way-to-get-char-enum" class="question-hyperlink">Better Way To Get Char Enum</a>
+</div>
+<div class="spacer">
+<a href="/questions/8121430/what-is-a-better-way-to-decode-encode-binary-little-endian-data-in-haskell" class="question-hyperlink">What is a better way to decode/encode binary little endian data in Haskell?</a>
+</div>
+<div class="spacer">
+<a href="/questions/8254038/storing-and-retrieving-enums-in-sqlite-with-android-based-java" class="question-hyperlink">Storing and retrieving enums in SQLite with Android based Java</a>
+</div>
+<div class="spacer">
+<a href="/questions/8693311/correct-way-to-define-a-function-in-haskell" class="question-hyperlink">Correct way to define a function in Haskell</a>
+</div>
+<div class="spacer">
+<a href="/questions/9188409/haskell-instance-enum-a-bounded-a-random-a-and-arbitrary-a" class="question-hyperlink">Haskell: &ldquo;instance (Enum a, Bounded a) =&gt; Random a&rdquo; and &ldquo;=&gt; Arbitrary a&rdquo;</a>
+</div>
+<div class="spacer">
+<a href="/questions/10064758/counting-frequencies-of-enum-values" class="question-hyperlink">Counting frequencies of enum values</a>
+</div>
+<div class="spacer">
+<a href="/questions/10313349/haskell-way-to-go-about-enums" class="question-hyperlink">Haskell way to go about enums</a>
+</div>
+<div class="spacer">
+<a href="/questions/11661878/haskell-enum-what-to-do-in-case-value-constructors-require-value-instead-of-nu" class="question-hyperlink">haskell enum - what to do in case value constructors require value instead of nullary? Requirement scenario is given</a>
+</div>
+<div class="spacer">
+<a href="/questions/13019386/is-there-a-simple-way-to-turn-a-data-type-deriving-enum-into-a-list" class="question-hyperlink">Is there a simple way to turn a data type deriving Enum into a list?</a>
+</div>
+<div class="spacer">
+<a href="/questions/13257941/is-it-wise-to-define-a-catchall-for-a-flags-type-enum" class="question-hyperlink">Is it wise to define a &ldquo;catchall&rdquo; for a flags-type enum?</a>
+</div>
+<div class="spacer">
+<a href="/questions/13761243/converting-enumerations-to-int-like-types-in-haskell" class="question-hyperlink">Converting enumerations to int-like types in haskell</a>
+</div>
+<div class="spacer">
+<a href="/questions/14432687/why-is-the-in-haskell-a-enum-type-but-havent-implemented-the-succ-function" class="question-hyperlink">Why is the () in Haskell a Enum type but haven&#39;t implemented the succ function</a>
+</div>
+
+        </div>
+    </div>
+        <div class="everyonelovesstackoverflow" id="adzerk3">
+        </div>
+
+
+</div>
+
+<div id="feed-link">
+    <div id="feed-link-text"><a href="/feeds/question/6000511" title="feed of this question and its answers"><span class="feed-icon"></span>question feed</a></div>
+</div>
+<script type="text/javascript">
+StackExchange.ready(function(){$.get('/posts/6000511/ivc/522b');});
+</script>
+<noscript>
+    <div><img src="/posts/6000511/ivc/522b" class="dno" alt="" width="0" height="0"></div>
+</noscript><div style="display:none" id="prettify-lang">lang-hs</div></div>
+        </div>
+    </div>
+    <div id="footer">
+        <div class="footerwrap">
+            <div id="footer-menu">
+                    <a href="/about">about</a> |
+                <a href="/faq">faq</a> |
+                <a href="http://blog.stackexchange.com?blb=1">blog</a> |
+                    <a href="http://chat.stackoverflow.com">chat</a> |
+                <a href="http://data.stackexchange.com">data</a> |
+                <a href="http://stackexchange.com/legal">legal</a> |
+                <a href="http://stackexchange.com/legal/privacy-policy">privacy policy</a> |
+                <a href="http://stackexchange.com/about/hiring">jobs</a> |
+                <a href="http://engine.adzerk.net/redirect/0/2776/2751/0/4de3c60f719c4dfcb1a57531c7050090/0">advertising info</a> |
+
+                <a onclick='StackExchange.switchMobile("on", "/questions/6000511/better-way-to-define-an-enum-in-haskell")'>mobile</a> |
+
+                <b><a href="/help">contact us</a></b>
+                  | <b><a href="http://meta.stackoverflow.com">feedback</a></b>
+                <div id="footer-sites">
+                    
+                        <span style="color:#FE7A15;font-size:140%">&#9632;</span>&nbsp;<a href="http://stackoverflow.com">stackoverflow.com</a>&nbsp; 
+                        <span style="color:#FE7A15;font-size:140%">&#9632;</span>&nbsp;<a href="http://stackapps.com">api/apps</a>&nbsp; 
+                        <span style="color:#FE7A15;font-size:140%">&#9632;</span>&nbsp;<a href="http://careers.stackoverflow.com">careers 2.0</a>&nbsp; 
+                        <span style="color:#E8272C;font-size:140%">&#9632;</span>&nbsp;<a href="http://serverfault.com">serverfault.com</a>&nbsp; 
+                        <span style="color:#00AFEF;font-size:140%">&#9632;</span>&nbsp;<a href="http://superuser.com">superuser.com</a>&nbsp; 
+                        <span style="color:#969696;font-size:140%">&#9632;</span>&nbsp;<a href="http://meta.stackoverflow.com">meta</a>&nbsp; 
+                        <span style="color:#46937D;font-size:140%">&#9632;</span>&nbsp;<a href="http://area51.stackexchange.com">area&nbsp;51</a>&nbsp; 
+                        <span style="color:#C0D0DC;font-size:140%">&#9632;</span>&nbsp;<a href="http://webapps.stackexchange.com">webapps</a>&nbsp; 
+                        <span style="color:#000000;font-size:140%">&#9632;</span>&nbsp;<a href="http://gaming.stackexchange.com">gaming</a>&nbsp; 
+                        <span style="color:#dd4814;font-size:140%">&#9632;</span>&nbsp;<a href="http://askubuntu.com">ubuntu</a>&nbsp; 
+                        <span style="color:#9ce4fe;font-size:140%">&#9632;</span>&nbsp;<a href="http://webmasters.stackexchange.com">webmasters</a>&nbsp; 
+                        <span style="color:#cf4d3f;font-size:140%">&#9632;</span>&nbsp;<a href="http://cooking.stackexchange.com">cooking</a>&nbsp; 
+                        <span style="color:#f4f28d;font-size:140%">&#9632;</span>&nbsp;<a href="http://gamedev.stackexchange.com">game development</a>&nbsp; 
+                        <span style="color:#0f3559;font-size:140%">&#9632;</span>&nbsp;<a href="http://math.stackexchange.com">math</a>&nbsp; 
+                        <span style="color:#f2f2f2;font-size:140%">&#9632;</span>&nbsp;<a href="http://photo.stackexchange.com">photography</a>&nbsp; 
+                        <span style="color:#037187;font-size:140%">&#9632;</span>&nbsp;<a href="http://stats.stackexchange.com">stats</a>&nbsp; 
+                        <span style="color:#f1e7cc;font-size:140%">&#9632;</span>&nbsp;<a href="http://tex.stackexchange.com">tex</a>&nbsp; 
+                        <span style="color:#e1cdae;font-size:140%">&#9632;</span>&nbsp;<a href="http://english.stackexchange.com">english</a>&nbsp; 
+                        <span style="color:#a2d9f6;font-size:140%">&#9632;</span>&nbsp;<a href="http://cstheory.stackexchange.com">theoretical cs</a>&nbsp; 
+                        <span style="color:#1b3e6c;font-size:140%">&#9632;</span>&nbsp;<a href="http://programmers.stackexchange.com">programmers</a>&nbsp; 
+                        <span style="color:#293a5d;font-size:140%">&#9632;</span>&nbsp;<a href="http://unix.stackexchange.com">unix</a>&nbsp;
+                        <span style="color:#bec0cb;font-size:140%">&#9632;</span>&nbsp;<a href="http://apple.stackexchange.com">apple</a>&nbsp;
+                        <span style="color:#939185;font-size:140%">&#9632;</span>&nbsp;<a href="http://wordpress.stackexchange.com">wordpress</a>&nbsp;
+                        <span style="color:#ebf5f5;font-size:140%">&#9632;</span>&nbsp;<a href="http://physics.stackexchange.com">physics</a>&nbsp;
+                        <span style="color:#4176ab;font-size:140%">&#9632;</span>&nbsp;<a href="http://diy.stackexchange.com">home&nbsp;improvement</a>&nbsp;
+                        <span style="color:#d1d8d7;font-size:140%">&#9632;</span>&nbsp;<a href="http://gis.stackexchange.com">gis</a>&nbsp;
+                        <span style="color:#e5e2d3;font-size:140%">&#9632;</span>&nbsp;<a href="http://electronics.stackexchange.com">electrical&nbsp;engineering</a>&nbsp;
+                        <span style="color:#a4c639;font-size:140%">&#9632;</span>&nbsp;<a href="http://android.stackexchange.com">android</a>&nbsp;
+                        <span style="color:#2e4e60;font-size:140%">&#9632;</span>&nbsp;<a href="http://security.stackexchange.com">security</a>&nbsp;
+                        <span style="color:#45bcb5;font-size:140%">&#9632;</span>&nbsp;<a href="http://bicycles.stackexchange.com">bicycles</a>&nbsp;
+                        <span style="color:#00adee;font-size:140%">&#9632;</span>&nbsp;<a href="http://dba.stackexchange.com">dba</a>&nbsp;
+                        <span style="color:#2edaf0;font-size:140%">&#9632;</span>&nbsp;<a href="http://drupal.stackexchange.com">drupal</a>&nbsp;
+                        <span style="color:#213951;font-size:140%">&#9632;</span>&nbsp;<a href="http://sharepoint.stackexchange.com">sharepoint</a>&nbsp;
+                        <span style="color:#73abb3;font-size:140%">&#9632;</span>&nbsp;<a href="http://scifi.stackexchange.com">scifi&nbsp;&amp;&nbsp;fantasy</a>&nbsp;
+                        <span style="color:#23629F;font-size:140%">&#9632;</span>&nbsp;<a href="http://ux.stackexchange.com">user&nbsp;experience</a>&nbsp;
+                        <span style="color:#faff72;font-size:140%">&#9632;</span>&nbsp;<a href="http://skeptics.stackexchange.com">skeptics</a>&nbsp;
+                        <span style="color:#623121;font-size:140%">&#9632;</span>&nbsp;<a href="http://rpg.stackexchange.com">rpg</a>&nbsp;
+                        <span style="color:#e4be88;font-size:140%">&#9632;</span>&nbsp;<a href="http://judaism.stackexchange.com">judaism</a>&nbsp;
+                        <span style="color:#ffecb1;font-size:140%">&#9632;</span>&nbsp;<a href="http://mathematica.stackexchange.com">mathematica</a>&nbsp;
+                        <span style="color:#1b8598;font-size:140%">&#9632;</span>&nbsp;<a href="http://travel.stackexchange.com">travel</a>&nbsp;
+                </div>
+            </div>
+            <div id="footer-flair">
+                <a class="peer1" href="http://www.peer1.com/stackoverflow"></a>  
+	            <a href="http://creativecommons.org/licenses/by-sa/3.0/" class="cc-wiki-link"></a>
+                <div id="svnrev">rev 2013.3.23.572</div>
+                        </div>
+            <div id="copyright">
+                site design / logo &copy; 2013 stack exchange inc; 
+                user contributions licensed under <a href="http://creativecommons.org/licenses/by-sa/3.0/" rel="license">cc-wiki</a> with <a href="http://blog.stackoverflow.com/2009/06/attribution-required/" rel="license">attribution required</a>
+            </div>
+            
+
+        </div>
+    </div>
+    
+    <noscript>
+        <div id="noscript-warning">Stack Overflow works best with JavaScript enabled<img src="http://pixel.quantserve.com/pixel/p-c1rF4kxgLUzNc.gif" alt="" class="dno"></div>
+    </noscript>
+    <script type="text/javascript">var _gaq=_gaq||[];_gaq.push(['_setAccount','UA-5620270-1']);
+        _gaq.push(['_setCustomVar', 1, 'tags', '|haskell|enums|']); 
+_gaq.push(['_trackPageview']);
+    var _qevents = _qevents || [];
+    (function(){
+        var s=document.getElementsByTagName('script')[0];
+        var ga=document.createElement('script');
+        ga.type='text/javascript';
+        ga.async=true;
+        ga.src='http://www.google-analytics.com/ga.js';
+        s.parentNode.insertBefore(ga,s);
+        var sc=document.createElement('script');
+        sc.type='text/javascript';
+        sc.async=true;
+        sc.src='http://edge.quantserve.com/quant.js'; 
+        s.parentNode.insertBefore(sc,s);
+    })();
+    </script>
+    <script type="text/javascript">
+        _qevents.push({ qacct: "p-c1rF4kxgLUzNc" });
+    </script>        
+    
+</body>
+</html>

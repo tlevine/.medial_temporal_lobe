@@ -1,0 +1,426 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+
+<head profile="http://gmpg.org/xfn/11"><link rel="stylesheet" type="text/css" href="http://blog.grossmeier.net/wp-content/w3tc/min/e92f38b9.b6d3d3.css?9d7bd4" media="all" />
+<script type="text/javascript" src="http://blog.grossmeier.net/wp-content/w3tc/min/ca33b5f5.939bfd.js?9d7bd4"></script>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta name="generator" content="WordPress 194" />
+	<meta name="google-site-verification" content="RKz7k4Magj0AOeWvMjHeCnMTtzMmznxJ8n00Qc4Ao_0" />
+	
+	<title>Consilience  &mdash; imapfilter + offlineimap + msmtp + mutt + abook = email</title>
+	
+	
+	<link rel="alternate" type="application/rss+xml" title="Consilience RSS Feed" href="http://blog.grossmeier.net/feed/" />
+	<link rel="pingback" href="http://blog.grossmeier.net/xmlrpc.php" />
+	
+	<link rel="alternate" type="application/rss+xml" title="Consilience &raquo; imapfilter + offlineimap + msmtp + mutt + abook = email Comments Feed" href="http://blog.grossmeier.net/2009/01/25/imapfilterofflineimapmsmtpmuttabook/feed/" />
+
+
+
+
+<script type='text/javascript'>
+/* <![CDATA[ */
+var CrayonSyntaxSettings = {"version":"2.0.2","is_admin":"0","ajaxurl":"http:\/\/blog.grossmeier.net\/wp-admin\/admin-ajax.php","prefix":"crayon-","setting":"crayon-setting","selected":"crayon-setting-selected","changed":"crayon-setting-changed","special":"crayon-setting-special","orig_value":"data-orig-value","debug":""};
+/* ]]> */
+</script>
+
+
+
+
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://blog.grossmeier.net/xmlrpc.php?rsd" />
+<link rel='prev' title='It is your creation, license it how you want.' href='http://blog.grossmeier.net/2009/01/23/it-is-your-creation-license-it-how-you-want/' />
+<link rel='next' title='Shout out to Spitfire' href='http://blog.grossmeier.net/2009/01/29/shout-out-to-spitfire/' />
+<link rel='canonical' href='http://blog.grossmeier.net/2009/01/25/imapfilterofflineimapmsmtpmuttabook/' />
+<link rel='shortlink' href='http://wp.me/phHI6-46' />
+<link rel="payment" type="text/html" title="Flattr this!" href="https://flattr.com/submit/auto?user_id=greggrossmeier&amp;popout=1&amp;url=http%3A%2F%2Fblog.grossmeier.net%2F2009%2F01%2F25%2Fimapfilterofflineimapmsmtpmuttabook%2F&amp;language=en_GB&amp;category=text&amp;title=imapfilter+%2B+offlineimap+%2B+msmtp+%2B+mutt+%2B+abook+%3D+email&amp;description=So%2C+I%26%238217%3Bve+spent+a+little+over+a+week+setting+up+my+new+email+consumption%2Fcreation+system.+As+you+can+see+from+the+title+of+this+blog+post%2C+there+are+a+few...&amp;tags=freedom%2Cnews%2Csharing%2Cubuntu%2Cblog%2C+ubuntu%2C+freedom%2C+economics%2C+floss" />
+
+<!--Plugin WP Missed Schedule 2013.0106.1111 Active-->
+<!-- Jetpack Open Graph Tags -->
+<meta property="og:type" content="article" />
+<meta property="og:title" content="imapfilter + offlineimap + msmtp + mutt + abook = email" />
+<meta property="og:url" content="http://blog.grossmeier.net/2009/01/25/imapfilterofflineimapmsmtpmuttabook/" />
+<meta property="og:description" content="So, I&#8217;ve spent a little over a week setting up my new email consumption/creation system. As you can see from the title of this blog post, there are a few parts to it. Why would I do something..." />
+<meta property="og:site_name" content="Consilience" />
+<meta property="og:image" content="http://blog.grossmeier.net/wp-content/plugins/flattr/img/flattr-badge-large.png" />
+<style type="text/css">.broken_link, a.broken_link {
+	text-decoration: line-through;
+}</style><!-- Google Analytics Tracking by Google Analyticator 6.4.1: http://www.videousermanuals.com/google-analyticator/ -->
+<script type="text/javascript">window.google_analytics_uacct = "7217195840";</script>
+<script type="text/javascript">
+	var analyticsFileTypes = ['txt','pdf','odt','odp','ppt','doc'];
+	var analyticsEventTracking = 'enabled';
+</script>
+<script type="text/javascript">
+	var _gaq = _gaq || [];
+	_gaq.push(['_setAccount', 'UA-8902130-2']);
+        _gaq.push(['_addDevId', 'i9k95']); // Google Analyticator App ID with Google 
+        
+	var pluginUrl = 
+ '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
+_gaq.push(['_require', 'inpage_linkid', pluginUrl]);
+	_gaq.push(['_trackPageview']);
+
+	(function() {
+		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	})();
+</script>
+</head>
+
+<body>
+	
+<div id="page">
+	
+<div id="header">
+	<h1><a href="http://blog.grossmeier.net/">Consilience</a></h1>
+
+	<div id="tagline">Bringing Things Together</div>	
+</div>
+
+
+<div id="content">
+			
+				
+					
+					<h2 class="pagetitle">imapfilter + offlineimap + msmtp + mutt + abook = email</h2>
+			
+			<div class="post" id="post-254">
+						<div class="entry">
+					<p>So, I&#8217;ve spent a little over a week setting up my new email consumption/creation system.  As you can see from the title of this blog post, there are a few parts to it.  Why would I do something crazy like edit config files for 4 different apps JUST to read and write email?  Well, I wasn&#8217;t happy with Thunderbird (yes, I&#8217;ll try 3.0 when it hits the repos) and Evolution wasn&#8217;t at all what I wanted.  I do have gmail so why not just stick with the web interface? Because I am wanting to do more self-hosted solutions for web apps.  Also, since I have more than one account, I want different messages to be sorted different and archived differently.</p>
+<p>In Thunderbird I had an extension that allowed me to press &#8220;y&#8221; and the current message would be &#8220;archived&#8221; to the gmail All Mail folder.  This was great, but it only supported one account.  If I was reading my work email in Thunderbird (which is also hosted by gmail) and I hit &#8220;y&#8221; the message would go to my personal gmail account&#8217;s All Mail folder, not the work account one.  Not good (and a dumb limitation).</p>
+<p>So, what email program allows you to have complete control over those types of settings? <a href="http://www.mutt.org/">Mutt</a>. And yes, (Al)pine also.  But, I have friends local to me who use mutt so exchanging .muttrc files and such is easier and we can meet in person to share tips.</p>
+<p>What I want to do with this blog post, though, is not convince you that Mutt is the best solution for you.  I do want to, however, share what I did to set everything up for use with Mutt.  In fact, all the rest of the pieces of this setup can work equally well with some like Alpine or even Thunderbird.</p>
+<p>(since it is a long post, I didn&#8217;t want to spam your reader, click for the rest of it)<br />
+<span id="more-254"></span></p>
+<p><strong>imapfilter</strong><br />
+<a href="http://imapfilter.hellug.gr/">imapfilter</a> does just what the name implies: it filters email on IMAP servers.  The general idea is you have imapfilter running via a cron job on some always-on computer.  It is then run every 3-5 minutes, connects to any number of IMAP servers, and filters the email.  And the filtering doesn&#8217;t even need to happen only on the INBOX (like gmail) but can be for any mailbox.  Eg: if you have an UbuntuBugs folder you can have all new Launchpad emails go there, then when you have read them it could then filter them to your Archive folder (or whatever).</p>
+<p>Anyway, here is my <a href="http://grossmeier.net/files/imapfilter.config.lua">imapfilter.config.lua</a> file.  It is written in the Lua programming language which is simple to read.</p>
+<p><strong>offlineimap:</strong><br />
+Again, another straight-forward software name (l love software that is named what it does, kind of like kitchen appliances: blender, toaster, refrigerator).  <a href="http://software.complete.org/software/projects/show/offlineimap">Offlineimap</a> will connect to an IMAP server and download all (or some, you can decide) of the messages to a local directory in Maildir format.  It is very robust and quick; syncs take very little time.  This app is actually only run once (you can do a gnome-session, run it manually, or use an init script) and it syncs every 10 (or 5, or whatever you want) minutes automatically.</p>
+<p>This method is great for a number of reasons.  First, you always have an up-to-date backup of all your email on a local drive.  Should your mail server die one night you will still be ok.  Second, it effectively batches my email for me since I have it sync every 10 minutes.  So every 10 minutes is the most often I will get new email.  Great for non-interruption.</p>
+<p>The syntax for this one is pretty simple too.  Here is my <a href="http://grossmeier.net/files/offlineimaprc">.offlineimaprc</a> file.  It checks one gmail account and one other imap account.  Here is a <a href="http://software.complete.org/software/repositories/entry/offlineimap/offlineimap.conf">fully commented config file</a> with every option.</p>
+<p><strong>msmtp</strong><br />
+<a href="http://msmtp.sourceforge.net/">msmtp</a> is a simpler alternative to sendmail.  It sends mail.  Mutt is a MUA (Mail User Agent) not a MTA (Mail Transpot Agent) and as such does not send email; you have to set up something else to do it for Mutt.  This isn&#8217;t that bad, really (<em>ed: it was the hardest part for Greg, don&#8217;t let him fool you</em>).  Although, I did have a problem with msmtp not being able to connect to my hosting provider&#8217;s smtp server via port 25.  Getting around that required a quick ssh tunnel script (and a bit of sanity checking from <a href="http://asheesh.org/">Asheesh</a>, thanks again!).</p>
+<p>Here is <a href="http://grossmeier.net/files/msmtprc">msmtp config file</a>.  And the accompanying <a href="http://grossmeier.net/files/smtpforward.sh">ssh tunnel script</a> so sending via port 25 works.  The script simply stands in for msmtp and opens the tunnel, then sends the arguments to msmtp.</p>
+<p><strong>Mutt</strong><br />
+<a href="http://www.mutt.org/">Mutt</a> has the most complex config file, but luckily there are a ton of examples out there and you can fairly easily copy/paste certain sections (like colors).  My muttrc has two sub files (which are sourced in muttrc): <a href="http://grossmeier.net/files/crypto">crypto</a> (for GPG) and <a href="http://grossmeier.net/files/muttmailboxes">muttmailboxes</a> (for my list of mailboxes).  Separated out mainly for readability.  I might later separate out my colors section, macros, formating, etc.  No practical need to, yet.</p>
+<p><em>Question about GPG and mutt</em>: I only see two options (so I must be blind): either A) sign all mail you send or B) only sign mail that is a reply to a signed email.  That leaves out a big use-case of: sign when I want to sign.  What am I missing?</p>
+<p>Some points of interest with my muttrc: the Folder Hooks section.  That allows you to set variables based on which folder you are in (which account you are reading mail in).  This is useful for me when I have &#8220;y&#8221; set to archive a message.  In gmail, the message goes to GMAIL/Archive, in my personal domain account it goes to GROSSMEIER/Archive.  Also, that is where you set which &#8220;persona&#8221; you send mail from.  It&#8217;ll make sense when you see it in my config.</p>
+<p>Also, I am using mutt-patched from Debian/Ubuntu.  This mainly adds a patch to have a side bar with the list of mailboxes (and associated all/unread/new numbers).  Pretty useful.  Thus, there are a few settings in my muttrc for that specifically that wouldn&#8217;t work with a non-patched Mutt.</p>
+<p>Without further ado, my <a href="http://grossmeier.net/files/muttrc">muttrc</a>.</p>
+<p><strong>abook</strong><br />
+Oh yes, an address book.  Mutt has &#8220;aliases&#8221; that you can set up in a .mutt-alias file.  <a href="http://abook.sourceforge.net/">abook</a> helps with the managing of that file.  It also can convert your LDIF Thunderbird mailbox into a mutt-alias file.  You can see my settings for abook/aliases in my muttrc file at the top, the last four lines of &#8220;Basic Setup.&#8221;</p>
+<p>Thats it.  That is all it took to have email just the way I want it.  I have all these files version controlled via bzr and pushed to a globally (authorization controlled) accessible repository so I can share them between my desktop and laptop.</p>
+<p>All the files:</p>
+<ul>
+<li><a href="http://grossmeier.net/files/imapfilter.config.lua">imapfilter.config.lua</a></li>
+<li><a href="http://grossmeier.net/files/offlineimaprc">offlineimaprc</a></li>
+<li><a href="http://grossmeier.net/files/msmtprc">msmtprc</a></li>
+<li><a href="http://grossmeier.net/files/smtpforward.sh">smtpforward.sh</a></li>
+<li><a href="http://grossmeier.net/files/muttrc">muttrc</a></li>
+<li><a href="http://grossmeier.net/files/crypto">crypto</a></li>
+<li><a href="http://grossmeier.net/files/muttmailboxes">muttmailboxes</a></li>
+</ul>
+<p>Any other tips for how you setup any of these applications?  Anything you would change with my setup?  Leave a comment.</p>
+<div class='yarpp-related'>
+<br /><br /><h3>(potentially) related posts:</h3><ol>
+<li><a href='http://blog.grossmeier.net/2011/02/12/searching-your-email/' rel='bookmark' title='Searching your email'>Searching your email</a></li>
+<li><a href='http://blog.grossmeier.net/2010/01/28/new-laptop-setting-up-email/' rel='bookmark' title='New Laptop: Setting up Email'>New Laptop: Setting up Email</a></li>
+<li><a href='http://blog.grossmeier.net/2008/01/19/my-daily-backup-script/' rel='bookmark' title='My daily backup &quot;script&quot;'>My daily backup &#34;script&#34;</a></li>
+<li><a href='http://blog.grossmeier.net/2008/01/20/another-script-i-use-daily/' rel='bookmark' title='Another &quot;script&quot; I use daily'>Another &#34;script&#34; I use daily</a></li>
+</ol>
+</div>
+<p class="wp-flattr-button"><a href="http://blog.grossmeier.net/?flattrss_redirect&amp;id=254&amp;md5=745d68d9de459e5325f4aae51e92b6e7" title="Flattr" target="_blank"><img src="http://blog.grossmeier.net/wp-content/plugins/flattr/img/flattr-badge-large.png?9d7bd4" alt="flattr this!"/></a></p>				</div>
+				
+																	
+				<p class="postmetadata">Posted by <a href="http://blog.grossmeier.net/author/greg/" title="Posts by Greg" rel="author">Greg</a> at 1:25 pm on January 25th, 2009.  <a href="http://blog.grossmeier.net/2009/01/25/imapfilterofflineimapmsmtpmuttabook/#comments" class="comments-link"  title="Comment on imapfilter + offlineimap + msmtp + mutt + abook = email">16 comments... &#187;</a><br />
+				 Categories: Uncategorized. 				Tags: <a href="http://blog.grossmeier.net/tag/freedom/" rel="tag">freedom</a>, <a href="http://blog.grossmeier.net/tag/news/" rel="tag">news</a>, <a href="http://blog.grossmeier.net/tag/sharing/" rel="tag">sharing</a>, <a href="http://blog.grossmeier.net/tag/ubuntu/" rel="tag">ubuntu</a>.</p>
+			</div>
+		
+		
+	<h3 id="comments">16 comments.</h3>
+
+	<ol class="commentlist">
+			<li id="comment-993">
+						<img alt='' src='http://0.gravatar.com/avatar/65edac9a29f0668482219a277103a62f?s=32&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D32&amp;r=PG' class='avatar avatar-32 photo' height='32' width='32' />			<p>mutt has had built in smtp for a while now.  Check out mutt -v for compile options.</p>
+			
+			<p class="commentmetadata">Posted by Donnie Pennington on <a href="#comment-993" title="Permanent Link to this comment">January 26th, 2009</a>. </p>
+		</li>
+			<li id="comment-999">
+						<img alt='' src='http://0.gravatar.com/avatar/66db9e436738991619a59e8ab8061e64?s=32&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D32&amp;r=PG' class='avatar avatar-32 photo' height='32' width='32' />			<p>@Donnie: Yeah, I guess it does :)</p>
+<p>Oh well, if I erroneously setup msmtp that isn&#8217;t a big deal.  The hardest part was working around the port block, which would have been true either way.</p>
+			
+			<p class="commentmetadata">Posted by <a href='http://grossmeier.net' rel='external nofollow' class='url'>Greg</a> on <a href="#comment-999" title="Permanent Link to this comment">January 26th, 2009</a>. </p>
+		</li>
+			<li id="comment-1063">
+						<img alt='' src='http://1.gravatar.com/avatar/b54dafff75d3883a3eae829193b05126?s=32&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D32&amp;r=PG' class='avatar avatar-32 photo' height='32' width='32' />			<p>So does offlineimap mark an email as read once it copies it? If not then you can read an email in mutt and then go to GMail and it shows as unread.</p>
+			
+			<p class="commentmetadata">Posted by <a href='http://etank.wordpress.com' rel='external nofollow' class='url'>etank</a> on <a href="#comment-1063" title="Permanent Link to this comment">January 28th, 2009</a>. </p>
+		</li>
+			<li id="comment-1064">
+						<img alt='' src='http://0.gravatar.com/avatar/66db9e436738991619a59e8ab8061e64?s=32&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D32&amp;r=PG' class='avatar avatar-32 photo' height='32' width='32' />			<p>@etank:<br />
+offineimap downloads the email in whatever state it is in on the imap server (so in this case &#8220;unread&#8221;).  Then, in my case, mutt will read it and mark the copy on my harddrive as read.  Then, when offlineimap syncs with the imap server it marks the copy on the server as read.</p>
+			
+			<p class="commentmetadata">Posted by <a href='http://grossmeier.net' rel='external nofollow' class='url'>Greg</a> on <a href="#comment-1064" title="Permanent Link to this comment">January 28th, 2009</a>. </p>
+		</li>
+			<li id="comment-4083">
+						<img alt='' src='http://1.gravatar.com/avatar/bd9335815a75f6970d0ef0c48538c7c5?s=32&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D32&amp;r=PG' class='avatar avatar-32 photo' height='32' width='32' />			<p>Thanks for this, really useful!</p>
+<p>I had a bit of a problem with the offlineimaprc which I copied from you as it didn&#8217;t like the inline comments like:<br />
+autorefresh = 10   # minutes until next sync</p>
+<p>It seems fine if the whole line is a comment though, like:<br />
+#### GMAIL Account Settings ####</p>
+<p>Hope that&#8217;s of use to anyone setting this up!</p>
+<p>John.</p>
+			
+			<p class="commentmetadata">Posted by <a href='http://www.johnlawrence.net' rel='external nofollow' class='url'>John Lawrence</a> on <a href="#comment-4083" title="Permanent Link to this comment">March 24th, 2009</a>. </p>
+		</li>
+			<li id="comment-4084">
+						<img alt='' src='http://0.gravatar.com/avatar/66db9e436738991619a59e8ab8061e64?s=32&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D32&amp;r=PG' class='avatar avatar-32 photo' height='32' width='32' />			<p>@John: Thanks for the comment.  I actually added those comments in only for the version I put online (iow: it was untested).  I just checked the version I have running myself and it does not included those inline comments.</p>
+<p>My bad :)</p>
+			
+			<p class="commentmetadata">Posted by <a href='http://grossmeier.net' rel='external nofollow' class='url'>Greg</a> on <a href="#comment-4084" title="Permanent Link to this comment">March 24th, 2009</a>. </p>
+		</li>
+			<li id="comment-4236">
+						<img alt='' src='http://1.gravatar.com/avatar/38ff0c2affd2273c1ad4c27bf885a0cf?s=32&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D32&amp;r=PG' class='avatar avatar-32 photo' height='32' width='32' />			<p>Great post, thank you for sharing.<br />
+I would replace the &#8220;$1 $2 $3 $4 $5 $6 $7 $8 $9&#8243; list in smtpforward.sh with &#8220;$@&#8221;, so that you do not need to know how many arguments will be there (just in case).</p>
+			
+			<p class="commentmetadata">Posted by Redshift on <a href="#comment-4236" title="Permanent Link to this comment">March 26th, 2009</a>. </p>
+		</li>
+			<li id="comment-7944">
+						<img alt='' src='http://1.gravatar.com/avatar/96630febb655a1425f1279cc68c1dfa2?s=32&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D32&amp;r=PG' class='avatar avatar-32 photo' height='32' width='32' />			<p>Hey Greg &#8211; thanks for the article. I was able to get up and running with mutt, offlineimap, msmtp, and abook across multiple gmail accounts.</p>
+<p>Much appreciated!</p>
+			
+			<p class="commentmetadata">Posted by <a href='http://adambair.com' rel='external nofollow' class='url'>Adam Bair</a> on <a href="#comment-7944" title="Permanent Link to this comment">August 11th, 2009</a>. </p>
+		</li>
+			<li id="comment-7957">
+						<img alt='' src='http://1.gravatar.com/avatar/f1ff3b82ba21b620b2e4e9a35c3ccf7e?s=32&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D32&amp;r=PG' class='avatar avatar-32 photo' height='32' width='32' />			<p>Great article. Looks a lot like my setup. One thing you should consider to complete your workflow is msmtp-enqueue so you can &#8220;send&#8221; emails from mutt even if you&#8217;re offline.</p>
+			
+			<p class="commentmetadata">Posted by <a href='http://heipei.net' rel='external nofollow' class='url'>Jojo</a> on <a href="#comment-7957" title="Permanent Link to this comment">November 18th, 2009</a>. </p>
+		</li>
+			<li id="comment-7959">
+						<img alt='' src='http://0.gravatar.com/avatar/66db9e436738991619a59e8ab8061e64?s=32&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D32&amp;r=PG' class='avatar avatar-32 photo' height='32' width='32' />			<p>@Jojo: Great idea. I was actually just thinking about how I was going to set up that functionality. Hadn&#8217;t got to the google-searching part of the process so you just saved me some time! Thanks!</p>
+			
+			<p class="commentmetadata">Posted by <a href='http://grossmeier.net' rel='external nofollow' class='url'>Greg</a> on <a href="#comment-7959" title="Permanent Link to this comment">November 18th, 2009</a>. </p>
+		</li>
+			<li id="comment-7965">
+									<p>[...] my email configuration addiction continues. As you may recall, I did an extensive (now out-dated) post about my email setup. I&#8217;m still using the basic configuration outlined there (all of the same [...]</p>
+			
+			<p class="commentmetadata">Posted by <a href='http://blog.grossmeier.net/2010/01/28/new-laptop-setting-up-email/' rel='external nofollow' class='url'>Consilience &mdash; New Laptop: Setting up Email</a> on <a href="#comment-7965" title="Permanent Link to this comment">January 28th, 2010</a>. </p>
+		</li>
+			<li id="comment-8011">
+						<img alt='' src='http://0.gravatar.com/avatar/c28492c0bbcf4f8e2fec26be4de5bffc?s=32&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D32&amp;r=PG' class='avatar avatar-32 photo' height='32' width='32' />			<p>saved me a bunch of hours configuring imapfilter. Thanks!</p>
+			
+			<p class="commentmetadata">Posted by Prashant Borole on <a href="#comment-8011" title="Permanent Link to this comment">April 10th, 2010</a>. </p>
+		</li>
+			<li id="comment-8668">
+									<p>[...] spent quite a bit of yesterday and today fiddling around with some things that my buddy Greg posted about a month ago. See, I have had Mutt doing the generic IMAP thing with GMail and it works fairly well. The [...]</p>
+			
+			<p class="commentmetadata">Posted by <a href='http://www.nixternal.com/who-has-the-perfect-imap-setup/' rel='external nofollow' class='url'>Who has the perfect IMAP setup? - Richard A. Johnson&#039;s Blog</a> on <a href="#comment-8668" title="Permanent Link to this comment">February 12th, 2011</a>. </p>
+		</li>
+			<li id="comment-8870">
+									<p>[...] I mean the suite of tools that bring email sent to me to my eyes. I&#8217;ve written before on my setup (note: that is out of date now) and its migration across systems. As you can see, I&#8217;m a fan [...]</p>
+			
+			<p class="commentmetadata">Posted by <a href='http://blog.grossmeier.net/2011/02/12/searching-your-email/' rel='external nofollow' class='url'>Consilience &mdash; Searching your email</a> on <a href="#comment-8870" title="Permanent Link to this comment">January 5th, 2012</a>. </p>
+		</li>
+			<li id="comment-12093">
+						<img alt='' src='http://0.gravatar.com/avatar/2243d26983c33e72e143ca06b59cc3af?s=32&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D32&amp;r=PG' class='avatar avatar-32 photo' height='32' width='32' />			<p>Hi, do you know any way to invoke Imapfilter everytime a new Mail arrives in Mutt? Exist there any Hook or something similar to it?</p>
+			
+			<p class="commentmetadata">Posted by Paloran on <a href="#comment-12093" title="Permanent Link to this comment">April 17th, 2012</a>. </p>
+		</li>
+			<li id="comment-12096">
+						<img alt='' src='http://0.gravatar.com/avatar/66db9e436738991619a59e8ab8061e64?s=32&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D32&amp;r=PG' class='avatar avatar-32 photo' height='32' width='32' />			<p>Hi Paloran,</p>
+<p>I don&#8217;t but there might be a way. I just have offlineimap call imapfilter before it syncs. So if you use offlineimap, do it that way. If you don&#8217;t use offlineimap I&#8217;m at a loss right now. I&#8217;m sure if it is possible via a mutt config option there is a guide out there somewhere :)</p>
+			
+			<p class="commentmetadata">Posted by <a href='http://grossmeier.net' rel='external nofollow' class='url'>Greg</a> on <a href="#comment-12096" title="Permanent Link to this comment">April 18th, 2012</a>. </p>
+		</li>
+		</ol>
+
+ 
+
+<h3 id="respond">Post a comment.</h3>
+
+
+<form action="http://blog.grossmeier.net/wp-comments-post.php" method="post" id="commentform">
+
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" />
+<label for="author"><small>Name (required)</small></label></p>
+
+<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" />
+<label for="email"><small>Mail (will not be published) (required)</small></label></p>
+
+<p><input type="text" name="url" id="url" value="" size="22" tabindex="3" />
+<label for="url"><small>Website</small></label></p>
+
+
+<p><textarea name="comment" id="comment" cols="50" rows="10" tabindex="4"></textarea></p>
+
+<p><input name="submit" type="submit" id="submit" tabindex="5" value="Submit Comment" />
+<input type="hidden" name="comment_post_ID" value="254" />
+</p>
+<p style="display: none;"><input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="ee79f26b24" /></p><p class="comment-subscription-form"><input type="checkbox" name="subscribe_comments" id="subscribe_comments" value="subscribe" style="width: auto; -moz-appearance: checkbox; -webkit-appearance: checkbox;" /> <label class="subscribe-label" id="subscribe-label" for="subscribe_comments" style="display: inline;">Notify me of follow-up comments by email.</label></p><p class="comment-subscription-form"><input type="checkbox" name="subscribe_blog" id="subscribe_blog" value="subscribe" style="width: auto; -moz-appearance: checkbox; -webkit-appearance: checkbox;" /> <label class="subscribe-label" id="subscribe-blog-label" for="subscribe_blog" style="display: inline;">Notify me of new posts by email.</label></p>
+</form>
+
+
+		
+				
+		
+	</div>
+
+<div id="sidebar">
+	<ul>
+		<li id="text-168707184" class="widget widget_text"><h2 class="widgettitle">Search Consilience</h2>
+			<div class="textwidget"><form role="search" method="get" id="searchform" action="http://blog.grossmeier.net/" >
+<input type="text" value="" name="s" id="s" />
+<input type="submit" id="searchsubmit" value="Search" />
+</form></div>
+		</li>
+<li id="text-168707181" class="widget widget_text"><h2 class="widgettitle">About &amp; Subscribe</h2>
+			<div class="textwidget"><a href="http://blog.grossmeier.net/feed/"><img align=right src="http://blog.grossmeier.net/rss-feed-image-88x88.jpg?9d7bd4"></a><b>Consilience</b> is the work of <a href="http://grossmeier.net/about">Greg Grossmeier</a>.</div>
+		</li>
+<li id="text-168707185" class="widget widget_text"><h2 class="widgettitle">Visual Debt</h2>
+			<div class="textwidget"><a href="http://flattr.com/thing/1089160/Consilience" target="_blank">
+<img src="http://api.flattr.com/button/flattr-badge-large.png" alt="Flattr this" title="Flattr this" border="0" /></a>
+<br />
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-4191741046421894";
+/* Default blog ad */
+google_ad_slot = "2295534407";
+google_ad_width = 120;
+google_ad_height = 240;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div>
+		</li>
+<li id="text-168707182" class="widget widget_text"><h2 class="widgettitle">License</h2>
+			<div class="textwidget"><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/3.0/88x31.png" /></a><br />
+by <a xmlns:cc="http://creativecommons.org/ns#" href="http://blog.grossmeier.net" property="cc:attributionName" rel="cc:attributionURL">Greg Grossmeier</a>
+
+<!-- RDF stuff -->
+
+<rdf:RDF xmlns="http://web.resource.org/cc/"
+    xmlns:dc="http://purl.org/dc/elements/1.1/"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+<Work rdf:about="">
+   <dc:type rdf:resource="http://purl.org/dc/dcmitype/Text" />
+   <license rdf:resource="http://creativecommons.org/licenses/by-sa/3.0/" />
+</Work>
+
+<License rdf:about="http://creativecommons.org/licenses/by-sa/2.0/">
+   <permits rdf:resource="http://web.resource.org/cc/Reproduction" />
+   <permits rdf:resource="http://web.resource.org/cc/Distribution" />
+   <requires rdf:resource="http://web.resource.org/cc/Notice" />
+   <requires rdf:resource="http://web.resource.org/cc/Attribution" />
+   <permits rdf:resource="http://web.resource.org/cc/DerivativeWorks" />
+   <requires rdf:resource="http://web.resource.org/cc/ShareAlike" />
+</License>
+
+</rdf:RDF></div>
+		</li>
+<li id="tag_cloud-3" class="widget widget_tag_cloud"><h2 class="widgettitle">Tags</h2>
+<div class="tagcloud"><a href='http://blog.grossmeier.net/tag/archive/' class='tag-link-30' title='1 topic' style='font-size: 8pt;'>archive</a>
+<a href='http://blog.grossmeier.net/tag/autonomous/' class='tag-link-20' title='4 topics' style='font-size: 11.456790123457pt;'>autonomous</a>
+<a href='http://blog.grossmeier.net/tag/bikelockfail/' class='tag-link-14' title='3 topics' style='font-size: 10.592592592593pt;'>bikelockfail</a>
+<a href='http://blog.grossmeier.net/tag/biking/' class='tag-link-19' title='1 topic' style='font-size: 8pt;'>biking</a>
+<a href='http://blog.grossmeier.net/tag/capitalism/' class='tag-link-120' title='2 topics' style='font-size: 9.5555555555556pt;'>capitalism</a>
+<a href='http://blog.grossmeier.net/tag/cc/' class='tag-link-3' title='20 topics' style='font-size: 16.814814814815pt;'>cc</a>
+<a href='http://blog.grossmeier.net/tag/copyright/' class='tag-link-17' title='11 topics' style='font-size: 14.740740740741pt;'>copyright</a>
+<a href='http://blog.grossmeier.net/tag/creativecommons/' class='tag-link-45' title='3 topics' style='font-size: 10.592592592593pt;'>creativecommons</a>
+<a href='http://blog.grossmeier.net/tag/data/' class='tag-link-23' title='3 topics' style='font-size: 10.592592592593pt;'>data</a>
+<a href='http://blog.grossmeier.net/tag/debt/' class='tag-link-71' title='2 topics' style='font-size: 9.5555555555556pt;'>debt</a>
+<a href='http://blog.grossmeier.net/tag/email/' class='tag-link-25' title='1 topic' style='font-size: 8pt;'>email</a>
+<a href='http://blog.grossmeier.net/tag/events/' class='tag-link-26' title='3 topics' style='font-size: 10.592592592593pt;'>events</a>
+<a href='http://blog.grossmeier.net/tag/formats/' class='tag-link-33' title='1 topic' style='font-size: 8pt;'>formats</a>
+<a href='http://blog.grossmeier.net/tag/foursquare/' class='tag-link-36' title='1 topic' style='font-size: 8pt;'>foursquare</a>
+<a href='http://blog.grossmeier.net/tag/freedom/' class='tag-link-4' title='38 topics' style='font-size: 19.148148148148pt;'>freedom</a>
+<a href='http://blog.grossmeier.net/tag/fun/' class='tag-link-35' title='1 topic' style='font-size: 8pt;'>fun</a>
+<a href='http://blog.grossmeier.net/tag/job/' class='tag-link-46' title='2 topics' style='font-size: 9.5555555555556pt;'>job</a>
+<a href='http://blog.grossmeier.net/tag/library/' class='tag-link-16' title='6 topics' style='font-size: 12.753086419753pt;'>library</a>
+<a href='http://blog.grossmeier.net/tag/loco/' class='tag-link-5' title='39 topics' style='font-size: 19.234567901235pt;'>loco</a>
+<a href='http://blog.grossmeier.net/tag/love/' class='tag-link-28' title='1 topic' style='font-size: 8pt;'>love</a>
+<a href='http://blog.grossmeier.net/tag/lugradio/' class='tag-link-6' title='1 topic' style='font-size: 8pt;'>lugradio</a>
+<a href='http://blog.grossmeier.net/tag/money/' class='tag-link-39' title='3 topics' style='font-size: 10.592592592593pt;'>money</a>
+<a href='http://blog.grossmeier.net/tag/mug/' class='tag-link-27' title='3 topics' style='font-size: 10.592592592593pt;'>mug</a>
+<a href='http://blog.grossmeier.net/tag/music/' class='tag-link-7' title='3 topics' style='font-size: 10.592592592593pt;'>music</a>
+<a href='http://blog.grossmeier.net/tag/news/' class='tag-link-8' title='27 topics' style='font-size: 17.938271604938pt;'>news</a>
+<a href='http://blog.grossmeier.net/tag/oer/' class='tag-link-37' title='1 topic' style='font-size: 8pt;'>oer</a>
+<a href='http://blog.grossmeier.net/tag/open-access/' class='tag-link-9' title='13 topics' style='font-size: 15.345679012346pt;'>open-access</a>
+<a href='http://blog.grossmeier.net/tag/open-governance/' class='tag-link-21' title='2 topics' style='font-size: 9.5555555555556pt;'>open-governance</a>
+<a href='http://blog.grossmeier.net/tag/open-standards/' class='tag-link-31' title='1 topic' style='font-size: 8pt;'>open standards</a>
+<a href='http://blog.grossmeier.net/tag/parenting/' class='tag-link-34' title='2 topics' style='font-size: 9.5555555555556pt;'>parenting</a>
+<a href='http://blog.grossmeier.net/tag/patent/' class='tag-link-82' title='2 topics' style='font-size: 9.5555555555556pt;'>patent</a>
+<a href='http://blog.grossmeier.net/tag/photography/' class='tag-link-29' title='2 topics' style='font-size: 9.5555555555556pt;'>photography</a>
+<a href='http://blog.grossmeier.net/tag/photos/' class='tag-link-15' title='7 topics' style='font-size: 13.185185185185pt;'>photos</a>
+<a href='http://blog.grossmeier.net/tag/preso/' class='tag-link-38' title='1 topic' style='font-size: 8pt;'>preso</a>
+<a href='http://blog.grossmeier.net/tag/raw/' class='tag-link-32' title='1 topic' style='font-size: 8pt;'>raw</a>
+<a href='http://blog.grossmeier.net/tag/rowan/' class='tag-link-77' title='3 topics' style='font-size: 10.592592592593pt;'>rowan</a>
+<a href='http://blog.grossmeier.net/tag/scholarly-publishing/' class='tag-link-18' title='4 topics' style='font-size: 11.456790123457pt;'>scholarly-publishing</a>
+<a href='http://blog.grossmeier.net/tag/school/' class='tag-link-10' title='9 topics' style='font-size: 14.049382716049pt;'>school</a>
+<a href='http://blog.grossmeier.net/tag/secrecy/' class='tag-link-116' title='2 topics' style='font-size: 9.5555555555556pt;'>secrecy</a>
+<a href='http://blog.grossmeier.net/tag/secrets/' class='tag-link-115' title='2 topics' style='font-size: 9.5555555555556pt;'>secrets</a>
+<a href='http://blog.grossmeier.net/tag/sharing/' class='tag-link-11' title='17 topics' style='font-size: 16.296296296296pt;'>sharing</a>
+<a href='http://blog.grossmeier.net/tag/spo/' class='tag-link-12' title='2 topics' style='font-size: 9.5555555555556pt;'>spo</a>
+<a href='http://blog.grossmeier.net/tag/travel/' class='tag-link-22' title='1 topic' style='font-size: 8pt;'>travel</a>
+<a href='http://blog.grossmeier.net/tag/ubuntu/' class='tag-link-13' title='82 topics' style='font-size: 22pt;'>ubuntu</a>
+<a href='http://blog.grossmeier.net/tag/wikipedia/' class='tag-link-24' title='2 topics' style='font-size: 9.5555555555556pt;'>wikipedia</a></div>
+</li>
+	</ul>
+</div>
+
+<div id="footer">
+		<p>Consilience is powered by <a href="http://wordpress.org">WordPress</a> and styled by <a href="http://www.acroyear2.org/infimum/">Infimum</a>. <a href="http://validator.w3.org/check/referer" title="Validate the XHTML source for this page">Valid <abbr title="eXtensible HyperText Markup Language">XHTML</abbr></a> and <a href="http://jigsaw.w3.org/css-validator/check/referer" title="Validate the CSS stylesheet for this page">valid <abbr title="Cascading StyleSheets">CSS</abbr></a>. <a href="http://blog.grossmeier.net/login">Log in</a>. </p>
+</div>
+
+</div>
+
+
+<!--Plugin WP Missed Schedule 2013.0106.1111 Active-->	<div style="display:none">
+	<div class="grofile-hash-map-65edac9a29f0668482219a277103a62f">
+	</div>
+	<div class="grofile-hash-map-66db9e436738991619a59e8ab8061e64">
+	</div>
+	<div class="grofile-hash-map-b54dafff75d3883a3eae829193b05126">
+	</div>
+	<div class="grofile-hash-map-bd9335815a75f6970d0ef0c48538c7c5">
+	</div>
+	<div class="grofile-hash-map-38ff0c2affd2273c1ad4c27bf885a0cf">
+	</div>
+	<div class="grofile-hash-map-96630febb655a1425f1279cc68c1dfa2">
+	</div>
+	<div class="grofile-hash-map-f1ff3b82ba21b620b2e4e9a35c3ccf7e">
+	</div>
+	<div class="grofile-hash-map-c28492c0bbcf4f8e2fec26be4de5bffc">
+	</div>
+	<div class="grofile-hash-map-2243d26983c33e72e143ca06b59cc3af">
+	</div>
+	</div>
+<script type='text/javascript' src='http://s0.wp.com/wp-content/js/devicepx-jetpack.js'></script>
+<script type='text/javascript' src='http://s.gravatar.com/js/gprofiles.js'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var WPGroHo = {"my_hash":""};
+/* ]]> */
+</script>
+
+
+	<script src="http://stats.wordpress.com/e-201304.js" type="text/javascript"></script>
+	<script type="text/javascript">
+	st_go({v:'ext',j:'1:2.1.1',blog:'4219602',post:'254',tz:'-8'});
+	var load_cmc = function(){linktracker_init(4219602,254,2);};
+	if ( typeof addLoadEvent != 'undefined' ) addLoadEvent(load_cmc);
+	else load_cmc();
+	</script>
+<style type='text/css'>img#wpstats{display:none}</style>
+</body>
+</html>
+<!-- Performance optimized by W3 Total Cache. Learn more: http://www.w3-edge.com/wordpress-plugins/
+
+Minified using disk: basic
+Page Caching using disk: enhanced
+Database Caching using disk: basic
+Object Caching 1998/2128 objects using disk: basic
+
+Served from: blog.grossmeier.net @ 2013-01-22 14:44:43 -->

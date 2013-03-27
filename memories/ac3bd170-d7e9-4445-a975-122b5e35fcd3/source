@@ -1,0 +1,458 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html >
+<!--
+#########################################################################################################
+# Start of Where's George?/Where's Willy common header                                                 	#
+# All code, content and images copyright Where's George? LLC 1998-2013          #
+# and can not be used without express, written consent.                                                 #
+#########################################################################################################
+-->
+<head>
+<title>Where's George? &reg; 2.4 -- Track Your Dollar Bills </title>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1" >
+<META NAME="Author" CONTENT="Hank Eskin" >
+<META NAME="description" CONTENT="Track US or Canadian dollar bills as they travel across the country. Enter the serial number and zip code to track its past history. Get email when the next person registers your bill! " >
+<META NAME="keywords" CONTENT="wheresgeorge whereswilly where's george? track dolllar bills WG? WG whereswilly.com wheresgeorge.com track dollar track dollar bills trackdollardills trackdollars dollars one bill frb federal reserve banks trace tracing tracking track trace american serial number series denomination bills where is george currency money legal tender" >
+<meta http-equiv="X-UA-Compatible" content="IE=8" >
+<link href="http://www.wheresgeorge.com/css_wg.css" rel="stylesheet" type="text/css">
+</head>
+<body  bgcolor="#ffffff" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0"><script type="text/javascript">function popup_win(page,h,w,scroll) {rnd=Math.round(Math.random()*10000); if (page.substring(0,22)=='user_profile_popup.php') {h=600;w=800;scroll='yes';}window.open(page,rnd,'toolbar=NO,location=NO,directories=NO,status=NO,menubar=NO,scrollbars='+scroll+',resizable=YES,copyhistory=NO,width='+w+',height='+h+',left=100,top=100');}</script><!-- frame buster -->
+<script language="JavaScript" type="text/javascript">
+  	if (top.location != self.location) {
+	top.location = self.location.href
+	}
+</script><a name="top"></a>
+<!-- main table - full width -->
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr height=90 bgcolor=green><td height=90 align=right colspan="3" ><a target=_blank href="http://www.amazon.com/gp/redirect.html?ie=UTF8&location=http%3A%2F%2Fwww.amazon.com%2F&tag=wheresgeorg-20&linkCode=ur2&camp=1789&creative=9325"><img src="http://www.assoc-amazon.com/e/ir?t=wheresgeorg-20&l=ur2&o=1" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" /><img border=0 src=images/amazon_120x90.gif></a><iframe bgcolor="#669933" Allowtransparency="true" src="openads_leaderboard.php" width="728" height="90" marginwidth="0" marginheight="0" frameborder="0" scrolling="no"></iframe></td></tr><tr>
+<td colspan="3">
+<!-- header table - full width -->
+<style type="text/css">
+/*
+ * george css drop nav
+ * contributed by wheresgeorge.com user: verbatim
+ * v1.0 2011-09-22
+ *
+ * reviewed in:
+ * mac: ff, chrome, opera, safari
+ * pc:  ff, chrome, opera, safari, ie6, ie7, ie8, ie9
+ *
+ */
+/* http://perishablepress.com/press/2009/12/06/new-clearfix-hack/ */
+#georgeNavContainer  {  position:relative; top:0px;  left:-19px;  width:620px;}
+#georgeNavContainer:after, #georgeNavList:after { clear:both; content:' '; display:block; font-size:0; line-height:0; visibility:hidden; width:0; height:0; }
+#georgeNavContainer li { float:left; display:block; }
+#georgeNavContainer ul, #georgeNavContainer li { padding:0px; margin:0px; list-style-type:none; }
+.georgeSubContainer { position:absolute;margin-left:-1px;z-index:4; }
+#georgeNavList li { margin-right:-1px; }
+#georgeNavList .georgeSubNavList { border:1px solid #CCC; border-bottom:0px; }
+#georgeNavList .georgeSubNavList li { margin-right:0px; float:none;border:0px; display:block;border-bottom:1px solid #CCC; }
+#georgeNavContainer a, .georgeSubNavList .divider div { color:#FFF; padding:3px 7px; display:block; font-family: Verdana,Arial,sans-serif; font-weight: bold; font-style: normal; font-size: 9px; text-decoration: none; }
+#georgeNavContainer a {  padding:3px 12px; *padding:3px 12px; }
+#georgeNavContainer .georgeSubContainer a {  padding:3px 7px; }
+.georgeSubContainer, #georgeNavContainer a, .georgeSubNavList .divider div { background-color:#666; }
+#georgeNavContainer a:hover { background-color:#333; }
+#georgeNavContainer li { background-color:#666;border:1px solid #CCC; }
+#georgeNavContainer .divider:hover { background-color:#666; }
+.georgeSubContainer { display:none; }
+#georgeNavList li:hover .georgeSubContainer { display:block; }
+.georgeAboutUs li a { width:160px; }
+.georgeTop10 li a { width:135px; }
+.georgeForum li a { width:210px; }
+.georgeFunTools li a { width:230px; }
+.georgeStore li a { width:170px; }
+.georgeFaqsHelp li a { width:130px; }
+.georgeAboutUs li a { width:160px; }
+
+
+/*
+ * below are ie6 specific styles
+ * if ie6 ever goes away, these styles can be removed
+ *
+ * in ie6, must set widths of HREFs:
+ * although "#georgeNavContainer a" is set to display:block;
+ * width of HREF seems to be block width (background color changes on mouseover),
+ * but the link itself only responds when over text of HREF: argh!
+ *
+ * ie6 dependency: csshover3.htc
+ * (http://peterned.home.xs4all.nl/csshover.html)
+ * needed as IE6 recognizes :hover on <a> tag only
+ * this behavior allows :hover on any element
+ *
+ */
+#georgeNavContainer { _behavior:url("csshover3.htc"); *width:100%;  }
+#georgeNavContainer li:hover { _background-color:#333; }
+.georgeTop10 li a { _width:125px; }
+.georgeForum li a { _width:210px; }
+.georgeFunTools li a { _width:230px; }
+.georgeStore li a { _width:170px; }
+.georgeFaqsHelp li a { _width:130px; }
+.georgeAboutUs li a { _width:160px; }
+
+/* end css george drop nav */
+</style><table border="0" height=40 cellpadding="0" cellspacing="0" width="100%">
+  <tr >
+    <td width="165"><img src="img_wg/topl.jpg" width="165" height="135" border="0" alt=""></td>
+    <td width="100%"   ><img width="100%" height="135" src="img_wg/topcN.jpg"  border="0" alt=""></td>
+    <td width="157"><img  src="img_wg/toprN.png" width="157" height="135" border="0" alt=""></td>
+  </tr>
+  <tr>
+    <td width="165"><img name="left1" src="img_wg/left1.jpg" width="165" height="20" border="0" alt=""></td>
+	<td align=left width="100%" bgcolor="#666666"><div id="georgeNavContainer">
+	<ul id="georgeNavList" class="dropNavContainer">
+		<li class="georgeTop10">
+			<a id="georgeTop10Main" href="javascript:;">George's Top 10</a>
+			<div class="georgeSubContainer"><ul class="georgeSubNavList">
+				<li><a href="wrapper.php?page=top10bills_d0">Bills</a></li>
+				<li><a href="top10users.php">Users</a></li>
+				<li><a href="wrapper.php?page=topstates">States</a></li>
+				<li><a href="wrapper.php?page=topzips">Zip Codes</a></li>
+				<li><a href="wrapper.php?page=series">Series</a></li>
+				<li><a href="wrapper.php?page=denom">Denominations</a></li>
+				<li><a href="wrapper.php?page=frb">Federal Reserve Bank</a></li>
+				<li><a href="wrapper.php?page=seriesdenom">Series/Denomination</a></li>
+				<li><a href="wrapper.php?page=seriesfrb">Series/FRB</a></li>
+				<li><a href="wrapper.php?page=frbdenom">FRB/Denomination</a></li>
+				<li class="divider"><div>--------------------------</div></li>
+				<li><a href="hits_by_county.php">Rank by State &amp; County</a></li>
+				<li><a href="wrapper.php?page=county_map">Hits by County Map</a></li>
+				<li><a href="wrapper.php?page=sitesummary">Site Summary</a></li>
+				<li><a href="wrapper.php?page=hitstoday">Hits Today</a></li>
+			</ul></div>
+		</li>
+		<li class="georgeForum">
+			<a id="georgeForumMain" target=_blank href="http://forums.wheresgeorge.com">Public Forum</a>
+			<div class="georgeSubContainer"><ul class="georgeSubNavList">
+				<li><a href="forum.php">New Forum Registration - Go Here First!</a></li>
+				<li><a target=_blank href="http://forums.wheresgeorge.com/forumdisplay.php?f=3">New User/Q&amp;A</a></li>
+				<li><a target=_blank href="http://forums.wheresgeorge.com/forumdisplay.php?f=2">Main Forum</a></li>
+				<li><a target=_blank href="http://forums.wheresgeorge.com/forumdisplay.php?f=4">Hit Celebration</a></li>
+				<li><a target=_blank href="http://forums.wheresgeorge.com/forumdisplay.php?f=5">Western USA</a></li>
+				<li><a target=_blank href="http://forums.wheresgeorge.com/forumdisplay.php?f=6">Midwest USA</a></li>
+				<li><a target=_blank href="http://forums.wheresgeorge.com/forumdisplay.php?f=7">Northeast USA</a></li>
+				<li><a target=_blank href="http://forums.wheresgeorge.com/forumdisplay.php?f=8">Southeast USA</a></li>
+				<li><a target=_blank href="http://forums.wheresgeorge.com/forumdisplay.php?f=9">Numismatic/Bill Collectors</a></li>
+				<li><a target=_blank href="http://forums.wheresgeorge.com/forumdisplay.php?f=10">Off-Topic Forums</a></li>
+				<li><a target=_blank href="http://forums.wheresgeorge.com/forumdisplay.php?f=1">WG Forums Home Page</a></li>
+				<li><a target=_blank href="http://forums.wheresgeorge.com/search.php?do=getnew">New Posts (all forums)</a></li>
+				<li><a href="allforums.php">Old Forums</a></li>
+				<li><a href="allforums.php">Rules &amp; Policies</a></li>
+			</ul></div>
+		</li>
+		<li class="georgeFunTools">
+			<a id="georgeFunToolsMain" href="javascript:;">Tools/Fun</a>
+			<div class="georgeSubContainer"><ul class="georgeSubNavList">
+				<li><a target=_blank href="http://www.wheresgeorge.net">Directory of <i>Where's George?</i> Related Pages</a></li>
+				<li><a href="cool_links.php">Cool Links about Money</a></li>
+				<li><a href="user_links.php">User Spotlight Links/Images</a></li>
+				<li><a href="wrapper.php?page=user_profile_count">Most Popular User Profiles</a></li>
+				<li><a href="wrapper.php?page=whosonline5">Who's Online Now</a></li>
+				<li><a href="boss.html">Boss Key</a></li>
+				<li><a href="pagewidth.php">Set Page Width</a></li>
+				<li><a href="friends.php">The Friends of <i>Where's George?</i> Program</a></li>
+			</ul></div>
+		</li>
+
+		<li class="georgeStore">
+			<a id="georgeStoreMain" target=_blank href="http://www.cafepress.com/wheresgeorge">Store</a>
+			<div class="georgeSubContainer"><ul class="georgeSubNavList">
+				<li><a target=_blank href="http://www.cafepress.com/wheresgeorge">Store Home</a></li>
+				<li><a href="http://www.wheresgeorge.com/pouch.php">Where's George? Trading Pouches</a></li>
+				<li><a target=_blank href="http://www.cafepress.com/wheresgeorge">T-Shirts</a></li>
+				<li><a target=_blank href="http://www.cafepress.com/wheresgeorge">Coffee Mugs</a></li>
+				<li><a href="http://www.wheresgeorge.com/pouch.php">Bumper Stickers</a></li>
+				<li><a href="friends_pay.php">FOG Memberships</a></li>
+			</ul></div>
+		</li>
+
+		<li class="georgeFaqsHelp">
+			<a id="georgeFaqsHelpMain" href="javascript:;">FAQs/Help</a>
+			<div class="georgeSubContainer"><ul class="georgeSubNavList">
+				<li><a href="faq.php">FAQ Page</a></li>
+				<li><a target=_blank href="http://forums.wheresgeorge.com/forumdisplay.php?f=43">WG 2.4 Site Update Info</a></li>
+				<li><a href="site_map.php">Site Map</a></li>
+				<li><a href="rules.php">User Guidelines</a></li>
+			</ul></div>
+		</li>
+		<li class="georgeAboutUs">
+			<a id="georgeAboutUsMain" href="javascript:;">About Us</a>
+			<div class="georgeSubContainer"><ul class="georgeSubNavList">
+				<li><a href="about.php">About <i>Where's George?</i></a></li>
+				<li><a href="news.php"><i>Where's George?</i> In the News</a></li>
+				<li><a href="blog.php">Recent Changes/Blog</a></li>
+				<li><a href="privacy.php">Privacy Policy</a></li>
+			</ul></div>
+		</li>
+		<li class="georgeContactUs"><a href="contact_us.php">Contact Us</a></li>
+	</ul>
+</div><!-- /georgeNavContainer --></td>
+    <td width="157"><img name="right1" src="img_wg/right1.jpg" width="157" height="20" border="0" alt=""></td>
+  </tr>
+  <tr>
+    <td bgcolor="#669933" width="165"><script type="text/javascript">document.write("<a  HREF=\"javascript:popup_win('boss.html',4000,2000,'no');\"><img name=\"left2\" src=\"img_wg/left2.jpg\" width=\"147\" height=\"47\" border=\"0\" alt=\"\"></a>");</script><noscript><A HREF=boss.html target=_blank><img name="left2" src="img_wg/left2.jpg" width="147" height="47" border="0" alt=""></a></noscript></td>
+    <!-- start registered user name/profile link  -->
+    <td width="100%" bgcolor="#669933" class=topnav>
+	<div width="48%" style="float:left; text-align:left;">
+    &nbsp;</div><!-- end registered user name/profile link  -->
+	    <noscript><span class=tabletitle><b>Your browser has Javascript disabled. Please enable Javascript for full site functionality .</b></span></noscript>
+	    <!-- help   -->
+	    <div width="48%" style="float:right; text-align:right"><script type="text/javascript">document.write("<a  HREF=\"javascript:popup_win('help.php?args=5c6ab7054e813de1bf22825308a136b5b6cf6b258915bef70697ed49319accc2d80c13da9f8e4e6555c7c4692033600e81cfc1b12eeffcc7923e17867bd4d81419b809810266d4f35b89267bd6e68cea0c77fd3841fc9bf621a820cdcda02b60e04adf685b468c4149c1300881b752d75dc6cfdfa86c5346',550,650,'yes');\"><img name=\"template_r3_c3\" src=\"img_wg/help.png\" width=\"142\"  border=\"0\" alt=\"\"></a>");</script><noscript><A HREF=help.php?args=5c6ab7054e813de1bf22825308a136b5b6cf6b258915bef70697ed49319accc2d80c13da9f8e4e6555c7c4692033600e81cfc1b12eeffcc7923e17867bd4d81419b809810266d4f35b89267bd6e68cea0c77fd3841fc9bf621a820cdcda02b60e04adf685b468c4149c1300881b752d75dc6cfdfa86c5346 target=_blank><img name="template_r3_c3" src="img_wg/help.png" width="142"  border="0" alt=""></a></noscript></div>
+		<!-- /help --><div style="clear: both;"> </div>
+    </td>
+    <td width="157" bgcolor="#669933"><img name="right2" src="img_wg/right2.jpg" width="157" height="47" border="0" alt=""></td>
+    <!-- end help -->
+  </tr>
+</table><!-- end header table -->
+</td>
+</tr><tr>
+<td width="147" height="100%" valign="top">
+<!-- start LEft hand menu table -->
+<table width="146" height="100%" border="0" cellpadding="0" cellspacing="0" >
+  <tr>
+    <td colspan="3"><img src="img_wg/left3.jpg" width="147" height="14"></td>
+  </tr>
+  <tr valign="top" bgcolor="#FFFFFF">
+    <td height="65" colspan="3" class="sidenav_top">
+<div align="right">
+<a href="/">Home</a><br>
+<a href="/logon.php">Log On</a><br>
+<a href="/register.php">Register</a><br>
+<a href="/main.php#bill">Enter a Bill</a>
+</div></td></tr>
+<tr>
+    <td width="19" valign="top" background="img_wg/left-gutter.png">
+      <table height="100%" width="19" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>&nbsp;</td>
+        </tr>
+      </table>
+    </td>
+    <td width="127" colspan="2" valign="top" bgcolor="#91CB53">
+    <br><FORM name=logon ACTION=logon.php METHOD=POST>
+<input type=hidden name=pixels value="0"><input type=hidden name=duration value="24">
+<table class="sidenav" border=0 cellpadding="0" cellspacing="0" width=100%>
+	<tr>
+		<td class="sidenav" align=left>Quick Logon:<br>
+		Email:<br><INPUT type=text size=10 name=email><br>
+		Password:<br><INPUT type=password size=10 name=password><br>
+		<INPUT type=submit value="Logon"><br>
+		<a href=/logon.php?yesIforgot=1>Forgot your password?</a>
+		</td>
+	</tr>
+<SCRIPT language=JavaScript>
+logon.pixels.value=window.innerWidth-184;
+</script>
+</table></FORM>
+<br><br><br><br><iframe bgcolor="#99CC66" Allowtransparency="true" src="openads_left_sky.php" width="120" height="600" marginwidth="0" marginheight="0" frameborder="0" scrolling="no"></iframe><img src="img_wg/left-nav-bottom.gif"></td>
+  </tr>
+  <tr>
+    <td height="100%" valign="top" background="img_wg/left-gutter.gif">
+    	<table height="100%" width="19" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td height="100%" valign="top">&nbsp;</td>
+        </tr>
+      </table>
+    </td>
+    <td valign="top" background="img_wg/left-gutter-background.gif"><p><img src="img_wg/left-nav-gutter.gif"></p>
+    </td>
+  </tr>
+</table>
+<!-- end Left hand menu table -->
+</td>
+<!-- open td for content -->
+<td style="text-align:left;" width="100%" align="left" valign="top" class="body" ><!-- open td for content  --><p class=header>Welcome to <i>Where's George?</i><font size=-3>&reg;</font></p><p>You are not currently logged on. To Log On <a href=logon.php>Click Here</a></p><p class="large_blue">To get started tracking your bills, please select below:</p>
+
+<table class="bill_form_new" border=0 align=center width=60%>
+
+<tr>
+	<td width=25% align=center >
+		<a href="wild.php"><img title="By entering this bill, you will help maintain the tracking of the journey this bill has made.  Additionally, you will get back a list of all the cities, states, and countries where your bill has been recorded, as well as travel time and distance along its journey." alt="By entering this bill, you will help maintain the tracking of the journey this bill has made.  Additionally, you will get back a list of all the cities, states, and countries where your bill has been recorded, as well as travel time and distance along its journey." border="0" src="wizard/wild2.png"></a>
+	</td>
+	<td width=25% align=center >
+		<a href=mainnt.php?e><img  title="You can start and enter your own bills to track! You will need to Register before entering your own bills so you can be notified when your bills are found next." alt="You can start and enter your own bills to track! You will need to Register before entering your own bills so you can be notified when your bills are found next."  border="0" src="wizard/enter2.png"></a>
+	</td>
+</tr>
+<tr>
+	<td width=25% align=center valign=center>
+	<center><p class=body>By entering this bill, you will help maintain the tracking of the journey this bill has made.  Additionally, you will get back a list of all the cities, states, and countries where your bill has been recorded, as well as travel time and distance along its journey.<br>	</td>
+	<td width=25% align=center valign=center>
+	<p class=body>You can start and enter your own bills to track! <br>You will need to <a href="register.php">Register</a> before entering your own bills so you can be notified when your bills are found next.</p>	</td>
+</tr>
+</table>
+<div align=center class=body><b> U.S. Patent Pending</b></div><center><p class=body><br><br><a href="report.php?key=18cb84597b7b64edeb734317cea9bf6b88f9e9db85dbe7b0">Show Me an Example of a Bill Tracking Report</a>
+<br>
+<p class=body><IMG border=0 SRC=images/canflag.gif>If you are from Canada, be sure to check out <a href="http://www.whereswilly.com"><i>Where's Willy</i></a>? to track your Canadian Currency!</p><br><br><br><br><br><br><br><br><br><br></p></center><!-- </center> -->
+<center>Advertisement:<br><iframe bgcolor="#ffffff" Allowtransparency="true" src="openads_box.php" width="300" height="250" marginwidth="0" marginheight="0" frameborder="0" scrolling="no"></iframe></center><script src="http://www.google-analytics.com/urchin.js" type="text/javascript"></script><script type="text/javascript">_uacct = "UA-1469661-1";urchinTracker();</script><!-- Google Code for WheresGeorge.com Remarketing List -->
+<script type="text/javascript">
+/* <![CDATA[ */
+var google_conversion_id = 949657151;
+var google_conversion_language = "en";
+var google_conversion_format = "3";
+var google_conversion_color = "ffffff";
+var google_conversion_label = "GN99CMGkrQMQv7zqxAM";
+var google_conversion_value = 0;
+/* ]]> */
+</script>
+<script type="text/javascript" src="http://www.googleadservices.com/pagead/conversion.js">
+</script>
+<noscript>
+<div style="display:inline;">
+<img height="1" width="1" style="border-style:none;" alt="" src="http://www.googleadservices.com/pagead/conversion/949657151/?label=GN99CMGkrQMQv7zqxAM&amp;guid=ON&amp;script=0"/>
+</div>
+</noscript>
+
+<br><br><br><br><br><br>
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0" class="body">
+	<tr>
+	<td class="body"><div align="center">
+	<a href="/">Home Page</a> | <a href="faq.php">FAQs</a> | <a href="site_map.php">Site Map</a> | <a href="about.php">About</a> | <a href="privacy.php">Privacy Policy</a> | <a href="contact_us.php">Contact Us</a> <br>
+	<br>	<span class=footer>
+All content, images, and data &copy; 1998-2013 Where's George? LLC.<br>
+All Rights Reserved. Use of this Web site constitutes<br>
+acceptance of the <script type="text/javascript">document.write("<a  HREF=\"javascript:popup_win('rules.php?fr=1',600,800,'yes');\">Terms of Service</a>");</script><noscript><A HREF=rules.php?fr=1 target=_blank>Terms of Service</a></noscript></span>
+</div></td></tr></table><!-- close td for content -->
+</td>
+<!-- close td for content -->
+<td width="177" valign="top" background="/img_wg/right-gutter-bkg.gif">
+
+<link href="http://www.wheresgeorge.com/css_wg.css" rel="stylesheet" type="text/css">
+<table width="151" border="0" cellpadding="0" cellspacing="0">
+
+<tr>
+<td height="14"><div align="center"><img src="img_wg/shim-white.gif" width="1" height="1"></div></td>
+</tr>
+
+<tr>
+<td height="20" valign="middle" bgcolor="#91CB53" class="tabletitle"><div align="center"><font color="#FFFFFF" size="1" face="Verdana, Arial, Helvetica, sans-serif"><strong>George Says We Have</strong></font></div></td>
+</tr>
+<!-- George O Meter -->
+<tr>
+	<td width="169">
+	
+<table width="100%" border="0" cellpadding="2" cellspacing="0" bordercolor="#CCCCCC">
+<!--
+<tr class="body">
+<td bgcolor="#666666"><font color="#FFFFFF"><strong>Users</strong></font></td>
+<td>7,230,589</td>
+</tr>
+-->
+<tr class="body">
+<td bgcolor="#666666"><font color="#FFFFFF"><strong>Bills</strong></font></td>
+<td>220,639,954</td>
+</tr>
+
+<tr class="body">
+<td bgcolor="#666666"><font color="#FFFFFF"><strong>Totaling</strong></font></td>
+<td>$1,188,128,275</td>
+</tr>
+
+<tr class="body">
+<td bgcolor="#666666"><font color="#FFFFFF"><strong>Entered Today</strong></font></td>
+<td align=center>15,474</td>
+</tr>
+
+<tr class="body">
+<td bgcolor="#666666"><font color="#FFFFFF"><strong>Hits</strong></font></td>
+<td align=center>2,621</td>
+</tr>
+
+<tr class="body">
+<td bgcolor="#666666"><font color="#FFFFFF"><strong>System Status</strong></font></td>
+<td align=center><a href='javascript:alert("No delays ");'><img border=0 src=images/status_green.gif alt="No delays "></a></td>
+</tr>
+
+
+<tr bgcolor="#CCCCCC" class="body">
+<td colspan="2"><div align="center"><em>Next update in 18 minutes.</em></div></td>
+</tr>
+</table>
+
+	<br>
+	</td>
+</tr><!-- end George O Meter -->
+
+	<tr>
+	<td height="20" bgcolor="#91CB53" class="tabletitle"><div align="center"><font color="#FFFFFF" size="1" face="Verdana, Arial, Helvetica, sans-serif"><strong>Real Time Hit Feed</strong></font></div></td>
+	</tr><tr bgcolor="" >
+	<td class="body"><div align="center"><p><strong><script src="realtime.js" type="text/javascript">
+/***********************************************
+* Ajax Ticker script (txt file source)- © Dynamic Drive (www.dynamicdrive.com)
+* This notice MUST stay intact for legal use
+* Visit http://www.dynamicdrive.com/ for this script and 100s more.
+***********************************************/
+</script>
+<style type="text/css">
+#ajaxticker1{
+width: 140px;
+height: 150px;
+border: 0px ridge black;
+padding: 0px;
+overflow:auto;
+background-color: #e2ffe2;
+}
+#ajaxticker1 div{ /*IE6 bug fix when text is bold and fade effect (alpha filter) is enabled. Style inner DIV with same color as outer DIV*/
+background-color: #e2ffe2;
+}
+</style>
+<script type="text/javascript">
+var xmlfile="hitfeed.wg" //path to ticker txt file on your server.
+var delay=2500
+var aticker = new ajax_ticker(xmlfile, "ajaxticker1", "body", delay, "fade",0)
+</script></strong></p></div>
+	</td>
+	</tr>
+	<tr>
+	<td height="20" bgcolor="#91CB53" class="tabletitle"><div align="center"><font color="#FFFFFF" size="1" face="Verdana, Arial, Helvetica, sans-serif"><strong>&nbsp;</strong></font></div></td>
+	</tr>
+	<tr><td class="body"><div align="center">&nbsp;</div></td></tr>
+	<tr>
+	<td height="20" bgcolor="#91CB53" class="tabletitle"><div align="center"><font color="#FFFFFF" size="1" face="Verdana, Arial, Helvetica, sans-serif"><strong>Buy Stuff -- Help Charities</strong></font></div></td>
+	</tr><tr bgcolor="#000000" >
+	<td class="body"><div align="center"><p><strong><A rel="nofollow" HREF="http://www.worldliftingventures.com/wheresgeorge.html" target=_blank><img SRC="images/project_charity_120x150.png" border=0 align=absbottom></a></strong></p></div>
+	</td>
+	</tr>
+	<tr>
+	<td height="20" bgcolor="#91CB53" class="tabletitle"><div align="center"><font color="#FFFFFF" size="1" face="Verdana, Arial, Helvetica, sans-serif"><strong>&nbsp;</strong></font></div></td>
+	</tr>
+	<tr><td class="body"><div align="center">&nbsp;</div></td></tr><tr bgcolor="" >
+	<td class="body"><div align="center"><p><strong>Now find us on...
+<A HREF="http://www.facebook.com/WheresGeorge" target=_blank><IMG target=_blank  SRC="images/facebook.jpg" BORDER="0" WIDTH="66"  align=center ></A>
+<A HREF="http://twitter.com/wheresgeorge" target=_blank><IMG target=_blank  SRC="images/twitter.jpg" BORDER="0" WIDTH="66"  align=center ></A></strong></p></div>
+	</td>
+	</tr>
+	<tr><td class="body"><div align="center">&nbsp;</div></td></tr>
+	<tr>
+	<td height="20" bgcolor="#91CB53" class="tabletitle"><div align="center"><font color="#FFFFFF" size="1" face="Verdana, Arial, Helvetica, sans-serif"><strong>Young Adult Novel</strong></font></div></td>
+	</tr><tr bgcolor="" >
+	<td class="body"><div align="center"><p><strong><A HREF="wtgp.php" target=_blank><IMG target=_blank  SRC="images/WTGPgif1.gif" BORDER="0" HEIGHT="600" WIDTH="130"  align=center alt="Want to Go Private"></A></span></strong></p></div>
+	</td>
+	</tr>
+	<tr>
+	<td height="20" bgcolor="#91CB53" class="tabletitle"><div align="center"><font color="#FFFFFF" size="1" face="Verdana, Arial, Helvetica, sans-serif"><strong>&nbsp;</strong></font></div></td>
+	</tr>
+	<tr><td class="body"><div align="center">&nbsp;</div></td></tr>
+	<tr>
+	<td height="20" bgcolor="#91CB53" class="tabletitle"><div align="center"><font color="#FFFFFF" size="1" face="Verdana, Arial, Helvetica, sans-serif"><strong>Handy Link</strong></font></div></td>
+	</tr><tr bgcolor="" >
+	<td class="body"><div align="center"><p><strong>Buy stuff at Amazon.com and help support <i>Where's George?</i>!!<br>
+<A HREF="http://www.amazon.com/gp/redirect.html?ie=UTF8&location=http%3A%2F%2Fwww.amazon.com%2F&tag=wheresgeorg-20&linkCode=ur2&camp=1789&creative=9325" target=_blank>
+<IMG target=_blank  SRC="images/amazon_120x90.gif" BORDER="0" HEIGHT="89" WIDTH="120"  align=center alt="In Association with Amazon.com"></A><Br><Br><span align=center></span></strong></p></div>
+	</td>
+	</tr>
+	<tr>
+	<td height="20" bgcolor="#91CB53" class="tabletitle"><div align="center"><font color="#FFFFFF" size="1" face="Verdana, Arial, Helvetica, sans-serif"><strong>&nbsp;</strong></font></div></td>
+	</tr>
+	<tr><td class="body"><div align="center">&nbsp;</div></td></tr>
+</table></td>
+</tr>
+</table>
+	<!-- Start Quantcast tag -->
+	<script type="text/javascript" src="http://edge.quantserve.com/quant.js"></script>
+	<script type="text/javascript">_qacct="p-26x3j23aUJBL6";quantserve();</script>
+	<noscript>
+	<a href="http://www.quantcast.com/p-26x3j23aUJBL6" target="_blank"><img src="http://pixel.quantserve.com/pixel/p-26x3j23aUJBL6.gif" style="display: none;" border="0" height="1" width="1" alt="Quantcast"/></a>
+	</noscript>
+	<!-- End Quantcast tag -->
+</body>
+</html>

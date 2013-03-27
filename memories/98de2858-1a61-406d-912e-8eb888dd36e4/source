@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Re: [Haskell-cafe] Enum to String, and back?</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="contents" href="index.html#58054">
+<link rel="index" href="maillist.html#58054">
+<link rel="prev" href="msg58053.html">
+<link rel="next" href="msg58055.html">
+<link rel="alternate" title="haskell-cafe RSS" href="#" type="application/rss+xml">
+<link rel="canonical" href="http://www.mail-archive.com/haskell-cafe@haskell.org/msg58054.html">
+<link rel="stylesheet" href="/normalize.css" media="screen">
+<link rel="stylesheet" href="/master.css" media="screen">
+
+<!--[if lt IE 9]>
+<link rel="stylesheet" href="/ie.css" media="screen">
+<![endif]-->
+</head>
+<body>
+<div class="container">
+<div class="skipLink">
+<a href="#nav">Skip to site navigation (Press enter)</a>
+</div>
+<div class="content" role="main">
+<div class="msgHead">
+<h1>
+<span class="subject"><a href="/search?l=haskell-cafe@haskell.org&amp;q=subject:%22Re%3A+%5BHaskell-cafe%5D+Enum+to+String%2C+and+back%3F%22" rel="nofollow">Re: [Haskell-cafe] Enum to String, and back?</a></span>
+</h1>
+<p class="darkgray font13">
+<span class="sender pipe"><a href="/search?l=haskell-cafe@haskell.org&amp;q=from:%22Martijn+van+Steenbergen%22" rel="nofollow">Martijn van Steenbergen</a></span>
+<span class="date"><a href="/search?l=haskell-cafe@haskell.org&amp;q=date:20090415" rel="nofollow">Wed, 15 Apr 2009 12:17:54 -0700</a></span>
+</p>
+</div>
+<div class="msgBody">
+<!--X-Body-of-Message-->
+<pre style="margin: 0em;">
+Hi Michael,
+
+michael rice wrote:
+</pre><blockquote style="border-left: #5555EE solid 0.2em; margin: 0em; padding-left: 0.85em"><tt>Can one as easily establish a reverse relationship, i.e., convert a 
+</tt><tt>String type like &quot;Red&quot; back to its corresponding Color type?
+</tt><pre style="margin: 0em;"></pre><pre>
+
+So that
+
+&quot;Red&quot; :: [Char] -&gt; Red :: Color
+</pre></blockquote><pre style="margin: 0em;">
+
+</pre><tt>Yes, simply add Read to your list of to be derived type classes. Then 
+</tt><tt>you can say:
+</tt><pre style="margin: 0em;">
+
+&gt; read &quot;Red&quot; :: Color
+
+HTH,
+
+Martijn.
+_______________________________________________
+Haskell-Cafe mailing list
+Haskell-Cafe@haskell.org
+<a  rel="nofollow" href="http://www.haskell.org/mailman/listinfo/haskell-cafe">http://www.haskell.org/mailman/listinfo/haskell-cafe</a>
+</pre>
+
+</div>
+<div class="msgButtons margintopdouble">
+<h2 class="hidden">
+				Navigate to other messages
+</h2>
+<ul class="overflow">
+<li class="msgButtonItems"><a class="button buttonleft " accesskey="p" href="msg58053.html">Previous message</a></li>
+<li class="msgButtonItems textaligncenter"><a class="button" accesskey="c" href="index.html#58054">View by thread</a></li>
+<li class="msgButtonItems textaligncenter"><a class="button" accesskey="i" href="maillist.html#58054">View by date</a></li>
+<li class="msgButtonItems textalignright"><a class="button buttonright " accesskey="n" href="msg58055.html">Next message</a></li>
+</ul>
+</div>
+<a name="tslice"></a>
+<div class="tSliceLiset margintopdouble">
+<h2 class="hidden">
+				Navigate to other messages within this thread
+</h2>
+<ul class="icons monospace">
+<li class="icons-email"><span class="subject"><a href="msg58053.html">[Haskell-cafe] Enum to String, and back?</a></span> <span class="sender italic">michael rice</span></li>
+<li><ul>
+<li class="icons-email tSliceCur"><span class="subject">Re: [Haskell-cafe] Enum to String, and back?</span> <span class="sender italic">Martijn van Steenbergen</span></li>
+<li class="icons-email"><span class="subject"><a href="msg58055.html">Re: [Haskell-cafe] Enum to String, and back?</a></span> <span class="sender italic">Rahul Kapoor</span></li>
+<li class="icons-email"><span class="subject"><a href="msg58063.html">Re: [Haskell-cafe] Enum to String, and back?</a></span> <span class="sender italic">michael rice</span></li>
+</ul>
+</ul>
+</div>
+<div class="overflow msgActions margintopdouble">
+<div class="msgShare">
+<h2>
+					Share
+</h2>
+<iframe id="fblikeframe" src="http://www.facebook.com/plugins/like.php?app_id=247560681926847&amp;href=http%3A%2F%2Fwww.mail-archive.com%2Fhaskell-cafe%40haskell.org%2Fmsg58054.html&amp;send=false&amp;layout=button_count&amp;action=recommend&amp;width=140&amp;show_faces=false&amp;colorscheme=light&amp;font&amp;height=21&amp;ref=fbliketop" style="border:none; overflow:hidden; width:140px; height:21px;"></iframe>
+<script type="text/javascript">document.getElementById('fblikeframe').allowTransparency = true;</script>
+</div>
+<div class="msgReply" >
+<h2>
+					Reply via email to
+</h2>
+<form method="POST" action="/mailto.php">
+<input type="HIDDEN" name="subject" value="Re: [Haskell-cafe] Enum to String, and back?">
+<input type="HIDDEN" name="msgid" value="49E632C6.1000307@van.steenbergen.nl">
+<input type="submit" value=" Martijn van Steenbergen ">
+</form>
+</div>
+</div>
+</div>
+<div class="aside" role="complementary">
+<div class="logo">
+<a href="/"><img src="/logo.png" width=247 height=88 alt="The Mail Archive"></a>
+</div>
+<form class="overflow" action="/search" method="get">
+<input type="hidden" name="l" value="haskell-cafe@haskell.org">
+<label class="hidden" for="q">Search the site</label>
+<input class="submittext" type="text" id="q" name="q" placeholder="Search haskell-cafe">
+<input class="submitbutton" name="submit" type="image" src="/submit.png" alt="Submit">
+</form>
+<div class="nav margintop" id="nav" role="navigation">
+<h2 class="hidden">
+				Site navigation
+</h2>
+<ul class="icons font16">
+<li class="icons-home"><a href="/">The Mail Archive home</a></li>
+<li class="icons-list"><a href="/haskell-cafe@haskell.org/">haskell-cafe - all messages</a></li>
+<li class="icons-about"><a href="/haskell-cafe@haskell.org/info.html">haskell-cafe - about the list</a></li>
+<li class="icons-prev"><a href="msg58053.html">Previous message</a></li>
+<li class="icons-next"><a href="msg58055.html">Next message</a></li>
+</ul>
+</div>
+<div class="listlogo margintopdouble">
+<h2 class="hidden">
+				Mail list logo
+</h2>
+
+</div>
+<div class="bannertower margintopdouble">
+<h2 class="hidden">
+				Advertising banner
+</h2>
+
+</div>
+</div>
+</div>
+<div class="footer" role="contentinfo">
+<h2 class="hidden">
+		Footer information
+</h2>
+<ul>
+<li><a href="/">The Mail Archive home</a></li>
+<li><a href="/faq.html#newlist">Add your mailing list</a></li>
+<li><a href="/faq.html">FAQ</a></li>
+<li><a href="/faq.html#support">Support</a></li>
+<li><a href="/faq.html#privacy">Privacy</a></li>
+</ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,539 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Quick and simple email management with mutt, offlineimap, imapfilter, msmtp, and archivemail - Jason's Blog</title>
+  <meta name="author" content="Jason Graham">
+
+  
+  <meta name="description" content="After using Gmail for many years, about a year ago my academic advisor
+introduced me to mutt. I’ve been using it as my mail reader ever since,
+in &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://jason.the-graham.com/2011/01/10/email_with_mutt_offlineimap_imapfilter_msmtp_archivemail/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="http://feeds.feedburner.com/jason-the-graham" rel="alternate" title="Jason's Blog" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-15354626-2']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Jason's Blog</a></h1>
+  
+    <h2>A stochastic thought repository</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="http://feeds.feedburner.com/jason-the-graham" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/about/">About Me</a></li>
+  <li><a href="/archives/">Archives</a></li>
+  <li><a href="http://code.the-graham.com">Code</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Quick and Simple Email Management With Mutt, Offlineimap, Imapfilter, Msmtp, and Archivemail</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-01-10T00:00:00-08:00" pubdate data-updated="true">Jan 10<span>th</span>, 2011</time>
+        
+         | <a href="#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>After using <a href="http://gmail.com/">Gmail</a> for many years, about a year ago my academic advisor
+introduced me to <a href="http://www.mutt.org/">mutt</a>.  I’ve been using it as my mail reader ever since,
+in combination with <a href="https://github.com/jgoerzen/offlineimap/wiki">offlineimap</a>, <a href="http://imapfilter.hellug.gr/">imapfilter</a>, <a href="http://msmtp.sourceforge.net/">msmtp</a>, and most
+recently <a href="http://archivemail.sourceforge.net/">archivemail</a>.  The setup is highly customizable, incredibly fast,
+and since the configuration is completely in text files, I can quickly make
+and keep track of changes across my multiple computers with <a href="http://git-scm.com/">git</a>.</p>
+
+<p>The downside of this approach is it requires a bit of time and possibly
+troubleshooting up-front to configure.  But as always, Google is your friend.
+Several other good tutorials exist explaining how to use and configure these
+tools in various combinations, and I wanted to add examples from my own
+configuration to the mix in the hope that others find them useful.</p>
+
+<p>Some would also point out that mutt really could technically do most of this
+by itself.  This absolutely works, but I like to have a division of labor of
+sorts, splitting up the fetching, sorting, sending, and reading between
+different programs.  After all, it is the <a href="http://en.wikipedia.org/wiki/Unix_philosophy">Unix Philosophy</a>.</p>
+
+<blockquote><p>This is the Unix philosophy: Write programs that do one thing and do it<br />well. Write programs to work together.</p><footer><strong>Doug McIlroy</strong></footer></blockquote>
+
+<p>My example setup will include two inboxes: one for school, and one for Gmail.
+I have a few more mailboxes than this setup, but it’s easy to extend from this
+as per your own needs.</p>
+
+<ul id="markdown-toc">
+  <li><a href="#preparation">Preparation</a></li>
+  <li><a href="#syncing-mail-with-offlineimap">Syncing mail with Offlineimap</a></li>
+  <li><a href="#sorting-mail-with-imapfilter">Sorting mail with Imapfilter</a></li>
+  <li><a href="#reading-mail-with-mutt">Reading mail with Mutt</a></li>
+  <li><a href="#sending-mail-with-msmtp">Sending mail with Msmtp</a></li>
+  <li><a href="#saving-old-emails-with-archivemail">Saving old emails with Archivemail</a></li>
+  <li><a href="#encrypting-your-passwords-with-gnome-keyring">Encrypting your Passwords with Gnome-Keyring</a></li>
+  <li><a href="#changelog">Changelog</a></li>
+</ul>
+
+<p><img src="http://farm4.static.flickr.com/3149/2822660113_fef2bbc676_d.jpg" title="'Photo by __olga__ on Flickr'" /></p>
+
+<h3 id="preparation">Preparation</h3>
+
+<p>It’s easiest to keep everything together under one directory for git to keep
+track of.  From there, we can use symlinks or specify directly within the
+various commands about where the configuration files are.</p>
+
+<p>I’ve created an <a href="https://github.com/jasongraham/mail_conf_example">example repository on Github</a> for those that want to follow
+along with a similar file structure.  Note that to go from example to working
+copy will require a bit of editing.</p>
+
+<h3 id="syncing-mail-with-offlineimap">Syncing mail with Offlineimap</h3>
+
+<p><a href="https://github.com/jgoerzen/offlineimap/wiki">Offlineimap</a> uses the <a href="http://en.wikipedia.org/wiki/Internet_Message_Access_Protocol">IMAP</a> protocol to synchronize a local copy of all
+your email messages for multiple accounts in a <a href="http://en.wikipedia.org/wiki/Maildir">maildir</a> format.  Having
+your email be local means that reading is fast, since the email has already
+been downloaded to your machine.  Any changes you make such as deleting,
+changing flags (important, read, unread,…), or moving the email to
+a different folder are performed on the local copy, which is periodically
+synchronized with the remote copy.</p>
+
+<p>A <a href="https://github.com/jgoerzen/offlineimap/blob/master/offlineimap.conf">fully annotated configuration file</a> is
+available if you want to see all the bells and whistles available.
+Alternately, check out the <a href="https://github.com/jgoerzen/offlineimap/blob/master/offlineimap.conf.minimal">minimal configuration</a>
+needed to get working.  My example configuration is
+<a href="https://github.com/jasongraham/mail_conf_example/blob/master/offlineimaprc">here</a>.</p>
+
+<p>I suggest that you test it from the terminal to make sure that it’s working at
+this point.  You will need to disable the hook to imapfilter if you haven’t
+configured it yet.  Other sources of errors may be the port number, or if
+you’re trying to connect to Gmail, be sure you have <a href="https://mail.google.com/support/bin/answer.py?answer=77695">enabled IMAP</a> in the
+Gmail interface.</p>
+
+<div class="bogus-wrapper"><notextile><figure class="code"> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class="bash"><span class="line">offlineimap -c ~/.mail_configs/offlineimaprc
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+<h3 id="sorting-mail-with-imapfilter">Sorting mail with Imapfilter</h3>
+
+<p><a href="http://imapfilter.hellug.gr/">Imapfilter</a> is another program which is able to sort and move messages
+around on the IMAP server.  I use it before calling offlineimap to sort my
+mail into the correct folder (ie, messages for a certain class into a given
+folder).  The configuration file can use <a href="http://en.wikipedia.org/wiki/Regular_expression_examples">regular expressions</a> to do the
+sorting, and is extendable using <a href="http://en.wikipedia.org/wiki/Lua_(programming_language)">Lua</a>, if you want to do so.</p>
+
+<p>Sorting can take place based on who an email is sent from, sent to, title
+contents, body contents, other header information, email size, age of the
+email, email status (recent, unread,…) and many other possibilities in
+combination.</p>
+
+<p><a href="https://github.com/jasongraham/mail_conf_example/blob/master/imapfilter/school.lua">My example configuration</a> is actually quite simple.
+You should really look at the <a href="http://imapfilter.hellug.gr/imapfilter_config.5.txt">configuration manual</a>
+and especially another <a href="http://imapfilter.hellug.gr/sample.config.lua.txt">example</a> to see other
+things you can do with it.</p>
+
+<p>You can test your configuration using the following command.</p>
+
+<div class="bogus-wrapper"><notextile><figure class="code"> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class="bash"><span class="line">imapfilter -vc ~/.mail_configs/imapfilter/file_name.lua
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+<h3 id="reading-mail-with-mutt">Reading mail with Mutt</h3>
+
+<p>Now that you hopefully have your email synchronized to your machine, it’s time
+to set up <a href="http://www.mutt.org/">mutt</a> to read it.  This is the most configuration intensive
+portion of this how-to, but fortunately we can split up mutt’s configuration
+file in a sensible and modular way for simplicity.</p>
+
+<p>Before I throw down my own configuration files, I will point you to a page
+with a list of several different <a href="http://wiki.mutt.org/?ConfigList">mutt configuration examples</a>.  They have
+varying levels of documentation in them, and try to do different things.  This
+is, again, because mutt is <em>so darn configurable</em> that it really can do just
+about anything you want to do.  As I mentioned previously, most of these
+setups let mutt handle everything regarding connecting to IMAP servers,
+sorting, connecting to SMTP servers to send and some other things.  It’s
+a good place to look for ideas.</p>
+
+<p>Moving on to my own configuration: the configuration files are split up as
+follows:</p>
+
+<ul>
+  <li><a href="https://github.com/jasongraham/mail_conf_example/blob/master/mutt/muttrc">muttrc</a>: This is the main configuration file.  All the other
+configuration files are included from this file.</li>
+  <li><a href="https://github.com/jasongraham/mail_conf_example/blob/master/mutt/common">common</a>: Some global settings that I want to apply to every email account
+I read.</li>
+  <li><a href="https://github.com/jasongraham/mail_conf_example/blob/master/mutt/colors">colors</a>: What the colors you want to be used in the display are.  It uses
+the same Zenburn color scheme as this blog appears in.</li>
+  <li><a href="https://github.com/jasongraham/mail_conf_example/blob/master/mutt/macros">macros</a>: A set of a few keybindings that I find useful.</li>
+  <li><a href="https://github.com/jasongraham/mail_conf_example/blob/master/mutt/mailcap">mailcap</a>: This file tells mutt how to open attachments automatically.
+Your distribution may come with it’s own mailcap file.  If so, I recommend
+that you remove the <code>set mailcap_path</code> statement in the <code>common</code> file and
+use it (unless you want to override it as I have).</li>
+  <li><a href="https://github.com/jasongraham/mail_conf_example/blob/master/mutt/pgp">pgp</a>: If you do use use <a href="http://en.wikipedia.org/wiki/Pretty_Good_Privacy">pgp</a> or <a href="http://en.wikipedia.org/wiki/GNU_Privacy_Guard">gpg</a> encryption or
+signing email (or want to do so, all the cool kids are doing it :P), then
+this is the configuration file for doing that.  If you have no idea or
+interest in this, then ignore this file and remove the corresponding source
+statement from the muttrc file.</li>
+  <li><a href="https://github.com/jasongraham/mail_conf_example/blob/master/mutt/school">school</a> and <a href="https://github.com/jasongraham/mail_conf_example/blob/master/mutt/gmail">gmail</a>: These are
+configuration files that are specific to the these specific email accounts,
+such as account specific signatures and such.  See the folder hooks in
+<a href="https://github.com/jasongraham/mail_conf_example/blob/master/mutt/muttrc">muttrc</a> used to load these based on what folder mutt is looking at.
+Also, notice that these are very simple configuration files.  It is trivial
+to add more if you have more email accounts.</li>
+</ul>
+
+<h3 id="sending-mail-with-msmtp">Sending mail with Msmtp</h3>
+
+<p><a href="http://msmtp.sourceforge.net/">Msmtp</a> is a very simple <a href="http://en.wikipedia.org/wiki/Simple_Mail_Transfer_Protocol">SMTP</a> client.  It contacts the SMTP server with
+your account credentials when you send mail, and then passes the sent email to
+the server.</p>
+
+<p>To use it, first set up your configuration file.  My example configuration
+file is <a href="https://github.com/jasongraham/mail_conf_example/blob/master/msmtprc">here</a>, but you can also look at <a href="http://msmtp.sourceforge.net/doc/msmtprc.txt">another
+simple example</a>.</p>
+
+<p>Once you have your file set up, you can test it from the terminal to make sure
+it’s working.  Assuming that it is working, you should see information about
+the SMTP server and the encryption certificate flash by, otherwise, there is
+an error.  In particular, if a self-signed certificate is being used, or
+a certificate from an uncommon signing authority, you may need to ignore the
+certificate check as shown in my configuration file.  Also, check to see what
+ports are being used by the server in question.</p>
+
+<div class="bogus-wrapper"><notextile><figure class="code"> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+</pre></td><td class="code"><pre><code class="bash"><span class="line"><span class="c"># Replace ACCOUNT_NAME with your account.</span>
+</span><span class="line"><span class="c"># In my example, this would be either &#39;school&#39; or &#39;gmail&#39;.</span>
+</span><span class="line">msmtp -C ~/.mail_configs/msmtp -Sa ACCOUNT_NAME
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+<h3 id="saving-old-emails-with-archivemail">Saving old emails with Archivemail</h3>
+
+<p>Here is an example that will take all mail from before January 1st, 2011
+within the directory or file <code>cpts111</code>, and put it into a <a href="http://en.wikipedia.org/wiki/Gzip">gzipped</a>
+<a href="http://en.wikipedia.org/wiki/Mbox">mbox</a> file <code>cpts111_records_fall_2010.gz</code>.</p>
+
+<div class="bogus-wrapper"><notextile><figure class="code"> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class="bash"><span class="line">archivemail -D 2011-1-1 -uv --archive-name cpts111_records_fall_2010 cpts111
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+<p>I can also iterate over all the directories correspoding to each class that
+I have set up.  A separate archive for each directory will be created.  My
+inboxes relating to classes are labeled starting with their with either ‘ee’
+or ‘cpts’.</p>
+
+<div class="bogus-wrapper"><notextile><figure class="code"> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class="bash"><span class="line">ls | egrep <span class="s2">&quot;^(cpts|ee)&quot;</span> | xargs archivemail -D 2011-1-1 -uvs _records_fall2010
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+<p>It is also possible to set up archivemail to run from a cron job and keep
+a running archive, keeping your inbox clean of files older than a certain
+number of days, but as I don’t use this personally, I leave the explanation to
+others.  Check out the man page for archive mail or Google to read many good
+examples online.</p>
+
+<h3 id="encrypting-your-passwords-with-gnome-keyring">Encrypting your Passwords with Gnome-Keyring</h3>
+
+<p>I’ve written <a href="/2011/01/16/gnome_keyring_with_msmtp_imapfilter_offlineimap/">another post</a> with links pointing to keeping your passwords
+encrypted with Gnome-Keyring rather than having them be in plain text in your
+configuration files.  For a single person computer, the above portion works
+just fine, but encryption never hurts.</p>
+
+<p>To summarize, here are the links from the other post to integrate <a href="http://simple-and-basic.com/2008/10/using-msmtp-with-the-gnome-keyring.html">msmtp with gnome-keyring</a> and <a href="http://www.clasohm.com/blog/one-entry?entry_id=90957">offlineimap with gnome-keyring</a>.  Imapfilter integration
+is explained in <a href="/2011/01/16/gnome_keyring_with_msmtp_imapfilter_offlineimap/">my own post</a>.</p>
+
+<p>Take a look at the files in the <a href="https://github.com/jasongraham/mail_conf_example/tree/master/lib">lib directory</a> of my example configuration
+for the helper files, and how they are used in each of the configuration
+files.</p>
+
+<h3 id="changelog">Changelog</h3>
+
+<ul>
+  <li>May 30, 2012: Updated post and created an example mail configuration on
+Github.</li>
+  <li>Jul. 30, 2011: Fixed typo in mutt configs. Postpone -&gt; Postponed</li>
+  <li>Jan 16, 2011: Added encrypting passwords with Gnome-Keyring</li>
+  <li>Jan 10, 2011: Initial post.</li>
+</ul>
+
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Jason Graham</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-01-10T00:00:00-08:00" pubdate data-updated="true">Jan 10<span>th</span>, 2011</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/categories/linux/'>Linux</a>, <a class='category' href='/categories/archivemail/'>archivemail</a>, <a class='category' href='/categories/email-gnome-keyring/'>email. gnome-keyring</a>, <a class='category' href='/categories/howto/'>howto</a>, <a class='category' href='/categories/imapfilter/'>imapfilter</a>, <a class='category' href='/categories/msmtp/'>msmtp</a>, <a class='category' href='/categories/mutt/'>mutt</a>, <a class='category' href='/categories/offlineimap/'>offlineimap</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/2011/01/06/no_aspiring_coder_left_behind/" title="Previous Post: No Aspiring Coder Left Behind">&laquo; No Aspiring Coder Left Behind</a>
+      
+      
+        <a class="basic-alignment right" href="/2011/01/16/gnome_keyring_with_msmtp_imapfilter_offlineimap/" title="Next Post: Using Gnome Keyring with msmtp, offlineimap, and imapfilter via cron">Using Gnome Keyring with msmtp, offlineimap, and imapfilter via cron &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>About Me</h1>
+  <p>By day, an engineer. By night, between changing diapers I'm a grad student. I enjoy playing guitar, fiddling with Linux, and spending time with my family. <a href="/about/">Learn more &rarr;</a></p>
+</section>
+<section>
+  <h1>Popular Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/2009/12/14/howto_secure_firefox/">How to Secure Firefox</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/07/14/bastion_on_linux/">Bastion on Linux</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2011/01/16/gnome_keyring_with_msmtp_imapfilter_offlineimap/">Using Gnome Keyring with msmtp, offlineimap, and imapfilter via cron</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2011/01/10/email_with_mutt_offlineimap_imapfilter_msmtp_archivemail/">Quick and simple email management with mutt, offlineimap, imapfilter, msmtp, and archivemail</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2010/07/25/ssh_proxy_for_firefox_and_chromium/">SSH Proxy for Firefox and Chromium</a>
+      </li>
+    
+  </ul>
+</section>
+<section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/2013/03/17/farewell-google-reader/">Farewell Google Reader</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2013/03/06/how-to-use-systemd-timers/">How to use systemd timers</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/07/14/bastion_on_linux/">Bastion on Linux</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/04/14/my_path_to_arch_linux/">My path to Arch Linux</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2011/12/11/praying_for_time_to_enjoy_the_journey/">Praying for time to enjoy the journey</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/jasongraham">@jasongraham</a> on GitHub
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'jasongraham',
+            count: 3,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+<section>
+  <h1>My Pinboard</h1>
+  <ul id="pinboard_linkroll">Fetching linkroll...</ul>
+  <p><a href="http://pinboard.in/u:morrad">My Pinboard Bookmarks &raquo;</a></p>
+</section>
+<script type="text/javascript">
+  var linkroll = 'pinboard_linkroll'; //id target for pinboard list
+  var pinboard_user = "morrad"; //id target for pinboard list
+  var pinboard_count = 3; //id target for pinboard list
+  (function(){
+    var pinboardInit = document.createElement('script');
+    pinboardInit.type = 'text/javascript';
+    pinboardInit.async = true;
+    pinboardInit.src = '/javascripts/pinboard.js';
+    document.getElementsByTagName('head')[0].appendChild(pinboardInit);
+  })();
+</script>
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2009-2013 - Jason Graham -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'jason-the-graham-blog';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://jason.the-graham.com/2011/01/10/email_with_mutt_offlineimap_imapfilter_msmtp_archivemail/';
+        var disqus_url = 'http://jason.the-graham.com/2011/01/10/email_with_mutt_offlineimap_imapfilter_msmtp_archivemail/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>
