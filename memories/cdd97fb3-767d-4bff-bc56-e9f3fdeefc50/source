@@ -1,0 +1,469 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+				<meta name="keywords" content="Monad tutorials timeline,Meet Bob The Monadic Lover,Monad (sans metaphors),Monads as Containers,Monads as computation,The Monadic Way,What a Monad is not,How to do IO in Haskell" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/haskellwiki/opensearch_desc.php" title="HaskellWiki (English)" />
+		<link title="Creative Commons" type="application/rdf+xml" href="/haskellwiki/index.php?title=Monad_tutorials_timeline&amp;action=creativecommons" rel="meta" />
+		<link rel="copyright" href="/haskellwiki/HaskellWiki:Copyrights" />
+<link rel="alternate" type="application/rss+xml" title="HaskellWiki RSS Feed" href="http://www.haskell.org/haskellwiki/index.php?title=Special:Recentchanges&amp;feed=rss" />
+<link rel="alternate" type="application/atom+xml" title="HaskellWiki Atom Feed" href="http://www.haskell.org/haskellwiki/index.php?title=Special:Recentchanges&amp;feed=atom" />
+		<title>Monad tutorials timeline - HaskellWiki</title>
+		<style type="text/css" media="screen, projection">/*<![CDATA[*/
+			@import "/wikistatic/skins//common/shared.css?116";
+			@import "/wikistatic/skins//hawiki/main.css?116";
+		/*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="/wikistatic/skins//common/commonPrint.css?116" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "/wikistatic/skins//hawiki/IE50Fixes.css?116";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "/wikistatic/skins//hawiki/IE55Fixes.css?116";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "/wikistatic/skins//hawiki/IE60Fixes.css?116";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "/wikistatic/skins//hawiki/IE70Fixes.css?116";</style><![endif]-->
+		<!--[if lte IE 7]><script type="text/javascript" src="/wikistatic/skins//hawiki/IEFixes.js?116"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+                                                <script type="text/javascript">
+                        var isMSIE55 = (window.showModalDialog && window.clipboardData && window.createPopup); /*alert("test: " + isMSIE55);*/</script>
+
+		<script type= "text/javascript">/*<![CDATA[*/
+var skin = "hawiki";
+var stylepath = "/wikistatic/skins/";
+var wgArticlePath = "/haskellwiki/$1";
+var wgScriptPath = "/haskellwiki";
+var wgScript = "/haskellwiki/index.php";
+var wgServer = "http://www.haskell.org";
+var wgCanonicalNamespace = "";
+var wgCanonicalSpecialPageName = false;
+var wgNamespaceNumber = 0;
+var wgPageName = "Monad_tutorials_timeline";
+var wgTitle = "Monad tutorials timeline";
+var wgAction = "view";
+var wgRestrictionEdit = [];
+var wgRestrictionMove = [];
+var wgArticleId = "3173";
+var wgIsArticle = true;
+var wgUserName = null;
+var wgUserGroups = null;
+var wgUserLanguage = "en";
+var wgContentLanguage = "en";
+var wgBreakFrames = false;
+var wgCurRevisionId = "51564";
+var wgVersion = "1.12.0";
+var wgEnableAPI = true;
+var wgEnableWriteAPI = false;
+/*]]>*/</script>
+
+		<script type="text/javascript" src="/wikistatic/skins//common/wikibits.js?116"><!-- wikibits js --></script>
+		<!-- Head Scripts -->
+		<script type="text/javascript" src="/wikistatic/skins//common/ajax.js?116"></script>
+<style type="text/css">/*<![CDATA[*/
+.source-haskell {line-height: normal;}
+.source-haskell li {line-height: normal;}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for haskell
+ * CSS class: source-haskell, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.source-haskell .de1, .source-haskell .de2 {font-family: 'Courier New', Courier, monospace; font-weight: normal; font-style: normal;}
+.source-haskell  {font-family: monospace;}
+.source-haskell .head {}
+.source-haskell .foot {}
+.source-haskell .imp {font-weight: bold; color: red;}
+.source-haskell li, .source-haskell li.li1 {font-weight: normal;}
+.source-haskell li.li2 {font-weight: bold;}
+.source-haskell .kw1 {color: #06c; font-weight: bold;}
+.source-haskell .kw2 {color: #06c; font-weight: bold;}
+.source-haskell .kw3 {font-weight: bold;}
+.source-haskell .kw4 {color: #cccc00; font-weight: bold;}
+.source-haskell .kw5 {color: maroon;}
+.source-haskell .co1 {color: #5d478b; font-style: italic;}
+.source-haskell .co2 {color: #339933; font-weight: bold;}
+.source-haskell .coMULTI {color: #5d478b; font-style: italic;}
+.source-haskell .es0 {background-color: #3cb371; font-weight: bold;}
+.source-haskell .br0 {color: green;}
+.source-haskell .sy0 {color: #339933; font-weight: bold;}
+.source-haskell .st0 {background-color: #3cb371;}
+.source-haskell .nu0 {color: red;}
+.source-haskell .me1 {color: #060;}
+.source-haskell .ln-xtra, .source-haskell li.ln-xtra, .source-haskell div.ln-xtra {color: #cc0; background-color: #ffc;}
+
+/*]]>*/
+</style>
+<style type="text/css">/*<![CDATA[*/
+@import "/haskellwiki/index.php?title=MediaWiki:Geshi.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=18000";
+/*]]>*/
+</style>		<script type="text/javascript" src="/haskellwiki/index.php?title=-&amp;action=raw&amp;gen=js&amp;useskin=hawiki"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "/haskellwiki/index.php?title=MediaWiki:Common.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=18000";
+@import "/haskellwiki/index.php?title=MediaWiki:Hawiki.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=18000";
+@import "/haskellwiki/index.php?title=-&action=raw&gen=css&maxage=18000&useskin=hawiki";
+/*]]>*/</style>
+	</head>
+<body class="mediawiki ltr page-Monad_tutorials_timeline ">
+   <div id="topbar" class="noprint">
+	<div class="portlet noprint" id="p-personal">
+		<h5>Personal tools</h5>
+		<div class="pBody">
+			<ul><li><a class="homebutton" href="/haskellwiki/Haskell">Home</a></li>
+				<li id="pt-login"><a href="/haskellwiki/index.php?title=Special:Userlogin&amp;returnto=Monad_tutorials_timeline" title="You are encouraged to log in, it is not mandatory however. [o]" accesskey="o">Log in / create account</a></li>
+			</ul>
+		</div>
+	</div>
+        	  <div id="p-search">
+	    <div id="searchBody" class="pBody">
+	       <form action="/haskellwiki/index.php" id="searchform"><div>
+	          <input type='hidden' name="title" value=""/>
+	          <input id="searchInput" name="search" type="text" title="Search HaskellWiki [f]" accesskey="f" value="" />
+				<input type='submit' name="go" class="searchButton" id="searchGoButton"	value="Go" title="Go to a page with this exact name if exists" />&nbsp;
+				<input type='submit' name="fulltext" class="searchButton" id="mw-searchButton" value="Search" title="Search the pages for this text" />
+
+	         </div></form>
+	    </div>
+	  </div>
+   </div>
+	<div id="globalWrapper">
+	<div class="portlet" id="p-logo">
+		<a style="background-image: url(/wikistatic/haskellwiki_logo.png);" href="/haskellwiki/Haskell" title="Main Page"></a>
+	</div>
+	<div id="column-content">
+        <div id="notice-area" class="noprint">
+        <!-- ?php $this->data['sitenotice'] = 'This is a test instance.  Do not edit, your changes will be lost.'; ? -->
+			        </div>
+        <div id="content-wrapper">
+	<div id="p-cactions" class="portlet noprint">
+		<h5>Views</h5>
+		<div class="pBody">
+			<ul>
+	
+				 <li id="ca-nstab-main" class="selected"><a href="/haskellwiki/Monad_tutorials_timeline" title="View the content page [c]" accesskey="c">Page</a></li>
+				 <li id="ca-talk"><a href="/haskellwiki/Talk:Monad_tutorials_timeline" title="Discussion about the content page [t]" accesskey="t">Discussion</a></li>
+				 <li id="ca-viewsource"><a href="/haskellwiki/index.php?title=Monad_tutorials_timeline&amp;action=edit" title="This page is protected. You can view its source. [e]" accesskey="e">View source</a></li>
+				 <li id="ca-history"><a href="/haskellwiki/index.php?title=Monad_tutorials_timeline&amp;action=history" title="Past versions of this page. [h]" accesskey="h">History</a></li>			</ul>
+		</div>
+	</div>
+                        <div id="content">
+		<a name="top" id="top"></a>
+                        <h1 id="firstHeading" class="firstHeading">Monad tutorials timeline</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From HaskellWiki</h3>
+			<div id="contentSub"></div>
+			<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<p><br />
+<span style="float:right"><a href="/haskellwiki/Image:Monad-tutorials-chart.png" class="image" title="Image:Monad-tutorials-chart.png"><img alt="Image:Monad-tutorials-chart.png" src="/wikiupload/2/23/Monad-tutorials-chart.png" width="300" height="225" border="0" /></a></span>
+</p><p>This is a comprehensive timeline of monad tutorials and related articles. 
+</p><p>Please update this list as it becomes outdated! If you find a tutorial, article, post, comment, or message that stands on its own as an explanation of monads, then please take a moment to paste the link somewhere on this page (register a throwaway account, if you prefer). The date, author, and blurb can be added later. This will greatly help others who are using this list as a resource for learning about monads.
+</p>
+<table id="toc" class="toc" summary="Contents"><tr><td><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1"><a href="#before_2000"><span class="tocnumber">1</span> <span class="toctext">before 2000</span></a></li>
+<li class="toclevel-1"><a href="#year_2002"><span class="tocnumber">2</span> <span class="toctext">year 2002</span></a></li>
+<li class="toclevel-1"><a href="#year_2003"><span class="tocnumber">3</span> <span class="toctext">year 2003</span></a></li>
+<li class="toclevel-1"><a href="#year_2004"><span class="tocnumber">4</span> <span class="toctext">year 2004</span></a></li>
+<li class="toclevel-1"><a href="#year_2005"><span class="tocnumber">5</span> <span class="toctext">year 2005</span></a></li>
+<li class="toclevel-1"><a href="#year_2006"><span class="tocnumber">6</span> <span class="toctext">year 2006</span></a></li>
+<li class="toclevel-1"><a href="#year_2007"><span class="tocnumber">7</span> <span class="toctext">year 2007</span></a></li>
+<li class="toclevel-1"><a href="#year_2008"><span class="tocnumber">8</span> <span class="toctext">year 2008</span></a></li>
+<li class="toclevel-1"><a href="#year_2009"><span class="tocnumber">9</span> <span class="toctext">year 2009</span></a></li>
+<li class="toclevel-1"><a href="#year_2010"><span class="tocnumber">10</span> <span class="toctext">year 2010</span></a></li>
+<li class="toclevel-1"><a href="#year_2011"><span class="tocnumber">11</span> <span class="toctext">year 2011</span></a></li>
+<li class="toclevel-1"><a href="#year_2012"><span class="tocnumber">12</span> <span class="toctext">year 2012</span></a></li>
+<li class="toclevel-1"><a href="#Unknown"><span class="tocnumber">13</span> <span class="toctext">Unknown</span></a></li>
+</ul>
+</td></tr></table><script type="text/javascript"> if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } </script>
+<a name="before_2000"></a><h2> <span class="mw-headline">1  before 2000 </span></h2>
+<ul><li> 1992-08 <a href="http://homepages.inf.ed.ac.uk/wadler/papers/marktoberdorf/baastad.pdf" class="external text" title="http://homepages.inf.ed.ac.uk/wadler/papers/marktoberdorf/baastad.pdf" rel="nofollow">Monads for Functional Programming</a> (pdf) - Phil Wadler, a designer of Haskell [9100 words] 
+<dl><dd> "Shall I be pure or impure?" ... "A monad is a triple (M; unit; *) consisting of a type constructor M and two operations of the given polymorphic types."
+</dd></dl>
+</li></ul>
+<ul><li> 1995-05 <a href="http://www-fp.dcs.st-and.ac.uk/~kh/papers/io-tutorial/io-tutorial.html" class="external text" title="http://www-fp.dcs.st-and.ac.uk/~kh/papers/io-tutorial/io-tutorial.html" rel="nofollow">Monadic IO in Haskell 1.3</a> - Andrew D. Gordon and Kevin Hammond
+<dl><dd> "We describe the design and use of monadic I/O in Haskell 1.3"
+</dd></dl>
+</li></ul>
+<ul><li> 1999-02 <a href="http://www-users.mat.uni.torun.pl/~fly/materialy/fp/haskell-doc/Monads.html" class="external text" title="http://www-users.mat.uni.torun.pl/~fly/materialy/fp/haskell-doc/Monads.html" rel="nofollow">What the hell are Monads?</a> - Noel Winstanley [2800 words]
+<dl><dd> "Once upon a time, people wrote their Haskell programs by sequencing together operations in an ad-hoc way." ... "For our purposes, a monad is a triple of a type and <i>then&gt;</i> &amp; <i>return</i> operators defined over it so that the following laws apply: ..."
+</dd></dl>
+</li></ul>
+<ul><li> 1999-Spring <a href="http://www.engr.mun.ca/~theo/Misc/haskell_and_monads.htm" class="external text" title="http://www.engr.mun.ca/~theo/Misc/haskell_and_monads.htm" rel="nofollow">Monads for the working Haskell Programmer</a> - Theodore S. Norvell [4200 words, Haskell98, Gofer]
+<dl><dd> "...monads can be used to implement several other programming features including: consuming input, producing output, exceptions and exception handling, nondeterminisim."
+</dd></dl>
+</li></ul>
+<a name="year_2002"></a><h2> <span class="mw-headline">2  year 2002 </span></h2>
+<ul><li> 2002 <a href="http://en.wikibooks.org/wiki/Haskell/YAHT/Monads" class="external text" title="http://en.wikibooks.org/wiki/Haskell/YAHT/Monads" rel="nofollow">Yet Another Haskell Tutorial</a> (Chapter: Monads) - Hal Daumé III
+<dl><dd> "The definition of a monad is a slightly trimmed-down version of our Computation class. The Monad class has four methods ..."
+</dd></dl>
+</li></ul>
+<a name="year_2003"></a><h2> <span class="mw-headline">3  year 2003 </span></h2>
+<ul><li> 2003-08 <a href="http://www.haskell.org/haskellwiki/All_About_Monads" class="external text" title="http://www.haskell.org/haskellwiki/All_About_Monads" rel="nofollow">All about Monads</a> - Jeff Newbern [22600 words] (Japanese translation: <a href="http://www.sampou.org/haskell/a-a-monads/html/index.html" class="external text" title="http://www.sampou.org/haskell/a-a-monads/html/index.html" rel="nofollow">モナドのすべて</a>)
+<dl><dd> A comprehensive introduction. Covers monad transformers and some common monads. An appendix presents monads as assembly lines.
+</dd><dd>"A monad is a way to structure computations in terms of values and sequences of computations using those values."
+</dd></dl>
+</li></ul>
+<a name="year_2004"></a><h2> <span class="mw-headline">4  year 2004 </span></h2>
+<ul><li> 2004-07 <a href="http://www.ccs.neu.edu/home/dherman/research/tutorials/monads-for-schemers.txt" class="external text" title="http://www.ccs.neu.edu/home/dherman/research/tutorials/monads-for-schemers.txt" rel="nofollow">A Schemer's Introduction to Monads</a> - Dave Herman [1700 words, Lisp, Scheme]
+<dl><dd> "The main insight of monads is that all side effects, from mutation to I/O to non-termination, have one thing in common: order of evaluation matters." ... "So monads are about talking about effects in the context of a pure semantics."
+</dd></dl>
+</li></ul>
+<ul><li> 2004-07 <a href="/haskellwiki/Monads_as_Containers" class="mw-redirect" title="Monads as Containers">Monads as Containers</a> (<a href="http://ru-lambda.livejournal.com/12467.html" class="external text" title="http://ru-lambda.livejournal.com/12467.html" rel="nofollow">Russian translation</a>) - Cale Gibbard [2900 words]
+<dl><dd> "A monad is a container type together with a few methods defined on it. Monads model different kinds of computations." ... "it is more natural sometimes to begin with map (fmap), return and join"
+</dd></dl>
+</li></ul>
+<ul><li> 2004-08 <a href="http://web.archive.org/web/20080515195640/http://sleepingsquirrel.org/monads/monads.html" class="external text" title="http://web.archive.org/web/20080515195640/http://sleepingsquirrel.org/monads/monads.html" rel="nofollow">Monads in Perl</a> - Greg Buchholz [2200 words, Perl]
+<dl><dd> "Essentially a monad is a hidden data structure (Fig. 1) which automatically passes state around for us. "
+</dd></dl>
+</li></ul>
+<a name="year_2005"></a><h2> <span class="mw-headline">5  year 2005 </span></h2>
+<ul><li> 2005-07 <a href="http://moonbase.rydia.net/mental/writings/programming/monads-in-ruby/00introduction.html" class="external text" title="http://moonbase.rydia.net/mental/writings/programming/monads-in-ruby/00introduction.html" rel="nofollow">Monads in Ruby</a> - MenTaLguY
+<dl><dd> Presents monads in a friendly language, starting from Identity
+</dd><dd> "They let you chain pass [bind] operations together to make little computational pipelines, with rules of your choosing. They don’t manipulate values themselves — that’s the job of the blocks (functions) you plumb together using the monad."
+</dd></dl>
+</li></ul>
+<ul><li> 2005-11 <a href="http://web.archive.org/web/20081206204420/http://www.loria.fr/~kow/monads/index.html" class="external text" title="http://web.archive.org/web/20081206204420/http://www.loria.fr/~kow/monads/index.html" rel="nofollow">Of monads and space suits</a> - Eric Kow
+<dl><dd> Functions are space stations, parameters are astronauts and monads are space suits that let us safely travel from one function to another.
+</dd></dl>
+</li></ul>
+<a name="year_2006"></a><h2> <span class="mw-headline">6  year 2006 </span></h2>
+<ul><li> 2006-03 <a href="http://en.wikibooks.org/w/index.php?title=Haskell/Understanding_monads&amp;oldid=933545" class="external text" title="http://en.wikibooks.org/w/index.php?title=Haskell/Understanding_monads&amp;oldid=933545" rel="nofollow">Understanding Monads</a> - Eric Kow
+<dl><dd> Monads as nuclear waste containers, an adaptation of monads as space suits with a new metaphor suggested by Paul Johnson
+</dd><dd> "What we need is some way to capture the pattern 'do X and then do Y, where Y may be affected by X'. Monads are the way we do this." ... "In a sense, each monad is its own little minilanguage specially suited for its particular task."
+</dd></dl>
+</li></ul>
+<ul><li> 2006-07 <a href="/haskellwiki/The_Monadic_Way" title="The Monadic Way">The Monadic Way</a> - Andrea Rossato
+<dl><dd> A two-part tutorial.  The first part shows you how build a simple evaluator, and the second part shows you how to "take the complexity" out of it by using techniques such as monad transformers
+</dd><dd> Revised 2006-09 to include <a href="/haskellwiki/Meet_Bob_The_Monadic_Lover" title="Meet Bob The Monadic Lover">Meet Bob The Monadic Lover</a>: "what monads look like and what they are useful for, from the perspective of a ... lover."
+</dd></dl>
+</li></ul>
+<ul><li> 2006-08 <a href="http://sigfpe.blogspot.com/2006/08/you-could-have-invented-monads-and.html" class="external text" title="http://sigfpe.blogspot.com/2006/08/you-could-have-invented-monads-and.html" rel="nofollow">You could have invented monads! (and maybe you already have)</a> - Dan Piponi
+<dl><dd> "Writing introductions to monads seems to have developed into an industry," Dan (sigfpe) observes.   He argues that monads are not "something esoteric in need of explanation", but walks you through the process of reinventing monads to solve some very basic and practical problems.
+</dd><dd> "So now I can reveal what a monad is. The triple of objects (m,unit,bind) is the monad, and to be a monad they must satisfy a bunch of laws such as the ones you've been proving."
+</dd></dl>
+</li></ul>
+<ul><li> 2006-10 <a href="http://www.reddit.com/r/programming/comments/ox6s/ask_reddit_what_the_hell_are_monads/coxiv" class="external text" title="http://www.reddit.com/r/programming/comments/ox6s/ask_reddit_what_the_hell_are_monads/coxiv" rel="nofollow">Ask Reddit: What the hell are monads?, an answer</a> - tmoertel [700 words]
+<dl><dd> "I think of monads as computational environments in which you get to make up the rules." ... "monads are ... a general model of computation that lets you pick and choose the environmental features that you want for your computations."
+</dd></dl>
+</li></ul>
+<ul><li> 2006-10 <a href="http://www.grabmueller.de/martin/www/pub/Transformers.en.html" class="external text" title="http://www.grabmueller.de/martin/www/pub/Transformers.en.html" rel="nofollow">Monad Transformers Step by Step</a> - Martin Grabmüller
+<dl><dd> Monad transformers are rarely covered in introductory tutorials.  This "is not a paper about implementing transformers, but about using them to write elegant, clean and powerful programs in Haskell".  Available as a 12 page PDF or .lhs file.
+</dd></dl>
+</li></ul>
+<ul><li> 2006-11 <a href="http://www.haskell.org/pipermail/haskell-cafe/2006-November/019190.html" class="external text" title="http://www.haskell.org/pipermail/haskell-cafe/2006-November/019190.html" rel="nofollow">There's a Monster in my Haskell!</a> Andrew Pimlott
+<dl><dd> This delightful "tutorial" presents monads as monsters which devour values, use them to feed other monsters and regurgitate them when slain.
+</dd></dl>
+</li></ul>
+<ul><li> 2006-12 <a href="http://blog.tmorris.net/maybe-monad-in-java/" class="external text" title="http://blog.tmorris.net/maybe-monad-in-java/" rel="nofollow">Maybe Monad in Java</a> - Tony Morris
+<dl><dd> Monads can also be useful in Java!
+</dd></dl>
+</li></ul>
+<a name="year_2007"></a><h2> <span class="mw-headline">7  year 2007 </span></h2>
+<ul><li> 2007-01 <a href="http://koweycode.blogspot.com/2007/01/think-of-monad.html" class="external text" title="http://koweycode.blogspot.com/2007/01/think-of-monad.html" rel="nofollow">Think of a monad</a> - Don Stewart (reposted on Eric Kow's blog)
+<dl><dd> Don integrates some pre-existing monadic metaphors, shedding light on monads in a truly comprehensive manner (illustration by Eric)
+</dd></dl>
+</li><li> 2007-02 <a href="http://kawagner.blogspot.com/2007/02/understanding-monads-for-real.html" class="external text" title="http://kawagner.blogspot.com/2007/02/understanding-monads-for-real.html" rel="nofollow">Understanding Monads.  For Real</a> - Karsten Wagner
+<dl><dd> A monad is like a macro
+</dd></dl>
+</li><li> 2007-02 <a href="http://patryshev.com/monad/m-intro.html" class="external text" title="http://patryshev.com/monad/m-intro.html" rel="nofollow">Crash Course in Monads</a> Monads for Mathematicians
+<dl><dd>Author's Description: This crash course starts with an EASY! introduction to categories and functors, then we define a monad, then give some basic examples of monads in categories, then present monadic terminology as used in programming languages.
+</dd><dd> Then I lie down in a dark room with a warm wet cloth over my eyes.
+</dd></dl>
+</li><li> 2007-04 <a href="http://saxophone.jpberlin.de/MonadTransformer?source=http%3A%2F%2Fwww%2Ehaskell%2Eorg%2Fhaskellwiki%2FCategory%3AMonad&amp;language=English" class="external text" title="http://saxophone.jpberlin.de/MonadTransformer?source=http%3A%2F%2Fwww%2Ehaskell%2Eorg%2Fhaskellwiki%2FCategory%3AMonad&amp;language=English" rel="nofollow">The Real Monad Transformer</a> - Henning Thielemann
+<dl><dd> Not a tutorial either, but an important aid in demystifying monads
+</dd></dl>
+</li><li> 2007-03 <a href="http://www.randomhacks.net/articles/2007/03/12/monads-in-15-minutes" class="external text" title="http://www.randomhacks.net/articles/2007/03/12/monads-in-15-minutes" rel="nofollow">Monads in 15 Minutes</a> - Eric Kidd
+<dl><dd> Eric boils monads down to 15 minutes, using backtracking and Maybe as motivating examples.  Eric uses <div class="inline-code"><div dir="ltr" style="text-align: left;"><div class="source-haskell" style="font-family: monospace;">join</div></div></div>, which seems quite rare for monad tutorials (cf Cale's <i>Monads as containers</i>)
+</dd></dl>
+</li><li> 2007-08 <a href="/haskellwiki/Monads_as_computation" title="Monads as computation">Monads as computation</a> - Cale Gibbard
+<dl><dd> A very straightforward presentation of monads.  Notable for its "The whole point" section, which conveys why we bother with all this monad business.
+</dd></dl>
+</li><li> 2007-08 <a href="http://en.wikibooks.org/wiki/Haskell/Understanding%20monads" class="external text" title="http://en.wikibooks.org/wiki/Haskell/Understanding%20monads" rel="nofollow">Understanding Monads</a> (2) - Apfelmus
+<dl><dd> Wikibook rewrite of the original monads tutorial.  Less fluff, more pedagogy. [In progress at the time of this writing].
+</dd></dl>
+</li><li> 2007-08 <a href="/haskellwiki/Monad_%28sans_metaphors%29" title="Monad (sans metaphors)">Monad (sans metaphors)</a> - Claus Reinke
+<dl><dd> From a discussion about monad tutorials on Haskell Café (the name is due to haskellwiki user 'Green tea').
+</dd></dl>
+</li><li> 2007-11 <a href="/haskellwiki/index.php?title=How_to_do_IO_in_Haskell&amp;action=edit" class="new" title="How to do IO in Haskell">How to do IO in Haskell</a> - Toby Goodwin
+<dl><dd> In some ways, a <i>non</i>-monad tutorial, describes Haskell IO (with lots and lots of examples) with an emphasis on types, rather than monad theory
+</dd></dl>
+</li></ul>
+<a name="year_2008"></a><h2> <span class="mw-headline">8  year 2008 </span></h2>
+<ul><li> 2008-01 <a href="http://www.reddit.com/r/programming/comments/64th1/monads_in_python_in_production_code_you_can_and/c02u9mb" class="external text" title="http://www.reddit.com/r/programming/comments/64th1/monads_in_python_in_production_code_you_can_and/c02u9mb" rel="nofollow">An explanation by 808140</a> [1588 words]
+<dl><dd> "The best way to grok monads is to ... familiarize yourself with several common monads and their uses." ... "All that makes a monad, really, is that you can define two functions like unit and bind on them."
+</dd></dl>
+</li></ul>
+<ul><li> 2008-06 <a href="http://spbhug.folding-maps.org/wiki/Monads" class="external text" title="http://spbhug.folding-maps.org/wiki/Monads" rel="nofollow">Monads</a> (in Russian, <a href="http://spbhug.folding-maps.org/wiki/MonadsEn" class="external text" title="http://spbhug.folding-maps.org/wiki/MonadsEn" rel="nofollow">English translation</a>) - Eugene Kirpichov [8200 words ru, 10000 en]
+<dl><dd> "A monad is a triple (m, return, &gt;&gt;=), where: ..." ... "As we progressed, we saw that monads are most commonly used for two different purposes: structuring the control flow and describing imperative effectful computations (IO, State, IndentIO), and structuring data flow (Maybe, List, Dist)."
+</dd></dl>
+</li></ul>
+<ul><li> 2008-03 <a href="http://book.realworldhaskell.org/read/monads.html" class="external text" title="http://book.realworldhaskell.org/read/monads.html" rel="nofollow">Real World Haskell, Chapter 14: Monads</a> - Bryan O'Sullivan, Don Stewart, and John Goerzen
+<dl><dd> "We aim to show you that a monad is often an obvious and useful tool to help solve a problem."
+</dd></dl>
+</li></ul>
+<ul><li> 2008-09 <a href="http://stackoverflow.com/a/194207" class="external text" title="http://stackoverflow.com/a/194207" rel="nofollow">What is a monad?, an answer</a> - JacquesB (other answers at link)
+<dl><dd> "An alternative term is computation builder which is a bit more descriptive of what they are actually useful for." ... "In layman's terms, a monad is just a type for which the &gt;&gt;= operation is defined."
+</dd></dl>
+</li></ul>
+<a name="year_2009"></a><h2> <span class="mw-headline">9  year 2009 </span></h2>
+<ul><li> 2009-01 <a href="http://byorgey.wordpress.com/2009/01/12/abstraction-intuition-and-the-monad-tutorial-fallacy/" class="external text" title="http://byorgey.wordpress.com/2009/01/12/abstraction-intuition-and-the-monad-tutorial-fallacy/" rel="nofollow">Abstraction, intuition, and the “monad tutorial fallacy”</a> - Brent Yorgey [meta]
+<dl><dd> Commentary on monad tutorials and why many may be so unhelpful. "What I term the 'monad tutorial fallacy,' then, consists in failing to recognize the critical role that struggling through fundamental details plays in the building of intuition."
+</dd></dl>
+</li></ul>
+<ul><li> 2009-03 <a href="http://onclojure.com/2009/03/05/a-monad-tutorial-for-clojure-programmers-part-1/" class="external text" title="http://onclojure.com/2009/03/05/a-monad-tutorial-for-clojure-programmers-part-1/" rel="nofollow">A Monad Tutorial for Clojure Programmers</a> 
+<dl><dd> "Monads are about composing computational steps into a bigger multi-step computation."
+</dd></dl>
+</li></ul>
+<ul><li> 2009-03 <a href="http://noordering.wordpress.com/2009/03/31/how-you-shouldnt-use-monad/" class="external text" title="http://noordering.wordpress.com/2009/03/31/how-you-shouldnt-use-monad/" rel="nofollow">How you should(n’t) use Monad</a> - beelsebob
+<dl><dd> "When we have functions that produce values that are hidden inside boxes, we have a problem. ... Monads add a single function called join, which is used to flatten out the layers of boxes: ..."
+</dd></dl>
+</li></ul>
+<ul><li>2009-06 <a href="http://www.muitovar.com/monad/moncow.html" class="external text" title="http://www.muitovar.com/monad/moncow.html" rel="nofollow">The Greenhorn's Guide to becoming a Monad Cowboy</a> - Hans van Thiel [9600 words]
+<dl><dd>Covers basics, with simple examples, in a <i>for dummies</i> style. Includes monad transformers and monadic functions. "Actually, programming monads is much like cattle driving! So, let's get started."
+</dd></dl>
+</li></ul>
+<ul><li> 2009-11 <a href="/haskellwiki/What_a_Monad_is_not" title="What a Monad is not">What a Monad is not</a> 
+<dl><dd> A desperate (futile?) attempt to end the eternal chain of monad tutorials.
+</dd></dl>
+</li></ul>
+<a name="year_2010"></a><h2> <span class="mw-headline">10  year 2010 </span></h2>
+<ul><li> 2010-03 <a href="http://strabismicgobbledygook.wordpress.com/2010/03/06/a-state-monad-tutorial/" class="external text" title="http://strabismicgobbledygook.wordpress.com/2010/03/06/a-state-monad-tutorial/" rel="nofollow">State Monad Tutorial</a> - Byron Johnson
+<dl><dd> "My goal is to teach others to help them understand the State monad. ... After this point, you should be able to easily understand the other monads."
+</dd></dl>
+</li></ul>
+<ul><li> 2010-04 <a href="http://just-bottom.blogspot.fi/2010/04/programming-with-effects-story-so-far.html" class="external text" title="http://just-bottom.blogspot.fi/2010/04/programming-with-effects-story-so-far.html" rel="nofollow">Programming with effects – the story so far</a> - Patai Gergely
+<dl><dd> Explains the relationships between the various abstractions over side effects, namely applicative functors, arrows, and monads.
+</dd></dl>
+</li></ul>
+<ul><li> 2010-07 <a href="https://intoverflow.wordpress.com/2010/07/20/i-come-from-java-and-want-to-know-what-monads-are-in-haskell/" class="external text" title="https://intoverflow.wordpress.com/2010/07/20/i-come-from-java-and-want-to-know-what-monads-are-in-haskell/" rel="nofollow">I come from Java and want to know what monads are in Haskell</a> - Tim Carstens [Java]
+<dl><dd> Translates a simple Java class into a stack of monad transformers, with a metaphor about how monads are like conversations, and why this idea should be familiar to OO programmers.
+</dd><dd> "What I am going to talk about is how to use monads to do something in Haskell that is easy to do in Java." ... "This is what different monads do: each comes with its own set of operations that are legal within the context that the monad is modeling."
+</dd></dl>
+</li></ul>
+<ul><li> 2010-08 <a href="http://learnyouahaskell.com/a-fistful-of-monads" class="external text" title="http://learnyouahaskell.com/a-fistful-of-monads" rel="nofollow">Learn You a Haskell, A Fistful of Monads</a>
+<dl><dd> "monads are just applicative functors that support &gt;&gt;=. The &gt;&gt;= function is pronounced as <i>bind</i>."
+</dd></dl>
+</li></ul>
+<ul><li> 2010-08 <a href="http://mvanier.livejournal.com/3917.html" class="external text" title="http://mvanier.livejournal.com/3917.html" rel="nofollow">Yet Another Monad Tutorial,  part 1</a> (<a href="http://mvanier.livejournal.com/4305.html" class="external text" title="http://mvanier.livejournal.com/4305.html" rel="nofollow">2</a>, <a href="http://mvanier.livejournal.com/4586.html" class="external text" title="http://mvanier.livejournal.com/4586.html" rel="nofollow">3</a>, <a href="http://mvanier.livejournal.com/4647.html" class="external text" title="http://mvanier.livejournal.com/4647.html" rel="nofollow">4</a>, <a href="http://mvanier.livejournal.com/5103.html" class="external text" title="http://mvanier.livejournal.com/5103.html" rel="nofollow">5</a>, <a href="http://mvanier.livejournal.com/5343.html" class="external text" title="http://mvanier.livejournal.com/5343.html" rel="nofollow">6</a>, <a href="http://mvanier.livejournal.com/5406.html" class="external text" title="http://mvanier.livejournal.com/5406.html" rel="nofollow">7</a>, <a href="http://mvanier.livejournal.com/5846.html" class="external text" title="http://mvanier.livejournal.com/5846.html" rel="nofollow">8</a>) - Mike Vanier [7100 words p1, 45000 total] 
+<dl><dd> "Monads are a generalization of functions, function application, and function composition to allow them to deal with richer notions of computation than standard functions."
+</dd></dl>
+</li></ul>
+<ul><li> 2010-10 <a href="http://stackoverflow.com/a/3870310" class="external text" title="http://stackoverflow.com/a/3870310" rel="nofollow">A monad is just a monoid in the category of endofunctors, what's the problem?, an answer</a> - pelotom (other answers at link)
+<dl><dd> "The original sentence is this: All told, a monad in X is just a monoid in the category of endofunctors of X, with product × replaced by composition of endofunctors and unit set by the identity endofunctor."
+</dd></dl>
+</li></ul>
+<a name="year_2011"></a><h2> <span class="mw-headline">11  year 2011 </span></h2>
+<ul><li> 2011-01 <a href="http://bartoszmilewski.wordpress.com/2011/01/09/monads-for-the-curious-programmer-part-1/" class="external text" title="http://bartoszmilewski.wordpress.com/2011/01/09/monads-for-the-curious-programmer-part-1/" rel="nofollow">Monads for the Curious Programmer: Part 1</a>, <a href="http://bartoszmilewski.wordpress.com/2011/03/14/monads-for-the-curious-programmer-part-2/" class="external text" title="http://bartoszmilewski.wordpress.com/2011/03/14/monads-for-the-curious-programmer-part-2/" rel="nofollow">Part 2</a>, <a href="http://bartoszmilewski.wordpress.com/2011/03/17/monads-for-the-curious-programmer-part-3/" class="external text" title="http://bartoszmilewski.wordpress.com/2011/03/17/monads-for-the-curious-programmer-part-3/" rel="nofollow">Part 3</a>, and <a href="http://bartoszmilewski.wordpress.com/2011/07/11/monads-in-c/" class="external text" title="http://bartoszmilewski.wordpress.com/2011/07/11/monads-in-c/" rel="nofollow">Monads in C++</a> - Bartosz Milewski [3400, 4300, 3400, and 5200 words]
+<dl><dd> "Monads are hard to describe because they don’t correspond to anything in our everyday experience" ... "A monad is an endofunctor together with two special families of morphisms, both going vertically, one up and one down"
+</dd></dl>
+</li></ul>
+<ul><li> 2011-03 <a href="http://scscript.blogspot.de/2011/03/monads-in-r-sapply-and-foreach.html" class="external text" title="http://scscript.blogspot.de/2011/03/monads-in-r-sapply-and-foreach.html" rel="nofollow">monads in R: sapply and foreach</a> - Ferdinand Jamitzky
+<dl><dd> "Monads are a powerful way of structuring functional programs"
+</dd></dl>
+</li></ul>
+<ul><li> 2011-04 <a href="http://blog.jcoglan.com/2011/03/05/translation-from-haskell-to-javascript-of-selected-portions-of-the-best-introduction-to-monads-ive-ever-read/" class="external text" title="http://blog.jcoglan.com/2011/03/05/translation-from-haskell-to-javascript-of-selected-portions-of-the-best-introduction-to-monads-ive-ever-read/" rel="nofollow">Translation from Haskell to JavaScript of selected portions of the best introduction to monads I’ve ever read</a> - James Coglan [3200 words, Javascript] (cf. 2006 "You Could Have Invented Monads")
+<dl><dd> "Monads are really about composing functions"
+</dd></dl>
+</li></ul>
+<ul><li> 2011-04 <a href="http://ertes.de/articles/monads.html" class="external text" title="http://ertes.de/articles/monads.html" rel="nofollow">Understanding Haskell Monads</a> - Ertugrul Söylemez [12400 words]
+<dl><dd> "A monad is a wrapper type around another type (the inner type), which adds a certain structure to the inner type and allows you to combine computations of the inner type in a certain way."
+</dd></dl>
+</li></ul>
+<ul><li> 2011-10 <a href="http://unknownparallel.com/monads.php" class="external text" title="http://unknownparallel.com/monads.php" rel="nofollow">The Dead Simple, No Chit Chat, Zero-Analogy Haskell Monad Tutorial</a> - Dan Burton [1800 words]
+<dl><dd> "Monads are simply Applicative Functors, which also define some way of flattening nested monadic values, and shoving monadic values into monadic functions. Applicative Functors are..."
+</dd></dl>
+</li></ul>
+<a name="year_2012"></a><h2> <span class="mw-headline">12  year 2012 </span></h2>
+<ul><li> 2012-02 <a href="http://blog.g23.co/futures-monads-with-the-context-of-asynchrono" class="external text" title="http://blog.g23.co/futures-monads-with-the-context-of-asynchrono" rel="nofollow">Futures: Monads with the Context of Asynchronous Programming</a> - mr23
+<dl><dd> "it's best to think of a monad as representing some context. What do I mean by context? ..."
+</dd></dl>
+</li></ul>
+<ul><li> 2012-02 <a href="http://the-27th-comrade.appspot.com/blog/ahJzfnRoZS0yN3RoLWNvbXJhZGVyDAsSBUVudHJ5GOFdDA" class="external text" title="http://the-27th-comrade.appspot.com/blog/ahJzfnRoZS0yN3RoLWNvbXJhZGVyDAsSBUVudHJ5GOFdDA" rel="nofollow">The Day Python Embarassed Imperative Programming</a> - The 27th Comrade
+<dl><dd> "Monads are conditional function calls"
+</dd></dl>
+</li></ul>
+<ul><li> 2012-02 <a href="http://youtu.be/Mw_Jnn_Y5iA" class="external text" title="http://youtu.be/Mw_Jnn_Y5iA" rel="nofollow">Scala Monads</a> - Dan Rosen, Marakana [scala, video]
+</li></ul>
+<ul><li> 2012-04 <a href="http://softwaresimply.blogspot.com/2012/04/less-travelled-monad-tutorial-part-1.html" class="external text" title="http://softwaresimply.blogspot.com/2012/04/less-travelled-monad-tutorial-part-1.html" rel="nofollow">The Less Travelled Monad Tutorial: Part 1</a>, <a href="http://softwaresimply.blogspot.ca/2012/04/ltmt-part-2-monads.html" class="external text" title="http://softwaresimply.blogspot.ca/2012/04/ltmt-part-2-monads.html" rel="nofollow">Part 2</a> - mightybyte
+<dl><dd> "a monad is a certain type of context that provides two things: a way to put things into the context, and function application within the context"
+</dd></dl>
+</li></ul>
+<ul><li> 2012-04 <a href="http://cdsmith.wordpress.com/2012/04/18/why-do-monads-matter/" class="external text" title="http://cdsmith.wordpress.com/2012/04/18/why-do-monads-matter/" rel="nofollow">Why Do Monads Matter?</a> - Chris Smith
+<dl><dd> "... The category that they form is called a Kleisli category, and it’s basically another way of looking at monads."
+</dd></dl>
+</li></ul>
+<p><br />
+</p>
+<a name="Unknown"></a><h2> <span class="mw-headline">13  Unknown </span></h2>
+<ul><li> <a href="http://www.alpheccar.org/content/60.html" class="external autonumber" title="http://www.alpheccar.org/content/60.html" rel="nofollow">[1]</a>
+<dl><dd> "I have identified three kinds of monads ... Monad as control of the sequencing&nbsp;; Monad as control of side effects&nbsp;; Monad as container"
+</dd></dl>
+</li></ul>
+
+<!-- 
+NewPP limit report
+Preprocessor node count: 18/1000000
+Post-expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+-->
+
+<!-- Saved in parser cache with key wikidb:pcache:idhash:3173-0!1!0!1!en!2!edit=0 and timestamp 20130308190605 -->
+<div class="printfooter">
+Retrieved from "<a href="http://www.haskell.org/haskellwiki/Monad_tutorials_timeline">http://www.haskell.org/haskellwiki/Monad_tutorials_timeline</a>"</div>
+			<p class='catlinks'><a href="/haskellwiki/Special:Categories" title="Special:Categories">Categories</a>: <span dir='ltr'><a href="/haskellwiki/Category:History" title="Category:History">History</a></span> | <span dir='ltr'><a href="/haskellwiki/Category:Monad" title="Category:Monad">Monad</a></span> | <span dir='ltr'><a href="/haskellwiki/Category:Tutorials" title="Category:Tutorials">Tutorials</a></span></p>			<!-- end content -->
+						<div class="visualClear"></div>
+		</div>
+	</div>
+		</div></div>
+		<div id="column-one">
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+	<div class='generated-sidebar portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage"><a href="/haskellwiki/Haskell" title="Visit the Main Page [z]" accesskey="z">Haskell</a></li>
+				<li id="n-portal"><a href="/haskellwiki/HaskellWiki:Community" title="About the project, what you can do, where to find things">Wiki community</a></li>
+				<li id="n-recentchanges"><a href="/haskellwiki/Special:Recentchanges" title="The list of recent changes in the wiki. [r]" accesskey="r">Recent changes</a></li>
+				<li id="n-randompage"><a href="/haskellwiki/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-tb">
+		<h5>Toolbox</h5>
+		<div class="pBody">
+			<ul>
+				<li id="t-whatlinkshere"><a href="/haskellwiki/Special:Whatlinkshere/Monad_tutorials_timeline" title="List of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+				<li id="t-recentchangeslinked"><a href="/haskellwiki/Special:Recentchangeslinked/Monad_tutorials_timeline" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+<li id="t-upload"><a href="/haskellwiki/Special:Upload" title="Upload files [u]" accesskey="u">Upload file</a></li>
+<li id="t-specialpages"><a href="/haskellwiki/Special:Specialpages" title="List of all special pages [q]" accesskey="q">Special pages</a></li>
+				<li id="t-print"><a href="/haskellwiki/index.php?title=Monad_tutorials_timeline&amp;printable=yes" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>				<li id="t-permalink"><a href="/haskellwiki/index.php?title=Monad_tutorials_timeline&amp;oldid=51564" title="Permanent link to this version of the page">Permanent link</a></li>			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="/wikistatic/skins//common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>
+			<ul id="f-list">
+					<li id="lastmod"> This page was last modified 17:55, 3 September 2012.</li>
+					<li id="viewcount">This page has been accessed 48,467 times.</li>
+					<li id="copyright">Recent content is available under <a href="/haskellwiki/HaskellWiki:Copyrights" title="HaskellWiki:Copyrights">a simple permissive license</a>.</li>
+					<li id="privacy"><a href="/haskellwiki/HaskellWiki:Privacy_policy" title="HaskellWiki:Privacy policy">Privacy policy</a></li>
+					<li id="about"><a href="/haskellwiki/HaskellWiki:About" title="HaskellWiki:About">About HaskellWiki</a></li>
+					<li id="disclaimer"><a href="/haskellwiki/HaskellWiki:General_disclaimer" title="HaskellWiki:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+</div>
+
+		<script type="text/javascript">if (window.runOnloadHook) runOnloadHook();</script>
+<!-- Served in 0.087 secs. --><script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-15375175-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</body></html>

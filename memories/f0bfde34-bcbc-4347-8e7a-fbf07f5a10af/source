@@ -1,0 +1,441 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns:fb="http://ogp.me/ns/fb#">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link type="text/css" rel="stylesheet"  href="/assets/css/styles.css" />
+  <script src="/assets/js/jquery-1.6.1.js" type="text/javascript"></script>
+        <link type="text/css" rel="stylesheet"  href="../assets/css/jquery.cluetip.css" />
+        <meta name="description" content="<em>How is data visualization and citizen science driving new technologies and improving life on Earth?</em>" />
+        <title>New York Technology Council - Unleashing the Power of Data Visualization: Networking Party and Panel Discussion</title>
+        
+        <script src="../assets/js/jquery.validate.js" type="text/javascript"></script>
+	    <script type="text/javascript">
+  		$(document).ready(function(){
+    		$("#register-form").validate( {
+				rules: {
+					paymentMethod: { required: "#payment-info:visible" },
+					ccnum: { required: "#payment-info:visible" },
+					expmonth: { required: "#payment-info:visible" },
+					expyear: { required: "#payment-info:visible" },
+					ccid: { required: "#payment-info:visible", digits: "#payment-info:visible" },
+					billingFirstName: { required: "#payment-info:visible" },
+					billingLastName: { required: "#payment-info:visible" },
+					billingAddress: { required: "#payment-info:visible" },
+					billingCity: { required: "#payment-info:visible" },
+					billingState: { required: "#payment-info:visible" },
+					billingZIP: { required: "#payment-info:visible",digits: "#payment-info:visible" }
+				},
+				messages: {
+					fn: {required: " *"},
+					ln: {required: " *"},
+					company: {required: " *"},
+					title: {required: " *"},
+					signupEmail: {required: " *", email: " *"},
+					paymentMethod: {required: " *"},
+					ccnum: {required: " *", creditcard: " *"},
+					expmonth: {required: " *"},
+					expyear: {required: " *"},
+					ccid: {required: " *", digits: " *"},
+					billingFirstName: {required: " *"},
+					billingLastName: {required: " *"},
+					billingAddress: {required: " *"},
+					billingCity: {required: " *"},
+					billingState: {required: " *"},
+					billingZIP: {required: " *", digits: " *"}
+				}
+			} );
+            togglePayment();
+  		});
+        var eid = 1097;
+		var memberFee = 5;
+		var nonmemberFee = 10;
+        var discountFee = 5.00;
+        var openToNonmembers = 1;
+        function disableForm() {
+            $("#fn").attr('disabled',true);
+            $("#ln").attr('disabled',true);
+            $("#company").attr('disabled',true);
+            $("#title").attr('disabled',true);
+            $("#signupEmail").attr('disabled',true);
+            $("#discountCode").attr('disabled',true);
+            $("#sub").attr('disabled',true);
+        }
+        function enableForm() {
+            $("#fn").removeAttr("disabled");
+            $("#ln").removeAttr("disabled");
+            $("#company").removeAttr("disabled");
+            $("#title").removeAttr("disabled");
+            $("#signupEmail").removeAttr("disabled");
+            $("#discountCode").removeAttr("disabled");
+            $("#sub").removeAttr("disabled");
+        }
+		function togglePayment() {
+            if ( openToNonmembers == 0 && $("#member:checked").val() != 'on' ) {
+                disableForm();
+                $("#fee").html('Closed to non-members');
+                $("#payment-info").slideUp();
+            } else {
+                enableForm();
+                if ( $("#discountCode").val().length > 0 && $("#member:checked").val() != 'on' ) {
+                    $.get('../ajax/event-discount.php?eid=' + eid + '&dc=' + $("#discountCode").val(),function(d) { if (d >= 0) {$("#fee").html('$' + d);}});
+                }
+                if ( ($("#member:checked").val() == 'on' && memberFee == 0) || nonmemberFee == 0 ) {
+                    $("#payment-info").slideUp();
+                    $("#fee").html('Free');
+                } else {
+                    $("#payment-info").slideDown();
+                    if ( $("#member:checked").val() == 'on')
+                        $("#fee").html('$'+memberFee.toFixed(2));
+                    else
+                        $("#fee").html('$'+nonmemberFee.toFixed(2));
+                }
+            }
+		}
+	</script>
+<link type="text/css" href="/jquery-ui/css/ui-lightness/jquery-ui-1.8.17.custom.css" rel="Stylesheet" />
+<script type="text/javascript" src="/jquery-ui/js/jquery-ui-1.8.17.custom.min.js"></script>
+
+</head>
+<body>
+    <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+<div id="share" title="Share" style="text-align:center">
+    <form id="share-form" name="share-form">
+    <p>Enter the following information to share this event.</p>
+    Your Name: <input id="share-name" name="share-name" type="text" maxlength="200"/><br/>
+    Friend's Email: <input id="share-email" name="share-email" type="text" maxlength="150"/><br/><br/>
+    <input id="share-eid" name="share-eid" type="hidden" value="1097"/>
+    <center><div onclick="doShare();" id="share-btn" name="share-btn" style="cursor: pointer; text-align:center;width:100px; padding: 5px 5px 5px 15px; background-color: #cccccc; color: #000000;">Share</div></center>
+    </form>
+</div>
+<script>
+    $(function() {
+        $("#share").dialog({ autoOpen: false , modal: true});
+    });
+    function doShare() {
+        $.post("/ajax/share-event.php", $("#share-form").serialize(), function() { $("#share-status").html('Event shared');});
+        $("#share").dialog("close");
+    }
+</script>
+
+
+	<div class="outer">
+<div id="top-bar"></div>
+
+<a href="/"><img src="/assets/images/nytech-logo.png" alt="New York Technology Council Logo" id="header-logo"/></a>
+
+<div class="newsletter-signup">
+    <form action="/newsletter-signup.php" method="post">
+        <input class="input" type="text" id="newsletter-email" name="newsletter-email" value="Signup for our newsletter" maxlength="100" onfocus="if(this.value=='Signup for our newsletter')this.value=''" onblur="if(this.value=='')this.value='Signup for our newsletter'" />
+        <input class="input" type="image" src="/assets/images/button-enter-email.png" alt="Enter Email" id="enter-email" />
+    </form>
+</div>
+
+
+<script type="text/javascript">
+var timeout    = 500;
+var closetimer = 0;
+var ddmenuitem = 0;
+
+function jsddm_open()
+{  jsddm_canceltimer();
+   jsddm_close();
+   ddmenuitem = $(this).find('ul').css('visibility', 'visible');}
+
+function jsddm_close()
+{  if(ddmenuitem) ddmenuitem.css('visibility', 'hidden');}
+
+function jsddm_timer()
+{  closetimer = window.setTimeout(jsddm_close, timeout);}
+
+function jsddm_canceltimer()
+{  if(closetimer)
+   {  window.clearTimeout(closetimer);
+      closetimer = null;}}
+
+$(document).ready(function()
+{  $('#main-nav > li').bind('mouseover', jsddm_open)
+   $('#main-nav > li').bind('mouseout',  jsddm_timer)});
+
+document.onclick = jsddm_close;
+
+$(document).ready(function() {
+    var pathname = window.location.pathname;
+	
+	switch (true) {
+		
+		//home options
+		case (pathname == '/index.php'):
+			$('#home').addClass('menu_over');
+			break;
+		//events options	
+		case ((pathname =='/events.php') || (pathname == '/event-details.php') || (pathname == '/event-archive.php') || (pathname == '/special-programs.php') || (pathname =='/industry-calendar.php')):
+		    $('#events').addClass('menu_over');
+			break;		
+			
+		case ((pathname =='/membership.php') || (pathname =='/membership-signup.php') || (pathname =='/membership-signup-resume.php') || (pathname =='/member-spotlights.php') || (pathname =='/member-spotlight-details.php')):
+		    $('#membership').addClass('menu_over');
+			break;
+		case (pathname =='/sponsors.php'):
+		    $('#sponsors').addClass('menu_over');
+			break;	
+		case ((pathname =='/member-index.php') || (pathname =='/member-login.php') || (pathname =='/member-logout.php') || (pathname =='/member-company.php') || (pathname =='/member-connections.php') || (pathname =='/member-info.php') || (pathname =='/member-profile.php') || (pathname =='/member-recommendations.php') || (pathname =='/member-search.php')):
+		    $('#member-directory').addClass('menu_over');
+			break;	
+		case ((pathname =='/employment-resources.php') || (pathname =='/international-resources.php') || (pathname =='/industry-calendar.php')):
+		    $('#resources').addClass('menu_over');
+			break;	
+		case ((pathname =='/about-us.php') || (pathname =='/partners.php')):
+		    $('#about').addClass('menu_over');
+			break;		
+        case ((pathname =='/sponsors.php') || (pathname =='/sponsor-directory.php')):
+		    $('#sponsors').addClass('menu_over');
+			break;	            
+		default:
+           $('#home').addClass('menu_over');	
+	
+	}
+
+	
+});
+
+
+</script>
+
+<div class="main-nav-container">
+<ul id="main-nav">
+	<li class="first" id="home"><a href="/index.php" class="uc">Home</a></li>
+	<li id="events"><a href="/events.php" class="uc">Upcoming Events <img src="/assets/images/t.png" alt="submenu"/></a>
+        <ul><li><a href="/events.php">Events Schedule</a></li><li><a href="/event-archive.php">Event Archive</a></li><li><a href="/special-programs.php">Event Tracks</a></li>
+
+</ul>
+    </li>
+	<li id="membership"><a href="/membership.php" class="uc">Join Us <img src="/assets/images/t.png" alt="submenu"/></a>
+        <ul><li><a href="/membership.php">Benefits &amp; Signup</a></li><li><a href="/member-spotlights.php">Member Spotlight</a></li></ul>
+
+    </li>
+	<li id="sponsors"><a href="/sponsors.php" class="uc">Sponsor Us <img src="/assets/images/t.png" alt="submenu"/></a>
+        <ul><li><a href="/sponsors.php">About Sponsorship</a></li><li><a href="/sponsor-directory.php">Sponsor Directory</a></li></ul>
+    </li>
+    <li id="member-directory"><a href="/member-index.php" class="uc">Member Directory</a></li>
+	<li id="resources"><a href="/employment-resources.php" class="uc">Resources <img src="/assets/images/t.png" alt="submenu"/></a>
+        <ul><li><a href="/employment-resources.php">Employment</a></li><li><a href="/international-resources.php">Internationalization</a></li>
+
+<li><a href="http://www.capwiz.com/techvoice/ny/home/">Policy &amp; Advocacy</a></li></ul>
+        
+    </li>
+    <li id="about" class="last"><a href="/about-us.php" class="uc">About Us&nbsp; <img src="/assets/images/t.png" alt="submenu"/></a>
+        <ul><li><a href="/about-us.php">About Us</a></li><li><a href="/partners.php">Partners &amp; Affiliations</a></li></ul>
+    </li>
+</ul>
+&nbsp;
+</div>
+
+
+<div class="body-content" style="width:630px;">
+    
+    
+<div id="social" style="margin-top: 10px;"><span id="share-via-email"  onclick="$( '#share' ).dialog('open');">Share Via Email</span> <fb:like href="https://www.nytech.org/events/citizen-science" send="true" width="450" show_faces="false" action="recommend" font="arial"></fb:like>
+
+</div>
+<a href="https://twitter.com/share" class="twitter-share-button" data-via="nytechcouncil">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+<div id="share-status" name="share-status" style="color:#00cc00"></div>
+
+    
+	<div class="event-details" style="margin:1em 0; float:left">
+		<h1>Unleashing the Power of Data Visualization: Networking Party and Panel Discussion</h1>
+		<h2 class="event-details-summ"><em>How is data visualization and citizen science driving new technologies and improving life on Earth?</em></h2>
+        <div class="event-details-date">Thursday April 4, 2013, 6:00 PM</div>
+		<address>
+			<div class="event-details-venue">AlleyNYC</div>
+			<div class="event-details-addr">
+				500 Seventh Avenue<br />New York, NY<br/><a href="http://maps.google.com?q=500+Seventh+Avenue+New+York%2C+NY" target="_blank">View Map</a><br/>			</div>
+		</address>
+		<div class="event-details-fee">
+			<b>Fee:</b>
+				$5.00 for NYTECH members and sponsors.
+				 $10.00 for non-members.				<br/>
+		</div>
+		<div class="event-details-desc"><p>
+	Join the <a href="http://WWW.NYTECH.ORG" target="_blank">New York Technology Council (NYTECH)</a>, <a href="http://www.startupbus.com" target="_blank">StartupBus NYC</a>, <a href="http://www.alleynyc.com" target="_blank">AlleyNYC</a> and our supporters for an out-of-this-world <strong>technology networking party</strong> and <strong>panel discussion</strong> on citizen science and data visualization.</p>
+<p>
+	You&#39;ll get a birds-eye view of how data visualization and citizen science is driving the development of new technologies and shaping the public&#39;s response to crisis situations.</p>
+<p>
+	We&#39;ll also provide an introduction to the upcoming <a href="http://www.spaceappschallenge.org" target="_blank">International Space Apps Challenge</a>, a two-day hackathon led by NASA and taking place on April 20-21, 2013 in New York City.</p>
+<p>
+	<strong>Doors open at 6:00PM for networking, discussion starts at 7:00 PM. </strong>Pizza and soda provided by <a href="http://www.twilio.com">Twilio</a>.</p>
+<p>
+	<img height="49" src="http://www.sunzicloud.com/wp-content/uploads/2012/10/twilio-sip-webrtc.png" width="147" /></p>
+<p>
+	&nbsp;</p>
+<p>
+	<strong>SPEAKERS</strong></p>
+<p>
+	<img align="left" height="88" src="http://photos4.meetupstatic.com/photos/member/8/c/7/a/member_85595962.jpeg" width="88" /><strong>Andrew Hill, Senior Scientist, CartoDB/Vizzuality</strong></p>
+<p>
+	Andrew earned his Masters and Ph.D. in biology, studying in Boulder, Colorado. He &nbsp;has a broad interest in how new technologies can drive scientific questions and the process of creating knowledge in new ways.&nbsp;</p>
+<p>
+	His biology research has always had a technology bent, focusing on informatics and the use of big data. This has allowed him to move across diverse domains within biology, including epidemiology, microbiology, biodiversity informatics, and phyloinformatics.&nbsp;</p>
+<p>
+	Andrew now works at <a href="http://www.vizzuality.com">Vizzuality</a> and <a href="http://www.cartodb.com">CartoDB</a> where he continues to exploration the relationship between science and technology. His ultimate goal is a future full of open source tools and easily accessible data that will empower scientific discovery for a better world.<br />
+	<br />
+	<img align="left" height="85" src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSsee2zyyXjE86O3CzaqZJWjm7-vJjOTec0BZH5wNZJiPzWWP7-LA" width="85" /><strong>Liz Barry, Data Scientist, <a href="http://publiclaboratory.org/home">The Public Laboratory</a></strong></p>
+<p>
+	Liz is an activist and designer interested in collaborative urban environments. She spent her early days in New York catalyzing public interactions on sidewalks and subway stations with a giant &quot;Talk To Me&quot; sign as well as working 25 floors above Wall Street (SOM) designing international new cities and campuses. Liz is originally from North Carolina where she managed an urban agriculture youth enterprise called the Durham Inner-city Gardeners (DIG). Currently, when she is not hoisting cameras up on balloons (with <a href="http://publiclaboratory.org/home">Public Laboratory</a>) or hugging trees with tape measures (with TreeKIT), Liz teaches geospatial tools for urban design at Columbia, Parsons, and Pratt.</p>
+<p>
+	<img align="left" height="88" src="https://twimg0-a.akamaihd.net/profile_images/2725831401/e98e6c21340c5986961b016742a03312.png" width="88" /><strong>David Hu, Developer Advocate, Foursquare</strong></p>
+<p>
+	David is a developer and program manager who is experienced with all phases of the traditional software development life cycle. He graduated from Columbia University with a B.S. in computer science.</p>
+<p>
+	&nbsp;</p>
+<p>
+	<strong>SPEAKER &amp; MODERATOR</strong></p>
+<p>
+	<strong>Sar</strong><img align="left" height="90" src="http://api.ning.com/files/tig3XjTiqbHGfQpEnuFS7Rq*xw3Sbssp5rqPatUkbxx0MYd-h8t7DaJtwJ2q554L0gyqgTcrRO6Ycby3GRoFJg__/26453103.jpeg?xgip=0%3A0%3A1898%3A1898%3B%3B&amp;width=184&amp;height=184&amp;crop=1%3A1" width="90" /><strong>a-Jayne Farmer, CTO, Change Assembly</strong><br />
+	<br />
+	As the CTO at <a href="http://www.changeassembly.com/">Change Assembly</a>, Sara-Jayne designs and builds systems that link artificial reasoning, community-based mapping, open data, big data/ data science and unmanned systems, to help find early signs of crisis in very large data streams. She has a background in systems engineering, innovations management, information fusion, knowledge management, intelligent systems and autonomy. Sara-Jayne is also a compulsive CrisisMapper, a team lead at Standby Task Force, a lead at CrisismappersNYC, and a former lead of CrisisCampUK.</p>
+<p>
+	------------</p>
+<p>
+	<strong>ORGANIZERS</strong></p>
+<p>
+	<strong><a href="http://www.nytech.org">The New York Technology Council </a></strong>is a nonprofit organization focused on educating and bringing people together in tech. We organize panel discussions, networking events and joint activities with smart, like-minded individuals and community organizations.</p>
+<p>
+	<strong><a href="http://www.startupbus.com">The StartupBus</a></strong> is an invitation-only group of hackers, designers and business minds as well as an annual competition. Each year 30-35 strangers hop on a bus bound for Austin, TX, and in three days conceive, build and launch a start-up that will be pitched to potential investors.</p>
+<p>
+	<strong><a href="http://www.alleynyc.com">AlleyNYC</a></strong> is a new co-working space located at 500 Seventh Avenue. It spans 16,000 square feet and is the host of many exciting events, including this year&#39;s International Space Apps Challenge.</p>
+</div>
+	</div>
+</div>
+
+<div class="event-signup" style="padding-bottom:20px; margin-bottom:20px; margin-top:20px; font-size:12px; float:right">
+
+<h3 class="heading">REGISTER FOR THIS EVENT</h3>
+
+<form method="post" action="https://www.nytech.org/event-register.php" id="register-form">
+	<input type="hidden" name="eid" id="eid" value="1097"/>
+	<table cellpadding="0" cellspacing="0" border="0" width="100%">
+		<tr>
+			<td>First Name:</td><td><input type="text" id="fn" name="fn" maxlength="50" class="required"/></td>
+		</tr>
+		<tr>
+			<td>Last Name:</td><td><input type="text" id="ln" name="ln" maxlength="50" class="required"/></td>
+		</tr>
+		<tr>
+			<td>Company/Organization:</td><td><input type="text" id="company" name="company" maxlength="100" class="required"/></td>
+		</tr>
+		<tr>
+			<td>Title:</td><td><input type="text" id="title" name="title" maxlength="100" class="required"/></td>
+		</tr>
+		<tr>
+			<td>Email:</td><td><input type="text" id="signupEmail" name="signupEmail" maxlength="100" class="required email"/></td>
+		</tr>
+        <tr>
+            <td>Discount Code:</td><td><input type="text" id="discountCode" name="discountCode" maxlength="10" onblur="togglePayment();"/></td>
+        </tr>
+		<tr>
+			<td>Fee:</td><td><span id="fee"><script type="text/javascript">if (openToNonmembers==0) { document.write('Closed to non-members'); } else { document.write('$'+nonmemberFee.toFixed(2)); }</script></span></td>
+		</tr>
+		<tr>
+			<td colspan="2"><label>I am a current member or sponsor of NYTECH: <input type="checkbox" name="member" id="member" style="width: 10px" onclick="togglePayment()"/></label></td>
+		</tr>
+	</table>
+	<div id="payment-info">
+		<h5>Payment Information</h5>
+		<table cellpadding="0" cellspacing="0" border="0" width="100%">
+			<tr>
+				<td>Payment Method:</td><td><select id="paymentMethod" name="paymentMethod" class="required"><option value="">-- select --</option><option value="1">Visa</option><option value="2">Master Card</option><option value="3">American Express</option></select></td>
+			</tr>
+			<tr>
+				<td>Card Number:</td><td><input type="text" id="ccnum" name="ccnum" maxlength="20" class="required creditcard"/></td>
+			</tr>
+			<tr>
+				<td>Exp. Date:</td><td>
+					<select  name="expmonth" id="expmonth"><option value="">---</option><option value="1">Jan (01)</option><option value="2">Feb (02)</option><option value="3">Mar (03)</option><option value="4">Apr (04)</option><option value="5">May (05)</option><option value="6">Jun (06)</option><option value="7">Jul (07)</option><option value="8">Aug (08)</option><option value="9">Sep (09)</option><option value="10">Oct (10)</option><option value="11">Nov (11)</option><option value="12">Dec (12)</option></select>&nbsp;<select  name="expyear" id="expyear"><option value="">----</option><option value="2012">2012</option><option value="2013">2013</option><option value="2014">2014</option><option value="2015">2015</option><option value="2016">2016</option><option value="2017">2017</option><option value="2018">2018</option><option value="2019">2019</option><option value="2020">2020</option></select>				</td>
+			</tr>
+			<tr>
+				<td>Security Code:</td><td><input type="text" id="ccid" name="ccid" maxlength="4" class="required digits"/></td>
+			</tr>
+			<tr>
+				<td>Billing First Name:</td><td><input type="text" id="billingFirstName" name="billingFirstName" maxlength="100" class="required"/></td>
+			</tr>
+			<tr>
+				<td>Billing Last Name:</td><td><input type="text" id="billingLastName" name="billingLastName" maxlength="100" class="required"/></td>
+			</tr>
+			<tr>
+				<td>Billing Address:</td><td><input type="text" id="billingAddress" name="billingAddress" maxlength="100" class="required"/></td>
+			</tr>
+			<tr>
+				<td>Billing City:</td><td><input type="text" id="billingCity" name="billingCity" maxlength="100" class="required"/></td>
+			</tr>
+			<tr>
+				<td>Billing State/ZIP:</td><td><input type="text" id="billingState" name="billingState" maxlength="2" style="width: 30px" class="required"/>&nbsp;<input type="text" id="billingZIP" name="billingZIP" class="required digits" style="width: 60px" maxlength="5"/></td>
+			</tr>
+		</table>
+	</div>
+	<div class="c">
+        <input type="submit" value="Register" id="sub" name="sub"/><br/>
+		<div style="font-size:x-small;">(all fields are required)<br/><b>EVENT REGISTRATION FEES ARE NON REFUNDABLE</b></div>
+	</div>
+</form>
+
+</div>
+
+<div class="clear"></div>
+<div class="footer_sponsors">
+<a href='http://www.google.com/' target='_blank'><img src='/assets/images/sponsors/small/google-small.jpg'  width='130' height='36' alt='Google' /></a>
+<a href='http://www.eisneramper.com' target='_blank'><img src='/assets/images/sponsors/small/eisner-logo.jpg'  width='130' height='29' alt='EisnerAmper' /></a><a href='http://www.ey.com/' target='_blank'><img src='/assets/images/sponsors/small/ey-logo.jpg'  width='130' height='31' alt='Ernst &amp; Young' /></a>
+<a href='http://www.verizon.com/' target='_blank'><img src='/assets/images/sponsors/small/verizon-logo.png'  width='130' height='73' alt='Verizon' /></a>
+<a href='http://www.informationbuilders.com/' target='_blank'><img src='/assets/images/sponsors/small/ibi-logo.png'  width='130' height='57' alt='Information Builders' /></a>
+<a href='http://www.withum.com/' target='_blank'><img src='/assets/images/sponsors/small/WSB-Logo-w-tag.jpg'  width='110' height='57' alt='Withum, Smith &amp; Brown' /></a>
+
+<br /><br />
+<a href='http://www.fkks.com/' target='_blank'><img src='/assets/images/sponsors/small/frankfurt-kurnit-logo.jpg'  width='130' height='29' alt='Frankfurt Kurnit' /></a>
+<a href='http://www.twcbc.com/NYC/' target='_blank'><img src='/assets/images/sponsors/small/TWC_logo_small.jpg'  width='130' height='36' alt='Time Warner Cable Business Class' /></a>
+<a href='http://www.ibm.com/' target='_blank'><img src='/assets/images/sponsors/small/ibm-logo.jpg'  width='130' height='50' alt='IBM' /></a>
+<a href='http://www.tgpassociates.com/' target='_blank'><img src='/assets/images/sponsors/small/tgp-logo.jpg'  width='130' height='70' alt='TGP Associates' /></a>
+
+<a href='http://www.trinet.com' target='_blank'><img src='/assets/images/sponsors/small/trinet-logo.jpg'  width='130' alt='Trinet' /></a>
+
+<a href='http://www.cohnreznick.com' target='_blank'><img src='/assets/images/sponsors/cohn-reznick.jpg'  width='130' alt='CohnReznick' /></a>
+
+
+
+<br/><br/>
+<a href="http://www.cassidyturley.com" target="_blank"><img src="/assets/images/sponsors/small/cassidy-logo.jpg"  width="130" alt="Cassidy Turley" /></a>
+<a href="http://www.mcgladrey.com" target="_blank"><img src="/assets/images/sponsors/small/mcgladrey-logo.jpg" width="130" alt="McGladrey" /></a>
+<a href="http://www.infor.com" target="_blank"><img src="/assets/images/sponsors/small/infor.jpg" width="80" alt="Infor" /></a>
+<br/><br/>
+
+</div>
+
+
+<div class="footer">
+    <br/>
+    &copy; 2013 New York Technology Council, Inc. &nbsp;|&nbsp; 330 Madison Avenue, Floor 9, New York, NY 10017 &nbsp;|&nbsp; (646) 435-1088 &nbsp;|&nbsp; <a href="mailto:info@nytech.org">info@nytech.org</a> &nbsp;|&nbsp; <a href="/privacy-terms.php">Privacy Policy &amp; Terms of Use </a>
+    
+</div>
+<!-- google tags -->
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">try {var pageTracker = _gat._getTracker("UA-5606567-2");pageTracker._trackPageview();}catch(err){}</script>
+
+</div>
+</body>
+</html>
+

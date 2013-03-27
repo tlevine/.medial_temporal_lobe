@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+        
+    <title>pretty print - Render haskell list data to web page - Stack Overflow</title>
+    <link rel="shortcut icon" href="http://cdn.sstatic.net/stackoverflow/img/favicon.ico">
+    <link rel="apple-touch-icon image_src" href="http://cdn.sstatic.net/stackoverflow/img/apple-touch-icon.png">
+    <link rel="search" type="application/opensearchdescription+xml" title="Stack Overflow" href="/opensearch.xml">
+    
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script type="text/javascript" src="http://cdn.sstatic.net/js/stub.js?v=78fa3e3bb4ec"></script>
+    <link rel="stylesheet" type="text/css" href="http://cdn.sstatic.net/stackoverflow/all.css?v=b1bc86ee95cf">
+    
+    <meta name="relativepagescore" content="138697">
+    <link rel="canonical" href="http://stackoverflow.com/questions/5799269/render-haskell-list-data-to-web-page">
+    <link rel="alternate" type="application/atom+xml" title="Feed for question 'Render haskell list data to web page'" href="/feeds/question/5799269">
+    <script type="text/javascript">
+        
+        StackExchange.ready(function () {
+            StackExchange.using("postValidation", function () {
+                StackExchange.postValidation.initOnBlurAndSubmit($('#post-form'), 2, 'answer');
+            });
+
+            
+            StackExchange.question.init({showAnswerHelp:true,totalCommentCount:0,shownCommentCount:0,highlightColor:'#F4A83D',backgroundColor:'#FFF',questionId:5799269});
+
+            styleCode();
+
+                StackExchange.realtime.subscribeToQuestion('1', '5799269');
+            
+                
+        });
+    </script>
+
+
+    <script type="text/javascript">
+        StackExchange.init({"stackAuthUrl":"https://stackauth.com","serverTime":1364343525,"styleCode":true,"enableUserHovercards":true,"site":{"name":"Stack Overflow","description":"Q&A for professional and enthusiast programmers","isNoticesTabEnabled":true,"recaptchaPublicKey":"6LdchgIAAAAAAJwGpIzRQSOFaO0pU6s44Xt8aTwc","enableSocialMediaInSharePopup":true},"user":{"fkey":"022c0a23eb69437a1292f54a9eaac4a0","isAnonymous":true}});
+        StackExchange.using.setCacheBreakers({"js/prettify-full.js":"6c261bebf56a","js/moderator.js":"f96f7e4ee5dc","js/full-anon.js":"d94aa51f80ad","js/full.js":"ff7435e5ee1a","js/wmd.js":"bb9dbf9364a2","js/third-party/jquery.autocomplete.min.js":"e5f01e97f7c3","js/mobile.js":"6eb68240242f","js/help.js":"fc9fb0517db2","js/tageditor.js":"450c9e8426fc","js/tageditornew.js":"b6c68ad4c7dd","js/inline-tag-editing.js":"8e84e8a137f7","js/revisions.js":"7273bb714bba","js/review.js":"51a50e83c754","js/tagsuggestions.js":"aa48ef6154df","js/post-validation.js":"cd619678f5d6"});
+        
+    </script>
+
+
+    <script type="text/javascript">
+        StackExchange.using(
+            "gps",
+            function () {
+                StackExchange.gps.init(false);
+            }
+        );
+    </script>
+
+</head>
+<body class="question-page">
+    <noscript><div id="noscript-padding"></div></noscript>
+    <div id="notify-container"></div>
+    <div id="overlay-header"></div>
+    <div id="custom-header"></div>
+
+    <div class="container">
+        <div id="header">
+            <div id="portalLink">
+                <a class="genu" href="http://stackexchange.com" onclick="StackExchange.ready(function(){genuwine.click();});return false;">Stack Exchange</a>
+            </div>
+            <div id="topbar">
+                <div id="hlinks">
+                    
+
+
+
+
+
+
+
+
+
+<span id="hlinks-user">
+
+</span>
+<span id="hlinks-nav">
+                   <a href="/users/login?returnurl=%2fquestions%2f5799269%2frender-haskell-list-data-to-web-page%2f5799721">log in</a>
+
+ <span class="lsep">|</span>
+                    <a href="http://careers.stackoverflow.com">careers 2.0</a>
+
+ <span class="lsep">|</span>
+
+</span>
+<span id="hlinks-custom">
+        <a href="http://chat.stackoverflow.com">chat</a>
+
+ <span class="lsep">|</span>
+            <a href="http://meta.stackoverflow.com">meta</a>
+
+ <span class="lsep">|</span>
+        <a href="/about">about</a>
+
+ <span class="lsep">|</span>
+    <a href="/faq">faq</a>
+
+</span>
+                </div>
+                <div id="hsearch">
+                    <form id="search" action="/search" method="get" autocomplete="off">
+                    <div>
+                        <input autocomplete="off" name="q" class="textbox" placeholder="search" tabindex="1" type="text" maxlength="240" size="28" value="">
+                    </div>
+                    </form>
+                </div>
+            </div>
+            <br class="cbt">
+            <div id="hlogo">
+                <a href="/" >Stack Overflow</a>
+            </div>
+            <div id="hmenus">
+                <div class="nav mainnavs">
+                    <ul>
+                        <li class="youarehere"><a id="nav-questions" href="/questions">Questions</a></li>
+                        <li><a id="nav-tags" href="/tags">Tags</a></li>
+                        <li><a id="nav-users" href="/users">Users</a></li>
+                        <li><a id="nav-badges" href="/badges">Badges</a></li>
+                        <li><a id="nav-unanswered" href="/unanswered">Unanswered</a></li>
+                    </ul>
+                </div>
+                <div class="nav askquestion">
+                    <ul>
+                        <li>
+                            <a id="nav-askquestion"  href="/questions/ask">Ask Question</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        
+
+
+
+        <div id="content">
+            
+
+<div itemscope itemtype="http://schema.org/Article">
+<link itemprop="image" href="http://cdn.sstatic.net/stackoverflow/img/apple-touch-icon.png">
+<div id="question-header">
+    <h1 itemprop="name"><a href="/questions/5799269/render-haskell-list-data-to-web-page" class="question-hyperlink">Render haskell list data to web page</a></h1>
+</div>
+<div id="mainbar">
+
+
+
+<div class="question" data-questionid="5799269"  id="question">
+    
+            <div class="everyonelovesstackoverflow" id="adzerk1">
+        </div>
+
+
+    <table>
+        <tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+    <input type="hidden" value="5799269">
+    <a class="vote-up-off" title="This question shows research effort; it is useful and clear (click again to undo)">up vote</a>
+    <span class="vote-count-post ">1</span>
+    <a class="vote-down-off" title="This question does not show any research effort; it is unclear or not useful (click again to undo)">down vote</a>
+    
+    <a class="star-off" href="#" title="This is a favorite question (click again to undo)">favorite</a>
+    <div class="favoritecount"><b>1</b></div>   
+
+ 
+</div>
+
+            </td>
+            
+<td class="postcell">
+<div>
+    <div class="post-text" itemprop="description">
+        <p>I'm using snap framework and haskell to create simple web application.I want to know How can I render a list to web page,It is like this I have a list with first name and last name</p>
+
+<pre><code>[["firstName1","lastName1"],["firstName2","lastName2"],["firstName3","lastName3"]]
+</code></pre>
+
+<p>I want to display these information in two columns,What are the possible ways to do this,I was able to bind single value information and display on webpage.</p>
+
+    </div>
+    <div class="post-taglist">
+        <a href="/questions/tagged/haskell" class="post-tag" title="show questions tagged 'haskell'" rel="tag">haskell</a> <a href="/questions/tagged/pretty-print" class="post-tag" title="show questions tagged 'pretty-print'" rel="tag">pretty-print</a> <a href="/questions/tagged/snap-framework" class="post-tag" title="show questions tagged 'snap-framework'" rel="tag">snap-framework</a> 
+    </div>
+    <table class="fw">
+    <tr>
+    <td class="vt">
+
+
+
+
+
+
+
+
+
+<div class="post-menu"><a href="/q/5799269" title="short permalink to this question" class="short-link" id="link-post-5799269">share</a><span class="lsep">|</span><a href="/posts/5799269/edit" class="suggest-edit-post" title="">improve this question</a></div>            </td>
+    <td align="right" class="post-signature">
+
+
+    <div class="user-info ">
+        <div class="user-action-time">
+                            edited
+                             <a href="/posts/5799269/revisions" title="show all edits to this post"><span title="2011-06-18 12:09:37Z" class="relativetime">Jun 18 '11 at 12:09</span></a>
+
+        </div>
+        <div class="user-gravatar32">
+            <a href="/users/213269/jonas"><div class=""><img src="http://www.gravatar.com/avatar/894e4c1f3bc33e5f9a5008d355287830?s=32&d=identicon&r=PG" alt="" width="32" height="32"></div></a>
+        </div>
+        <div class="user-details">
+            <a href="/users/213269/jonas">Jonas</a><br>
+            <span class="reputation-score" title="reputation score 15803" dir="ltr">15.8k</span><span title="18 gold badges"><span class="badge1"></span><span class="badgecount">18</span></span><span title="92 silver badges"><span class="badge2"></span><span class="badgecount">92</span></span><span title="187 bronze badges"><span class="badge3"></span><span class="badgecount">187</span></span>
+        </div>
+    </div>
+    </td>
+    <td class="post-signature owner">
+        
+
+    <div class="user-info ">
+        <div class="user-action-time">
+                                    asked
+ <span title="2011-04-27 04:14:04Z" class="relativetime">Apr 27 '11 at 4:14</span>
+        </div>
+        <div class="user-gravatar32">
+            <a href="/users/573760/123ex"><div class=""><img src="http://www.gravatar.com/avatar/a7d595da8ca48a84e2c6c066252a4415?s=32&d=identicon&r=PG" alt="" width="32" height="32"></div></a>
+        </div>
+        <div class="user-details">
+            <a href="/users/573760/123ex">123Ex</a><br>
+            <span class="reputation-score" title="reputation score" dir="ltr">102</span><span title="1 silver badge"><span class="badge2"></span><span class="badgecount">1</span></span><span title="12 bronze badges"><span class="badge3"></span><span class="badgecount">12</span></span>
+        </div>
+    </div>
+
+    </td>
+    </tr>
+    </table>
+</div>
+</td>
+        </tr>
+
+
+<tr>
+<td class="votecell"></td>
+<td>
+    <div id="comments-5799269" class="comments dno">
+        <table>
+        <tbody>
+        
+            <tr><td></td><td></td></tr>
+        
+        </tbody>
+    
+        </table>
+    </div>
+    
+</td>
+</tr>            </table>    
+</div>
+
+
+<div id="answers">
+
+    <a name="tab-top"></a>
+    <div id="answers-header">
+        <div class="subheader answers-subheader">
+            <h2>
+                    2 Answers
+            </h2>
+            <div id="tabs">
+                <a href="/questions/5799269/render-haskell-list-data-to-web-page?answertab=active#tab-top" title="Answers with the latest activity first">active</a>
+<a href="/questions/5799269/render-haskell-list-data-to-web-page?answertab=oldest#tab-top" title="Answers in the order they were provided">oldest</a>
+<a class="youarehere" href="/questions/5799269/render-haskell-list-data-to-web-page?answertab=votes#tab-top" title="Answers with the highest score first">votes</a>
+
+            </div>
+        </div>    
+    </div>    
+
+
+
+
+  
+<a name="5799721"></a>
+<div id="answer-5799721" class="answer accepted-answer" data-answerid="5799721" >
+    <table>
+        <tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+    <input type="hidden" value="5799721">
+    <a class="vote-up-off" title="This answer is useful (click again to undo)">up vote</a>
+    <span class="vote-count-post ">6</span>
+    <a class="vote-down-off" title="This answer is not useful (click again to undo)">down vote</a>
+    
+
+            <span class="vote-accepted-on load-accepted-answer-date" title="loading when this answer was accepted...">accepted</span>
+ 
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text"><p>Don's suggestion of blaze-html is one way to do it, but I find that when I do it that way I have more of a tendency to violate the commonly used MVC design pattern by embedding the view (in this case the HTML) into your Haskell code.  In some cases if you're just trying to do something quick and dirty this may be the thing to do.  But if you want this to fit into a larger application in a way that separates the view from the controller and allows designers to work with it who are unfamiliar with Haskell, then you might be better off using the Heist template system.</p>
+
+<p>We have a Heist tutorial <a href="http://snapframework.com/docs/tutorials/heist" rel="nofollow">here</a>.  I also recently wrote a series of <a href="http://softwaresimply.blogspot.com/" rel="nofollow">blog posts</a> about just this sort of thing.  The <a href="http://softwaresimply.blogspot.com/2011/04/views-controllers-and-heist.html" rel="nofollow">second post in the series</a> in particular is probably the most relevant to your question.  Here's some code that does something like what you want:</p>
+
+<pre><code>names :: [(Text,Text)]
+names = [("Alice", "Anderson"), ("Bob", "Brown")]
+
+nameSplice :: (Text, Text) -&gt; Splice Application
+nameSplice name =
+    runChildrenWithText [("firstName", fst name), ("lastName", snd name)]
+
+namesSplice :: Splice Application
+namesSplice = mapSplices nameSplice names
+</code></pre>
+
+<p>After you bind the names splice somewhere in your application with <code>bindSplice "names" namesSplice</code> you can get at this data from a template like this:</p>
+
+<pre><code>&lt;table&gt;
+&lt;names&gt;
+  &lt;tr&gt;&lt;td&gt;&lt;firstName/&gt;&lt;/td&gt;&lt;td&gt;&lt;lastName/&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;/names&gt;
+&lt;/table&gt;
+</code></pre>
+
+<p>The nice thing about this is that the web designer has complete control over how the names are displayed.  If they needed to change the display to say an unordered list in the format "lastname, firstname" that would be very easy to do here without needing to recompile your application.</p>
+</div>
+    <table class="fw">
+    <tr>
+    <td class="vt">
+
+
+
+
+
+
+
+
+
+<div class="post-menu"><a href="/a/5799721" title="short permalink to this answer" class="short-link" id="link-post-5799721">share</a><span class="lsep">|</span><a href="/posts/5799721/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+    <td align="right" class="post-signature">
+
+
+    <div class="user-info ">
+        <div class="user-action-time">
+                            edited
+                             <a href="/posts/5799721/revisions" title="show all edits to this post"><span title="2011-04-27 14:34:28Z" class="relativetime">Apr 27 '11 at 14:34</span></a>
+
+        </div>
+        <div class="user-gravatar32">
+            
+        </div>
+        <div class="user-details">
+            <br>
+            
+        </div>
+    </div>
+    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    
+
+    <div class="user-info ">
+        <div class="user-action-time">
+                                    answered
+ <span title="2011-04-27 05:24:12Z" class="relativetime">Apr 27 '11 at 5:24</span>
+        </div>
+        <div class="user-gravatar32">
+            <a href="/users/527460/mightybyte"><div class=""><img src="http://www.gravatar.com/avatar/0cece5abd2f9ad9056f5ac3830ac0bfe?s=32&d=identicon&r=PG" alt="" width="32" height="32"></div></a>
+        </div>
+        <div class="user-details">
+            <a href="/users/527460/mightybyte">mightybyte</a><br>
+            <span class="reputation-score" title="reputation score" dir="ltr">3,694</span><span title="1 gold badge"><span class="badge1"></span><span class="badgecount">1</span></span><span title="3 silver badges"><span class="badge2"></span><span class="badgecount">3</span></span><span title="17 bronze badges"><span class="badge3"></span><span class="badgecount">17</span></span>
+        </div>
+    </div>
+
+    </td>
+    </tr>
+    </table>
+</td>
+        </tr>
+
+
+
+<tr>
+<td class="votecell"></td>
+<td>
+    <div id="comments-5799721" class="comments">
+        <table>
+        <tbody>
+                    
+    <tr id="comment-6651778" class="comment">
+        <td></td>
+        <td class="comment-text"><div><span class="comment-copy">Thanxxxx,Yhaa This works very well!!!</span> &ndash;&nbsp;<a href="/users/573760/123ex" title="102 reputation" class="comment-user owner">123Ex</a> <span class="comment-date" dir="ltr"><span title="2011-04-27 06:38:14Z" class="relativetime-clean">Apr 27 '11 at 6:38</span></span></div></td>
+    </tr>
+            
+    <tr id="comment-6652512" class="comment">
+        <td></td>
+        <td class="comment-text"><div><span class="comment-copy">I wouldn&#39;t say that blaze-html violates MVC as long as you keep the html-generation part separate from the IO/logic part, for example by having them in separate modules. In either case, there&#39;s going to have to be some kind of interface or convention between the controller and the view, and there are benefits to having this interface be automatically verifiable by a compiler.</span> &ndash;&nbsp;<a href="/users/98117/hammar" title="60003 reputation" class="comment-user">hammar</a> <span class="comment-date" dir="ltr"><span title="2011-04-27 07:37:43Z" class="relativetime-clean">Apr 27 '11 at 7:37</span></span></div></td>
+    </tr>
+            
+    <tr id="comment-6656259" class="comment">
+        <td></td>
+        <td class="comment-text"><div><span class="comment-copy">@hammar Good point.  It is possible to preserve MVC and still use the blaze approach.  Although in my experience the run-time/compile-time separation that heist gives you does tend to make view/controller separation easier.</span> &ndash;&nbsp;<a href="/users/527460/mightybyte" title="3694 reputation" class="comment-user">mightybyte</a> <span class="comment-date" dir="ltr"><span title="2011-04-27 12:03:43Z" class="relativetime-clean">Apr 27 '11 at 12:03</span></span></div></td>
+    </tr>
+
+        </tbody>
+    
+        </table>
+    </div>
+    
+</td>
+</tr>
+   
+    </table>
+</div>
+        <div class="everyonelovesstackoverflow" id="adzerk3">
+        </div>
+
+
+
+  
+<a name="5799302"></a>
+<div id="answer-5799302" class="answer" data-answerid="5799302" >
+    <table>
+        <tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+    <input type="hidden" value="5799302">
+    <a class="vote-up-off" title="This answer is useful (click again to undo)">up vote</a>
+    <span class="vote-count-post ">4</span>
+    <a class="vote-down-off" title="This answer is not useful (click again to undo)">down vote</a>
+    
+
+ 
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text"><p>I have a strong preference for <a href="http://hackage.haskell.org/package/blaze-html" rel="nofollow">blaze-html</a>, as an excellent set of combinators for quickly translating structured Haskell data types into html.</p>
+
+<p>It has a nice <a href="http://jaspervdj.be/blaze/" rel="nofollow">home with lots of examples</a>, like so:</p>
+
+<pre><code>{-# LANGUAGE OverloadedStrings #-}
+
+import Prelude hiding (head)
+import Control.Monad
+import Text.Blaze.Html4.Strict
+import Text.Blaze.Renderer.Text
+import qualified Data.Text.Lazy.IO as T
+
+main = T.writeFile "f" (renderHtml (draw xs))
+  where
+    xs = [("firstName1","lastName1"),("firstName2","lastName2"),("firstName3","lastName3")]
+
+draw xs = html $ do
+    head $ title "Example"
+    body $ do
+        h1 "Heading"
+        table $ forM_ xs $ \(f,l) -&gt;
+            tr $ do
+                td f
+                td f
+</code></pre>
+
+<p>Generates a <code>text</code> string containing this table:</p>
+
+<pre><code>Heading
+
+firstName1  firstName1
+firstName2  firstName2
+firstName3  firstName3
+</code></pre>
+
+<p>If you can output <code>text</code> from snap, you should be good.</p>
+</div>
+    <table class="fw">
+    <tr>
+    <td class="vt">
+
+
+
+
+
+
+
+
+
+<div class="post-menu"><a href="/a/5799302" title="short permalink to this answer" class="short-link" id="link-post-5799302">share</a><span class="lsep">|</span><a href="/posts/5799302/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+    <td align="right" class="post-signature">
+
+
+    <div class="user-info ">
+        <div class="user-action-time">
+                            edited
+                             <a href="/posts/5799302/revisions" title="show all edits to this post"><span title="2011-04-27 04:28:14Z" class="relativetime">Apr 27 '11 at 4:28</span></a>
+
+        </div>
+        <div class="user-gravatar32">
+            
+        </div>
+        <div class="user-details">
+            <br>
+            
+        </div>
+    </div>
+    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    
+
+    <div class="user-info user-hover">
+        <div class="user-action-time">
+                                    answered
+ <span title="2011-04-27 04:19:56Z" class="relativetime">Apr 27 '11 at 4:19</span>
+        </div>
+        <div class="user-gravatar32">
+            <a href="/users/83805/don-stewart"><div class=""><img src="http://www.gravatar.com/avatar/68c3dd15d6cd5d99a63113843d7e1c1b?s=32&d=identicon&r=PG" alt="" width="32" height="32"></div></a>
+        </div>
+        <div class="user-details">
+            <a href="/users/83805/don-stewart">Don Stewart</a><br>
+            <span class="reputation-score" title="reputation score 76108" dir="ltr">76.1k</span><span title="15 gold badges"><span class="badge1"></span><span class="badgecount">15</span></span><span title="198 silver badges"><span class="badge2"></span><span class="badgecount">198</span></span><span title="313 bronze badges"><span class="badge3"></span><span class="badgecount">313</span></span>
+        </div>
+    </div>
+
+    </td>
+    </tr>
+    </table>
+</td>
+        </tr>
+
+
+
+<tr>
+<td class="votecell"></td>
+<td>
+    <div id="comments-5799302" class="comments">
+        <table>
+        <tbody>
+                    
+    <tr id="comment-6650420" class="comment">
+        <td></td>
+        <td class="comment-text"><div><span class="comment-copy">Hi Thanxx for the your quick reply,Currently I&#39;m using with snap,can I integrate this with snap?</span> &ndash;&nbsp;<a href="/users/573760/123ex" title="102 reputation" class="comment-user owner">123Ex</a> <span class="comment-date" dir="ltr"><span title="2011-04-27 04:22:09Z" class="relativetime-clean">Apr 27 '11 at 4:22</span></span><span class="edited-yes" title="this comment was edited"></span></div></td>
+    </tr>
+            
+    <tr id="comment-6650601" class="comment">
+        <td class="comment-actions"><table><tbody><tr>
+<td class="comment-score">
+<span title="number of 'useful comment' votes received" class="cool">1</span>
+</td>
+<td>
+&nbsp;
+</td></tr>
+</tbody></table></td>
+        <td class="comment-text"><div><span class="comment-copy">@123Ex <a href="http://hackage.haskell.org/packages/archive/snap-core/0.4.1/doc/html/Snap-Types.html#v:writeText" rel="nofollow">hackage.haskell.org/packages/archive/snap-core/0.4.1/doc/html/&hellip;</a> is a convenience function for helping you output Text in Snap.</span> &ndash;&nbsp;<a href="/users/383200/carl" title="5446 reputation" class="comment-user">Carl</a> <span class="comment-date" dir="ltr"><span title="2011-04-27 04:43:23Z" class="relativetime-clean">Apr 27 '11 at 4:43</span></span></div></td>
+    </tr>
+            
+    <tr id="comment-6651739" class="comment">
+        <td></td>
+        <td class="comment-text"><div><span class="comment-copy">Thanxx Carl,I tried above way but that gives regarding type mismatching,As I noticed If we take &quot;title&quot; it type definition says &quot;title :: Html -&gt; Html&quot;,so we are passing String value here,I&#39;m I misunderstood something??</span> &ndash;&nbsp;<a href="/users/573760/123ex" title="102 reputation" class="comment-user owner">123Ex</a> <span class="comment-date" dir="ltr"><span title="2011-04-27 06:35:15Z" class="relativetime-clean">Apr 27 '11 at 6:35</span></span><span class="edited-yes" title="this comment was edited"></span></div></td>
+    </tr>
+            
+    <tr id="comment-6652977" class="comment">
+        <td></td>
+        <td class="comment-text"><div><span class="comment-copy">@123Ex make sure you have the overloadedstrings pragma at the beginning of the file</span> &ndash;&nbsp;<a href="/users/77650/masse" title="1618 reputation" class="comment-user">Masse</a> <span class="comment-date" dir="ltr"><span title="2011-04-27 08:18:24Z" class="relativetime-clean">Apr 27 '11 at 8:18</span></span></div></td>
+    </tr>
+            
+    <tr id="comment-6653357" class="comment">
+        <td></td>
+        <td class="comment-text"><div><span class="comment-copy">thanxxx,That should be the case!</span> &ndash;&nbsp;<a href="/users/573760/123ex" title="102 reputation" class="comment-user owner">123Ex</a> <span class="comment-date" dir="ltr"><span title="2011-04-27 08:53:26Z" class="relativetime-clean">Apr 27 '11 at 8:53</span></span></div></td>
+    </tr>
+
+        </tbody>
+    
+        </table>
+    </div>
+    
+</td>
+</tr>
+   
+    </table>
+</div>
+    <a name='new-answer'></a>
+    <form id="post-form" action="/questions/5799269/answer/submit" method="post"  class="post-form">
+        <input type="hidden" id="post-id" value="5799269" />
+        <h2 class="space">Your Answer</h2>
+
+
+
+    
+<script type="text/javascript">
+    StackExchange.ready(function() {
+        initTagRenderer("".split(" "), "".split(" "));
+         
+        prepareEditor({
+            heartbeatType: 'answer',
+            bindNavPrevention: true,
+            postfix: "",
+            onDemand: true,
+            discardSelector: ".discard-answer"
+            ,immediatelyShowMarkdownHelp:true
+        });
+        
+
+    });  
+</script>
+
+
+<div id="post-editor" class="post-editor">
+
+    <div style="position: relative;">     
+        <div class="wmd-container">
+            <div id="wmd-button-bar" class="wmd-button-bar"></div>
+            <textarea id="wmd-input" class="wmd-input" name="post-text" cols="92" rows="15" tabindex="101" data-min-length=""></textarea>
+        </div>
+    </div>
+
+    <div class="fl" style="margin-top: 8px; height:24px;">&nbsp;</div>
+    <div id="draft-saved" class="draft-saved community-option fl" style="margin-top: 8px; height:24px; display:none;">draft saved</div>
+
+    <div id="draft-discarded" class="draft-discarded community-option fl" style="margin-top: 8px; height:24px; display:none;">draft discarded</div>
+
+
+
+    <div id="wmd-preview" class="wmd-preview"></div>
+    <div></div>
+    <div class="edit-block">
+        <input id="fkey" name="fkey" type="hidden" value="022c0a23eb69437a1292f54a9eaac4a0">
+        <input id="author" name="author" type="text">
+    </div>
+</div>
+        <div style="position: relative;"> 
+    <div class="form-item">
+        <table>
+        <tr>
+                <td class="vm open-id-login">
+                    <a id="login-link" style="font-size: 200%; margin-left: 30px;" href="/users/login?returnurl=%2fquestions%2f5799269%2frender-haskell-list-data-to-web-page">log in</a>
+                    <script type="text/javascript">
+                        StackExchange.ready(function () {
+                            StackExchange.helpers.onClickDraftSave('#login-link');
+                        });
+                    </script>
+                </td>
+                    <script type="text/javascript">
+                StackExchange.ready(function () {
+                    StackExchange.helpers.bindHelpOverlayEvents($('.vm input'));
+                });
+            </script>
+                <td class="orcell">
+                    <div class="orword">or</div>
+                    <div class="orline"></div>
+                </td>
+            <td class="vm">
+                <div>
+                    <label for="display-name">Name</label>
+                    <input id="display-name" name="display-name" type="text" size="30" maxlength="30" value="" tabindex="105">
+                </div>
+                <div>
+                    <label for="m-address">Email</label>
+                    <input id="m-address" name="m-address" type="text" size="40" maxlength="100" value="" tabindex="106">
+                    <span class="edit-field-overlay">required, but never shown</span>
+                </div>
+                    <div>
+                        <label for="home-page">Home Page</label>
+                        <input id="home-page" name="home-page" type="text" size="40" maxlength="200" value="" tabindex="107">
+                    </div>
+            </td>
+        </tr>
+        </table>
+    </div>
+        </div>
+           
+            <div class="form-submit cbt">
+            <input id="submit-button" type="submit" value="Post Your Answer" tabindex="110">
+            <a href="#" class="discard-answer dno">discard</a>
+    <p class="privacy-policy-agreement">
+        By posting your answer, you agree to the 
+        <a href="http://stackexchange.com/legal/privacy-policy" target="_blank">privacy policy</a> and 
+        <a href="http://stackexchange.com/legal/terms-of-service" target="_blank">terms of service</a>.
+    </p>
+    <input type="hidden" name="legalLinksShown" value="1" />
+        </div>
+    </form>
+
+
+
+        <h2 class="bottom-notice">
+                Not the answer you're looking for? 
+            Browse other questions tagged <a href="/questions/tagged/haskell" class="post-tag" title="show questions tagged 'haskell'" rel="tag">haskell</a> <a href="/questions/tagged/pretty-print" class="post-tag" title="show questions tagged 'pretty-print'" rel="tag">pretty-print</a> <a href="/questions/tagged/snap-framework" class="post-tag" title="show questions tagged 'snap-framework'" rel="tag">snap-framework</a> 
+                or <a href="/questions/ask">ask your own question</a>.
+        </h2>
+</div>
+</div>
+<div id="sidebar" >
+        <div class="module question-stats">
+        <p class="label-key">tagged</p>
+        <div class="tagged"><a href="/questions/tagged/haskell" class="post-tag" title="show questions tagged 'haskell'" rel="tag">haskell</a>&nbsp;<span class="item-multiplier"><span class="item-multiplier-x">&times;</span>&nbsp;<span class="item-multiplier-count">10535</span></span><br>
+<a href="/questions/tagged/pretty-print" class="post-tag" title="show questions tagged 'pretty-print'" rel="tag">pretty-print</a>&nbsp;<span class="item-multiplier"><span class="item-multiplier-x">&times;</span>&nbsp;<span class="item-multiplier-count">305</span></span><br>
+<a href="/questions/tagged/snap-framework" class="post-tag" title="show questions tagged 'snap-framework'" rel="tag">snap-framework</a>&nbsp;<span class="item-multiplier"><span class="item-multiplier-x">&times;</span>&nbsp;<span class="item-multiplier-count">63</span></span><br>
+</div>
+        <table id="qinfo">
+            <tr>
+                <td><p class="label-key">asked</p></td>
+                <td style="padding-left:10px"><p class="label-key" title="2011-04-27 04:14:04Z"><b>1 year ago</b></p></td>
+            </tr>
+            <tr>
+                <td><p class="label-key">viewed</p></td>
+
+                <td style="padding-left:10px">
+                    <p class="label-key">
+                        <b>386 times</b>
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td><p class="label-key">active</p></td>
+                <td style="padding-left:10px"><p class="label-key"><b><a href="?lastactivity" class="lastactivity-link" title="2011-06-18 12:09:37Z">1 year ago</a></b></p></td>
+            </tr>
+        </table>
+    </div>
+        
+                <script type="text/javascript">
+                var scriptSrc = "http://engine.adzerk.net/z/8277/adzerk1_2_4_43,adzerk2_2_17_45,adzerk3_2_4_44?keywords=haskell,pretty-print,snap-framework";
+                if (document.referrer) {
+                    if (/\?/.test(scriptSrc))
+                        scriptSrc += "&";
+                    else
+                        scriptSrc += "?";
+                    scriptSrc += "xReferrer=" + document.referrer;
+                }
+                StackExchange.ready(function () {
+                    var z = document.createElement("script");
+                    z.type = "text/javascript";
+                    z.async = "true";
+                    z.src = scriptSrc;
+                    var s = document.getElementsByTagName("script")[0];
+                    s.parentNode.insertBefore(z, s);
+                });
+            </script>
+        <div class="everyonelovesstackoverflow" id="adzerk2">
+        </div>
+    <div id="hireme">
+        <script type="text/javascript">
+            var careers_adurl="http://careers.stackoverflow.com/gethired/js",careers_cssurl="//careerscdn.sstatic.net/careers/gethired/sidebar.css?fffffffff879eaa0",careers_leaderboardcssurl="//careerscdn.sstatic.net/careers/gethired/ninja.min.css?3ae695",careers_companycssurl="//careerscdn.sstatic.net/careers/gethired/company",careers_adselector="div.hireme, div#hireme";StackExchange.ready(function(){$.ajax({url:"//careerscdn.sstatic.net/careers/gethired/loader.min.js?3ae695",dataType:"script",cache:!0})})
+        </script>
+    </div>
+
+
+
+      
+    
+    <div class="module sidebar-related">
+        <h4 id="h-related">Related</h4>
+        <div class="related" data-tracker="rq=1">
+            <div class="spacer">
+<a href="/questions/2941127/haskell-interpreting-a-number" class="question-hyperlink">Haskell - interpreting a number</a>
+</div>
+<div class="spacer">
+<a href="/questions/5687463/what-do-show-and-render-do-in-haskell" class="question-hyperlink">What do show and render do in Haskell?</a>
+</div>
+<div class="spacer">
+<a href="/questions/5740746/haskell-web-framework" class="question-hyperlink">Haskell Web Framework</a>
+</div>
+<div class="spacer">
+<a href="/questions/5785592/snap-web-application-connect-with-mysql" class="question-hyperlink">Snap web application connect with MySQL</a>
+</div>
+<div class="spacer">
+<a href="/questions/6788131/heist-how-do-i-insert-a-dynamic-list-of-sub-templates-into-a-template" class="question-hyperlink">Heist: How do I insert a dynamic list of sub-templates into a template?</a>
+</div>
+<div class="spacer">
+<a href="/questions/6793797/haskell-easier-to-read-show-function-for-debugging" class="question-hyperlink">Haskell &mdash; easier to read show function? (for debugging)</a>
+</div>
+<div class="spacer">
+<a href="/questions/7237731/can-any-haskell-web-server-run-python-cgi-apps" class="question-hyperlink">Can any Haskell web server run Python CGI apps?</a>
+</div>
+<div class="spacer">
+<a href="/questions/8184196/how-to-avoid-converting-among-different-string-types-in-haskell-using-snapfra" class="question-hyperlink">How to avoid converting among different &#39;string&#39; types in haskell, using snapframework?</a>
+</div>
+<div class="spacer">
+<a href="/questions/8297831/adding-onload-hooks-for-heist-templates-using-the-snap-web-framework" class="question-hyperlink">Adding OnLoad hooks for Heist templates using the Snap Web Framework</a>
+</div>
+<div class="spacer">
+<a href="/questions/8582696/generate-html-list-in-snap" class="question-hyperlink">Generate Html List in Snap</a>
+</div>
+<div class="spacer">
+<a href="/questions/8813950/test-snap-web-framework-handler" class="question-hyperlink">Test Snap Web Framework Handler</a>
+</div>
+<div class="spacer">
+<a href="/questions/9392546/pretty-print-haskell-source-code-with-comments" class="question-hyperlink">Pretty-print haskell source code with comments</a>
+</div>
+<div class="spacer">
+<a href="/questions/9770398/snap-getting-form-data-and-the-if" class="question-hyperlink">Snap: Getting form data and the &ldquo;if&rdquo;</a>
+</div>
+<div class="spacer">
+<a href="/questions/9936322/haskell-snap-simple-snaplet-construction-when-do-we-use-snaplet-and-when-libr" class="question-hyperlink">Haskell, Snap: Simple snaplet construction. When do we use snaplet and when library?</a>
+</div>
+<div class="spacer">
+<a href="/questions/9972492/haskell-snap-application-deployment-and-run-time-dependencies" class="question-hyperlink">Haskell Snap: Application deployment and run-time dependencies</a>
+</div>
+<div class="spacer">
+<a href="/questions/9989059/haskell-snap-session-example" class="question-hyperlink">Haskell Snap: Session example</a>
+</div>
+<div class="spacer">
+<a href="/questions/10554466/stateful-code-under-another-monad" class="question-hyperlink">Stateful code under another monad</a>
+</div>
+<div class="spacer">
+<a href="/questions/10803171/how-to-use-haskell-snap-with-backbone-js" class="question-hyperlink">How to use Haskell Snap with Backbone.js</a>
+</div>
+<div class="spacer">
+<a href="/questions/11214167/how-to-run-snap-haskell-webapp-in-production" class="question-hyperlink">How to run Snap haskell webapp in production?</a>
+</div>
+<div class="spacer">
+<a href="/questions/11748148/snap-web-framework-and-osx-path" class="question-hyperlink">Snap web framework and OSX Path</a>
+</div>
+<div class="spacer">
+<a href="/questions/12799908/retrieving-a-list-of-choices-for-digestive-functors-from-the-database-snap-heis" class="question-hyperlink">Retrieving a list of choices for Digestive Functors from the database (Snap/Heist)</a>
+</div>
+<div class="spacer">
+<a href="/questions/13603554/haskell-snap-mongodb-field-type-error" class="question-hyperlink">Haskell Snap: mongodb field type error</a>
+</div>
+<div class="spacer">
+<a href="/questions/14713564/haskell-servers-subdomain" class="question-hyperlink">Haskell servers subdomain</a>
+</div>
+<div class="spacer">
+<a href="/questions/15080008/how-does-one-pretty-print-recursion-depth-in-haskell" class="question-hyperlink">How does one pretty print recursion depth in Haskell?</a>
+</div>
+<div class="spacer">
+<a href="/questions/15091659/snap-framework-repeated-maybe-tidying" class="question-hyperlink">Snap framework - repeated maybe tidying</a>
+</div>
+
+        </div>
+    </div>
+        <div class="everyonelovesstackoverflow" id="adzerk3">
+        </div>
+
+
+</div>
+
+<div id="feed-link">
+    <div id="feed-link-text"><a href="/feeds/question/5799269" title="feed of this question and its answers"><span class="feed-icon"></span>question feed</a></div>
+</div>
+<script type="text/javascript">
+StackExchange.ready(function(){$.get('/posts/5799269/ivc/009b');});
+</script>
+<noscript>
+    <div><img src="/posts/5799269/ivc/009b" class="dno" alt="" width="0" height="0"></div>
+</noscript><div style="display:none" id="prettify-lang">lang-hs</div></div>
+        </div>
+    </div>
+    <div id="footer">
+        <div class="footerwrap">
+            <div id="footer-menu">
+                    <a href="/about">about</a> |
+                <a href="/faq">faq</a> |
+                <a href="http://blog.stackexchange.com?blb=1">blog</a> |
+                    <a href="http://chat.stackoverflow.com">chat</a> |
+                <a href="http://data.stackexchange.com">data</a> |
+                <a href="http://stackexchange.com/legal">legal</a> |
+                <a href="http://stackexchange.com/legal/privacy-policy">privacy policy</a> |
+                <a href="http://stackexchange.com/about/hiring">jobs</a> |
+                <a href="http://engine.adzerk.net/redirect/0/2776/2751/0/4de3c60f719c4dfcb1a57531c7050090/0">advertising info</a> |
+
+                <a onclick='StackExchange.switchMobile("on", "/questions/5799269/render-haskell-list-data-to-web-page/5799721")'>mobile</a> |
+
+                <b><a href="/help">contact us</a></b>
+                  | <b><a href="http://meta.stackoverflow.com">feedback</a></b>
+                <div id="footer-sites">
+                    
+                        <span style="color:#FE7A15;font-size:140%">&#9632;</span>&nbsp;<a href="http://stackoverflow.com">stackoverflow.com</a>&nbsp; 
+                        <span style="color:#FE7A15;font-size:140%">&#9632;</span>&nbsp;<a href="http://stackapps.com">api/apps</a>&nbsp; 
+                        <span style="color:#FE7A15;font-size:140%">&#9632;</span>&nbsp;<a href="http://careers.stackoverflow.com">careers 2.0</a>&nbsp; 
+                        <span style="color:#E8272C;font-size:140%">&#9632;</span>&nbsp;<a href="http://serverfault.com">serverfault.com</a>&nbsp; 
+                        <span style="color:#00AFEF;font-size:140%">&#9632;</span>&nbsp;<a href="http://superuser.com">superuser.com</a>&nbsp; 
+                        <span style="color:#969696;font-size:140%">&#9632;</span>&nbsp;<a href="http://meta.stackoverflow.com">meta</a>&nbsp; 
+                        <span style="color:#46937D;font-size:140%">&#9632;</span>&nbsp;<a href="http://area51.stackexchange.com">area&nbsp;51</a>&nbsp; 
+                        <span style="color:#C0D0DC;font-size:140%">&#9632;</span>&nbsp;<a href="http://webapps.stackexchange.com">webapps</a>&nbsp; 
+                        <span style="color:#000000;font-size:140%">&#9632;</span>&nbsp;<a href="http://gaming.stackexchange.com">gaming</a>&nbsp; 
+                        <span style="color:#dd4814;font-size:140%">&#9632;</span>&nbsp;<a href="http://askubuntu.com">ubuntu</a>&nbsp; 
+                        <span style="color:#9ce4fe;font-size:140%">&#9632;</span>&nbsp;<a href="http://webmasters.stackexchange.com">webmasters</a>&nbsp; 
+                        <span style="color:#cf4d3f;font-size:140%">&#9632;</span>&nbsp;<a href="http://cooking.stackexchange.com">cooking</a>&nbsp; 
+                        <span style="color:#f4f28d;font-size:140%">&#9632;</span>&nbsp;<a href="http://gamedev.stackexchange.com">game development</a>&nbsp; 
+                        <span style="color:#0f3559;font-size:140%">&#9632;</span>&nbsp;<a href="http://math.stackexchange.com">math</a>&nbsp; 
+                        <span style="color:#f2f2f2;font-size:140%">&#9632;</span>&nbsp;<a href="http://photo.stackexchange.com">photography</a>&nbsp; 
+                        <span style="color:#037187;font-size:140%">&#9632;</span>&nbsp;<a href="http://stats.stackexchange.com">stats</a>&nbsp; 
+                        <span style="color:#f1e7cc;font-size:140%">&#9632;</span>&nbsp;<a href="http://tex.stackexchange.com">tex</a>&nbsp; 
+                        <span style="color:#e1cdae;font-size:140%">&#9632;</span>&nbsp;<a href="http://english.stackexchange.com">english</a>&nbsp; 
+                        <span style="color:#a2d9f6;font-size:140%">&#9632;</span>&nbsp;<a href="http://cstheory.stackexchange.com">theoretical cs</a>&nbsp; 
+                        <span style="color:#1b3e6c;font-size:140%">&#9632;</span>&nbsp;<a href="http://programmers.stackexchange.com">programmers</a>&nbsp; 
+                        <span style="color:#293a5d;font-size:140%">&#9632;</span>&nbsp;<a href="http://unix.stackexchange.com">unix</a>&nbsp;
+                        <span style="color:#bec0cb;font-size:140%">&#9632;</span>&nbsp;<a href="http://apple.stackexchange.com">apple</a>&nbsp;
+                        <span style="color:#939185;font-size:140%">&#9632;</span>&nbsp;<a href="http://wordpress.stackexchange.com">wordpress</a>&nbsp;
+                        <span style="color:#ebf5f5;font-size:140%">&#9632;</span>&nbsp;<a href="http://physics.stackexchange.com">physics</a>&nbsp;
+                        <span style="color:#4176ab;font-size:140%">&#9632;</span>&nbsp;<a href="http://diy.stackexchange.com">home&nbsp;improvement</a>&nbsp;
+                        <span style="color:#d1d8d7;font-size:140%">&#9632;</span>&nbsp;<a href="http://gis.stackexchange.com">gis</a>&nbsp;
+                        <span style="color:#e5e2d3;font-size:140%">&#9632;</span>&nbsp;<a href="http://electronics.stackexchange.com">electrical&nbsp;engineering</a>&nbsp;
+                        <span style="color:#a4c639;font-size:140%">&#9632;</span>&nbsp;<a href="http://android.stackexchange.com">android</a>&nbsp;
+                        <span style="color:#2e4e60;font-size:140%">&#9632;</span>&nbsp;<a href="http://security.stackexchange.com">security</a>&nbsp;
+                        <span style="color:#45bcb5;font-size:140%">&#9632;</span>&nbsp;<a href="http://bicycles.stackexchange.com">bicycles</a>&nbsp;
+                        <span style="color:#00adee;font-size:140%">&#9632;</span>&nbsp;<a href="http://dba.stackexchange.com">dba</a>&nbsp;
+                        <span style="color:#2edaf0;font-size:140%">&#9632;</span>&nbsp;<a href="http://drupal.stackexchange.com">drupal</a>&nbsp;
+                        <span style="color:#213951;font-size:140%">&#9632;</span>&nbsp;<a href="http://sharepoint.stackexchange.com">sharepoint</a>&nbsp;
+                        <span style="color:#73abb3;font-size:140%">&#9632;</span>&nbsp;<a href="http://scifi.stackexchange.com">scifi&nbsp;&amp;&nbsp;fantasy</a>&nbsp;
+                        <span style="color:#23629F;font-size:140%">&#9632;</span>&nbsp;<a href="http://ux.stackexchange.com">user&nbsp;experience</a>&nbsp;
+                        <span style="color:#faff72;font-size:140%">&#9632;</span>&nbsp;<a href="http://skeptics.stackexchange.com">skeptics</a>&nbsp;
+                        <span style="color:#623121;font-size:140%">&#9632;</span>&nbsp;<a href="http://rpg.stackexchange.com">rpg</a>&nbsp;
+                        <span style="color:#e4be88;font-size:140%">&#9632;</span>&nbsp;<a href="http://judaism.stackexchange.com">judaism</a>&nbsp;
+                        <span style="color:#ffecb1;font-size:140%">&#9632;</span>&nbsp;<a href="http://mathematica.stackexchange.com">mathematica</a>&nbsp;
+                        <span style="color:#1b8598;font-size:140%">&#9632;</span>&nbsp;<a href="http://travel.stackexchange.com">travel</a>&nbsp;
+                </div>
+            </div>
+            <div id="footer-flair">
+                <a class="peer1" href="http://www.peer1.com/stackoverflow"></a>  
+	            <a href="http://creativecommons.org/licenses/by-sa/3.0/" class="cc-wiki-link"></a>
+                <div id="svnrev">rev 2013.3.26.580</div>
+                        </div>
+            <div id="copyright">
+                site design / logo &copy; 2013 stack exchange inc; 
+                user contributions licensed under <a href="http://creativecommons.org/licenses/by-sa/3.0/" rel="license">cc-wiki</a> with <a href="http://blog.stackoverflow.com/2009/06/attribution-required/" rel="license">attribution required</a>
+            </div>
+            
+
+        </div>
+    </div>
+    
+    <noscript>
+        <div id="noscript-warning">Stack Overflow works best with JavaScript enabled<img src="http://pixel.quantserve.com/pixel/p-c1rF4kxgLUzNc.gif" alt="" class="dno"></div>
+    </noscript>
+    <script type="text/javascript">var _gaq=_gaq||[];_gaq.push(['_setAccount','UA-5620270-1']);
+        _gaq.push(['_setCustomVar', 1, 'tags', '|haskell|pretty-print|snap-framework|']); 
+_gaq.push(['_trackPageview']);
+    var _qevents = _qevents || [];
+    (function(){
+        var s=document.getElementsByTagName('script')[0];
+        var ga=document.createElement('script');
+        ga.type='text/javascript';
+        ga.async=true;
+        ga.src='http://www.google-analytics.com/ga.js';
+        s.parentNode.insertBefore(ga,s);
+        var sc=document.createElement('script');
+        sc.type='text/javascript';
+        sc.async=true;
+        sc.src='http://edge.quantserve.com/quant.js'; 
+        s.parentNode.insertBefore(sc,s);
+    })();
+    </script>
+    <script type="text/javascript">
+        _qevents.push({ qacct: "p-c1rF4kxgLUzNc" });
+    </script>        
+    
+</body>
+</html>

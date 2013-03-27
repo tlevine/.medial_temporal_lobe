@@ -1,0 +1,404 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head profile="http://gmpg.org/xfn/11">
+	<title>Writing Heist Splices for Snap | Amateur Topologist</title>
+
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+	<link rel="alternate" type="application/rss+xml" title="Amateur Topologist RSS Feed" href="http://www.amateurtopologist.com/blog/feed/" />
+	<link rel="pingback" href="http://www.amateurtopologist.com/blog/xmlrpc.php" />
+
+	<link rel="SHORTCUT ICON" href="http://www.amateurtopologist.com/blog/wp-content/themes/renegade/favicon.ico?9d7bd4"/>
+	<link rel="icon" type="image/vnd.microsoft.icon" href="http://www.amateurtopologist.com/blog/wp-content/themes/renegade/favicon.ico?9d7bd4" /> 
+
+	<link rel="stylesheet" href="http://www.amateurtopologist.com/blog/wp-content/themes/renegade-topologist/style.css?9d7bd4" type="text/css" media="all" />
+	<!--[if lte IE 7]>
+	<link rel="stylesheet" href="http://www.amateurtopologist.com/blog/wp-content/themes/renegade-topologist/ie.css?9d7bd4" type="text/css" media="all" />
+	<![endif]-->
+
+	<script type='text/javascript' src="http://www.amateurtopologist.com/blog/wp-content/themes/renegade/scripts/quote-comments.js?9d7bd4"></script>
+
+	<style type='text/css'>
+		body, input, select, textarea { font-family:Georgia, serif; font-size:14px; }
+	</style>
+	
+	<link rel="alternate" type="application/rss+xml" title="Amateur Topologist &raquo; Writing Heist Splices for Snap Comments Feed" href="http://www.amateurtopologist.com/blog/2012/01/15/writing-heist-splices-for-snap/feed/" />
+<style type="text/css">.codecolorer, .codecolorer *, .codecolorer-container, .codecolorer-container * { font-size: 12px ! important;
+background-color: white ! important;
+}
+
+code.codecolorer {
+padding: 1px ! important;
+}</style>
+<link rel='stylesheet' id='wp-quicklatex-format-css'  href="http://www.amateurtopologist.com/blog/wp-content/plugins/wp-quicklatex/css/quicklatex-format.css?9d7bd4" type='text/css' media='all' />
+<link rel='stylesheet' id='codecolorer-css'  href="http://www.amateurtopologist.com/blog/wp-content/plugins/codecolorer/codecolorer.css?9d7bd4" type='text/css' media='screen' />
+<script type='text/javascript' src="http://www.amateurtopologist.com/blog/wp-includes/js/comment-reply.js?9d7bd4"></script>
+<script type='text/javascript' src="http://www.amateurtopologist.com/blog/wp-includes/js/jquery/jquery.js?9d7bd4"></script>
+<script type='text/javascript' src="http://www.amateurtopologist.com/blog/wp-content/plugins/google-analyticator/external-tracking.min.js?9d7bd4"></script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://www.amateurtopologist.com/blog/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://www.amateurtopologist.com/blog/wp-includes/wlwmanifest.xml" /> 
+<link rel='prev' title='Name Your Type Variables!' href='http://www.amateurtopologist.com/blog/2011/10/11/name-your-type-variables/' />
+<link rel='next' title='Saying Goodbye to WordPress' href='http://www.amateurtopologist.com/blog/2012/04/20/saying-goodbye-to-wordpress/' />
+<meta name="generator" content="WordPress 3.4-alpha-19719" />
+<link rel='canonical' href='http://www.amateurtopologist.com/blog/2012/01/15/writing-heist-splices-for-snap/' />
+<link rel='shortlink' href='http://www.amateurtopologist.com/blog/?p=1337' />
+<link rel="shortcut icon" href="http://www.amateurtopologist.com/favicon.ico?9d7bd4" type="image/x-icon" /><!-- Favi --><meta http-equiv="X-XRDS-Location" content="http://www.amateurtopologist.com/blog/?xrds" />
+<meta http-equiv="X-Yadis-Location" content="http://www.amateurtopologist.com/blog/?xrds" />
+<style type="text/css">
+/* <![CDATA[ */
+img.latex { vertical-align: middle; border: none; }
+/* ]]> */
+</style>
+<!-- Google Analytics Tracking by Google Analyticator 6.2: http://ronaldheft.com/code/analyticator/ -->
+<script type="text/javascript">
+	var analyticsFileTypes = [''];
+	var analyticsEventTracking = 'enabled';
+</script>
+<script type="text/javascript">
+	var _gaq = _gaq || [];
+	_gaq.push(['_setAccount', 'UA-10465087-4']);
+	_gaq.push(['_setDomainName', 'amateurtopologist.com']);
+	_gaq.push(['_trackPageview']);
+	_gaq.push(['_trackPageLoadTime']);
+
+	(function() {
+		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	})();
+</script>
+<script type="text/javascript"
+   src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+</head>
+<body class="single single-post postid-1337 single-format-standard">
+
+<!--[if lt IE 7]>  <div style='border: 1px solid #F7941D; background: #FEEFDA; text-align: center; clear: both; height: 75px; position: relative;'>    <div style='position: absolute; right: 3px; top: 3px; font-family: courier new; font-weight: bold;'><a href='#' onclick='javascript:this.parentNode.parentNode.style.display="none"; return false;'><img src='http://www.ie6nomore.com/files/theme/ie6nomore-cornerx.jpg' style='border: none;' alt='Close this notice'/></a></div>    <div style='width: 640px; margin: 0 auto; text-align: left; padding: 0; overflow: hidden; color: black;'>      <div style='width: 75px; float: left;'><img src='http://www.ie6nomore.com/files/theme/ie6nomore-warning.jpg' alt='Warning!'/></div>      <div style='width: 275px; float: left; font-family: Arial, sans-serif;'>        <div style='font-size: 14px; font-weight: bold; margin-top: 12px;'>You are using an outdated browser</div>        <div style='font-size: 12px; margin-top: 6px; line-height: 12px;'>For a better experience using this site, please upgrade to a modern web browser.</div>      </div>      <div style='width: 75px; float: left;'><a href='http://www.firefox.com' target='_blank'><img src='http://www.ie6nomore.com/files/theme/ie6nomore-firefox.jpg' style='border: none;' alt='Get Firefox 3.5'/></a></div>      <div style='width: 75px; float: left;'><a href='http://www.browserforthebetter.com/download.html' target='_blank'><img src='http://www.ie6nomore.com/files/theme/ie6nomore-ie8.jpg' style='border: none;' alt='Get Internet Explorer 8'/></a></div>      <div style='width: 73px; float: left;'><a href='http://www.apple.com/safari/download/' target='_blank'><img src='http://www.ie6nomore.com/files/theme/ie6nomore-safari.jpg' style='border: none;' alt='Get Safari 4'/></a></div>      <div style='float: left;'><a href='http://www.google.com/chrome' target='_blank'><img src='http://www.ie6nomore.com/files/theme/ie6nomore-chrome.jpg' style='border: none;' alt='Get Google Chrome'/></a></div>    </div>  </div>  <![endif]-->
+
+<div class="bgBar">
+	<div class="bgBarInner"></div>
+</div>
+
+<div class="wrap">
+
+	<div class="topbar">
+
+		<div class="nav">
+			<ul>
+				<li class="subscribe"><a href="http://www.amateurtopologist.com/blog/feed/" target="_blank">Subscribe</a></li>				<li class="home-link"><a href="http://www.amateurtopologist.com/blog">Home</a></li>
+				<li class="page_item page-item-687"><a href="http://www.amateurtopologist.com/blog/about/">About</a></li>
+	
+			</ul>
+		</div><!-- /menu -->
+
+	</div><!-- /topbar -->
+
+	<div class="header">
+
+		<h1><a href='http://www.amateurtopologist.com/blog'>Amateur Topologist</a></h1><h4>Everything but topology.</h4>
+	</div><!-- /header -->
+
+	<div class="content">
+
+		<div class="c1">
+
+			
+  
+	
+	<!-- post -->
+	<div class="post-1337 post type-post status-publish format-standard hentry category-computers category-programming tag-haskell tag-snap tag-web-programming" id="post-1337">
+		<h1 class="post-title"><a href="http://www.amateurtopologist.com/blog/2012/01/15/writing-heist-splices-for-snap/" rel="bookmark">Writing Heist Splices for Snap</a></h1>
+		<div class="post-text">
+		<p>I&#8217;ve been doing a lot of web stuff lately; so far, it&#8217;s only been very simple HTML + CSS + JS (well, <a href="http://coffeescript.org/">CoffeeScript</a>, but who&#8217;s counting), but eventually I might move on to other, neater things. And in the process one of the things that I found is <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap</a>; it&#8217;s a bunch of CSS that makes it &#8216;easy&#8217; to make professional-looking sites. I put &#8216;easy&#8217; in quotes because the learning curve is definitely steeper than that of CSS itself, because you have to nest your DOM just so in order for the given CSS to apply right. But you get nice margins, good color themes, etc.</p>
+<p>One of the things that you get when you use Bootstrap is a very nice-looking nav bar, which is actually just a very well-themed unordered list of links. </p>
+<p>In particular, if you set the class of one of the list items to &#8220;active&#8221;, it &#8216;highlights&#8217; it:<br />
+<div id="attachment_1342" class="wp-caption alignright" style="width: 578px"><a href="http://www.amateurtopologist.com/blog/wp-content/uploads/2012/01/Screen-Shot-2012-01-14-at-5.41.18-AM.png?9d7bd4"><img src="http://www.amateurtopologist.com/blog/wp-content/uploads/2012/01/Screen-Shot-2012-01-14-at-5.41.18-AM.png?9d7bd4" alt="" title="Twitter Bootstrap nav bar" width="568" height="54" class="size-full wp-image-1342" /></a><p class="wp-caption-text">Note the highlight on &#039;Scalemate generator&#039;</p></div></p>
+<p>Now, I&#8217;m serving this site through <a href="http://snapframework.com/">Snap</a>, the Haskell webdev framework; I&#8217;m doing this because one of my subsites needs to be able to upload files, and I figured I might as well use Haskell. And Snap comes with a templating language called <a href="http://hackage.haskell.org/package/heist-0.7.0.1">Heist</a>. So, given that I&#8217;m already using templating to insert the boilerplate jQuery/Bootstrap includes and the GitHub link/authorship at the bottom, wouldn&#8217;t it make sense to template the nav links?</p>
+<p>It turns out that it&#8217;s fairly simple to do, as illustrated in <a href="https://github.com/veinor/amateurtopologist-code/blob/master/src/NavLinks.hs">NavLinks.hs</a>. We start with imports; nothing too interesting here. We need Heist to access the templating engine and Text.XmlHtml to actually construct the nodes.</p>
+<div class="codecolorer-container haskell default" style="overflow:auto;white-space:nowrap;"><table cellspacing="0" cellpadding="0"><tbody><tr><td class="line-numbers"><div>1<br />2<br />3<br />4<br />5<br />6<br />7<br />8<br />9<br />10<br />11<br />12<br /></div></td><td><div class="haskell codecolorer"><span class="coMULTI">{-# LANGUAGE OverloadedStrings #-}</span><br />
+<br />
+<span class="kw1">module</span> NavLinks <span class="kw1">where</span><br />
+<br />
+<span class="kw1">import</span> <span class="kw1">qualified</span> Data<span class="sy0">.</span>ByteString <span class="kw1">as</span> B<br />
+<span class="kw1">import</span> <span class="kw1">qualified</span> Data<span class="sy0">.</span>Text <span class="kw1">as</span> T<br />
+<span class="kw1">import</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Data<span class="sy0">.</span>Text<span class="sy0">.</span>Encoding<br />
+<br />
+<span class="kw1">import</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Snap<br />
+<br />
+<span class="kw1">import</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Text<span class="sy0">.</span>Templating<span class="sy0">.</span>Heist<br />
+<span class="kw1">import</span> <span class="kw1">qualified</span> Text<span class="sy0">.</span>XmlHtml <span class="kw1">as</span> X</div></td></tr></tbody></table></div>
+<p>Next we declare the type:</p>
+<div class="codecolorer-container haskell default" style="overflow:auto;white-space:nowrap;"><table cellspacing="0" cellpadding="0"><tbody><tr><td class="line-numbers"><div>17<br /></div></td><td><div class="haskell codecolorer">navSplice <span class="sy0">::</span> MonadSnap m <span class="sy0">=&gt;</span> <span class="br0">&#91;</span><span class="br0">&#40;</span>B<span class="sy0">.</span>ByteString<span class="sy0">,</span> T<span class="sy0">.</span>Text<span class="br0">&#41;</span><span class="br0">&#93;</span> <span class="sy0">-&gt;</span> Splice m</div></td></tr></tbody></table></div>
+<p>The way a splice works is this: you construct a Splice in some monad <code class="codecolorer text default"><span class="text">Splice m</span></code>, and you can lift monad actions in the <code class="codecolorer text default"><span class="text">m</span></code> monad into <code class="codecolorer text default"><span class="text">Splice m</span></code>. In this case, we can be in any monad that provides us with <code class="codecolorer text default"><span class="text">getRequest</span></code>, since we want to get the URI of the request. Since <code class="codecolorer haskell default"><span class="haskell">getRequest <span class="sy0">::</span> MonadSnap m <span class="sy0">=&gt;</span> Request</span></code>, we can be in any monad that is an instance of <code class="codecolorer text default"><span class="text">MonadSnap</span></code>. The argument to navSplice is the list of (path, title) tuples; for example, it might look like <code class="codecolorer haskell default"><span class="haskell"><span class="br0">&#91;</span><span class="br0">&#40;</span><span class="st0">&quot;/about&quot;</span><span class="sy0">,</span> <span class="st0">&quot;About&quot;</span><span class="br0">&#41;</span><span class="sy0">,</span> <span class="br0">&#40;</span><span class="st0">&quot;/blog&quot;</span><span class="sy0">,</span> <span class="st0">&quot;Blog&quot;</span><span class="br0">&#41;</span><span class="br0">&#93;</span></span></code>. The path is a ByteString because the request gives us the URI as a ByteString, and the title is Text because Text.XmlHtml uses Text. Now, onto the actual declaration:</p>
+<div class="codecolorer-container haskell default" style="overflow:auto;white-space:nowrap;"><table cellspacing="0" cellpadding="0"><tbody><tr><td class="line-numbers"><div>18<br />19<br />20<br />21<br />22<br />23<br />24<br />25<br />26<br /></div></td><td><div class="haskell codecolorer">navSplice links <span class="sy0">=</span> <span class="br0">&#40;</span>:<span class="br0">&#91;</span><span class="br0">&#93;</span><span class="br0">&#41;</span> <span class="sy0">.</span> X<span class="sy0">.</span>Element <span class="st0">&quot;ul&quot;</span> <span class="br0">&#91;</span><span class="br0">&#40;</span><span class="st0">&quot;class&quot;</span><span class="sy0">,</span> <span class="st0">&quot;nav&quot;</span><span class="br0">&#41;</span><span class="br0">&#93;</span> <span class="sy0">&lt;$&gt;</span> <span class="kw1">do</span><br />
+&nbsp; currentURI <span class="sy0">&lt;-</span> lift <span class="sy0">$</span> rqURI <span class="sy0">&lt;$&gt;</span> getRequest<br />
+&nbsp; <span class="co1">-- add the 'active' class if the href is a prefix of the current URI</span><br />
+&nbsp; <span class="kw1">let</span> li path<br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="sy0">|</span> path `B<span class="sy0">.</span>isPrefixOf` <span class="br0">&#40;</span>currentURI `B<span class="sy0">.</span>append` <span class="st0">&quot;/&quot;</span><span class="br0">&#41;</span> <span class="sy0">=</span> &nbsp;X<span class="sy0">.</span>Element <span class="st0">&quot;li&quot;</span> <span class="br0">&#91;</span><span class="br0">&#40;</span><span class="st0">&quot;class&quot;</span><span class="sy0">,</span> <span class="st0">&quot;active&quot;</span><span class="br0">&#41;</span><span class="br0">&#93;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="sy0">|</span> <a href="http://haskell.org/ghc/docs/latest/html/libraries/base/Prelude.html#v:otherwise"><span class="kw3">otherwise</span></a> <span class="sy0">=</span> X<span class="sy0">.</span>Element <span class="st0">&quot;li&quot;</span> <span class="br0">&#91;</span><span class="br0">&#93;</span><br />
+&nbsp; <a href="http://haskell.org/ghc/docs/latest/html/libraries/base/Prelude.html#v:return"><span class="kw3">return</span></a> <span class="sy0">$</span> <a href="http://haskell.org/ghc/docs/latest/html/libraries/base/Prelude.html#v:map"><span class="kw3">map</span></a> <span class="br0">&#40;</span>\<span class="br0">&#40;</span>path<span class="sy0">,</span> title<span class="br0">&#41;</span> <span class="sy0">-&gt;</span> li path <span class="br0">&#91;</span>buildLink path title<span class="br0">&#93;</span><span class="br0">&#41;</span> links<br />
+&nbsp; &nbsp;<span class="co1">-- build a link to the path with the given text</span><br />
+&nbsp; &nbsp; <span class="kw1">where</span> buildLink path title <span class="sy0">=</span> X<span class="sy0">.</span>Element <span class="st0">&quot;a&quot;</span> <span class="br0">&#91;</span><span class="br0">&#40;</span><span class="st0">&quot;href&quot;</span><span class="sy0">,</span> decodeUtf8 path<span class="br0">&#41;</span><span class="br0">&#93;</span> <span class="br0">&#91;</span>X<span class="sy0">.</span>TextNode title<span class="br0">&#93;</span></div></td></tr></tbody></table></div>
+<p>Look at the do-block first. Line 19 just gets the current URI out. Lines 21-23 are interesting; what we&#8217;re doing here is declaring a function of type <code class="codecolorer haskell default"><span class="haskell">li <span class="sy0">::</span> B<span class="sy0">.</span>ByteString <span class="sy0">-&gt;</span> <span class="br0">&#91;</span>X<span class="sy0">.</span>Node<span class="br0">&#93;</span> <span class="sy0">-&gt;</span> X<span class="sy0">.</span>Node</span></code>. The way an HTML element is constructed in Text.XmlHtml is through the Element constructor, which has type <code class="codecolorer text default"><span class="text">T.Text -&gt; [(T.Text, T.Text)] -&gt; [X.Node] -&gt; X.Node</span></code>. The first Text is the tag; the array of Text tuples is the list of attributes, and the list of Nodes is the list of children. So, here we&#8217;re partially applying the tag (always &#8220;li&#8221;) and the attributes (which is either empty or <code class="codecolorer text default"><span class="text">class=&quot;active&quot;</span></code>). We apply the &#8220;active&#8221; class only if the path is a prefix of the current URI; we append a &#8220;/&#8221; to the end of the current URI to make sure that trailing slashes are ignored.</p>
+<p>Next, look at line 26; buildLink just builds a link node looking like <code class="codecolorer text default"><span class="text">&lt;a href=&quot;path&quot;&gt;title&lt;/a&gt;</span></code>. <code class="codecolorer text default"><span class="text">X.TextNode</span></code> is, obviously, the constructor for text Nodes.</p>
+<p>On the last line of the do block, we map over the <code class="codecolorer text default"><span class="text">(path, title)</span></code> tuples, build up a list of <code class="codecolorer text default"><span class="text">&lt;li&gt;</span></code> elements, and return that list. Finally, on line 18 we construct an unordered list element with the &#8220;nav&#8221; class. Finally, we construct a single-element list using <code class="codecolorer text default"><span class="text">(:[])</span></code> (which some people call the monkey function), which just constructs a list with its argument inside. My actual code uses return instead, but I decided that this would be clearer.</p>
+<p>Adding that splice to the default list of splices is as simple as adding</p>
+<div class="codecolorer-container haskell default" style="overflow:auto;white-space:nowrap;"><div class="haskell codecolorer">pages <span class="sy0">::</span> <span class="br0">&#91;</span><span class="br0">&#40;</span>B<span class="sy0">.</span>ByteString<span class="sy0">,</span> T<span class="sy0">.</span>Text<span class="br0">&#41;</span><span class="br0">&#93;</span><br />
+pages <span class="sy0">=</span> <span class="br0">&#91;</span> <span class="br0">&#40;</span><span class="st0">&quot;/chargen/&quot;</span><span class="sy0">,</span> <span class="st0">&quot;Character generator&quot;</span><span class="br0">&#41;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="sy0">,</span> <span class="br0">&#40;</span><span class="st0">&quot;/logify/&quot;</span><span class="sy0">,</span> <span class="st0">&quot;Chatlog formatter&quot;</span><span class="br0">&#41;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="sy0">,</span> <span class="br0">&#40;</span><span class="st0">&quot;/scalemate/&quot;</span><span class="sy0">,</span> <span class="st0">&quot;Scalemate generator&quot;</span><span class="br0">&#41;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#93;</span></div></div>
+<p>to the toplevel of Site.hs and adding</p>
+<div class="codecolorer-container haskell default" style="overflow:auto;white-space:nowrap;"><div class="haskell codecolorer">addSplices <span class="br0">&#91;</span><span class="br0">&#40;</span><span class="st0">&quot;nav&quot;</span><span class="sy0">,</span> liftHeist <span class="sy0">$</span> navSplice pages<span class="br0">&#41;</span><span class="br0">&#93;</span></div></div>
+<p>to the app initializer. Now <code class="codecolorer text default"><span class="text">&lt;nav/&gt;</span></code> can be used in the template to automatically insert the nav link list and highlight the current page!</p>
+<p>One small annoyance of this is that the generated HTML is all in one line, although since it&#8217;s not handwritten you probably won&#8217;t care so much, especially since Firebug and Chrome&#8217;s debugging tools will automatically do the indentation for you and let you collapse/expand child nodes at will. </p>
+		</div>
+		<div class="post-meta">
+			<div class="row">
+				<a href="http://www.amateurtopologist.com/blog/2012/01/15/writing-heist-splices-for-snap/#comments" class="post-comments"  title="Comment on Writing Heist Splices for Snap">2 Comments</a>				<span class="post-author">by <a href="http://www.amateurtopologist.com/blog/author/phurst/" title="Posts by Patrick Hurst" rel="author">Patrick Hurst</a> &nbsp;/&nbsp; </span>
+				<span class="post-date">January 15, 2012 &nbsp;/&nbsp; </span>
+				<span class="post-cat">Posted in: <a href="http://www.amateurtopologist.com/blog/category/computers/" title="View all posts in Computers" rel="category tag">Computers</a>, <a href="http://www.amateurtopologist.com/blog/category/computers/programming/" title="View all posts in Programming" rel="category tag">Programming</a></span>
+							</div>
+			<div class="row"><span class="post-tag">Tagged: <a href="http://www.amateurtopologist.com/blog/tag/haskell/" rel="tag">haskell</a>, <a href="http://www.amateurtopologist.com/blog/tag/snap/" rel="tag">snap</a>, <a href="http://www.amateurtopologist.com/blog/tag/web-programming/" rel="tag">web programming</a></span></div>
+		</div>
+
+			<div class="post-nav">
+			<div class="alignleft"><span>&laquo; Previous post</span><br /><a href="http://www.amateurtopologist.com/blog/2011/10/11/name-your-type-variables/" rel="prev">Name Your Type Variables!</a></div>
+			<div class="alignright textalignright"><span>Next post &raquo;</span><br /><a href="http://www.amateurtopologist.com/blog/2012/04/20/saying-goodbye-to-wordpress/" rel="next">Saying Goodbye to WordPress</a></div>
+		</div>
+
+		<div class="sep"></div>
+
+		<!-- comments begin here -->
+<div id="comments">
+
+	<h2 class="comment-heading" id="comments">2 Responses<a href="#respond">Leave one &rarr;</a></h2>
+
+	<div class="navigation">
+			</div>
+
+	<ol class="commentlist">
+		<li class="comment even thread-even depth-1" id="comment-1588">
+	<div class="comment-body" id="div-comment-1588">
+		<div class="comment-meta">
+			<img alt='' src='http://1.gravatar.com/avatar/38265aa564ac635d93c368ff71b9cbc9?s=32&amp;d=identicon&amp;r=X' class='avatar avatar-32 photo' height='32' width='32' />			<h4>Simon</h4> &nbsp;/&nbsp;
+			<a href="http://www.amateurtopologist.com/blog/2012/01/15/writing-heist-splices-for-snap/comment-page-1/#comment-1588" class="comment-date">February 12, 2012</a>
+		<a class="comment-quote-link" href="?replytocom=1588#respond" onclick="quote('1588', 'Simon', 'comment','div-comment-1588', false, false); try { addComment.moveForm('comment-1588', '1588', 'respond', '1337'); } catch(e) {}; return false;">
+		<img src="http://www.amateurtopologist.com/blog/wp-content/themes/renegade/images/quote-comment.png?9d7bd4" /></a></a>
+					</div>
+		<div class="comment-text">
+						<div id='q-1588'>
+<p>Your idea is cool and I&#8217;m able to incorporate into my toy program.</p>
+<p>When the path is &#8220;/&#8221; which usually the index page, this guard always be true thus it is always being highlighted.<br />
+path `B.isPrefixOf` (currentURI `B.append` &#8220;/&#8221;)</p>
+</div>
+		</div>
+		<a class='comment-reply-link' href='/blog/2012/01/15/writing-heist-splices-for-snap/?replytocom=1588#respond' onclick='return addComment.moveForm("comment-1588", "1588", "respond", "1337")'>Reply</a>	</div><!-- /comment-body -->
+</li>
+<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-1613">
+	<div class="comment-body" id="div-comment-1613">
+		<div class="comment-meta">
+			<img alt='' src='http://0.gravatar.com/avatar/822c8b4b728345daa699eee0707d945a?s=32&amp;d=identicon&amp;r=X' class='avatar avatar-32 photo' height='32' width='32' />			<h4><a href='http://www.bodybuilding.com' rel='external nofollow' class='url'>onlinemultitabletournaments</a></h4> &nbsp;/&nbsp;
+			<a href="http://www.amateurtopologist.com/blog/2012/01/15/writing-heist-splices-for-snap/comment-page-1/#comment-1613" class="comment-date">June 10, 2012</a>
+		<a class="comment-quote-link" href="?replytocom=1613#respond" onclick="quote('1613', 'onlinemultitabletournaments', 'comment','div-comment-1613', false, false); try { addComment.moveForm('comment-1613', '1613', 'respond', '1337'); } catch(e) {}; return false;">
+		<img src="http://www.amateurtopologist.com/blog/wp-content/themes/renegade/images/quote-comment.png?9d7bd4" /></a></a>
+					</div>
+		<div class="comment-text">
+						<div id='q-1613'>
+<p>I would like to buy 706992 suns please for 230863</p>
+</div>
+		</div>
+		<a class='comment-reply-link' href='/blog/2012/01/15/writing-heist-splices-for-snap/?replytocom=1613#respond' onclick='return addComment.moveForm("comment-1613", "1613", "respond", "1337")'>Reply</a>	</div><!-- /comment-body -->
+</li>
+	</ol>
+
+	<div class="navigation">
+			</div>
+
+	<ol class="trackbacklist">
+			</ol>
+
+
+
+
+	<h2 class="comment-heading">Leave a Reply</h2>
+
+	<div id="respond">
+
+	
+		<form action="http://www.amateurtopologist.com/blog/wp-comments-post.php" method="post" id="commentform">
+
+		<div class="cancel-comment-reply">
+			<p><a rel="nofollow" id="cancel-comment-reply-link" href="/blog/2012/01/15/writing-heist-splices-for-snap/#respond" style="display:none;">Click here to cancel reply.</a></p>
+		</div>
+
+		
+		
+			<p class="cform-name">
+				<input type="text" name="author" id="author" tabindex="1" aria-required='true' value="" />
+				<label for="author">Name <span class="required">*</span></label>
+			</p>
+
+			<p class="cform-mail">
+				<input type="text" name="email" id="email" tabindex="2" aria-required='true' value="" />
+				<label for="email">E-mail <span class="required">*</span></label>
+			</p>
+
+			<p class="cform-web">
+				<input type="text" name="url" id="url" tabindex="3" value="" />
+				<label for="url">Website</label>
+			</p>
+
+		
+		<p><textarea name="comment" id="comment" tabindex="4"></textarea></p>
+
+		<input name="submit" type="submit" id="submit" tabindex="5" value="Submit Comment" class="button" />
+
+		<input type='hidden' name='comment_post_ID' value='1337' id='comment_post_ID' />
+<input type='hidden' name='comment_parent' id='comment_parent' value='0' />
+
+		<p style="display: none;"><input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="03d2e1ccb8" /></p>
+		</form><!-- /commentform -->
+
+		</div><!-- /respond -->
+
+</div><!-- /comments -->
+
+<!-- comments end here -->	
+	</div>
+	<!--/post -->
+		
+			
+	<div class="navigation">
+		<div class="alignleft"></div>
+		<div class="alignright"></div>
+	</div>
+
+	
+		</div><!-- /c1 -->
+
+		<div class="c2">
+
+<ul id="widgets">
+
+<li id="search-3" class="widget widget_search"><form method="get" id="searchform" action="http://www.amateurtopologist.com/blog/">
+	<input type="text" onfocus="if (this.value == 'Search') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Search';}" value="Search" name="s" id="s" />
+
+</form></li>
+<li id="categories-4" class="widget widget_categories"><h2 class="widgettitle">Categories</h2>
+		<ul>
+	<li class="cat-item cat-item-3"><a href="http://www.amateurtopologist.com/blog/category/computers/" title="View all posts filed under Computers">Computers</a> (34)
+<ul class='children'>
+	<li class="cat-item cat-item-84"><a href="http://www.amateurtopologist.com/blog/category/computers/programming/" title="View all posts filed under Programming">Programming</a> (12)
+</li>
+</ul>
+</li>
+	<li class="cat-item cat-item-6"><a href="http://www.amateurtopologist.com/blog/category/linguistics/" title="View all posts filed under Linguistics">Linguistics</a> (4)
+<ul class='children'>
+	<li class="cat-item cat-item-10"><a href="http://www.amateurtopologist.com/blog/category/linguistics/opti-fucking-mality-theory/" title="View all posts filed under Opti-Fucking-Mality Theory">Opti-Fucking-Mality Theory</a> (2)
+</li>
+</ul>
+</li>
+	<li class="cat-item cat-item-8"><a href="http://www.amateurtopologist.com/blog/category/math/" title="View all posts filed under Math">Math</a> (10)
+<ul class='children'>
+	<li class="cat-item cat-item-18"><a href="http://www.amateurtopologist.com/blog/category/math/constructing-the-reals/" title="How to construct the real numbers, starting from nothing but sets.">Constructing the Reals</a> (4)
+</li>
+</ul>
+</li>
+	<li class="cat-item cat-item-9"><a href="http://www.amateurtopologist.com/blog/category/meta/" title="Posts about the blog.">Meta</a> (7)
+</li>
+	<li class="cat-item cat-item-11"><a href="http://www.amateurtopologist.com/blog/category/politics/" title="View all posts filed under Politics">Politics</a> (14)
+<ul class='children'>
+	<li class="cat-item cat-item-45"><a href="http://www.amateurtopologist.com/blog/category/politics/common-sense/" title="View all posts filed under Glenn Beck&#039;s Common Sense">Glenn Beck&#039;s Common Sense</a> (9)
+</li>
+</ul>
+</li>
+	<li class="cat-item cat-item-13"><a href="http://www.amateurtopologist.com/blog/category/science/" title="View all posts filed under Science">Science</a> (4)
+</li>
+	<li class="cat-item cat-item-14"><a href="http://www.amateurtopologist.com/blog/category/tonal-tuesday/" title="View all posts filed under Tonal Tuesday">Tonal Tuesday</a> (21)
+</li>
+	<li class="cat-item cat-item-70"><a href="http://www.amateurtopologist.com/blog/category/video-games-2/" title="View all posts filed under Video games">Video games</a> (4)
+</li>
+		</ul>
+</li>
+<li id="ctc-3" class="widget ctc"><h2 class="widgettitle">Tags</h2>
+<div class="ctc"><a href="http://www.amateurtopologist.com/blog/tag/physics/" class="ctc-tag tag-link-20" title="4 topics" rel="tag" style="font-size: 11.5pt;">physics</a>
+<a href="http://www.amateurtopologist.com/blog/tag/how-to/" class="ctc-tag tag-link-44" title="3 topics" rel="tag" style="font-size: 9.75pt;">how to</a>
+<a href="http://www.amateurtopologist.com/blog/tag/linux/" class="ctc-tag tag-link-7" title="10 topics" rel="tag" style="font-size: 22pt;">linux</a>
+<a href="http://www.amateurtopologist.com/blog/tag/syntax/" class="ctc-tag tag-link-41" title="2 topics" rel="tag" style="font-size: 8pt;">syntax</a>
+<a href="http://www.amateurtopologist.com/blog/tag/optimality-theory/" class="ctc-tag tag-link-35" title="2 topics" rel="tag" style="font-size: 8pt;">optimality theory</a>
+<a href="http://www.amateurtopologist.com/blog/tag/os-x/" class="ctc-tag tag-link-61" title="2 topics" rel="tag" style="font-size: 8pt;">os x</a>
+<a href="http://www.amateurtopologist.com/blog/tag/set-theory/" class="ctc-tag tag-link-52" title="7 topics" rel="tag" style="font-size: 16.75pt;">set theory</a>
+<a href="http://www.amateurtopologist.com/blog/tag/roguelikes/" class="ctc-tag tag-link-65" title="2 topics" rel="tag" style="font-size: 8pt;">roguelikes</a>
+<a href="http://www.amateurtopologist.com/blog/tag/haskell/" class="ctc-tag tag-link-30" title="8 topics" rel="tag" style="font-size: 18.5pt;">haskell</a>
+<a href="http://www.amateurtopologist.com/blog/tag/semantics/" class="ctc-tag tag-link-47" title="2 topics" rel="tag" style="font-size: 8pt;">semantics</a>
+<a href="http://www.amateurtopologist.com/blog/tag/web-programming/" class="ctc-tag tag-link-67" title="2 topics" rel="tag" style="font-size: 8pt;">web programming</a>
+<a href="http://www.amateurtopologist.com/blog/tag/security/" class="ctc-tag tag-link-59" title="2 topics" rel="tag" style="font-size: 8pt;">security</a>
+<a href="http://www.amateurtopologist.com/blog/tag/useful-programs/" class="ctc-tag tag-link-15" title="3 topics" rel="tag" style="font-size: 9.75pt;">useful programs</a>
+<a href="http://www.amateurtopologist.com/blog/tag/particle-physics/" class="ctc-tag tag-link-36" title="3 topics" rel="tag" style="font-size: 9.75pt;">particle physics</a>
+<a href="http://www.amateurtopologist.com/blog/tag/javascript/" class="ctc-tag tag-link-69" title="2 topics" rel="tag" style="font-size: 8pt;">javascript</a>
+<a href="http://www.amateurtopologist.com/blog/tag/book-review/" class="ctc-tag tag-link-23" title="5 topics" rel="tag" style="font-size: 13.25pt;">book review</a>
+<a href="http://www.amateurtopologist.com/blog/tag/planet-sipb/" class="ctc-tag tag-link-37" title="9 topics" rel="tag" style="font-size: 20.25pt;">planet sipb</a>
+<a href="http://www.amateurtopologist.com/blog/tag/crawl/" class="ctc-tag tag-link-66" title="2 topics" rel="tag" style="font-size: 8pt;">crawl</a>
+<a href="http://www.amateurtopologist.com/blog/tag/the-internet/" class="ctc-tag tag-link-48" title="4 topics" rel="tag" style="font-size: 11.5pt;">the internet</a></div></li>
+<li id="linkcat-72" class="widget widget_links"><h2 class="widgettitle">Blogs I read</h2>
+
+	<ul class='xoxo blogroll'>
+<li><a href="http://blog.ezyang.com/" rel="friend met">Inside 245s</a></li>
+<li><a href="http://languagelog.ldc.upenn.edu/nll/" title="Linguistics blogging">Language Log</a></li>
+<li><a href="http://offtopic.akrasiac.org/" title="Gender and other queerness.">The Crawl Offtopic</a></li>
+
+	</ul>
+</li>
+
+<li id="linkcat-54" class="widget widget_links"><h2 class="widgettitle">Links</h2>
+
+	<ul class='xoxo blogroll'>
+<li><a href="http://www.quicklatex.com/" title="What I use for generating LaTeX images in my posts">QuickLaTeX</a></li>
+
+	</ul>
+</li>
+
+<li id="linkcat-73" class="widget widget_links"><h2 class="widgettitle">Me elsewhere</h2>
+
+	<ul class='xoxo blogroll'>
+<li><a href="http://github.com/veinor" rel="me">Github</a></li>
+
+	</ul>
+</li>
+
+<li class='widget widget_fptwitter'>
+<h2><img src="http://www.amateurtopologist.com/blog/wp-content/themes/renegade/images/twitter_logo.png?9d7bd4" alt="Twitter" width="69" height="16" /></h2>
+<ol>
+<li><li><li>
+</ol>
+<div class='followme'>Follow me @<a href='http://twitter.com/homologygroup' target='_blank' rel='nofollow'>homologygroup</a></div>
+</li>
+</ul><!-- /widgets -->
+		</div><!-- /c2 -->
+
+	</div><!-- /content -->
+
+	<div class="footer">
+
+		<a href="http://frostpress.com/themes/comet/" target="_blank" id="frostpress" title="Theme from Frostpress"></a>
+		<a href="http://www.wordpress.org/" target="_blank" id="wordpress" title="Powered by Wordpress"></a>
+
+		<div class="footer-text">
+					</div>
+
+		
+	</div><!-- /footer -->
+
+</div><!-- /wrap -->
+
+</body>
+</html>
+<!-- Performance optimized by W3 Total Cache. Learn more: http://www.w3-edge.com/wordpress-plugins/
+
+Page Caching using apc
+Database Caching using apc
+Object Caching 1485/1612 objects using apc
+
+Served from: www.amateurtopologist.com @ 2013-03-26 18:58:25 -->

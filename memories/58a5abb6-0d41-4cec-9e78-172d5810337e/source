@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>shelltestrunner</title><style>body {padding:0 10%;background-color:white;color:black;font-family: 'Trebuchet MS', Helvetica, sans-serif;}h1, h2 {position:relative;left:-0.5em;margin-top:1.5em;}h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {color:black;text-decoration:none;}#TOC {float:right;margin:0 0 1em 1em;border:thin solid #ddd;background-color:#f0f0f0;border-radius:4px;}#TOC ul {list-style-type: none;padding:0 1em 0 1em;}pre {background-color:#f0f0f0;color:#000;padding:0.5em;margin:0;display:inline-block;border-radius:4px;}code {font-family: 'Lucida Console', Monaco, monospace;font-size:smaller;}</style></head><body><div id="TOC">
+<ul>
+<li><a href="#shelltestrunner">shelltestrunner</a><ul>
+<li><a href="#installing">Installing</a></li>
+<li><a href="#defining-tests">Defining tests</a></li>
+<li><a href="#running-tests">Running tests</a></li>
+<li><a href="#contributing">Contributing</a></li>
+<li><a href="#release-notes">Release notes</a></li>
+<li><a href="#credits">Credits</a></li>
+</ul></li>
+</ul>
+</div>
+<h1 id="shelltestrunner"><a href="#TOC">shelltestrunner</a></h1>
+<p>shelltestrunner tests command-line programs (or arbitrary shell commands.) It reads simple declarative tests specifying a command, some input, and the expected output, and can run them run in parallel, selectively, with a timeout, in color, and/or with differences highlighted. shelltestrunner has been tested on gnu/linux, mac and windows; projects using it include hledger, berp, cblrepo and eddie. shelltestrunner is free software released under GPLv3+.</p>
+<h2 id="installing"><a href="#TOC">Installing</a></h2>
+<p>If your machine's packaging system does not provide an <a href="#release-notes">up-to-date</a> shelltestrunner, install it with <a href="http://hackage.haskell.org/trac/hackage/wiki/CabalInstall">cabal</a> (and if your packaging system does not provide an up-to-date cabal, get the <a href="http://hackage.haskell.org/platform/">haskell platform</a>):</p>
+<pre><code>$ cabal install shelltestrunner
+</code></pre>
+<p>You should now have the <code>shelltest</code> program in your path.</p>
+<h2 id="defining-tests"><a href="#TOC">Defining tests</a></h2>
+<p>Test files, typically named <code>tests/*.test</code>, contain one or more tests consisting of:</p>
+<ul>
+<li>a one-line command</li>
+<li>optional standard input (<code>&lt;&lt;&lt;</code>), standard output (<code>&gt;&gt;&gt;</code>) and/or standard error output (<code>&gt;&gt;&gt;2</code>) specifications</li>
+<li>an exit status (<code>&gt;&gt;&gt;=</code>) specification</li>
+</ul>
+<p><strong>Example:</strong> here's <code>example.test</code>, a file containing two simple tests:</p>
+<pre><code># 1. let's test that echo runs. Numbering your tests can be helpful.
+echo
+&gt;&gt;&gt;= 0
+
+# 2. and now the cat command. On windows, this one should fail.
+cat
+&lt;&lt;&lt;
+foo
+&gt;&gt;&gt;
+foo
+&gt;&gt;&gt;= 0
+</code></pre>
+<p>Run it with <code>shelltest</code>:</p>
+<pre><code>$ shelltest example.test
+:t.test:1: [OK]
+:t.test:2: [OK]
+
+         Test Cases  Total
+ Passed  2           2
+ Failed  0           0
+ Total   2           2
+</code></pre>
+<p><strong>Test format:</strong></p>
+<pre><code># optional comment
+the command to test
+&lt;&lt;&lt;
+zero or more lines of standard input
+&gt;&gt;&gt;
+zero or more lines of expected standard output (or /REGEXP/ added to the previous line)
+&gt;&gt;&gt;2
+zero or more lines of expected standard error output (or /REGEXP/ added to the previous line)
+&gt;&gt;&gt;= EXITCODE (or /REGEXP/)
+</code></pre>
+<ul>
+<li>A <code>/REGEXP/</code> pattern may be used instead of explicit data. In this case a match anywhere in the output allows the test to pass. The regular expression syntax is <a href="http://hackage.haskell.org/package/regex-tdfa">regex-tdfa</a>'s.</li>
+<li><code>EXITCODE</code> is a numeric <a href="http://en.wikipedia.org/wiki/Exit_status">exit status</a>, eg <code>0</code> for a successful exit.</li>
+<li>You can put <code>!</code> before a <code>/REGEXP/</code> or <code>EXITCODE</code> to negate the match.</li>
+<li>Comment lines beginning with <code>#</code> may be used between tests.</li>
+</ul>
+<p>Here <a href="http://hub.darcs.net/simon/shelltestrunner/tests">are</a> <a href="http://hub.darcs.net/simon/hledger/tests">some</a> <!-- [more](https://github.com/yesodweb/yesod/tree/master/yesod/test) --> <a href="https://github.com/bjpop/berp/tree/master/test/regression">real-world</a> <a href="https://github.com/magthe/cblrepo/tree/master/tests">project</a> <a href="http://code.google.com/p/eddie/source/browse/#hg%2Ftests">tests</a> to give you ideas.</p>
+<h2 id="running-tests"><a href="#TOC">Running tests</a></h2>
+<p>The <code>shelltest</code> program accepts one or more test file or directory paths. A directory means all files below it with the test file suffix (default: <code>.test</code>).</p>
+<p><strong>Example:</strong> run all tests defined in or below the <code>tests</code> directory with <code>args</code> in their name, up to 8 in parallel, allowing a maximum of 1 second each, showing only failures and the final summary:</p>
+<pre><code>$ shelltest tests -- -targs -j8 -o1 --hide
+
+         Test Cases   Total
+ Passed  2            2
+ Failed  0            0
+ Total   2            2
+</code></pre>
+<p><strong>Command-line options:</strong></p>
+<pre><code>$ shelltest --help
+shelltest 1.2.1
+
+shelltest [OPTIONS] [TESTFILES|TESTDIRS]
+
+Common flags:
+  -a --all              Show all failure output, even if large
+  -c --color            Show colored output if your terminal supports it
+  -d --diff             Show failures in diff format
+  -p --precise          Show failure output precisely (good for whitespace)
+  -x --exclude=STR      Exclude test files whose path contains STR
+     --execdir          Run tests from within the test file's directory
+     --extension=EXT    Filename suffix of test files (default: .test)
+  -w --with=EXECUTABLE  Replace the first word of (unindented) test commands
+     --debug            Show debug info, for troubleshooting
+     --debug-parse      Show test file parsing info and stop
+     --help-format      Display test format help
+  -? --help             Display help message
+  -V --version          Print version information
+
+     -- TFOPTIONS       Set extra test-framework options like -j/--threads,
+                        -t/--select-tests, -o/--timeout, --hide-successes.
+                        Use -- --help for a list. Avoid spaces.
+</code></pre>
+<ul>
+<li><p>Test commands normally run within your current directory; <code>--execdir</code> makes them run within the directory where they are defined, instead.</p></li>
+<li><p><code>-w/--with</code> replaces the first word of all test commands with something else, which can be useful for testing alternate versions of a program. Commands which have been indented by one or more spaces will not be affected by this option.</p></li>
+<li><p>The test-framework library provides additional options which you can specify after <code>--</code> (note: avoid spaces between flags and values here.) Run <code>shelltest -- --help</code> for a list. Here are some useful ones:</p>
+<pre><code>-j NUMBER        --threads=NUMBER             number of threads to use to run tests
+-o NUMBER        --timeout=NUMBER             how many seconds a test should be run for before giving up, by default
+-t TEST-PATTERN  --select-tests=TEST-PATTERN  only tests that match at least one glob pattern given by an instance of this argument will be run
+                 --hide-successes             hide sucessful tests, and only show failures
+</code></pre></li>
+</ul>
+<h2 id="contributing"><a href="#TOC">Contributing</a></h2>
+<p>The released version is on <a href="http://hackage.haskell.org/package/shelltestrunner">hackage</a>. The latest code (<a href="http://hub.darcs.net/simon/shelltestrunner/shelltest.hs">browse</a>, <a href="http://hub.darcs.net/simon/shelltestrunner/changes">changes</a>) is here:</p>
+<pre><code>$ darcs get http://hub.darcs.net/simon/shelltestrunner
+</code></pre>
+<p>Feedback, code, testing, documentation/blogging are most welcome.<br /> Add your experience to the <a href="https://docs.google.com/spreadsheet/viewform?formkey=dGpZSzdhWHlCUkJpR2hjX1MwMWFoUEE6MA#gid=3">user survey</a> (<a href="https://docs.google.com/spreadsheet/pub?key=0Au47MrJax8HpdGpZSzdhWHlCUkJpR2hjX1MwMWFoUEE&amp;single=true&amp;gid=3&amp;output=html">results</a>).<br /> <script type="text/javascript">
+<!--
+h='&#106;&#x6f;&#x79;&#102;&#x75;&#108;&#46;&#x63;&#x6f;&#x6d;&#x3f;&#x73;&#x75;&#98;&#106;&#x65;&#x63;&#116;&#x3d;&#x73;&#104;&#x65;&#108;&#108;&#116;&#x65;&#x73;&#116;&#114;&#x75;&#110;&#110;&#x65;&#114;';a='&#64;';n='&#x73;&#x69;&#x6d;&#x6f;&#110;';e=n+a+h;
+document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'">'+'Email'+'<\/'+'a'+'>');
+// -->
+</script><noscript>&#x45;&#x6d;&#x61;&#x69;&#108;&#32;&#40;&#x73;&#x69;&#x6d;&#x6f;&#110;&#32;&#x61;&#116;&#32;&#106;&#x6f;&#x79;&#102;&#x75;&#108;&#32;&#100;&#x6f;&#116;&#32;&#x63;&#x6f;&#x6d;&#x3f;&#x73;&#x75;&#98;&#106;&#x65;&#x63;&#116;&#x3d;&#x73;&#104;&#x65;&#108;&#108;&#116;&#x65;&#x73;&#116;&#114;&#x75;&#110;&#110;&#x65;&#114;&#x29;</noscript> or <a href="irc://irc.freenode.net/#haskell">chat</a> me (<code>sm</code> on irc.freenode.net).<br /> For focussed support/faster development/good karma you can <a href="http://joyful.com/">hire me</a> or <a href="https://www.wepay.com/donate/39988?ref=widget&utm_medium=widget&utm_campaign=donation"
+    target="_blank" style=margin:0 1em;"
+    ><img style="vertical-align:middle;" src="https://www.wepay.com/img/widgets/donate_with_wepay.png" alt="Donate with WePay" /></a></p>
+<h2 id="release-notes"><a href="#TOC">Release notes</a></h2>
+<p><strong>1.3</strong> (2012/12/28)</p>
+<ul>
+<li><p>support latest Diff, cmdargs, test-framework; tested with GHC 7.6.1 (Magnus Therning)</p></li>
+<li><p>fix unicode handling on GHC &gt;= 7.2</p></li>
+</ul>
+<p><strong>1.2.1</strong> (2012/3/12)</p>
+<ul>
+<li>use the more up-to-date filemanip package for easier Debian packaging</li>
+</ul>
+<p><strong>1.2</strong> (2012/2/26)</p>
+<ul>
+<li>support latest cmdargs, test-framework, and GHC 7.4</li>
+<li>more readable non-quoted failure output by default; for quoted output, use <code>-p/--precise</code></li>
+<li>the <code>--all</code>, <code>--diff</code> and <code>--precise</code> options now interact well</li>
+</ul>
+<p><strong>1.1</strong> (2011/8/25)</p>
+<ul>
+<li>bump process dependency to allow building with GHC 7.2.1</li>
+<li>new <code>-a/--all</code> flag shows all failure output without truncating</li>
+</ul>
+<p><strong>1.0</strong> (2011/7/23)</p>
+<ul>
+<li>New home page/docs</li>
+<li>The <code>&gt;&gt;&gt;=</code> field is now required; you may need to add it to your existing tests</li>
+<li>Input and expected output can now contain lines beginning with <code>#</code></li>
+<li>Multiple tests in a file may now have whitespace between them</li>
+<li>The <code>-i/--implicit</code> option has been dropped</li>
+<li>New <code>-d/--diff</code> option shows test failures as a unified diff when possible, including line numbers to help locate the problem</li>
+<li>New <code>-x/--exclude</code> option skips certain test files (eg platform-specific ones)</li>
+<li>Passing arguments through to test-framework is now more robust</li>
+<li>Fixed: parsing could fail when input contained left angle brackets</li>
+<li>Fixed: some test files generated an extra blank test at the end</li>
+</ul>
+<p><strong>0.9</strong> (2010/9/3)</p>
+<ul>
+<li>show plain non-ansi output by default, add --color option</li>
+<li>better handling of non-ascii test data. We assume that non-ascii file paths, command-line arguments etc. are UTF-8 encoded on unix systems (cf http://www.dwheeler.com/essays/fixing-unix-linux-filenames.html), and that GHC 6.12 or greater is used. Then:
+<ul>
+<li>non-ascii test file paths should render correctly, eg in failure messages</li>
+<li>non-ascii test commands should run correctly</li>
+<li>non-ascii expected output should match correctly</li>
+<li>non-ascii regular expressions should match correctly. (Caveat: not thoroughly tested, this may break certain regexps, )</li>
+</ul></li>
+<li>use regex-tdfa instead of pcre-light for better windows compatibility To avoid a memory leak in current regex-tdfa, only regular expressions up to 300 characters in size are supported. Also, DOTALL is no longer enabled and probably fewer regexp constructs are supported. There are still issues on windows/wine but in theory this will help.</li>
+<li>tighten up dependencies</li>
+</ul>
+<p><strong>0.8</strong> (2010/4/9)</p>
+<ul>
+<li>rename executable to shelltest. The package might also be renamed at some point.</li>
+<li>better built-in help</li>
+<li>shell tests now include a full command line, making them more readable and self-contained. The --with option can be used to replace the first word with something else, unless the test command line begins with a space.</li>
+<li>we also accept directory arguments, searching for test files below them, with two new options: --execdir execute tested command in same directory as test file --extension=EXT file extension of test files (default=.test)</li>
+</ul>
+<p><strong>0.7</strong> (2010/3/5)</p>
+<ul>
+<li>more robust parsing
+<ul>
+<li>--debug-parse parses test files and stops</li>
+<li>regexps now support escaped forward slash (<code>\/</code>)</li>
+<li>bad regexps now fail at startup</li>
+<li>command-line arguments are required in a test, and may be blank</li>
+<li>a &gt;&gt;&gt;= is no longer required to separate multiple tests in a file</li>
+<li>comments can be appended to delimiter lines</li>
+<li>comments can appear at end of file</li>
+<li>files need not have a final newline</li>
+<li>files containing nothing, all comments, or valid tests are allowed; anything else is rejected</li>
+<li>somewhat better errors</li>
+<li>allow indented input</li>
+</ul></li>
+<li>support negative (-) and negatively-matched (!) numeric exit codes</li>
+<li>let . in regexps match newline</li>
+<li>warn but continue when a test file fails to parse</li>
+<li>output cleanups, trim large output</li>
+<li>more flexible --implicit flag</li>
+<li>switch to the more robust and faster pcre-light regexp lib</li>
+</ul>
+<p><strong>0.6</strong> (2009/7/15)</p>
+<ul>
+<li>allow multiple tests per file, handle bad executable better</li>
+</ul>
+<p><strong>0.5</strong> (2009/7/14)</p>
+<ul>
+<li>show failure output in proper order</li>
+</ul>
+<p><strong>0.4</strong> (2009/7/14)</p>
+<ul>
+<li>run commands in a more robust way to avoid hangs This fixes hanging when a command generates large output, and hopefully all other deadlocks. The output is consumed strictly. Thanks to Ganesh Sittampalam for his help with this.</li>
+<li>--implicit-tests flag providing implicit tests for omitted fields</li>
+<li>--debug flag</li>
+<li>regular expression matching</li>
+<li>disallow interspersed foreign options which confused parseargs</li>
+<li>change comment character to #</li>
+</ul>
+<p><strong>0.3</strong> (2009/7/11)</p>
+<ul>
+<li>misc. bugfixes/improvements</li>
+</ul>
+<p><strong>0.2</strong> (2009/7/10)</p>
+<ul>
+<li>bugfix, build with -threaded</li>
+</ul>
+<p><strong>0.1</strong> (2009/7/10)</p>
+<ul>
+<li>shelltestrunner, a generic shell command stdout/stderr/exit status tester</li>
+</ul>
+<h2 id="credits"><a href="#TOC">Credits</a></h2>
+<p><a href="http://joyful.com">Simon Michael</a> wrote and maintains shelltestrunner. John Macfarlane, Bernie Pope and Trygve Laugstøl have contributed code. It relies heavily on Max Bolingbroke's test-framework, <a href="http://hackage.haskell.org/package/shelltestrunner">other libraries</a>, and of course the Glorious Haskell Compiler. It was inspired by the tests for John Wiegley's ledger.</p>
+</body></html>
