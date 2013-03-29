@@ -1,0 +1,1136 @@
+<html>
+<head>
+<title>The Evolution of a Haskell Programmer</title>
+<link rel="stylesheet" type="text/css" href="./style.css">
+</head>
+<body>
+
+<h1>The Evolution of a <it>Haskell</it> Programmer</h1>
+<div class="auth">Fritz Ruehr, Willamette University</div>
+
+<P>
+
+<div class="note">
+	See Iavor Diatchki&#146;s page
+	&#147;<A HREF="http://www.cse.ogi.edu/~diatchki/jokes/programmer.html">The Evolution of a Programmer</A>&#148;
+	for the &#147;original&#148; (though he is not the author), and also 
+	<A href="#backstory">below</A>
+	for the story behind this version.</div>
+
+<!---------------------------------------->
+<a name="freshman"></a>
+&nbsp;
+<h3>Freshman Haskell programmer</h3>
+
+
+<code><pre>
+fac n = if n == 0 
+           then 1
+           else n * fac (n-1)
+</pre></code>
+
+<!---------------------------------------->
+
+<a name="sophomore"></a>
+&nbsp;
+<h3>Sophomore Haskell programmer, at MIT</h3>
+
+<div class="cmt">
+	(studied Scheme as a freshman)
+</div>
+
+<code><pre>
+fac = (\(n) ->
+        (if ((==) n 0)
+            then 1
+            else ((*) n (fac ((-) n 1)))))
+</pre></code>
+
+<!---------------------------------------->
+
+<a name="junior"></a>
+&nbsp;
+<h3>Junior Haskell programmer</h3>
+
+<div class="cmt">
+	(beginning Peano player)
+</div>
+
+<code><pre>
+fac  0    =  1
+fac (n+1) = (n+1) * fac n
+</pre></code>
+
+<!---------------------------------------->
+
+<a name="junior-no-nk"></a>
+&nbsp;
+<h3>Another junior Haskell programmer</h3>
+
+<div class="cmt">
+	(read that n+k patterns are &#147;a disgusting part of Haskell&#148; <A HREF="#references">[1]</A>
+	<BR>
+	and joined the &#147;Ban n+k patterns&#148;-movement <A HREF="#references">[2]</A>)
+</div>
+
+<code><pre>
+fac 0 = 1
+fac n = n * fac (n-1)
+</pre></code>
+
+<!---------------------------------------->
+
+<a name="senior-right"></a>
+&nbsp;
+<h3>Senior Haskell programmer</h3>
+
+<div class="cmt">
+	(voted for &nbsp; <strike>Nixon</strike> &nbsp; 
+	<strike>Buchanan</strike> &nbsp; Bush &#151; &#147;leans right&#148;)
+</div>
+
+<code><pre>
+fac n = foldr (*) 1 [1..n]
+</pre></code>
+
+<!---------------------------------------->
+
+<a name="senior-left"></a>
+&nbsp;
+<h3>Another senior Haskell programmer</h3>
+
+<div class="cmt">
+	(voted for &nbsp; <strike>McGovern</strike> &nbsp; 
+	<strike>Biafra</strike> &nbsp; Nader &#151; &#147;leans left&#148;)
+</div>
+
+<code><pre>
+fac n = foldl (*) 1 [1..n]
+</pre></code>
+
+<!---------------------------------------->
+
+<a name="senior-left-right"></a>
+&nbsp;
+<h3>Yet another senior Haskell programmer</h3>
+
+<div class="cmt">
+	(leaned so far right he came back left again!)
+</div>
+
+<code><pre>
+-- using foldr to simulate foldl
+
+fac n = foldr (\x g n -> g (x*n)) id [1..n] 1
+</pre></code>
+
+<!---------------------------------------->
+
+<a name="memoizing"></a>
+&nbsp;
+<h3>Memoizing Haskell programmer</h3>
+
+<div class="cmt">
+	(takes Ginkgo Biloba daily)
+</div>
+
+<code><pre>
+facs = scanl (*) 1 [1..]
+
+fac n = facs !! n
+</pre></code>
+
+<!---------------------------------------->
+
+<a name="pointsfree"></a>
+&nbsp;
+<h3><strike>Pointless</strike> <i><small>(ahem)</small> 
+&#147;Points-free&#148;</i> Haskell programmer</h3>
+
+<div class="cmt">
+	(studied at Oxford)
+</div>
+
+<code><pre>
+fac = foldr (*) 1 . enumFromTo 1
+</pre></code>
+
+<!---------------------------------------->
+
+<a name="iterative"></a>
+&nbsp;
+<h3>Iterative Haskell programmer</h3>
+
+<div class="cmt">
+	(former Pascal programmer)
+</div>
+
+<code><pre>
+fac n = result (for init next done)
+        where init = (0,1)
+              next   (i,m) = (i+1, m * (i+1))
+              done   (i,_) = i==n
+              result (_,m) = m
+
+for i n d = until d n i
+</pre></code>
+
+<!---------------------------------------->
+
+<a name="oneliner"></a>
+&nbsp;
+<h3>Iterative one-liner Haskell programmer</h3>
+
+<div class="cmt">
+	(former APL and C programmer)
+</div>
+
+<code><pre>
+fac n = snd (until ((>n) . fst) (\(i,m) -> (i+1, i*m)) (1,1))
+</pre></code>
+
+<!---------------------------------------->
+
+<a name="accumulating"></a>
+&nbsp;
+<h3>Accumulating Haskell programmer</h3>
+
+<div class="cmt">
+	(building up to a quick climax)
+</div>
+
+<code><pre>
+facAcc a 0 = a
+facAcc a n = facAcc (n*a) (n-1)
+
+fac = facAcc 1
+</pre></code>
+
+<!---------------------------------------->
+
+<a name="continuation"></a>
+&nbsp;
+<h3>Continuation-passing Haskell programmer</h3>
+
+<div class="cmt">
+	(raised RABBITS in early years, then moved to New Jersey)
+</div>
+
+<code><pre>
+facCps k 0 = k 1
+facCps k n = facCps (k . (n *)) (n-1)
+
+fac = facCps id
+</pre></code>
+
+<!---------------------------------------->
+
+<a name="boyscout"></a>
+&nbsp;
+<h3>Boy Scout Haskell programmer</h3>
+
+<div class="cmt">
+	(likes tying knots; always &#147;reverent,&#148; he
+	<BR>
+	belongs to the <i>Church of the Least Fixed-Point</i> <A HREF="#references">[8]</A>)
+</div>
+
+<code><pre>
+y f = f (y f)
+
+fac = y (\f n -> if (n==0) then 1 else n * f (n-1))
+</pre></code>
+
+<!---------------------------------------->
+
+<a name="combinatory"></a>
+&nbsp;
+<h3>Combinatory Haskell programmer</h3>
+
+<div class="cmt">
+	(eschews variables, if not obfuscation;
+	<BR>
+	all this currying&#146;s just a phase, though it seldom hinders)
+</div>
+
+<code><pre>
+s f g x = f x (g x)
+
+k x y   = x
+
+b f g x = f (g x)
+
+c f g x = f x g
+
+y f     = f (y f)
+
+cond p f g x = if p x then f x else g x
+
+fac  = y (b (cond ((==) 0) (k 1)) (b (s (*)) (c b pred)))
+</pre></code>
+
+<!---------------------------------------->
+
+<a name="listencoding"></a>
+&nbsp;
+<h3>List-encoding Haskell programmer</h3>
+
+<div class="cmt">
+	(prefers to count in unary)
+</div>
+
+<code><pre>
+arb = ()    -- "undefined" is also a good RHS, as is "arb" :)
+
+listenc n = replicate n arb
+listprj f = length . f . listenc
+
+listprod xs ys = [ i (x,y) | x<-xs, y<-ys ]
+                 where i _ = arb
+
+facl []         = listenc  1
+facl n@(_:pred) = listprod n (facl pred)
+
+fac = listprj facl
+</pre></code>
+
+<!---------------------------------------->
+
+<a name="interpretive"></a>
+&nbsp;
+<h3>Interpretive Haskell programmer</h3>
+
+<div class="cmt">
+	(never &#147;met a language&#148; he didn't like)
+</div>
+
+<code><pre>
+-- a dynamically-typed term language
+
+data Term = Occ Var
+          | Use Prim
+          | Lit Integer
+          | App Term Term
+          | Abs Var  Term
+          | Rec Var  Term
+
+type Var  = String
+type Prim = String
+
+
+-- a domain of values, including functions
+
+data Value = Num  Integer
+           | Bool Bool
+           | Fun (Value -> Value)
+
+instance Show Value where
+  show (Num  n) = show n
+  show (Bool b) = show b
+  show (Fun  _) = "<function>"
+
+prjFun (Fun f) = f
+prjFun  _      = error "bad function value"
+
+prjNum (Num n) = n
+prjNum  _      = error "bad numeric value"
+
+prjBool (Bool b) = b
+prjBool  _       = error "bad boolean value"
+
+binOp inj f = Fun (\i -> (Fun (\j -> inj (f (prjNum i) (prjNum j)))))
+
+
+-- environments mapping variables to values
+
+type Env = [(Var, Value)]
+
+getval x env =  case lookup x env of
+                  Just v  -> v
+                  Nothing -> error ("no value for " ++ x)
+
+
+-- an environment-based evaluation function
+
+eval env (Occ x) = getval x env
+eval env (Use c) = getval c prims
+eval env (Lit k) = Num k
+eval env (App m n) = prjFun (eval env m) (eval env n)
+eval env (Abs x m) = Fun  (\v -> eval ((x,v) : env) m)
+eval env (Rec x m) = f where f = eval ((x,f) : env) m
+
+
+-- a (fixed) "environment" of language primitives
+
+times = binOp Num  (*)
+minus = binOp Num  (-)
+equal = binOp Bool (==)
+cond  = Fun (\b -> Fun (\x -> Fun (\y -> if (prjBool b) then x else y)))
+
+prims = [ ("*", times), ("-", minus), ("==", equal), ("if", cond) ]
+
+
+-- a term representing factorial and a "wrapper" for evaluation
+
+facTerm = Rec "f" (Abs "n" 
+              (App (App (App (Use "if")
+                   (App (App (Use "==") (Occ "n")) (Lit 0))) (Lit 1))
+                   (App (App (Use "*")  (Occ "n"))
+                        (App (Occ "f")  
+                             (App (App (Use "-") (Occ "n")) (Lit 1))))))
+
+fac n = prjNum (eval [] (App facTerm (Lit n)))
+</pre></code>
+
+<!---------------------------------------->
+
+<a name="fundep"></a>
+&nbsp;
+<h3>Static Haskell programmer</h3>
+
+<div class="cmt">
+	(he does it with class, he&#146;s got that fundep Jones!
+	<BR>
+	After Thomas Hallgren&#146;s &#147;Fun with Functional Dependencies&#148; <A HREF="#references">[7]</A>)
+</div>
+
+<code><pre>
+-- static Peano constructors and numerals
+
+data Zero
+data Succ n
+
+type One   = Succ Zero
+type Two   = Succ One
+type Three = Succ Two
+type Four  = Succ Three
+
+
+-- dynamic representatives for static Peanos
+
+zero  = undefined :: Zero
+one   = undefined :: One
+two   = undefined :: Two
+three = undefined :: Three
+four  = undefined :: Four
+
+
+-- addition, a la Prolog
+
+class Add a b c | a b -> c where
+  add :: a -> b -> c
+  
+instance              Add  Zero    b  b
+instance Add a b c => Add (Succ a) b (Succ c)
+
+
+-- multiplication, a la Prolog
+
+class Mul a b c | a b -> c where
+  mul :: a -> b -> c
+
+instance                           Mul  Zero    b Zero
+instance (Mul a b c, Add b c d) => Mul (Succ a) b d
+
+
+-- factorial, a la Prolog
+
+class Fac a b | a -> b where
+  fac :: a -> b
+
+instance                                Fac  Zero    One
+instance (Fac n k, Mul (Succ n) k m) => Fac (Succ n) m
+
+-- try, for "instance" (sorry):
+-- 
+--     :t fac four
+</pre></code>
+
+<!---------------------------------------->
+
+<a name="peano"></a>
+&nbsp;
+<h3>Beginning graduate Haskell programmer</h3>
+
+<div class="cmt">
+	(graduate education tends to liberate one from petty concerns
+	<BR>
+	about, e.g., the efficiency of hardware-based integers)
+</div>
+
+<code><pre>
+-- the natural numbers, a la Peano
+
+data Nat = Zero | Succ Nat
+
+
+-- iteration and some applications
+
+iter z s  Zero    = z
+iter z s (Succ n) = s (iter z s n)
+
+plus n = iter n     Succ
+mult n = iter Zero (plus n)
+
+
+-- primitive recursion
+
+primrec z s  Zero    = z
+primrec z s (Succ n) = s n (primrec z s n)
+
+
+-- two versions of factorial
+
+fac  = snd . iter (one, one) (\(a,b) -> (Succ a, mult a b))
+fac' = primrec one (mult . Succ)
+
+
+-- for convenience and testing (try e.g. "fac five")
+
+int = iter 0 (1+)
+
+instance Show Nat where
+  show = show . int
+
+(zero : one : two : three : four : five : _) = iterate Succ Zero
+</pre></code>
+
+<!---------------------------------------->
+
+<a name="origami"></a>
+&nbsp;
+<h3>Origamist Haskell programmer</h3>
+
+<div class="cmt">
+	(always starts out with the &#147;basic Bird fold&#148;)
+</div>
+
+<code><pre>
+-- (curried, list) fold and an application
+
+fold c n []     = n
+fold c n (x:xs) = c x (fold c n xs)
+
+prod = fold (*) 1
+
+
+-- (curried, boolean-based, list) unfold and an application
+
+unfold p f g x = 
+  if p x 
+     then [] 
+     else f x : unfold p f g (g x)
+
+downfrom = unfold (==0) id pred
+
+
+-- hylomorphisms, as-is or "unfolded" (ouch! sorry ...)
+
+refold  c n p f g   = fold c n . unfold p f g
+
+refold' c n p f g x = 
+  if p x 
+     then n 
+     else c (f x) (refold' c n p f g (g x))
+                         
+
+-- several versions of factorial, all (extensionally) equivalent
+
+fac   = prod . downfrom
+fac'  = refold  (*) 1 (==0) id pred
+fac'' = refold' (*) 1 (==0) id pred
+</pre></code>
+
+<!---------------------------------------->
+
+<a name="cartesian"></a>
+&nbsp;
+<h3>Cartesianally-inclined Haskell programmer</h3>
+
+<div class="cmt">
+	(prefers Greek food, avoids the spicy Indian stuff;
+	<BR>
+	inspired by Lex Augusteijn&#146;s &#147;Sorting Morphisms&#148; <A HREF="#references">[3]</A>)
+</div>
+
+<code><pre>
+-- (product-based, list) catamorphisms and an application
+
+cata (n,c) []     = n
+cata (n,c) (x:xs) = c (x, cata (n,c) xs)
+
+mult = uncurry (*)
+prod = cata (1, mult)
+
+
+-- (co-product-based, list) anamorphisms and an application
+
+ana f = either (const []) (cons . pair (id, ana f)) . f
+
+cons = uncurry (:)
+
+downfrom = ana uncount
+
+uncount 0 = Left  ()
+uncount n = Right (n, n-1)
+
+
+-- two variations on list hylomorphisms
+
+hylo  f  g    = cata g . ana f
+
+hylo' f (n,c) = either (const n) (c . pair (id, hylo' f (c,n))) . f
+
+pair (f,g) (x,y) = (f x, g y)
+
+
+-- several versions of factorial, all (extensionally) equivalent
+
+fac   = prod . downfrom
+fac'  = hylo  uncount (1, mult)
+fac'' = hylo' uncount (1, mult)
+</pre></code>
+
+<!---------------------------------------->
+
+<a name="categorical"></a>
+&nbsp;
+<h3>Ph.D. Haskell programmer</h3>
+
+<div class="cmt">
+	(ate so many bananas that his eyes bugged out, now he needs new lenses!)
+</div>
+
+<code><pre>
+-- explicit type recursion based on functors
+
+newtype Mu f = Mu (f (Mu f))  deriving Show
+
+in      x  = Mu x
+out (Mu x) = x
+
+
+-- cata- and ana-morphisms, now for *arbitrary* (regular) base functors
+
+cata phi = phi . fmap (cata phi) . out
+ana  psi = in  . fmap (ana  psi) . psi
+
+
+-- base functor and data type for natural numbers,
+-- using a curried elimination operator
+
+data N b = Zero | Succ b  deriving Show
+
+instance Functor N where
+  fmap f = nelim Zero (Succ . f)
+
+nelim z s  Zero    = z
+nelim z s (Succ n) = s n
+
+type Nat = Mu N
+
+
+-- conversion to internal numbers, conveniences and applications
+
+int = cata (nelim 0 (1+))
+
+instance Show Nat where
+  show = show . int
+
+zero = in   Zero
+suck = in . Succ       -- pardon my "French" (Prelude conflict)
+
+plus n = cata (nelim n     suck   )
+mult n = cata (nelim zero (plus n))
+
+
+-- base functor and data type for lists
+
+data L a b = Nil | Cons a b  deriving Show
+
+instance Functor (L a) where
+  fmap f = lelim Nil (\a b -> Cons a (f b))
+
+lelim n c  Nil       = n
+lelim n c (Cons a b) = c a b
+
+type List a = Mu (L a)
+
+
+-- conversion to internal lists, conveniences and applications
+
+list = cata (lelim [] (:))
+
+instance Show a => Show (List a) where
+  show = show . list
+
+prod = cata (lelim (suck zero) mult)
+
+upto = ana (nelim Nil (diag (Cons . suck)) . out)
+
+diag f x = f x x
+
+fac = prod . upto
+</pre></code>
+
+<!---------------------------------------->
+
+<a name="comonadic"></a>
+&nbsp;
+<h3>Post-doc Haskell programmer</h3>
+
+<div class="cmt">
+	(from Uustalu, Vene and Pardo&#146;s &#147;Recursion Schemes from Comonads&#148; <A HREF="#references">[4]</A>)
+</div>
+
+<code><pre>
+-- explicit type recursion with functors and catamorphisms
+
+newtype Mu f = In (f (Mu f))
+
+unIn (In x) = x
+
+cata phi = phi . fmap (cata phi) . unIn
+
+
+-- base functor and data type for natural numbers,
+-- using locally-defined "eliminators"
+
+data N c = Z | S c
+
+instance Functor N where
+  fmap g  Z    = Z
+  fmap g (S x) = S (g x)
+
+type Nat = Mu N
+
+zero   = In  Z
+suck n = In (S n)
+
+add m = cata phi where
+  phi  Z    = m
+  phi (S f) = suck f
+
+mult m = cata phi where
+  phi  Z    = zero
+  phi (S f) = add m f
+
+
+-- explicit products and their functorial action
+
+data Prod e c = Pair c e
+
+outl (Pair x y) = x
+outr (Pair x y) = y
+
+fork f g x = Pair (f x) (g x)
+
+instance Functor (Prod e) where
+  fmap g = fork (g . outl) outr
+
+
+-- comonads, the categorical "opposite" of monads
+
+class Functor n => Comonad n where
+  extr :: n a -> a
+  dupl :: n a -> n (n a)
+
+instance Comonad (Prod e) where
+  extr = outl
+  dupl = fork id outr
+
+
+-- generalized catamorphisms, zygomorphisms and paramorphisms
+
+gcata :: (Functor f, Comonad n) =>
+           (forall a. f (n a) -> n (f a))
+             -> (f (n c) -> c) -> Mu f -> c
+
+gcata dist phi = extr . cata (fmap phi . dist . fmap dupl)
+
+zygo chi = gcata (fork (fmap outl) (chi . fmap outr))
+
+para :: Functor f => (f (Prod (Mu f) c) -> c) -> Mu f -> c
+para = zygo In
+
+
+-- factorial, the *hard* way!
+
+fac = para phi where
+  phi  Z             = suck zero
+  phi (S (Pair f n)) = mult f (suck n)
+  
+
+-- for convenience and testing
+
+int = cata phi where
+  phi  Z    = 0
+  phi (S f) = 1 + f
+
+instance Show (Mu N) where
+  show = show . int
+</pre></code>
+
+<!---------------------------------------->
+
+<a name="tenured"></a>
+&nbsp;
+<h3>Tenured professor</h3>
+
+<div class="cmt">
+	(teaching Haskell to freshmen)
+</div>
+
+<code><pre>
+fac n = product [1..n]
+</pre></code>
+
+<P>
+
+<!---------------------------------------->
+
+<hr>
+<A name="backstory"></A>
+&nbsp;
+<h2>Background</h2>
+
+On 19 June 2001, at the 
+<a href="http://www.cse.ogi.edu/~magnus/SeminarSeries/">
+	OGI PacSoft Tuesday Morning Seminar Series
+</a>,
+<a href="http://www.cse.ogi.edu/~diatchki/">Iavor Diatchki</a>
+presented the paper 
+&#147;Recursion Schemes from Comonads&#148; by 
+Uustalu, Vene and Pardo <A HREF="#references">[4]</A>. 
+I attended Iavor&#146;s excellent presentation 
+and remarked that I found the end of the paper
+rather anti-climactic: after much categorical effort and the definition
+of several generalized recursion combinators, the main examples were
+the factorial and Fibonacci functions. (Of course, I offered no better
+examples myself, so this was rather unfair carping.)
+<P>
+Some time later, I came across Iavor&#146;s "jokes" page, including a 
+funny bit called
+&#147;<A HREF="http://www.cse.ogi.edu/~diatchki/jokes/programmer.html">The Evolution of a Programmer</A>&#148; 
+in which the traditional imperative "Hello, world" program is
+developed through several variations,
+from simple beginnings to a ridiculously complex extreme.
+A moment&#146;s thought turned up the factorial function as the best
+functional counterpart of "Hello, world". 
+Suddenly the Muse struck and I knew I must write out these examples,
+culminating (well, almost) in the heavily generalized categorical
+version of factorial provided by Uustalu, Vene and Pardo.
+
+<P>
+I suppose this is what you&#146;d have to call &#147;small-audience&#148; humour.
+
+<P>
+<b>PS:</b>
+I&#146;ve put all the code into a 
+<A HREF="evolution.hs">better-formatted text file</A>
+for those who might like to experiment with the different variations 
+(you could also just cut and paste a section from your browser).
+
+<P>
+<b>PPS:</b>
+As noted above, Iavor is not the original author of
+&#147;The Evolution of a Programmer.&#148;
+A quick web search suggests that there are thousands of copies
+floating around and it appears (unattributed) in humor newsgroups as
+far back as 1995. But I suspect some version of it goes back much
+further than that. Of course, if anyone does know who wrote the original, 
+please let me know so that I may credit them here.
+<P>
+
+
+<!---------------------------------------->
+
+<hr>
+<A name="pedagogy"></A>
+&nbsp;
+<h2>But seriously, folks, ...</h2>
+
+On a more serious note, I think that the basic idea of the joke
+(successive variations on a theme, building in complexity)
+can serve a good pedagogical purpose as well as a humorous one.
+To that end, and for those who may not be familiar
+with all of the ideas represented above, I offer the following
+comments on the variations:
+<P>
+The <a href="#freshman">first version</a>
+(straight recursion with conditionals)
+is probably familiar to programmers of all stripes;
+fans of LISP and Scheme will find the 
+<a href="#freshman">sophomore version</a> especially readable,
+except for the funny spelling of 
+&#147;lambda&#148; and the absence of &#147;define&#148;
+(or &#147;defun&#148;).
+The use of <a href="#junior">patterns</a> 
+may seem only a slight shift in perspective, 
+but in addition to mirroring mathematical notation,
+patterns encourage the view of data types as 
+initial algebras (or as inductively defined).
+<P>
+The use of more &#147;structural&#148; recursion combinators (such as 
+<a href="#senior-right">foldr</a> and <a href="#senior-left">foldl</a>) is 
+square in the spirit of functional programming: these higher-order functions
+abstract away from the common details of different instances of
+recursive definitions, recovering the specifics through function arguments. 
+The &#147;<a href="#points-free">points-free</a>&#148; style 
+(defining functions without explicit reference to their formal parameters)
+can be compelling, but it can also be over-done;
+here the intent is to foreshadow similar usage in some of the
+later, more stridently algebraic variations.
+<P>
+The <a href="#accumulating">accumulating-parameter</a> version illustrates
+a traditional technique for speeding up functional code. It is the
+second fastest implementation here, at least as measured in terms of
+number of reductions reported by Hugs,
+with the <a href="#iterative">iterative</a> versions coming in third. 
+Although the latter run somewhat against the spirit of functional 
+programming, they do give the flavor of the functional simulation
+of state as used in denotational semantics or, for that matter,
+in monads. (Monads are woefully un-represented here; I would
+be grateful if someone could contribute a few (progressive)
+examples in the spirit of the development above.) The 
+<a href="#continuation">continuation-passing</a> version 
+recalls a denotational account of control 
+(the references are to Steele&#146;s RABBIT compiler for Scheme 
+and the SML/NJ compiler).
+<P>
+The <a href="#boyscout">fixed-point version</a>
+demonstrates that we can isolate recursion in a general Y combinator.
+The <a href="#combinatory">combinatory</a> version provides an
+extreme take on the points-free style inspired by Combinatory Logic,
+isolating dependence on variable names to the definitions of a few combinators.
+Of course we could go further, defining the Naturals and Booleans
+in combinatory terms, but note that the predecessor function will be
+a bit hard to accomodate (this is one good justification for algebraic
+types). Also note that we cannot define the Y combinator in terms of the 
+others without running into typing problems (due essentially to issues of
+self-application). Interestingly, this is the fastest of all of the
+implementations, perhaps reflecting the underlying graph reduction 
+mechanisms used in the implementation.
+<P>
+The <a href="#listencoding">list-encoded</a> version exploits the simple
+observation that we can count in unary by using lists of arbitrary
+elements, so that the length of a list encodes a natural number.
+In some sense this idea foreshadows later versions based on recursive
+type definitions for Peano&#146;s naturals, since lists of units are
+isomorphic to naturals. The only interesting thing here is that
+multiplication (numeric product) is seen to arise naturally out of 
+combination (Cartesian product) by way of cardinality.
+Typing issues make it hard to express this correspondence as directly 
+as we&#146;d like:
+the following definition of listprod would break the definition
+of the facl function due to an occurs-check/infinite type:
+<blockquote>
+<code>listprod xs ys = [ (x,y) | x<-xs, y<-ys ]</code>
+</blockquote>
+Of course we could also simplify as follows, but only at the expense
+of obscuring the relationship between the two kinds of products:
+<blockquote>
+<code>listprod xs ys = [ arb | x<-xs, y<-ys ]</code>
+</blockquote>
+<P>
+The <a href="#interpretive">interpretive</a> version implements a small 
+object language rich enough to express factorial, and then implements
+an interpreter for it based on a simple environment model. Exercises
+along these lines run all through the latter half of the Friedman,
+Wand and Haynes text (<A HREF="#references">[6]</A>), albeit expressed
+there in Scheme. We used to get
+flack from students at <a href="http://www.cs.oberlin.edu">Oberlin</a> 
+when we made them implement twelve interpreters in a single 
+week-long lab, successively exposing more of the implementation by
+moving the real work from the meta-language to the interpreter. This
+implementation leaves a whole lot on the shoulders of the meta-language,
+corresponding to about Tuesday or Wednesday in their week. Industrious 
+readers are invited to implement a compiler for a Squiggol-like language
+of polytypic folds and unfolds, targeting (and simulating) a suitable
+categorical abstract machine (see <A HREF="#references">[9]</A>), 
+and then to implement factorial in that setting 
+(but don't blame me if it makes you late for lunch ...).
+<P>
+The <a href="#fundep">statically-computed</a> version uses 
+type classes and <i>functional dependencies</i> to facilitate computation 
+at compile time 
+(the latter are recent extensions to the Haskell 98 standard by Mark Jones,
+and are available in Hugs and GHC). 
+The same kinds of techniques can also be used to encode behaviors more often
+associated with dependent types and polytypic programming, and are thus a 
+topic of much recent interest in the Haskell community. 
+The code shown here is based on an account by
+Thomas Hallgren (see <A HREF="#references">[7]</A>), extended to include
+factorial. Prolog fans will find the definitions particularly easy to read, 
+if a bit backwards.
+<P>
+The first of the &#147;<a href="#peano">graduate</a>&#148;
+versions gets more serious about
+recursion, defining natural numbers as a recursive
+algebraic datatype and highlighting the difference between
+iteration and primitive recursion.  
+The &#147;<a href="#origami">origamist</a>&#148;
+and &#147;<a href="#cartesian">cartesian</a>&#148;
+variations take a small step backwards in this regard,
+as they return to the use of internal integer and list types.
+They serve, however, to introduce anamorphic and hylomorphic notions 
+in a more familiar context.
+<P>
+The &#147;<a href="#categorical">Ph.D</a>&#148; example 
+employs the categorical style
+of BMF/Squiggol in a serious way (we could actually
+go a bit further, by using co-products more directly, and thus
+eliminate some of the overt dependence on the &#147;internal 
+sums&#148; of the data type definition mechanism). 
+<P>
+By the time we arrive at the &#147;pi&egrave;ce de r&eacute;sistance&#148;,
+the <a href="#comonadic">comonadic</a> version of Uustalu, Vene and Pardo, 
+we have covered most of the underlying ideas and can (hopefully)
+concentrate better on their specific contributions. 
+The <a href="#tenured">final</a> version, 
+using the Prelude-defined product function and ellipsis 
+notation, is how I think the function is most clearly expressed,
+presuming some knowledge of the language and Prelude definitions. 
+(This definition also dates back at least to David Turner&#146;s KRC* language <A HREF="#references">[5]</A>.)
+<P>
+It is comforting to know that the Prelude ultimately uses
+a recursion combinator (foldl', the strict version of foldl)
+to define product.
+I guess we can all hope to see the day when the Prelude
+will define gcatamorphic, zygomorphic and paramorphic combinators
+for us, so that factorial can be defined both conveniently <em>and</em>
+with greater dignity :) .
+
+<P>
+
+<hr width="200" align="left">
+
+* <small><i>KRC may or may not be a trademark of Research Software, Ltd.,
+<BR>&nbsp; &nbsp; but you can bet your sweet bippy that 
+</i>Miranda &#153; <i>is!</i></small>
+
+<P>
+
+
+
+<!---------------------------------------->
+
+<hr>
+<A name="revisions"></A>
+&nbsp;
+<h2>Revision history</h2>
+
+<ul>
+	<li><i>20 August 01</i>: 
+	added the <a href="#interpretive">interpretive</a> version,
+	based on an environment model of a small object language 
+	(no, not in <i>that </i> sense of object ...).
+	I&#146;m thinking about re-arranging the order of the
+	examples, so that longer ones that are not part of
+	the main line of development don't intrude so much.
+	I also advertised the page on 
+	<a href="http://haskell.org/mailman/listinfo/haskell-cafe">the Haskell Caf&eacute;</a>
+	mailing list and requested that a link be added to the 
+	<a href="http://www.haskell.org/humor">Haskell humor page.</a>
+	Finally, I have an interesting new example in the works that
+	may actually have some original research value; more on this soon.
+	<P>
+	<li><i>14 August 01 (afternoon)</i>: 
+	added the <a href="#combinatory">combinatory</a> version,
+	now the fastest of the bunch, as measured in number of
+	reductions reported by Hugs.
+	<P>
+	<li><i>14 August 01 (morning)</i>: 
+	adjusted the <a href="#sophomore">sophomore/Scheme</a> version 
+	to use an explicit "lambda" (though we spell it differently
+	in Haskell land) and added the <a href="#boyscout">fixed-point</a>
+	version.
+	<P>
+	<li><i>10 August 01</i>: 
+	added the <a href="#listencoding">list-encoding</a> and 
+	<a href="#fundep">static computation</a> versions
+	(the latter uses type classes and functional dependencies to
+	compute factorial during type-checking; it is an
+	extended version of code from Thomas Hallgren&#146;s &#147;Fun with
+	Functional Dependencies&#148; <A HREF="#references">[7]</A>).
+	<P>
+	<li><i>1 August 01</i>: 
+	added <a href="#accumulating">accumulating-parameter</a> and 
+	<a href="#continuation">continuation-passing</a> versions
+	(the latter is a revised
+	transliteration from Friedman, Wand and Haynes&#146; &#147;Essentials
+	of Programming Languages&#148; <A HREF="#references">[5]</A>).
+	<P>
+	<li><i>11 July 01</i>: 
+	date of the original posting.
+</ul>
+<P>
+
+<!---------------------------------------->
+
+<hr>
+
+<A name="references"></A>
+&nbsp;
+<h2>References</h2>
+
+<ol>
+
+	<li><i>Highlights from nhc - a Space-efficient Haskell Compiler,</i> Niklas R&ouml;jemo.
+		In the <B>FPCA &#145;95 proceedings</B>. ACM Press, 1995 (see also
+		<A HREF="http://citeseer.nj.nec.com/nbib/5076458">CiteSeer</A>
+		or 
+		<A HREF="ftp://ftp.cs.chalmers.se/pub/users/rojemo/fpca95.ps.gz">Chalmers ftp archive</A>)
+		<P>
+	
+	<li><i>n+k patterns,</i> Lennart Augustsson. Message to the haskell mailing list,
+		Mon, 17 May 93 (see
+		<A HREF="http://www.mail-archive.com/haskell@haskell.org/msg01261.html">
+		the mailing list archive</A>)
+		<P>
+	
+	<li><i>Sorting Morphisms,</i>Lex Augusteijn. In <b>Advanced Functional Programming</b>, 
+		(LNCS 1608). Springer-Verlag, 1999 (see also 
+		<A HREF="http://citeseer.nj.nec.com/augusteijn99sorting.html">CiteSeer</A>).
+		<P>
+	
+	<li><i>Recursion Schemes from Comonads,</i> T. Uustalu, V. Vene and A. Pardo. 
+		<b>Nordic Journal of Computing</b>, to appear (see also
+		<A HREF="http://www.cs.ioc.ee/~tarmo/papers/">
+		Tarmo Uustalu&#146;s papers page</A>).
+		<P>
+	
+	<li><i>Recursion Equations as a Programming Language,</i> D. A. Turner. 
+		In <b>Functional Programming and its Applications</b>. Cambridge University Press, 1982.
+		<P>
+	
+	<li><i>Essentials of Programming Languages,</i> D. Friedman, M. Wand and C. Haynes. 
+		MIT PRess and McGraw-Hill, 1994.
+		<P>
+	
+	<li><i>Fun with Functional Dependencies,</i> Thomas Hallgren. 
+		<b>Joint Winter Meeting of the Departments of Science and Computer Engineering</b>,
+		Chalmers University of Technology and G&ouml;teborg University, Varberg, Sweden, 2001 
+		(available at
+		<A HREF="http://www.cs.chalmers.se/~hallgren/Papers/wm01.html">
+		the author&#146;s web archive</A>).
+		<P>
+	
+	<li><i>The Church of the Least Fixed-Point,</i> authour unknown. 
+		(A little bit of lambda calculus humor which circulated in the
+		mid-1980&#146;s (at least that&#146;s when I saw it), probably from the 
+		comp.lang.functional newsgroup or somesuch. 
+		Please <a href="mailto://fruehr@willamette.edu">write me</a> 
+		if you know the author or any other citation information).
+		<P>
+	
+	<li><i>Categorical Combinators, Sequential Algorithms and Functional Programming,</i>
+		Pierre-Louis Curien. Springer Verlag (2nd edition), 1993.
+		<P>
+
+</ol>
+
+<hr>
+
+</body>
+</html>
