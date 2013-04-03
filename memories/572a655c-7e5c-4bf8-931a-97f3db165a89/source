@@ -1,0 +1,2493 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en" id="vbulletin_html">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<meta id="e_vb_meta_bburl" name="vb_meta_bburl" content="http://ubuntuforums.org" />
+<base href="http://ubuntuforums.org/" /><!--[if IE]></base><![endif]-->
+<meta name="generator" content="vBulletin 4.2.0" />
+
+	<link rel="Shortcut Icon" href="favicon.ico" type="image/x-icon" />
+
+
+
+
+
+
+
+
+	
+		<script type="text/javascript" src="http://yui.yahooapis.com/combo?2.9.0/build/yuiloader-dom-event/yuiloader-dom-event.js&amp;2.9.0/build/connection/connection-min.js"></script>
+	
+
+<script type="text/javascript">
+<!--
+	if (typeof YAHOO === 'undefined') // Load ALL YUI Local
+	{
+		document.write('<script type="text/javascript" src="clientscript/yui/yuiloader-dom-event/yuiloader-dom-event.js?v=420"><\/script>');
+		document.write('<script type="text/javascript" src="clientscript/yui/connection/connection-min.js?v=420"><\/script>');
+		var yuipath = 'clientscript/yui';
+		var yuicombopath = '';
+		var remoteyui = false;
+	}
+	else	// Load Rest of YUI remotely (where possible)
+	{
+		var yuipath = 'http://yui.yahooapis.com/2.9.0/build';
+		var yuicombopath = 'http://yui.yahooapis.com/combo';
+		var remoteyui = true;
+		if (!yuicombopath)
+		{
+			document.write('<script type="text/javascript" src="http://yui.yahooapis.com/2.9.0/build/connection/connection-min.js"><\/script>');
+		}
+	}
+	var SESSIONURL = "s=d00766d16abb6f7c30a74ac8a2a1f36c&";
+	var SECURITYTOKEN = "guest";
+	var IMGDIR_MISC = "images/ubuntu-VB4/misc";
+	var IMGDIR_BUTTON = "images/ubuntu-VB4/buttons";
+	var vb_disable_ajax = parseInt("0", 10);
+	var SIMPLEVERSION = "420";
+	var BBURL = "http://ubuntuforums.org";
+	var LOGGEDIN = 0 > 0 ? true : false;
+	var THIS_SCRIPT = "showthread";
+	var RELPATH = "showthread.php?t=2060160";
+	var PATHS = {
+		forum : "",
+		cms   : "",
+		blog  : ""
+	};
+	var AJAXBASEURL = "http://ubuntuforums.org/";
+// -->
+</script>
+<script type="text/javascript" src="http://ubuntuforums.org/clientscript/vbulletin-core.js?v=420"></script>
+
+
+
+	<link rel="alternate" type="application/rss+xml" title="Ubuntu Forums RSS Feed" href="http://ubuntuforums.org/external.php?type=RSS2" />
+	
+		<link rel="alternate" type="application/rss+xml" title="Ubuntu Forums - Multimedia &amp; Video - RSS Feed" href="http://ubuntuforums.org/external.php?type=RSS2&amp;forumids=334" />
+	
+
+
+
+	<link rel="stylesheet" type="text/css" href="clientscript/vbulletin_css/style00117l/main-rollup.css?d=1363947294" />
+        
+
+	<!--[if lt IE 8]>
+	<link rel="stylesheet" type="text/css" href="clientscript/vbulletin_css/style00117l/popupmenu-ie.css?d=1363947294" />
+	<link rel="stylesheet" type="text/css" href="clientscript/vbulletin_css/style00117l/vbulletin-ie.css?d=1363947294" />
+	<link rel="stylesheet" type="text/css" href="clientscript/vbulletin_css/style00117l/vbulletin-chrome-ie.css?d=1363947294" />
+	<link rel="stylesheet" type="text/css" href="clientscript/vbulletin_css/style00117l/vbulletin-formcontrols-ie.css?d=1363947294" />
+	<link rel="stylesheet" type="text/css" href="clientscript/vbulletin_css/style00117l/editor-ie.css?d=1363947294" />
+	<![endif]-->
+
+<link href='http://fonts.googleapis.com/css?family=Ubuntu:400,400italic,700,700italic|Ubuntu+Mono:400,700' rel='stylesheet' type='text/css'>
+
+	
+	<meta name="description" content="I have been using ffmpeg to convert video formats and join multiple videos together successfully but now I have some additional needs and I need a bit of assistance getting started.  
+ 
+Problem 1 (the more pressing of the two): 
+I have two jogs (with diff. dimensions) that I would like to join with a mp4. I would like jpg 1 at the beginning of the video and and jpg 2 to be at the end. The result should be a mp4 file with the still images presented for 3 seconds each in the beginning and the" />
+
+	<title>[other] ffmpeg: Join/Combine two images and a video together</title>
+	<link rel="canonical" href="showthread.php?t=2060160&s=d00766d16abb6f7c30a74ac8a2a1f36c" />
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+	
+		<link rel="stylesheet" type="text/css" href="clientscript/vbulletin_css/style00117l/showthread-rollup.css?d=1363947294" />
+	
+	<!--[if lt IE 8]><link rel="stylesheet" type="text/css" href="clientscript/vbulletin_css/style00117l/toolsmenu-ie.css?d=1363947294" />
+	<link rel="stylesheet" type="text/css" href="clientscript/vbulletin_css/style00117l/postlist-ie.css?d=1363947294" />
+	<link rel="stylesheet" type="text/css" href="clientscript/vbulletin_css/style00117l/showthread-ie.css?d=1363947294" />
+	<link rel="stylesheet" type="text/css" href="clientscript/vbulletin_css/style00117l/postbit-ie.css?d=1363947294" />
+	<link rel="stylesheet" type="text/css" href="clientscript/vbulletin_css/style00117l/poll-ie.css?d=1363947294" /><![endif]-->
+<link rel="stylesheet" type="text/css" href="clientscript/vbulletin_css/style00117l/additional.css?d=1363947294" />
+
+</head>
+
+<body>
+
+<div class="above_body"> <!-- closing tag is in template navbar -->
+<div id="header" class="floatcontainer doc_header">
+	<div><a name="top" href="index.php?s=d00766d16abb6f7c30a74ac8a2a1f36c" class="logo-image"><img src="/images/ubuntu-VB4/ubuntulogo-o-small.png" alt="Ubuntu Forums" /></a></div>
+	<div id="toplinks" class="toplinks">
+		
+			<ul class="nouser">
+			
+				<li><a href="register.php?s=d00766d16abb6f7c30a74ac8a2a1f36c" rel="nofollow">Register</a></li>
+			
+				<li><a rel="help" href="faq.php?s=d00766d16abb6f7c30a74ac8a2a1f36c">Help</a></li>
+				<li>
+			<script type="text/javascript" src="clientscript/vbulletin_md5.js?v=420"></script>
+			<form id="navbar_loginform" action="login.php?s=d00766d16abb6f7c30a74ac8a2a1f36c&amp;do=login" method="post" onsubmit="md5hash(vb_login_password, vb_login_md5password, vb_login_md5password_utf, 0)">
+				<fieldset id="logindetails" class="logindetails">
+					<div>
+						<div>
+					<input type="text" class="textbox default-value" name="vb_login_username" id="navbar_username" size="10" accesskey="u" tabindex="101" value="User Name" />
+					<input type="password" class="textbox" tabindex="102" name="vb_login_password" id="navbar_password" size="10" />
+					<input type="text" class="textbox default-value" tabindex="102" name="vb_login_password_hint" id="navbar_password_hint" size="10" value="Password" style="display:none;" />
+					<input type="submit" class="loginbutton" tabindex="104" value="Log in" title="Enter your username and password in the boxes provided to login, or click the 'register' button to create a profile for yourself." accesskey="s" />
+						</div>
+					</div>
+				</fieldset>
+				<div id="remember" class="remember">
+					<label for="cb_cookieuser_navbar"><input type="checkbox" name="cookieuser" value="1" id="cb_cookieuser_navbar" class="cb_cookieuser_navbar" accesskey="c" tabindex="103" /> Remember Me?</label>
+				</div>
+
+				<input type="hidden" name="s" value="d00766d16abb6f7c30a74ac8a2a1f36c" />
+				<input type="hidden" name="securitytoken" value="guest" />
+				<input type="hidden" name="do" value="login" />
+				<input type="hidden" name="vb_login_md5password" />
+				<input type="hidden" name="vb_login_md5password_utf" />
+			</form>
+			<script type="text/javascript">
+			YAHOO.util.Dom.setStyle('navbar_password_hint', "display", "inline");
+			YAHOO.util.Dom.setStyle('navbar_password', "display", "none");
+			vB_XHTML_Ready.subscribe(function()
+			{
+			//
+				YAHOO.util.Event.on('navbar_username', "focus", navbar_username_focus);
+				YAHOO.util.Event.on('navbar_username', "blur", navbar_username_blur);
+				YAHOO.util.Event.on('navbar_password_hint', "focus", navbar_password_hint);
+				YAHOO.util.Event.on('navbar_password', "blur", navbar_password);
+			});
+			
+			function navbar_username_focus(e)
+			{
+			//
+				var textbox = YAHOO.util.Event.getTarget(e);
+				if (textbox.value == 'User Name')
+				{
+				//
+					textbox.value='';
+					textbox.style.color='#000000';
+				}
+			}
+
+			function navbar_username_blur(e)
+			{
+			//
+				var textbox = YAHOO.util.Event.getTarget(e);
+				if (textbox.value == '')
+				{
+				//
+					textbox.value='User Name';
+					textbox.style.color='#777777';
+				}
+			}
+			
+			function navbar_password_hint(e)
+			{
+			//
+				var textbox = YAHOO.util.Event.getTarget(e);
+				
+				YAHOO.util.Dom.setStyle('navbar_password_hint', "display", "none");
+				YAHOO.util.Dom.setStyle('navbar_password', "display", "inline");
+				YAHOO.util.Dom.get('navbar_password').focus();
+			}
+
+			function navbar_password(e)
+			{
+			//
+				var textbox = YAHOO.util.Event.getTarget(e);
+				
+				if (textbox.value == '')
+				{
+					YAHOO.util.Dom.setStyle('navbar_password_hint', "display", "inline");
+					YAHOO.util.Dom.setStyle('navbar_password', "display", "none");
+				}
+			}
+			</script>
+				</li>
+				
+			</ul>
+		
+	</div>
+	<div class="ad_global_header">
+		
+		
+	</div>
+	<hr />
+</div>
+<div id="navbar" class="navbar">
+	<ul id="navtabs" class="navtabs floatcontainer">
+		
+		
+	<li class="selected" id="vbtab_forum">
+		<a class="navtab" href="forum.php?s=d00766d16abb6f7c30a74ac8a2a1f36c">Forum</a>
+		
+			<ul class="floatcontainer">
+				
+					
+						<li class="popupmenu" id="vbmenu_qlinks">
+							<a href="javascript://" class="popupctrl">Quick Links</a>
+							<ul class="popupbody popuphover">
+								
+									<li id="vbalink_mfr"><a href="forumdisplay.php?s=d00766d16abb6f7c30a74ac8a2a1f36c&amp;do=markread&markreadhash=guest">Mark Forums Read</a></li>
+								
+									<li id="vbclink_albums"><a href="album.php?s=d00766d16abb6f7c30a74ac8a2a1f36c">Albums</a></li>
+								
+									<li id="link_mje2_914"><a href="search.php?do=process&type[]=1&replyless=1&replylimit=0">Unanswered Posts</a></li>
+								
+									<li id="link_mjm0_271"><a href="search.php?s=d00766d16abb6f7c30a74ac8a2a1f36c&amp;do=getnew&contenttype=vBForum_Post">New Posts</a></li>
+								
+								
+							</ul>
+						</li>
+					
+				
+					
+						<li class="popupmenu" id="menu_mja2_174">
+							<a href="javascript://" class="popupctrl">Forum Community</a>
+							<ul class="popupbody popuphover">
+								
+									<li id="link_mja2_178"><a href="https://wiki.ubuntu.com/ForumCouncil">Forum Council</a></li>
+								
+									<li id="link_mja2_759"><a href="https://wiki.ubuntu.com/ForumCouncilAgenda"><span> FC Agenda</span></a></li>
+								
+									<li id="link_mja2_602"><a href="https://wiki.ubuntu.com/ForumsGovernance">Forum Governance</a></li>
+								
+									<li id="link_mja2_802"><a href="http://ubuntuforums.org/misc.php?do=showrules">Ubuntu Forums Code of Conduct</a></li>
+								
+									<li id="link_mja2_447"><a href="http://webchat.freenode.net/?channels=ubuntuforums">Forum IRC Channel</a></li>
+								
+									<li id="link_mja2_438"><a href="http://ubuntuforums.org/announcement.php?f=48">Announcements</a></li>
+								
+								
+							</ul>
+						</li>
+					
+				
+					
+						<li class="popupmenu" id="menu_mja2_686">
+							<a href="javascript://" class="popupctrl">Ubuntu Community</a>
+							<ul class="popupbody popuphover">
+								
+									<li id="link_mja2_167"><a href="http://www.ubuntu.com/">Ubuntu</a></li>
+								
+									<li id="link_mja2_232"><a href="http://www.ubuntu.com/download/desktop">Get <b style="color: #dd4814">Ubuntu</b></a></li>
+								
+									<li id="link_mja2_426"><a href="http://www.kubuntu.org/getkubuntu">Get <b style="color:#10147e">Kubuntu</b></a></li>
+								
+									<li id="link_mja2_138"><a href="http://xubuntu.org/getxubuntu/">Get <b style="color: #04a">Xubuntu</b></a></li>
+								
+									<li id="link_mja2_351"><a href="https://help.ubuntu.com/community/Lubuntu/GetLubuntu">Get <b style="color: #033C71">Lubuntu</b></a></li>
+								
+									<li id="link_mja2_877"><a href="http://www.ubuntu.com/project/about-ubuntu/conduct">Ubuntu Code of Conduct</a></li>
+								
+									<li id="link_mja2_199"><a href="https://wiki.ubuntu.com/">Ubuntu Wiki</a></li>
+								
+									<li id="link_mja2_891"><a href="https://wiki.ubuntu.com/community">Community Wiki</a></li>
+								
+								
+							</ul>
+						</li>
+					
+				
+					
+						
+					
+				
+					
+						<li class="popupmenu" id="menu_mja2_593">
+							<a href="javascript://" class="popupctrl">Other Support</a>
+							<ul class="popupbody popuphover">
+								
+									<li id="link_mja2_994"><a href="https://answers.launchpad.net/">Launchpad Answers</a></li>
+								
+									<li id="link_mja2_430"><a href="http://webchat.freenode.net/?channels=ubuntu">Ubuntu IRC Support</a></li>
+								
+									<li id="link_mja2_646"><a href="http://askubuntu.com">AskUbuntu</a></li>
+								
+									<li id="link_mja2_817"><a href="https://help.ubuntu.com">Official Documentation</a></li>
+								
+									<li id="link_mja2_745"><a href="https://help.ubuntu.com/community">User Documentation</a></li>
+								
+								
+							</ul>
+						</li>
+					
+				
+					
+						
+					
+				
+				
+			</ul>
+		
+	</li>
+
+	<li id="vbtab_whatsnew">
+		<a class="navtab" href="activity.php?s=d00766d16abb6f7c30a74ac8a2a1f36c">Activity Page</a>
+		
+	</li>
+
+		
+	</ul>
+	
+		<div id="globalsearch" class="globalsearch">
+			<form action="search.php?s=d00766d16abb6f7c30a74ac8a2a1f36c&amp;do=process" method="post" id="navbar_search" class="navbar_search">
+				
+				<input type="hidden" name="securitytoken" value="guest" />
+				<input type="hidden" name="do" value="process" />
+				<span class="textboxcontainer"><span><input type="text" value="" name="query" class="textbox" tabindex="99"/></span></span>
+				<span class="buttoncontainer"><span><input type="image" class="searchbutton" src="images/ubuntu-VB4/buttons/search.png" name="submit" onclick="document.getElementById('navbar_search').submit;" tabindex="100"/></span></span>
+			</form>
+			<ul class="navbar_advanced_search">
+				<li><a href="search.php?s=d00766d16abb6f7c30a74ac8a2a1f36c?search_type=1" accesskey="4">Advanced Search</a></li>
+				
+			</ul>
+		</div>
+	
+</div>
+</div><!-- closing div for above_body -->
+
+<div class="body_wrapper">
+<div id="breadcrumb" class="breadcrumb">
+	<ul class="floatcontainer">
+		<li class="navbithome"><a href="index.php?s=d00766d16abb6f7c30a74ac8a2a1f36c" accesskey="1"><img src="images/ubuntu-VB4/misc/navbit-home.png" alt="Home" /></a></li>
+		
+	<li class="navbit"><a href="index.php?s=d00766d16abb6f7c30a74ac8a2a1f36c">Forum</a></li>
+
+	<li class="navbit"><a href="forumdisplay.php?f=130&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">The Ubuntu Forum Community</a></li>
+
+	<li class="navbit"><a href="forumdisplay.php?f=327&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Ubuntu General Support</a></li>
+
+	<li class="navbit"><a href="forumdisplay.php?f=334&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Multimedia &amp; Video</a></li>
+
+		
+	<li class="navbit lastnavbit"><span>[other] ffmpeg: Join/Combine two images and a video together</span></li>
+
+	</ul>
+	<hr />
+</div>
+
+
+
+
+
+	<form action="profile.php?do=dismissnotice" method="post" id="notices" class="notices">
+		<input type="hidden" name="do" value="dismissnotice" />
+		<input type="hidden" name="s" value="s=d00766d16abb6f7c30a74ac8a2a1f36c&amp;" />
+		<input type="hidden" name="securitytoken" value="guest" />
+		<input type="hidden" id="dismiss_notice_hidden" name="dismiss_noticeid" value="" />
+		<input type="hidden" name="url" value="" />
+		<ol>
+			<li class="restore" id="navbar_notice_17">
+	
+	If this is your first visit, be sure to
+		check out the <a href="faq.php?s=d00766d16abb6f7c30a74ac8a2a1f36c" target="_blank"><b>FAQ</b></a> by clicking the
+		link. You may have to <a href="register.php?s=d00766d16abb6f7c30a74ac8a2a1f36c" target="_blank"><b>register</b></a>
+		before you can post: click the register link <a href="register.php?s=d00766d16abb6f7c30a74ac8a2a1f36c" target="_blank"><b>here</b></a> to proceed. To start viewing messages,
+		select the forum that you want to visit from the selection below.
+</li>
+		</ol>
+	</form>
+
+
+
+
+
+	<div id="above_postlist" class="above_postlist">
+		
+		<div id="pagination_top" class="pagination_top">
+		
+			<div id="postpagestats_above" class="postpagestats">
+				Results 1 to 5 of 5
+			</div>
+		</div>
+	</div>
+	<div id="pagetitle" class="pagetitle">
+		<h1>
+			Thread: <span class="threadtitle"><a href="showthread.php?t=2060160&s=d00766d16abb6f7c30a74ac8a2a1f36c" title="Reload this Page">ffmpeg: Join/Combine two images and a video together</a></span>
+		</h1>
+		
+	</div>
+	<div id="thread_controls" class="thread_controls toolsmenu">
+		<div>
+		<ul id="postlist_popups" class="postlist_popups popupgroup">
+			
+			
+			<li class="popupmenu" id="threadtools">
+				<h6><a class="popupctrl" href="javascript://">Thread Tools</a></h6>
+				<ul class="popupbody popuphover">
+					<li><a href="printthread.php?s=d00766d16abb6f7c30a74ac8a2a1f36c&amp;t=2060160&amp;pp=10&amp;page=1" accesskey="3" rel="nofollow">Show Printable Version</a></li>
+					
+					<li>
+						
+							<a href="subscription.php?s=d00766d16abb6f7c30a74ac8a2a1f36c&amp;do=addsubscription&amp;t=2060160" rel="nofollow">Subscribe to this Thread&hellip;</a>
+						
+					</li>
+					
+				</ul>
+			</li>
+
+			
+
+			
+
+			
+
+			
+				<li class="popupmenu" id="displaymodes">
+					<h6><a class="popupctrl" href="javascript://">Display</a></h6>
+					<ul class="popupbody popuphover">
+						<li><label>Linear Mode</label></li>
+						<li><a href="showthread.php?t=2060160&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c&amp;mode=hybrid"> Switch to Hybrid Mode</a></li>
+						<li><a href="showthread.php?t=2060160&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c&amp;p=12248430&amp;mode=threaded#post12248430"> Switch to Threaded Mode</a></li>
+					</ul>
+				</li>
+			
+
+			
+			</ul>
+		</div>
+	</div>
+
+<div id="postlist" class="postlist restrain">
+	
+
+	
+		<ol id="posts" class="posts" start="1">
+			
+<li class="postbit postbitim postcontainer old" id="post_12248430">
+	<div class="postdetails_noavatar">
+		<div class="posthead">
+                        
+                                <span class="postdate old">
+                                        
+                                                <span class="date">September 19th, 2012</span>
+                                        
+                                </span>
+                                <span class="nodecontrols">
+                                        
+                                                <a name="post12248430" href="showthread.php?t=2060160&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c&amp;p=12248430#post12248430" class="postcounter">#1</a><a id="postcount12248430" name="1"></a>
+                                        
+                                        
+                                        
+                                </span>
+                        
+		</div>
+
+		<div class="userinfo_noavatar">
+			<div class="contact">
+				
+				<div class="username_container">
+					
+						<div class="popupmenu memberaction">
+	<a class="username offline popupctrl" href="member.php?u=438692&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c" title="vsiege is offline"><strong><span style="color: #000000;">vsiege</span></strong></a>
+	<ul class="popupbody popuphover memberaction_body">
+		<li class="left">
+			<a href="member.php?u=438692&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c" class="siteicon_profile">
+				View Profile
+			</a>
+		</li>
+		
+		<li class="right">
+			<a href="search.php?s=d00766d16abb6f7c30a74ac8a2a1f36c&amp;do=finduser&amp;userid=438692&amp;contenttype=vBForum_Post&amp;showposts=1" class="siteicon_forum" rel="nofollow">
+				View Forum Posts
+			</a>
+		</li>
+		
+		
+		<li class="left">
+			<a href="private.php?s=d00766d16abb6f7c30a74ac8a2a1f36c&amp;do=newpm&amp;u=438692" class="siteicon_message" rel="nofollow">
+				Private Message
+			</a>
+		</li>
+		
+		
+		
+		
+		
+		
+		
+
+		
+
+		
+		
+	</ul>
+</div>
+						<img class="inlineimg onlinestatus" src="images/ubuntu-VB4/statusicon/user-offline.png" alt="vsiege is offline" border="0" />
+
+					
+					<span class="usertitle">
+						A Carafe of Ubuntu
+					</span>
+					
+						<span class="rank"><img src="images/rank_4.png" alt="" border="" /></span>
+					
+
+                                        
+					
+					
+						<div class="imlinks">
+							 <a href="javascript://" onclick="imwindow('aim', '438692', 440, 255); return false;"><img src="images/ubuntu-VB4/misc/im_aim.gif" alt="Send a message via AIM to vsiege" /></a>   
+						</div>
+					
+				</div>
+			</div>
+			
+				<div class="userinfo_extra">
+					<dl class="userstats">
+						<dt>Join Date</dt> <dd>Nov 2007</dd>
+						
+						
+						<!-- <dt>Beans</dt> <dd>120</dd>	 -->
+<dt>Beans</dt> <dd>120</dd>
+
+                                                 <dt>Distro</dt><dd>Ubuntu 8.10 Intrepid Ibex</dd>
+						
+					</dl>
+					
+					
+				</div>
+			
+		</div>
+	</div>
+
+	<div class="postbody">
+		
+		<div class="postrow">
+		
+		<h2 class="posttitle icon">
+			ffmpeg: Join/Combine two images and a video together
+		</h2>
+		
+				
+					
+					
+				
+				
+		<div class="content">
+			<div id="post_message_12248430">
+				<blockquote class="postcontent restore">
+					I have been using ffmpeg to convert video formats and join multiple videos together successfully but now I have some additional needs and I need a bit of assistance getting started. <br />
+<br />
+Problem 1 (the more pressing of the two):<br />
+I have two jogs (with diff. dimensions) that I would like to join with a mp4. I would like jpg 1 at the beginning of the video and and jpg 2 to be at the end. The result should be a mp4 file with the still images presented for 3 seconds each in the beginning and the other at the end sandwiching the original video.<br />
+<br />
+Problem 2:<br />
+Ten jpgs combined into one video, each staying on screen for 3 seconds.
+				</blockquote>
+			</div>
+
+			
+
+
+		</div>
+			
+				
+			
+				
+			
+			
+				<blockquote class="signature restore"><div class="signaturecontainer">Best: <b>vsiege</b><br />
+<i>IC2D E4400, ASUS P5K-E MOBO, 2X 500 GB HDDs, 4 GB RAM, GeForce 8400GS</i></div></blockquote>
+			
+			
+		</div>
+	</div>
+	<div class="postfoot">
+		<div class="textcontrols floatcontainer">
+			<span class="postcontrols">
+				<img style="display:none" id="progress_12248430" src="images/ubuntu-VB4/misc/progress.gif" alt="" />
+				
+				
+<!-- added advance reply -->
+                    
+                        <a class='quickreply' href="newreply.php?s=d00766d16abb6f7c30a74ac8a2a1f36c&amp;p=12248430&amp;noquote=1" rel="nofollow"><img id="replyimg_12248430" src="clear.gif" alt="Advanced reply" /> Adv Reply</a>
+                        <span class="seperator">&nbsp;</span>
+                    
+<!-- end added advance reply -->
+<!-- the next id was qrwq_12248430 -->
+				
+					<a id="12248430" class="newreply" href="newreply.php?s=d00766d16abb6f7c30a74ac8a2a1f36c&amp;do=newreply&amp;p=12248430" rel="nofollow" title="Reply With Quote"><img id="quoteimg_12248430" src="clear.gif" alt="Reply With Quote" />  Reply With Quote</a> 
+				
+				
+				
+			</span>
+			<span class="postlinking">
+				
+					
+				
+				
+
+				 
+				
+
+					
+
+					
+					 
+
+					
+					
+					
+					
+					
+			</span>
+		</div>
+	</div>
+	<hr />
+</li>
+
+<li class="postbit postbitim postcontainer old" id="post_12248491">
+	<div class="postdetails_noavatar">
+		<div class="posthead">
+                        
+                                <span class="postdate old">
+                                        
+                                                <span class="date">September 19th, 2012</span>
+                                        
+                                </span>
+                                <span class="nodecontrols">
+                                        
+                                                <a name="post12248491" href="showthread.php?t=2060160&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c&amp;p=12248491#post12248491" class="postcounter">#2</a><a id="postcount12248491" name="2"></a>
+                                        
+                                        
+                                        
+                                </span>
+                        
+		</div>
+
+		<div class="userinfo">
+			<div class="contact">
+				
+					<a class="postuseravatarlink" href="member.php?u=1690747&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c" title="Merrattic is offline">
+						
+							<img src="customavatars/avatar1690747_1.gif" alt="Merrattic's Avatar" />
+						
+					</a>
+				
+				<div class="username_container">
+					
+						<div class="popupmenu memberaction">
+	<a class="username offline popupctrl" href="member.php?u=1690747&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c" title="Merrattic is offline"><strong><span style="color: #000000;">Merrattic</span></strong></a>
+	<ul class="popupbody popuphover memberaction_body">
+		<li class="left">
+			<a href="member.php?u=1690747&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c" class="siteicon_profile">
+				View Profile
+			</a>
+		</li>
+		
+		<li class="right">
+			<a href="search.php?s=d00766d16abb6f7c30a74ac8a2a1f36c&amp;do=finduser&amp;userid=1690747&amp;contenttype=vBForum_Post&amp;showposts=1" class="siteicon_forum" rel="nofollow">
+				View Forum Posts
+			</a>
+		</li>
+		
+		
+		<li class="left">
+			<a href="private.php?s=d00766d16abb6f7c30a74ac8a2a1f36c&amp;do=newpm&amp;u=1690747" class="siteicon_message" rel="nofollow">
+				Private Message
+			</a>
+		</li>
+		
+		
+		
+		
+		
+		
+		
+
+		
+
+		
+		
+	</ul>
+</div>
+						<img class="inlineimg onlinestatus" src="images/ubuntu-VB4/statusicon/user-offline.png" alt="Merrattic is offline" border="0" />
+
+					
+					<span class="usertitle">
+						Way Too Much Ubuntu
+					</span>
+					
+						<span class="rank"><img src="images/rank_4.png" alt="" border="" /></span>
+					
+
+                                        
+					
+					
+						<div class="imlinks">
+							    
+						</div>
+					
+				</div>
+			</div>
+			
+				<div class="userinfo_extra">
+					<dl class="userstats">
+						<dt>Join Date</dt> <dd>Jul 2012</dd>
+						
+						
+						<!-- <dt>Beans</dt> <dd>222</dd>	 -->
+<dt>Beans</dt> <dd>222</dd>
+
+                                                 <dt>Distro</dt><dd>Xubuntu 12.04 Precise Pangolin</dd>
+						
+					</dl>
+					
+					
+				</div>
+			
+		</div>
+	</div>
+
+	<div class="postbody">
+		
+		<div class="postrow">
+		
+		<h2 class="posttitle icon">
+			Re: ffmpeg: Join/Combine two images and a video together
+		</h2>
+		
+				
+				
+		<div class="content">
+			<div id="post_message_12248491">
+				<blockquote class="postcontent restore">
+					This makes a video out of a still image:<br />
+<div class="bbcode_container">
+	<div class="bbcode_description">Code:</div>
+	<pre class="bbcode_code"style="height:36px;">ffmpeg -loop 1 -i 1.jpg -r 25 -t 3 output.mp4</pre>
+</div>(-r is frame rate, -t is time in seconds)<br />
+<br />
+Do this for each then concatenate your ten videos.
+				</blockquote>
+			</div>
+
+			
+
+
+		</div>
+			
+				
+			
+			
+				<blockquote class="signature restore"><div class="signaturecontainer">The best things in life are free, so what are we paying for?</div></blockquote>
+			
+			
+		</div>
+	</div>
+	<div class="postfoot">
+		<div class="textcontrols floatcontainer">
+			<span class="postcontrols">
+				<img style="display:none" id="progress_12248491" src="images/ubuntu-VB4/misc/progress.gif" alt="" />
+				
+				
+<!-- added advance reply -->
+                    
+                        <a class='quickreply' href="newreply.php?s=d00766d16abb6f7c30a74ac8a2a1f36c&amp;p=12248491&amp;noquote=1" rel="nofollow"><img id="replyimg_12248491" src="clear.gif" alt="Advanced reply" /> Adv Reply</a>
+                        <span class="seperator">&nbsp;</span>
+                    
+<!-- end added advance reply -->
+<!-- the next id was qrwq_12248491 -->
+				
+					<a id="12248491" class="newreply" href="newreply.php?s=d00766d16abb6f7c30a74ac8a2a1f36c&amp;do=newreply&amp;p=12248491" rel="nofollow" title="Reply With Quote"><img id="quoteimg_12248491" src="clear.gif" alt="Reply With Quote" />  Reply With Quote</a> 
+				
+				
+				
+			</span>
+			<span class="postlinking">
+				
+					
+				
+				
+
+				 
+				
+
+					
+
+					
+					 
+
+					
+					
+					
+					
+					
+			</span>
+		</div>
+	</div>
+	<hr />
+</li>
+
+<li class="postbit postbitim postcontainer old" id="post_12248563">
+	<div class="postdetails_noavatar">
+		<div class="posthead">
+                        
+                                <span class="postdate old">
+                                        
+                                                <span class="date">September 19th, 2012</span>
+                                        
+                                </span>
+                                <span class="nodecontrols">
+                                        
+                                                <a name="post12248563" href="showthread.php?t=2060160&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c&amp;p=12248563#post12248563" class="postcounter">#3</a><a id="postcount12248563" name="3"></a>
+                                        
+                                        
+                                        
+                                </span>
+                        
+		</div>
+
+		<div class="userinfo_noavatar">
+			<div class="contact">
+				
+				<div class="username_container">
+					
+						<div class="popupmenu memberaction">
+	<a class="username offline popupctrl" href="member.php?u=438692&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c" title="vsiege is offline"><strong><span style="color: #000000;">vsiege</span></strong></a>
+	<ul class="popupbody popuphover memberaction_body">
+		<li class="left">
+			<a href="member.php?u=438692&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c" class="siteicon_profile">
+				View Profile
+			</a>
+		</li>
+		
+		<li class="right">
+			<a href="search.php?s=d00766d16abb6f7c30a74ac8a2a1f36c&amp;do=finduser&amp;userid=438692&amp;contenttype=vBForum_Post&amp;showposts=1" class="siteicon_forum" rel="nofollow">
+				View Forum Posts
+			</a>
+		</li>
+		
+		
+		<li class="left">
+			<a href="private.php?s=d00766d16abb6f7c30a74ac8a2a1f36c&amp;do=newpm&amp;u=438692" class="siteicon_message" rel="nofollow">
+				Private Message
+			</a>
+		</li>
+		
+		
+		
+		
+		
+		
+		
+
+		
+
+		
+		
+	</ul>
+</div>
+						<img class="inlineimg onlinestatus" src="images/ubuntu-VB4/statusicon/user-offline.png" alt="vsiege is offline" border="0" />
+
+					
+					<span class="usertitle">
+						A Carafe of Ubuntu
+					</span>
+					
+						<span class="rank"><img src="images/rank_4.png" alt="" border="" /></span>
+					
+
+                                        
+					
+					
+						<div class="imlinks">
+							 <a href="javascript://" onclick="imwindow('aim', '438692', 440, 255); return false;"><img src="images/ubuntu-VB4/misc/im_aim.gif" alt="Send a message via AIM to vsiege" /></a>   
+						</div>
+					
+				</div>
+			</div>
+			
+				<div class="userinfo_extra">
+					<dl class="userstats">
+						<dt>Join Date</dt> <dd>Nov 2007</dd>
+						
+						
+						<!-- <dt>Beans</dt> <dd>120</dd>	 -->
+<dt>Beans</dt> <dd>120</dd>
+
+                                                 <dt>Distro</dt><dd>Ubuntu 8.10 Intrepid Ibex</dd>
+						
+					</dl>
+					
+					
+				</div>
+			
+		</div>
+	</div>
+
+	<div class="postbody">
+		
+		<div class="postrow">
+		
+		<h2 class="posttitle icon">
+			Re: ffmpeg: Join/Combine two images and a video together
+		</h2>
+		
+				
+				
+		<div class="content">
+			<div id="post_message_12248563">
+				<blockquote class="postcontent restore">
+					Thank you for your post. I am able to make a video file from what you posted. Then I combined 'cat' both the image and a video. The result was a the still image for three seconds then the original movie - great..... but...... the audio from the original movie is now appearing during the still too. Is there any way to fix this. Heres my code:<br />
+<div class="bbcode_container">
+	<div class="bbcode_description">Code:</div>
+	<pre class="bbcode_code"style="height:72px;">ffmpeg -loop 1 -i flowers_0.jpg  -r 30 -t 3  -s 504x336 -acodec libfaac begin.mpg
+ffmpeg -i bloom0.flv -acodec copy p2.mpg
+cat begin.mpg p2.mpg&gt; img2Vid00.mpg
+ffmpeg -i img2Vid00.mpg -vcodec libx264 -acodec libfaac final.mp4</pre>
+</div>
+				</blockquote>
+			</div>
+
+			
+
+
+		</div>
+			
+				
+			
+			
+				<blockquote class="signature restore"><div class="signaturecontainer">Best: <b>vsiege</b><br />
+<i>IC2D E4400, ASUS P5K-E MOBO, 2X 500 GB HDDs, 4 GB RAM, GeForce 8400GS</i></div></blockquote>
+			
+			
+		</div>
+	</div>
+	<div class="postfoot">
+		<div class="textcontrols floatcontainer">
+			<span class="postcontrols">
+				<img style="display:none" id="progress_12248563" src="images/ubuntu-VB4/misc/progress.gif" alt="" />
+				
+				
+<!-- added advance reply -->
+                    
+                        <a class='quickreply' href="newreply.php?s=d00766d16abb6f7c30a74ac8a2a1f36c&amp;p=12248563&amp;noquote=1" rel="nofollow"><img id="replyimg_12248563" src="clear.gif" alt="Advanced reply" /> Adv Reply</a>
+                        <span class="seperator">&nbsp;</span>
+                    
+<!-- end added advance reply -->
+<!-- the next id was qrwq_12248563 -->
+				
+					<a id="12248563" class="newreply" href="newreply.php?s=d00766d16abb6f7c30a74ac8a2a1f36c&amp;do=newreply&amp;p=12248563" rel="nofollow" title="Reply With Quote"><img id="quoteimg_12248563" src="clear.gif" alt="Reply With Quote" />  Reply With Quote</a> 
+				
+				
+				
+			</span>
+			<span class="postlinking">
+				
+					
+				
+				
+
+				 
+				
+
+					
+
+					
+					 
+
+					
+					
+					
+					
+					
+			</span>
+		</div>
+	</div>
+	<hr />
+</li>
+
+<li class="postbit postbitim postcontainer old" id="post_12248718">
+	<div class="postdetails_noavatar">
+		<div class="posthead">
+                        
+                                <span class="postdate old">
+                                        
+                                                <span class="date">September 19th, 2012</span>
+                                        
+                                </span>
+                                <span class="nodecontrols">
+                                        
+                                                <a name="post12248718" href="showthread.php?t=2060160&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c&amp;p=12248718#post12248718" class="postcounter">#4</a><a id="postcount12248718" name="4"></a>
+                                        
+                                        
+                                        
+                                </span>
+                        
+		</div>
+
+		<div class="userinfo">
+			<div class="contact">
+				
+					<a class="postuseravatarlink" href="member.php?u=1690747&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c" title="Merrattic is offline">
+						
+							<img src="customavatars/avatar1690747_1.gif" alt="Merrattic's Avatar" />
+						
+					</a>
+				
+				<div class="username_container">
+					
+						<div class="popupmenu memberaction">
+	<a class="username offline popupctrl" href="member.php?u=1690747&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c" title="Merrattic is offline"><strong><span style="color: #000000;">Merrattic</span></strong></a>
+	<ul class="popupbody popuphover memberaction_body">
+		<li class="left">
+			<a href="member.php?u=1690747&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c" class="siteicon_profile">
+				View Profile
+			</a>
+		</li>
+		
+		<li class="right">
+			<a href="search.php?s=d00766d16abb6f7c30a74ac8a2a1f36c&amp;do=finduser&amp;userid=1690747&amp;contenttype=vBForum_Post&amp;showposts=1" class="siteicon_forum" rel="nofollow">
+				View Forum Posts
+			</a>
+		</li>
+		
+		
+		<li class="left">
+			<a href="private.php?s=d00766d16abb6f7c30a74ac8a2a1f36c&amp;do=newpm&amp;u=1690747" class="siteicon_message" rel="nofollow">
+				Private Message
+			</a>
+		</li>
+		
+		
+		
+		
+		
+		
+		
+
+		
+
+		
+		
+	</ul>
+</div>
+						<img class="inlineimg onlinestatus" src="images/ubuntu-VB4/statusicon/user-offline.png" alt="Merrattic is offline" border="0" />
+
+					
+					<span class="usertitle">
+						Way Too Much Ubuntu
+					</span>
+					
+						<span class="rank"><img src="images/rank_4.png" alt="" border="" /></span>
+					
+
+                                        
+					
+					
+						<div class="imlinks">
+							    
+						</div>
+					
+				</div>
+			</div>
+			
+				<div class="userinfo_extra">
+					<dl class="userstats">
+						<dt>Join Date</dt> <dd>Jul 2012</dd>
+						
+						
+						<!-- <dt>Beans</dt> <dd>222</dd>	 -->
+<dt>Beans</dt> <dd>222</dd>
+
+                                                 <dt>Distro</dt><dd>Xubuntu 12.04 Precise Pangolin</dd>
+						
+					</dl>
+					
+					
+				</div>
+			
+		</div>
+	</div>
+
+	<div class="postbody">
+		
+		<div class="postrow">
+		
+		<h2 class="posttitle icon">
+			Re: ffmpeg: Join/Combine two images and a video together
+		</h2>
+		
+				
+				
+		<div class="content">
+			<div id="post_message_12248718">
+				<blockquote class="postcontent restore">
+					You may need to put some audio in your images video (just record some silence and add it into the mix)
+				</blockquote>
+			</div>
+
+			
+
+
+		</div>
+			
+				
+			
+			
+				<blockquote class="signature restore"><div class="signaturecontainer">The best things in life are free, so what are we paying for?</div></blockquote>
+			
+			
+		</div>
+	</div>
+	<div class="postfoot">
+		<div class="textcontrols floatcontainer">
+			<span class="postcontrols">
+				<img style="display:none" id="progress_12248718" src="images/ubuntu-VB4/misc/progress.gif" alt="" />
+				
+				
+<!-- added advance reply -->
+                    
+                        <a class='quickreply' href="newreply.php?s=d00766d16abb6f7c30a74ac8a2a1f36c&amp;p=12248718&amp;noquote=1" rel="nofollow"><img id="replyimg_12248718" src="clear.gif" alt="Advanced reply" /> Adv Reply</a>
+                        <span class="seperator">&nbsp;</span>
+                    
+<!-- end added advance reply -->
+<!-- the next id was qrwq_12248718 -->
+				
+					<a id="12248718" class="newreply" href="newreply.php?s=d00766d16abb6f7c30a74ac8a2a1f36c&amp;do=newreply&amp;p=12248718" rel="nofollow" title="Reply With Quote"><img id="quoteimg_12248718" src="clear.gif" alt="Reply With Quote" />  Reply With Quote</a> 
+				
+				
+				
+			</span>
+			<span class="postlinking">
+				
+					
+				
+				
+
+				 
+				
+
+					
+
+					
+					 
+
+					
+					
+					
+					
+					
+			</span>
+		</div>
+	</div>
+	<hr />
+</li>
+
+<li class="postbit postbitim postcontainer old" id="post_12249221">
+	<div class="postdetails_noavatar">
+		<div class="posthead">
+                        
+                                <span class="postdate old">
+                                        
+                                                <span class="date">September 20th, 2012</span>
+                                        
+                                </span>
+                                <span class="nodecontrols">
+                                        
+                                                <a name="post12249221" href="showthread.php?t=2060160&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c&amp;p=12249221#post12249221" class="postcounter">#5</a><a id="postcount12249221" name="5"></a>
+                                        
+                                        
+                                        
+                                </span>
+                        
+		</div>
+
+		<div class="userinfo_noavatar">
+			<div class="contact">
+				
+				<div class="username_container">
+					
+						<div class="popupmenu memberaction">
+	<a class="username offline popupctrl" href="member.php?u=438692&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c" title="vsiege is offline"><strong><span style="color: #000000;">vsiege</span></strong></a>
+	<ul class="popupbody popuphover memberaction_body">
+		<li class="left">
+			<a href="member.php?u=438692&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c" class="siteicon_profile">
+				View Profile
+			</a>
+		</li>
+		
+		<li class="right">
+			<a href="search.php?s=d00766d16abb6f7c30a74ac8a2a1f36c&amp;do=finduser&amp;userid=438692&amp;contenttype=vBForum_Post&amp;showposts=1" class="siteicon_forum" rel="nofollow">
+				View Forum Posts
+			</a>
+		</li>
+		
+		
+		<li class="left">
+			<a href="private.php?s=d00766d16abb6f7c30a74ac8a2a1f36c&amp;do=newpm&amp;u=438692" class="siteicon_message" rel="nofollow">
+				Private Message
+			</a>
+		</li>
+		
+		
+		
+		
+		
+		
+		
+
+		
+
+		
+		
+	</ul>
+</div>
+						<img class="inlineimg onlinestatus" src="images/ubuntu-VB4/statusicon/user-offline.png" alt="vsiege is offline" border="0" />
+
+					
+					<span class="usertitle">
+						A Carafe of Ubuntu
+					</span>
+					
+						<span class="rank"><img src="images/rank_4.png" alt="" border="" /></span>
+					
+
+                                        
+					
+					
+						<div class="imlinks">
+							 <a href="javascript://" onclick="imwindow('aim', '438692', 440, 255); return false;"><img src="images/ubuntu-VB4/misc/im_aim.gif" alt="Send a message via AIM to vsiege" /></a>   
+						</div>
+					
+				</div>
+			</div>
+			
+				<div class="userinfo_extra">
+					<dl class="userstats">
+						<dt>Join Date</dt> <dd>Nov 2007</dd>
+						
+						
+						<!-- <dt>Beans</dt> <dd>120</dd>	 -->
+<dt>Beans</dt> <dd>120</dd>
+
+                                                 <dt>Distro</dt><dd>Ubuntu 8.10 Intrepid Ibex</dd>
+						
+					</dl>
+					
+					
+				</div>
+			
+		</div>
+	</div>
+
+	<div class="postbody">
+		
+		<div class="postrow">
+		
+		<h2 class="posttitle icon">
+			Re: ffmpeg: Join/Combine two images and a video together
+		</h2>
+		
+				
+				
+					
+				
+		<div class="content">
+			<div id="post_message_12249221">
+				<blockquote class="postcontent restore">
+					Sounds like it could work. Can't test it until tomorrow.
+				</blockquote>
+			</div>
+
+			
+
+
+		</div>
+			
+				
+			
+			
+				<blockquote class="signature restore"><div class="signaturecontainer">Best: <b>vsiege</b><br />
+<i>IC2D E4400, ASUS P5K-E MOBO, 2X 500 GB HDDs, 4 GB RAM, GeForce 8400GS</i></div></blockquote>
+			
+			
+		</div>
+	</div>
+	<div class="postfoot">
+		<div class="textcontrols floatcontainer">
+			<span class="postcontrols">
+				<img style="display:none" id="progress_12249221" src="images/ubuntu-VB4/misc/progress.gif" alt="" />
+				
+				
+<!-- added advance reply -->
+                    
+                        <a class='quickreply' href="newreply.php?s=d00766d16abb6f7c30a74ac8a2a1f36c&amp;p=12249221&amp;noquote=1" rel="nofollow"><img id="replyimg_12249221" src="clear.gif" alt="Advanced reply" /> Adv Reply</a>
+                        <span class="seperator">&nbsp;</span>
+                    
+<!-- end added advance reply -->
+<!-- the next id was qrwq_12249221 -->
+				
+					<a id="12249221" class="newreply" href="newreply.php?s=d00766d16abb6f7c30a74ac8a2a1f36c&amp;do=newreply&amp;p=12249221" rel="nofollow" title="Reply With Quote"><img id="quoteimg_12249221" src="clear.gif" alt="Reply With Quote" />  Reply With Quote</a> 
+				
+				
+				
+			</span>
+			<span class="postlinking">
+				
+					
+				
+				
+
+				 
+				
+
+					
+
+					
+					 
+
+					
+					
+					
+					
+					
+			</span>
+		</div>
+	</div>
+	<hr />
+</li>
+
+		</ol>
+		<div class="separator"></div>
+		<div class="postlistfoot">
+			
+		</div>
+
+	
+
+</div>
+
+<div id="below_postlist" class="noinlinemod below_postlist">
+	
+	<div id="pagination_bottom" class="pagination_bottom">
+	
+		<div class="clear"></div>
+<div class="navpopupmenu popupmenu nohovermenu" id="showthread_navpopup">
+	
+		<span class="shade">Quick Navigation</span>
+		<a href="showthread.php?t=2060160&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c" class="popupctrl"><span class="ctrlcontainer">Multimedia &amp; Video</span></a>
+		<a href="showthread.php?t=2060160#top" class="textcontrol" onclick="document.location.hash='top';return false;">Top</a>
+	
+	<ul class="navpopupbody popupbody popuphover">
+		
+		<li class="optionlabel">Site Areas</li>
+		<li><a href="usercp.php?s=d00766d16abb6f7c30a74ac8a2a1f36c">Settings</a></li>
+		<li><a href="private.php?s=d00766d16abb6f7c30a74ac8a2a1f36c">Private Messages</a></li>
+		<li><a href="subscription.php?s=d00766d16abb6f7c30a74ac8a2a1f36c">Subscriptions</a></li>
+		<li><a href="online.php?s=d00766d16abb6f7c30a74ac8a2a1f36c">Who's Online</a></li>
+		<li><a href="search.php?s=d00766d16abb6f7c30a74ac8a2a1f36c">Search Forums</a></li>
+		<li><a href="index.php?s=d00766d16abb6f7c30a74ac8a2a1f36c">Forums Home</a></li>
+		
+			<li class="optionlabel">Forums</li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=130&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">The Ubuntu Forum Community</a>
+					<ol class="d1">
+						
+		
+			
+				<li><a href="forumdisplay.php?f=327&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Ubuntu General Support</a>
+					<ol class="d2">
+						
+		
+			
+				<li><a href="forumdisplay.php?f=326&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Absolute Beginners Section</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=331&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">General Help</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=333&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Installation &amp; Upgrades</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=332&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Hardware</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=329&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Desktop Environments</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=334&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Multimedia &amp; Video</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=336&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Networking &amp; Wireless</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=308&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Virtualisation</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=335&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Ubuntu Studio</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=93&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Gaming &amp; Leisure</a>
+					<ol class="d3">
+						
+		
+			
+				<li><a href="forumdisplay.php?f=413&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Emulators</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=313&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Wine</a></li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=425&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Ubuntu Loco Teams Forums</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=418&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">WINE</a></li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=125&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Ubuntu Specialised Support</a>
+					<ol class="d2">
+						
+		
+			
+				<li><a href="forumdisplay.php?f=427&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Ubuntu +1 (Raring Ringtail)</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=338&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Security Discussions</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=339&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Server Platforms</a>
+					<ol class="d3">
+						
+		
+			
+				<li><a href="forumdisplay.php?f=392&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Ubuntu Cloud and Juju</a></li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=310&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Development &amp; Programming</a>
+					<ol class="d3">
+						
+		
+			
+				<li><a href="forumdisplay.php?f=44&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Packaging and Compiling Programs</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=201&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Development CD/DVD Image Testing</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=417&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Ubuntu Application Development</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=306&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Ubuntu Brainstorm</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=307&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Ubuntu Dev Link Forum</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=39&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Programming Talk</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=41&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Repositories &amp; Backports</a>
+					<ol class="d4">
+						
+		
+			
+				<li><a href="forumdisplay.php?f=47&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Ubuntu Backports</a>
+					<ol class="d5">
+						
+		
+			
+				<li><a href="forumdisplay.php?f=82&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Bug Reports / Support</a></li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=237&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Ubuntu Forums Development Archives</a>
+					<ol class="d4">
+						
+		
+			
+				<li><a href="forumdisplay.php?f=346&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Intrepid Ibex Testing and Discussion (CLOSED)</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=352&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Jaunty Jackalope Testing and Discussion (CLOSED)</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=359&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Karmic Koala Testing and Discussion (CLOSED)</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=377&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Lucid Lynx Testing and Discussion (CLOSED)</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=385&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Maverick Meerkat Testing and Discussion (CLOSED)</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=394&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Natty Narwhal Testing and Discussion (CLOSED)</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=403&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Oneiric Ocelot Testing and Discussion (CLOSED)</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=412&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Ubuntu +1 (Precise Pangolin)(Closed)</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=416&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Ubuntu +1 (Quantal Quetzal) (Closed)</a></li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=367&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Ubuntu One</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=408&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Asus Ubuntu Support</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=342&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Dell Ubuntu Support</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=301&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Mythbuntu</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=341&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">System76 Support</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=391&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Ubuntu Translations</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=328&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Apple Users</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=46&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">3rd Party Projects</a>
+					<ol class="d3">
+						
+		
+			
+				<li><a href="forumdisplay.php?f=249&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Projects</a>
+					<ol class="d4">
+						
+		
+			
+				<li><a href="forumdisplay.php?f=270&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Full Circle Magazine</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=76&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Ubuntu Women</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=168&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Ubuntu Christian Edition</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=251&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Ubuntuzilla</a></li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=175&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Ubuntu Community Discussions</a>
+					<ol class="d2">
+						
+		
+			
+				<li><a href="forumdisplay.php?f=434&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Ubuntu, Linux and OS Chat</a>
+					<ol class="d3">
+						
+		
+			
+				<li><a href="forumdisplay.php?f=302&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Recurring Discussions</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=103&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Testimonials &amp; Experiences</a></li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=11&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">The Cafe</a>
+					<ol class="d3">
+						
+		
+			
+				<li><a href="forumdisplay.php?f=298&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Cafe Games</a></li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=38&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Market</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=426&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Mobile Technology Discussions</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=13&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Announcements &amp; News</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=243&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Weekly Newsletter</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=404&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Membership Applications</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=122&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">The Fridge Discussions</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=357&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Forum Council Agenda</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=48&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Forum Feedback &amp; Help</a>
+					<ol class="d3">
+						
+		
+			
+				<li><a href="forumdisplay.php?f=181&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Request a LoCo forum</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=123&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Resolution Centre</a></li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=423&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Ubuntu Specialised Discussions</a>
+					<ol class="d2">
+						
+		
+			
+				<li><a href="forumdisplay.php?f=401&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Other OS/Distro Talk</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=145&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Assistive Technology &amp; Accessibility</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=16&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Art &amp; Design</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=169&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Education &amp; Science</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=428&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Community Wiki Discussions</a>
+					<ol class="d3">
+						
+		
+			
+				<li><a href="forumdisplay.php?f=100&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Tutorials &amp; Tips</a>
+					<ol class="d4">
+						
+		
+			
+				<li><a href="forumdisplay.php?f=255&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Outdated Tutorials &amp; Tips</a></li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=183&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Ubuntu LoCo Team Forums</a>
+					<ol class="d3">
+						
+		
+			
+				<li><a href="forumdisplay.php?f=245&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Americas LoCo Teams</a>
+					<ol class="d4">
+						
+		
+			
+				<li><a href="forumdisplay.php?f=284&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">US LoCo Teams</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=232&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Alabama Team - US</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=280&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Alaska Team - US</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=209&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Arizona Team - US</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=208&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Arkansas Team - US</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=188&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">California Team - US</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=207&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Colorado Team - US</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=189&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Argentina Team</a>
+					<ol class="d5">
+						
+		
+			
+				<li><a href="forumdisplay.php?f=349&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Software</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=350&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Hardware</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=351&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Comunidad</a></li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=248&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Connecticut Team</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=225&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Florida Team - US</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=210&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Georgia Team - US</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=314&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Hawaii Team - US</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=197&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Colombia Team - Colombia</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=247&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Illinois Team</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=213&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Indiana - US</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=275&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Kansas Team - US</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=203&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Kentucky Team - US</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=288&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Louisiana Team - US</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=292&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Maine Team - US</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=224&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Maryland Team - US</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=260&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Massachusetts Team</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=271&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Michigan Team - US</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=282&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Minnesota Team - US</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=276&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Mississippi Team - US</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=277&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Missouri Team - US</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=229&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Montana Team - US</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=262&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Costa Rica Team</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=283&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Nevada Team - US</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=289&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">New Hampshire Team - US</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=185&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">New Jersey Team - US</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=187&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">New Mexico Team - US</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=212&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">New York - US</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=273&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Paraguay Team</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=278&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">North Carolina Team - US</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=281&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Panama Team</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=191&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Ohio Team - US</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=290&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Ecuador Team</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=286&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Oklahoma Team - US</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=345&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Oregon Team - US</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=228&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Pennsylvania Team - US</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=300&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Venezuela Team</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=287&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Rhode Island Team - US</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=311&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">South Carolina Team - US</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=285&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">South Dakota Team - US</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=259&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Tennessee Team - US</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=184&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Utah Team - US</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=236&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Virginia Team - US</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=362&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Chile Team</a>
+					<ol class="d5">
+						
+		
+			
+				<li><a href="forumdisplay.php?f=363&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Comunidad</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=364&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Hardware</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=365&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Software</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=366&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Instalación y Actualización</a></li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=312&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">West Virginia Team - US</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=369&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Honduras Team</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=263&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Wisconsin Team</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=373&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Bolivia Team</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=252&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Washington DC Team - US</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=374&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">El Salvador Team</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=190&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Northeastern Team - US</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=375&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Quebec Team</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=371&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Nebraska Team - US</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=379&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Texas Team - US</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=380&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Washington State Team - US</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=381&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Iowa Team - US</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=386&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Trinidad &amp; Tobago Team</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=393&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Peru Team</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=395&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Canada Team</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=397&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Centroamerica Team</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=398&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Idaho Team - US</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=414&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Uruguay Team</a></li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=389&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Asia and Oceania LoCo Teams</a>
+					<ol class="d4">
+						
+		
+			
+				<li><a href="forumdisplay.php?f=431&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Myanmar Team</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=429&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Qatar Team</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=433&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Singapore Team</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=186&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Tamil Team - India</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=202&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Andhra Pradesh Team - India</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=303&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Philippine Team</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=309&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Bangalore Team</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=347&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Delhi Team</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=382&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Hong Kong Team</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=399&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Australia Team</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=409&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Bangladesh Team</a></li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=388&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Europe, Middle East, and African (EMEA) LoCo Teams</a>
+					<ol class="d4">
+						
+		
+			
+				<li><a href="forumdisplay.php?f=193&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Kenyan Team - Kenya</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=194&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Za Team - South Africa</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=195&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Ireland Team - Ireland</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=196&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Kurdish Team - Kurdistan</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=206&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Catalan Team</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=227&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Tunisia Team</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=250&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Senegal Team</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=258&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Egypt Team</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=261&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Sudan Team</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=264&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Saudi Arabia Team</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=272&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Lebanon Team</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=274&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">United Kingdom Team</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=291&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Cameroon Team</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=299&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Zimbabwe Team</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=304&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Georgia Team</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=319&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Switzerland Team</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=320&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Jordan Team</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=356&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Galician LoCo Team</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=360&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Wales Team</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=372&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Albania Team</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=378&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Libya Team</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=383&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Algerian Team</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=384&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Uganda Team</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=387&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Yemen Team</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=390&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Morocco Team</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=396&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Afghanistan Team</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=400&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Austria Team</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=410&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Namibia Team</a></li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+				<li><a href="forumdisplay.php?f=204&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c">Other Forums &amp; Teams</a></li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+		
+	</ul>
+</div>
+<div class="clear"></div>
+	</div>
+</div>
+
+
+
+
+
+
+
+
+	<!-- next / previous links -->
+	<div class="navlinks">
+		
+			<strong>&laquo;</strong>
+			<a href="showthread.php?t=2060160&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c&amp;goto=nextoldest" rel="nofollow">Previous Thread</a>
+			|
+			<a href="showthread.php?t=2060160&amp;s=d00766d16abb6f7c30a74ac8a2a1f36c&amp;goto=nextnewest" rel="nofollow">Next Thread</a>
+			<strong>&raquo;</strong>
+		
+	</div>
+	<!-- / next / previous links -->
+
+<div id="thread_info" class="thread_info block">
+	
+	
+	
+	
+	
+	
+	<div class="options_block_container">
+		
+		<div class="options_block2">
+			<h4 class="blockhead options_correct">Bookmarks</h4>
+			<div id="social_bookmarks_list" class="thread_info_block blockbody formcontrols floatcontainer options_correct">
+				<h5 class="blocksubhead">Bookmarks</h5>
+				<ul class="icon_list"><li class="smallfont">
+	
+		<a href="http://digg.com/submit?phrase=2&amp;url=http%3A%2F%2Fubuntuforums.org%2Fshowthread.php%3Ft%3D2060160&amp;title=ffmpeg%3A+Join%2FCombine+two+images+and+a+video+together" target="socialbookmark"><img src="images/ubuntu-VB4/misc/bookmarksite_digg.gif" alt="Submit to Digg" /></a>
+	
+	<a href="http://digg.com/submit?phrase=2&amp;url=http%3A%2F%2Fubuntuforums.org%2Fshowthread.php%3Ft%3D2060160&amp;title=ffmpeg%3A+Join%2FCombine+two+images+and+a+video+together" target="socialbookmark">Digg</a>
+</li><li class="smallfont">
+	
+		<a href="http://del.icio.us/post?url=http%3A%2F%2Fubuntuforums.org%2Fshowthread.php%3Ft%3D2060160&amp;title=ffmpeg%3A+Join%2FCombine+two+images+and+a+video+together" target="socialbookmark"><img src="images/ubuntu-VB4/misc/bookmarksite_delicious.gif" alt="Submit to del.icio.us" /></a>
+	
+	<a href="http://del.icio.us/post?url=http%3A%2F%2Fubuntuforums.org%2Fshowthread.php%3Ft%3D2060160&amp;title=ffmpeg%3A+Join%2FCombine+two+images+and+a+video+together" target="socialbookmark">del.icio.us</a>
+</li><li class="smallfont">
+	
+		<a href="http://www.stumbleupon.com/submit?url=http%3A%2F%2Fubuntuforums.org%2Fshowthread.php%3Ft%3D2060160&amp;title=ffmpeg%3A+Join%2FCombine+two+images+and+a+video+together" target="socialbookmark"><img src="images/ubuntu-VB4/misc/bookmarksite_stumbleupon.gif" alt="Submit to StumbleUpon" /></a>
+	
+	<a href="http://www.stumbleupon.com/submit?url=http%3A%2F%2Fubuntuforums.org%2Fshowthread.php%3Ft%3D2060160&amp;title=ffmpeg%3A+Join%2FCombine+two+images+and+a+video+together" target="socialbookmark">StumbleUpon</a>
+</li><li class="smallfont">
+	
+		<a href="http://www.google.com/bookmarks/mark?op=edit&amp;output=popup&amp;bkmk=http%3A%2F%2Fubuntuforums.org%2Fshowthread.php%3Ft%3D2060160&amp;title=ffmpeg%3A+Join%2FCombine+two+images+and+a+video+together" target="socialbookmark"><img src="images/ubuntu-VB4/misc/bookmarksite_google.gif" alt="Submit to Google" /></a>
+	
+	<a href="http://www.google.com/bookmarks/mark?op=edit&amp;output=popup&amp;bkmk=http%3A%2F%2Fubuntuforums.org%2Fshowthread.php%3Ft%3D2060160&amp;title=ffmpeg%3A+Join%2FCombine+two+images+and+a+video+together" target="socialbookmark">Google</a>
+</li></ul>
+			</div>
+		</div>
+		
+		<div class="options_block">
+			<h4 class="collapse blockhead options_correct">
+				<a class="collapse" id="collapse_posting_rules" href="showthread.php?t=2060160#top"><img src="images/ubuntu-VB4/buttons/collapse_40b.png" alt="" /></a>
+				Posting Permissions
+			</h4>
+			<div id="posting_rules" class="thread_info_block blockbody formcontrols floatcontainer options_correct">
+				
+<div id="forumrules" class="info_subblock">
+
+	<ul class="youcandoblock">
+		<li>You <strong>may not</strong> post new threads</li>
+		<li>You <strong>may not</strong> post replies</li>
+		<li>You <strong>may not</strong> post attachments</li>
+		<li>You <strong>may not</strong> edit your posts</li>
+		<li>&nbsp;</li>
+	</ul>
+	<div class="bbcodeblock">
+		<ul>
+			<li><a href="misc.php?s=d00766d16abb6f7c30a74ac8a2a1f36c&amp;do=bbcode" target="_blank">BB code</a> is <strong>On</strong></li>
+			<li><a href="misc.php?s=d00766d16abb6f7c30a74ac8a2a1f36c&amp;do=showsmilies" target="_blank">Smilies</a> are <strong>On</strong></li>
+			<li><a href="misc.php?s=d00766d16abb6f7c30a74ac8a2a1f36c&amp;do=bbcode#imgcode" target="_blank">[IMG]</a> code is <strong>On</strong></li>
+			<li><a href="misc.php?s=d00766d16abb6f7c30a74ac8a2a1f36c&amp;do=bbcode#videocode" target="_blank">[VIDEO]</a> code is <strong>Off</strong></li>
+			<li>HTML code is <strong>Off</strong></li>
+		</ul>
+	</div>
+	<p class="rules_link"><a href="misc.php?s=d00766d16abb6f7c30a74ac8a2a1f36c&amp;do=showrules" target="_blank">Forum Rules</a></p>
+
+</div>
+
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+
+
+
+
+
+<div id="footer" class="floatcontainer footer">
+
+	<form action="index.php" method="get" id="footer_select" class="footer_select">
+
+		
+			<select name="styleid" onchange="switch_id(this, 'style')">
+				<optgroup label="Quick Style Chooser"><option class="hidden"></option></optgroup>
+				
+					
+					<optgroup label="&nbsp;Standard Styles">
+									
+					<option value="117" class="" selected="selected">-- Ubuntu vB4.x</option>
+					
+					</optgroup>
+										
+				
+				
+					
+					<optgroup label="&nbsp;Mobile Styles">
+					
+					<option value="118" class="" >-- Ubuntu Mobile Style</option>
+					
+					</optgroup>
+										
+				
+			</select>	
+		
+		
+		
+	</form>
+
+	<ul id="footer_links" class="footer_links">
+		
+		<li><a href="http://ubuntuforums.org">Ubuntu Forums</a></li>
+		
+		
+		<li><a href="archive/index.php?s=d00766d16abb6f7c30a74ac8a2a1f36c">Archive</a></li>
+		
+		
+		
+		<li><a href="showthread.php?t=2060160#top" onclick="document.location.hash='top'; return false;">Top</a></li>
+	</ul>
+	
+	
+	
+	
+	<script type="text/javascript">
+	<!--
+		// Main vBulletin Javascript Initialization
+		vBulletin_init();
+	//-->
+	</script>
+        
+</div>
+</div> <!-- closing div for body_wrapper -->
+
+<div class="below_body">
+<div id="footer_time" class="shade footer_time">All times are GMT +1. The time now is <span class="time">11:45 PM</span>.</div>
+
+<div id="footer_copyright" class="shade footer_copyright">
+	<!-- Do not remove this copyright notice -->
+	vBulletin  ©2000 - 2013, Jelsoft Enterprises Ltd. Ubuntu Logo, Ubuntu and Canonical © Canonical Ltd. Tango Icons © Tango Desktop Project.  
+
+	<!-- Do not remove this copyright notice -->	
+</div>
+<div id="footer_morecopyright" class="shade footer_morecopyright">
+	<!-- Do not remove cronimage or your scheduled tasks will cease to function -->
+	
+	<!-- Do not remove cronimage or your scheduled tasks will cease to function -->
+	
+	
+</div>
+ 
+
+</div>
+</body>
+</html>
