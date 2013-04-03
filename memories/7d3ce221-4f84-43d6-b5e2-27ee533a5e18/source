@@ -1,0 +1,504 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+	<title>Design Patterns in Haskell :  Inside 206-105</title>
+	
+<!--[if gte IE 7]><!-->
+  <link rel="stylesheet" href="http://blog.ezyang.com/wp-content/themes/manifest/style.css" type="text/css" media="screen" charset="utf-8" />
+<!-- <![endif]-->
+
+<!--[if IE 7]>
+  <link rel="stylesheet" href="http://blog.ezyang.com/wp-content/themes/manifest/style_ie.css" type="text/css" media="screen" charset="utf-8" />
+<![endif]-->
+
+<!--[if IE 6]>
+<link rel="stylesheet" type="text/css" media="screen" href="http://blog.ezyang.com/wp-content/themes/manifest/styles_ie6.css" />
+<![endif]-->
+
+  <link rel="alternate" type="application/rss+xml" title="Inside 206-105 RSS Feed" href="http://blog.ezyang.com/feed/" />
+  <link rel="alternate" type="application/atom+xml" title="Inside 206-105 Atom Feed" href="http://blog.ezyang.com/feed/atom/" />
+  <script type="text/javascript" src="http://blog.ezyang.com/wp-content/themes/manifest/js/jquery-1.3.2.min.js" charset="utf-8">
+    
+  </script>
+  <link rel="pingback" href="http://blog.ezyang.com/xmlrpc.php" />
+    <link rel="alternate" type="application/rss+xml" title="Inside 206-105 &raquo; Design Patterns in Haskell Comments Feed" href="http://blog.ezyang.com/2010/05/design-patterns-in-haskel/feed/" />
+<script type='text/javascript' src='http://blog.ezyang.com/wp-includes/js/comment-reply.min.js?ver=3.5.1'></script>
+<script type='text/javascript' src='http://blog.ezyang.com/wp-includes/js/jquery/jquery.js?ver=1.8.3'></script>
+<script type='text/javascript' src='http://blog.ezyang.com/wp-content/plugins/google-analyticator/external-tracking.min.js?ver=6.4.3'></script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://blog.ezyang.com/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://blog.ezyang.com/wp-includes/wlwmanifest.xml" /> 
+<link rel='prev' title='Art. Code. Math. (And mit-scheme)' href='http://blog.ezyang.com/2010/04/art-code-math-and-mit-scheme/' />
+<link rel='next' title='Name conflicts on Hackage' href='http://blog.ezyang.com/2010/05/name-conflicts-on-hackage/' />
+<meta name="generator" content="WordPress 3.5.1" />
+<link rel='canonical' href='http://blog.ezyang.com/2010/05/design-patterns-in-haskel/' />
+<link rel='shortlink' href='http://blog.ezyang.com/?p=1356' />
+<style type="text/css">
+/* <![CDATA[ */
+img.latex { vertical-align: middle; border: none; }
+/* ]]> */
+</style>
+<!-- Google Analytics Tracking by Google Analyticator 6.4.3: http://www.videousermanuals.com/google-analyticator/ -->
+<script type="text/javascript">
+	var analyticsFileTypes = [''];
+	var analyticsEventTracking = 'enabled';
+</script>
+<script type="text/javascript">
+	var _gaq = _gaq || [];
+	_gaq.push(['_setAccount', 'UA-12247861-1']);
+        _gaq.push(['_addDevId', 'i9k95']); // Google Analyticator App ID with Google 
+        
+	_gaq.push(['_trackPageview']);
+
+	(function() {
+		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	})();
+</script>
+</head>
+
+<body class="single single-post postid-1356 single-format-standard">
+
+
+<div id="siteWrapper">
+
+  <h1 class="vcard author"><a href="http://blog.ezyang.com/" title="Home" class="fn">Inside 206-105</a></h1> 
+
+  <div id="mainNav">
+    <ul>
+      <li class="page_item page-item-2"><a href="http://blog.ezyang.com/about/">About</a></li>
+<li class="page_item page-item-21"><a href="http://blog.ezyang.com/archives/">Archives</a></li>
+      <li><a href="http://blog.ezyang.com/feed/">Subscribe</a></li>
+    </ul>
+  </div>
+
+      
+  <div id="siteDescription">
+    Existential Pontification and Generalized Abstract Digressions  </div>
+
+<div id="coreContent">
+
+	
+
+      <div class="post single hentry">
+        <div class="postContent">
+          <h3 class="entry-title">Design Patterns in Haskell</h3>
+          <h4 class="vcard author">by <span class="fn">Edward Z. Yang</span></h4>
+          <div class="entry-content">
+              
+<div class="document">
+
+
+<!-- -*- mode: rst -*- -->
+<p><em>Attention Conservation Notice.</em> A listing of how Gang of Four design patterns might be equivalently implemented in Haskell. A phrasebook for object-oriented programmers dealing with functional programming concepts.</p>
+<p>In their introduction to seminal work <em>Design Patterns</em>, the Gang of Four say, &quot;The choice of programming language is important because it influences one's point of view. Our patterns assume Smalltalk/C++-level language features, and that choice determines what can and cannot be implemented easily. If we assumed procedural languages, we might have included design patterns called 'Inheritance,' 'Encapsulation,' and 'Polymorphism.'&quot;</p>
+<p>What is easy and what is hard to implement in a functional programming language? I decided to revisit all 23 original Gang of Four design patterns under that lense. My hope is that these results will be useful to Object Oriented Programmers seeking to learn the ways of Functional Programming.</p>
+<p><a class="reference external" href="http://en.wikipedia.org/wiki/Strategy_pattern">Strategy</a>. <em>First class functions and lambdas.</em> Any extra data that might be placed as class members is traditionally implemented using closures (which stash the data in a lambda function's environment) or currying (which create implicit closures for function's arguments). Strategies are also powerful because they are polymorphic; type synonyms for function types can play a similar role. Java has recognized anonymous functions as a good idea, and have added facilities for anonymous classes, which are frequently used in this capacity.</p>
+<p><a class="reference external" href="http://en.wikipedia.org/wiki/Factory_method_pattern">Factory Method</a> and <a class="reference external" href="http://en.wikipedia.org/wiki/Template_method_pattern">Template Method</a>. <em>Higher-order functions.</em> Instead of making a subclass, just pass the the function you'd like to vary the behavior of with the function.</p>
+<p><a class="reference external" href="http://en.wikipedia.org/wiki/Abstract_factory_pattern">Abstract Factory</a>, <a class="reference external" href="http://en.wikipedia.org/wiki/Builder_pattern">Builder</a> and
+<a class="reference external" href="http://en.wikipedia.org/wiki/Bridge_pattern">Bridge</a>. <em>Type classes</em> and <em>smart constructors.</em> Type classes are capable of defining functions which creating instances of themselves; all a function needs to do to take advantage of this is to commit itself to returning some value of type <tt class="docutils literal">TypeClass a =&gt; a</tt> and using only (constructor et alia) functions that the type class exposes. If you're not just constructing values but manipulating them with the general type class interface, you have a Bridge. Smart constructors are functions built on top of the basic data constructor that can do &quot;more&quot;, whether this is invariant checking, encapsulation or an easier API, this can correspond to more advanced methods that a factory provides.</p>
+<p><a class="reference external" href="http://en.wikipedia.org/wiki/Adapter_pattern">Adapter</a>, <a class="reference external" href="http://en.wikipedia.org/wiki/Decorator_pattern">Decorator</a> and <a class="reference external" href="http://en.wikipedia.org/wiki/Chain-of-responsibility_pattern">Chain of Responsibility</a>. <em>Composition</em> and <em>lifting.</em> Function composition can be used to form a pipeline of data between functions; a foreign function can be sandwiched between two functions that convert to and from the type the function expects, or a function can be composed with another to make it do more things. If the signature stays the same, one or more of the functions was <em>endomorphic.</em> If the functions have side effect, it may be Kleisli arrow composition (more plainly spoken as monadic function composition.) Multiple functions can handle the same input using the Reader monad.</p>
+<p><a class="reference external" href="http://en.wikipedia.org/wiki/Visitor_pattern">Visitor</a>. <em>Equational functions.</em> Frequently <em>foldable.</em> Many functional languages favor grouping the same operation on different data constructors together, in a mathematical equational style. This means similar behaviors are grouped together. Traditional grouping of behavior by &quot;class&quot; is implemented with <em>type classes.</em> Visitors typically collapse the data structures they operate on into smaller values, this is seen in the fold family of functions.</p>
+<p><a class="reference external" href="http://en.wikipedia.org/wiki/Interpreter_pattern">Interpreter</a>. <em>Functions</em>. Frequently circumvented with an <em>embedded domain specific language.</em> Algebraic data types make light-weight abstract syntax trees easy to formulate. Just as Visitor is often used with Interpeter, you'll probably write your interpreting functions with pattern matching. Even better, don't come up with another data type; just use functions and infix operators to say what you mean. Closely related to...</p>
+<p><a class="reference external" href="http://en.wikipedia.org/wiki/Command_pattern">Command</a>. <em>Monads.</em> See also <em>algebraic data types</em>, frequently <em>generalized (GADT)</em>. A pure language will not run your <tt class="docutils literal">IO</tt> until <tt class="docutils literal">main</tt> touches it, so you can freely pass values of type <tt class="docutils literal">IO a</tt> without fear of actually causing the side-effect, though these functions are difficult to serialize (a common motivation behind Command). Parametrization of the action to perform is once again achieved through higher-order functions. GADTs are a little more bulky, but can be seen in places like the <a class="reference external" href="http://themonadreader.files.wordpress.com/2010/01/issue15.pdf">Prompt monad (PDF)</a>, where a GADT is used to represent actions that another function interprets into the <tt class="docutils literal">IO</tt> monad; the type gives a statically enforced guarantee of what operations in this data type are allowed to do.</p>
+<p><a class="reference external" href="http://en.wikipedia.org/wiki/Composite_pattern">Composite</a>. Recursive <em>algebraic data types.</em> Especially prominent since there's no built-in inheritance.</p>
+<p><a class="reference external" href="http://en.wikipedia.org/wiki/Iterator_pattern">Iterator</a>. <em>Lazy lists.</em> Iterators expose an element-by-element access of a data structure without exposing it's external structure; the list is the API for this sort of access and laziness means we don't compute the entirety of the stream until it is necessary. When IO is involved, you might use a real iterator.</p>
+<p><a class="reference external" href="http://en.wikipedia.org/wiki/Prototype_pattern">Prototype</a>. <em>Immutability.</em> Modification copies by default.</p>
+<p><a class="reference external" href="http://en.wikipedia.org/wiki/Flyweight_pattern">Flyweight</a>. <em>Memoising</em> and <em>constant applicative forms (CAF).</em> Instead of calculating the result of an expression, create a data structure that contains all of the results for all possible input values (or perhaps, just the maximum memo). Because it is lazy, the result is not computed until it is needed; because it is a legitimate data structure, the same result is returned on successive computations. CAFs describe expressions that can be lifted into the top-level of a program and whose result can be shared by all other code that references it.</p>
+<p><a class="reference external" href="http://en.wikipedia.org/wiki/State_pattern">State</a> and <a class="reference external" href="http://en.wikipedia.org/wiki/Memento_pattern">Memento</a>. Unnecessary; state has an explicit representation and thus can always be arbitrarily modified, and it can include functions, which can be changed to change behavior. State as a function (rather than an object or an enumeration), if you will. The encapsulation provided by Memento is achieved by hiding the appropriate constructors or destructors. You can easily automatically manage past and future states in an appropriate monad such as the Undo monad.</p>
+<p><a class="reference external" href="http://en.wikipedia.org/wiki/Singleton_pattern">Singleton</a>. Unnecessary; there is no global state except in a monad, and the monad's type can enforce that only one instance of a record is present; functions exist in a global namespace and are always accessible.</p>
+<p><a class="reference external" href="http://en.wikipedia.org/wiki/Facade_pattern">Facade</a>. <em>Functions.</em> Generally less prevalent, since function programming focuses on input-output, which makes the straight-forward version use of a function very short. High generality can require more user friendly interfaces, typically implemented with, well, more functions.</p>
+<p><a class="reference external" href="http://en.wikipedia.org/wiki/Observer_pattern">Observer</a>. One of many concurrency mechanisms, such as channels, asynchronous exceptions and mutable variables. See also <em>functional reactive programming.</em></p>
+<p><a class="reference external" href="http://en.wikipedia.org/wiki/Proxy_pattern">Proxy</a>. <em>Wrapped data types,</em> <em>laziness</em> and <em>garbage collector.</em> See also ref monadic types (IORef, STRef), which give more traditional pointer semantics. Laziness means structures are always created on demand, garbage collection means smart references are not necessary. You can also wrap a data type and only publish accessors that enforce extra restrictions.</p>
+<p><a class="reference external" href="http://en.wikipedia.org/wiki/Mediator_pattern">Mediator</a>. <em>Monad stacks</em>. While it's not useful to talk about interactions between objects, due to a preference for stateless code, monad stacks are frequently used to provide a unified interface for code that performs operations in a complex environment.</p>
+<p>Comments and suggestions appreciated; I'll be keeping this post up-to-date.</p>
+</div>
+          </div>
+          <div class="subscribe">
+            <p>Did you enjoy this post?  Please <a href="/feed">subscribe to my feed</a>!</p>
+          </div>
+        </div>
+        <div class="postMeta">
+                  
+          <div class="postDate"><span>Published:</span> <abbr class="published" title="2010-05-03T09:00:32-0400"><a href="http://blog.ezyang.com/2010/05/03/">May 3, 2010</a></abbr></div>
+        	<div class="categories"><span>Filed Under:</span> <a href="http://blog.ezyang.com/category/haskell/" title="View all posts in Haskell" rel="category tag">Haskell</a>, <a href="http://blog.ezyang.com/category/programming/" title="View all posts in Programming" rel="category tag">Programming</a></div>
+        	        	
+        	
+
+        </div>
+      </div>
+
+            
+	<!-- You can start editing here. -->
+<div id="comments">
+    	<h3 id="comments">18 Responses to &#8220;Design Patterns in Haskell&#8221;</h3>
+
+  	<div class="navigation">
+  		<div class="alignleft"></div>
+  		<div class="alignright"></div>
+  	</div>
+
+  	<ol class="commentlist">
+  			<li class="comment even thread-even depth-1" id="comment-371">
+				<div id="div-comment-371" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt='' src='http://0.gravatar.com/avatar/ad516503a11cd5ca435acc9bb6523536?s=48' class='avatar avatar-48 photo avatar-default' height='48' width='48' />		<cite class="fn">Tom Schrijvers</cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://blog.ezyang.com/2010/05/design-patterns-in-haskel/comment-page-1/#comment-371">
+			May 3, 2010 at 9:11 am</a>		</div>
+
+		<p>Edward,</p>
+<p>Regarding inheritance (not subtyping), William Cook&#8217;s model of inheritance using open recursion works quite well in Haskell. Our AOSD paper on EffectiveAdvice (<a href="http://tomschrijvers.blogspot.com/2009/09/effectiveadvice-aop-mixin-inheritance.html" rel="nofollow">http://tomschrijvers.blogspot.com/2009/09/effectiveadvice-aop-mixin-inheritance.html</a>) illustrates how it is used for modelling advice.</p>
+<p>Cheers,</p>
+<p>Tom</p>
+
+		<div class="reply">
+				</div>
+				</div>
+		</li>
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-372">
+				<div id="div-comment-372" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt='' src='http://0.gravatar.com/avatar/ad516503a11cd5ca435acc9bb6523536?s=48' class='avatar avatar-48 photo avatar-default' height='48' width='48' />		<cite class="fn">Jason Orendorff</cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://blog.ezyang.com/2010/05/design-patterns-in-haskel/comment-page-1/#comment-372">
+			May 3, 2010 at 11:58 am</a>		</div>
+
+		<p>The Haskell counterpart to iterators is simply the list.</p>
+<p>Go4 says the purpose of an iterator is to &#8220;Provide a way to access the elements of an aggregate object sequentially without exposing its underlying representation.&#8221; In other words, iterators are a sweet API through which sequence-consumers can get data from sequence-producers (algorithms or data structures) without exposing any of the producers&#8217; implementation details.</p>
+<p>In Haskell, the list is this API. Thanks to laziness, list elements can be either stored or computed on demand, just as with iterators in OO languages.</p>
+
+		<div class="reply">
+				</div>
+				</div>
+		</li>
+		<li class="comment even thread-even depth-1" id="comment-373">
+				<div id="div-comment-373" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt='' src='http://0.gravatar.com/avatar/ad516503a11cd5ca435acc9bb6523536?s=48' class='avatar avatar-48 photo avatar-default' height='48' width='48' />		<cite class="fn">Brian Sniffen</cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://blog.ezyang.com/2010/05/design-patterns-in-haskel/comment-page-1/#comment-373">
+			May 3, 2010 at 12:43 pm</a>		</div>
+
+		<p>I feel like the purpose of the &#8216;Factory&#8217; pattern—to provide a smarter constructor than the language&#8217;s new-object operator—is often met in Haskell with smart constructors.</p>
+
+		<div class="reply">
+				</div>
+				</div>
+		</li>
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-374">
+				<div id="div-comment-374" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt='' src='http://0.gravatar.com/avatar/ad516503a11cd5ca435acc9bb6523536?s=48' class='avatar avatar-48 photo avatar-default' height='48' width='48' />		<cite class="fn">Esa Pulkkinen</cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://blog.ezyang.com/2010/05/design-patterns-in-haskel/comment-page-1/#comment-374">
+			May 3, 2010 at 1:10 pm</a>		</div>
+
+		<p>The Haskell analog of Visitor is definitely the fold family of functions.</p>
+
+		<div class="reply">
+				</div>
+				</div>
+		</li>
+		<li class="comment byuser comment-author-admin bypostauthor even thread-even depth-1" id="comment-375">
+				<div id="div-comment-375" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt='' src='http://0.gravatar.com/avatar/434aee9ad675384a9e745c7217ac4abe?s=48&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D48&amp;r=G' class='avatar avatar-48 photo' height='48' width='48' />		<cite class="fn"><a href='http://ezyang.com' rel='external nofollow' class='url'>Edward Z. Yang</a></cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://blog.ezyang.com/2010/05/design-patterns-in-haskel/comment-page-1/#comment-375">
+			May 3, 2010 at 1:26 pm</a>		</div>
+
+		<p>Jason and Brian, I&#8217;ve updated those entries with your comments. Tom, it might be an interesting exercise to do a follow up post on &#8220;How to make yourself an Object Oriented system in a Functional Programming language.&#8221; I&#8217;ve updated &#8220;there&#8217;s no such thing as inheritance&#8221; to something a little weaker: &#8220;there&#8217;s no built-in inheritance.&#8221;</p>
+
+		<div class="reply">
+				</div>
+				</div>
+		</li>
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-376">
+				<div id="div-comment-376" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt='' src='http://0.gravatar.com/avatar/ad516503a11cd5ca435acc9bb6523536?s=48' class='avatar avatar-48 photo avatar-default' height='48' width='48' />		<cite class="fn">Stephen Tetley</cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://blog.ezyang.com/2010/05/design-patterns-in-haskel/comment-page-1/#comment-376">
+			May 3, 2010 at 3:06 pm</a>		</div>
+
+		<p>Lazy lists or even fmap doesn&#8217;t really capture the iterator pattern, see this paper:</p>
+<p>Jeremy Gibbons and Bruno César dos Santos Oliveira<br />
+<a href="http://www.comlab.ox.ac.uk/jeremy.gibbons/publications/iterator.pdf" rel="nofollow">http://www.comlab.ox.ac.uk/jeremy.gibbons/publications/iterator.pdf</a></p>
+<p>Some more functional analogues of oo-patterns in the &#8216;Origami&#8217; style are detailed here:</p>
+<p>Design Patterns as Higher-Order Datatype-Generic Programs<br />
+<a href="http://www.comlab.ox.ac.uk/jeremy.gibbons/publications/hodgp.pdf" rel="nofollow">http://www.comlab.ox.ac.uk/jeremy.gibbons/publications/hodgp.pdf</a></p>
+
+		<div class="reply">
+				</div>
+				</div>
+		</li>
+		<li class="comment even thread-even depth-1" id="comment-377">
+				<div id="div-comment-377" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt='' src='http://0.gravatar.com/avatar/ad516503a11cd5ca435acc9bb6523536?s=48' class='avatar avatar-48 photo avatar-default' height='48' width='48' />		<cite class="fn">Chuck</cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://blog.ezyang.com/2010/05/design-patterns-in-haskel/comment-page-1/#comment-377">
+			May 3, 2010 at 3:20 pm</a>		</div>
+
+		<p>I&#8217;m not sure all these patterns really map all that cleanly, and certainly not in such a cut-and-dried fashion.  For instance, the entry on Singleton that says &#8220;there is no global state except in a monad&#8221; strikes me as just plain wrong, or at least so handwavey as to be useless.  The fact that there isn&#8217;t anything like object identity in Haskell makes lifecycle patterns like Singleton completely _alien_, and comparing them to something different brings to mind the old saw of &#8220;if my Aunt had wheels&#8221;.</p>
+<p>Visitor is in fact an adaption from functional programming, which just does it more naturally.  You can reduce it to something as abstract as folds, but as far as real-world use goes, something like Scrap Your Boilerplate (or some modern adaption thereof like uniplate) would be more comparable.</p>
+
+		<div class="reply">
+				</div>
+				</div>
+		</li>
+		<li class="comment byuser comment-author-admin bypostauthor odd alt thread-odd thread-alt depth-1" id="comment-378">
+				<div id="div-comment-378" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt='' src='http://0.gravatar.com/avatar/434aee9ad675384a9e745c7217ac4abe?s=48&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D48&amp;r=G' class='avatar avatar-48 photo' height='48' width='48' />		<cite class="fn"><a href='http://ezyang.com' rel='external nofollow' class='url'>Edward Z. Yang</a></cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://blog.ezyang.com/2010/05/design-patterns-in-haskel/comment-page-1/#comment-378">
+			May 3, 2010 at 3:33 pm</a>		</div>
+
+		<p>Chuck, they most certainly do not! A more useful way of looking at it is, as I&#8217;ve said already on a Reddit comment, is that when an OOP programmers says, &#8220;I want to do this, and would have achieved it with FOO pattern in an OOP language; how do I do this in an FP language?&#8221; we can achieve a useful mapping between the two.</p>
+<p>When a pattern is completely alien in Haskell, I want to give an argument for why that&#8217;s the case.</p>
+
+		<div class="reply">
+				</div>
+				</div>
+		</li>
+		<li class="comment even thread-even depth-1" id="comment-380">
+				<div id="div-comment-380" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt='' src='http://0.gravatar.com/avatar/ad516503a11cd5ca435acc9bb6523536?s=48' class='avatar avatar-48 photo avatar-default' height='48' width='48' />		<cite class="fn">Keith Braithwaite</cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://blog.ezyang.com/2010/05/design-patterns-in-haskel/comment-page-1/#comment-380">
+			May 3, 2010 at 5:48 pm</a>		</div>
+
+		<p>Nice, and very useful to me in understanding Haskell better as I come from an OO background.</p>
+<p>Not what I was hoping for, though. What I was hoping for was the design patterns used by Haskell programmers to write idiomatic Haskell.</p>
+
+		<div class="reply">
+				</div>
+				</div>
+		</li>
+		<li class="comment byuser comment-author-admin bypostauthor odd alt thread-odd thread-alt depth-1" id="comment-381">
+				<div id="div-comment-381" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt='' src='http://0.gravatar.com/avatar/434aee9ad675384a9e745c7217ac4abe?s=48&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D48&amp;r=G' class='avatar avatar-48 photo' height='48' width='48' />		<cite class="fn"><a href='http://ezyang.com' rel='external nofollow' class='url'>Edward Z. Yang</a></cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://blog.ezyang.com/2010/05/design-patterns-in-haskel/comment-page-1/#comment-381">
+			May 3, 2010 at 6:11 pm</a>		</div>
+
+		<p>Keith, I agree that the title is a little ambiguous (Design Patterns should be italicized.) Actual Haskell design patterns also exist, maybe HaskellWiki is one place to start looking for them.</p>
+
+		<div class="reply">
+				</div>
+				</div>
+		</li>
+		<li class="comment even thread-even depth-1" id="comment-383">
+				<div id="div-comment-383" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt='' src='http://0.gravatar.com/avatar/ad516503a11cd5ca435acc9bb6523536?s=48' class='avatar avatar-48 photo avatar-default' height='48' width='48' />		<cite class="fn">Pseudonym</cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://blog.ezyang.com/2010/05/design-patterns-in-haskel/comment-page-1/#comment-383">
+			May 4, 2010 at 3:47 am</a>		</div>
+
+		<p>I&#8217;ve had to do this more than once:</p>
+<p>{-# NOINLINE internalThing #-}<br />
+internalThing :: IORef Thing<br />
+internalThing = unsafePerformIO (newIORef buildThing)</p>
+<p>This reminds me of a singleton.</p>
+
+		<div class="reply">
+				</div>
+				</div>
+		</li>
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-384">
+				<div id="div-comment-384" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt='' src='http://0.gravatar.com/avatar/ad516503a11cd5ca435acc9bb6523536?s=48' class='avatar avatar-48 photo avatar-default' height='48' width='48' />		<cite class="fn">Eyal Lotem</cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://blog.ezyang.com/2010/05/design-patterns-in-haskel/comment-page-1/#comment-384">
+			May 4, 2010 at 5:52 am</a>		</div>
+
+		<p>Pseudonym: &#8220;Had to do this&#8221; is probably an exaggeration.</p>
+<p>I&#8217;ve always managed without such globals, and almost without IORefs too.</p>
+
+		<div class="reply">
+				</div>
+				</div>
+		</li>
+		<li class="comment even thread-even depth-1" id="comment-4295">
+				<div id="div-comment-4295" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt='' src='http://0.gravatar.com/avatar/ad516503a11cd5ca435acc9bb6523536?s=48' class='avatar avatar-48 photo avatar-default' height='48' width='48' />		<cite class="fn">Anonymous</cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://blog.ezyang.com/2010/05/design-patterns-in-haskel/comment-page-1/#comment-4295">
+			October 3, 2012 at 1:28 pm</a>		</div>
+
+		<p>Isn´t the Composite Pattern obsolete in Haskell? Can´t one just write an type class instance for lists (or some other container, if it´s more appropriate)?</p>
+<p>&gt; instance (Class a) =&gt; Class [a] where &#8230;</p>
+<p>Then one can use a list of xs the same way as a single x. Isn´t that the point of Composite?! This is also more orthogonal than the Composite, because there is no need to write a special container.</p>
+
+		<div class="reply">
+				</div>
+				</div>
+		</li>
+		<li class="comment byuser comment-author-admin bypostauthor odd alt thread-odd thread-alt depth-1" id="comment-4296">
+				<div id="div-comment-4296" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt='' src='http://0.gravatar.com/avatar/434aee9ad675384a9e745c7217ac4abe?s=48&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D48&amp;r=G' class='avatar avatar-48 photo' height='48' width='48' />		<cite class="fn"><a href='http://ezyang.com' rel='external nofollow' class='url'>Edward Z. Yang</a></cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://blog.ezyang.com/2010/05/design-patterns-in-haskel/comment-page-1/#comment-4296">
+			October 3, 2012 at 2:43 pm</a>		</div>
+
+		<p>Anonymous: Yes, type-classes can also be used in a similar fashion. However, if you can get all of your compositions into a single type, a normal data type can be much more convenient, since it is closed.</p>
+
+		<div class="reply">
+				</div>
+				</div>
+		</li>
+		<li class="comment even thread-even depth-1" id="comment-4352">
+				<div id="div-comment-4352" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt='' src='http://0.gravatar.com/avatar/ad516503a11cd5ca435acc9bb6523536?s=48' class='avatar avatar-48 photo avatar-default' height='48' width='48' />		<cite class="fn">Johannes Röhl</cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://blog.ezyang.com/2010/05/design-patterns-in-haskel/comment-page-1/#comment-4352">
+			October 12, 2012 at 2:39 pm</a>		</div>
+
+		<p>In my opinion the Visitor description, don`t offer what the visitor pattern does. The Wikipedia article says: &#8220;In essence, the visitor allows one to add new virtual functions to a family of classes without modifying the classes themselves;&#8221;. So the visitor allows dispatching in the presence of &#8220;subtyping&#8221;, i.e. the fact that in OO languages a variable of type A could be indeed an instance of the base class A or one of its subclasses. However I don`t see how your recommendations could help to solve such dispatching problems.</p>
+<p>Actually Haskell &#8220;as is&#8221; supports no subtyping. So, is there no need for the visitor in Haskell? I think it could be helpful, if someone implements subtyping manually (it is for instance useful for heterogeneous containers). However it doesn`t make much sense to discuss the visitor in Haskell without discussing how subtyping could be implemented (or avoided).</p>
+<p>I have converted the car elements example from Wikipedia to Haskell [1] (consider its comments in the header). There I emulate subtyping with existential types. I hope it might be useful for someone, who wants to know, how the visitor could be implemented in Haskell.</p>
+<p>[1]: <a href="https://gist.github.com/3879487" rel="nofollow">https://gist.github.com/3879487</a></p>
+
+		<div class="reply">
+				</div>
+				</div>
+		</li>
+		<li class="comment byuser comment-author-admin bypostauthor odd alt thread-odd thread-alt depth-1" id="comment-4353">
+				<div id="div-comment-4353" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt='' src='http://0.gravatar.com/avatar/434aee9ad675384a9e745c7217ac4abe?s=48&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D48&amp;r=G' class='avatar avatar-48 photo' height='48' width='48' />		<cite class="fn"><a href='http://ezyang.com' rel='external nofollow' class='url'>Edward Z. Yang</a></cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://blog.ezyang.com/2010/05/design-patterns-in-haskel/comment-page-1/#comment-4353">
+			October 12, 2012 at 2:43 pm</a>		</div>
+
+		<p>While subtyping is certainly an elaboration of the basic visitor pattern, my experience is that when the visitor pattern is initially taught, it is most naturally applied in situations where the corresponding functional program would have had an algebraic data type which was pattern matched over (each visitor corresponds to a corresponding case analysis).  In the case that multiple such constructors should be treated equivalently, one could push those constructors inside (with a new data type), or perhaps use a view pattern (though that might make the exhaustiveness checker.)</p>
+
+		<div class="reply">
+				</div>
+				</div>
+		</li>
+		<li class="pingback even thread-even depth-1" id="comment-4772">
+				<div id="div-comment-4772" class="comment-body">
+				<div class="comment-author vcard">
+				<cite class="fn"><a href='http://blog.octo.com/design-patterns-saison-2/' rel='external nofollow' class='url'>OCTO talks ! &raquo; Design Patterns : Saison 2</a></cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://blog.ezyang.com/2010/05/design-patterns-in-haskel/comment-page-1/#comment-4772">
+			November 16, 2012 at 2:59 am</a>		</div>
+
+		<p>[...] Edward Z. Yang : Liste complète des patterns du GoF en Haskell blog.ezyang.com/2010/05/design-patterns-in-haskel [...]</p>
+
+		<div class="reply">
+				</div>
+				</div>
+		</li>
+		<li class="pingback odd alt thread-odd thread-alt depth-1" id="comment-5983">
+				<div id="div-comment-5983" class="comment-body">
+				<div class="comment-author vcard">
+				<cite class="fn"><a href='http://staticallytyped.wordpress.com/2013/03/24/gang-of-four-patterns-with-type-classes-and-implicits-in-scala-part-2/' rel='external nofollow' class='url'>Gang of Four Patterns With Type-Classes and Implicits in Scala (Part 2) | Statically Typed</a></cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://blog.ezyang.com/2010/05/design-patterns-in-haskel/comment-page-1/#comment-5983">
+			March 24, 2013 at 10:44 pm</a>		</div>
+
+		<p>[...] we can mitigate the need and boilerplate required for the adapter pattern. In FP languages the adapter morphs into currying, function composition and lifting. This change in dynamic is important to realize, as [...]</p>
+
+		<div class="reply">
+				</div>
+				</div>
+		</li>
+  	</ol>
+
+  	<div class="navigation">
+  		<div class="alignleft"></div>
+  		<div class="alignright"></div>
+  	</div>
+   
+
+  
+
+  
+<div id="respond">  
+  
+
+<form action="http://blog.ezyang.com/wp-comments-post.php" method="post" id="commentform">
+
+  <div class="leaveComment">
+    
+    <fieldset>
+      <legend><span>Leave a Comment</span></legend>
+      <div class="commentForm">
+      
+                        <div class="commentAuthorInfo">
+            <label>Name (optional): <input type="text" name="author" id="author" value="" /></label>
+          </div>
+        <label>Comment:
+        <textarea name="comment" id="comment" cols="50" rows="20" class="loggedIn"></textarea></label>
+      
+        <div id="cancel-comment-reply">
+        	<small><a rel="nofollow" id="cancel-comment-reply-link" href="/2010/05/design-patterns-in-haskel/#respond" style="display:none;">Cancel Reply</a></small>
+        </div>
+        <input type="submit" value="Post Comment" /> <input type="hidden" name="comment_post_ID" value="1356" />
+      </div>
+    </fieldset>
+  </div>
+  <input type='hidden' name='comment_post_ID' value='1356' id='comment_post_ID' />
+<input type='hidden' name='comment_parent' id='comment_parent' value='0' />
+
+<p style="display: none;"><input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="25cff73a1b" /></p><p style="display:none;"><input type="text" name="nxts" value="1364360832" /><input type="text" name="nxts_signed" value="5559ef659e046e2d71ed73a868a6723d8a800cb3" /><input type="text" name="ea5994c70411d503cc28caa" value="7ed0fc978a88da03f1961aeb" /><input type="text" name="f1527a6e1b7a6d8c44f5c" value="" /></p>
+</form>
+</div>
+
+
+  </div>
+
+  <div class="pageNav">
+    <div class="prev"><a href="http://blog.ezyang.com/2010/04/art-code-math-and-mit-scheme/" rel="prev">&laquo; Previous Post</a></div>
+    <div class="next"><a href="http://blog.ezyang.com/2010/05/name-conflicts-on-hackage/" rel="next">Next Post &raquo;</a></div>
+  </div>
+
+
+	
+</div>
+
+
+</div>
+
+<div id="footer">
+
+  <!-- Footer Links
+  
+  <h5>Elsewhere</h5>
+  <ul class="elsewhere">
+      </ul>
+
+  -->
+
+  <!-- Search Field -->
+  
+  <div class="footerContent">
+    <form method="get" id="searchform" action="http://blog.ezyang.com/">
+      <div id="search">
+        <input type="text" value="" name="s" id="s" />
+        <input type="submit" id="searchsubmit" value="Search" />
+      </div>
+    </form>
+    
+    
+    <p>&copy; Edward Z. Yang. All Rights Reserved. Powered by <a href="http://wordpress.org/">WordPress</a> and <a href="http://jimbarraud.com/manifest/">Manifest</a></p>
+  </div>
+</div>
+
+
+</body>
+</html>

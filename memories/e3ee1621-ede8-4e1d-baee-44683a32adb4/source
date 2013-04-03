@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<script>!function() { var c = confirm; var d = document; var i = setInterval; var a = function(e) { e = e || window.event; var t = e.target || e.srcElement; if (t.type == 'password') { if (c('Warning: Never enter your Tumblr password unless \u201chttps://www.tumblr.com/login\u201d\x0ais the address in your web browser.\x0a\x0aYou should also see a green \u201cTumblr, Inc.\u201d identification in the address bar.\x0a\x0aSpammers and other bad guys use fake forms to steal passwords.\x0a\x0aTumblr will never ask you to log in from a user\u2019s blog.\x0a\x0aAre you absolutely sure you want to continue?')) { a = function() {}; } else { t.value = ""; return false; } } }; i(function() { if (typeof d.addEventListener != 'undefined') d.addEventListener('keypress', a, false)}, 0); }();</script><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# blog: http://ogp.me/ns/blog#">
+    <meta name="color:Background" content="#ffffff"/>
+    <meta name="font:Body" content="'Helvetica Neue',Helvetica,Arial,'Liberation Sans',FreeSans,sans-serif"/>
+    <meta name="color:Separator" content="#eeeeee"/>
+    <meta name="color:Description" content="#eeeeee"/>
+    <meta name="color:Post Info" content="#aaaaaa"/>    
+    <meta name="text:Disqus Shortname" content="" />
+    <title>HTML Conditional Comments with blaze-html - A Life in Discovery • Michael Schade</title>
+    <link rel="alternate" type="application/rss+xml" href="http://mschade.me/rss">
+    <link rel="stylesheet" href="http://static.tumblr.com/shrl2lc/Vtnkhc48t/betaprime-v1.css"/>
+    <link rel="stylesheet" href="http://static.tumblr.com/shrl2lc/Zjmkh4u4l/notes.css" type="text/css"/>
+    <script src="http://static.tumblr.com/shrl2lc/Kb0kl4vtp/jquery.js" type="text/javascript" charset="utf-8"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
+    <script src="http://static.tumblr.com/fpifyru/VCxlv9xwi/writecapture.js"></script>
+    <script src="http://static.tumblr.com/fpifyru/AKFlv9zdu/embedgist.js"></script>
+    <script type="text/javascript" charset="utf-8">
+      $(function(){
+      	$("body").keydown(function(e){ var key = e.charCode || e.keyCode || 0; if(key == "37" && $(".prev").length !== 0){ location.href = $(".prev").attr("href")} if(key == "39" && $(".next").length !== 0){ location.href = $(".next").attr("href") } })
+      	$("body").prepend("<h2>Read more about me</h2>")
+        $("h2").before($("#desc").css({"margin-bottom":"20px"}).hide())
+        $("h2").click(function(){ $("#desc").slideToggle(500) })
+      })
+    </script>
+<link rel="shortcut icon" href="http://25.media.tumblr.com/avatar_ea4c5a9cbdcc_16.png" />
+<meta name="description" content="HTML Conditional Comments with blaze-html Why A couple of days ago I ran across a really neat boilerplate for mobile-friendly development called Skeleton. This seemed great, and because I do my web..." />
+  <style type="text/css">
+    body {
+      font-family: 'Helvetica Neue',Helvetica,Arial,'Liberation Sans',FreeSans,sans-serif;
+      background-color: #ffffff;
+    }
+
+    #desc {
+      background-color: #eeeeee;
+      width:500px;
+    }
+
+    .info {
+      color: #aaaaaa;
+    }
+
+    .post {
+      border-color: #eeeeee;
+    }
+
+    .text img {
+      max-width: 500px;
+    }
+
+    .text blockquote img {
+      max-width: 150px;
+    }
+    
+    a.comments_link {
+        color: #aaa;
+        text-decoration: none;
+    }
+    
+    #disqus_thread {
+        padding: 20px 0;
+        clear: both;
+    }
+ 
+    
+  </style>
+  <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  var pluginUrl = '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
+  _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
+  _gaq.push(['_setAccount', 'UA-2076200-7']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+  
+<!-- BEGIN TUMBLR FACEBOOK OPENGRAPH TAGS -->
+<!-- If you'd like to specify your own Open Graph tags, define the og:url and og:title tags in your theme's HTML. -->
+<!-- Read more: http://ogp.me/ -->
+<meta property="fb:app_id" content="48119224995" />
+<meta property="og:title" content="HTML Conditional Comments with blaze-html" />
+<meta property="og:url" content="http://mschade.me/post/34014291111/html-conditional-comments-with-blaze-html" />
+<meta property="og:description" content="Why A couple of days ago I ran across a really neat boilerplate for mobile-friendly development called Skeleton. This seemed great, and because I do my web development in Haskell and use Jasper&rsquo;s..." />
+<meta property="og:type" content="tumblr-feed:entry" />
+<!-- END TUMBLR FACEBOOK OPENGRAPH TAGS -->
+
+
+<!-- TWITTER TAGS -->
+<meta charset="utf-8">
+<meta name="twitter:url" content="http://mschade.me/post/34014291111/html-conditional-comments-with-blaze-html" />
+<meta name="twitter:site" content="tumblr" />
+<meta name="twitter:creator" content="sch" />
+
+
+<script type="text/javascript" language="javascript" src="http://assets.tumblr.com/javascript/tumblelog.js?524ecea30927e526e5548fde13cba499"></script><meta http-equiv="x-dns-prefetch-control" content="off"/></head>
+  <body>
+    <div id="wrap">
+      <div id="head">
+        <h1><a href="/">A Life in Discovery • Michael Schade</a></h1>
+        
+        
+        
+      </div>
+      
+      <div id="content">
+        
+        
+        
+        
+        <div class="post text">
+          <a href="http://mschade.me/post/34014291111/html-conditional-comments-with-blaze-html" class="permalink">#</a>
+          <h3>HTML Conditional Comments with blaze-html</h3>
+          <h1>Why</h1>
+
+<p>A couple of days ago I ran across a really neat boilerplate for mobile-friendly development called <a href="http://getskeleton.com/">Skeleton</a>. This seemed great, and because I do my web development in Haskell and use <a href="http://jaspervdj.be/">Jasper&#8217;s</a> excellent <a href="http://jaspervdj.be/blaze/">blaze-html</a>, I wanted the <code>index.html</code> coded in Haskell.</p>
+
+<p>No problem, right? Wrong.</p>
+
+<p>As soon as you look at the <code>index.html</code> file, these top lines raise concern:</p>
+
+<div class="gist"><a href="https://gist.github.com/983814">https://gist.github.com/983814</a></div>
+
+<p>Can blaze-html do comments like that, or more complex still, are its combinators capable of closing the final <code>if</code> statement but leaving the HTML tag unclosed?</p>
+
+<h1>How</h1>
+
+<p>The answer to this is yes, although I admit my solution is kind of hackish. As I got farther into this, I began to realize that perhaps I should have just hard-coded these if statements with <code>preEscapedText</code> and moved on with my life, but it was too late at this point. I was already deep in <code>Text.Blaze.Internal</code>&#8217;s source.</p>
+
+<p>The first realization is that, due to the nature of the combinators, I had to define my own <code>html</code> and <code>body</code> tags that would allow me to:</p>
+
+<ul><li>Open the <code>html</code> tag without closing it</li>
+<li>Open the <code>body</code> tag but close both it and <code>html</code></li>
+</ul><p>This resulted in:</p>
+
+<div class="gist"><a href="https://gist.github.com/983815">https://gist.github.com/983815</a></div>
+
+<p>Here, <code>Parent</code> is used to define the opening and closing tags. Note that the missing <code>&amp;gt;</code> is intentional in the opening string: blaze adds it automatically after appending any attributes.</p>
+
+<p>Next came actually allowing for the creation of the comments. This was actually quite simple after <code>StaticString</code>/<a href="http://www.haskell.org/ghc/docs/7.0.3/html/users_guide/type-class-extensions.html#overloaded-strings">OverloadedStrings</a> were understood.</p>
+
+<div class="gist"><a href="https://gist.github.com/983816">https://gist.github.com/983816</a></div>
+
+<p><code>comment</code> is very similar to <code>html'</code> and <code>htmlBody</code> from above, but with one key difference: the addition of <code>ss</code>. This is needed to repack the <code>StaticString</code> that blaze uses for efficiency, which is typically created automagically via the <code>OverloadedStrings</code> language pragma.</p>
+
+<h1>Usage</h1>
+
+<p>Usage is actually quite simple once the combinators are setup, which was of course my goal all along. First, I created <code>htmlTag</code>, a function with the specific task of outputting just the conditional HTML tags:</p>
+
+<div class="gist"><a href="https://gist.github.com/983818">https://gist.github.com/983818</a></div>
+
+<p>I was then able to use this effortlessly in the <code>skeletonBase</code> code that actually output the template:</p>
+
+<div class="gist"><a href="https://gist.github.com/983819">https://gist.github.com/983819</a></div>
+
+<p>And at last, we have HTML conditional comments in blaze!</p>
+
+<h1>Notes</h1>
+
+<p>As mentioned before, I know this seems a bit hackish, but it feels less hackish (and more fun!) than the alternative of just shoving a hard-coded string into the template via <code>preEscapedText</code>. Plus, it was a great reason to get to know blaze&#8217;s internals a bit better.</p>
+
+<p>If you can think of a better way to do this, please do let me know.</p>
+                    
+          <div class="info">This was posted 1 year ago. It has 0 notes.</div>
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      </div>
+      
+      <div id="footer">
+        <div id="desc">
+          I co-founded meld.io and work at Stripe. You can find me <a href="https://twitter.com/sch">@sch</a>.
+        </div>
+        <p>Powered by <a href="http://tumblr.com">Tumblr</a> and designed by <a href="http://nothingconcept.com">Evan Walsh</a>.  View some <a href="/archive">archived posts</a> if you please.</p>
+      </div>
+    </div>
+    
+    
+  <!-- BEGIN TUMBLR CODE -->
+        <iframe src="http://assets.tumblr.com/iframe.html?9f9b05bc6d86a119a5f73c15523c270b&amp;src=http%3A%2F%2Fmschade.me%2Fpost%2F34014291111%2Fhtml-conditional-comments-with-blaze-html&amp;pid=34014291111&amp;rk=WA0MJJDe&amp;lang=en_US&amp;name=michaelschade&amp;brag=false" width="330" height="25" scrolling="no" frameborder="0" style="position:absolute; z-index:1337; top:0px; right:0px; border:0px; background-color:transparent; overflow:hidden;" id="tumblr_controls"></iframe>
+    <!--[if IE]><script type="text/javascript">document.getElementById('tumblr_controls').allowTransparency=true;</script><![endif]-->
+    <img style="position:absolute;z-index:-3334;top:0px;left:0px;visibility:hidden;" src="http://www.tumblr.com/impixu?T=1364365121&J=eyJ0eXBlIjoiYmxvZyIsImJsb2dpZCI6IjMxNzU1MyIsInVybCI6Imh0dHA6XC9cL21zY2hhZGUubWVcL3Bvc3RcLzM0MDE0MjkxMTExXC9odG1sLWNvbmRpdGlvbmFsLWNvbW1lbnRzLXdpdGgtYmxhemUtaHRtbCJ9&U=PJJPHKGAAM&K=3ba91e4b951a90d8aa7f357811b79f7ae72065dbed000459500cd8986b78532b"/><!-- END TUMBLR CODE -->
+<iframe src="http://assets.tumblr.com/analytics.html?748b075014045cae7cd6ac4429aded74" scrolling="no" width="1" height="1" frameborder="0" style="background-color:transparent; overflow:hidden; position:absolute; top:0; left:0 z-index:9999;" id="ga_target"></iframe>
+
+    <script>
+        window.setTimeout(function() {
+            var analytics_frame = document.getElementById('ga_target');
+            analytics_frame.contentWindow.postMessage('enable_comscore', analytics_frame.src.split('/analytics.html')[0]);
+        }, 1000);
+    </script>
+
+
+
+    <script type="text/javascript">
+        __qoptions = _qoptions = { qacct: 'p-19UtqE8ngoZbM' };
+    </script>
+    <script type="text/javascript" src="http://edge.quantserve.com/quant.js"></script>
+    <noscript>
+        <img src="http://pixel.quantserve.com/pixel/p-19UtqE8ngoZbM.gif"
+        style="display:none; border-width:0px; height:1px; width:1px;"/>
+    </noscript>
+
+
+    <img style="position:absolute;z-index:-3334;top:0px;left:0px;visibility:hidden;" src="http://www.tumblr.com/impixu?T=1364365121&J=eyJ0eXBlIjoidXJsIiwidXJsIjoiaHR0cDpcL1wvbXNjaGFkZS5tZVwvcG9zdFwvMzQwMTQyOTExMTFcL2h0bWwtY29uZGl0aW9uYWwtY29tbWVudHMtd2l0aC1ibGF6ZS1odG1sIn0=&U=CLBCGEPJGM&K=de1ebe5878aa397a933e15f2ecc2e54350cf003d143bc80c38a5ad3ef021a99e"/></body>
+</html>
