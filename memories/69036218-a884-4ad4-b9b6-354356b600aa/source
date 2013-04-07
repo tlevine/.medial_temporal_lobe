@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>hledger</title>
+        <link rel="stylesheet" type="text/css" href="./css/style.css" />
+        <link rel="stylesheet" type="text/css" href="./js/highslide/highslide.css" />
+        <script type="text/javascript" src="./js/highslide/highslide.js"></script>
+        <script type="text/javascript">
+            hs.graphicsDir = '/js/highslide/graphics/';
+            hs.outlineType = 'rounded-black';
+            hs.captionEval = 'this.thumb.title';
+        </script>
+    </head>
+    <body>
+        <div style="text-align:center;">
+             <!-- <a href="/"><img src="/logo.jpg" border="0" ALT="" /></a> -->
+        </div>
+        <div id="navigation">
+            <a href="./README.html">Home</a>
+            <a href="./DOWNLOAD.html">Download</a>
+            <a href="./NEWS.html">News</a>
+            <a href="./MANUAL.html">Docs</a>
+            <a href="./DEVELOPMENT.html">Contribute</a>
+            <a href="http://wiki.hledger.org" class="offsite">Wiki</a>
+            <a href="http://demo.hledger.org" class="offsite">Demo</a>
+        </div>
+        <h1 id="hledger"><a href="#hledger">hledger</a></h1>
+<p>hledger is a computer program for easily tracking money, time, or other commodities, inspired by <a href="http://ledger-cli.org">ledger</a>. It is quite limited in features, but lightweight and reliable. For some, it is a bare-bones, simpler, less expensive alternative to Quicken or GnuCash. It is available for free under the GNU General Public License.</p>
+<p>hledger aims to help both computer experts and regular folks gain clarity in their finances and time management, but currently it is a little more suited to techies. I use it every day to:</p>
+<ul>
+<li>track spending and income</li>
+<li>see time reports by day/week/month/project</li>
+<li>get accurate numbers for client billing and tax filing</li>
+<li>track invoices</li>
+</ul>
+<p>hledger is first a command-line tool, but also provides a web interface (try the <a href="http://demo.hledger.org">demo</a>). Read the <a href="MANUAL.html">manual</a> to learn more, including <a href="FAQ.html#how-does-hledger-relate-to-ledger">how we are different from ledger</a>, and get started tracking your numbers!</p>
+<p>For support and more technical info, see the <a href="DEVELOPMENT.html">contributor guide</a> or <script type="text/javascript">
+<!--
+h='&#106;&#x6f;&#x79;&#102;&#x75;&#108;&#46;&#x63;&#x6f;&#x6d;&#x3f;&#x73;&#x75;&#98;&#106;&#x65;&#x63;&#116;&#x3d;&#104;&#108;&#x65;&#100;&#x67;&#x65;&#114;&#58;';a='&#64;';n='&#x73;&#x69;&#x6d;&#x6f;&#110;';e=n+a+h;
+document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'">'+'email me'+'<\/'+'a'+'>');
+// -->
+</script><noscript>email me (simon at joyful dot com?subject=hledger:)</noscript>. I appreciate feedback and help with all aspects of hledger.</p>
+        <div id="footer">
+            <hr />
+            © 2007-2013 <a href="http://joyful.com/">Simon Michael</a> and contributors
+        </div>
+
+        <script type="text/javascript">
+            var gaJsHost = (('https:' == document.location.protocol) ? 'https://ssl.' : 'http://www.');
+            document.write(unescape('%3Cscript src=\'' + gaJsHost + 'google-analytics.com/ga.js\' type=\'text/javascript\'%3E%3C/script%3E'));
+        </script>
+        <script type="text/javascript">
+            try {
+            var pageTracker = _gat._getTracker('UA-3456280-3');
+            pageTracker._trackPageview();
+            } catch(err) {}
+        </script>
+    </body>
+</html>

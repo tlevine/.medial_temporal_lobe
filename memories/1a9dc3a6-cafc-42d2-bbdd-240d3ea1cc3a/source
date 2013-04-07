@@ -1,0 +1,2997 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>News</title>
+
+<link rel="stylesheet" href="../style.css" type="text/css" />
+
+<link rel="stylesheet" href="../local.css" type="text/css" />
+
+
+<link rel="alternate" type="application/x-wiki" title="Edit this page" href="/ikiwiki.cgi?page=news&amp;do=edit" />
+
+<link rel="alternate" type="application/rss+xml" title="notmuch (RSS)" href="index.rss" /><link rel="alternate" type="application/atom+xml" title="notmuch (Atom)" href="index.atom" />
+
+
+</head>
+<body>
+
+<div class="pageheader">
+<div class="header">
+<span>
+<span class="parentlinks">
+
+<a href="../">notmuch</a>/ 
+
+</span>
+<!--
+<span class="title">
+News
+
+</span>
+-->
+</span><!--.header-->
+
+</div>
+
+<!--
+
+<div class="actions">
+<ul>
+
+<li><a href="/ikiwiki.cgi?page=news&amp;do=edit" rel="nofollow">Edit</a></li>
+
+
+<li><a href="../recentchanges/">RecentChanges</a></li>
+
+
+
+
+<li><a href="/ikiwiki.cgi?do=prefs">Preferences</a></li>
+
+
+
+<li><span class="createlink"><a href="/ikiwiki.cgi?page=discussion&amp;from=news&amp;do=create" rel="nofollow">?</a>Discussion</span><br /></li>
+
+
+</ul>
+</div>
+
+-->
+
+
+
+</div> <!-- .pageheader -->
+
+
+
+<div id="content">
+<h1>News</h1>
+
+<form action="/ikiwiki.cgi" method="get">
+<div id="blogform">
+
+<a class="feedbutton" type="application/rss+xml" href="index.rss">RSS</a>
+
+
+<a class="feedbutton" type="application/atom+xml" href="index.atom">Atom</a>
+
+<input type="hidden" name="do" value="blog" />
+<input type="hidden" name="from" value="news" />
+<input type="hidden" name="subpage" value="1" />
+Add a new post titled:
+<input name="title" size="40" />
+<input type="submit" value="Edit" />
+</div>
+</form>
+<div class="inlinepage">
+
+<div class="inlineheader">
+
+
+<span class="header">
+
+<a href="./release-0.15.2/">release-0.15.2</a>
+
+</span>
+
+</div><!--.inlineheader-->
+
+<div class="inlinecontent">
+<h1>Notmuch 0.15.2 (2013-02-17)</h1>
+
+<h2>Build fixes</h2>
+
+<p>Update dependencies to avoid problems when building in parallel.</p>
+
+<h2>Internal test framework changes</h2>
+
+<p>Adjust Emacs test watchdog mechanism to cope with <code>process-attributes</code>
+being unimplimented.</p>
+
+</div><!--.inlinecontent-->
+
+<div class="inlinefooter">
+
+<span class="pagedate">
+Posted <span class="date">Sun Feb 17 00:00:00 2013</span>
+</span>
+
+
+
+
+
+
+
+
+
+</div><!--.inlinefooter-->
+
+</div><!--.inlinepage-->
+<div class="inlinepage">
+
+<div class="inlineheader">
+
+
+<span class="header">
+
+<a href="./release-0.15.1/">release-0.15.1</a>
+
+</span>
+
+</div><!--.inlineheader-->
+
+<div class="inlinecontent">
+<h1>Notmuch 0.15.1 (2013-01-24)</h1>
+
+<h2>Internal test framework changes</h2>
+
+<p>Set a default value for TERM when running tests. This fixes certain
+build failures in non-interactive environments.</p>
+
+</div><!--.inlinecontent-->
+
+<div class="inlinefooter">
+
+<span class="pagedate">
+Posted <span class="date">Thu Jan 24 00:00:00 2013</span>
+</span>
+
+
+
+
+
+
+
+
+
+</div><!--.inlinefooter-->
+
+</div><!--.inlinepage-->
+<div class="inlinepage">
+
+<div class="inlineheader">
+
+
+<span class="header">
+
+<a href="./release-0.15/">release-0.15</a>
+
+</span>
+
+</div><!--.inlineheader-->
+
+<div class="inlinecontent">
+<h1>Notmuch 0.15 (2013-01-18)</h1>
+
+<h2>General</h2>
+
+<h3>Date range search support</h3>
+
+<p>The <code>date:</code> prefix can now be used in queries to restrict the results
+to only messages within a particular time range (based on the Date:
+header) with a range syntax of <code>date:&lt;since&gt;..&lt;until&gt;</code>. Notmuch
+supports a wide variety of expressions in <code>&lt;since&gt;</code> and
+<code>&lt;until&gt;</code>. Please refer to the <code>notmuch-search-terms(7)</code> manual page
+for details.</p>
+
+<h3>Empty tag names and tags beginning with "-" are deprecated</h3>
+
+<p>Such tags have been a frequent source of confusion and cause
+(sometimes unresolvable) conflicts with other syntax.  notmuch tag
+no longer allows such tags to be added to messages.  Removing such
+tags continues to be supported to allow cleanup of existing tags,
+but may be removed in a future release.</p>
+
+<h2>Command-Line Interface</h2>
+
+<h3><code>notmuch new</code> no longer chokes on mboxes</h3>
+
+<p><code>notmuch new</code> now rejects mbox files containing more than one
+message, rather than treating the file as one giant message.</p>
+
+<h3>Support for single message mboxes is deprecated</h3>
+
+<p>For historical reasons, <code>notmuch new</code> will index mbox files
+containing a single message; however, this behavior is now
+officially deprecated.</p>
+
+<h3>Fixed <code>notmuch new</code> to skip ignored broken symlinks</h3>
+
+<p><code>notmuch new</code> now correctly skips symlinks if they are in the
+ignored files list.  Previously, it would abort when encountering
+broken symlink, even if it was ignored.</p>
+
+<h3>New dump/restore format and tagging interface</h3>
+
+<p>There is a new <code>batch-tag</code> format for dump and restore that is more
+robust, particularly with respect to tags and message-ids containing
+whitespace.</p>
+
+<p><code>notmuch tag</code> now supports the ability to read tag operations and
+queries from an input stream, in a format compatible with the new
+dump/restore format.</p>
+
+<h3>Bcc and Reply-To headers are now available in notmuch show json output</h3>
+
+<p>The <code>notmuch show --format=json</code> now includes "Bcc" and "Reply-To" headers.
+For example notmuch Emacs client can now have these headers visible
+when the headers are added to the <code>notmuch-message-headers</code> variable.</p>
+
+<h3>CLI callers can now request a specific output format version</h3>
+
+<p><code>notmuch</code> subcommands that support structured output now support a
+<code>--format-version</code> argument for requesting a specific version of the
+structured output, enabling better compatibility and error handling.</p>
+
+<h3><code>notmuch search</code> has gained a null character separated text output format</h3>
+
+<p>The new --format=text0 output format for <code>notmuch search</code> prints
+output separated by null characters rather than newline
+characters. This is similar to the find(1) -print0 option, and works
+together with the xargs(1) -0 option.</p>
+
+<h2>Emacs Interface</h2>
+
+<h3>Removal of the deprecated <code>notmuch-folders</code> variable</h3>
+
+<p><code>notmuch-folders</code> has been deprecated since the introduction of saved
+searches and the notmuch hello view in notmuch 0.3. <code>notmuch-folders</code>
+has now been removed. Any remaining users should migrate to
+<code>notmuch-saved-searches</code>.</p>
+
+<h3>Visibility of MIME parts can be toggled</h3>
+
+<p>Each part of a multi-part MIME email can now be shown or hidden
+using the button at the top of each part (by pressing RET on it or
+by clicking).  For emails with multiple alternative formats (e.g.,
+plain text and HTML), only the preferred format is shown initially,
+but other formats can be shown using their part buttons.  To control
+the behavior of this, see
+<code>notmuch-multipart/alternative-discouraged</code> and
+<code>notmuch-show-all-multipart/alternative-parts</code>.</p>
+
+<p>Note notmuch-show-print-message (bound to '#' by default) will print
+all parts of multipart/alternative message regardless of whether
+they are currently hidden or shown in the buffer.</p>
+
+<h3>Emacs now buttonizes mid: links</h3>
+
+<p>mid: links are a standardized way to link to messages by message ID
+(see RFC 2392).  Emacs now hyperlinks mid: links to the appropriate
+notmuch search.</p>
+
+<h3>Handle errors from bodypart insertions</h3>
+
+<p>If displaying the text of a message in show mode causes an error (in
+the <code>notmuch-show-insert-part-*</code> functions), notmuch no longer cuts
+off thread display at the offending message.  The error is now
+simply displayed in place of the message.</p>
+
+<h3>Emacs now detects version mismatches with the notmuch CLI</h3>
+
+<p>Emacs now detects and reports when the Emacs interface version and
+the notmuch CLI version are incompatible.</p>
+
+<h3>Improved text/calendar content handling</h3>
+
+<p>Carriage returns in embedded text/calendar content caused insertion
+of the calendar content fail. Now CRs are removed before calling icalendar
+to extract icalendar data. In case icalendar extraction fails an error
+is thrown for the bodypart insertion function to deal with.</p>
+
+<h3>Disabled coding conversions when reading in <code>with-current-notmuch-show-message</code></h3>
+
+<p>Depending on the user's locale, saving attachments containing 8-bit
+data may have performed an unintentional encoding conversion,
+corrupting the saved attachment.  This has been fixed by making
+<code>with-current-notmuch-show-message</code> disable coding conversion.</p>
+
+<h3>Fixed errors with HTML email containing images in Emacs 24</h3>
+
+<p>Emacs 24 ships with a new HTML renderer that produces better output,
+but is slightly buggy.  We work around a bug that caused it to fail
+for HTML email containing images.</p>
+
+<h3>Fixed handling of tags with unusual characters in them</h3>
+
+<p>Emacs now handles tags containing spaces, quotes, and parenthesis.</p>
+
+<h3>Fixed buttonization of id: links without quote characters</h3>
+
+<p>Emacs now correctly buttonizes id: links where the message ID is not
+quoted.</p>
+
+<h3><code>notmuch-hello</code> refresh point placement improvements</h3>
+
+<p>Refreshing the <code>notmuch-hello</code> buffer does a better job of keeping
+the point where it was.</p>
+
+<h3>Automatic tag changes are now unified and customizable</h3>
+
+<p>All the automatic tag changes that the Emacs interface makes when
+reading, archiving, or replying to messages, can now be
+customized. Any number of tag additions and removals is supported
+through the <code>notmuch-show-mark-read</code>, <code>notmuch-archive-tags</code>, and
+<code>notmuch-message-replied-tags</code> customization variables.</p>
+
+<h3>Support for stashing the thread id in show view</h3>
+
+<p>Invoking <code>notmuch-show-stash-message-id</code> with a prefix argument
+stashes the (local and database specific) thread id of the current
+thread instead of the message id.</p>
+
+<h2>New add-on tool: notmuch-pick</h2>
+
+<p>The new contrib/ tool <code>notmuch-pick</code> is an experimental threaded message
+view for the emacs interface. Each message is one line in the results
+and the thread structure is shown using UTF-8 box drawing characters
+(similar to Mutt's threaded view). It comes between search and show in
+terms of amount of output and can be useful for viewing both single
+threads and multiple threads. See the notmuch-pick README file for
+further details and installation.</p>
+
+<h2>Portability</h2>
+
+<p>notmuch now builds on OpenBSD.</p>
+
+<h2>Internal test framework changes</h2>
+
+<h3>The emacsclient binary is now user-configurable</h3>
+
+<p>The test framework now accepts <code>TEST_EMACSCLIENT</code> in addition to
+<code>TEST_EMACS</code> for configuring the emacsclient to use.  This is
+necessary to avoid using an old emacsclient with a new emacs, which
+can result in buggy behavior.</p>
+
+</div><!--.inlinecontent-->
+
+<div class="inlinefooter">
+
+<span class="pagedate">
+Posted <span class="date">Fri Jan 18 00:00:00 2013</span>
+</span>
+
+
+
+
+
+
+
+
+
+</div><!--.inlinefooter-->
+
+</div><!--.inlinepage-->
+<div class="inlinepage">
+
+<div class="inlineheader">
+
+
+<span class="header">
+
+<a href="./release-0.14/">release-0.14</a>
+
+</span>
+
+</div><!--.inlineheader-->
+
+<div class="inlinecontent">
+<h1>Notmuch 0.14 (2012-08-20)</h1>
+
+<h2>General bug fixes</h2>
+
+<h3>Maildir tag synchronization</h3>
+
+<p>Maildir flag-to-tag synchronization now applies only to messages in
+maildir-like directory structures.  Previously, it applied to any
+message that had a maildir "info" part, which meant it could
+incorrectly synchronize tags for non-maildir messages, while at the
+same time failing to synchronize tags for newly received maildir
+messages (typically causing new messages to not receive the "unread"
+tag).</p>
+
+<h2>Command-Line Interface</h2>
+
+<p>The deprecated positional output file argument to <code>notmuch dump</code> has
+been replaced with an <code>--output</code> option. The input file positional
+argument to <code>notmuch restore</code> has been replaced with an <code>--input</code>
+option for consistency with dump.  These changes simplify the syntax
+of dump/restore options and make them more consistent with other
+notmuch commands.</p>
+
+<h2>Emacs Interface</h2>
+
+<h3>Search results now get re-colored when tags are updated</h3>
+
+<h3>The formatting of tags in search results can now be customized</h3>
+
+<p>Previously, attempting to change the format of tags in
+<code>notmuch-search-result-format</code> would usually break tagging from
+search-mode.  We no longer make assumptions about the format.</p>
+
+<h3>Experimental support for multi-line search result formats</h3>
+
+<p>It is now possible to embed newlines in
+<code>notmuch-search-result-format</code> to make individual search results
+span multiple lines.</p>
+
+<h3>Next/previous in search and show now move by boundaries</h3>
+
+<p>All "next" and "previous" commands in the search and show modes now
+move to the next/previous result or message boundary.  This doesn't
+change the behavior of "next", but "previous" commands will first
+move to the beginning of the current result or message if point is
+inside the result or message.</p>
+
+<h3>Search now uses the JSON format internally</h3>
+
+<p>This should address problems with unusual characters in authors and
+subject lines that could confuse the old text-based search parser.</p>
+
+<h3>The date shown in search results is no longer padded before applying user-specified formatting</h3>
+
+<p>Previously, the date in the search results was padded to fixed width
+before being formatted with <code>notmuch-search-result-format</code>.  It is
+no longer padded.  The default format has been updated, but if
+you've customized this variable, you may have to change your date
+format from <code>"%s "</code> to <code>"%12s "</code>.</p>
+
+<p>The thread-id for the <code>target-thread</code> argument for <code>notmuch-search</code> should
+now be supplied without the "thread:" prefix.</p>
+
+</div><!--.inlinecontent-->
+
+<div class="inlinefooter">
+
+<span class="pagedate">
+Posted <span class="date">Mon Aug 20 00:00:00 2012</span>
+</span>
+
+
+
+
+
+
+
+
+
+</div><!--.inlinefooter-->
+
+</div><!--.inlinepage-->
+<div class="inlinepage">
+
+<div class="inlineheader">
+
+
+<span class="header">
+
+<a href="./release-0.13.2/">release-0.13.2</a>
+
+</span>
+
+</div><!--.inlineheader-->
+
+<div class="inlinecontent">
+<h1>Notmuch 0.13.2 (2012-06-02)</h1>
+
+<h2>Bug-fix release</h2>
+
+<p>Update <code>contrib/notmuch-deliver</code> for API changes in 0.13. This fixes a
+compilation error for this contrib package.</p>
+
+</div><!--.inlinecontent-->
+
+<div class="inlinefooter">
+
+<span class="pagedate">
+Posted <span class="date">Sat Jun  2 00:00:00 2012</span>
+</span>
+
+
+
+
+
+
+
+
+
+</div><!--.inlinefooter-->
+
+</div><!--.inlinepage-->
+<div class="inlinepage">
+
+<div class="inlineheader">
+
+
+<span class="header">
+
+<a href="./release-0.13.1/">release-0.13.1</a>
+
+</span>
+
+</div><!--.inlineheader-->
+
+<div class="inlinecontent">
+<h1>Notmuch 0.13.1 (2012-05-29)</h1>
+
+<h2>Bug-fix release</h2>
+
+<h3>Fix inserting of UTF-8 characters from <em>text/plain</em> parts in reply</h3>
+
+<p>While notmuch gained ability to insert content from other than <em>text/plain</em>
+parts of email whenever <em>text/plain</em> parts are not available (notably
+HTML-only emails), replying to mails that do have <em>text/plain</em> the
+non-ASCII characters were incorrectly decoded. This is now fixed.</p>
+
+<h3><code>notmuch_database_get_directory</code> and <code>notmuch_database_find_message_by_filename</code> now work on read-only databases</h3>
+
+<p>Previously, these functions attempted to create directory documents
+that didn't exist and would return an error or abort when given a
+read-only database.  Now they no longer create directory documents
+and simply return a <code>NULL</code> object if the directory does not exist,
+as documented.</p>
+
+<h3>Fix compilation of ruby bindings</h3>
+
+<p>Revert to dynamic linking, since the statically linked bindings did
+not work well.</p>
+
+</div><!--.inlinecontent-->
+
+<div class="inlinefooter">
+
+<span class="pagedate">
+Posted <span class="date">Tue May 29 00:00:00 2012</span>
+</span>
+
+
+
+
+
+
+
+
+
+</div><!--.inlinefooter-->
+
+</div><!--.inlinepage-->
+<div class="inlinepage">
+
+<div class="inlineheader">
+
+
+<span class="header">
+
+<a href="./release-0.13/">release-0.13</a>
+
+</span>
+
+</div><!--.inlineheader-->
+
+<div class="inlinecontent">
+<h1>Notmuch 0.13 (2012-05-15)</h1>
+
+<h2>Command-Line Interface</h2>
+
+<h3>JSON reply format</h3>
+
+<p><code>notmuch reply</code> can now produce JSON output that contains the headers
+for a reply message and full information about the original message
+begin replied to. This allows MUAs to create replies intelligently.
+For example, an MUA that can parse HTML might quote HTML parts.</p>
+
+<p>Calling notmuch reply with <code>--format=json</code> imposes the restriction that
+only a single message is returned by the search, as replying to
+multiple messages does not have a well-defined behavior. The default
+retains its current behavior for multiple message replies.</p>
+
+<h3>Tag exclusion</h3>
+
+<p>Tags can be automatically excluded from search results by adding them
+to the new <code>search.exclude_tags</code> option in the Notmuch config file.</p>
+
+<p>This behaviour can be overridden by explicitly including an excluded
+tag in your query, for example:</p>
+
+<pre><code>    notmuch search &#036;your_query and tag:&#036;excluded_tag
+</code></pre>
+
+<p>Existing users will probably want to run <code>notmuch setup</code> again to add
+the new well-commented [search] section to the configuration file.</p>
+
+<p>For new configurations, accepting the default setting will cause the
+tags "deleted" and "spam" to be excluded, equivalent to running:</p>
+
+<pre><code>    notmuch config set search.exclude_tags deleted spam
+</code></pre>
+
+<h3>Raw show format changes</h3>
+
+<p>The output of show <code>--format=raw</code> has changed for multipart and
+message parts.  Previously, the output was a mash of somewhat-parsed
+headers and transfer-decoded bodies.  Now, such parts are reproduced
+faithfully from the original source.  Message parts (which includes
+part 0) output the full message, including the message headers (but
+not the transfer headers).  Multipart parts output the part as
+encoded in the original message, including the part's headers.  Leaf
+parts, as before, output the part's transfer-decoded body.</p>
+
+<h3>Listing configuration items</h3>
+
+<p>The new <code>config list</code> command prints out all configuration items and
+their values.</p>
+
+<h2>Emacs Interface</h2>
+
+<h3>Changes to tagging interface</h3>
+
+<p>The user-facing tagging functions in the Emacs interface have been
+normalized across all notmuch modes.  The tagging functions are now
+notmuch-search-tag in search-mode, and notmuch-show-tag in
+show-mode.  They accept a string representing a single tag change,
+or a list of tag changes.  See 'M-x describe-function notmuch-tag'
+for more information.</p>
+
+<p>NOTE: This breaks compatibility with old tagging functions, so user
+may need to update in custom configurations.</p>
+
+<h3>Reply improvement using the JSON format</h3>
+
+<p>Emacs now uses the JSON reply format to create replies. It obeys
+the customization variables message-citation-line-format and
+message-citation-line-function when creating the first line of the
+reply body, and it will quote HTML parts if no text/plain parts are
+available.</p>
+
+<h2>New add-on tool: notmuch-mutt</h2>
+
+<p>The new contrib/ tool <code>notmuch-mutt</code> provides Notmuch integration for
+the Mutt mail user agent. Using it, Mutt users can perform mail
+search, thread reconstruction, and mail tagging/untagging without
+leaving Mutt.  notmuch-mutt, formerly distributed under the name
+<code>mutt-notmuch</code> by Stefano Zacchiroli, will be maintained as a notmuch
+contrib/ from now on.</p>
+
+<h2>Library changes</h2>
+
+<p>The API changes detailed below break binary and source compatibility,
+so libnotmuch has been bumped to version 3.0.0.</p>
+
+<h3>The function <code>notmuch_database_close</code> has been split into <code>notmuch_database_close</code> and <code>notmuch_database_destroy</code></h3>
+
+<p>This makes it possible for long running programs to close the xapian
+database and thus release the lock associated with it without
+destroying the data structures obtained from it.</p>
+
+<h3><code>notmuch_database_open</code>, <code>notmuch_database_create</code>, and <code>notmuch_database_get_directory</code> now return errors</h3>
+
+<p>The type signatures of these functions have changed so that the
+functions now return a <code>notmuch_status_t</code> and take an out-argument for
+returning the new database object or directory object.</p>
+
+<h2>Go bindings changes</h2>
+
+<h3>Go 1 compatibility</h3>
+
+<p>The go bindings and the <code>notmuch-addrlookup</code> utility are now
+compatible with go 1.</p>
+
+</div><!--.inlinecontent-->
+
+<div class="inlinefooter">
+
+<span class="pagedate">
+Posted <span class="date">Tue May 15 00:00:00 2012</span>
+</span>
+
+
+
+
+
+
+
+
+
+</div><!--.inlinefooter-->
+
+</div><!--.inlinepage-->
+<div class="inlinepage">
+
+<div class="inlineheader">
+
+
+<span class="header">
+
+<a href="./release-0.12/">release-0.12</a>
+
+</span>
+
+</div><!--.inlineheader-->
+
+<div class="inlinecontent">
+<h1>Notmuch 0.12 (2012-03-20)</h1>
+
+<h2>Command-Line Interface</h2>
+
+<h3>Reply to sender</h3>
+
+<p><code>notmuch reply</code> has gained the ability to create a reply template
+for replying just to the sender of the message, in addition to reply
+to all. The feature is available through the new command line option
+<code>--reply-to=(all|sender)</code>.</p>
+
+<h3>Mail store folder/file ignore</h3>
+
+<p>A new configuration option, <code>new.ignore</code>, lets users specify a
+;-separated list of file and directory names that will not be
+searched for messages by <code>notmuch new</code>.</p>
+
+<p>NOTE: <em>Every</em> file/directory that goes by one of those names will
+be ignored, independent of its depth/location in the mail store.</p>
+
+<h3>Unified help and manual pages</h3>
+
+<p>The notmuch help command now runs man for the appropriate page.  If
+you install notmuch somewhere "unusual", you may need to update
+MANPATH.</p>
+
+<h3>Manual page for notmuch configuration options</h3>
+
+<p>The notmuch CLI configuration file options are now documented in the
+notmuch-config(1) manual page in addition to the configuration file
+itself.</p>
+
+<h2>Emacs Interface</h2>
+
+<h3>Reply to sender</h3>
+
+<p>The Emacs interface has, with the new CLI support, gained the
+ability to reply to sender in addition to reply to all. In both show
+and search modes, 'r' has been bound to reply to sender, replacing
+reply to all, which now has key binding 'R'.</p>
+
+<h3>More flexible and consistent tagging operations</h3>
+
+<p>All tagging operations ('+', '-', '<code>*</code>') now accept multiple tags with
+'+' or '-' prefix, like '<code>*</code>' operation in notmuch-search view before.</p>
+
+<p>'<code>*</code>' operation (<code>notmuch-show-tag-all</code>) is now available in
+notmuch-show view.</p>
+
+<p><code>notmuch-show-{add,remove}-tag</code> functions no longer accept tag
+argument, <code>notmuch-show-tag-message</code> should be used instead.  Custom
+bindings using these functions should be updated, e.g.:</p>
+
+<pre><code>    (notmuch-show-remove-tag "unread")
+</code></pre>
+
+<p>should be changed to:</p>
+
+<pre><code>    (notmuch-show-tag-message "-unread")
+</code></pre>
+
+<h3>Refreshing the show view ('=' by default) no longer opens or closes messages</h3>
+
+<p>To get the old behavior of putting messages back in their initial
+opened/closed state, use a prefix argument, e.g., 'C-u ='.</p>
+
+<p>Attachment buttons can be used to view or save attachments.</p>
+
+<p>When the cursor is on an attachment button the key 's' can be used
+to save the attachment, the key 'v' to view the attachment in the
+default mailcap application, and the key 'o' prompts the user for an
+application to use to open the attachment. By default Enter or mouse
+button 1 saves the attachment but this is customisable (option
+Notmuch Show Part Button Default Action).</p>
+
+<h3>New functions</h3>
+
+<p><code>notmuch-show-stash-mlarchive-link{,-and-go}</code> allow stashing and
+optionally visiting a URI to the current message at one of a number
+of Mailing List Archives.</p>
+
+<h3>Fix MML tag quoting in replies</h3>
+
+<p>The MML tag quoting fix of 0.11.1 unintentionally quoted tags
+inserted in <code>message-setup-hook</code>. Quoting is now limited to the
+cited message.</p>
+
+<h3>Show view archiving key binding changes</h3>
+
+<p>The show view archiving key bindings 'a' and 'x' now remove the
+"inbox" tag from the current message only (instead of thread), and
+move to the next message. At the last message, 'a' proceeds to the
+next thread in search results, and 'x' returns to search
+results. The thread archiving functions are now available in 'A' and
+'X'.</p>
+
+<h3>Support text/calendar MIME type</h3>
+
+<p>The text/calendar MIME type is now supported in addition to
+text/x-vcalendar.</p>
+
+<h3>Generate inline patch fake attachment file names from message subject</h3>
+
+<p>Use the message subject to generate file names for the inline patch
+fake attachments. The names are now similar to the ones generated by
+'git format-patch' instead of just "inline patch". See "Notmuch Show
+Insert Text/Plain Hook" in the notmuch customize interface.</p>
+
+<h3>Enable <code>notmuch-search-line-faces</code> by default</h3>
+
+<p>Make the <code>notmuch-search-line-faces</code> functionality more discoverable
+for new users by showing "unread" messages bold and "flagged"
+messages blue by default in the search view.</p>
+
+<h3>Printing Support</h3>
+
+<p>notmuch-show mode now has simple printing support, bound to '#' by
+default. You can customize the variable notmuch-print-mechanism.</p>
+
+<h2>Library changes</h2>
+
+<h3>New functions</h3>
+
+<p><code>notmuch_query_add_tag_exclude</code> supports the new tag exclusion
+feature.</p>
+
+<h2>Python bindings changes</h2>
+
+<h3>Python 3.2 compatibility</h3>
+
+<p>The python bindings are now compatible with both python 2.5+ and 3.2.</p>
+
+<h3>Added missing unicode conversions</h3>
+
+<p>Python strings have to be encoded to and decoded from utf-8 when
+calling libnotmuch functions. Porting the bindings to python 3.2
+revealed a few function calls that were missing these conversions.</p>
+
+<h2>Build fixes</h2>
+
+<h3>Compatibility with GMime 2.6</h3>
+
+<p>It is now possible to build notmuch against both GMime 2.4 and 2.6.
+However, a bug in GMime 2.6 before 2.6.5 causes notmuch not to
+report signatures where the signer key is unavailable (GNOME bug
+668085).  For compatibility with GMime 2.4's tolerance of "From "
+headers we require GMime 2.6 &gt;= 2.6.7.</p>
+
+</div><!--.inlinecontent-->
+
+<div class="inlinefooter">
+
+<span class="pagedate">
+Posted <span class="date">Tue Mar 20 00:00:00 2012</span>
+</span>
+
+
+
+
+
+
+
+
+
+</div><!--.inlinefooter-->
+
+</div><!--.inlinepage-->
+<div class="inlinepage">
+
+<div class="inlineheader">
+
+
+<span class="header">
+
+<a href="./release-0.11.1/">release-0.11.1</a>
+
+</span>
+
+</div><!--.inlineheader-->
+
+<div class="inlinecontent">
+<h1>Notmuch 0.11.1 (2012-02-03)</h1>
+
+<h2>Bug-fix release</h2>
+
+<h3>Fix error handling in python bindings</h3>
+
+<p>The python bindings in 0.11 failed to detect NULL pointers being
+returned from libnotmuch functions and thus failed to raise
+exceptions to indicate the error condition. Any subsequent calls
+into libnotmuch caused segmentation faults.</p>
+
+<h3>Quote MML tags in replies</h3>
+
+<p>MML tags are text codes that Emacs uses to indicate attachments
+(among other things) in messages being composed.  The Emacs
+interface did not quote MML tags in the quoted text of a reply.
+User could be tricked into replying to a maliciously formatted
+message and not editing out the MML tags from the quoted text.  This
+could lead to files from the user's machine being attached to the
+outgoing message.  The Emacs interface now quotes these tags in
+reply text, so that they do not effect outgoing messages.</p>
+
+</div><!--.inlinecontent-->
+
+<div class="inlinefooter">
+
+<span class="pagedate">
+Posted <span class="date">Fri Feb  3 00:00:00 2012</span>
+</span>
+
+
+
+
+
+
+
+
+
+</div><!--.inlinefooter-->
+
+</div><!--.inlinepage-->
+<div class="inlinepage">
+
+<div class="inlineheader">
+
+
+<span class="header">
+
+<a href="./release-0.11/">release-0.11</a>
+
+</span>
+
+</div><!--.inlineheader-->
+
+<div class="inlinecontent">
+<h1>Notmuch 0.11 (2012-01-13)</h1>
+
+<h2>Command-Line Interface</h2>
+
+<h3>Hooks</h3>
+
+<p>Hooks have been introduced to notmuch. Hooks are scripts that notmuch
+invokes before and after certain actions. Initially, <code>notmuch new</code>
+supports <code>pre-new</code> and <code>post-new</code> hooks that are run before and after
+importing new messages into the database.</p>
+
+<h3><code>notmuch reply --decrypt bugfix</code></h3>
+
+<p>The <code>notmuch reply</code> command with <code>--decrypt</code> argument had a rarely
+occurring bug that caused an encrypted message not to be decrypted
+sometimes. This is now fixed.</p>
+
+<h2>Performance</h2>
+
+<h3>Automatic tag query optimization</h3>
+
+<p><code>notmuch tag</code> now automatically optimizes the user's query to
+exclude messages whose tags won't change.  In the past, we've
+suggested that people do this by hand; this is no longer necessary.</p>
+
+<h3>Don't sort messages when creating a dump file</h3>
+
+<p>This speeds up tag dumps considerably, without any loss of
+information. To replicate the old behavior of sorted output (for
+example to compare two dump files), one can use e.g. <code>sort(1)</code>.</p>
+
+<h2>Memory Management</h2>
+
+<h3>Reduction of memory leaks</h3>
+
+<p>Two memory leaks when searching and showing messages were identified
+and fixed in this release.</p>
+
+<h2>Emacs Interface</h2>
+
+<h3>Bug fixes</h3>
+
+<p>notmuch-show-advance (bound to the spacebar in notmuch-show-mode) had
+a bug that caused it to always jump to the next message, even if it
+should have scrolled down to show more of the current message instead.
+This is now fixed.</p>
+
+<h3>Support <code>notmuch new</code> as a notmuch-poll-script</h3>
+
+<p>It's now possible to use <code>notmuch new</code> as a notmuch-poll-script
+directly. This is also the new default. This allows taking better
+advantage of the <code>notmuch new</code> hooks from emacs without intermediate
+scripts.</p>
+
+<h3>Improvements in saved search management</h3>
+
+<p>New saved searches are now appended to the list of saved searches,
+not inserted in front. It's also possible to define a sort function
+for displaying saved searches; alphabetical sort is provided.</p>
+
+<h3>Hooks for notmuch-hello</h3>
+
+<p>Two new hooks have been added: "notmuch-hello-mode-hook" (called after
+entering notmuch-hello-mode) and "notmuch-hello-refresh-hook" (called
+after updating a notmuch-hello buffer).</p>
+
+<h3>New face for crypto parts headers</h3>
+
+<p>Crypto parts used to be displayed with a hardcoded color. A new face
+has been introduced to fix this: notmuch-crypto-part-header. It
+defaults to the same value as before, but can be customized to match
+other color themes.</p>
+
+<h3>Use space as default thousands separator</h3>
+
+<p>Large numbers in notmuch-hello are now displayed using a space as
+thousands separator (e.g. "123 456" instead of "123,456"). This can be
+changed by customizing "notmuch-hello-thousands-separator".</p>
+
+<h3>Call notmuch-show instead of notmuch-search when clicking on buttonized id: links</h3>
+
+<h3>New function notmuch-show-advance</h3>
+
+<p>This new function advances through just the current thread, and is
+less invasive than notmuch-show-advance-and-archive.  It can easily
+be bound to SPC with:</p>
+
+<pre><code>    (define-key notmuch-show-mode-map " " 'notmuch-show-advance)
+</code></pre>
+
+<h3>Various performance improvements</h3>
+
+<h2>New add-on tool</h2>
+
+<p>The tool <code>contrib/notmuch-deliver</code> helps with initial delivery and
+tagging of mail (replacing running <code>notmuch new</code>).</p>
+
+</div><!--.inlinecontent-->
+
+<div class="inlinefooter">
+
+<span class="pagedate">
+Posted <span class="date">Fri Jan 13 00:00:00 2012</span>
+</span>
+
+
+
+
+
+
+
+
+
+</div><!--.inlinefooter-->
+
+</div><!--.inlinepage-->
+<div class="inlinepage">
+
+<div class="inlineheader">
+
+
+<span class="header">
+
+<a href="./release-0.10.2/">release-0.10.2</a>
+
+</span>
+
+</div><!--.inlineheader-->
+
+<div class="inlinecontent">
+<h1>Notmuch 0.10.2 (2011-12-04)</h1>
+
+<h2>Bug-fix release</h2>
+
+<h3>Fix crash in python bindings</h3>
+
+<p>The python bindings did not call <code>g_type_init</code>, which caused crashes
+for some, but not all users.</p>
+
+</div><!--.inlinecontent-->
+
+<div class="inlinefooter">
+
+<span class="pagedate">
+Posted <span class="date">Sun Dec  4 00:00:00 2011</span>
+</span>
+
+
+
+
+
+
+
+
+
+</div><!--.inlinefooter-->
+
+</div><!--.inlinepage-->
+<div class="inlinepage">
+
+<div class="inlineheader">
+
+
+<span class="header">
+
+<a href="./release-0.10.1/">release-0.10.1</a>
+
+</span>
+
+</div><!--.inlineheader-->
+
+<div class="inlinecontent">
+<h1>Notmuch 0.10.1 (2011-11-25)</h1>
+
+<h2>Bug-fix release</h2>
+
+<h3>Fix <code>--help</code> argument</h3>
+
+<p>Argument processing changes in 0.10 introduced a bug where
+<code>notmuch --help</code> crashed while <code>notmuch help</code> worked fine.
+This is fixed in 0.10.1.</p>
+
+</div><!--.inlinecontent-->
+
+<div class="inlinefooter">
+
+<span class="pagedate">
+Posted <span class="date">Fri Nov 25 00:00:00 2011</span>
+</span>
+
+
+
+
+
+
+
+
+
+</div><!--.inlinefooter-->
+
+</div><!--.inlinepage-->
+<div class="inlinepage">
+
+<div class="inlineheader">
+
+
+<span class="header">
+
+<a href="./release-0.10/">release-0.10</a>
+
+</span>
+
+</div><!--.inlineheader-->
+
+<div class="inlinecontent">
+<h1>Notmuch 0.10 (2011-11-23)</h1>
+
+<h2>New build and testing features</h2>
+
+<p>Emacs tests are now done in <code>dtach</code>. This means that dtach is now
+needed to run the notmuch test suite, at least until the checking for
+prerequisites is improved.</p>
+
+<p>Full test coverage of the stashing feature in Emacs.</p>
+
+<h2>New command-line features</h2>
+
+<h3>Add <code>notmuch restore --accumulate</code> option</h3>
+
+<p>The <code>--accumulate</code> switch causes the union of the existing and new tags to
+be applied, instead of replacing each message's tags as they are read in
+from the dump file.</p>
+
+<h3>Add search terms to <code>notmuch dump</code></h3>
+
+<p>The dump command now takes an optional search term much like notmuch
+search/show/tag. The output file argument of dump is deprecated in
+favour of using stdout.</p>
+
+<h3>Add <code>notmuch search</code> <code>--offset</code> and <code>--limit</code> options</h3>
+
+<p>The search command now takes options <code>--offset=[-]N</code> and <code>--limit=N</code> to
+limit the number of results shown.</p>
+
+<h3>Add <code>notmuch count --output</code> option</h3>
+
+<p>The count command is now capable of counting threads in addition to
+messages. This is selected using the new <code>--output=(threads|messages)</code>
+option.</p>
+
+<h2>New emacs UI features</h2>
+
+<h3>Add tab-completion for <code>notmuch-search</code> and <code>notmuch-search-filter</code></h3>
+
+<p>These functions now support completion tags for query parts
+starting with "tag:".</p>
+
+<h3>Turn "id:MSG-ID" links into buttons associated with notmuch searches</h3>
+
+<p>Text of the form "id:MSG-ID" in mails is now a clickable button that
+opens a notmuch search for the given message id.</p>
+
+<h3>Add keybinding ('c I') for stashing Message-ID's without an id: prefix</h3>
+
+<p>Reduces manual labour when stashing them for use outside notmuch.</p>
+
+<h3>Do not query on <code>notmuch-search</code> exit</h3>
+
+<p>It is harmless to kill the external notmuch process, so the user
+is no longer interrogated when they interrupt a search.</p>
+
+<h2>Performance</h2>
+
+<h3>Emacs now constructs large search buffers more efficiently</h3>
+
+<h3>Search avoids opening and parsing message files</h3>
+
+<p>We now store more information in the database so search no longer
+has to open every message file to get basic headers.  This can
+improve search speed by as much as 10X, but taking advantage of this
+requires a database rebuild:</p>
+
+<pre><code>    notmuch dump &gt; notmuch.dump
+    # Backup, then remove notmuch database (&#036;MAIL/.notmuch)
+    notmuch new
+    notmuch restore notmuch.dump
+</code></pre>
+
+<h2>New collection of add-on tools</h2>
+
+<p>The source directory "contrib" contains tools built on notmuch.  These
+tools are not part of notmuch, and you should check their individual
+licenses.  Feel free to report problems with them to the notmuch
+mailing list.</p>
+
+<h3>nmbug - share tags with a given prefix</h3>
+
+<p>nmbug helps maintain a git repo containing all tags with a given
+prefix (by default "notmuch::"). Tags can be shared by commiting
+them to git in one location and restoring in another.</p>
+
+</div><!--.inlinecontent-->
+
+<div class="inlinefooter">
+
+<span class="pagedate">
+Posted <span class="date">Wed Nov 23 00:00:00 2011</span>
+</span>
+
+
+
+
+
+
+
+
+
+</div><!--.inlinefooter-->
+
+</div><!--.inlinepage-->
+<div class="inlinepage">
+
+<div class="inlineheader">
+
+
+<span class="header">
+
+<a href="./release-0.9/">release-0.9</a>
+
+</span>
+
+</div><!--.inlineheader-->
+
+<div class="inlinecontent">
+<h1>Notmuch 0.9 (2011-10-01)</h1>
+
+<h2>New, general features</h2>
+
+<h3>Correct handling of interruptions during <code>notmuch new</code></h3>
+
+<p><code>notmuch new</code> now operates as a series of small, self-consistent
+transactions, so it can correctly resume after an interruption or
+crash.  Previously, interruption could lose existing tags, fail to
+detect messages on resume, or leave the database in a state
+temporarily or permanently inconsistent with the mail store.</p>
+
+<h2>Library changes</h2>
+
+<h3>New functions</h3>
+
+<p><code>notmuch_database_begin_atomic</code> and <code>notmuch_database_end_atomic</code>
+allow multiple database operations to be performed atomically.</p>
+
+<p><code>notmuch_database_find_message_by_filename</code> does exactly what it says.</p>
+
+<h3>API changes</h3>
+
+<p><code>notmuch_database_find_message</code> (and <code>n_d_f_m_by_filename</code>) now return
+a status indicator and uses an output parameter for the
+message. This change required changing the SONAME of libnotmuch to
+libnotmuch.so.2</p>
+
+<h2>Python bindings changes</h2>
+
+<ul>
+<li>Re-encode python unicode objects to utf-8 before passing back to
+libnotmuch.</li>
+<li>Support <code>Database().begin_atomic()/end_atomic()</code></li>
+<li>Support <code>Database().find_message_by_filename()</code>
+NB! This needs a db opened in READ-WRITE mode currently, or it will crash
+the python process. The is a limitation (=bug) of the underlying libnotmuch.</li>
+<li>Fixes where we would not throw NotmuchErrors when we should (Justus Winter)</li>
+<li>Update for <code>n_d_find_message*</code> API changes (see above).</li>
+</ul>
+
+<h2>Ruby bindings changes</h2>
+
+<ul>
+<li>Wrap new library functions <code>notmuch_database_{begin,end}_atomic.</code></li>
+<li>Add new exception <code>Notmuch::UnbalancedAtomicError.</code></li>
+<li>Rename destroy to destroy! according to Ruby naming conventions.</li>
+<li>Update for <code>n_d_find_message*</code> API changes (see above).</li>
+</ul>
+
+<h2>Emacs improvements</h2>
+
+<ul>
+<li>Add gpg callback to crypto sigstatus buttons to retrieve/refresh
+signing key.</li>
+<li>Add <code>notmuch-show-refresh-view</code> function (and corresponding binding)
+to refresh the view of a notmuch-show buffer.</li>
+</ul>
+
+<h2>Reply formatting cleanup</h2>
+
+<p><code>notmuch reply</code> no longer includes notification that non-leafnode
+MIME parts are being suppressed.</p>
+
+</div><!--.inlinecontent-->
+
+<div class="inlinefooter">
+
+<span class="pagedate">
+Posted <span class="date">Sat Oct  1 00:00:00 2011</span>
+</span>
+
+
+
+
+
+
+
+
+
+</div><!--.inlinefooter-->
+
+</div><!--.inlinepage-->
+<div class="inlinepage">
+
+<div class="inlineheader">
+
+
+<span class="header">
+
+<a href="./release-0.8/">release-0.8</a>
+
+</span>
+
+</div><!--.inlineheader-->
+
+<div class="inlinecontent">
+<h1>Notmuch 0.8 (2011-09-10)</h1>
+
+<h3>Improved handling of message/rfc822 parts</h3>
+
+<p>Both in the CLI and the emacs interface.  Output of rfc822 parts now
+includes the primary headers, as well as the body and all subparts.
+Output of the completely raw rfc822-formatted message, including all
+headers, is unfortunately not yet supported (but hopefully will be
+soon).</p>
+
+<h3>Improved Build system portability</h3>
+
+<p>Certain parts of the shell script generating notmuch.sym were
+specific to the GNU versions of sed and nm. The new version should
+be more portable to e.g. OpenBSD.</p>
+
+<h3>Documentation update for Ruby bindings</h3>
+
+<p>Added documentation, typo fixes, and improved support for rdoc.</p>
+
+<h3>Unicode, iterator, PEP8 changes for python bindings</h3>
+
+<ul>
+<li>PEP8 (code formatting) changes for python files.</li>
+<li>Remove <code>Tags.__len__</code> ; see 0.6 release notes for motivation.</li>
+<li>Decode headers as UTF8, encode (unicode) database paths as UTF8.</li>
+</ul>
+
+</div><!--.inlinecontent-->
+
+<div class="inlinefooter">
+
+<span class="pagedate">
+Posted <span class="date">Sat Sep 10 00:00:00 2011</span>
+</span>
+
+
+
+
+
+
+
+
+
+</div><!--.inlinefooter-->
+
+</div><!--.inlinepage-->
+<div class="inlinepage">
+
+<div class="inlineheader">
+
+
+<span class="header">
+
+<a href="./release-0.7/">release-0.7</a>
+
+</span>
+
+</div><!--.inlineheader-->
+
+<div class="inlinecontent">
+<h1>Notmuch 0.7 (2011-08-01)</h1>
+
+<h2>Vim interface improvements</h2>
+
+<h3>Jason Woofenden provided a number of bug fixes for the Vim interface</h3>
+
+<ul>
+<li>fix citation/signature fold lengths</li>
+<li>fix cig/cit parsing within multipart/*</li>
+<li>fix on-screen instructions for show-signature</li>
+<li>fix from list reformatting in search view</li>
+<li>fix space key: now archives (did opposite)</li>
+</ul>
+
+<h3>Uwe Kleine-König contributed</h3>
+
+<ul>
+<li>use full path for sendmail/doc fix</li>
+<li>fix compose temp file name</li>
+</ul>
+
+<h2>Python Bindings changes</h2>
+
+<h3>Sebastian Spaeth contributed two changes related to unicode and UTF8:</h3>
+
+<ul>
+<li>message tags are now explicitly unicode</li>
+<li>query string is encoded as a UTF8 byte string</li>
+</ul>
+
+<h2>Build-System improvements</h2>
+
+<h3>Generate notmuch.sym after the relevant object files</h3>
+
+<p>This fixes a bug in parallel building. Thanks to Thomas Jost for the
+patch.</p>
+
+</div><!--.inlinecontent-->
+
+<div class="inlinefooter">
+
+<span class="pagedate">
+Posted <span class="date">Mon Aug  1 00:00:00 2011</span>
+</span>
+
+
+
+
+
+
+
+
+
+</div><!--.inlinefooter-->
+
+</div><!--.inlinepage-->
+<div class="inlinepage">
+
+<div class="inlineheader">
+
+
+<span class="header">
+
+<a href="./release-0.6.1/">release-0.6.1</a>
+
+</span>
+
+</div><!--.inlineheader-->
+
+<div class="inlinecontent">
+<h1>Notmuch 0.6.1 (2011-07-17)</h1>
+
+<h2>Bug-fix release</h2>
+
+<h3>Re-export Xapian exception typeinfo symbols</h3>
+
+<p>It turned out our aggressive symbol hiding caused problems for
+people running gcc 4.4.5.</p>
+
+</div><!--.inlinecontent-->
+
+<div class="inlinefooter">
+
+<span class="pagedate">
+Posted <span class="date">Sun Jul 17 00:00:00 2011</span>
+</span>
+
+
+
+
+
+
+
+
+
+</div><!--.inlinefooter-->
+
+</div><!--.inlinepage-->
+<div class="inlinepage">
+
+<div class="inlineheader">
+
+
+<span class="header">
+
+<a href="./release-0.6/">release-0.6</a>
+
+</span>
+
+</div><!--.inlineheader-->
+
+<div class="inlinecontent">
+<h1>Notmuch 0.6 (2011-07-01)</h1>
+
+<h2>New, general features</h2>
+
+<h3>Folder-based searching</h3>
+
+<p>Notmuch queries can now include a search term to match the
+directories in which mail files are stored (within the mail
+storage). The syntax is as follows:</p>
+
+<pre><code>    folder:&lt;path&gt;
+</code></pre>
+
+<p>For example, one might use things such as:</p>
+
+<pre><code>    folder:spam
+    folder:2011-*
+    folder:work/todo
+</code></pre>
+
+<p>to match any path containing a directory "spam", "work/todo", or
+containing a directory starting with "2011-", respectively.</p>
+
+<p>This feature is particularly useful for users of delivery-agent
+software (such as procmail or maildrop) that is filtering mail and
+delivering it to particular folders, or users of systems such as
+Gmail that use filesystem directories to indicate message tags.</p>
+
+<p>NOTE: Only messages that are newly indexed with this version of
+notmuch will be searchable with folder: terms. In order to enable
+this feature for all mail, the entire notmuch index will need to be
+rebuilt as follows:</p>
+
+<pre><code>    notmuch dump &gt; notmuch.dump
+    # Backup, then remove notmuch database (&#036;MAIL/.notmuch)
+    notmuch new
+    notmuch restore notmuch.dump
+</code></pre>
+
+<h3>Support for PGP/MIME</h3>
+
+<p>Both the command-line interface and the emacs-interface have new
+support for PGP/MIME, detailed below. Thanks to Daniel Kahn Gillmor
+and Jameson Graef Rollins for making this happen.</p>
+
+<h3>New, automatic tags: "signed" and "encrypted"</h3>
+
+<p>These tags will automatically be applied to messages containing
+multipart/signed and multipart/encrypted parts.</p>
+
+<p>NOTE: Only messages that are newly indexed with this version of
+notmuch will receive these tags.</p>
+
+<h2>New command-line features</h2>
+
+<h3>Add new "notmuch show --verify" option for signature verification</h3>
+
+<p>This option instruct notmuch to verify the signature of
+PGP/MIME-signed parts.</p>
+
+<h3>Add new "notmuch show --decrypt" and "notmuch reply --decrypt" options</h3>
+
+<p>This option instructs notmuch to decrypt PGP/MIME-encrypted parts.
+Note that this feature currently requires gpg-agent and a passphrase entry
+tool (e.g. pinentry-gtk or pinentry-curses).</p>
+
+<h3>Proper nesting of multipart parts in "notmuch show" output</h3>
+
+<p>MIME parts are now display with proper nesting to reflect original
+MIME hierarchy of a message. This allows clients to correctly
+analyze the MIME structure, (such as, for example, determining to
+which parts a signature part applies).</p>
+
+<h3>Add new "notmuch show --part" option</h3>
+
+<p>This is a replacement for the older "notmuch part" command, (which
+is now deprecated—it should still work as always, but is no longer
+documented). Putting part output under "notmuch show" allows for all
+of the "notmuch show" options to be applied when extracting a single
+part, (such as --format=json for extracting a message part with JSON
+formatting).</p>
+
+<h3>Deprecate "notmuch search-tags" (in favor of "notmuch search --output=tags *")</h3>
+
+<p>The "notmuch search-tags" sub-command has been redundant since the
+addition of the --output=tags option to "notmuch search". We now
+make that more clear by deprecating "notmuch search-tags", (dropping
+it from the documentation). We do continue to support the old syntax
+by translating it internally to the new call.</p>
+
+<h2>Performance improvements</h2>
+
+<h3>Faster searches (by doing fewer searches to construct threads)</h3>
+
+<p>Whenever a user asks for search results as threads, notmuch first
+performs a search for messages matching the query, then performs
+additional searches to find other messages in the resulting threads.</p>
+
+<p>Removing inefficiencies and redundancies in these secondary searches
+results in a measured speedups of 1.5x for a typical search.</p>
+
+<h3>Faster searches (by doing fewer passes to gather message data)</h3>
+
+<p>Optimizing Xapian data access patterns (using a single pass to get
+all message-document data rather than a pass for each data type)
+results in a measured speedup of 1.7x for a typical search.</p>
+
+<p>The benefits of this optimization combine with the preceding
+optimization. With both in place, Austin Clements measured a speedup
+of 2.5x for a search of all messages in his inbox (was 4.5s, now
+1.8s). Thanks, Austin!</p>
+
+<h3>Faster initial indexing</h3>
+
+<p>More efficient indexing of new messages results in a measured
+speedup of 1.4x for the initial indexing of 3 GB of mail (1h 14m
+rather than 1h 46m). Thanks to Austin Clements and Michal Sojka.</p>
+
+<h3>Make "notmuch new" faster for unchanged directories</h3>
+
+<p>Optimizing to not do any further examinations of sub-directories
+when the filesystem indicates that a directory is unchanged from the
+last "notmuch new" results in measured speedups of 8.5 for the "No
+new mail" case, (was 0.77s, now 0.09s). Thanks to Karel Zak.</p>
+
+<h2>New emacs-interface features</h2>
+
+<h3>Support for PGP/MIME (GnuPG)</h3>
+
+<p>Automatically indicate validity of signatures for multipart/signed
+messages.  Automatically display decrypted content for
+multipart/encrypted messages.  See the emacs variable
+notmuch-crypto-process-mime for more information. Note that this
+needs gpg-agent and a pinentry tool just as the command-line tools.
+Also note there is no support SMIME yet.</p>
+
+<h3>Output of pipe command is now displayed if pipe command fails</h3>
+
+<p>This is extremely useful in the common use case of piping a patch to
+"git am". If git fails to cleanly merge the patch the error messages
+from the failed merge are now clearly displayed to the user, (where
+previously they were silently hidden from the user).</p>
+
+<h3>User-selectable From address</h3>
+
+<p>A user can choose which configured email addresses should be used as
+the From address whenever composing a new message. To do so, simply
+press C-u before the command which will open a new message. Emacs
+will prompt for the from address to use.</p>
+
+<p>The user can customize the "Notmuch Identities" setting in the
+notmuch customize group in order to use addresses other than those in
+the notmuch configuration file if desired.</p>
+
+<p>The user can also choose to always be prompted for the from address
+when composing a new message (without having to use C-u) by setting
+the "Notmuch Always Prompt For Sender" option in the notmuch
+customize group.</p>
+
+<h3>Hiding of repeated subjects in collapsed thread view</h3>
+
+<p>In notmuch-show mode, if a collapsed message has the same subject as
+its parent, the subject is not shown.</p>
+
+<h3>Automatic detection and hiding of original message in top-posted message</h3>
+
+<p>When a message contains a line looking something like:</p>
+
+<pre><code>    ----- Original Message -----
+</code></pre>
+
+<p>emacs hides this and all subsequent lines as an "original message",
+(allowing the user to click or press enter on the "original message"
+button to display it again). This makes the handling of top-posted
+citations work much like conventional citations.</p>
+
+<h3>New hooks for running code when tags are modified</h3>
+
+<p>Some users want to perform additional actions whenever a particular
+tag is added/removed from a message. This could be used to, for
+example, interface with some external spam-recognition training
+tool. To facilitate this, two new hooks are added which can be
+modified in the following settings of the notmuch customize group:</p>
+
+<pre><code>    Notmuch Before Tag Hook
+    Notmuch After Tag Hook
+</code></pre>
+
+<h3>New optional support for hiding some multipart/alternative parts</h3>
+
+<p>Many emails are sent with redundant content within a
+multipart/alternative group (such as a text/plain part as well as a
+text/html part). Users can configure the setting:</p>
+
+<pre><code>    Notmuch Show All Multipart/Alternative Parts
+</code></pre>
+
+<p>to "off" in the notmuch customize group to have the interface
+automatically hide some part alternatives (such as text/html
+parts). This new part hiding is not configured by default yet
+because there's not yet a simple way to re-display such a hidden
+part if it is not actually redundant with a displayed part.</p>
+
+<h3>Better rendering of text/x-vcalendar parts</h3>
+
+<p>These parts are now displayed in a format suitable for use with the
+emacs diary.</p>
+
+<h3>Avoid getting confused by Subject and Author fields with newline characters</h3>
+
+<p>Replacing all characters with ASCII code less than 32 with a question mark.</p>
+
+<h3>Cleaner display of From line in email messages</h3>
+
+<p>Remove double quotes, and drop "name" if it's actually just a repeat of
+the email address.</p>
+
+<h2>Vim interface improvements</h2>
+
+<h3>Felipe Contreras provided a number of updates for the vim interface:</h3>
+
+<ul>
+<li>Using sendmail directly rather than mailx,</li>
+<li>Implementing archive in show view</li>
+<li>Add support to mark as read in show and search views</li>
+<li>Add delete commands</li>
+<li>Various cleanups.</li>
+</ul>
+
+<h2>Bindings improvements</h2>
+
+<h3>Ruby bindings are now much more complete</h3>
+
+<p>Including <code>QUERY.sort</code>, <code>QUERY.to_s</code>, <code>MESSAGE.maildir_flags_to_tags</code>,
+<code>MESSAGE.tags_to_maildir_flags</code>, and <code>MESSAGE.get_filenames</code></p>
+
+<h3>Python bindings have been updated and extended</h3>
+
+<p>(docs online at http://packages.python.org/notmuch/)</p>
+
+<p>New bindings:</p>
+
+<ul>
+<li><code>Message().get_filenames()</code>, <code>Message().tags_to_maildir_flags()</code>,
+<code>Message().maildir_flags_to_tags()</code>, <code>list(Threads())</code> and
+<code>list(Messages)</code> works now</li>
+<li><code>Message().__cmp__()</code> and <code>__hash__()</code></li>
+</ul>
+
+<p>These allow, for example:</p>
+
+<pre><code>    if msg1 == msg2: ...
+</code></pre>
+
+<p>As well as set arithmetic on <code>Messages()</code>:</p>
+
+<pre><code>    s1, s2 = set(msgs1), set(msgs2)
+    s1.union(s2)
+    s2 -= s1
+</code></pre>
+
+<p>Removed:</p>
+
+<ul>
+<li><code>len(Messages())</code> as it exhausted the iterator</li>
+</ul>
+
+<p>Use <code>len(list(Messages()))</code> or <code>Query.count_messages()</code>
+to get the length.</p>
+
+<h3>Added initial Go bindings in bindings/go</h3>
+
+<h2>New build-system features</h2>
+
+<h3>Added support for building in a directory other than the source directory</h3>
+
+<p>This can be used with the widely-supported idiom of simply running
+the configure script from some other directory:</p>
+
+<pre><code>    mkdir build
+    cd build
+    ../configure
+    make
+</code></pre>
+
+<h3>Fix to save configure options for future, implicit runs of configure</h3>
+
+<p>When a user updates the source (such as with "git pull") calling
+"make" may cause an automatic re-run of the configure script. When
+this happens, the configure script will automatically be called with
+the same options the user originally passed in the most-recent
+manual invocation of configure.</p>
+
+<h2>New test-suite feature</h2>
+
+<h3>Binary for bash for running test suite now located via PATH</h3>
+
+<p>The notmuch test suite requires a fairly recent version of bash (&gt;=
+bash 4). As some systems supply an older version of bash at
+/bin/bash, the test suite is now updated to search $PATH to locate
+the bash binary. This allows users of systems with old /bin/bash to
+simply install bash &gt;= 4 somewhere on $PATH before /bin and then use
+the test suite.</p>
+
+<h3>Support for testing output with a trailing newline</h3>
+
+<p>Previously, some tests would fail to notice a difference in the
+presence/absence of a trailing newline in a program output, (which
+has led to bugs in the past). Now, carefully-written tests (using
+<code>test_expect_equal_file</code> rather than <code>test_expect_equal</code>) will detect
+any change in the presence/absence of a trailing newline. Many tests
+are updated to take advantage of this.</p>
+
+<h3>Avoiding accessing user's $HOME while running test suite</h3>
+
+<p>The test suite now carefully creates its own HOME directory. This
+allows the test suite to be run with no existing HOME directory, (as
+some build systems apparently do), and avoids test-suite differences
+due to configuration files in the users HOME directory.</p>
+
+<h2>General bug fixes</h2>
+
+<h3>Output <em>all</em> files for "notmuch search --output=files"</h3>
+
+<p>For the cases where multiple files have the same Message ID,
+previous versions of notmuch would output only one such file. This
+command is now fixed to correctly output all files.</p>
+
+<h3>Fixed spurious search results from "overlapped" indexing of addresses</h3>
+
+<p>This fixed a bug where a search for:</p>
+
+<pre><code>    to:user@elsewhere.com
+</code></pre>
+
+<p>would incorrectly match a message sent:</p>
+
+<pre><code>    To: user@example,com, someone@elsewhere.com
+</code></pre>
+
+<h3>Fix --output=json when search has no results</h3>
+
+<p>A bug present since notmuch 0.4 had caused searches with no results
+to produce an invalid json object. This is now fixed to cleanly
+return a valid json object representing an empty array "[]" as
+expected.</p>
+
+<h3>Fix the automatic detection of the From address for "notmuch reply" from the Received headers in some cases</h3>
+
+<h3>Fix core dump on DragonFlyBSD due to -1 return value from <code>sysconf(_SC_GETPW_R_SIZE_MAX)</code></h3>
+
+<h3>Cleaned up several memory leaks</h3>
+
+<h3>Eliminated a few, rare segmentation faults and a double-free</h3>
+
+<h3>Fix libnotmuch library to only export notmuch API functions</h3>
+
+<p>Previous release of the notmuch library also exported some Xapian
+C++ exception type symbols. These were never part of the library
+interface and were never intended to be exported.</p>
+
+<h2>Emacs-interface bug fixes</h2>
+
+<h3>Display any unexpected output or errors from "notmuch search" invocations</h3>
+
+<p>Previously any misformatted output or trailing error messages were
+silently ignored. This output is now clearly displayed. This fix was
+very helpful in identifying and fixing the bug described below.</p>
+
+<h3>Fix bug where some threads would be missing from large search results</h3>
+
+<p>When a search returned a "large" number of results, the emacs
+interface was incorrectly dropping one thread every time the output
+of the "notmuch search" process spanned the emacs read-buffer. This
+is now fixed.</p>
+
+<h3>Avoid re-compression of .gz files (and similar) when saving attachment</h3>
+
+<p>Emacs was being too clever for its own good and trying to
+re-compress pre-compressed .gz files when saving such attachments
+(potentially corrupting the attachment). The emacs interface is
+fixed to avoid this bug.</p>
+
+<h3>Fix hiding of a message when a previously-hidden citation is visible</h3>
+
+<p>Previously the citation would remain visible in this case. This is
+fixed so that hiding a message hides all parts.</p>
+
+</div><!--.inlinecontent-->
+
+<div class="inlinefooter">
+
+<span class="pagedate">
+Posted <span class="date">Fri Jul  1 00:00:00 2011</span>
+</span>
+
+
+
+
+
+
+
+
+
+</div><!--.inlinefooter-->
+
+</div><!--.inlinepage-->
+<div class="inlinepage">
+
+<div class="inlineheader">
+
+
+<span class="header">
+
+<a href="./release-0.5/">release-0.5</a>
+
+</span>
+
+</div><!--.inlineheader-->
+
+<div class="inlinecontent">
+<h1>Notmuch 0.5 (2010-11-11)</h1>
+
+<h2>New, general features</h2>
+
+<h3>Maildir-flag synchronization</h3>
+
+<p>Notmuch now knows how to synchronize flags in maildir filenames with
+tags in the notmuch database. The following flag/tag mappings are
+supported:</p>
+
+<pre><code>    Flag &lt;-&gt; Tag
+    ----     -----
+    'D'      draft
+    'F'      flagged
+    'P'      passed
+    'R'      replied
+    'S'      unread (added when 'S' flag is not present)
+</code></pre>
+
+<p>The synchronization occurs in both directions, (for example, adding
+the 'S' flag to a file will cause the "unread" tag to be added, and
+adding the "replied" tag to a message will cause the file to be
+renamed with an 'R' flag).</p>
+
+<p>This synchronization is enabled by default for users of the
+command-line interface, (though only files in directories named
+"cur" or "new" will be renamed). It can be disabled by setting the
+new <code>maildir.synchronize_flags</code> option in the configuration file. For
+example:</p>
+
+<pre><code>    notmuch config set maildir.synchronize_flags false
+</code></pre>
+
+<p>Users upgrading may also want to run "notmuch setup" once (just
+accept the existing configuration) to get a new, nicely-commented
+[maildir] section added to the configuration file.</p>
+
+<p>For users of the notmuch library, the new synchronization
+functionality is available with the following two new functions:</p>
+
+<pre><code>    notmuch_message_maildir_flags_to_tags
+    notmuch_message_tags_to_maildir_flags
+</code></pre>
+
+<p>It is anticipated that future improvements to this support will
+allow for safe synchronization of the 'T' flag with the "deleted"
+tag, as well as support for custom flag/tag mappings.</p>
+
+<h2>New library features</h2>
+
+<h3>Support for querying multiple filenames for a single message</h3>
+
+<p>It is common for the mailstore to contain multiple files with the
+same message ID. Previously, notmuch would always hide these
+duplicate files, (returning a single, arbitrary filename with
+<code>notmuch_message_get_filename</code>).</p>
+
+<p>With this release, library users can access all filenames for a
+message with the new function:</p>
+
+<pre><code>    notmuch_message_get_filenames
+</code></pre>
+
+<p>Together with <code>notmuch_filenames_valid</code>, <code>notmuch_filenames_get</code>,
+and <code>notmuch_filenames_move_to_next</code> it is now possible to iterate
+over all available filenames for a given message.</p>
+
+<h2>New command-line features</h2>
+
+<h3>New "notmuch show --format=raw" for getting at original email contents</h3>
+
+<p>This new feature allows for a fully-functional email client to be
+built on top of the notmuch command-line without needing any direct
+access to the mail store itself.</p>
+
+<p>For example, it's now possible to run "emacs -f notmuch" on a local
+machine with only ssh access to the mail store/notmuch database. To
+do this, simply set the notmuch-command variable in emacs to the
+name of a script containing:</p>
+
+<pre><code>    ssh user@host notmuch "&#036;@"
+</code></pre>
+
+<p>If the ssh client has enabled connection sharing (ControlMaster
+option in OpenSSH), the emacs interface can be quite responsive this
+way.</p>
+
+<h2>General bug fixes</h2>
+
+<h3>Fix "notmuch search" to print nothing when nothing matches</h3>
+
+<p>The 0.4 release had a bug in which:</p>
+
+<pre><code>    notmuch search &lt;expression-with-no-matches&gt;
+</code></pre>
+
+<p>would produce a single blank line of output, (where previous
+versions would produce no output. This fix also causes a change in
+the --format=json output, (which would previously produce "[]" and
+now produces nothing).</p>
+
+<h2>Emacs interface improvements</h2>
+
+<h3>Fix to allow pipe ('|') command to work when using notmuch over ssh</h3>
+
+<h3>Fix count of lines in hidden signatures</h3>
+
+<h3>Omit repeated subject lines in (collapsed) thread display</h3>
+
+<h3>Display current thread subject in a header line</h3>
+
+<h3>Provide a "c i" binding to copy a thread ID from the search view</h3>
+
+<h3>Allow for notmuch-fcc-dirs to have a value of nil</h3>
+
+<p>Also, the more complex form of notmuch-fcc-dirs now has a slightly
+different format. It no longer has a special first-element, fallback
+string. Instead it's now a list of cons cells where the car of each
+cell is a regular expression to be matched against the sender
+address, and the cdr is the name of a folder to use for an FCC. So
+the old fallback behavior can be achieved by including a final cell
+of (".*" . "default-fcc-folder").</p>
+
+<h2>Vim interface improvements</h2>
+
+<h3>Felipe Contreras provided a number of updates for the vim interface</h3>
+
+<p>These include optimizations, support for newer versions of vim, fixed
+support for sending mail on modern systems, new commands, and
+various cleanups.</p>
+
+<h2>New bindings</h2>
+
+<h3>Added initial ruby bindings in bindings/ruby</h3>
+
+</div><!--.inlinecontent-->
+
+<div class="inlinefooter">
+
+<span class="pagedate">
+Posted <span class="date">Thu Nov 11 00:00:00 2010</span>
+</span>
+
+
+
+
+
+
+
+
+
+</div><!--.inlinefooter-->
+
+</div><!--.inlinepage-->
+<div class="inlinepage">
+
+<div class="inlineheader">
+
+
+<span class="header">
+
+<a href="./release-0.4/">release-0.4</a>
+
+</span>
+
+</div><!--.inlineheader-->
+
+<div class="inlinecontent">
+<h1>Notmuch 0.4 (2010-11-01)</h1>
+
+<h2>New command-line features</h2>
+
+<h3><code>notmuch search --output=(summary|threads|messages|tags|files)</code></h3>
+
+<p>This new option allows for particular items to be returned from
+notmuch searches. The "summary" option is the default and behaves
+just as "notmuch search" has historically behaved.</p>
+
+<p>The new option values allow for thread IDs, message IDs, lists of
+tags, and lists of filenames to be returned from searches. It is
+expected that this new option will be very useful in shell
+scripts. For example:</p>
+
+<pre><code>    for file in &#036;(notmuch search --output=files &lt;search-terms&gt;); do
+            &lt;operations-on&gt; "&#036;file"
+    done
+</code></pre>
+
+<h3><code>notmuch show --format=mbox &lt;search-specification&gt;</code></h3>
+
+<p>This new option allows for the messages matching a search
+specification to be presented as an mbox. Specifically the "mboxrd"
+format is used which allows for reversible quoting of lines
+beginning with "From ". A reader should remove a single '&gt;' from the
+beginning of all lines beginning with one or more '&gt;' characters
+followed by the 5 characters "From ".</p>
+
+<h3><code>notmuch config [get|set] &lt;section&gt;.&lt;item&gt; [value ...]</code></h3>
+
+<p>The new top-level "config" command allows for any value in the
+notmuch configuration file to be queried or set to a new value. Both
+single-valued and multi-valued items are supported, as our any
+custom items stored in the configuration file.</p>
+
+<h3>Avoid setting Bcc header in "notmuch reply"</h3>
+
+<p>We decided that this was a bit heavy-handed as the actual mail
+user-agent should be responsible for setting any Bcc option. Also,
+see below for the notmuch/emacs user-agent now setting an Fcc by
+default rather than Bcc.</p>
+
+<h2>New library features</h2>
+
+<h3>Add <code>notmuch_query_get_query_string</code> and <code>notmuch_query_get_sort</code></h3>
+
+<p>These are simply functions for querying properties of a
+<code>notmuch_query_t</code> object.</p>
+
+<h2>New emacs features</h2>
+
+<h3>Enable Fcc of all sent messages by default (to "sent" directory)</h3>
+
+<p>All messages sent from the emacs interface will now be saved to the
+notmuch mail store where they will be incorporated to the database
+by the next "notmuch new". By default, messages are saved to the
+"sent" directory at the top-level of the mail store. This directory
+can be customized by means of the "Notmuch Fcc Dirs" option in the
+notmuch customize interface.</p>
+
+<h3>Ability to all open messages in a thread to a pipe</h3>
+
+<p>Historically, the '|' keybinding allows for piping a single message
+to an external command. Now, by prefixing this key with a prefix
+argument, (for example, by pressing "Control-U |"), all open
+messages in the current thread will be sent to the external command.</p>
+
+<h3>Optional support for detecting inline patches</h3>
+
+<p>This hook is disabled by default but can be enabled with a checkbox
+under "Notmuch Show Insert Text/Plain Hook" in the notmuch customize
+interface. It allows for inline patches to be detected and treated
+as if they were attachments, (with context-sensitive highlighting).</p>
+
+<h3>Automatically tag messages as "replied" when sending a reply</h3>
+
+<p>Messages replied to within the emacs interface will now be tagged as
+"replied". This feature can easily be customized to add or remove
+other tags as well. For example, a user might use a tag of
+"needs-reply" and can configure this feature to automatically remove
+that tag when replying. See "Notmuch Message Mark Replied" in the
+notmuch customize interface.</p>
+
+<h3>Allow search-result color specifications to overlay each other</h3>
+
+<p>For example, one tag can specify the background color of matching
+lines, while another can specify the foreground. With this change,
+both settings will now be visible simultaneously, (which was not the
+case in previous releases). See "Notmuch Search Line Faces" in the
+notmuch customize interface.</p>
+
+<h3>Make hidden author names still available for incremental search</h3>
+
+<p>When there is insufficient space to display all authors of a thread
+in search results, the names of hidden authors are now still made
+available to emacs' incremental search commands. As the user
+searches, matching lines will temporarily expand to show the hidden
+names.</p>
+
+<h3>New binding of Control-TAB (works like TAB in reverse)</h3>
+
+<p>Many notmuch nodes already use TAB to navigate forward through
+various items allowing actions, (message headers, email attachments,
+etc.). The new Control-TAB binding operates similarly but in the
+opposite direction.</p>
+
+<h2>New build-system features</h2>
+
+<h3>Various portability fixes have been applied</h3>
+
+<p>These include fixes for build failures on at least Solaris, FreeBSD,
+and Fedora systems. We're hopeful that the notmuch code base is now
+more portable than ever before.</p>
+
+<h3>Arrange for libnotmuch to be found automatically after make install</h3>
+
+<p>The notmuch build system is now careful to help the user avoid
+errors of the form "libnotmuch.so could not be found" immediately
+after installing. This support takes two forms:</p>
+
+<ol>
+<li><p>If the library is installed to a system directory,
+ (configured in /etc/ld.so.conf), then "make install" will
+ automatically run ldconfig.</p></li>
+<li><p>If the library is installed to a non-system directory, the
+ build system adds a <code>DR_RUNPATH</code> entry to the final binary
+ pointing to the directory to which the library is installed.</p></li>
+</ol>
+
+<p>When this support works, the user should be able to run notmuch
+immediately after "make install", without any errors trying to find
+the notmuch library, and without having to manually set environment
+variables such as <code>LD_LIBRARY_PATH</code>.</p>
+
+<h3>Check compiler/linker options before using them</h3>
+
+<p>The configure script now carefully checks that any desired
+compilation options, (whether for enabling compiler warnings, or for
+embedding rpath, etc.), are supported. Only supported options are
+used in the resulting Makefile.</p>
+
+<h2>New test-suite features</h2>
+
+<h3>New modularization of test suite</h3>
+
+<p>Thanks to a gracious relicensing of the test-suite infrastructure
+from the git project, notmuch now has a modular test suite. This
+provides the ability to run individual sections of the test suite
+rather than the whole things. It also provides better summary of
+test results, with support for tests that are expected to fail
+(BROKEN and FIXED) in addition to PASS and FAIL. Finally, it makes
+it easy to run the test suite within valgrind (pass --valgrind to
+notmuch-test or to any sub-script) which has been very useful.</p>
+
+<h3>New testing of emacs interface</h3>
+
+<p>The test suite has been augmented to allow automated testing of the
+emacs interfaces. So far, this includes basic searches, display of
+threads, and tag manipulation. This also includes a test that a new
+message can successfully be sent out through a (dummy) SMTP server
+and that said message is successfully integrated into the notmuch
+database via the FCC setting.</p>
+
+<h2>General bug fixes</h2>
+
+<h3>Fix potential corruption of database when "notmuch new" is interrupted</h3>
+
+<p>Previously, an interruption of "notmuch new" would (rarely) result
+in a corrupt database. The corruption would manifest itself by a
+persistent error of the form:</p>
+
+<pre><code>    document ID of 1234 has no thread ID
+</code></pre>
+
+<p>The message-adding code has been carefully audited and reworked to
+avoid this sort of corruption regardless of when it is interrupted.</p>
+
+<h3>Fix failure with extremely long message ID headers</h3>
+
+<p>Previously, a message with an extremely long message ID, (say, more
+than 300 characters), would fail to be added to notmuch, (triggering
+Xapian exceptions). This has now been fixed.</p>
+
+<h3>Fix for messages with "charset=unknown-8bit"</h3>
+
+<p>Previously, messages with this charset would cause notmuch to emit a
+GMime warning, (which would then trip up emacs or other interfaces
+parsing the notmuch results).</p>
+
+<h3>Fix <code>notmuch_query_search_threads</code> function to return NULL on any exception</h3>
+
+<h3>Fix "notmuch search" to return non-zero if <code>notmuch_query_search_threads</code> fails</h3>
+
+<p>Previously, this command could confusingly report a Xapian
+exception, yet still return an error code of 0. It now correctly
+returns a failing error code of 1 in this case.</p>
+
+<h2>Emacs bug fixes</h2>
+
+<h3>Fix to handle a message with a subject containing, for example "[1234]"</h3>
+
+<p>Previously, a message subject containing a sequence of digits within
+square brackets would cause the emacs interface to mis-parse the
+output of "notmuch search". This would result in the message being
+mis-displayed and prevent the user from manipulating the message in
+the emacs interface.</p>
+
+<h3>Fix to correctly handle message IDs containing ".."</h3>
+
+<p>The emacs interface now properly quotes message IDs to avoid a
+Xapian bug in which the ".." within a message ID would be
+misinterpreted as a numeric range specification.</p>
+
+<h2>Python-binding fixes</h2>
+
+<p>The python bindings for notmuch have been updated to work with python3.</p>
+
+<h2>Debian-specific fixes</h2>
+
+<h3>Fix emacs initialization so "M-x notmuch" works for users by default</h3>
+
+<p>Now, a new Debian user can immediately run "emacs -f notmuch" after
+"apt-get install notmuch". Previously, the user would have had to
+edit the ~/.emacs file to add "(require 'notmuch)" before this would
+work.</p>
+
+</div><!--.inlinecontent-->
+
+<div class="inlinefooter">
+
+<span class="pagedate">
+Posted <span class="date">Mon Nov  1 00:00:00 2010</span>
+</span>
+
+
+
+
+
+
+
+
+
+</div><!--.inlinefooter-->
+
+</div><!--.inlinepage-->
+<div class="inlinepage">
+
+<div class="inlineheader">
+
+
+<span class="header">
+
+<a href="./release-0.3.1/">release-0.3.1</a>
+
+</span>
+
+</div><!--.inlineheader-->
+
+<div class="inlinecontent">
+<h1>Notmuch 0.3.1 (2010-04-27)</h1>
+
+<h2>General bug fixes</h2>
+
+<h3>Fix an infinite loop in "notmuch reply"</h3>
+
+<p>This bug could be triggered by replying to a message where the
+user's primary email address did not appear in the To: header and
+the user had not configured any secondary email addresses. The bug
+was a simple re-use of the same iterator variable in nested loops.</p>
+
+<h3>Fix a potential SEGV in "notmuch search"</h3>
+
+<p>This bug could be triggered by an author name ending in a ','.
+Admittedly - that's almost certainly a spam email, but we never
+want notmuch to crash.</p>
+
+<h2>Emacs bug fixes</h2>
+
+<h3>Fix calculations for line wrapping in the primary "notmuch" view</h3>
+
+<h3>Fix Fcc support to prompt to create a directory if the specified Fcc directory does not exist</h3>
+
+<h2>Build fix</h2>
+
+<h3>Fix build on OpenSolaris (at least) due to missing 'extern "C"' block</h3>
+
+<p>Without this, the C++ sources could not find strcasestr and the
+final linking of notmuch would fail.</p>
+
+</div><!--.inlinecontent-->
+
+<div class="inlinefooter">
+
+<span class="pagedate">
+Posted <span class="date">Tue Apr 27 00:00:00 2010</span>
+</span>
+
+
+
+
+
+
+
+
+
+</div><!--.inlinefooter-->
+
+</div><!--.inlinepage-->
+<div class="inlinepage">
+
+<div class="inlineheader">
+
+
+<span class="header">
+
+<a href="./release-0.3/">release-0.3</a>
+
+</span>
+
+</div><!--.inlineheader-->
+
+<div class="inlinecontent">
+<h1>Notmuch 0.3 (2010-04-27)</h1>
+
+<h2>New command-line features</h2>
+
+<h3>User-configurable tags for new messages</h3>
+
+<p>A new "new.tags" option is available in the configuration file to
+determine which tags are applied to new messages. Run "notmuch
+setup" to generate new documentation within ~/.notmuch-config on how
+to specify this value.</p>
+
+<h3>Threads search results named based on subjects that match search</h3>
+
+<p>This means that when new mails arrived to a thread you've previously
+read, and the new mails have a new subject, you will see that
+subject in the search results rather than the old subject.</p>
+
+<h3>Faster operation of "notmuch tag" (avoid unneeded sorting)</h3>
+
+<p>Since the user just wants to tag all matching messages, we can make
+things perform a bit faster by avoiding the sort.</p>
+
+<h3>Even Better guessing of From: header for "notmuch reply"</h3>
+
+<p>Notmuch now looks at a number of headers when trying to figure out
+the best From: header to use in a reply. This is helpful if you have
+several configured email addresses, and you also subscribe to various
+mailing lists with different addresses, (so that mails you are
+replying to won't always include your subscribed address in the To:
+header).</p>
+
+<h3>Indication of author names that match a search</h3>
+
+<p>When notmuch displays threads as the result of a search, it now
+lists the authors that match the search before listing the other
+authors in the thread. It inserts a pipe '|' symbol between the last
+matching and first non-matching author. This is especially useful in
+a search that includes tag:unread. Now the authors of the unread
+messages in the thread are listed first.</p>
+
+<h2>New: Python bindings</h2>
+
+<p>Sebastian Spaeth has contributed his python bindings for the notmuch
+library to the central repository. These bindings were previously
+known as "cnotmuch" within python but have now been renamed to be
+accessible with a simple, and more official-looking "import notmuch".</p>
+
+<p>The bindings have already proven very useful as people proficient in
+python have been able to easily develop programs to do notmuch-based
+searches for email-address completion, maildir-flag synchronization,
+and other tasks.</p>
+
+<p>These bindings are available within the bindings/python directory, but
+are not yet integrated into the top-level Makefiles, nor the top-level
+package-building scripts. Improvements are welcome.</p>
+
+<h2>Emacs interface improvements</h2>
+
+<h3>An entirely new initial view for notmuch, (friendly yet powerful)</h3>
+
+<p>Some of us call the new view "notmuch hello" but you can get at it
+by simply calling "emacs -f notmuch". The new view provides a search
+bar where new searches can be performed. It also displays a list of
+recent searches, along with a button to save any of these, giving it
+a new name as a "saved search". Many people find these "saved
+searches" one of the most convenient ways of organizing their mail,
+(providing all of the features of "folders" in other mail clients,
+but without any of the disadvantages).</p>
+
+<p>Finally, this view can also optionally display all of the tags that
+exist in the database, along with a count for each tag, and a custom
+search of messages with that tag that's simply a click (or keypress)
+away.</p>
+
+<p>NOTE: For users that liked the original mode of "emacs -f notmuch"
+immediately displaying a particular search result, we recommend
+instead running something like:</p>
+
+<pre><code>    emacs --eval '(notmuch search "tag:inbox" t)'
+</code></pre>
+
+<p>The "t" means to sort the messages in an "oldest first" order,
+(as notmuch would do previously by default). You can also
+leave that off to have your search results in "newest first"
+order.</p>
+
+<h3>Full-featured "customize" support for configuring notmuch</h3>
+
+<p>Notmuch now plugs in well to the emacs "customize" mode to make it
+much simpler to find things about the notmuch interface that can be
+tweaked by the user.</p>
+
+<p>You can get to this mode by starting at the main "Customize" menu in
+emacs, then browsing through "Applications", "Mail", and
+"Notmuch". Or you can go straight to "M-x customize-group"
+"notmuch".</p>
+
+<p>Once you're at the customize screen, you'll see a list of documented
+options that can be manipulated along with checkboxes, drop-down
+selectors, and text-entry boxes for configuring the various
+settings.</p>
+
+<h3>Support for doing tab-completion of email addresses</h3>
+
+<p>This support currently relies on an external program,
+(notmuch-addresses), that is not yet shipped with notmuch
+itself. But multiple, suitable implementations of this program have
+already been written that generate address completions by doing
+notmuch searches of your email collection. For example, providing
+first those addresses that you have composed messages to in the
+past, etc.</p>
+
+<p>One such program (implemented in python with the python bindings to
+notmuch) is available via:</p>
+
+<pre><code>    git clone  http://jkr.acm.jhu.edu/git/notmuch_addresses.git
+</code></pre>
+
+<p>Install that program as notmuch-addresses on your PATH, and then
+hitting TAB on a partial email address or name within the To: or Cc:
+line of an email message will provide matching completions.</p>
+
+<h3>Support for file-based (Fcc) delivery of sent messages to mail store</h3>
+
+<p>This isn't yet enabled by default. To enable this, one will have to
+set the "Notmuch Fcc Dirs" setting within the notmuch customize
+screen, (see its documentation there for details). We anticipate
+making this automatic in a future release.</p>
+
+<h3>New 'G' key binding to trigger mail refresh (G == "Get new mail")</h3>
+
+<p>The 'G' key works wherever '=' works. Before refreshing the screen
+it calls an external program that can be used to poll email servers,
+run notmuch new and setup specific tags for the new emails. The
+script to be called should be configured with the "Notmuch Poll
+Script" setting in the customize interface. This script will
+typically invoke "notmuch new" and then perhaps several "notmuch
+tag" commands.</p>
+
+<h3>Implement emacs message display with the JSON output from notmuch</h3>
+
+<p>This is much more robust than the previous implementation, (where
+some HTML mails and mail quoting the notmuch code with the delimiter
+characters in it would cause the parser to fall over).</p>
+
+<h3>Better handling of HTML messages and MIME attachments (inline images!)</h3>
+
+<p>Allow for any MIME parts that emacs can display to be displayed
+inline. This includes inline viewing of image attachments, (provided
+the window is large enough to fit the image at its natural size).</p>
+
+<p>Much more robust handling of HTML messages. Currently both text/plain
+and text/html alternates will be rendered next to each other. In a
+future release, users will be able to decide to see only one or the
+other representation.</p>
+
+<p>Each attachment now has its own button so that attachments can be
+saved individually (the 'w' key is still available to save all
+attachments).</p>
+
+<h3>Customizable support for tidying of text/plain message content</h3>
+
+<p>Many new functions are available for tidying up message
+content. These include options such as wrapping long lines,
+compressing duplicate blank lines, etc.</p>
+
+<p>Most of these are disabled by default, but can easily be enabled by
+clicking the available check boxes under the "Notmuch Show Insert
+Text/Plain Hook" within the notmuch customize screen.</p>
+
+<h3>New support for searchable citations (even when hidden)</h3>
+
+<p>When portions of overly-long citations are hidden, the contents of
+these citations will still be available for emacs' standard
+"incremental search" functions. When the search matches any portion
+of a hidden citation, the citation will become visible temporarily
+to display the search result.</p>
+
+<h3>More flexible handling of header visibility</h3>
+
+<p>As an answer to complaints from many users, the To, Cc, and Date
+headers of messages are no longer hidden by default. For those users
+that liked that these were hidden, a new "Notmuch Messages Headers
+Visible" option in the customize interface can be set to nil. The
+visibility of headers can still be toggled on a per-message basis
+with the 'h' keybinding.</p>
+
+<p>For users that don't want to see some subset of those headers, the
+new "Notmuch Message Headers" variable can be customized to list
+only those headers that should be present in the display of a message.</p>
+
+<h3>The Return key now toggles message visibility anywhere</h3>
+
+<p>Previously this worked only on the first summary-line of a message.</p>
+
+<h3>Customizable formatting of search results</h3>
+
+<p>The user can easily customize the order, width, and formatting of
+the various fields in a "notmuch search" buffer. See the "Notmuch
+Search Result Format" section of the customize interface.</p>
+
+<h3>Generate nicer names for search buffers when using a saved search</h3>
+
+<h3>Add a notmuch User-Agent header when sending mail from notmuch/emacs</h3>
+
+<h3>New keybinding (M-Ret) to open all collapsed messages in a thread</h3>
+
+<h2>New library feature</h2>
+
+<h3>Provide a new <code>NOTMUCH_SORT_UNSORTED</code> value for queries</h3>
+
+<p>This can be somewhat faster when sorting simply isn't desired. For
+example when collecting a set of messages that will all be
+manipulated identically, (adding a tag, removing a tag, deleting the
+messages), then there's no advantage to sorting the messages by
+date.</p>
+
+<h2>Build fixes</h2>
+
+<h3>Fix to compile against GMime 2.6</h3>
+
+<p>Previously notmuch insisted on being able to find GMime 2.4, (even
+though GMime 2.6 would have worked all along).</p>
+
+<h3>Fix configure script to accept (and ignore) various standard options</h3>
+
+<p>For example, those that the Gentoo build scripts expect configure to
+accept are now all accepted.</p>
+
+<h2>Test suite</h2>
+
+<h3>A large number of new tests for the many new features</h3>
+
+<h3>Better display of output from failed tests</h3>
+
+<p>Now shows failures with diff rather than forcing the user to gaze at
+complete actual and expected output looking for deviation.</p>
+
+</div><!--.inlinecontent-->
+
+<div class="inlinefooter">
+
+<span class="pagedate">
+Posted <span class="date">Tue Apr 27 00:00:00 2010</span>
+</span>
+
+
+
+
+
+
+
+
+
+</div><!--.inlinefooter-->
+
+</div><!--.inlinepage-->
+<div class="inlinepage">
+
+<div class="inlineheader">
+
+
+<span class="header">
+
+<a href="./release-0.2/">release-0.2</a>
+
+</span>
+
+</div><!--.inlineheader-->
+
+<div class="inlinecontent">
+<h1>Notmuch 0.2 (2010-04-16)</h1>
+
+<p>This is the second release of the notmuch mail system, with actual
+detailed release notes this time!</p>
+
+<p>This release consists of a number of minor new features that make
+notmuch more pleasant to use, and a few fairly major bug fixes.</p>
+
+<p>We didn't quite hit our release target of "about a week" from the 0.1
+release, (0.2 is happening 11 days after 0.1), but we hope to do
+better for next week. Look forward to some major features coming to
+notmuch in subsequent releases.</p>
+
+<p>-Carl</p>
+
+<h2>General features</h2>
+
+<h3>Better guessing of From: header</h3>
+
+<p>Notmuch now tries harder to guess which configured address should be
+used as the From: line in a "notmuch reply". It will examine the
+Received: headers if it fails to find any configured address in To:
+or Cc:. This allows it to often choose the correct address even when
+replying to a message sent to a mailing list, and not directly to a
+configured address.</p>
+
+<h3>Make "notmuch count" with no arguments count all messages</h3>
+
+<p>Previously, it was hard to construct a search term that was
+guaranteed to match all messages.</p>
+
+<h3>Provide a new special-case search term of "<code>*</code>" to match all messages</h3>
+
+<p>This can be used in any command accepting a search term, such as
+"notmuch search '<code>*</code>'". Note that you'll want to take care that the
+shell doesn't expand * against the current files. And note that the
+support for "<code>*</code>" is a special case. It's only meaningful as a single
+search term and loses its special meaning when combined with any
+other search terms.</p>
+
+<h3>Automatically detect thread connections even when a parent message is missing</h3>
+
+<p>Previously, if two or more message were received with a common
+parent, but that parent was not received, then these messages would
+not be recognized as belonging to the same thread. This is now fixed
+so that such messages are properly connected in a thread.</p>
+
+<h2>General bug fixes</h2>
+
+<h3>Fix potential data loss in "notmuch new" with SIGINT</h3>
+
+<p>One code path in "notmuch new" was not properly handling
+SIGINT. Previously, this could lead to messages being removed from
+the database (and their tags being lost) if the user pressed
+Control-C while "notmuch new" was working.</p>
+
+<h3>Fix segfault when a message includes a MIME part that is empty</h3>
+
+<h3>Fix handling of non-ASCII characters with --format=json</h3>
+
+<p>Previously, characters outside the range of 7-bit ASCII were
+silently dropped from the JSON output. This led to corrupted display
+of utf-8 content in the upcoming notmuch web-based frontends.</p>
+
+<h3>Fix headers to be properly decoded in "notmuch reply"</h3>
+
+<p>Previously, the user might see:</p>
+
+<pre><code>    Subject: Re: =?iso-8859-2?q?Rozlu=E8ka?=
+</code></pre>
+
+<p>rather than:</p>
+
+<pre><code>    Subject: Re: Rozlučka
+</code></pre>
+
+<p>The former text is properly encoded to be RFC-compliant SMTP, will
+be sent correctly, and will be properly decoded by the
+recipient. But the user trying to edit the reply would likely be
+unable to read or edit that field in its encoded form.</p>
+
+<h2>Emacs client features</h2>
+
+<h3>Show the last few lines of citations as well as the first few lines</h3>
+
+<p>It's often the case that the last sentence of a citation is what is
+being replied to directly, so the last few lines are often much more
+important. The number of lines shown at the beginning and end of any
+citation can be configured, (notmuch-show-citation-lines-prefix and
+notmuch-show-citation-lines-suffix).</p>
+
+<h3>The '+' and '-' commands in the search view can now add and remove tags by region</h3>
+
+<p>Selective bulk tagging is now possible by selecting a region of
+threads and then using either the '+' or '-' keybindings. Bulk
+tagging is still available for all threads matching the current
+search with the '<code>*</code>' binding.</p>
+
+<h3>More meaningful buffer names for thread-view buffers</h3>
+
+<p>Notmuch now uses the Subject of the thread as the buffer
+name. Previously it was using the thread ID, which is a meaningless
+number to the user.</p>
+
+<h3>Provide for customized colors of threads in search view based on tags</h3>
+
+<p>See the documentation of notmuch-search-line-faces, (or us "M-x
+customize" and browse to the "notmuch" group within "Applications"
+and "Mail"), for details on how to configure this colorization.</p>
+
+<h2>Build-system features</h2>
+
+<h3>Add support to properly build libnotmuch on Darwin systems (OS X)</h3>
+
+<h3>Add support to configure for many standard options</h3>
+
+<p>We include actual support for:</p>
+
+<pre><code>    --includedir --mandir --sysconfdir
+</code></pre>
+
+<p>And accept and silently ignore several more:</p>
+
+<pre><code>    --build --infodir --libexecdir --localstatedir
+    --disable-maintainer-mode --disable-dependency-tracking
+</code></pre>
+
+<h3>Install emacs client in "make install" rather than requiring a separate "make install-emacs"</h3>
+
+<h3>Automatically compute versions numbers between releases</h3>
+
+<p>This support uses the git-describe notation, so a version such as
+0.1-144-g43cbbfc indicates a version that is 144 commits since the
+0.1 release and is available as git commit "43cbbfc".</p>
+
+<h3>Add a new "make test" target to run the test suite and actually verify its results</h3>
+
+</div><!--.inlinecontent-->
+
+<div class="inlinefooter">
+
+<span class="pagedate">
+Posted <span class="date">Fri Apr 16 00:00:00 2010</span>
+</span>
+
+
+
+
+
+
+
+
+
+</div><!--.inlinefooter-->
+
+</div><!--.inlinepage-->
+<div class="inlinepage">
+
+<div class="inlineheader">
+
+
+<span class="header">
+
+<a href="./release-0.1/">release-0.1</a>
+
+</span>
+
+</div><!--.inlineheader-->
+
+<div class="inlinecontent">
+<h1>Notmuch 0.1 (2010-04-05)</h1>
+
+<p>This is the first release of the notmuch mail system.</p>
+
+<p>It includes the libnotmuch library, the notmuch command-line
+interface, and an emacs-based interface to notmuch.</p>
+
+<p>Note: Notmuch will work best with Xapian 1.0.18 (or later) or Xapian
+1.1.4 (or later). Previous versions of Xapian (whether 1.0 or 1.1) had
+a performance bug that made notmuch very slow when modifying
+tags. This would cause distracting pauses when reading mail while
+notmuch would wait for Xapian when removing the "inbox" and "unread"
+tags from messages in a thread.</p>
+
+</div><!--.inlinecontent-->
+
+<div class="inlinefooter">
+
+<span class="pagedate">
+Posted <span class="date">Mon Apr  5 00:00:00 2010</span>
+</span>
+
+
+
+
+
+
+
+
+
+</div><!--.inlinefooter-->
+
+</div><!--.inlinepage-->
+
+
+</div>
+
+
+
+<div id="footer" class="pagefooter">
+<div id="pageinfo">
+
+
+
+
+<div id="backlinks">
+Links:
+
+<a href="../">index</a>
+
+
+</div><!-- #backlinks -->
+
+
+
+
+
+
+<div class="pagedate">
+Last edited <span class="date">Fri Jul 29 11:31:13 2011</span>
+<!-- Created <span class="date">Fri Jul 29 11:31:13 2011</span> -->
+</div>
+
+</div><!-- #pageinfo -->
+
+<!-- from notmuch -->
+</div><!-- .pagefooter #footer -->
+
+</body>
+</html>

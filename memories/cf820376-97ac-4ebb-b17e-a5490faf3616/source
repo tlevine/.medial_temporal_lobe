@@ -1,0 +1,925 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>emacstips</title>
+
+<link rel="stylesheet" href="../style.css" type="text/css" />
+
+<link rel="stylesheet" href="../local.css" type="text/css" />
+
+
+<link rel="alternate" type="application/x-wiki" title="Edit this page" href="/ikiwiki.cgi?page=emacstips&amp;do=edit" />
+
+
+
+
+</head>
+<body>
+
+<div class="pageheader">
+<div class="header">
+<span>
+<span class="parentlinks">
+
+<a href="../">notmuch</a>/ 
+
+</span>
+<!--
+<span class="title">
+emacstips
+
+</span>
+-->
+</span><!--.header-->
+
+</div>
+
+<!--
+
+<div class="actions">
+<ul>
+
+<li><a href="/ikiwiki.cgi?page=emacstips&amp;do=edit" rel="nofollow">Edit</a></li>
+
+
+<li><a href="../recentchanges/">RecentChanges</a></li>
+
+
+
+
+<li><a href="/ikiwiki.cgi?do=prefs">Preferences</a></li>
+
+
+
+<li><span class="createlink"><a href="/ikiwiki.cgi?page=discussion&amp;from=emacstips&amp;do=create" rel="nofollow">?</a>Discussion</span><br /></li>
+
+
+</ul>
+</div>
+
+-->
+
+
+
+</div> <!-- .pageheader -->
+
+
+
+<div id="content">
+<h1><a name="index1h1"></a>Tips and Tricks for using notmuch with Emacs</h1>
+
+<p>One of the more popular notmuch message reading clients is
+<strong>notmuch.el</strong>, an <a href="http://www.gnu.org/software/emacs/">emacs</a> major
+mode for interacting with notmuch.  It is included in the notmuch
+package (notmuch-emacs in Debian).  This page goes over some usage
+tips for using notmuch with Emacs.</p>
+
+<div class="toc">
+<ol>
+	<li class="L1"><a href="#index1h1">Tips and Tricks for using notmuch with Emacs</a>
+	<ol>
+		<li class="L2"><a href="#index1h2">Setup</a>
+		</li>
+		<li class="L2"><a href="#index2h2">Navigating & reading mails</a>
+		</li>
+		<li class="L2"><a href="#index3h2">Sending mail</a>
+		</li>
+		<li class="L2"><a href="#index4h2">Attaching files</a>
+		</li>
+		<li class="L2"><a href="#index5h2">Issues with Emacs 24</a>
+		</li>
+	</ol>
+	</li>
+	<li class="L1"><a href="#index2h1">Advanced tips and tweaks</a>
+	<ol>
+		<li class="L2"><a href="#index6h2">Use separate emacs lisp file for notmuch configuration</a>
+		</li>
+		<li class="L2"><a href="#index7h2">Initial cursor position in notmuch 0.15 hello window</a>
+		</li>
+		<li class="L2"><a href="#index8h2">Add a key binding to add/remove/toggle a tag</a>
+		</li>
+		<li class="L2"><a href="#index9h2">Adding many tagging keybindings</a>
+		</li>
+		<li class="L2"><a href="#index10h2">Restore reply-to-all key binding to 'r'</a>
+		</li>
+		<li class="L2"><a href="#index11h2">How to do FCC/BCC...</a>
+		</li>
+		<li class="L2"><a href="#index12h2">How to customize notmuch-saved-searches</a>
+		</li>
+		<li class="L2"><a href="#index13h2">Viewing HTML messages with an external viewer</a>
+		</li>
+		<li class="L2"><a href="#index14h2">msmtp, message mode and multiple accounts</a>
+		</li>
+		<li class="L2"><a href="#index15h2">Address completion when composing</a>
+		</li>
+		<li class="L2"><a href="#index16h2">How to sign/encrypt messages with gpg</a>
+		</li>
+		<li class="L2"><a href="#index17h2">Multiple identities using gnus-alias</a>
+		</li>
+		<li class="L2"><a href="#index18h2">Resending (or bouncing) messages</a>
+		</li>
+		<li class="L2"><a href="#index19h2">notmuch-hello refresh status message</a>
+		</li>
+		<li class="L2"><a href="#index20h2">Replacing tabs with spaces in subject and header</a>
+		</li>
+		<li class="L2"><a href="#index21h2">Hiding unread messages in notmuch-show</a>
+		</li>
+		<li class="L2"><a href="#index22h2">Changing the color of a saved search based on some other search</a>
+		</li>
+		<li class="L2"><a href="#index23h2">Linking to notmuch messages and threads from the Circe IRC client</a>
+		</li>
+		<li class="L2"><a href="#index24h2">Linking to notmuch messages from org-mode</a>
+		</li>
+	</ol>
+	</li>
+</ol>
+</div>
+
+<h2><a name="index1h2"></a>Setup</h2>
+
+<p>Have a look at the <a href="http://notmuchmail.org/howto/">Howto</a> for
+prerequisites.  Be sure you have done the general setup using the
+notmuch cli command!</p>
+
+<p>To use the Notmuch emacs mode, first add the following line to your
+<code>.emacs</code> rc file:</p>
+
+<pre><code>    (require 'notmuch)
+</code></pre>
+
+<p>or you can load the package via autoload:</p>
+
+<pre><code>    (autoload 'notmuch "notmuch" "notmuch mail" t)
+</code></pre>
+
+<p>Then, either run "emacs -f notmuch", or execute the command <code>M-x
+notmuch</code> from within a running emacs.</p>
+
+<h2><a name="index2h2"></a>Navigating & reading mails</h2>
+
+<p>When first starting notmuch in emacs, you will be presented with the
+notmuch "hello" page.  If it exits with an error after writing
+"Welcome to notmutch. You have" you need to do the basic notmuch setup
+first (see above).
+From here you can do searches, see lists of recent
+searches, saved searches, message tags, help information, etc.</p>
+
+<p>Executing a search will open a new buffer in <code>notmuch-search-mode</code>
+displaying the search results.  Each line in the search results
+represents a message thread.  Hitting the '?' key will show help for
+this mode.</p>
+
+<p>In general, the 'q' will kill the current notmuch buffer and return
+you to the previous buffer (sort of like a 'pop').</p>
+
+<p>In search mode, navigating to a thread and hitting return will then
+open a new buffer in <code>notmuch-show-mode</code>, which will show the actual
+message contents of the thread.</p>
+
+<h2><a name="index3h2"></a>Sending mail</h2>
+
+<p>In any notmuch mode, you can start a new message by hitting the 'm'
+key.  To reply to a message or thread, just hit the 'r' key.</p>
+
+<p>When composing new messages, you will be entered in emacs's
+<code>message-mode</code>, which is a powerful mode for composing and sending
+messages.  When in message mode, you can type <code>C-c ?</code> for help.</p>
+
+<p>If you would like to use address autocompletion when composing
+messages, see <a href="#address_completion">address completion</a>.</p>
+
+<p>When you are ready to send a message, type <code>C-c C-c</code>. By default
+message mode will use your sendmail command to send mail, so make sure
+that works. One annoying standard configuration of message mode is
+that it will hide the sent mail in your emacs frame stack, but it will
+not close it. If you type several mails in an emacs session they will
+accumulate and make switching between buffers more annoying. You can
+avoid that behavior by adding <code>(setq message-kill-buffer-on-exit t)</code>
+in your <code>.emacs</code> file (or doing <code>M-x
+customize-variable&lt;RET&gt;message-kill-buffer-on-exit&lt;RET&gt;</code>) which will
+really close the mail window after sending it.</p>
+
+<h2><a name="index4h2"></a>Attaching files</h2>
+
+<p>Using the <code>M-x mml-attach-file</code> command, you can attach any file to be
+sent with your mail. By default this command is bound to the menu item
+<em>Attachments--Attach File</em> with the key binding <code>C-c C-a</code>. The
+variable <code>mml-dnd-attach-options</code> (<code>M-x
+customize-variable&lt;RET&gt;mml-dnd-attach-options&lt;RET&gt;</code>) can be set to
+allow the prompting for various attachment options (such as
+inline/attachment) if you want to do that.</p>
+
+<p>For those who prefer a more graphical interface, you can also simply
+drag and drop files from a file manager into a mail composition window
+to have them attached. In Ubuntu this works without any modifications
+if files are dragged from the file manager.</p>
+
+<p>And for those who prefer working from command line, the following
+script opens new emacs window with empty message and attaches files
+mentioned as script arguments. (Note: The script expects that you have
+<code>(server-start)</code> in your <code>.emacs</code> file.)</p>
+
+<pre><code>    #!/bin/sh
+    attach_cmds=""
+    while [ "&#036;1" ]; do
+        fullpath=&#036;(readlink --canonicalize "&#036;1")
+        attach_cmds="&#036;attach_cmds (mml-attach-file \"&#036;fullpath\")"
+        shift
+    done
+    emacsclient -a '' -c -e "(progn (compose-mail) &#036;attach_cmds)"
+</code></pre>
+
+<h2><a name="index5h2"></a>Issues with Emacs 24</h2>
+
+<p>If notmuch-show-mode behaves badly for you in emacs 24.x try adding one of</p>
+
+<pre><code>    (setq gnus-inhibit-images nil)
+</code></pre>
+
+<p>or</p>
+
+<pre><code>    (require 'gnus-art)
+</code></pre>
+
+<p>to your .emacs file.</p>
+
+<hr />
+
+<h1><a name="index2h1"></a>Advanced tips and tweaks</h1>
+
+<h2><a name="index6h2"></a>Use separate emacs lisp file for notmuch configuration</h2>
+
+<p>Instead of adding notmuch configuration code to <code>.emacs</code>, there
+is an option to collect those to a separate file (which is only
+loaded when <code>notmuch</code> is invoked). To do this, write, for example
+a file called <code>~/.emacs.d/my-notmuch.el</code>:</p>
+
+<pre><code>    ;;; my-notmuch.el -- my notmuch mail configuration
+    ;;;
+
+    ;;; add here stuff required to be configured *before*
+    ;;; notmuch is loaded;
+
+    ;; uncomment and modify in case some elisp files are not found in load-path
+    ;; (add-to-list 'load-path "~/vc/ext/notmuch/emacs")
+
+    ;;; load notmuch
+    (require 'notmuch)
+
+    ;;; add here stuff required to be configured *after*
+    ;;; notmuch is loaded;
+
+    ;; uncomment &amp; modify if you want to use external smtp server to send mail
+    ;; (setq smtpmail-smtp-server "smtp.server.tld"
+    ;;       message-send-mail-function 'message-smtpmail-send-it)
+    ;; uncomment to debug smtp sending problems
+    ;; (setq smtpmail-debug-info t)
+</code></pre>
+
+<p>Then, add to <code>.emacs</code>:</p>
+
+<pre><code>    (autoload 'notmuch "~/.emacs.d/my-notmuch" "notmuch mail" t)
+</code></pre>
+
+<h2><a name="index7h2"></a>Initial cursor position in notmuch 0.15 hello window</h2>
+
+<p>In notmuch version 0.15 emacs client the handling of cursor position in
+notmuch hello window has been simplified to a version which suits best
+most cases.</p>
+
+<p>Initially the cursor is positioned at the beginning of buffer.</p>
+
+<p>Some users liked the "ancient" version where cursor was moved to the
+first <code>Saved searches</code> button.</p>
+
+<p>Add the following code to your notmuch emacs configuration file in
+case you want this behaviour:</p>
+
+<pre><code>    (add-hook 'notmuch-hello-refresh-hook
+              (lambda ()
+                (if (and (eq (point) (point-min))
+                         (search-forward "Saved searches:" nil t))
+                    (progn
+                      (forward-line)
+                      (widget-forward 1))
+                  (if (eq (widget-type (widget-at)) 'editable-field)
+                      (beginning-of-line)))))
+</code></pre>
+
+<h2><a name="index8h2"></a>Add a key binding to add/remove/toggle a tag</h2>
+
+<p>The <code>notmuch-{search,show}-{add,remove}-tag</code> functions are very useful
+for making quick tag key bindings.  For instance, here's an example
+of how to make a key binding to add the "spam" tag and remove the
+"inbox" tag in notmuch-show-mode:</p>
+
+<p>In notmuch versions up to 0.11.x</p>
+
+<pre><code>    (define-key notmuch-show-mode-map "S"
+      (lambda ()
+        "mark message as spam"
+        (interactive)
+        (notmuch-show-add-tag "spam")
+        (notmuch-show-remove-tag "inbox")))
+</code></pre>
+
+<p>Starting from notmuch 0.12 the functions <code>notmuch-show-add-tag</code> and
+<code>notmuch-show-remove-tag</code> have changed to be more versatile and lost
+noninteractive use. When upgrading to 0.12 the above needs to be
+changed to this:</p>
+
+<pre><code>    (define-key notmuch-show-mode-map "S"
+      (lambda ()
+        "mark message as spam"
+        (interactive)
+        (notmuch-show-tag-message "+spam" "-inbox")))
+</code></pre>
+
+<p>You can do the same for threads in <code>notmuch-search-mode</code> by just
+replacing "show" with "search" in the called functions.</p>
+
+<p>Starting from notmuch 0.12 use <code>notmuch-search-tag-thread</code> instead:</p>
+
+<pre><code>    (define-key notmuch-search-mode-map "S"
+      (lambda ()
+        "mark messages in thread as spam"
+        (interactive)
+        (notmuch-show-tag-thread "+spam" "-inbox")))
+</code></pre>
+
+<p>Starting from notmuch 0.13 use <code>notmuch-search-tag</code> -- it has a little
+different usage syntax:</p>
+
+<pre><code>    (define-key notmuch-search-mode-map "S"
+      (lambda ()
+        "mark messages in thread as spam"
+        (interactive)
+        (notmuch-search-tag '("+spam" "-inbox"))))
+</code></pre>
+
+<p>The definition above makes use of a lambda function, but you could
+also define a separate function first:</p>
+
+<pre><code>    (defun notmuch-show-tag-spam ()
+      "mark message as spam"
+      (interactive)
+      (notmuch-show-add-tag "spam")
+      (notmuch-show-remove-tag "inbox")))
+    (define-key notmuch-show-mode-map "S" 'notmuch-show-tag-spam)
+</code></pre>
+
+<p>(See above for analogy how to apply this for notmuch 0.12 and later)</p>
+
+<p>Here's a more complicated example of how to add a toggle "deleted"
+key:</p>
+
+<pre><code>    (define-key notmuch-show-mode-map "d"
+      (lambda ()
+        "toggle deleted tag for message"
+        (interactive)
+        (if (member "deleted" (notmuch-show-get-tags))
+            (notmuch-show-remove-tag "deleted")
+          (notmuch-show-add-tag "deleted"))))
+</code></pre>
+
+<p>And version for notmuch 0.12</p>
+
+<pre><code>    (define-key notmuch-show-mode-map "d"
+      (lambda ()
+        "toggle deleted tag for message"
+        (interactive)
+        (notmuch-show-tag-message
+          (if (member "deleted" (notmuch-show-get-tags))
+              "-deleted" "+deleted"))))
+</code></pre>
+
+<h2><a name="index9h2"></a>Adding many tagging keybindings</h2>
+
+<p>If you want to have have many tagging keybindings, you can save the typing
+the few lines of  boilerplate for every binding (for versions before 0.12,
+you will need to change notmuch-show-apply-tag-macro).</p>
+
+<pre><code>(eval-after-load 'notmuch-show
+  '(define-key notmuch-show-mode-map "`" 'notmuch-show-apply-tag-macro))
+
+(setq notmuch-show-tag-macro-alist
+  (list
+   '("m" "+notmuch::patch" "+notmuch::moreinfo" "-notmuch::needs-review")
+   '("n" "+notmuch::patch" "+notmuch::needs-review" "-notmuch::pushed")
+   '("o" "+notmuch::patch" "+notmuch::obsolete"
+         "-notmuch::needs-review" "-notmuch::moreinfo")
+   '("p" "-notmuch::pushed" "-notmuch::needs-review"
+     "-notmuch::moreinfo" "+pending")
+   '("P" "-pending" "-notmuch::needs-review" "-notmuch::moreinfo" "+notmuch::pushed")
+   '("r" "-notmuch::patch" "+notmuch::review")
+   '("s" "+notmuch::patch" "-notmuch::obsolete" "-notmuch::needs-review" "-notmuch::moreinfo" "+notmuch::stale")
+   '("t" "+notmuch::patch" "-notmuch::needs-review" "+notmuch::trivial")
+   '("w" "+notmuch::patch" "+notmuch::wip" "-notmuch::needs-review")))
+
+(defun notmuch-show-apply-tag-macro (key)
+  (interactive "k")
+  (let ((macro (assoc key notmuch-show-tag-macro-alist)))
+    (apply 'notmuch-show-tag-message (cdr macro))))
+</code></pre>
+
+<h2><a name="index10h2"></a>Restore reply-to-all key binding to 'r'</h2>
+
+<p>Starting from notmuch 0.12 the 'r' key is bound to reply-to-sender instead of
+reply-to-all. Here's how to swap the reply to sender/all bindings in show mode:</p>
+
+<pre><code>    (define-key notmuch-show-mode-map "r" 'notmuch-show-reply)
+    (define-key notmuch-show-mode-map "R" 'notmuch-show-reply-sender)
+</code></pre>
+
+<p>And in search mode:</p>
+
+<pre><code>    (define-key notmuch-search-mode-map "r" 'notmuch-search-reply-to-thread)
+    (define-key notmuch-search-mode-map "R" 'notmuch-search-reply-to-thread-sender)
+</code></pre>
+
+<h2><a name="index11h2"></a>How to do FCC/BCC...</h2>
+
+<p>The Emacs interface to notmuch will automatically add an <code>Fcc</code>
+header to your outgoing mail so that any messages you send will also
+be saved in your mail store. You can control where this copy of the
+message is saved by setting the variable <code>notmuch-fcc-dirs</code> which defines the
+subdirectory relative to the <code>database.path</code> setting from your
+notmuch configuration in which to save the mail. Enter a directory
+(without the maildir <code>/cur</code> ending which will be appended
+automatically). Additional information can be found as usual using:</p>
+
+<pre><code>   M-x describe-variable notmuch-fcc-dirs
+</code></pre>
+
+<p>An additional variable that can affect FCC settings in some cases is
+<code>message-directory</code>. Emacs message-mode uses this variable for
+postponed messages.</p>
+
+<p>To customize both variables at the same time, use the fancy command:</p>
+
+<pre><code>    M-x customize-apropos&lt;RET&gt;\(notmuch-fcc-dirs\)\|\(message-directory\)
+</code></pre>
+
+<p>This mechanism also allows you to select different folders to be
+used for the outgoing mail depending on your selected <code>From</code>
+address. Please see the documentation for the variable
+<code>notmuch-fcc-dirs</code> in the customization window for how to arrange
+this.</p>
+
+<h2><a name="index12h2"></a>How to customize <code>notmuch-saved-searches</code></h2>
+
+<p>When starting notmuch, a list of saved searches and message counts is
+displayed, replacing the older <code>notmuch-folders</code> command. The set of
+saved searches displayed can be modified directly from the notmuch
+interface (using the <code>[save]</code> button next to a previous search) or by
+customising the variable <code>notmuch-saved-searches</code>.</p>
+
+<p>An example setting might be:</p>
+
+<pre><code>    (setq notmuch-saved-searches '(("inbox" . "tag:inbox")
+                    ("unread" . "tag:inbox AND tag:unread")
+                    ("notmuch" . "tag:inbox AND to:notmuchmail.org")))
+</code></pre>
+
+<p>Of course, you can have any number of saved searches, each configured
+with any supported search terms (see "notmuch help search-terms").</p>
+
+<p>Some users find it useful to add <code>and not tag:delete</code> to those
+searches, as they use the <code>delete</code> tag to mark messages as
+deleted. This causes messages that are marked as deleted to be removed
+from the commonly used views of messages.  Use whatever seems most
+useful to you.</p>
+
+<h2><a name="index13h2"></a>Viewing HTML messages with an external viewer</h2>
+
+<p>The emacs client can display an HTML message inline using either the
+<code>html2text</code> library or some text browser, like w3m or lynx. This is
+controlled by the <code>mm-text-html-renderer</code> variable.</p>
+
+<p>The first option is theorically better, because it can generate
+strings formatted for emacs and do whatever you want, e.g., substitute
+text inside &lt;b&gt; tags for bold text in the buffer. The library, however
+is still in a very early development phase and cannot yet process
+properly many elements, like tables and  directives, and even
+the generated text is often poorly formatted.</p>
+
+<p>Among the available browsers, w3m seems to do a better job converting
+the html, and if you have the w3m emacs package, you can use it,
+instead of the w3m-standalone, and thus preserve the text formatting.</p>
+
+<p>But if the rendering fails for one reason or another, or if you really
+need to see the graphical presentation of the HTML message, it can be
+useful to display the message in an external viewer, such as a web
+browser. Here's a little script that Keith Packard wrote, which he
+calls <code>view-html</code>:</p>
+
+<pre><code>    #!/bin/sh
+    dir=`mktemp -d`
+    trap "rm -r &#036;dir" 0
+    cat "&#036;@" &gt; "&#036;dir"/msg
+    if munpack -C "&#036;dir" -t &lt; "&#036;dir"/msg 2&gt;&amp;1 | grep 'Did not find'; then
+        sed -n '/[Hh][Tt][Mm][Ll]/,&#036;p' "&#036;dir"/msg &gt; &#036;dir/part1.html
+        rm "&#036;dir"/msg
+    fi
+    for i in "&#036;dir"/part*; do
+        if grep -q -i -e '&lt;html&gt;' -e 'text/html' "&#036;i"; then
+            iceweasel "&#036;i" &amp;
+            sleep 3
+            exit 0
+        fi
+    done
+</code></pre>
+
+<p>Save that script somewhere in your <code>&#036;{PATH}</code>, make it executable,
+and change the invocation of <code>iceweasel</code> to any other HTML viewer if
+necessary. Then within the emacs client, press '|' to pipe the
+current message, then type "view-html".</p>
+
+<p>Keith mentions the following caveat, "Note that if iceweasel isn't
+already running, it seems to shut down when the script exits. I
+don't know why."</p>
+
+<h2><a name="index14h2"></a>msmtp, message mode and multiple accounts</h2>
+
+<p>As an alternative to running a mail server such as sendmail or postfix
+just to send email, it is possible to use
+<a href="http://msmtp.sourceforge.net/">msmtp</a>. This small application will
+look like <code>/usr/bin/sendmail</code> to a MUA such as emacs message mode, but
+will just forward the email to an external SMTP server. It's fairly
+easy to set up and it supports several accounts for using different
+SMTP servers. The msmtp pages have several examples.</p>
+
+<p>A typical scenario is that you want to use the company SMTP server
+for email coming from your company email address, and your personal
+server for personal email.  If msmtp is passed the envelope address
+on the command line (the -f/--from option) it will automatically
+pick the matching account.  The only trick here seems to be getting
+emacs to actually pass the envelope from.  There are a number of
+overlapping configuration variables that control this, and it's a
+little confusion, but setting these three works for me:</p>
+
+<ul>
+<li><p><code>mail-specify-envelope-from</code>: <code>t</code></p></li>
+<li><p><code>message-sendmail-envelope-from</code>: <code>header</code></p></li>
+<li><p><code>mail-envelope-from</code>: <code>header</code></p></li>
+</ul>
+
+<p>With that in place, you need a <code>.msmtprc</code> with the accounts configured
+for the domains you want to send out using specific SMTP servers and
+the rest will go to the default account.</p>
+
+<p>If you have a hard time getting the above to work for you, as I did,
+it's also possible to add a message-send-mail-hook in your .emacs to
+send the from header explicitly as an argument to msmtp as described
+<a href="http://www.emacswiki.org/cgi-bin/wiki/GnusMSMTP#toc2">here</a> on the
+emacswiki.</p>
+
+<h2><a name="index15h2"></a><span id="address_completion">Address completion when composing</span></h2>
+
+<p>There are currently three solutions to this:</p>
+
+<h3><a name="index1h3"></a>bbdb</h3>
+
+<p><a href="http://bbdb.sourceforge.net">bbdb</a> is a contact database for emacs
+that works quite nicely together with message mode, including
+address autocompletion.</p>
+
+<h3><a name="index2h3"></a>notmuch database as an address book</h3>
+
+<p>You can also use the notmuch database as a mail address book itself.
+To do this you need a command line tool that outputs likely address
+candidates based on a search string.  There are currently three
+available:</p>
+
+<ul>
+<li><p>The python tool <code>notmuch_address.py</code> (<code>git clone
+http://commonmeasure.org/~jkr/git/notmuch_addresses.git</code>) (slower, but
+no compilation required so good for testing the setup)</p></li>
+<li><p>The vala-based
+<a href="http://github.com/spaetz/vala-notmuch">addrlookup</a> (faster, but
+needs compiling).  The addrlookup binary needs to be compiled.
+Grab
+<code>http://github.com/spaetz/vala-notmuch/raw/static-sources/src/addrlookup.c</code>
+and build it with:</p>
+
+<pre><code>    cc -o addrlookup addrlookup.c `pkg-config --cflags --libs gobject-2.0` -lnotmuch
+</code></pre></li>
+<li><p>Shell/fgrep/perl combination <a href="http://www.iki.fi/too/nottoomuch/nottoomuch-addresses/">nottoomuch-addresses.sh</a>.
+This tools maintains it's own address "database" gathered from email
+files notmuch knows and search from that "database" is done by <code>fgrep(1)</code>.</p></li>
+</ul>
+
+<p>You can perform tab-completion using any of these programs.
+Just add the following to your .emacs:</p>
+
+<pre><code>    (require 'notmuch-address)
+    (setq notmuch-address-command "/path/to/address_fetching_program")
+    (notmuch-address-message-insinuate)
+</code></pre>
+
+<h3><a name="index3h3"></a>Google Contacts</h3>
+
+<p><a href="http://code.google.com/p/goobook/">GooBook</a> is a command-line tool for
+accessing Google Contacts. Install and set it up according to its documentation.</p>
+
+<p>To use GooBook with notmuch, use this wrapper script and set it up like the
+programs above.</p>
+
+<pre><code>    #!/bin/sh
+    goobook query "&#036;*" | sed 's/\(.*\)\t\(.*\)\t.*/\2 \&lt;\1\&gt;/' | sed '/^&#036;/d'
+</code></pre>
+
+<p>You can add the sender of a message to Google Contacts by piping the message
+(<code>notmuch-show-pipe-message</code>) to <code>goobook add</code>.</p>
+
+<h2><a name="index16h2"></a>How to sign/encrypt messages with gpg</h2>
+
+<p>Messages can by signed using gpg by invoking
+<code>M-x mml-secure-sign-pgpmime</code> (or <code>M-x mml-secure-encrypt-pgpmime</code>).
+These functions are available via the standard <code>message-mode</code> keybindings
+<code>C-c C-m s p</code> and <code>C-c C-m c p</code>. To sign outgoing mail by default, use the
+<code>message-setup-hook</code> in your <code>.emacs</code> file:</p>
+
+<pre><code>    ;; Sign messages by default.
+    (add-hook 'message-setup-hook 'mml-secure-sign-pgpmime)
+</code></pre>
+
+<p>This inserts the required <code>&lt;#part sign=pgpmime&gt;</code> into the beginning
+of the mail text body and will be converted into a pgp signature
+when sending (so one can just manually delete that line if signing
+is not required).</p>
+
+<p>Alternatively, you may prefer to use <code>mml-secure-message-sign-pgpmime</code> instead
+of <code>mml-secure-sign-pgpmime</code> to sign the whole message instead of just one
+part.</p>
+
+<h3><a name="index4h3"></a>Troubleshooting message-mode gpg support</h3>
+
+<ul>
+<li>If you have trouble with expired subkeys, you may have encountered
+emacs bug #7931.  This is fixed in git commit 301ea744c on
+2011-02-02.  Note that if you have the Debian package easypg
+installed, it will shadow the fixed version of easypg included with
+emacs.</li>
+</ul>
+
+<h2><a name="index17h2"></a>Multiple identities using gnus-alias</h2>
+
+<p><a href="http://www.emacswiki.org/emacs/GnusAlias">gnus-alias</a> allows you to
+define multiple identities when using <code>message-mode</code>. You can specify
+the from address, organization, extra headers (including <em>Bcc</em>), extra
+body text, and signature for each identity. Identities are chosen
+based on a set of rules. When you are in message mode, you can switch
+identities using gnus-alias.</p>
+
+<h3><a name="index5h3"></a>Installation</h3>
+
+<ul>
+<li><p>put <code>gnus-alias.el</code> on your load Emacs-Lisp load path (add new directory
+to load path by writing <code>(add-to-list 'load-path "/some/load/path")</code> into
+your <code>.emacs</code>.</p></li>
+<li><p>Add the following to your <code>.emacs</code></p>
+
+<pre><code>(autoload 'gnus-alias-determine-identity "gnus-alias" "" t)
+(add-hook 'message-setup-hook 'gnus-alias-determine-identity)
+</code></pre></li>
+</ul>
+
+<p>Looking into <code>gnus-alias.el</code> gives a bit more information...</p>
+
+<h3><a name="index6h3"></a>Example Configuration</h3>
+
+<p>Here is an example configuration.</p>
+
+<pre><code>    ;; Define two identities, "home" and "work"
+    (setq gnus-alias-identity-alist
+          '(("home"
+             nil ;; Does not refer to any other identity
+             "John Doe &lt;jdoe@example.net&gt;" ;; Sender address
+             nil ;; No organization header
+             nil ;; No extra headers
+             nil ;; No extra body text
+             "~/.signature")
+            ("work"
+             nil
+             "John Doe &lt;john.doe@example.com&gt;"
+             "Example Corp."
+             (("Bcc" . "john.doe@example.com"))
+             nil
+             "~/.signature.work")))
+    ;; Use "home" identity by default
+    (setq gnus-alias-default-identity "home")
+    ;; Define rules to match work identity
+    (setq gnus-alias-identity-rules
+          '(("work" ("any" "john.doe@\\(example\\.com\\|help\\.example.com\\)" both) "work"))
+    ;; Determine identity when message-mode loads
+    (add-hook 'message-setup-hook 'gnus-alias-determine-identity)
+</code></pre>
+
+<p>When <code>gnus-alias</code> has been loaded (using autoload, require, <em>M-x load-library</em>
+or <em>M-x load-file</em> (load-file takes file path -- therefore it can be used
+without any <code>.emacs</code> changes)) the following commands can be used to get(/set)
+more information (some of these have "extensive documentation"):</p>
+
+<pre><code>    M-x describe-variable RET gnus-alias-identity-alist
+    M-x describe-variable RET gnus-alias-identity-rules
+    M-x describe-variable RET gnus-alias-default-identity
+
+    M-x customize-group RET gnus-alias RET
+      or
+    M-x gnus-alias-customize RET
+</code></pre>
+
+<p>The last two do the same thing.</p>
+
+<p>See also the <strong>Usage:</strong> section in <code>gnus-alias.el</code>.</p>
+
+<h2><a name="index18h2"></a>Resending (or bouncing) messages</h2>
+
+<p>Add the following to your <code>.emacs</code> to be able to resend the current message in
+show mode.</p>
+
+<pre><code>    (define-key notmuch-show-mode-map "b"
+      (lambda (&amp;optional address)
+        "Bounce the current message."
+        (interactive "sBounce To: ")
+        (notmuch-show-view-raw-message)
+        (message-resend address)))
+</code></pre>
+
+<h2><a name="index19h2"></a><code>notmuch-hello</code> refresh status message</h2>
+
+<p>Add the following to your <code>.emacs</code> to get a status message about the change in
+the number of messages in the mail store when refreshing the <code>notmuch-hello</code>
+buffer.</p>
+
+<pre><code>    (defvar notmuch-hello-refresh-count 0)
+
+    (defun notmuch-hello-refresh-status-message ()
+      (unless no-display
+        (let* ((new-count
+                (string-to-number
+                 (car (process-lines notmuch-command "count"))))
+               (diff-count (- new-count notmuch-hello-refresh-count)))
+          (cond
+           ((= notmuch-hello-refresh-count 0)
+            (message "You have %s messages."
+                     (notmuch-hello-nice-number new-count)))
+           ((&gt; diff-count 0)
+            (message "You have %s more messages since last refresh."
+                     (notmuch-hello-nice-number diff-count)))
+           ((&lt; diff-count 0)
+            (message "You have %s fewer messages since last refresh."
+                     (notmuch-hello-nice-number (- diff-count)))))
+          (setq notmuch-hello-refresh-count new-count))))
+
+    (add-hook 'notmuch-hello-refresh-hook 'notmuch-hello-refresh-status-message)
+</code></pre>
+
+<h2><a name="index20h2"></a>Replacing tabs with spaces in subject and header</h2>
+
+<p>Mailman mailing list software rewrites and rewraps long message subjects in
+a way that causes TABs to appear in the middle of the subject and header
+lines. Add this to your <code>.emacs</code> to replace tabs with spaces in subject
+lines:</p>
+
+<pre><code>    (defun notmuch-show-subject-tabs-to-spaces ()
+      "Replace tabs with spaces in subject line."
+      (goto-char (point-min))
+      (when (re-search-forward "^Subject:" nil t)
+        (while (re-search-forward "\t" (line-end-position) t)
+          (replace-match " " nil nil))))
+
+    (add-hook 'notmuch-show-markup-headers-hook 'notmuch-show-subject-tabs-to-spaces)
+</code></pre>
+
+<p>And in header lines (this will only work with the yet to be released
+notmuch version 0.15):</p>
+
+<pre><code>    (defun notmuch-show-header-tabs-to-spaces ()
+      "Replace tabs with spaces in header line."
+      (setq header-line-format
+            (notmuch-show-strip-re
+             (replace-regexp-in-string "\t" " " (notmuch-show-get-subject)))))
+
+    (add-hook 'notmuch-show-hook 'notmuch-show-header-tabs-to-spaces)
+</code></pre>
+
+<h2><a name="index21h2"></a>Hiding unread messages in notmuch-show</h2>
+
+<p>I like to have an inbox saved search, but only show unread messages when they
+view a thread. This takes two steps:</p>
+
+<ol>
+<li>Apply
+<a href="http://notmuchmail.org/pipermail/notmuch/2012/010817.html">this patch from Mark Walters</a>
+to add the <code>notmuch-show-filter-thread</code> function.</li>
+<li><p>Add the following hook to your emacs configuration:</p>
+
+<pre><code>(defun expand-only-unread-hook () (interactive)
+  (let ((unread nil)
+        (open (notmuch-show-get-message-ids-for-open-messages)))
+    (notmuch-show-mapc (lambda ()
+                         (when (member "unread" (notmuch-show-get-tags))
+                           (setq unread t))))
+    (when unread
+      (let ((notmuch-show-hook (remove 'expand-only-unread-hook notmuch-show-hook)))
+        (notmuch-show-filter-thread "tag:unread")))))
+
+
+(add-hook 'notmuch-show-hook 'expand-only-unread-hook)
+</code></pre></li>
+</ol>
+
+<h2><a name="index22h2"></a>Changing the color of a saved search based on some other search</h2>
+
+<p>I like to have a saved search for my inbox, but have it change color when there
+are thread with unread messages in the inbox. I accomplish this with the
+following code in my emacs config:</p>
+
+<pre><code>    (defun color-inbox-if-unread () (interactive)
+      (save-excursion
+        (goto-char (point-min))
+        (let ((cnt (car (process-lines "notmuch" "count" "tag:inbox and tag:unread"))))
+          (when (&gt; (string-to-number cnt) 0)
+            (save-excursion
+              (when (search-forward "inbox" (point-max) t)
+                (let* ((overlays (overlays-in (match-beginning 0) (match-end 0)))
+                       (overlay (car overlays)))
+                  (when overlay
+                    (overlay-put overlay 'face '((:inherit bold) (:foreground "green")))))))))))
+    (add-hook 'notmuch-hello-refresh-hook 'color-inbox-if-unread)
+</code></pre>
+
+<h2><a name="index23h2"></a>Linking to notmuch messages and threads from the Circe IRC client</h2>
+
+<p><a href="https://github.com/jorgenschaefer/circe/wiki">Circe</a> is an IRC client for emacs.
+To have clickable buttons for notmuch messages and threads, add the following to
+<code>lui-buttons-list</code> (using, e.g. M-x customize-variable)</p>
+
+<pre><code>("\\(?:id\\|mid\\|thread\\):[0-9A-Za-z][0-9A-Za-z.@-]*" 0 notmuch-show 0)
+</code></pre>
+
+<p>If you have notmuch-pick installed, it works fine for this as well.</p>
+
+<h2><a name="index24h2"></a>Linking to notmuch messages from org-mode</h2>
+
+<p>Support for linking to notmuch messages is distributed with org-mode,
+but as a contrib file, so you might have to work a bit to load it.</p>
+
+<p>In Debian and derivatives,</p>
+
+<pre><code>(add-to-list 'load-path "/usr/share/org-mode/lisp")
+</code></pre>
+
+<p>Then</p>
+
+<pre><code>(require 'org-notmuch)
+</code></pre>
+
+<p>In general it is nice to have a key for org-links (not just for notmuch). For example</p>
+
+<pre><code>(define-key global-map "\C-cl" 'org-store-link)
+</code></pre>
+
+</div>
+
+
+
+<div id="footer" class="pagefooter">
+<div id="pageinfo">
+
+
+
+
+<div id="backlinks">
+Links:
+
+<a href="../excluding/">excluding</a>
+
+<a href="../frontends/">frontends</a>
+
+<a href="../">index</a>
+
+
+</div><!-- #backlinks -->
+
+
+
+
+
+
+<div class="pagedate">
+Last edited <span class="date">Mon Feb 18 23:08:38 2013</span>
+<!-- Created <span class="date">Thu Feb 11 06:36:51 2010</span> -->
+</div>
+
+</div><!-- #pageinfo -->
+
+<!-- from notmuch -->
+</div><!-- .pagefooter #footer -->
+
+</body>
+</html>

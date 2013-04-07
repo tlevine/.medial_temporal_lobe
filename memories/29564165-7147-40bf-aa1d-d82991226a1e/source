@@ -1,0 +1,1271 @@
+<!DOCTYPE html>
+<html>
+<head>
+        
+    <title>Resolving a Git conflict with binary files - Stack Overflow</title>
+    <link rel="shortcut icon" href="http://cdn.sstatic.net/stackoverflow/img/favicon.ico">
+    <link rel="apple-touch-icon image_src" href="http://cdn.sstatic.net/stackoverflow/img/apple-touch-icon.png">
+    <link rel="search" type="application/opensearchdescription+xml" title="Stack Overflow" href="/opensearch.xml">
+    
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script type="text/javascript" src="http://cdn.sstatic.net/js/stub.js?v=1f945f8e69cb"></script>
+    <link rel="stylesheet" type="text/css" href="http://cdn.sstatic.net/stackoverflow/all.css?v=adb3975b843a">
+    
+    <meta name="relativepagescore" content="544411">
+    <link rel="canonical" href="http://stackoverflow.com/questions/278081/resolving-a-git-conflict-with-binary-files">
+    <link rel="alternate" type="application/atom+xml" title="Feed for question 'Resolving a Git conflict with binary files'" href="/feeds/question/278081">
+    <script type="text/javascript">
+        
+        StackExchange.ready(function () {
+            StackExchange.using("postValidation", function () {
+                StackExchange.postValidation.initOnBlurAndSubmit($('#post-form'), 2, 'answer');
+            });
+
+            
+            StackExchange.question.init({showAnswerHelp:true,totalCommentCount:0,shownCommentCount:0,highlightColor:'#F4A83D',backgroundColor:'#FFF',questionId:278081});
+
+            styleCode();
+
+                StackExchange.realtime.subscribeToQuestion('1', '278081');
+            
+                
+        });
+    </script>
+
+
+    <script type="text/javascript">
+        StackExchange.init({"stackAuthUrl":"https://stackauth.com","serverTime":1365352748,"styleCode":true,"enableUserHovercards":true,"site":{"name":"Stack Overflow","description":"Q&A for professional and enthusiast programmers","isNoticesTabEnabled":true,"recaptchaPublicKey":"6LdchgIAAAAAAJwGpIzRQSOFaO0pU6s44Xt8aTwc","useNewStyleFavoriteTagsEditor":true,"enableSocialMediaInSharePopup":true},"user":{"fkey":"d0615068e3c3076f06594260c4587286","isAnonymous":true}});
+        StackExchange.using.setCacheBreakers({"js/prettify-full.js":"6c261bebf56a","js/moderator.js":"f96f7e4ee5dc","js/full-anon.js":"4aa778f20142","js/full.js":"0608347743ce","js/wmd.js":"283f209e159d","js/third-party/jquery.autocomplete.min.js":"e5f01e97f7c3","js/mobile.js":"6eb68240242f","js/help.js":"fc9fb0517db2","js/tageditor.js":"450c9e8426fc","js/tageditornew.js":"b6c68ad4c7dd","js/inline-tag-editing.js":"8e84e8a137f7","js/revisions.js":"7273bb714bba","js/review.js":"5b2105439221","js/tagsuggestions.js":"aa48ef6154df","js/post-validation.js":"cd619678f5d6","js/explore-qlist.js":"6c836f42bd92"});
+        
+    </script>
+
+
+    <script type="text/javascript">
+        StackExchange.using(
+            "gps",
+            function () {
+                StackExchange.gps.init(true);
+            }
+        );
+    </script>
+
+    
+</head>
+<body class="question-page">
+    <noscript><div id="noscript-padding"></div></noscript>
+    <div id="notify-container"></div>
+    <div id="overlay-header"></div>
+    <div id="custom-header"></div>
+
+    <div class="container">
+        <div id="header">
+            <div id="portalLink">
+                <a class="genu" href="http://stackexchange.com" onclick="StackExchange.ready(function(){genuwine.click();});return false;">Stack Exchange</a>
+            </div>
+            <div id="topbar">
+                <div id="hlinks">
+                    
+
+
+
+
+
+
+
+
+
+<span id="hlinks-user"></span>
+<span id="hlinks-nav">                    <a href="/users/login?returnurl=%2fquestions%2f278081%2fresolving-a-git-conflict-with-binary-files">log in</a>
+
+ <span class="lsep">|</span>
+                    <a href="http://careers.stackoverflow.com">careers 2.0</a>
+
+ <span class="lsep">|</span>
+</span>
+<span id="hlinks-custom">            <a href="http://chat.stackoverflow.com">chat</a>
+
+ <span class="lsep">|</span>
+                <a href="http://meta.stackoverflow.com">meta</a>
+
+ <span class="lsep">|</span>
+            <a href="/about">about</a>
+
+ <span class="lsep">|</span>
+        <a href="/faq">faq</a>
+</span>
+                </div>
+                <div id="hsearch">
+                    <form id="search" action="/search" method="get" autocomplete="off">
+                    <div>
+                        <input autocomplete="off" name="q" class="textbox" placeholder="search" tabindex="1" type="text" maxlength="240" size="28" value="">
+                    </div>
+                    </form>
+                </div>
+            </div>
+            <br class="cbt">
+            <div id="hlogo">
+                <a href="/" >
+                    Stack Overflow
+                </a>
+            </div>
+            <div id="hmenus">
+                <div class="nav mainnavs ">
+                    <ul>
+                            <li class="youarehere"><a id="nav-questions" href="/questions">Questions</a></li>
+                            <li><a id="nav-tags" href="/tags">Tags</a></li>
+                            <li><a id="nav-users" href="/users">Users</a></li>
+                            <li><a id="nav-badges" href="/badges">Badges</a></li>
+                            <li><a id="nav-unanswered" href="/unanswered">Unanswered</a></li>
+                    </ul>
+                </div>
+                <div class="nav askquestion">
+                    <ul>
+                        <li>
+                            <a id="nav-askquestion"  href="/questions/ask">Ask Question</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        
+
+
+
+        <div id="content">
+            
+
+<div itemscope itemtype="http://schema.org/Article">
+<link itemprop="image" href="http://cdn.sstatic.net/stackoverflow/img/apple-touch-icon.png">
+<div id="question-header">
+    <h1 itemprop="name"><a href="/questions/278081/resolving-a-git-conflict-with-binary-files" class="question-hyperlink">Resolving a Git conflict with binary files</a></h1>
+</div>
+<div id="mainbar">
+
+
+
+<div class="question" data-questionid="278081"  id="question">
+    
+            <div class="everyonelovesstackoverflow" id="adzerk1">
+        </div>
+
+
+    <table>
+        <tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+    <input type="hidden" value="278081">
+    <a class="vote-up-off" title="This question shows research effort; it is useful and clear (click again to undo)">up vote</a>
+    <span class="vote-count-post ">89</span>
+    <a class="vote-down-off" title="This question does not show any research effort; it is unclear or not useful (click again to undo)">down vote</a>
+    
+    <a class="star-off" href="#" title="This is a favorite question (click again to undo)">favorite</a>
+    <div class="favoritecount"><b>43</b></div>   
+
+ 
+</div>
+
+            </td>
+            
+<td class="postcell">
+<div>
+    <div class="post-text" itemprop="description">
+        <p>I've been using Git on Windows (msysgit) to track changes for some design work I've been doing.</p>
+
+<p>Today I've been working on a different PC (brian) and am now trying to merge the edits done today back into my regular local version on my laptop.</p>
+
+<p>On my laptop, I've used 'git pull brian master' to pull the changes into my local version. Everything was fine apart from the main InDesign document - this shows as a conflict.</p>
+
+<p>The version on the PC (brian) is the latest one that I want to keep but I don't know what commands tells the repo to use this one. </p>
+
+<p>I tried directly copying the file across onto my laptop but this seems to break the whole merge process.</p>
+
+<p>Can anyone point me in the right direction?</p>
+
+    </div>
+    <div class="post-taglist">
+        <a href="/questions/tagged/git" class="post-tag" title="show questions tagged 'git'" rel="tag">git</a> <a href="/questions/tagged/merge-conflict-resolution" class="post-tag" title="show questions tagged 'merge-conflict-resolution'" rel="tag">merge-conflict-resolution</a> 
+    </div>
+    <table class="fw">
+    <tr>
+    <td class="vt">
+
+
+
+
+
+
+
+
+
+<div class="post-menu"><a href="/q/278081" title="short permalink to this question" class="short-link" id="link-post-278081">share</a><span class="lsep">|</span><a href="/posts/278081/edit" class="suggest-edit-post" title="">improve this question</a></div>            </td>
+    <td align="right" class="post-signature">
+
+
+    <div class="user-info user-hover">
+        <div class="user-action-time">
+                            edited
+                             <a href="/posts/278081/revisions" title="show all edits to this post"><span title="2011-12-23 20:47:29Z" class="relativetime">Dec 23 '11 at 20:47</span></a>
+
+        </div>
+        <div class="user-gravatar32">
+            <a href="/users/212218/todofixthis"><div class=""><img src="http://www.gravatar.com/avatar/b36ba7eef70ce5e26120286b2e484c88?s=32&d=identicon&r=PG" alt="" width="32" height="32"></div></a>
+        </div>
+        <div class="user-details">
+            <a href="/users/212218/todofixthis">todofixthis</a><br>
+            <span class="reputation-score" title="reputation score" dir="ltr">3,451</span><span title="4 gold badges"><span class="badge1"></span><span class="badgecount">4</span></span><span title="19 silver badges"><span class="badge2"></span><span class="badgecount">19</span></span><span title="41 bronze badges"><span class="badge3"></span><span class="badgecount">41</span></span>
+        </div>
+    </div>
+    </td>
+    <td class="post-signature owner">
+        
+
+    <div class="user-info user-hover">
+        <div class="user-action-time">
+                                    asked
+ <span title="2008-11-10 15:03:44Z" class="relativetime">Nov 10 '08 at 15:03</span>
+        </div>
+        <div class="user-gravatar32">
+            <a href="/users/33721/kevin-wilson"><div class=""><img src="http://www.gravatar.com/avatar/45a6f0e5fdd57e16c9f0c229ced58976?s=32&d=identicon&r=PG" alt="" width="32" height="32"></div></a>
+        </div>
+        <div class="user-details">
+            <a href="/users/33721/kevin-wilson">Kevin Wilson</a><br>
+            <span class="reputation-score" title="reputation score" dir="ltr">1,051</span><span title="2 gold badges"><span class="badge1"></span><span class="badgecount">2</span></span><span title="16 silver badges"><span class="badge2"></span><span class="badgecount">16</span></span><span title="25 bronze badges"><span class="badge3"></span><span class="badgecount">25</span></span>
+        </div>
+    </div>
+
+    </td>
+    </tr>
+    </table>
+</div>
+</td>
+        </tr>
+
+
+<tr>
+<td class="votecell"></td>
+<td>
+    <div id="comments-278081" class="comments dno">
+        <table>
+        <tbody>
+        
+            <tr><td></td><td></td></tr>
+        
+        </tbody>
+    
+        </table>
+    </div>
+    
+</td>
+</tr>            </table>    
+</div>
+
+
+<div id="answers">
+
+    <a name="tab-top"></a>
+    <div id="answers-header">
+        <div class="subheader answers-subheader">
+            <h2>
+                    5 Answers
+            </h2>
+            <div id="tabs">
+                <a href="/questions/278081/resolving-a-git-conflict-with-binary-files?answertab=active#tab-top" title="Answers with the latest activity first">active</a>
+<a href="/questions/278081/resolving-a-git-conflict-with-binary-files?answertab=oldest#tab-top" title="Answers in the order they were provided">oldest</a>
+<a class="youarehere" href="/questions/278081/resolving-a-git-conflict-with-binary-files?answertab=votes#tab-top" title="Answers with the highest score first">votes</a>
+
+            </div>
+        </div>    
+    </div>    
+
+
+
+
+  
+<a name="278207"></a>
+<div id="answer-278207" class="answer accepted-answer" data-answerid="278207" >
+    <table>
+        <tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+    <input type="hidden" value="278207">
+    <a class="vote-up-off" title="This answer is useful (click again to undo)">up vote</a>
+    <span class="vote-count-post ">59</span>
+    <a class="vote-down-off" title="This answer is not useful (click again to undo)">down vote</a>
+    
+
+            <span class="vote-accepted-on load-accepted-answer-date" title="loading when this answer was accepted...">accepted</span>
+ 
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text"><p>You have to resolve the conflict manually (copying the file over) and then commit the file (no matter if you copied it over or used the local version) like this</p>
+
+<pre><code>git commit -a -m "Fix merge conflict in test.foo"
+</code></pre>
+
+<p>Git normally autocommits after merging, but when it detects conflicts it cannot solve by itself, it applies all patches it figured out and leaves the rest for you to resolve and commit manually. The <a href="http://www.kernel.org/pub/software/scm/git/docs/git-merge.html">Git Merge Man Page</a>, the <a href="http://git.or.cz/course/svn.html#merge">Git-SVN Crash Course</a> or <a href="http://www.bluishcoder.co.nz/2007/09/git-binary-files-and-cherry-picking.html">this</a> blog entry might shed some light on how it's supposed to work.</p>
+
+<p><strong>Edit:</strong> See the post below, you don't actually have to copy the files yourself, but can use </p>
+
+<pre><code>git checkout --ours -- path/to/file.txt
+git checkout --theirs -- path/to/file.txt
+</code></pre>
+
+<p>to select the version of the file you want. Copying / editing the file will only be necessary if you want a mix of both versions.</p>
+
+<p>Please mark mipadis answer as the correct one.</p>
+</div>
+    <table class="fw">
+    <tr>
+    <td class="vt">
+
+
+
+
+
+
+
+
+
+<div class="post-menu"><a href="/a/278207" title="short permalink to this answer" class="short-link" id="link-post-278207">share</a><span class="lsep">|</span><a href="/posts/278207/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+    <td align="right" class="post-signature">
+
+
+    <div class="user-info ">
+        <div class="user-action-time">
+                            edited
+                             <a href="/posts/278207/revisions" title="show all edits to this post"><span title="2011-07-05 15:25:29Z" class="relativetime">Jul 5 '11 at 15:25</span></a>
+
+        </div>
+        <div class="user-gravatar32">
+            
+        </div>
+        <div class="user-details">
+            <br>
+            
+        </div>
+    </div>
+    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    
+
+    <div class="user-info ">
+        <div class="user-action-time">
+                                    answered
+ <span title="2008-11-10 15:49:46Z" class="relativetime">Nov 10 '08 at 15:49</span>
+        </div>
+        <div class="user-gravatar32">
+            <a href="/users/25472/volka"><div class=""><img src="http://www.gravatar.com/avatar/577531ed942173ec2cad22b264c176af?s=32&d=identicon&r=PG" alt="" width="32" height="32"></div></a>
+        </div>
+        <div class="user-details">
+            <a href="/users/25472/volka">VolkA</a><br>
+            <span class="reputation-score" title="reputation score" dir="ltr">6,099</span><span title="3 gold badges"><span class="badge1"></span><span class="badgecount">3</span></span><span title="16 silver badges"><span class="badge2"></span><span class="badgecount">16</span></span><span title="20 bronze badges"><span class="badge3"></span><span class="badgecount">20</span></span>
+        </div>
+    </div>
+
+    </td>
+    </tr>
+    </table>
+</td>
+        </tr>
+
+
+
+<tr>
+<td class="votecell"></td>
+<td>
+    <div id="comments-278207" class="comments">
+        <table>
+        <tbody>
+                    
+    <tr id="comment-130397" class="comment">
+        <td class="comment-actions"><table><tbody><tr>
+<td class="comment-score">
+<span title="number of 'useful comment' votes received" class="cool">1</span>
+</td>
+<td>
+&nbsp;
+</td></tr>
+</tbody></table></td>
+        <td class="comment-text"><div><span class="comment-copy">Thanks for that. I wasn&#39;t sure if there was some sort of build-in way to mark a file as the &#39;correct&#39; one. Explains why I couldn&#39;t find the non-existent command though!</span> &ndash;&nbsp;<a href="/users/33721/kevin-wilson" title="1051 reputation" class="comment-user owner">Kevin Wilson</a> <span class="comment-date" dir="ltr"><span title="2008-11-10 18:35:05Z" class="relativetime-clean">Nov 10 '08 at 18:35</span></span></div></td>
+    </tr>
+            
+    <tr id="comment-130626" class="comment">
+        <td></td>
+        <td class="comment-text"><div><span class="comment-copy">Yep, thats a bit unintuitive - something like git resolve would be nice, but would also be an extra step ...</span> &ndash;&nbsp;<a href="/users/25472/volka" title="6099 reputation" class="comment-user">VolkA</a> <span class="comment-date" dir="ltr"><span title="2008-11-10 20:22:28Z" class="relativetime-clean">Nov 10 '08 at 20:22</span></span></div></td>
+    </tr>
+
+        </tbody>
+    
+        </table>
+    </div>
+    
+</td>
+</tr>
+   
+    </table>
+</div>
+        <div class="everyonelovesstackoverflow" id="adzerk3">
+        </div>
+
+
+
+  
+<a name="2163926"></a>
+<div id="answer-2163926" class="answer" data-answerid="2163926" >
+    <table>
+        <tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+    <input type="hidden" value="2163926">
+    <a class="vote-up-off" title="This answer is useful (click again to undo)">up vote</a>
+    <span class="vote-count-post ">223</span>
+    <a class="vote-down-off" title="This answer is not useful (click again to undo)">down vote</a>
+    
+
+ 
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text"><p><code>git checkout</code> accepts a <code>--ours</code> or <code>--theirs</code> option for cases like this. So if you have a merge conflict, and you know you just want the file from the branch you are merging in, you can do:</p>
+
+<pre><code>$ git checkout --theirs -- path/to/conflicted-file.txt
+</code></pre>
+
+<p>to use that version of the file. Likewise, if you know you want your version (not the one being merged in) you can use</p>
+
+<pre><code>$ git checkout --ours -- path/to/conflicted-file.txt
+</code></pre>
+</div>
+    <table class="fw">
+    <tr>
+    <td class="vt">
+
+
+
+
+
+
+
+
+
+<div class="post-menu"><a href="/a/2163926" title="short permalink to this answer" class="short-link" id="link-post-2163926">share</a><span class="lsep">|</span><a href="/posts/2163926/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    
+
+    <div class="user-info user-hover">
+        <div class="user-action-time">
+                                    answered
+ <span title="2010-01-29 17:48:13Z" class="relativetime">Jan 29 '10 at 17:48</span>
+        </div>
+        <div class="user-gravatar32">
+            <a href="/users/28804/mipadi"><div class=""><img src="http://www.gravatar.com/avatar/015c999a9db79ffb3030b3cc207d0be8?s=32&d=identicon&r=PG" alt="" width="32" height="32"></div></a>
+        </div>
+        <div class="user-details">
+            <a href="/users/28804/mipadi">mipadi</a><br>
+            <span class="reputation-score" title="reputation score 90834" dir="ltr">90.8k</span><span title="15 gold badges"><span class="badge1"></span><span class="badgecount">15</span></span><span title="188 silver badges"><span class="badge2"></span><span class="badgecount">188</span></span><span title="256 bronze badges"><span class="badge3"></span><span class="badgecount">256</span></span>
+        </div>
+    </div>
+
+    </td>
+    </tr>
+    </table>
+</td>
+        </tr>
+
+
+
+<tr>
+<td class="votecell"></td>
+<td>
+    <div id="comments-2163926" class="comments">
+        <table>
+        <tbody>
+                    
+    <tr id="comment-3253273" class="comment">
+        <td class="comment-actions"><table><tbody><tr>
+<td class="comment-score">
+<span title="number of 'useful comment' votes received" class="hot">29</span>
+</td>
+<td>
+&nbsp;
+</td></tr>
+</tbody></table></td>
+        <td class="comment-text"><div><span class="comment-copy">Please mark this answer as the correct answer for your question!</span> &ndash;&nbsp;<a href="/users/23843/milan-gardian" title="4596 reputation" class="comment-user">Milan Gardian</a> <span class="comment-date" dir="ltr"><span title="2010-07-02 03:46:27Z" class="relativetime-clean">Jul 2 '10 at 3:46</span></span></div></td>
+    </tr>
+            
+    <tr id="comment-9439581" class="comment">
+        <td class="comment-actions"><table><tbody><tr>
+<td class="comment-score">
+<span title="number of 'useful comment' votes received" class="warm">7</span>
+</td>
+<td>
+&nbsp;
+</td></tr>
+</tbody></table></td>
+        <td class="comment-text"><div><span class="comment-copy">I had to run &#39;git reset HEAD path/to/conflicted-file.txt&#39; on the file before using --ours, otherwise it seemed to have no effect.</span> &ndash;&nbsp;<a href="/users/11722/zitrax" title="2341 reputation" class="comment-user">Zitrax</a> <span class="comment-date" dir="ltr"><span title="2011-10-13 13:48:40Z" class="relativetime-clean">Oct 13 '11 at 13:48</span></span></div></td>
+    </tr>
+
+        </tbody>
+    
+        </table>
+    </div>
+    
+</td>
+</tr>
+   
+    </table>
+</div>
+
+  
+<a name="1321855"></a>
+<div id="answer-1321855" class="answer" data-answerid="1321855" >
+    <table>
+        <tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+    <input type="hidden" value="1321855">
+    <a class="vote-up-off" title="This answer is useful (click again to undo)">up vote</a>
+    <span class="vote-count-post ">25</span>
+    <a class="vote-down-off" title="This answer is not useful (click again to undo)">down vote</a>
+    
+
+ 
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text"><p>You can also overcame this problem with</p>
+
+<pre><code>git mergetool
+</code></pre>
+
+<p>which causes <code>git</code> to create local copies of the conflicted binary and spawn your default editor on them:</p>
+
+<ul>
+<li><code>{conflicted}.HEAD</code></li>
+<li><code>{conflicted}</code></li>
+<li><code>{conflicted}.REMOTE</code></li>
+</ul>
+
+<p>Obviously you can't usefully edit binaries files in a text editor. Instead you copy the new <code>{conflicted}.REMOTE</code> file over <code>{conflicted}</code> without closing the editor. Then when you do close the editor <code>git</code> will see that the undecorated working-copy has been changed and your merge conflict is resolved in the usual way.</p>
+</div>
+    <table class="fw">
+    <tr>
+    <td class="vt">
+
+
+
+
+
+
+
+
+
+<div class="post-menu"><a href="/a/1321855" title="short permalink to this answer" class="short-link" id="link-post-1321855">share</a><span class="lsep">|</span><a href="/posts/1321855/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    
+
+    <div class="user-info ">
+        <div class="user-action-time">
+                                    answered
+ <span title="2009-08-24 11:31:23Z" class="relativetime">Aug 24 '09 at 11:31</span>
+        </div>
+        <div class="user-gravatar32">
+            <a href="/users/83100/robm"><div class=""><img src="http://www.gravatar.com/avatar/6d9205af08491744ef0a678a852de0a0?s=32&d=identicon&r=PG" alt="" width="32" height="32"></div></a>
+        </div>
+        <div class="user-details">
+            <a href="/users/83100/robm">RobM</a><br>
+            <span class="reputation-score" title="reputation score" dir="ltr">1,566</span><span title="11 silver badges"><span class="badge2"></span><span class="badgecount">11</span></span><span title="18 bronze badges"><span class="badge3"></span><span class="badgecount">18</span></span>
+        </div>
+    </div>
+
+    </td>
+    </tr>
+    </table>
+</td>
+        </tr>
+
+
+
+<tr>
+<td class="votecell"></td>
+<td>
+    <div id="comments-1321855" class="comments">
+        <table>
+        <tbody>
+                    
+    <tr id="comment-17117298" class="comment">
+        <td class="comment-actions"><table><tbody><tr>
+<td class="comment-score">
+<span title="number of 'useful comment' votes received" class="cool">3</span>
+</td>
+<td>
+&nbsp;
+</td></tr>
+</tbody></table></td>
+        <td class="comment-text"><div><span class="comment-copy">This answer totally deserves more upvotes.</span> &ndash;&nbsp;<a href="/users/238030/chetan" title="9494 reputation" class="comment-user">Chetan</a> <span class="comment-date" dir="ltr"><span title="2012-10-01 23:09:54Z" class="relativetime-clean">Oct 1 '12 at 23:09</span></span></div></td>
+    </tr>
+
+        </tbody>
+    
+        </table>
+    </div>
+    
+</td>
+</tr>
+   
+    </table>
+</div>
+
+  
+<a name="2163895"></a>
+<div id="answer-2163895" class="answer" data-answerid="2163895" >
+    <table>
+        <tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+    <input type="hidden" value="2163895">
+    <a class="vote-up-off" title="This answer is useful (click again to undo)">up vote</a>
+    <span class="vote-count-post ">7</span>
+    <a class="vote-down-off" title="This answer is not useful (click again to undo)">down vote</a>
+    
+
+ 
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text"><p>To resolve by keeping the version in your current branch (ignore the version from the branch you are merging in), just add and commit the file:</p>
+
+<pre><code>git commit -a
+</code></pre>
+
+<p>To resolve by overwriting the version in your current branch with the version from the branch you are merging in, you need to retrieve that version into your working directory first, and then add/commit it:</p>
+
+<pre><code>git checkout otherbranch theconflictedfile
+git commit -a
+</code></pre>
+
+<p><a href="http://www.lostechies.com/blogs/joshuaflanagan/archive/2010/01/28/how-to-resolve-a-binary-file-conflict-with-git.aspx">Explained in more detail</a></p>
+</div>
+    <table class="fw">
+    <tr>
+    <td class="vt">
+
+
+
+
+
+
+
+
+
+<div class="post-menu"><a href="/a/2163895" title="short permalink to this answer" class="short-link" id="link-post-2163895">share</a><span class="lsep">|</span><a href="/posts/2163895/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    
+
+    <div class="user-info user-hover">
+        <div class="user-action-time">
+                                    answered
+ <span title="2010-01-29 17:43:30Z" class="relativetime">Jan 29 '10 at 17:43</span>
+        </div>
+        <div class="user-gravatar32">
+            <a href="/users/156533/joshua-flanagan"><div class=""><img src="http://www.gravatar.com/avatar/9bd94020f85390bd4790447541b0f17c?s=32&d=identicon&r=PG" alt="" width="32" height="32"></div></a>
+        </div>
+        <div class="user-details">
+            <a href="/users/156533/joshua-flanagan">Joshua Flanagan</a><br>
+            <span class="reputation-score" title="reputation score" dir="ltr">5,003</span><span title="10 silver badges"><span class="badge2"></span><span class="badgecount">10</span></span><span title="21 bronze badges"><span class="badge3"></span><span class="badgecount">21</span></span>
+        </div>
+    </div>
+
+    </td>
+    </tr>
+    </table>
+</td>
+        </tr>
+
+
+
+<tr>
+<td class="votecell"></td>
+<td>
+    <div id="comments-2163895" class="comments dno">
+        <table>
+        <tbody>
+        
+            <tr><td></td><td></td></tr>
+        
+        </tbody>
+    
+        </table>
+    </div>
+    
+</td>
+</tr>
+   
+    </table>
+</div>
+
+  
+<a name="1162085"></a>
+<div id="answer-1162085" class="answer" data-answerid="1162085" >
+    <table>
+        <tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+    <input type="hidden" value="1162085">
+    <a class="vote-up-off" title="This answer is useful (click again to undo)">up vote</a>
+    <span class="vote-count-post ">1</span>
+    <a class="vote-down-off" title="This answer is not useful (click again to undo)">down vote</a>
+    
+
+ 
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text"><p>I came across a similar problem (wanting to pull a commit that included some binary files which caused conflicts when merged), but came across a different solution that can be done entirely using git (i.e. not having to manually copy files over).  I figured I'd include it here so at the very least I can remember it the next time I need it. :)  The steps look like this:</p>
+
+<pre><code>% git fetch
+</code></pre>
+
+<p>This fetches the latest commit(s) from the remote repository (you may need to specify a remote branch name, depending on your setup), but doesn't try to merge them.  It records the the commit in FETCH_HEAD</p>
+
+<pre><code>% git checkout FETCH_HEAD stuff/to/update
+</code></pre>
+
+<p>This takes the copy of the binary files I want and overwrites what's in the working tree with the version fetched from the remote branch.  git doesn't try to do any merging, so you just end up with an exact copy of the binary file from the remote branch.  Once that's done, you can add/commit the new copy just like normal.  </p>
+</div>
+    <table class="fw">
+    <tr>
+    <td class="vt">
+
+
+
+
+
+
+
+
+
+<div class="post-menu"><a href="/a/1162085" title="short permalink to this answer" class="short-link" id="link-post-1162085">share</a><span class="lsep">|</span><a href="/posts/1162085/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+    <td align="right" class="post-signature">
+
+
+    <div class="user-info ">
+        <div class="user-action-time">
+                            edited
+                             <a href="/posts/1162085/revisions" title="show all edits to this post"><span title="2009-07-28 03:57:39Z" class="relativetime">Jul 28 '09 at 3:57</span></a>
+
+        </div>
+        <div class="user-gravatar32">
+            
+        </div>
+        <div class="user-details">
+            <br>
+            
+        </div>
+    </div>
+    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    
+
+    <div class="user-info user-hover">
+        <div class="user-action-time">
+                                    answered
+ <span title="2009-07-21 22:29:34Z" class="relativetime">Jul 21 '09 at 22:29</span>
+        </div>
+        <div class="user-gravatar32">
+            <a href="/users/23324/brian-webster"><div class=""><img src="http://www.gravatar.com/avatar/0a664e0bb443ac55e8f1e23176f9f73d?s=32&d=identicon&r=PG" alt="" width="32" height="32"></div></a>
+        </div>
+        <div class="user-details">
+            <a href="/users/23324/brian-webster">Brian Webster</a><br>
+            <span class="reputation-score" title="reputation score" dir="ltr">5,951</span><span title="2 gold badges"><span class="badge1"></span><span class="badgecount">2</span></span><span title="23 silver badges"><span class="badge2"></span><span class="badgecount">23</span></span><span title="39 bronze badges"><span class="badge3"></span><span class="badgecount">39</span></span>
+        </div>
+    </div>
+
+    </td>
+    </tr>
+    </table>
+</td>
+        </tr>
+
+
+
+<tr>
+<td class="votecell"></td>
+<td>
+    <div id="comments-1162085" class="comments dno">
+        <table>
+        <tbody>
+        
+            <tr><td></td><td></td></tr>
+        
+        </tbody>
+    
+        </table>
+    </div>
+    
+</td>
+</tr>
+   
+    </table>
+</div>
+    <a name='new-answer'></a>
+    <form id="post-form" action="/questions/278081/answer/submit" method="post"  class="post-form">
+        <input type="hidden" id="post-id" value="278081" />
+        <h2 class="space">Your Answer</h2>
+
+
+
+    
+<script type="text/javascript">
+    StackExchange.ready(function() {
+        initTagRenderer("".split(" "), "".split(" "));
+         
+        prepareEditor({
+            heartbeatType: 'answer',
+            bindNavPrevention: true,
+            postfix: "",
+            onDemand: true,
+            discardSelector: ".discard-answer"
+            ,immediatelyShowMarkdownHelp:true
+        });
+        
+
+    });  
+</script>
+
+
+<div id="post-editor" class="post-editor">
+
+    <div style="position: relative;">     
+        <div class="wmd-container">
+            <div id="wmd-button-bar" class="wmd-button-bar"></div>
+            <textarea id="wmd-input" class="wmd-input" name="post-text" cols="92" rows="15" tabindex="101" data-min-length=""></textarea>
+        </div>
+    </div>
+
+    <div class="fl" style="margin-top: 8px; height:24px;">&nbsp;</div>
+    <div id="draft-saved" class="draft-saved community-option fl" style="margin-top: 8px; height:24px; display:none;">draft saved</div>
+
+    <div id="draft-discarded" class="draft-discarded community-option fl" style="margin-top: 8px; height:24px; display:none;">draft discarded</div>
+
+
+
+    <div id="wmd-preview" class="wmd-preview"></div>
+    <div></div>
+    <div class="edit-block">
+        <input id="fkey" name="fkey" type="hidden" value="d0615068e3c3076f06594260c4587286">
+        <input id="author" name="author" type="text">
+    </div>
+</div>
+        <div style="position: relative;"> 
+            <div class="form-item dno new-post-login">
+        
+                <div class="new-login-form">
+                    <div class="new-login-left">
+                        <h3>Sign up or <a id="login-link" href="/users/login?returnurl=%2fquestions%2f278081%2fresolving-a-git-conflict-with-binary-files%23new-answer">log in</a></h3>
+                        <script type="text/javascript">
+                            StackExchange.ready(function () {
+                                StackExchange.helpers.onClickDraftSave('#login-link');
+                            });
+                        </script>
+                        <div class="preferred-login google-login">
+                            <p><span class="icon"></span><span>Sign up using Google</span></p>
+                        </div>
+                        <div class="preferred-login facebook-login">
+                            <p><span class="icon"></span><span>Sign up using Facebook</span></p>
+                        </div>
+                        <div class="preferred-login stackexchange-login">
+                            <p><span class="icon"></span><span>Sign up using Stack Exchange</span></p>
+                        </div>
+                    </div>
+                    <input type="hidden" name="manual-openid" class="manual-openid" />
+                    <input type="hidden" name="use-facebook" class="use-facebook" value="false" />
+                    <input type="button" class="submit-openid" value="Submit" style="display:none" />
+                    <div class="new-login-right">
+                                <h3>Post as a guest</h3>
+    <div class="form-item">
+        <table>
+        <tr>
+                    <script type="text/javascript">
+                StackExchange.ready(function () {
+                    StackExchange.helpers.bindHelpOverlayEvents($('.vm input'));
+                });
+            </script>
+            <td class="vm">
+                <div>
+                    <label for="display-name">Name</label>
+                    <input id="display-name" name="display-name" type="text" size="30" maxlength="30" value="" tabindex="105">
+                </div>
+                <div>
+                    <label for="m-address">Email</label>
+                    <input id="m-address" name="m-address" type="text" size="30" maxlength="100" value="" tabindex="106">
+                    <span class="edit-field-overlay">required, but not shown</span>
+                </div>
+            </td>
+        </tr>
+        </table>
+    </div>
+
+                    </div>
+                </div>
+            </div>
+            <script type="text/javascript">
+                StackExchange.ready(
+                    function () {
+                        StackExchange.openid.initPostLogin('.new-post-login', '%2fquestions%2f278081%2fresolving-a-git-conflict-with-binary-files%23new-answer');
+                    }
+                );
+            </script>
+            <noscript>
+                        <h3>Post as a guest</h3>
+    <div class="form-item">
+        <table>
+        <tr>
+                    <script type="text/javascript">
+                StackExchange.ready(function () {
+                    StackExchange.helpers.bindHelpOverlayEvents($('.vm input'));
+                });
+            </script>
+            <td class="vm">
+                <div>
+                    <label for="display-name">Name</label>
+                    <input id="display-name" name="display-name" type="text" size="30" maxlength="30" value="" tabindex="105">
+                </div>
+                <div>
+                    <label for="m-address">Email</label>
+                    <input id="m-address" name="m-address" type="text" size="30" maxlength="100" value="" tabindex="106">
+                    <span class="edit-field-overlay">required, but not shown</span>
+                </div>
+            </td>
+        </tr>
+        </table>
+    </div>
+
+            </noscript>
+        </div>
+           
+            <div class="form-submit cbt">
+            <input id="submit-button" type="submit" value="Post Your Answer" tabindex="110">
+            <a href="#" class="discard-answer dno">discard</a>
+    <p class="privacy-policy-agreement">
+        By posting your answer, you agree to the 
+        <a href="http://stackexchange.com/legal/privacy-policy" target="_blank">privacy policy</a> and 
+        <a href="http://stackexchange.com/legal/terms-of-service" target="_blank">terms of service</a>.
+    </p>
+    <input type="hidden" name="legalLinksShown" value="1" />
+        </div>
+    </form>
+
+
+
+        <h2 class="bottom-notice">
+                Not the answer you're looking for? 
+            Browse other questions tagged <a href="/questions/tagged/git" class="post-tag" title="show questions tagged 'git'" rel="tag">git</a> <a href="/questions/tagged/merge-conflict-resolution" class="post-tag" title="show questions tagged 'merge-conflict-resolution'" rel="tag">merge-conflict-resolution</a> 
+                or <a href="/questions/ask">ask your own question</a>.
+        </h2>
+</div>
+</div>
+<div id="sidebar" class=show-votes>
+        <div class="module question-stats">
+        <p class="label-key">tagged</p>
+        <div class="tagged"><a href="/questions/tagged/git" class="post-tag" title="show questions tagged 'git'" rel="tag">git</a>&nbsp;<span class="item-multiplier"><span class="item-multiplier-x">&times;</span>&nbsp;<span class="item-multiplier-count">25780</span></span><br>
+<a href="/questions/tagged/merge-conflict-resolution" class="post-tag" title="show questions tagged 'merge-conflict-resolution'" rel="tag">merge-conflict-resolution</a>&nbsp;<span class="item-multiplier"><span class="item-multiplier-x">&times;</span>&nbsp;<span class="item-multiplier-count">86</span></span><br>
+</div>
+        <table id="qinfo">
+            <tr>
+                <td><p class="label-key">asked</p></td>
+                <td style="padding-left:10px"><p class="label-key" title="2008-11-10 15:03:44Z"><b>4 years ago</b></p></td>
+            </tr>
+            <tr>
+                <td><p class="label-key">viewed</p></td>
+
+                <td style="padding-left:10px">
+                    <p class="label-key">
+                        <b>28235 times</b>
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td><p class="label-key">active</p></td>
+                <td style="padding-left:10px"><p class="label-key"><b><a href="?lastactivity" class="lastactivity-link" title="2011-12-23 20:47:29Z">1 year ago</a></b></p></td>
+            </tr>
+        </table>
+    </div>
+        
+                <script type="text/javascript">
+                var scriptSrc = "http://engine.adzerk.net/z/8277/adzerk1_2_4_43,adzerk2_2_17_45,adzerk3_2_4_44?keywords=git,merge-conflict-resolution";
+                if (document.referrer) {
+                    if (/\?/.test(scriptSrc))
+                        scriptSrc += "&";
+                    else
+                        scriptSrc += "?";
+                    scriptSrc += "xReferrer=" + document.referrer;
+                }
+                StackExchange.ready(function () {
+                    var z = document.createElement("script");
+                    z.type = "text/javascript";
+                    z.async = "true";
+                    z.src = scriptSrc;
+                    var s = document.getElementsByTagName("script")[0];
+                    s.parentNode.insertBefore(z, s);
+                });
+            </script>
+        <div class="everyonelovesstackoverflow" id="adzerk2">
+        </div>
+    <div id="hireme">
+        <script type="text/javascript">
+            var careers_adurl="http://careers.stackoverflow.com/gethired/js",careers_cssurl="//careerscdn.sstatic.net/careers/gethired/sidebar.css?v=1e561f7b2e71",careers_leaderboardcssurl="//careerscdn.sstatic.net/careers/gethired/ninja.min.css?v=78ccbfa5c59f",careers_companycssurl="//careerscdn.sstatic.net/careers/gethired/company",careers_adselector="div.hireme, div#hireme";StackExchange.ready(function(){$.ajax({url:"//careerscdn.sstatic.net/careers/gethired/loader.min.js?v=cd90efd44e5e",dataType:"script",cache:!0})})
+        </script>
+    </div>
+
+
+
+      
+    
+    <div class="module sidebar-related">
+        <h4 id="h-related">Related</h4>
+        <div class="related" data-tracker="rq=1">
+            <div class="spacer">
+<a href="/q/4322750" title="Vote score (upvotes - downvotes)">
+        <div class="answer-votes default">1</div>
+</a>
+<a href="/questions/4322750/resolving-a-part-of-conflict-in-a-file-in-git" class="question-hyperlink">Resolving a part of conflict in a file in GIT</a>
+</div>
+<div class="spacer">
+<a href="/q/6828171" title="Vote score (upvotes - downvotes)">
+        <div class="answer-votes answered-accepted default">9</div>
+</a>
+<a href="/questions/6828171/git-automatically-create-distinct-files-for-versions-on-conflict" class="question-hyperlink">Git - automatically create distinct files for versions on conflict</a>
+</div>
+<div class="spacer">
+<a href="/q/7243374" title="Vote score (upvotes - downvotes)">
+        <div class="answer-votes default">1</div>
+</a>
+<a href="/questions/7243374/what-are-we-doing-wrong-with-git" class="question-hyperlink">What are we doing wrong with git?</a>
+</div>
+<div class="spacer">
+<a href="/q/7264876" title="Vote score (upvotes - downvotes)">
+        <div class="answer-votes default">3</div>
+</a>
+<a href="/questions/7264876/git-merge-conflict-due-to-renaming-in-two-branches-how-to-fix-avoid-in-futur" class="question-hyperlink">git merge conflict due to renaming in two branches - how to fix &amp; avoid in future?</a>
+</div>
+<div class="spacer">
+<a href="/q/7355199" title="Vote score (upvotes - downvotes)">
+        <div class="answer-votes default">0</div>
+</a>
+<a href="/questions/7355199/git-merge-conflicts-over-newline-at-end-of-file" class="question-hyperlink">git: merge conflicts over newline at end of file</a>
+</div>
+<div class="spacer">
+<a href="/q/8488365" title="Vote score (upvotes - downvotes)">
+        <div class="answer-votes answered-accepted default">6</div>
+</a>
+<a href="/questions/8488365/git-compare-base-version-with-theirs-version-of-a-conflicted-file" class="question-hyperlink">Git compare &ldquo;base&rdquo; version with &ldquo;theirs&rdquo; version of a conflicted file?</a>
+</div>
+<div class="spacer">
+<a href="/q/9369798" title="Vote score (upvotes - downvotes)">
+        <div class="answer-votes default">2</div>
+</a>
+<a href="/questions/9369798/git-cherry-pick-merge-conflict-pulling-in-other-commits" class="question-hyperlink">git cherry-pick merge conflict pulling in other commits?</a>
+</div>
+<div class="spacer">
+<a href="/q/9972540" title="Vote score (upvotes - downvotes)">
+        <div class="answer-votes answered-accepted default">6</div>
+</a>
+<a href="/questions/9972540/do-i-have-to-commit-a-merge-to-make-git-rerere-record-my-conflict-resolution" class="question-hyperlink">Do I have to commit a merge to make git-rerere record my conflict resolution?</a>
+</div>
+<div class="spacer">
+<a href="/q/10761348" title="Vote score (upvotes - downvotes)">
+        <div class="answer-votes answered-accepted default">4</div>
+</a>
+<a href="/questions/10761348/git-merging-hotfix-to-multiple-branches" class="question-hyperlink">Git merging hotfix to multiple branches</a>
+</div>
+<div class="spacer">
+<a href="/q/11368811" title="Vote score (upvotes - downvotes)">
+        <div class="answer-votes answered-accepted default">1</div>
+</a>
+<a href="/questions/11368811/git-is-not-showing-any-conflicts-and-is-overwriting-my-local-copy" class="question-hyperlink">Git is not showing any conflicts, and is overwriting my local copy</a>
+</div>
+
+        </div>
+    </div>
+        <div class="everyonelovesstackoverflow" id="adzerk3">
+        </div>
+
+
+</div>
+
+<div id="feed-link">
+    <div id="feed-link-text"><a href="/feeds/question/278081" title="feed of this question and its answers"><span class="feed-icon"></span>question feed</a></div>
+</div>
+<script type="text/javascript">
+StackExchange.ready(function(){$.get('/posts/278081/ivc/4a85');});
+</script>
+<noscript>
+    <div><img src="/posts/278081/ivc/4a85" class="dno" alt="" width="0" height="0"></div>
+</noscript><div style="display:none" id="prettify-lang"></div></div>
+
+
+
+        </div>
+    </div>
+    <div id="footer">
+        <div class="footerwrap">
+            <div id="footer-menu">
+                    <a href="/about">about</a> |
+                <a href="/faq">faq</a> |
+                
+                <a href="http://blog.stackexchange.com?blb=1">blog</a> |
+                    <a href="http://chat.stackoverflow.com">chat</a> |
+                <a href="http://data.stackexchange.com">data</a> |
+                <a href="http://stackexchange.com/legal">legal</a> |
+                <a href="http://stackexchange.com/legal/privacy-policy">privacy policy</a> |
+                <a href="http://stackexchange.com/about/hiring">jobs</a> |
+                <a href="http://engine.adzerk.net/redirect/0/2776/2751/0/4de3c60f719c4dfcb1a57531c7050090/0">advertising info</a> |
+
+                <a onclick='StackExchange.switchMobile("on", "/questions/278081/resolving-a-git-conflict-with-binary-files")'>mobile</a> |
+
+                <b><a href="/help">contact us</a></b>
+                  | <b><a href="http://meta.stackoverflow.com">feedback</a></b>
+                <div id="footer-sites">
+                    <span style="color:#FE7A15;font-size:140%">&#9632;</span>&nbsp;<a href="http://stackoverflow.com">stackoverflow.com</a>&nbsp; 
+<span style="color:#FE7A15;font-size:140%">&#9632;</span>&nbsp;<a href="http://stackapps.com">api/apps</a>&nbsp; 
+<span style="color:#FE7A15;font-size:140%">&#9632;</span>&nbsp;<a href="http://careers.stackoverflow.com">careers&nbsp;2.0</a>&nbsp; 
+<span style="color:#E8272C;font-size:140%">&#9632;</span>&nbsp;<a href="http://serverfault.com">serverfault.com</a>&nbsp; 
+<span style="color:#00AFEF;font-size:140%">&#9632;</span>&nbsp;<a href="http://superuser.com">superuser.com</a>&nbsp; 
+<span style="color:#969696;font-size:140%">&#9632;</span>&nbsp;<a href="http://meta.stackoverflow.com">meta</a>&nbsp; 
+<span style="color:#46937D;font-size:140%">&#9632;</span>&nbsp;<a href="http://area51.stackexchange.com">area&nbsp;51</a>&nbsp; 
+<span style="color:#C0D0DC;font-size:140%">&#9632;</span>&nbsp;<a href="http://webapps.stackexchange.com">webapps</a>&nbsp; 
+<span style="color:#000000;font-size:140%">&#9632;</span>&nbsp;<a href="http://gaming.stackexchange.com">gaming</a>&nbsp; 
+<span style="color:#dd4814;font-size:140%">&#9632;</span>&nbsp;<a href="http://askubuntu.com">ubuntu</a>&nbsp; 
+<span style="color:#9ce4fe;font-size:140%">&#9632;</span>&nbsp;<a href="http://webmasters.stackexchange.com">webmasters</a>&nbsp; 
+<span style="color:#cf4d3f;font-size:140%">&#9632;</span>&nbsp;<a href="http://cooking.stackexchange.com">cooking</a>&nbsp; 
+<span style="color:#f4f28d;font-size:140%">&#9632;</span>&nbsp;<a href="http://gamedev.stackexchange.com">game development</a>&nbsp; 
+<span style="color:#0f3559;font-size:140%">&#9632;</span>&nbsp;<a href="http://math.stackexchange.com">math</a>&nbsp; 
+<span style="color:#f2f2f2;font-size:140%">&#9632;</span>&nbsp;<a href="http://photo.stackexchange.com">photography</a>&nbsp; 
+<span style="color:#037187;font-size:140%">&#9632;</span>&nbsp;<a href="http://stats.stackexchange.com">stats</a>&nbsp; 
+<span style="color:#f1e7cc;font-size:140%">&#9632;</span>&nbsp;<a href="http://tex.stackexchange.com">tex</a>&nbsp; 
+<span style="color:#e1cdae;font-size:140%">&#9632;</span>&nbsp;<a href="http://english.stackexchange.com">english</a>&nbsp; 
+<span style="color:#a2d9f6;font-size:140%">&#9632;</span>&nbsp;<a href="http://cstheory.stackexchange.com">theoretical cs</a>&nbsp; 
+<span style="color:#1b3e6c;font-size:140%">&#9632;</span>&nbsp;<a href="http://programmers.stackexchange.com">programmers</a>&nbsp; 
+<span style="color:#293a5d;font-size:140%">&#9632;</span>&nbsp;<a href="http://unix.stackexchange.com">unix</a>&nbsp;
+<span style="color:#bec0cb;font-size:140%">&#9632;</span>&nbsp;<a href="http://apple.stackexchange.com">apple</a>&nbsp;
+<span style="color:#939185;font-size:140%">&#9632;</span>&nbsp;<a href="http://wordpress.stackexchange.com">wordpress</a>&nbsp;
+<span style="color:#ebf5f5;font-size:140%">&#9632;</span>&nbsp;<a href="http://physics.stackexchange.com">physics</a>&nbsp;
+<span style="color:#4176ab;font-size:140%">&#9632;</span>&nbsp;<a href="http://diy.stackexchange.com">home&nbsp;improvement</a>&nbsp;
+<span style="color:#d1d8d7;font-size:140%">&#9632;</span>&nbsp;<a href="http://gis.stackexchange.com">gis</a>&nbsp;
+<span style="color:#e5e2d3;font-size:140%">&#9632;</span>&nbsp;<a href="http://electronics.stackexchange.com">electrical&nbsp;engineering</a>&nbsp;
+<span style="color:#a4c639;font-size:140%">&#9632;</span>&nbsp;<a href="http://android.stackexchange.com">android</a>&nbsp;
+<span style="color:#2e4e60;font-size:140%">&#9632;</span>&nbsp;<a href="http://security.stackexchange.com">security</a>&nbsp;
+<span style="color:#45bcb5;font-size:140%">&#9632;</span>&nbsp;<a href="http://bicycles.stackexchange.com">bicycles</a>&nbsp;
+<span style="color:#00adee;font-size:140%">&#9632;</span>&nbsp;<a href="http://dba.stackexchange.com">dba</a>&nbsp;
+<span style="color:#2edaf0;font-size:140%">&#9632;</span>&nbsp;<a href="http://drupal.stackexchange.com">drupal</a>&nbsp;
+<span style="color:#213951;font-size:140%">&#9632;</span>&nbsp;<a href="http://sharepoint.stackexchange.com">sharepoint</a>&nbsp;
+<span style="color:#73abb3;font-size:140%">&#9632;</span>&nbsp;<a href="http://scifi.stackexchange.com">scifi&nbsp;&amp;&nbsp;fantasy</a>&nbsp;
+<span style="color:#23629F;font-size:140%">&#9632;</span>&nbsp;<a href="http://ux.stackexchange.com">ux</a>&nbsp;
+<span style="color:#faff72;font-size:140%">&#9632;</span>&nbsp;<a href="http://skeptics.stackexchange.com">skeptics</a>&nbsp;
+<span style="color:#623121;font-size:140%">&#9632;</span>&nbsp;<a href="http://rpg.stackexchange.com">rpg</a>&nbsp;
+<span style="color:#e4be88;font-size:140%">&#9632;</span>&nbsp;<a href="http://judaism.stackexchange.com">judaism</a>&nbsp;
+<span style="color:#ffecb1;font-size:140%">&#9632;</span>&nbsp;<a href="http://mathematica.stackexchange.com">mathematica</a>&nbsp;
+<span style="color:#1b8598;font-size:140%">&#9632;</span>&nbsp;<a href="http://travel.stackexchange.com">travel</a>&nbsp;
+                </div>
+            </div>
+            <div id="footer-flair">
+                <a class="peer1" href="http://www.peer1.com/stackoverflow"></a>  
+	            <a href="http://creativecommons.org/licenses/by-sa/3.0/" class="cc-wiki-link"></a>
+                <div id="svnrev">rev 2013.4.6.615</div>
+                        </div>
+            <div id="copyright">
+                site design / logo &copy; 2013 stack exchange inc; 
+                user contributions licensed under <a href="http://creativecommons.org/licenses/by-sa/3.0/" rel="license">cc-wiki</a> with <a href="http://blog.stackoverflow.com/2009/06/attribution-required/" rel="license">attribution required</a>
+            </div>
+            
+
+        </div>
+    </div>
+    
+    <noscript>
+        <div id="noscript-warning">Stack Overflow works best with JavaScript enabled<img src="http://pixel.quantserve.com/pixel/p-c1rF4kxgLUzNc.gif" alt="" class="dno"></div>
+    </noscript>
+    <script type="text/javascript">var _gaq=_gaq||[];_gaq.push(['_setAccount','UA-5620270-1']);
+        _gaq.push(['_setCustomVar', 1, 'tags', '|git|merge-conflict-resolution|']); 
+_gaq.push(['_trackPageview']);
+    var _qevents = _qevents || [];
+    (function(){
+        var s=document.getElementsByTagName('script')[0];
+        var ga=document.createElement('script');
+        ga.type='text/javascript';
+        ga.async=true;
+        ga.src='http://www.google-analytics.com/ga.js';
+        s.parentNode.insertBefore(ga,s);
+        var sc=document.createElement('script');
+        sc.type='text/javascript';
+        sc.async=true;
+        sc.src='http://edge.quantserve.com/quant.js'; 
+        s.parentNode.insertBefore(sc,s);
+    })();
+    </script>
+    <script type="text/javascript">
+        _qevents.push({ qacct: "p-c1rF4kxgLUzNc" });
+    </script>        
+    
+</body>
+</html>

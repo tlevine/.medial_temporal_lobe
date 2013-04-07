@@ -1,0 +1,1118 @@
+    
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href='http://fonts.googleapis.com/css?family=OFL+Sorts+Mill+Goudy+TT:regular,italic' rel='stylesheet' type='text/css' />
+        <link rel="profile" href="http://microformats.org/profile/hcard" />
+        <meta charset="utf-8">
+
+        <title>List Out of Lambda / Steve Losh</title>
+
+        
+            <link href="http://feeds2.feedburner.com/stevelosh"
+                  rel="alternate" title="Steve Losh"
+                  type="application/atom+xml" />
+        
+
+        
+            <link rel="stylesheet" href="/media/css/aal.css"      type="text/css" media="screen" charset="utf-8" />
+            <link rel="stylesheet" href="/media/css/sjl.css"      type="text/css" media="screen" charset="utf-8" />
+            <link rel="stylesheet" href="/media/css/print.css"    type="text/css" media="print" charset="utf-8" />
+            
+    <link rel="stylesheet"
+          href="/media/css/pygments-monokai-light.css"
+          type="text/css" media="screen" charset="utf-8" />
+
+        
+
+        
+            <script data-cfasync="false" src="/media/js/jquery.js" type="text/javascript"></script>
+            <script data-cfasync="false" src="/media/js/jquery.timeago.js" type="text/javascript"></script>
+            <script data-cfasync="false" src="/media/js/sjl.js" type="text/javascript"></script>
+            <script data-cfasync="false" src="/media/js/print.js" type="text/javascript"></script>
+
+            <script data-cfasync="false" type="text/javascript">
+                /* <![CDATA[ */
+                (function() {
+                var s = document.createElement('script');
+                var t = document.getElementsByTagName('script')[0];
+
+                s.type = 'text/javascript';
+                s.async = true;
+                s.src = '//api.flattr.com/js/0.6/load.js?mode=auto';
+
+                t.parentNode.insertBefore(s, t);
+                })();
+                /* ]]> */
+            </script>
+
+            
+        
+
+        <link rel="openid.server" href="http://www.myopenid.com/server" />
+        <link rel="openid.delegate" href="http://stevelosh.myopenid.com/" />
+
+        <script type="text/javascript">
+          var _gaq = _gaq || [];
+          _gaq.push(['_setAccount', 'UA-15328874-2']);
+          _gaq.push(['_trackPageview']);
+
+          (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+          })();
+        </script>
+
+    </head>
+
+    <body>
+        <div class="wrap">
+            <div class="top group">
+                <header>
+                    <a href="/">steve losh</a>
+                </header>
+
+                <nav>
+                    <a href="/blog/">Blog</a>
+                    <span class="sep">-</span>
+                    <a href="/projects">Projects</a>
+                    <span class="sep">-</span>
+                    <a href="/about/">About</a>
+                    <span class="sep">-</span>
+                    <a href="http://feeds2.feedburner.com/stevelosh">Feed</a>
+                </nav>
+            </div>
+
+            <div class="hr">&nbsp;</div>
+
+            <div class="content">
+                
+                    
+                        
+    <div id="leaf-title">
+        <h1><a href="/blog/2013/03/list-out-of-lambda/">List Out of&nbsp;Lambda</a></h1>
+    </div>
+
+
+    <div id="leaf-stats" class="group">
+        
+            <div class="flattr">
+                <a class="FlattrButton"
+                    style="display: none;"
+                    title="List Out of Lambda"
+                    data-flattr-category="text"
+                    data-flattr-button="compact"
+                    href="http://stevelosh.com/blog/2013/03/list-out-of-lambda/">Flattr</a>
+                <iframe style="border: 0; margin: 2px 0 -2px 0; padding: 0; margin-top: 2px;"
+                        src="https://www.gittip.com/sjl/widget.html"
+                        width="48pt" height="22pt"></iframe>
+            </div>
+
+        
+        <p>
+            Posted
+            <span class="timeago"
+                  title="2013-03-30T14:00:00-0400">
+            </span>
+            on March 30, 2013.
+        </p>
+    </div>
+
+    <div id="leaf-content" class="">
+        
+            <!-- Hyde::Article::Begin -->
+                
+                    <p>If you ignore the practical issues of computers like size, weight, cost, heat,
+and so on, what do you <em>really</em> need in a programming language?  Let&#8217;s play
+around with&nbsp;this&nbsp;question.</p>
+<p>To understand this post you&#8217;ll need a basic understanding of how functions in
+Javascript work.  If you can look at this code and understand what it prints,
+you&#8217;re good&nbsp;to&nbsp;go:</p>
+<div class="codehilite"><pre><span class="kd">var</span> <span class="nx">x</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+
+<span class="kd">var</span> <span class="nx">f</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">y</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span><span class="p">);</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">y</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kd">var</span> <span class="nx">g</span> <span class="o">=</span> <span class="nx">f</span><span class="p">;</span>
+
+<span class="nx">f</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="nx">g</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+</pre></div>
+
+
+<p>This blog post is a thought exercise.  It&#8217;s not something you&#8217;d ever use for
+real code.  But just like a guitarist practices scales that she won&#8217;t ever play
+in a song, we programmers should be exercising our brains every&nbsp;so&nbsp;often.</p>
+<p>I&#8217;m going to use Javascript for the examples.  Any language with first class
+functions and lexical scoping (basically: closures) will work.  The examples
+would be prettier in a Lisp, but some people would be turned off by the syntax
+and miss out on some interesting ideas.  Feel free to port the code if it&nbsp;bothers&nbsp;you.</p>
+<p>If you&#8217;ve already seen this kind of thing before (maybe you&#8217;ve gone through <a href="http://www.amazon.com/dp/0262560992/?tag=stelos-20">The
+Little Schemer</a> or <a href="http://www.amazon.com/dp/0070004846/?tag=stelos-20"><span class="caps"><span class="caps">SICP</span></span></a>) you may want to just skim the code here and look
+for&nbsp;anything&nbsp;new.</p>
+<p>If you <em>haven&#8217;t</em> seen anything like this, then you&#8217;re in for a treat!  It&#8217;s all
+going to look extremely weird the first time you see it.  Go slowly and make
+sure you understand each piece fully before moving on to the next.  These
+concepts may be unintuitive, but they&#8217;re built from very&nbsp;simple&nbsp;pieces.</p>
+<p>Finally: if you get stuck, don&#8217;t worry.  Tracing out the execution of a function
+on paper can be a good way to wrap your brain around it (I recommend investing
+in a good lap desk for comfy reading and writing).  If that doesn&#8217;t work, just
+close the window and come back tomorrow.  Sometimes new concepts need a while to
+rattle around in your brain before they click&nbsp;into&nbsp;place.</p>
+<div class="toc">
+<ul>
+<li><a href="#lists">Lists</a><ul>
+<li><a href="#list-out-of-if">List Out&nbsp;of&nbsp;If</a></li>
+<li><a href="#but-where-is-the-data">But Where is&nbsp;the&nbsp;Data?</a></li>
+<li><a href="#building-on-the-foundations">Building on the Foundations</a><ul>
+<li><a href="#map">map</a></li>
+<li><a href="#filter">filter</a></li>
+<li><a href="#and-or-not">and,&nbsp;or,&nbsp;not</a></li>
+</ul>
+</li>
+<li><a href="#list-out-of-lambda">List Out&nbsp;of&nbsp;Lambda</a></li>
+</ul>
+</li>
+<li><a href="#a-brief-intermission">A&nbsp;Brief&nbsp;Intermission</a></li>
+<li><a href="#numbers">Numbers</a><ul>
+<li><a href="#what-is-a-number">What is&nbsp;a&nbsp;Number?</a></li>
+<li><a href="#inc-dec">inc,&nbsp;dec</a></li>
+<li><a href="#is_zero">is_zero</a></li>
+<li><a href="#add">add</a></li>
+<li><a href="#sub">sub</a></li>
+<li><a href="#mul-pow">mul,&nbsp;pow</a></li>
+<li><a href="#is_equal">is_equal</a></li>
+<li><a href="#less_than-greater_than">less_than,&nbsp;greater_than</a></li>
+<li><a href="#div-mod">div,&nbsp;mod</a></li>
+</ul>
+</li>
+<li><a href="#full-circle">Full Circle</a><ul>
+<li><a href="#nth">nth</a></li>
+<li><a href="#drop-take">drop,&nbsp;take</a></li>
+<li><a href="#slice">slice</a></li>
+<li><a href="#length">length</a></li>
+</ul>
+</li>
+<li><a href="#conclusion">Conclusion</a></li>
+</ul>
+</div>
+<h2 id="lists">Lists</h2>
+<p>Let&#8217;s get started.  One of the most common things we do as programmers is
+grouping data together.  Javascript has &#8220;arrays&#8221; built in to the language&nbsp;for&nbsp;this:</p>
+<div class="codehilite"><pre><span class="kd">var</span> <span class="nx">names</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Alice&quot;</span><span class="p">,</span> <span class="s2">&quot;Bob&quot;</span><span class="p">,</span> <span class="s2">&quot;Candice&quot;</span><span class="p">];</span>
+</pre></div>
+
+
+<p>What if Javascript didn&#8217;t come with arrays included?  Could we create them (or
+something like&nbsp;them)&nbsp;ourselves?</p>
+<p>To answer this, let&#8217;s think about the bare minimum we&#8217;d need to &#8220;bootstrap&#8221;
+something like an array.  There are a number of ways to do this, but we&#8217;re going
+to look at one&nbsp;in&nbsp;particular.</p>
+<p>We&#8217;ll call our array-like thing a &#8220;list&#8221;.  To make it work, we need&nbsp;four&nbsp;parts:</p>
+<ul>
+<li>The concept of &#8220;the&nbsp;empty&nbsp;list&#8221;.</li>
+<li>A way to add an element to the front of&nbsp;a&nbsp;list.</li>
+<li>A way to take a list and get the&nbsp;first&nbsp;element.</li>
+<li>A way to take a list and get everything <em>but</em> the&nbsp;first&nbsp;element.</li>
+</ul>
+<p>If we have those four things, we can build on top of them to do anything else we
+might want.  For example: to make a list of one item, you add that item to the
+front of the&nbsp;empty&nbsp;list.</p>
+<p>Let&#8217;s narrow this down further.  There are lots of ways you could implement
+those four things &#8212; I&#8217;m going to use functions.  Let&#8217;s sketch out&nbsp;an&nbsp;outline:</p>
+<div class="codehilite"><pre><span class="kd">var</span> <span class="nx">empty_list</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+
+<span class="kd">var</span> <span class="nx">prepend</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">el</span><span class="p">,</span> <span class="nx">list</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// ...</span>
+<span class="p">};</span>
+
+<span class="kd">var</span> <span class="nx">head</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">list</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// ...</span>
+<span class="p">};</span>
+
+<span class="kd">var</span> <span class="nx">tail</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">list</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// ...</span>
+<span class="p">};</span>
+
+<span class="kd">var</span> <span class="nx">is_empty</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">list</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// ...</span>
+<span class="p">};</span>
+</pre></div>
+
+
+<p>Here are the descriptions of each of&nbsp;these&nbsp;items.</p>
+<p>The <code>empty_list</code> is a special value that represents a list of zero elements.
+It can be anything, so for now we&#8217;ll use <code>null</code> (we&#8217;ll revisit&nbsp;this&nbsp;later).</p>
+<p><code>prepend(1, some_list)</code> will return a new list that looks like the old one, but
+with <code>1</code> stuck onto the front of it.  So if we want to create a list of the
+numbers <code>1</code> and <code>2</code> we can say <code>prepend(1, prepend(2, empty_list))</code> or &#8220;prepend
+one to the result of prepending 2 to the&nbsp;empty&nbsp;list&#8221;.</p>
+<p><code>head(some_list)</code> will return the first element in the list.  Calling it on the
+empty list will be undefined, so we&#8217;ll just be very careful not to&nbsp;do&nbsp;that!</p>
+<p><code>tail(some_list)</code> will return a new list that&#8217;s like the one we gave it, but
+with the first element removed.  Again, calling this on an empty list will make&nbsp;things&nbsp;explode.</p>
+<p><code>is_empty(some_list)</code> will return <code>true</code> if the list given to it is the empty
+list, and <code>false</code> otherwise.</p>
+<p>Once we have those four functions (plus the special empty list value) we can
+start building on top of them, so let&#8217;s figure out how to&nbsp;make&nbsp;them!</p>
+<h3 id="list-out-of-if">List Out&nbsp;of&nbsp;If</h3>
+<p>If you haven&#8217;t seen anything like this before, you might think it&#8217;s time to
+start creating Javascript Objects.  That&#8217;s certainly one way to&nbsp;do&nbsp;it.</p>
+<p>Since this post is a thought experiment in what we actually <em>need</em>, though,
+let&#8217;s try to avoid using big language features (like Objects) unless we
+absolutely can&#8217;t&nbsp;avoid&nbsp;it.</p>
+<p>So if we don&#8217;t want to use other language features yet, what are we left with?
+Well so far our skeleton only has functions (and <code>null</code>), so let&#8217;s&nbsp;try&nbsp;those!</p>
+<p>Here&#8217;s the first working revision of the building blocks&nbsp;of&nbsp;lists:</p>
+<div class="codehilite"><pre><span class="kd">var</span> <span class="nx">empty_list</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+
+<span class="kd">var</span> <span class="nx">prepend</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">el</span><span class="p">,</span> <span class="nx">list</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="kd">function</span><span class="p">(</span><span class="nx">command</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">command</span> <span class="o">===</span> <span class="s2">&quot;head&quot;</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="nx">el</span><span class="p">;</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">command</span> <span class="o">===</span> <span class="s2">&quot;tail&quot;</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="nx">list</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="kd">var</span> <span class="nx">head</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">list</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">list</span><span class="p">(</span><span class="s2">&quot;head&quot;</span><span class="p">);</span>
+<span class="p">};</span>
+
+<span class="kd">var</span> <span class="nx">tail</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">list</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">list</span><span class="p">(</span><span class="s2">&quot;tail&quot;</span><span class="p">);</span>
+<span class="p">};</span>
+
+<span class="kd">var</span> <span class="nx">is_empty</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">list</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">list</span> <span class="o">===</span> <span class="kc">null</span><span class="p">;</span>
+<span class="p">};</span>
+</pre></div>
+
+
+<p>Go ahead and paste that into a browser console and play&nbsp;with&nbsp;it:</p>
+<div class="codehilite"><pre><span class="kd">var</span> <span class="nx">e</span> <span class="o">=</span> <span class="nx">empty_list</span><span class="p">;</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">is_empty</span><span class="p">(</span><span class="nx">e</span><span class="p">));</span>
+<span class="c1">// true</span>
+
+<span class="kd">var</span> <span class="nx">names</span> <span class="o">=</span> <span class="nx">prepend</span><span class="p">(</span><span class="s2">&quot;Alice&quot;</span><span class="p">,</span>
+                    <span class="nx">prepend</span><span class="p">(</span><span class="s2">&quot;Bob&quot;</span><span class="p">,</span>
+                            <span class="nx">prepend</span><span class="p">(</span><span class="s2">&quot;Candice&quot;</span><span class="p">,</span>
+                                    <span class="nx">empty_list</span><span class="p">)));</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">is_empty</span><span class="p">(</span><span class="nx">names</span><span class="p">));</span>
+<span class="c1">// False</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">head</span><span class="p">(</span><span class="nx">names</span><span class="p">));</span>
+<span class="c1">// Alice</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">tail</span><span class="p">(</span><span class="nx">names</span><span class="p">));</span>
+<span class="c1">// Some function representing the list of (&quot;Bob&quot;, &quot;Candice&quot;)</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">head</span><span class="p">(</span><span class="nx">tail</span><span class="p">(</span><span class="nx">names</span><span class="p">)));</span>
+<span class="c1">// Bob</span>
+</pre></div>
+
+
+<h3 id="but-where-is-the-data">But Where is&nbsp;the&nbsp;Data?</h3>
+<p>Did the definitions of those functions surprise you?  Lists seem like such an
+important, object-oriented concept, but there only appear to be&nbsp;functions&nbsp;here!</p>
+<p>Let&#8217;s look at how this actually works.  First of all, the &#8220;empty list&#8221; concept
+is&nbsp;pretty&nbsp;straightforward:</p>
+<div class="codehilite"><pre><span class="kd">var</span> <span class="nx">empty_list</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+
+<span class="kd">var</span> <span class="nx">is_empty</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">list</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">list</span> <span class="o">===</span> <span class="kc">null</span><span class="p">;</span>
+<span class="p">};</span>
+</pre></div>
+
+
+<p>We could have picked any arbitrary value here.  <code>null</code> seemed appropriate, so
+I&nbsp;used&nbsp;that.</p>
+<p>Now on to the meat of things: <code>prepend</code>.</p>
+<div class="codehilite"><pre><span class="kd">var</span> <span class="nx">prepend</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">el</span><span class="p">,</span> <span class="nx">list</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="kd">function</span><span class="p">(</span><span class="nx">command</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">command</span> <span class="o">===</span> <span class="s2">&quot;head&quot;</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="nx">el</span><span class="p">;</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">command</span> <span class="o">===</span> <span class="s2">&quot;tail&quot;</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="nx">list</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+</pre></div>
+
+
+<p>This is where the real magic happens.  Let&#8217;s think&nbsp;through&nbsp;it.</p>
+<p>First of all, we know that when you prepend something to a list, you&#8217;re going to
+get a (new) list back.  So whatever <code>prepend</code> returns must be&nbsp;a&nbsp;list.</p>
+<p>Looking at the code, we can see it returns a function.  So in our little thought
+experiment, a list is actually a Javascript function under&nbsp;the&nbsp;hood!</p>
+<p>So what do we need to do with lists (aside from empty checking, which we&#8217;ve
+already covered)?  Well, we need to be able to get the head and the tail.  When
+we call <code>prepend(h, t)</code>, we happen to be conveniently specifying the head and
+tail as the arguments!  So in <code>prepend</code> we return a function that knows how to
+return its own head or tail&nbsp;when&nbsp;asked.</p>
+<p>So a &#8220;list&#8221; is &#8220;a function that knows how to return its own head or tail when
+asked&#8221;.  So our <code>head</code> and <code>tail</code> functions just need to&nbsp;ask&nbsp;nicely!</p>
+<div class="codehilite"><pre><span class="kd">var</span> <span class="nx">head</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">list</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">list</span><span class="p">(</span><span class="s2">&quot;head&quot;</span><span class="p">);</span>
+<span class="p">};</span>
+
+<span class="kd">var</span> <span class="nx">tail</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">list</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">list</span><span class="p">(</span><span class="s2">&quot;tail&quot;</span><span class="p">);</span>
+<span class="p">};</span>
+</pre></div>
+
+
+<p>That&#8217;s it!  We&#8217;ve created lists in 23 lines of code without using any fancy
+things like Objects.  Before you move on, make sure you really understand why
+this works.  Write out a few examples&nbsp;on&nbsp;paper.</p>
+<div class="codehilite"><pre><span class="kd">var</span> <span class="nx">empty_list</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+
+<span class="kd">var</span> <span class="nx">prepend</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">el</span><span class="p">,</span> <span class="nx">list</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="kd">function</span><span class="p">(</span><span class="nx">command</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">command</span> <span class="o">===</span> <span class="s2">&quot;head&quot;</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="nx">el</span><span class="p">;</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">command</span> <span class="o">===</span> <span class="s2">&quot;tail&quot;</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="nx">list</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="kd">var</span> <span class="nx">head</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">list</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">list</span><span class="p">(</span><span class="s2">&quot;head&quot;</span><span class="p">);</span>
+<span class="p">};</span>
+
+<span class="kd">var</span> <span class="nx">tail</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">list</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">list</span><span class="p">(</span><span class="s2">&quot;tail&quot;</span><span class="p">);</span>
+<span class="p">};</span>
+
+<span class="kd">var</span> <span class="nx">is_empty</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">list</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">list</span> <span class="o">===</span> <span class="kc">null</span><span class="p">;</span>
+<span class="p">};</span>
+</pre></div>
+
+
+<h3 id="building-on-the-foundations">Building on&nbsp;the&nbsp;Foundations</h3>
+<p>Now that we have lists, let&#8217;s implement a few common things on top of them&nbsp;as&nbsp;practice.</p>
+<h4 id="map">map</h4>
+<p>A common thing to do to a list is to create a new list by looping through it and
+doing something to each item.  This is&nbsp;called&nbsp;&#8220;map&#8221;:</p>
+<div class="codehilite"><pre><span class="kd">var</span> <span class="nx">map</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">fn</span><span class="p">,</span> <span class="nx">l</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">is_empty</span><span class="p">(</span><span class="nx">l</span><span class="p">))</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">empty_list</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">prepend</span><span class="p">(</span><span class="nx">fn</span><span class="p">(</span><span class="nx">head</span><span class="p">(</span><span class="nx">l</span><span class="p">)),</span> <span class="nx">map</span><span class="p">(</span><span class="nx">fn</span><span class="p">,</span> <span class="nx">tail</span><span class="p">(</span><span class="nx">l</span><span class="p">)));</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+</pre></div>
+
+
+<p>If you&#8217;re not used to recursive definitions like this, you may way to take
+a few minutes and try to work out how it works.  Here&#8217;s&nbsp;an&nbsp;example:</p>
+<div class="codehilite"><pre><span class="kd">var</span> <span class="nx">square</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">x</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">x</span> <span class="o">*</span> <span class="nx">x</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="kd">var</span> <span class="nx">numbers</span> <span class="o">=</span> <span class="nx">prepend</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nx">prepend</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="nx">prepend</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="nx">empty_list</span><span class="p">)));</span>
+
+<span class="kd">var</span> <span class="nx">squared_numbers</span> <span class="o">=</span> <span class="nx">map</span><span class="p">(</span><span class="nx">square</span><span class="p">,</span> <span class="nx">numbers</span><span class="p">);</span>
+<span class="c1">// map(square, [1, 2, 3])</span>
+<span class="c1">// prepend(square(1), map(square, [1, 2, 3]))</span>
+<span class="c1">// prepend(square(1), prepend(square(2), map(square, [3])))</span>
+<span class="c1">// prepend(square(1), prepend(square(2), prepend(square(3), map(square, []))))</span>
+<span class="c1">// prepend(square(1), prepend(square(2), prepend(square(3), [])))</span>
+<span class="c1">// prepend(square(1), prepend(square(2), prepend(9, [])))</span>
+<span class="c1">// prepend(square(1), prepend(square(2), [9]))</span>
+<span class="c1">// prepend(square(1), prepend(4, [9]))</span>
+<span class="c1">// prepend(square(1), [4, 9])</span>
+<span class="c1">// prepend(1, [4, 9])</span>
+<span class="c1">// [1, 4, 9]</span>
+</pre></div>
+
+
+<p>I&#8217;m using brackets here to represent lists, but remember that these aren&#8217;t
+arrays, but are actually the functions that were returned by <code>prepend</code>.</p>
+<p>If you&#8217;re still not sure about this, trace out every step of <code>map(square,
+empty_list)</code> on paper.  Then trace out every step of <code>map(square, prepend(10,
+empty_list))</code>.</p>
+<p>Thinking recursively like this takes some practice.  I have notebooks filled
+with <a href="http://i.imgur.com/kqu5jy9.jpg">pages like this</a>.  Experienced guitarists
+practice new material slowly and methodically &#8212; there&#8217;s no reason programmers
+shouldn&#8217;t do the same.  Watching the function calls expand and contract on paper
+can help you feel in your gut how these things work in a way that just staring
+at the&nbsp;words&nbsp;can&#8217;t.</p>
+<h4 id="filter">filter</h4>
+<p>We&#8217;re going to start moving a bit faster now, but you should still make sure you
+understand everything completely before moving on.  Take as much time as you
+need.  Write things out.  Run them.  Get a feel&nbsp;for&nbsp;them.</p>
+<p>The next &#8220;utility&#8221; function we&#8217;ll build on top of lists is <code>filter</code>, which
+takes a function and a list, and returns a new list whose elements are those in
+the original that make the function return <code>true</code>.  Here&#8217;s&nbsp;an&nbsp;example:</p>
+<div class="codehilite"><pre><span class="kd">var</span> <span class="nx">numbers</span> <span class="o">=</span> <span class="nx">prepend</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nx">prepend</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="nx">prepend</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="nx">empty_list</span><span class="p">)));</span>
+<span class="kd">var</span> <span class="nx">is_odd</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">x</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">x</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">===</span> <span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nx">filter</span><span class="p">(</span><span class="nx">is_odd</span><span class="p">,</span> <span class="nx">numbers</span><span class="p">);</span>
+<span class="c1">// [1, 3]</span>
+</pre></div>
+
+
+<p>Now let&#8217;s implement <code>filter</code>:</p>
+<div class="codehilite"><pre><span class="kd">var</span> <span class="nx">filter</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">fn</span><span class="p">,</span> <span class="nx">l</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">is_empty</span><span class="p">(</span><span class="nx">l</span><span class="p">))</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">empty_list</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">fn</span><span class="p">(</span><span class="nx">head</span><span class="p">(</span><span class="nx">l</span><span class="p">)))</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">prepend</span><span class="p">(</span><span class="nx">head</span><span class="p">(</span><span class="nx">l</span><span class="p">),</span> <span class="nx">filter</span><span class="p">(</span><span class="nx">fn</span><span class="p">,</span> <span class="nx">tail</span><span class="p">(</span><span class="nx">l</span><span class="p">)));</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">filter</span><span class="p">(</span><span class="nx">fn</span><span class="p">,</span> <span class="nx">tail</span><span class="p">(</span><span class="nx">l</span><span class="p">));</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+</pre></div>
+
+
+<p>Take your time.  Trace out some examples.  Move on when you feel it in&nbsp;your&nbsp;gut.</p>
+<h4 id="and-or-not">and,&nbsp;or,&nbsp;not</h4>
+<p>Let&#8217;s take a slight detour to implement a few &#8220;helper&#8221; functions.  Τhese don&#8217;t
+have anything specifically to do with lists, but we&#8217;ll need&nbsp;them&nbsp;later.</p>
+<div class="codehilite"><pre><span class="kd">var</span> <span class="nx">not</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">x</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">x</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="kd">var</span> <span class="nx">and</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">a</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">b</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="kd">var</span> <span class="nx">or</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">a</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">b</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+</pre></div>
+
+
+<p>Javascript already has these things built in as <code>!</code>, <code>&amp;&amp;</code>, and <code>||</code>, of course,
+but remember that in this thought exercise we&#8217;re trying to avoid using extra
+language features if we don&#8217;t need them.  How far can we scrape by on just
+functions and <code>if</code> statements?</p>
+<p>One small note: these functions are just normal Javascript functions, which
+means that <code>and(a, b)</code> will <em>not</em> short-circuit like <code>a &amp;&amp; b</code> would.  For our
+purposes here that won&#8217;t hurt us, but it&#8217;s something to be&nbsp;aware&nbsp;of.</p>
+<h3 id="list-out-of-lambda">List Out&nbsp;of&nbsp;Lambda</h3>
+<p>Now that we&#8217;ve had a bit more practice, let&#8217;s go back to our definition&nbsp;of&nbsp;lists:</p>
+<div class="codehilite"><pre><span class="kd">var</span> <span class="nx">empty_list</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+
+<span class="kd">var</span> <span class="nx">prepend</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">el</span><span class="p">,</span> <span class="nx">list</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="kd">function</span><span class="p">(</span><span class="nx">command</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">command</span> <span class="o">===</span> <span class="s2">&quot;head&quot;</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="nx">el</span><span class="p">;</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">command</span> <span class="o">===</span> <span class="s2">&quot;tail&quot;</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="nx">list</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="kd">var</span> <span class="nx">head</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">list</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">list</span><span class="p">(</span><span class="s2">&quot;head&quot;</span><span class="p">);</span>
+<span class="p">};</span>
+
+<span class="kd">var</span> <span class="nx">tail</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">list</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">list</span><span class="p">(</span><span class="s2">&quot;tail&quot;</span><span class="p">);</span>
+<span class="p">};</span>
+
+<span class="kd">var</span> <span class="nx">is_empty</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">list</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">list</span> <span class="o">===</span> <span class="kc">null</span><span class="p">;</span>
+<span class="p">};</span>
+</pre></div>
+
+
+<p>There are a few things about this implementation that bother me.  Our goal is to
+use as few language features as possible, but we&#8217;ve actually used quite a few!
+I count at&nbsp;least&nbsp;five:</p>
+<ul>
+<li>Functions</li>
+<li><code>if</code> statements</li>
+<li>Strings</li>
+<li>Booleans (the <code>true</code>/<code>false</code> result of <code>is_empty</code>)</li>
+<li>Equality checking (the <code>===</code> checks)</li>
+</ul>
+<p>It turns out we can remove most of those things at the cost of a bit of
+readability (and more bending of&nbsp;our&nbsp;minds).</p>
+<p>Let&#8217;s start by rewriting the core three functions to ditch those ugly strings,
+equality checks, and even the <code>if</code> statement:</p>
+<div class="codehilite"><pre><span class="kd">var</span> <span class="nx">prepend</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">el</span><span class="p">,</span> <span class="nx">list</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="kd">function</span><span class="p">(</span><span class="nx">selector</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">selector</span><span class="p">(</span><span class="nx">el</span><span class="p">,</span> <span class="nx">list</span><span class="p">);</span>
+    <span class="p">};</span>
+<span class="p">};</span>
+
+<span class="kd">var</span> <span class="nx">head</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">list</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">list</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">h</span><span class="p">,</span> <span class="nx">t</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">h</span><span class="p">;</span>
+    <span class="p">});</span>
+<span class="p">};</span>
+
+<span class="kd">var</span> <span class="nx">tail</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">list</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">list</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">h</span><span class="p">,</span> <span class="nx">t</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">t</span><span class="p">;</span>
+    <span class="p">});</span>
+<span class="p">};</span>
+</pre></div>
+
+
+<p>You may want to get a snack before wrapping your brain around this one!  There&#8217;s
+no strings, no equality checking, no <code>if</code> statements.  But we still&nbsp;have&nbsp;lists!</p>
+<p>The <code>prepend</code> functions still returns a function, just like before.  Remember
+that in the last implementation, a &#8220;list&#8221; was really a function that knew how to
+give out its head or its tail when asked&nbsp;for&nbsp;them.</p>
+<p>This time, we&#8217;re inverting the &#8220;asking&#8221;.  In this version, a &#8220;list&#8221; is &#8220;a
+function that will tell another function about both its head <em>and</em> its tail when
+asked&#8221;.  This time the <em>asker</em> gets <em>both</em> pieces, and can decide which one they
+want&nbsp;to&nbsp;use.</p>
+<p>Let&#8217;s look at the <code>head</code> function:</p>
+<ul>
+<li><code>head</code> takes a list and says <code>return list(...)</code>, which means: &#8220;Hey list,
+  I would like you to tell all of your info to this little helper function I&#8217;m&nbsp;giving&nbsp;you&#8221;.</li>
+<li>The list says <code>return ...(el, list)</code>, which means: &#8220;Okay helper function,
+  here&#8217;s my head and my&nbsp;tail,&nbsp;enjoy!&#8221;</li>
+<li>The helper function that <code>head</code> originally gave was <code>function(h, t) { return
+  h; }</code>.  So when the list calls it with the head and the tail as arguments, it
+  returns the head and ignores&nbsp;the&nbsp;tail.</li>
+<li><code>head</code> takes that result and just returns it straight through back to&nbsp;the&nbsp;caller.</li>
+</ul>
+<p><code>tail</code> works exactly the same way, but its helper function returns the second
+argument (the tail) instead of&nbsp;the&nbsp;first.</p>
+<p>That&#8217;s it!  The equality checking and <code>if</code> statements have disappeared.  Can you
+describe where they&#8217;ve gone?  What has taken&nbsp;their&nbsp;place?</p>
+<p>Before we move on, let&#8217;s clean up the idea of the empty list.  It&#8217;s still using
+<code>null</code> and equality checking.  Let&#8217;s remove those and make things a little&nbsp;more&nbsp;uniform.</p>
+<p>To do this we&#8217;ll need to change the other three functions a bit as well, but if
+you&#8217;ve understood everything so far it shouldn&#8217;t be&nbsp;too&nbsp;bad.</p>
+<div class="codehilite"><pre><span class="kd">var</span> <span class="nx">empty_list</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">selector</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">selector</span><span class="p">(</span><span class="kc">undefined</span><span class="p">,</span> <span class="kc">undefined</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
+<span class="p">};</span>
+
+<span class="kd">var</span> <span class="nx">prepend</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">el</span><span class="p">,</span> <span class="nx">list</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="kd">function</span><span class="p">(</span><span class="nx">selector</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">selector</span><span class="p">(</span><span class="nx">el</span><span class="p">,</span> <span class="nx">list</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
+    <span class="p">};</span>
+<span class="p">};</span>
+
+<span class="kd">var</span> <span class="nx">head</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">list</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">list</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">h</span><span class="p">,</span> <span class="nx">t</span><span class="p">,</span> <span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">h</span><span class="p">;</span>
+    <span class="p">});</span>
+<span class="p">};</span>
+
+<span class="kd">var</span> <span class="nx">tail</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">list</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">list</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">h</span><span class="p">,</span> <span class="nx">t</span><span class="p">,</span> <span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">t</span><span class="p">;</span>
+    <span class="p">});</span>
+<span class="p">};</span>
+
+<span class="kd">var</span> <span class="nx">is_empty</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">list</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">list</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">h</span><span class="p">,</span> <span class="nx">t</span><span class="p">,</span> <span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">e</span><span class="p">;</span>
+    <span class="p">});</span>
+<span class="p">};</span>
+</pre></div>
+
+
+<p>We&#8217;ve now made lists a bit smarter.  In addition to telling the helper function
+their head and tail, they also tell it &#8220;am I the empty list?&#8221;.  We&#8217;ve modified
+the helpers <code>head</code> and <code>tail</code> to accept (and ignore) this&nbsp;extra&nbsp;argument.</p>
+<p>We then modified <code>is_empty</code> to work just like <code>head</code> and <code>tail</code>.</p>
+<p>Finally, we&#8217;ve redefined <code>empty_list</code> to match the rest of the lists instead of
+being a special, magic value.  The empty list is now just like a normal one:
+it&#8217;s a function that takes an &#8220;asker&#8221; and tells that asker &#8220;Hey, my head and
+tail are undefined and I am the&nbsp;empty&nbsp;list&#8221;.</p>
+<p>I used <code>undefined</code> here which is technically another language feature because
+it&#8217;s easier to read.  Feel free to replace it with anything you want to make it
+more pure.  Since we&#8217;re being very careful to never call <code>head</code> or <code>tail</code> on the
+empty list those values will never be&nbsp;seen&nbsp;anyway.</p>
+<p>So after all that, we&#8217;ve finally implemented the building blocks of lists with
+only&nbsp;two&nbsp;things:</p>
+<ul>
+<li>Functions.</li>
+<li><code>true</code> and <code>false</code> for&nbsp;empty&nbsp;lists.</li>
+</ul>
+<p>If you&#8217;re up for a challenge, think about whether you could remove that second
+item (and if so, are you <em>really</em> removing it, or just using certain features of
+Javascript implicitly instead&nbsp;of&nbsp;explicitly?).</p>
+<h2 id="a-brief-intermission">A&nbsp;Brief&nbsp;Intermission</h2>
+<p>Let&#8217;s take a minute to reflect on all the code we&#8217;ve seen so far.  First, we
+have an implementation of lists that uses only functions&nbsp;and&nbsp;booleans:</p>
+<div class="codehilite"><pre><span class="kd">var</span> <span class="nx">empty_list</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">selector</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">selector</span><span class="p">(</span><span class="kc">undefined</span><span class="p">,</span> <span class="kc">undefined</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
+<span class="p">};</span>
+
+<span class="kd">var</span> <span class="nx">prepend</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">el</span><span class="p">,</span> <span class="nx">list</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="kd">function</span><span class="p">(</span><span class="nx">selector</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">selector</span><span class="p">(</span><span class="nx">el</span><span class="p">,</span> <span class="nx">list</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
+    <span class="p">};</span>
+<span class="p">};</span>
+
+<span class="kd">var</span> <span class="nx">head</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">list</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">list</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">h</span><span class="p">,</span> <span class="nx">t</span><span class="p">,</span> <span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">h</span><span class="p">;</span>
+    <span class="p">});</span>
+<span class="p">};</span>
+
+<span class="kd">var</span> <span class="nx">tail</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">list</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">list</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">h</span><span class="p">,</span> <span class="nx">t</span><span class="p">,</span> <span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">t</span><span class="p">;</span>
+    <span class="p">});</span>
+<span class="p">};</span>
+
+<span class="kd">var</span> <span class="nx">is_empty</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">list</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">list</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">h</span><span class="p">,</span> <span class="nx">t</span><span class="p">,</span> <span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">e</span><span class="p">;</span>
+    <span class="p">});</span>
+<span class="p">};</span>
+</pre></div>
+
+
+<p>From this point on, we can now ignore the details of how lists are implemented.
+As long as we have <code>head</code>, <code>tail</code>, and <code>prepend</code> we don&#8217;t need to worry about
+what lists actually <em>are</em> under&nbsp;the&nbsp;hood.</p>
+<p>We also built a few helper functions on top of&nbsp;this&nbsp;foundation:</p>
+<div class="codehilite"><pre><span class="kd">var</span> <span class="nx">not</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">x</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">x</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="kd">var</span> <span class="nx">and</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">a</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">b</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="kd">var</span> <span class="nx">or</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">a</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">b</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="kd">var</span> <span class="nx">map</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">fn</span><span class="p">,</span> <span class="nx">l</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">is_empty</span><span class="p">(</span><span class="nx">l</span><span class="p">))</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">empty_list</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">prepend</span><span class="p">(</span><span class="nx">fn</span><span class="p">(</span><span class="nx">head</span><span class="p">(</span><span class="nx">l</span><span class="p">)),</span> <span class="nx">map</span><span class="p">(</span><span class="nx">fn</span><span class="p">,</span> <span class="nx">tail</span><span class="p">(</span><span class="nx">l</span><span class="p">)));</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="kd">var</span> <span class="nx">filter</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">fn</span><span class="p">,</span> <span class="nx">l</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">is_empty</span><span class="p">(</span><span class="nx">l</span><span class="p">))</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">empty_list</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">fn</span><span class="p">(</span><span class="nx">head</span><span class="p">(</span><span class="nx">l</span><span class="p">)))</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">prepend</span><span class="p">(</span><span class="nx">head</span><span class="p">(</span><span class="nx">l</span><span class="p">),</span> <span class="nx">filter</span><span class="p">(</span><span class="nx">fn</span><span class="p">,</span> <span class="nx">tail</span><span class="p">(</span><span class="nx">l</span><span class="p">)));</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">filter</span><span class="p">(</span><span class="nx">fn</span><span class="p">,</span> <span class="nx">tail</span><span class="p">(</span><span class="nx">l</span><span class="p">));</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+</pre></div>
+
+
+<p>Before you move on, make sure all of this code is crystal clear.  Come back
+tomorrow if you need to let it sink in.  We&#8217;re about to go a lot deeper into the
+rabbit hole, so make sure&nbsp;you&#8217;re&nbsp;ready.</p>
+<h2 id="numbers">Numbers</h2>
+<p>If you look at the definitions of <code>prepend</code>, <code>head</code>, and <code>tail</code>, they&#8217;re pretty
+mind-bending.  However, the definitions of <code>map</code> and <code>filter</code> are much&nbsp;more&nbsp;straightforward.</p>
+<p>This is because we encapsulated the implementation of lists into the first four
+functions.  We did all the hard work of building lists out of almost nothing at
+all and hid it behind that simple <code>prepend</code>, <code>head</code>, and <code>tail</code> interface.</p>
+<p>The idea of creating things from simple pieces and abstracting them into &#8220;black
+boxes&#8221; is one of the most important parts of both computer science and
+programming, so let&#8217;s take it a step further and get some more practice by&nbsp;implementing&nbsp;numbers.</p>
+<h3 id="what-is-a-number">What is&nbsp;a&nbsp;Number?</h3>
+<p>For this blog post we&#8217;re only going to concern ourselves with non-negative
+integers.  Feel free to try extending all this to include negative integers if
+you&nbsp;want&nbsp;more.</p>
+<p>How can we represent a number?  Well we could obviously use Javascript numbers
+like <code>14</code>, but that&#8217;s not very fun, and we&#8217;re trying to minimize the number of
+language features&nbsp;we&nbsp;use.</p>
+<p>One way to represent a number is a list whose length is the number.  So we could
+say that <code>[1, 1, 1]</code> means &#8220;three&#8221;, <code>["cats", null]</code> means &#8220;two&#8221;, and <code>[]</code> means&nbsp;&#8220;zero&#8221;.</p>
+<p>The elements themselves don&#8217;t really matter, so let&#8217;s just pick something we
+already have: the empty list!  Let&#8217;s write out a few to get a feel&nbsp;for&nbsp;this:</p>
+<div class="codehilite"><pre><span class="kd">var</span> <span class="nx">zero</span> <span class="o">=</span> <span class="nx">empty_list</span><span class="p">;</span>
+<span class="c1">// []</span>
+
+<span class="kd">var</span> <span class="nx">one</span> <span class="o">=</span> <span class="nx">prepend</span><span class="p">(</span><span class="nx">empty_list</span><span class="p">,</span> <span class="nx">empty_list</span><span class="p">);</span>
+<span class="c1">// [ [] ]</span>
+
+<span class="kd">var</span> <span class="nx">two</span> <span class="o">=</span> <span class="nx">prepend</span><span class="p">(</span><span class="nx">empty_list</span><span class="p">,</span> <span class="nx">prepend</span><span class="p">(</span><span class="nx">empty_list</span><span class="p">,</span> <span class="nx">empty_list</span><span class="p">));</span>
+<span class="c1">// [ [], [] ]</span>
+</pre></div>
+
+
+<h3 id="inc-dec">inc,&nbsp;dec</h3>
+<p>We&#8217;re going to want to <em>do</em> things with our numbers, so let&#8217;s start writing
+things that work with this &#8220;list of things&#8221; representation&nbsp;of&nbsp;numbers.</p>
+<p>Our basic building blocks are going to be <code>inc</code> and <code>dec</code> (increment&nbsp;and&nbsp;decrement).</p>
+<div class="codehilite"><pre><span class="kd">var</span> <span class="nx">inc</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">n</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">prepend</span><span class="p">(</span><span class="nx">empty_list</span><span class="p">,</span> <span class="nx">n</span><span class="p">);</span>
+<span class="p">};</span>
+
+<span class="kd">var</span> <span class="nx">dec</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">n</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">tail</span><span class="p">(</span><span class="nx">n</span><span class="p">);</span>
+<span class="p">};</span>
+</pre></div>
+
+
+<p>To add 1 to a number, we just push another element on the list.  So
+<code>inc(inc(zero))</code> means&nbsp;&#8220;two&#8221;.</p>
+<p>To subtract 1, we just pop off one of the elements: <code>dec(two)</code> means &#8220;one&#8221;
+(remember we&#8217;re ignoring&nbsp;negative&nbsp;numbers).</p>
+<h3 id="is_zero">is_zero</h3>
+<p>When we started working with lists we used <code>is_empty</code> a lot, so it&#8217;s probably
+a good idea to create an <code>is_zero</code> function at&nbsp;this&nbsp;point:</p>
+<div class="codehilite"><pre><span class="kd">var</span> <span class="nx">is_zero</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">n</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">is_empty</span><span class="p">(</span><span class="nx">n</span><span class="p">);</span>
+<span class="p">};</span>
+</pre></div>
+
+
+<p>Zero is just represented by the empty list, so this one&nbsp;is&nbsp;easy!</p>
+<h3 id="add">add</h3>
+<p>Adding one is easy, but we&#8217;re probably going to want to add arbitrary numbers
+together.  Now that we have <code>inc</code> and <code>dec</code> this is actually&nbsp;pretty&nbsp;easy:</p>
+<div class="codehilite"><pre><span class="kd">var</span> <span class="nx">add</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">is_zero</span><span class="p">(</span><span class="nx">b</span><span class="p">))</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">a</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">add</span><span class="p">(</span><span class="nx">inc</span><span class="p">(</span><span class="nx">a</span><span class="p">),</span> <span class="nx">dec</span><span class="p">(</span><span class="nx">b</span><span class="p">));</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+</pre></div>
+
+
+<p>This is another recursive definition.  When adding two numbers, there are&nbsp;two&nbsp;possibilities:</p>
+<ul>
+<li>If <code>b</code> is zero, then anything plus zero is zero, so we can just return <code>a</code>.</li>
+<li>Otherwise, adding <code>a + b</code> is the same as adding <code>(a + 1) + (b - 1)</code>.</li>
+</ul>
+<p>Eventually <code>b</code> will &#8220;bottom out&#8221; and return <code>a</code> (which has been steadily getting
+bigger as <code>b</code> got&nbsp;smaller).</p>
+<p>Notice how we didn&#8217;t say anything about lists here!  The &#8220;numbers are lists
+under the hood&#8221; idea has been encapsulated behind <code>is_zero</code>, <code>inc</code>, and <code>dec</code>,
+so we can ignore it and work at the &#8220;number&#8221; level of abstraction from here&nbsp;on&nbsp;out.</p>
+<h3 id="sub">sub</h3>
+<p>Subtraction is similar to addition, but instead of <em>increasing</em> <code>a</code> as <code>b</code> gets
+smaller, we <em>decrease</em> them&nbsp;both&nbsp;together:</p>
+<div class="codehilite"><pre><span class="kd">var</span> <span class="nx">sub</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">is_zero</span><span class="p">(</span><span class="nx">b</span><span class="p">))</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">a</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">add</span><span class="p">(</span><span class="nx">dec</span><span class="p">(</span><span class="nx">a</span><span class="p">),</span> <span class="nx">dec</span><span class="p">(</span><span class="nx">b</span><span class="p">));</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+</pre></div>
+
+
+<p>Now we can say something like <code>add(two, sub(three, two))</code> and the result will be
+a representation of &#8220;three&#8221; in our system (which, of course, is a list of&nbsp;three&nbsp;elements).</p>
+<p>Pause for a minute now and remember that underneath numbers are lists, and
+underneath lists there&#8217;s nothing but functions.  We can add and subtract
+integers and underneath it all it&#8217;s just functions shuffling around, expanding
+into other functions and contracting as they&#8217;re called, and this writhing mass
+of lambdas somehow ends up representing <code>1 + 1 = 2</code>.  That&#8217;s&nbsp;pretty&nbsp;cool!</p>
+<h3 id="mul-pow">mul,&nbsp;pow</h3>
+<p>For practice let&#8217;s create a way to&nbsp;multiply&nbsp;numbers:</p>
+<div class="codehilite"><pre><span class="kd">var</span> <span class="nx">mul</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">is_zero</span><span class="p">(</span><span class="nx">b</span><span class="p">))</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">zero</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">add</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">mul</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">dec</span><span class="p">(</span><span class="nx">b</span><span class="p">)));</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+</pre></div>
+
+
+<p>Building on <code>add</code> makes this pretty easy.  <code>3 * 4</code> is the same as <code>3
++ 3 + 3 + 3 + 0</code>.  Trace out the execution on paper if things are starting to
+get away from you.  Carry on when&nbsp;you&#8217;re&nbsp;ready.</p>
+<p><code>pow</code> (&#8220;power&#8221; or exponential) follows a similar structure as <code>mul</code>, but instead
+of adding together the copies we multiply them, and our base is one instead&nbsp;of&nbsp;zero:</p>
+<div class="codehilite"><pre><span class="kd">var</span> <span class="nx">pow</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">is_zero</span><span class="p">(</span><span class="nx">b</span><span class="p">))</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">one</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">mul</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">pow</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">dec</span><span class="p">(</span><span class="nx">b</span><span class="p">)));</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+</pre></div>
+
+
+<h3 id="is_equal">is_equal</h3>
+<p>A common thing to do with numbers is to check if two are equal, so let&#8217;s&nbsp;write&nbsp;that:</p>
+<div class="codehilite"><pre><span class="kd">var</span> <span class="nx">is_equal</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">n</span><span class="p">,</span> <span class="nx">m</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">and</span><span class="p">(</span><span class="nx">is_zero</span><span class="p">(</span><span class="nx">n</span><span class="p">),</span> <span class="nx">is_zero</span><span class="p">(</span><span class="nx">m</span><span class="p">)))</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">or</span><span class="p">(</span><span class="nx">is_zero</span><span class="p">(</span><span class="nx">n</span><span class="p">),</span> <span class="nx">is_zero</span><span class="p">(</span><span class="nx">m</span><span class="p">)))</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">is_equal</span><span class="p">(</span><span class="nx">dec</span><span class="p">(</span><span class="nx">n</span><span class="p">),</span> <span class="nx">dec</span><span class="p">(</span><span class="nx">m</span><span class="p">));</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+</pre></div>
+
+
+<p>There are three&nbsp;cases&nbsp;here:</p>
+<ul>
+<li>If both numbers are zero, they&nbsp;are&nbsp;equal.</li>
+<li>If only one number is zero (but not both, or the first case would have caught
+  it), then they are <em>not</em>&nbsp;equal.</li>
+<li>Otherwise, subtract one from each and&nbsp;try&nbsp;again.</li>
+</ul>
+<p>When calling this function with two non-zero numbers, both will be decremented
+in tandem until one of them bottoms out at zero first, or until they bottom out
+at the&nbsp;same&nbsp;time.</p>
+<h3 id="less_than-greater_than">less_than,&nbsp;greater_than</h3>
+<p>We can take a similar approach to implementing <code>less_than</code>:</p>
+<div class="codehilite"><pre><span class="kd">var</span> <span class="nx">less_than</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">and</span><span class="p">(</span><span class="nx">is_zero</span><span class="p">(</span><span class="nx">a</span><span class="p">),</span> <span class="nx">is_zero</span><span class="p">(</span><span class="nx">b</span><span class="p">)))</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">is_zero</span><span class="p">(</span><span class="nx">a</span><span class="p">))</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">is_zero</span><span class="p">(</span><span class="nx">b</span><span class="p">))</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">less_than</span><span class="p">(</span><span class="nx">dec</span><span class="p">(</span><span class="nx">a</span><span class="p">),</span> <span class="nx">dec</span><span class="p">(</span><span class="nx">b</span><span class="p">));</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+</pre></div>
+
+
+<p>The difference here is that we have&nbsp;four&nbsp;cases.</p>
+<ul>
+<li>If both numbers are zero, then <code>a</code> is not less than <code>b</code>.</li>
+<li>Otherwise if <code>a</code> is zero (and we know <code>b</code> isn&#8217;t) then yes, <code>a</code> is less than
+  <code>b</code>.</li>
+<li>Otherwise if <code>b</code> is zero (and we know that <code>a</code> isn&#8217;t) then no, <code>a</code> cannot be
+  less than <code>b</code> (remember that we&#8217;re ignoring&nbsp;negative&nbsp;numbers).</li>
+<li>Otherwise decrement both and&nbsp;try&nbsp;again.</li>
+</ul>
+<p>Once again, both numbers race to bottom out, and the outcome is decided by which
+one bottoms&nbsp;out&nbsp;first.</p>
+<p>We could do something similar for <code>greater_than</code>, but let&#8217;s do it the easy&nbsp;way&nbsp;instead:</p>
+<div class="codehilite"><pre><span class="kd">var</span> <span class="nx">greater_than</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">less_than</span><span class="p">(</span><span class="nx">b</span><span class="p">,</span> <span class="nx">a</span><span class="p">);</span>
+<span class="p">};</span>
+</pre></div>
+
+
+<h3 id="div-mod">div,&nbsp;mod</h3>
+<p>Once we have <code>less_than</code> we&#8217;re ready to implement division&nbsp;and&nbsp;remainders:</p>
+<div class="codehilite"><pre><span class="kd">var</span> <span class="nx">div</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">less_than</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">))</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">zero</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">inc</span><span class="p">(</span><span class="nx">div</span><span class="p">(</span><span class="nx">sub</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">),</span> <span class="nx">b</span><span class="p">));</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="kd">var</span> <span class="nx">rem</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">less_than</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">))</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">a</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">rem</span><span class="p">(</span><span class="nx">sub</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">),</span> <span class="nx">b</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+</pre></div>
+
+
+<p>This pair is a bit more complicated than the three other basic operations
+because we can&#8217;t deal with negative numbers.  Make sure you understand how&nbsp;it&nbsp;works.</p>
+<h2 id="full-circle">Full&nbsp;Circle</h2>
+<p>At this point, we have a (very basic) working system of numbers built on top of
+lists.  Let&#8217;s chase our tails a bit and implement a few more list functions that&nbsp;use&nbsp;numbers.</p>
+<h3 id="nth">nth</h3>
+<p>To get the Nth item in a list, we just pop things off of it as we decrement
+N until we&nbsp;hit&nbsp;zero:</p>
+<div class="codehilite"><pre><span class="kd">var</span> <span class="nx">nth</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">l</span><span class="p">,</span> <span class="nx">n</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">is_zero</span><span class="p">(</span><span class="nx">n</span><span class="p">))</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">head</span><span class="p">(</span><span class="nx">l</span><span class="p">);</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">nth</span><span class="p">(</span><span class="nx">tail</span><span class="p">(</span><span class="nx">l</span><span class="p">),</span> <span class="nx">dec</span><span class="p">(</span><span class="nx">n</span><span class="p">));</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+</pre></div>
+
+
+<p>Under the hood there are really <em>two</em> lists getting things popped off as we
+iterate, because <code>n</code> is a number, which is a list, and <code>dec</code> pops things off.
+But it&#8217;s much easier to read when we&#8217;ve abstracted away the representation of
+numbers, don&#8217;t&nbsp;you&nbsp;think?</p>
+<h3 id="drop-take">drop,&nbsp;take</h3>
+<p>Two handy functions for working with lists are <code>drop</code> and <code>take</code>.</p>
+<p><code>drop(l, three)</code> will return the list with the first three&nbsp;elements&nbsp;removed.</p>
+<p><code>take(l, three)</code> will return the list containing only the first&nbsp;three&nbsp;elements.</p>
+<div class="codehilite"><pre><span class="kd">var</span> <span class="nx">drop</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">l</span><span class="p">,</span> <span class="nx">n</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">is_zero</span><span class="p">(</span><span class="nx">n</span><span class="p">))</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">l</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">drop</span><span class="p">(</span><span class="nx">tail</span><span class="p">(</span><span class="nx">l</span><span class="p">),</span> <span class="nx">dec</span><span class="p">(</span><span class="nx">n</span><span class="p">));</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="kd">var</span> <span class="nx">take</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">l</span><span class="p">,</span> <span class="nx">n</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">is_zero</span><span class="p">(</span><span class="nx">n</span><span class="p">))</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">empty_list</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">prepend</span><span class="p">(</span><span class="nx">head</span><span class="p">(</span><span class="nx">l</span><span class="p">),</span> <span class="nx">take</span><span class="p">(</span><span class="nx">tail</span><span class="p">(</span><span class="nx">l</span><span class="p">),</span> <span class="nx">dec</span><span class="p">(</span><span class="nx">n</span><span class="p">)));</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+</pre></div>
+
+
+<h3 id="slice">slice</h3>
+<p>Slicing a list is easy now that we have <code>drop</code>, <code>take</code>, and the ability to&nbsp;subtract&nbsp;numbers:</p>
+<div class="codehilite"><pre><span class="kd">var</span> <span class="nx">slice</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">l</span><span class="p">,</span> <span class="nx">start</span><span class="p">,</span> <span class="nx">end</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">take</span><span class="p">(</span><span class="nx">drop</span><span class="p">(</span><span class="nx">l</span><span class="p">,</span> <span class="nx">start</span><span class="p">),</span> <span class="nx">sub</span><span class="p">(</span><span class="nx">end</span><span class="p">,</span> <span class="nx">start</span><span class="p">));</span>
+<span class="p">};</span>
+</pre></div>
+
+
+<p>First we drop up to the start, then take enough to get us to&nbsp;the&nbsp;end.</p>
+<h3 id="length">length</h3>
+<p>We can define <code>length</code> recursively like&nbsp;everything&nbsp;else:</p>
+<div class="codehilite"><pre><span class="kd">var</span> <span class="nx">length</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">l</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">is_empty</span><span class="p">(</span><span class="nx">l</span><span class="p">))</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">zero</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">inc</span><span class="p">(</span><span class="nx">length</span><span class="p">(</span><span class="nx">tail</span><span class="p">(</span><span class="nx">l</span><span class="p">)));</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+</pre></div>
+
+
+<p>The length of the empty list is zero, and the length of any non-empty list is
+one plus the length of&nbsp;its&nbsp;tail.</p>
+<p>If your mind isn&#8217;t in knots by this point, consider&nbsp;the&nbsp;following:</p>
+<ul>
+<li>Lists are made&nbsp;of&nbsp;functions.</li>
+<li>Numbers are made of lists whose length represents&nbsp;the&nbsp;number.</li>
+<li><code>length</code> is a function that takes a list (which is a function) and returns
+  the length as a number (a list whose length represents&nbsp;the&nbsp;number).</li>
+<li>We only just now got around to defining <code>length</code> even though we&#8217;ve been using
+  numbers (which use the <em>length</em> of a list to represent a number) for a&nbsp;while&nbsp;now!</li>
+</ul>
+<p>Are you dizzy yet?&nbsp;If&nbsp;not:</p>
+<div class="codehilite"><pre><span class="kd">var</span> <span class="nx">mylist</span> <span class="o">=</span> <span class="nx">prepend</span><span class="p">(</span><span class="nx">empty_list</span><span class="p">,</span>
+                     <span class="nx">prepend</span><span class="p">(</span><span class="nx">empty_list</span><span class="p">,</span>
+                             <span class="nx">empty_list</span><span class="p">));</span>
+<span class="kd">var</span> <span class="nx">mylistlength</span> <span class="o">=</span> <span class="nx">length</span><span class="p">(</span><span class="nx">mylist</span><span class="p">);</span>
+</pre></div>
+
+
+<p><code>mylist</code> is a list of two&nbsp;empty&nbsp;lists.</p>
+<p><code>mylistlength</code> is the length of <code>mylist</code>&#8230;<br />
+which is &#8220;two&#8221;&#8230;<br />
+which is represented by a list of two empty lists&#8230;<br />
+which is <code>mylist</code> itself!</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>If you liked this twisty little story, I highly recommend you check out <a href="http://www.amazon.com/dp/0262560992/?tag=stelos-20">The
+Little Schemer</a>.  It was one of the first books that really changed how
+I thought about programming.  Don&#8217;t be put off by the fact that it uses Scheme
+&#8212; the language doesn&#8217;t&nbsp;really&nbsp;matter.</p>
+<p>I&#8217;ve also created <a href="https://gist.github.com/sjl/5277681">a gist</a> with all the code.  Feel free to fork it and use it&nbsp;for&nbsp;practice.</p>
+<p>You could add some more utility functions for practice&nbsp;writing&nbsp;recursively:</p>
+<ul>
+<li><code>append</code> to add an item to the end of&nbsp;a&nbsp;list.</li>
+<li><code>concat</code> to concatenate&nbsp;two&nbsp;lists.</li>
+<li><code>min</code> and <code>max</code> which take two numbers and return the&nbsp;minimum/maximum&nbsp;one.</li>
+<li><code>remove</code>, which is like filter except it only leaves the elements that return
+  <code>false</code> for&nbsp;the&nbsp;predicate.</li>
+<li><code>contains_number</code>, which checks if a specific number is inside a list&nbsp;of&nbsp;numbers.</li>
+</ul>
+<p>Or if you want something more challenging, try implementing bigger concepts on
+top of the&nbsp;current&nbsp;ones:</p>
+<ul>
+<li>Negative&nbsp;numbers.</li>
+<li>Non-negative&nbsp;rational&nbsp;numbers.</li>
+<li>Negative&nbsp;rational&nbsp;numbers.</li>
+<li>Association lists (a data structure that associates keys&nbsp;with&nbsp;values).</li>
+</ul>
+<p>Remember: the point is not to create something that runs well on a physical
+computer.  Instead of thinking about how to make a particular combination of
+transistors and circuits have the right voltages, think about &#8220;computing&#8221; in the
+beautiful, perfect,&nbsp;abstract&nbsp;sense.</p>
+                
+            <!-- Hyde::Article::End -->
+        
+    </div>
+
+                    
+                
+            </div>
+
+            <div class="hrb">&nbsp;</div>
+
+            <footer>
+                <p>
+                    I'm also on
+                    <a href="https://bitbucket.org/sjl/">Bitbucket</a>,
+                    <a href="https://github.com/sjl/">GitHub</a>,
+                    <a href="https://twitter.com/stevelosh/">Twitter</a>,
+                    and
+                    <a href="http://500px.com/stevelosh/">500px</a>.
+                </p>
+
+                <a class="rochester-made" href="http://rochestermade.com" title="Rochester Made"><img src="http://rochestermade.com/media/images/rochester-made-dark-on-light.png" alt="Rochester Made" title="Rochester Made" /></a>
+            </footer>
+        </div>
+
+        <script type="text/javascript">
+            var _gauges = _gauges || [];
+            (function() {
+             var t   = document.createElement('script');
+             t.type  = 'text/javascript';
+             t.async = true;
+             t.id    = 'gauges-tracker';
+             t.setAttribute('data-site-id', '4e8f83a7f5a1f53f20000011');
+             t.src = '//secure.gaug.es/track.js';
+             var s = document.getElementsByTagName('script')[0];
+             s.parentNode.insertBefore(t, s);
+             })();
+        </script>
+    </body>
+</html>
