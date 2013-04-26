@@ -1,0 +1,454 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+		<title>  Duplicity + Amazon S3 = incremental encrypted remote backup | Brain on Fire</title>
+
+	<meta name="generator" content="WordPress 3.5.1" /> <!-- left in for stats -->
+
+	<link rel="stylesheet" href="http://www.brainonfire.net/blog/wp-content/themes/cleaner/style.css" type="text/css" media="screen" />
+
+			<link rel="stylesheet" href="/style/cleaner/stylemods/single.css" type="text/css" media="screen" />
+	
+		
+	<!-- Feeds should be appropriate to the page content. -->
+			<link rel="pingback" href="http://www.brainonfire.net/blog/xmlrpc.php" />
+		<link rel="alternate" type="application/rss+xml" title="Brain on Fire: Comments on this post" href="http://www.brainonfire.net/blog/remote-encrypted-backup-duplicity-amazon-s3/feed/" />
+	
+
+		<link rel="openid.server"    href="http://www.clavid.com/provider/openid" />
+		<link rel="openid2.provider" href="http://www.clavid.com/provider/openid" />
+		<link rel="openid.delegate"  href="http://phyzome.clavid.com" />
+		<link rel="openid2.local_id" href="http://phyzome.clavid.com" />
+
+	<link rel="alternate" type="application/rss+xml" title="Brain on Fire &raquo; Duplicity + Amazon S3 = incremental encrypted remote backup Comments Feed" href="http://www.brainonfire.net/blog/remote-encrypted-backup-duplicity-amazon-s3/feed/" />
+<link rel='stylesheet' id='openid-css'  href='http://www.brainonfire.net/blog/wp-content/plugins/openid/f/openid.css?ver=519' type='text/css' media='all' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://www.brainonfire.net/blog/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://www.brainonfire.net/blog/wp-includes/wlwmanifest.xml" /> 
+<link rel='prev' title='&#8220;Two Generals&#8217; Problem&#8221; doesn&#8217;t make sense' href='http://www.brainonfire.net/blog/two-generals-problem-paradox/' />
+<link rel='next' title='Odd Apache pitfall: ErrorDocument and POST' href='http://www.brainonfire.net/blog/apache-pitfall-errordocument-post/' />
+<meta name="generator" content="WordPress 3.5.1" />
+<link rel='canonical' href='http://www.brainonfire.net/blog/remote-encrypted-backup-duplicity-amazon-s3/' />
+<link rel='shortlink' href='http://wp.me/p4tYt-5P' />
+		<meta name="DC.publisher" content="Brain on Fire" />
+		<meta name="DC.publisher.url" content="http://www.brainonfire.net/blog/" />
+		<meta name="DC.title" content="Duplicity + Amazon S3 = incremental encrypted remote backup" />
+		<meta name="DC.identifier" content="http://www.brainonfire.net/blog/remote-encrypted-backup-duplicity-amazon-s3/" />
+		<meta name="DC.date.created" scheme="WTN8601" content="2007-08-11T19:35:53" />
+		<meta name="DC.created" scheme="WTN8601" content="2007-08-11T19:35:53" />
+		<meta name="DC.date" scheme="WTN8601" content="2007-08-11T19:35:53" />
+		<meta name="DC.creator.name" content="McCormack, Tim" />
+		<meta name="DC.creator" content="McCormack, Tim" />
+		<meta name="DC.rights.rightsHolder" content="Tim McCormack" />		
+		<meta name="DC.language" content="en-US" scheme="rfc1766" />
+		<meta name="DC.subject" content="Solutions" />
+		<meta name="DC.subject" content="Amazon-S3" />
+		<meta name="DC.subject" content="backup" />
+		<meta name="DC.subject" content="cheap" />
+		<meta name="DC.subject" content="duplicity" />
+		<meta name="DC.subject" content="encryption" />
+		<meta name="DC.subject" content="guide" />
+		<meta name="DC.subject" content="howto" />
+		<meta name="DC.subject" content="remote" />
+		<meta name="DC.subject" content="rsync" />
+		<meta name="DC.subject" content="Software" />
+		<meta name="DC.subject" content="storage" />
+</head>
+<body>
+	<!--[if lte IE 6]>
+		<div style="border: 1px solid black; color: black; background-color: #ffd; padding: 0.5em; margin: 0.5em; margin-top: 2em; text-align: center;"><p>Sorry, Internet Explorer 6 (or below) is no longer supported due to its massive incompetency.</p><p>Upgrade to IE 7 or higher, or switch to a different browser &mdash; the whole web will look and work better.</p></div>
+	<![endif]-->
+
+	<div id="page">
+
+		<div id="header">
+			<h1>
+				<a href="/" title="To root of site">Brain on Fire</a> &raquo; <a href="http://www.brainonfire.net/blog/" title="To main page of blog">Blog</a>
+				<small class="subtitle">Tim McCormack, distilled</small>
+			</h1>
+		</div>
+
+		<hr id="after-header" />
+
+<div id="content">
+
+	
+		<div id="primary-content">
+
+			<div class="post" id="post-361">
+				<h2 class="post-title"><a href="http://www.brainonfire.net/blog/remote-encrypted-backup-duplicity-amazon-s3/" rel="bookmark" title="Permanent Link: Duplicity + Amazon S3 = incremental encrypted remote backup">Duplicity + Amazon S3 = incremental encrypted remote backup</a></h2>
+
+				<div class="entrytext userformat">
+					<p><strong>Update:</strong> I haven't really been using this, since the bandwidth required is a bit... excessive. I think I'll stick to duplicity + external hard drive.</p>
+
+<p>Duplicity is a backup program that only backs up the files (and parts of files) that have been modified since the last backup. Built on <acronym title="Free-Licensed, Open-Source Software">FLOSS</acronym> (rsync, <a href="http://www.gnupg.org/" title="GNU Privacy Guard, a PGP-compatible cryptography suite">GnuPG</a>, tar, and rdiff), it allows efficient, locally encrypted, remote backups.</p>
+
+<p>Amazon S3 is a web service that provides cheap, distributed, redundant, web-accessible storage. S3 currently charges only $0.15 per GB-month storage and $0.10 per GB upload. The API is based on HTTP requests such as GET, POST, PUT, and DELETE.</p>
+
+<p>The following is a description of how I made use of these to back up my laptop, which runs Ubuntu Feisty Fawn.</p>
+
+<span id="more-361"></span>
+
+<h3 id="heading-installation">Installation</h3>
+
+<p>These packages are in the Ubuntu repositories:</p>
+
+<ul>
+	<li>duplicity: Remote encrypted incremental backup</li>
+	<li>python-boto: Allow Python to talk to S3</li>
+</ul>
+
+<p>(Edit: Packages now available in repository, so no building necessary.)</p>
+
+<h3 id="heading-get-s3">Sign up for S3</h3>
+
+<p>Sign up for an <a href="http://aws.amazon.com/">Amazon Web Services</a> account, then add the <a href="http://aws.amazon.com/s3">Simple Storage Service</a>. This will involve giving them your credit card number, to be charged monthly.</p>
+
+<p>Make sure to generate and write down your Secret Access Key, along with your Access ID Key. You'll need those for any application that interacts with S3.</p>
+
+<h3 id="heading-encryption-keys">Encryption keys</h3>
+
+<p>You should encrypt your files so that they are safe from prying eyes in transit and in storage. Signing them protects the files from alteration in storage or transit.</p>
+
+<p>Decide on a GPG key to use for encryption and signing. (The one I use is <a href="http://pgp.mit.edu:11371/pks/lookup?op=get&#038;search=0x3BBF4E12">3BBF4E12</a>, my main key.) Make sure your encryption/signing key is in your GPG keyring. (You can use separate keys for encryption and signing, but I haven't in this case.)</p>
+
+<h3 id="heading-visual-s3-interface">Optional: Visual S3 interface</h3>
+
+<p><a href="http://jets3t.s3.amazonaws.com/index.html">JetS3t</a>'s Cockpit is a decent tool for viewing and managing your S3 buckets and objects. There is an <a href="http://jets3t.s3.amazonaws.com/applets-jets3t-0.5.0/jets3t-cockpit.html">applet version</a>, but I use the standalone application instead.</p>
+
+<p>Unzip the download to a permanent location, and find the bin/cockpit.sh file. Allow it to be executable (<code>chmod u+x cockpit.sh</code>). Edit it to set the environmental variables properly:</p>
+<pre>JETS3T_HOME=/home/myusername/programs/JetS3t
+JAVA_HOME=/usr/lib/jvm/java-1.5.0-sun/jre</pre>
+
+<p>When you run cockpit.sh, you will be presented with a somewhat complicated login screen. The simplest is the Direct Login tab. Local Folder login stores authentication info locally in a password-protected file.</p>
+
+<h3 id="heading-learn-and-configure">Learn and configure</h3>
+
+<p>After scanning over <code>man duplicity</code> and playing with commands like <code>duplicity /home/myusername/junk file:///home/myusername/junkBackup</code>, create a shell script to run duplicity backups automatically. Here's what mine looks like:</p>
+
+<pre>export AWS_ACCESS_KEY_ID=myAccessKeyID
+export AWS_SECRET_ACCESS_KEY=mySecretAccessKey
+
+duplicity --encrypt-key=myEncryptionKeyFingerprint --sign-key=mySigningKeyFingerprint --exclude=/sys --exclude=/dev --exclude=/proc --exclude=/tmp --exclude=/mnt --exclude=/media --include=/mnt/media / s3+http://myUniqueBucketName
+
+export AWS_ACCESS_KEY_ID=
+export AWS_SECRET_ACCESS_KEY=</pre>
+
+<p>You'll generally want to exclude /proc and /tmp from backups, since they contain constantly changing volatile runtime data that gets wiped every time you shutdown. /dev is full of file representations of your hardware, and /sys... I don't know, it screws up my backups, and has something to do with driver-daemon communication. I exclude /mnt and /media because I don't want to back up my external drives, and I re-include /mnt/media because that's my photos, music, and video partition. Duplicity supports all the rsync options, including fancy wildcards/globbing and the same-filesystem directive.</p>
+
+<h4 id="heading-duplicity-notes">Notes on duplicity</h4>
+
+<ul>
+	<li>The bucket name must be unique among all S3 buckets owned by all S3 users. It does not need to exist before use.</li>
+	<li>Duplicity supports a number of protocols: file, ftp, scp, and s3+http are the most relevant here.
+	<li>Switch the file path and the URL, and you're doing a restore.</li>
+	<li>When using cryptographic signing, duplicity will ask you to type in your key's passphrase twice at the command line. Somewhat annoying if yours is 30-odd characters.</li>
+</ul>
+									</div>				
+			</div><!-- /.post -->
+			
+		</div><!-- /#primary-content -->
+
+		<div id="sidebar">
+
+
+		<div class="search">
+			<form method="get" class="searchform" action="http://www.brainonfire.net/blog/">
+	<div>
+		<input type="text" value="" name="s" />
+		<button>Search</button>
+	</div>
+</form>
+		</div>
+
+		<!--div class="auth">
+			<ul>
+								<li></li>
+			</ul>
+		</div-->
+
+
+		<div class="author">
+			<img class="avatar" src="http://www.gravatar.com/avatar.php?gravatar_id=5d532e51427ef2f4ded31aaca16c8baf&size=75" width="75" height="75" />
+			<h2>Author</h2>
+			<p>Tim McCormack attends Northeastern University in Boston, MA, USA.</p>
+		</div>
+
+		<div class="postmetadata">
+			<h2>Entry</h2>
+			<ul>
+				<li>Posted on Saturday, August 11th, 2007 at 7:35 pm</li>
+				<li>In these categories: <a href="http://www.brainonfire.net/blog/category/solutions/" title="View all posts in Solutions" rel="category tag">Solutions</a></li>
+				<li>Tagged: <a href="http://www.brainonfire.net/blog/tag/amazon-s3/" rel="tag">Amazon-S3</a>, <a href="http://www.brainonfire.net/blog/tag/backup/" rel="tag">backup</a>, <a href="http://www.brainonfire.net/blog/tag/cheap/" rel="tag">cheap</a>, <a href="http://www.brainonfire.net/blog/tag/duplicity/" rel="tag">duplicity</a>, <a href="http://www.brainonfire.net/blog/tag/encryption/" rel="tag">encryption</a>, <a href="http://www.brainonfire.net/blog/tag/guide/" rel="tag">guide</a>, <a href="http://www.brainonfire.net/blog/tag/howto/" rel="tag">howto</a>, <a href="http://www.brainonfire.net/blog/tag/remote/" rel="tag">remote</a>, <a href="http://www.brainonfire.net/blog/tag/rsync/" rel="tag">rsync</a>, <a href="http://www.brainonfire.net/blog/tag/software/" rel="tag">Software</a>, <a href="http://www.brainonfire.net/blog/tag/storage/" rel="tag">storage</a></li>				<!--?php UTW_ShowTagsForCurrentPost("custom", array('first'=>'Tagged with %taglink%', 'default'=>', %taglink%', 'last'=>' and %taglink%', 'none'=>'Not tagged', 'single'=>'Tagged with %taglink%')) ?>.</li-->
+							</ul>
+		</div>
+
+
+
+</div>
+<!-- /#sidebar -->
+		
+		<hr id="after-primary" />
+
+		<div id="secondary-content">
+			
+<div id="comments">
+
+			<h2>
+			Responses: 11 so far					</h3>
+
+		<ol class="commentlist">
+
+		
+			
+			<li class="comment alt" id="comment-17716">
+				<span class="gravatar" title="Upload an avatar at Gravatar.com"><img alt='' src='http://0.gravatar.com/avatar/a8a153182676ba98c676c64c40c047bb?s=75&amp;d=identicon&amp;r=PG' class='avatar avatar-75 photo' height='75' width='75' /></span>
+
+				<small class="commentmetadata">
+					<a href="#comment-17716" title="Permanent link to this comment" rel="bookmark">#17716</a> |
+					November 15th, 2007 at 8:14 pm									</small>
+
+				<p class="commentattribution"><cite><a href='http://www.randys.org' rel='external nofollow' class='url'>randy</a></cite> says:</p>
+				<div class="commentdata userformat">
+										<p>You can export the PASSPHRASE environment variable in your script and avoid typing it in on the command line. GPG will read that.</p>
+				</div>
+			</li>
+
+			
+		
+			
+			<li class="comment" id="comment-17718">
+				<span class="gravatar" title="Upload an avatar at Gravatar.com"><img alt='' src='http://1.gravatar.com/avatar/7202b37f4a9f63aeb9f55cb410459f7a?s=75&amp;d=identicon&amp;r=PG' class='avatar avatar-75 photo' height='75' width='75' /></span>
+
+				<small class="commentmetadata">
+					<a href="#comment-17718" title="Permanent link to this comment" rel="bookmark">#17718</a> |
+					November 15th, 2007 at 8:23 pm									</small>
+
+				<p class="commentattribution"><cite><a href='http://www.brainonfire.net/' rel='external nofollow' class='url'>Tim McCormack</a></cite> says:</p>
+				<div class="commentdata userformat">
+										<p>@randy: That's... not quite optimal from a security standpoint.  I suppose it's fine if you generate a key *just* for encrypting your S3 backup, and the only reason you are encrypting is to keep the data safe from rogue employees at Amazon.</p>
+				</div>
+			</li>
+
+			
+		
+			
+			<li class="comment alt" id="comment-17719">
+				<span class="gravatar" title="Upload an avatar at Gravatar.com"><img alt='' src='http://0.gravatar.com/avatar/a8a153182676ba98c676c64c40c047bb?s=75&amp;d=identicon&amp;r=PG' class='avatar avatar-75 photo' height='75' width='75' /></span>
+
+				<small class="commentmetadata">
+					<a href="#comment-17719" title="Permanent link to this comment" rel="bookmark">#17719</a> |
+					November 15th, 2007 at 9:02 pm									</small>
+
+				<p class="commentattribution"><cite><a href='http://www.randys.org' rel='external nofollow' class='url'>randy</a></cite> says:</p>
+				<div class="commentdata userformat">
+										<p>It would also keep it private from anyone sniffing the network traffic as well. And this key is soley for the backup.</p>
+<p>I suppose one could blowfish the passphrase, store the encrypted string in a configuration file, write a small C/C++ application with the blowfish enryption/decryption key hard coded in the source and call that form the shell script.</p>
+<p>export PASSPHRASE=$(/usr/local/bin/gpg-passphrase-fetcher)</p>
+<p>Heck, you might as well write a C/C++ (or anyother compiled language) wrapper script rather than use the shell.</p>
+<p>I've implimented other security measures to keep my server private and safe. If someone breaks in and gets access to my gpg passphrase located in one root owned file, my data sitting on S3 is the least of my worries.</p>
+				</div>
+			</li>
+
+			
+		
+			
+			<li class="comment" id="comment-18808">
+				<span class="gravatar" title="Upload an avatar at Gravatar.com"><img alt='' src='http://0.gravatar.com/avatar/20002fadec2f56aa368ea87e92d2e8fa?s=75&amp;d=identicon&amp;r=PG' class='avatar avatar-75 photo' height='75' width='75' /></span>
+
+				<small class="commentmetadata">
+					<a href="#comment-18808" title="Permanent link to this comment" rel="bookmark">#18808</a> |
+					December 8th, 2007 at 4:46 pm									</small>
+
+				<p class="commentattribution"><cite>David</cite> says:</p>
+				<div class="commentdata userformat">
+										<p>Getting the following message:<br />
+No signatures found, switching to full backup.<br />
+Traceback (most recent call last):<br />
+  File "/usr/bin/duplicity", line 425, in<br />
+    if __name__ == "__main__": with_tempdir(main)<br />
+  File "/usr/bin/duplicity", line 421, in with_tempdir<br />
+    fn()<br />
+  File "/usr/bin/duplicity", line 414, in main<br />
+    if not sig_chain: full_backup(col_stats)<br />
+  File "/usr/bin/duplicity", line 150, in full_backup<br />
+    bytes_written = write_multivol("full", tarblock_iter, globals.backend)<br />
+  File "/usr/bin/duplicity", line 94, in write_multivol<br />
+    backend.put(tdp, dest_filename)<br />
+  File "/usr/lib/python2.5/site-packages/duplicity/backends.py", line 724, in put<br />
+    self.bucket = self.conn.create_bucket(self.bucket_name)<br />
+  File "/usr/lib/python2.5/site-packages/boto/s3/connection.py", line 103, in create_bucket<br />
+    raise S3ResponseError(response.status, response.reason, body)<br />
+boto.exception.S3ResponseError: S3ResponseError: 403 Forbidden</p>
+<p><code>InvalidAccessKeyId</code>The AWS Access Key Id you provided does not exist in our records.D87F724E05EC9FADID18Z1BSNQWF5XCTYWC3R2CuO/qHmT4X1SluELB6qD9K7mZnacGbRDP0ou8btTqu3vKk63EMkkjzbjdoR+FUnX</p>
+<p>Even though I am using correct ID and Secret Key</p>
+<p>Any ideas</p>
+				</div>
+			</li>
+
+			
+		
+			
+			<li class="comment alt" id="comment-21978">
+				<span class="gravatar" title="Upload an avatar at Gravatar.com"><img alt='' src='http://1.gravatar.com/avatar/7202b37f4a9f63aeb9f55cb410459f7a?s=75&amp;d=identicon&amp;r=PG' class='avatar avatar-75 photo' height='75' width='75' /></span>
+
+				<small class="commentmetadata">
+					<a href="#comment-21978" title="Permanent link to this comment" rel="bookmark">#21978</a> |
+					January 9th, 2008 at 11:56 pm									</small>
+
+				<p class="commentattribution"><cite><a href='http://www.brainonfire.net/' rel='external nofollow' class='url'>Tim McCormack</a></cite> says:</p>
+				<div class="commentdata userformat">
+										<p>@David: I Googled "InvalidAccessKeyId" and found a couple of threads that indicate that it is a sporadic error on Amazon's side.</p>
+				</div>
+			</li>
+
+			
+		
+			
+			<li class="comment" id="comment-24420">
+				<span class="gravatar" title="Upload an avatar at Gravatar.com"><img alt='' src='http://0.gravatar.com/avatar/?d=identicon&amp;s=75' class='avatar avatar-75 photo avatar-default' height='75' width='75' /></span>
+
+				<small class="commentmetadata">
+					<a href="#comment-24420" title="Permanent link to this comment" rel="bookmark">#24420</a> |
+					February 3rd, 2008 at 10:15 pm									</small>
+
+				<p class="commentattribution"><cite><a href='http://brianbaggett.com/?p=503' rel='external nofollow' class='url'>brian baggett dot com &raquo; Ubuntu Roundup: backups, encryption, and what&#8217;s new</a></cite> says:</p>
+				<div class="commentdata userformat">
+										<p>[...] Incremental (and encrypted) backups for your filesystem to Amazon&#8217;s S3 with duplicity. Read more here and here. [...]</p>
+				</div>
+			</li>
+
+			
+		
+			
+			<li class="comment alt" id="comment-25894">
+				<span class="gravatar" title="Upload an avatar at Gravatar.com"><img alt='' src='http://0.gravatar.com/avatar/a77cce6c62eafe0e868beffd1ac5a1b2?s=75&amp;d=identicon&amp;r=PG' class='avatar avatar-75 photo' height='75' width='75' /></span>
+
+				<small class="commentmetadata">
+					<a href="#comment-25894" title="Permanent link to this comment" rel="bookmark">#25894</a> |
+					June 7th, 2009 at 10:49 pm									</small>
+
+				<p class="commentattribution"><cite>David Soergel</cite> says:</p>
+				<div class="commentdata userformat">
+										<p>I've written a similar tool that you may want to check out: <a href="http://dev.davidsoergel.com/trac/s3napback/" rel="nofollow">http://dev.davidsoergel.com/trac/s3napback/</a></p>
+				</div>
+			</li>
+
+			
+		
+			
+			<li class="comment" id="comment-28322">
+				<span class="gravatar" title="Upload an avatar at Gravatar.com"><img alt='' src='http://0.gravatar.com/avatar/09058cb3411d24334e9507a9712d44e6?s=75&amp;d=identicon&amp;r=PG' class='avatar avatar-75 photo' height='75' width='75' /></span>
+
+				<small class="commentmetadata">
+					<a href="#comment-28322" title="Permanent link to this comment" rel="bookmark">#28322</a> |
+					September 16th, 2009 at 2:17 pm									</small>
+
+				<p class="commentattribution"><cite>Kearney</cite> says:</p>
+				<div class="commentdata userformat">
+										<p>Is there anyway to restore and overwrite everything in a directory?</p>
+<p>So, for instance, I have a /tmp/important/ directory with dir1, and dir2 in it.</p>
+<p>I delete dir2. I want to restore. Currently, I have to delete /tmp/important/ and then issue the duplicity restore.</p>
+<p>Is there a way to force a restore?</p>
+				</div>
+			</li>
+
+			
+		
+			
+			<li class="comment alt" id="comment-36660">
+				<span class="gravatar" title="Upload an avatar at Gravatar.com"><img alt='' src='http://1.gravatar.com/avatar/d3aaad895707408e9d23342bd620b858?s=75&amp;d=identicon&amp;r=PG' class='avatar avatar-75 photo' height='75' width='75' /></span>
+
+				<small class="commentmetadata">
+					<a href="#comment-36660" title="Permanent link to this comment" rel="bookmark">#36660</a> |
+					April 6th, 2010 at 9:36 am									</small>
+
+				<p class="commentattribution"><cite><a href='http://sandbox.frontline.ro' rel='external nofollow' class='url'>Sorin Pohontu</a></cite> says:</p>
+				<div class="commentdata userformat">
+										<p>You can take a look on article about backing up an Plesk server on Amazon S3: <a href="http://sandbox.frontline.ro/2008/10/31/plesk-backup-to-amazon-s3-testing-phase" rel="nofollow">http://sandbox.frontline.ro/2008/10/31/plesk-backup-to-amazon-s3-testing-phase</a><br />
+As today, I think JungleDisk is the most reliable solution for mounting an S3 bucket.</p>
+<p>I'll update my blog with some info about JungleDisk implementation.</p>
+				</div>
+			</li>
+
+			
+		
+			
+			<li class="comment" id="comment-37874">
+				<span class="gravatar" title="Upload an avatar at Gravatar.com"><img alt='' src='http://0.gravatar.com/avatar/?d=identicon&amp;s=75' class='avatar avatar-75 photo avatar-default' height='75' width='75' /></span>
+
+				<small class="commentmetadata">
+					<a href="#comment-37874" title="Permanent link to this comment" rel="bookmark">#37874</a> |
+					May 13th, 2010 at 12:08 am									</small>
+
+				<p class="commentattribution"><cite><a href='http://www.surui.net/2010/05/13/%e8%87%aa%e5%8a%a8%e6%9c%8d%e5%8a%a1%e5%99%a8%e6%96%87%e4%bb%b6%e5%a4%87%e4%bb%bd%e5%88%b0s3/' rel='external nofollow' class='url'>Suave&#8217;s Blog &raquo; Blog Archive &raquo; 自动服务器文件备份到S3</a></cite> says:</p>
+				<div class="commentdata userformat">
+										<p>[...] 另外还有一个方案，有兴趣的同学可以试试 [...]</p>
+				</div>
+			</li>
+
+			
+		
+			
+			<li class="comment alt" id="comment-38337">
+				<span class="gravatar" title="Upload an avatar at Gravatar.com"><img alt='' src='http://0.gravatar.com/avatar/?d=identicon&amp;s=75' class='avatar avatar-75 photo avatar-default' height='75' width='75' /></span>
+
+				<small class="commentmetadata">
+					<a href="#comment-38337" title="Permanent link to this comment" rel="bookmark">#38337</a> |
+					May 25th, 2010 at 9:37 am									</small>
+
+				<p class="commentattribution"><cite><a href='http://blog.visucore.com/2010/5/12/encrypted-remote-backup-with-duplicity' rel='external nofollow' class='url'>Encrypted remote backup with Duplicity &mdash; The Chronicles of Omega</a></cite> says:</p>
+				<div class="commentdata userformat">
+										<p>[...] written by wladimir, on May 25, 2010 3:36:00 PM. I&#39;ve been using Duplicity for a while now. Duplicity is a bandwidth-efficient tool to do encrypted incremental remote backups via SSH, rsync, webdav and many others, for example Amazon S3. [...]</p>
+				</div>
+			</li>
+
+			
+		
+		</ol>
+
+	 
+
+	
+</div>
+<!-- /#comments -->
+		</div>
+
+	
+</div><!-- /#content -->
+
+
+	<hr id="before-sitenav" />
+
+	<div id="sitenav">
+		<ul>
+			<li><a href="/about/tim-mccormack/" title="About Tim McCormack">About me</a></li>
+			<li><a href="/contact/" title="Contact information for Tim McCormack">Contact</a></li>
+			<li><a href="/sitemap/" title="List of pages and links to archives">Sitemap</a></li>
+					</ul>
+	</div>
+
+	<hr id="before-footer" />
+
+	<div id="footer">
+		<p>
+			Brain on Fire uses <a href="http://wordpress.org/">WordPress</a> as a content management system.<br />
+			Hosted for pennies a day at <a href="https://www.nearlyfreespeech.net/" title="">NearlyFreeSpeech.net</a>, the best web host EVAR.<br />
+			Feeds (RSS): <a href="http://www.brainonfire.net/blog/feed/">all entries</a>, <a href="http://www.brainonfire.net/blog/comments/feed/">all comments</a>, <a href="http://www.brainonfire.net/blog/remote-encrypted-backup-duplicity-amazon-s3/feed/">comments for this entry</a>.
+			<!-- 18 queries. 0.270 seconds. -->
+		</p>
+	</div>
+
+</div>
+<!-- /#page -->
+
+		<!--stats_footer_test--><script src="http://stats.wordpress.com/e-201317.js" type="text/javascript"></script>
+<script type="text/javascript">
+st_go({blog:'1068537',v:'ext',post:'361'});
+var load_cmc = function(){linktracker_init(1068537,361,2);};
+if ( typeof addLoadEvent != 'undefined' ) addLoadEvent(load_cmc);
+else load_cmc();
+</script>
+</body>
+</html>

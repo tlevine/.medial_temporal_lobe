@@ -1,0 +1,135 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+<HEAD>
+<LINK REV="made" HREF="mailto:nmh-workers@nongnu.org">
+<META NAME="keywords" CONTENT="mail mailer mime email mh nmh">
+<META NAME="description" CONTENT="The nmh Message handling system">
+<TITLE>nmh - New Message Handler</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" text="#000000">
+<center><IMG ALT="NMH" SRC="nmh.jpg" width=235 height=150></center>
+<H1 align="center">nmh - Message Handling System</H1>
+<blockquote><blockquote><blockquote>
+Welcome to the home of <B>nmh</B>, on savannah.nongnu.org.
+<p>
+The latest stable of nmh is <b>nmh 1.5</b>. You can 
+<a href="http://download.savannah.nongnu.org/releases/nmh/nmh-1.5.tar.gz">download
+it from savannah</a>.
+<p>
+We are pleased to announce the release of <b>nmh 1.5</b> on
+June 11<sup>th</sup>, 2012.
+<b>Nmh 1.5</b> has a number of bug fixes, new features, and behavior changes.
+The release notes (see the <tt>NEWS</tt> file in the distribution) has a
+complete list of new features, but here are some highlights:
+<ul>
+<li><b>comp</b>, <b>forw</b>, and <b>dist</b> now process all drafts through
+    <i>mh-format</i>(5) and now support new command line arguments
+    <tt>-from</tt>, <tt>-to</tt>, <tt>-cc</tt>, <tt>-fcc</tt>, and
+    <tt>-subject</tt>.
+<li><b>Nmh</b>'s idea of the local mailbox is now configurable via a new
+    profile entry, <tt>Local-Mailbox</tt>.
+<li><b>post</b> now requires a &ldquo;From:&rdquo; header in all message
+    that it processes.  All components files have been adjusted to include
+    an appropriate &ldquo;From:&rdquo; header by default.  The release
+    notes have more information on how this transition will affect users.
+<li>The <tt>-attach</tt> option is now the default for send (using the
+    header <tt>Nmh-Attachment</tt>) and <tt>-attachformat 1</tt> is the
+    default attachment type.
+<li>Command editing and filename completion (via readline) is now available
+    in <b>whatnow</b>
+<li>Support for using an external command to filter the body of a message
+    through in <b>mhl</b>.  See <i>mhl</i>(1) for more details, specifically
+    the <tt>format</tt> keyword, the <tt>formatproc</tt> entry in
+    <i>mh-profile</i>(5), and the <tt>-fmtproc</tt> switch for mhl and repl.
+<li>Preliminary support for improved MIME handling when replying to messages.
+    Yes, a long requested feature has a solution.  See the release notes
+    and <tt>docs/contrib/replyfilter</tt> for more information.
+</ul>
+
+<p>Please report problems in the bug tracker on savannah, or on the
+<a href="http://lists.nongnu.org/mailman/listinfo/nmh-workers">nmh-workers
+mailing list</a>. Thanks!
+<hr>
+<p>
+Please check out the <a href="http://savannah.nongnu.org/projects/nmh/">
+<B>nmh</B> project on savannah.</a>  
+<p>
+<B>nmh</B> (new MH) is a powerful electronic mail handling system.
+It was originally based on version 6.8.3 of the MH message system
+developed by the RAND Corporation and the University of California.
+It is intended to be a (mostly) compatible drop-in replacement for MH.
+<br><br>
+<B>nmh</B> consists of a collection of fairly simple single-purpose
+programs to send, receive, save, retrieve, and manipulate e-mail
+messages.  Since <B>nmh</B> is a suite rather than a single monolithic program,
+you may freely intersperse <B>nmh</B> commands with other commands at your shell
+prompt, or write custom scripts which use these commands in flexible ways.
+<br><br>
+<B>NOTE:</B> All versions of <B>nmh</B> prior to 1.0.3 (as well as MH) contained
+a vulnerability where incoming mail messages with carefully designed MIME
+headers could cause the <TT>mhshow</TT> command to execute arbitrary shell code.
+Though the authors of <B>nmh</B> are not aware of any exploits of this hole, MH
+users and users of older versions of <B>nmh</B> are strongly encouraged to
+upgrade to the current version.
+<br><br>
+
+<!-- The latest beta source is available via <A HREF="cvs.html">anonymous CVS</A>. -->
+</blockquote>
+
+<P>Downloads:<br>
+<UL>
+  <LI><A HREF="http://download.savannah.nongnu.org/releases/nmh/">The <B>nmh</B> project download area</A>
+</UL>
+
+<P>Source code:<br>
+<UL>
+  <LI>The git repository is available for anonymous checkout using the
+      following command:
+  <P><PRE>git clone git://git.savannah.nongnu.org/nmh.git</PRE>
+  <LI>You can also <a href="http://git.savannah.gnu.org/cgit/nmh.git">browse
+  	the source code</a> with a web browser.
+</UL>
+
+<P>Mailing lists:<br>
+There are three mailing lists for NMH, hosted by
+<a href="http://savannah.nongnu.org/mail/?group=nmh">
+Savannah.</a>  
+
+<UL>
+  <LI><A HREF="http://mail.nongnu.org/mailman/listinfo/nmh-announce">nmh-announce</A> is a low-volume list for announcements about nmh.
+  <LI><A HREF="http://mail.nongnu.org/mailman/listinfo/nmh-workers">nmh-workers</A> is the main list for users and developers of nmh.
+  <LI><A HREF="http://mail.nongnu.org/mailman/listinfo/nmh-commits">nmh-commits</A> is a list which will receive notifications of changes to the nmh source code tree.
+</UL>
+
+Frontends:
+<UL>
+  <LI><A HREF="http://www.hep.wisc.edu/~rader/mh-v/">MH-V</A> is a VI-like interface to mh.
+  <LI><A HREF="http://www.beedub.com/exmh/">exmh</A> is a TK-based GUI for mh.
+  <LI><A HREF="http://mh-e.sourceforge.net/">MH-E</A> is an Emacs interface to mh.
+</UL>
+
+Compatible Software:
+<UL>
+  <LI>The <A HREF="http://www.mutt.org/">mutt</a> email client does a good job with MH folders.
+  <LI><A HREF="http://www.washington.edu/imap/">UW IMAPd</a> has basic support for reading MH folders.
+  <LI><A HREF="http://www.rpcurnow.force9.co.uk/mairix/">mairix</a> is a full-text mail indexer that understand MH folders.
+  <LI>A lot of other compatible tools are listed in section
+  	01.05 ("other MH software") of the 
+  	<A HREF="http://www.newt.com/faq/mh.html">MH FAQ</A>
+</UL>
+
+Help:
+<UL>
+  <LI><A HREF="http://rand-mh.sourceforge.net/book/">Jerry Peek's Book "MH & nmh"</A>
+  <LI><A HREF="http://www.newt.com/faq/mh.html">The MH FAQ</A>
+  <LI><A HREF="rfc.html">RFCs</A> of varying degrees of relevance.
+  <LI><A HREF="old.html">The old website</A>, previously located at
+    <TT>www.math.gatech.edu</TT>.
+  <LI> <A HREF="http://rand-mh.sourceforge.net/">MH 6.8.3 (very old)</A>
+</UL>
+</blockquote></blockquote>
+<HR>
+<PRE>$Id: index.html,v 1.31 2013/01/06 02:49:46 kenh Exp $</PRE>
+</BODY>
+</HTML>

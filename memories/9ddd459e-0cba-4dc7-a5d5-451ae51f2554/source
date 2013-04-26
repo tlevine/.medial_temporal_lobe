@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>
+		Backups with Amazon S3 and Duplicity | user/18915		
+	</title>
+	<link rel="profile" href="http://gmpg.org/xfn/11"/>
+	<link rel="stylesheet" type="text/css" href="http://samhassell.com/wp-content/themes/baris/style.css"/>
+	<link rel="stylesheet" href="http://samhassell.com/wp-content/themes/baris/css/superfish.css" type="text/css" media="all">
+	<link rel="pingback" href="http://samhassell.com/xmlrpc.php"/>
+		<link rel="alternate" type="application/rss+xml" title="user/18915 &raquo; Feed" href="http://samhassell.com/feed/" />
+<link rel="alternate" type="application/rss+xml" title="user/18915 &raquo; Comments Feed" href="http://samhassell.com/comments/feed/" />
+
+			<script type="text/javascript">//<![CDATA[
+			// Google Analytics for WordPress by Yoast v4.2.8 | http://yoast.com/wordpress/google-analytics/
+			var _gaq = _gaq || [];
+			_gaq.push(['_setAccount', 'UA-39155372-1']);
+							_gaq.push(['_trackPageview']);
+			(function () {
+				var ga = document.createElement('script');
+				ga.type = 'text/javascript';
+				ga.async = true;
+				ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+				var s = document.getElementsByTagName('script')[0];
+				s.parentNode.insertBefore(ga, s);
+			})();
+			//]]></script>
+			<link rel="alternate" type="application/rss+xml" title="user/18915 &raquo; Backups with Amazon S3 and Duplicity Comments Feed" href="http://samhassell.com/backups-with-amazon-s3-and-duplicity/feed/" />
+<link rel='stylesheet' id='crayon_style-css'  href='http://samhassell.com/wp-content/plugins/crayon-syntax-highlighter/css/crayon_style.css?ver=2.1.2' type='text/css' media='all' />
+<link rel='stylesheet' id='crayon_global_style-css'  href='http://samhassell.com/wp-content/plugins/crayon-syntax-highlighter/css/global_style.css?ver=2.1.2' type='text/css' media='all' />
+<link rel='stylesheet' id='crayon-theme-classic-css'  href='http://samhassell.com/wp-content/plugins/crayon-syntax-highlighter/themes/classic/classic.css?ver=2.1.2' type='text/css' media='all' />
+<link rel='stylesheet' id='crayon-font-monaco-css'  href='http://samhassell.com/wp-content/plugins/crayon-syntax-highlighter/fonts/monaco.css?ver=2.1.2' type='text/css' media='all' />
+<script type='text/javascript' src='http://samhassell.com/wp-content/themes/baris/js/jquery-1.2.6.min.js?ver=3.5.1'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var CrayonSyntaxSettings = {"version":"2.1.2","is_admin":"0","ajaxurl":"http:\/\/samhassell.com\/wp-admin\/admin-ajax.php","prefix":"crayon-","setting":"crayon-setting","selected":"crayon-setting-selected","changed":"crayon-setting-changed","special":"crayon-setting-special","orig_value":"data-orig-value","debug":""};
+var CrayonSyntaxStrings = {"copy":"Press %s to Copy, %s to Paste","minimize":"Click To Expand Code"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='http://samhassell.com/wp-content/plugins/crayon-syntax-highlighter/js/util.js?ver=2.1.2'></script>
+<script type='text/javascript' src='http://samhassell.com/wp-content/plugins/crayon-syntax-highlighter/js/jquery.popup.js?ver=2.1.2'></script>
+<script type='text/javascript' src='http://samhassell.com/wp-content/plugins/crayon-syntax-highlighter/js/crayon.js?ver=2.1.2'></script>
+<script type='text/javascript' src='http://samhassell.com/wp-includes/js/comment-reply.min.js?ver=3.5.1'></script>
+<script type='text/javascript' src='http://samhassell.com/wp-content/themes/baris/js/hoverIntent.js?ver=3.5.1'></script>
+<script type='text/javascript' src='http://samhassell.com/wp-content/themes/baris/js/superfish.js?ver=3.5.1'></script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://samhassell.com/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://samhassell.com/wp-includes/wlwmanifest.xml" /> 
+<link rel='prev' title='DrupalCon Sydney 2013' href='http://samhassell.com/drupalcon-sydney-2013/' />
+<link rel='next' title='Christmas 1983 Ohh yeah, Galaxy Commander!' href='http://samhassell.com/christmas-1983-ohh-yeah/' />
+<meta name="generator" content="WordPress 3.5.1" />
+<link rel='canonical' href='http://samhassell.com/backups-with-amazon-s3-and-duplicity/' />
+<link rel='shortlink' href='http://samhassell.com/?p=100' />
+<style type="text/css" id="custom-background-css">
+body.custom-background { background-color: #ffffff; }
+</style>
+</head>
+
+<body class="single single-post postid-100 single-format-standard custom-background">
+
+<script type="text/javascript">
+		jQuery(function(){
+			jQuery('ul.sf-menu').superfish();
+		});
+</script>
+  
+<div id="container" class="clearfix">
+	<header>
+		<h1><a href="http://samhassell.com">user/18915</a></h1>
+		<span></span>
+		<p>sam hassell&#039;s stuff</p>
+						<div class="clear"></div>
+	</header>
+	
+	<div class="sf-menu"></div>
+	<div class="clear"></div>
+<div id="content">
+		<div id="post-100" class="post-100 post type-post status-publish format-standard hentry category-devops category-linux-2 tag-duplicity-centos-backups">
+	<article>
+		<h2>Backups with Amazon S3 and Duplicity</h2>
+		<p class="meta"><span>23 March 2013 by Sam</span><br/>				
+		<p>I had to set up proper full backups for a client website, S3 seemed like an economical way to go (time will tell). Duplicity is a script which uses rsync to back up incrementally, which will save data transfer. It can also encrypt the data and a bunch of other goodies.</p>
+<h2>Installing Duplicity</h2>
+<p>Since the site was running on Centos (Debian forever!) and the Yum repositories don&#8217;t have Duplicity, I had to add some the rpmforge repository:</p><!-- Crayon Syntax Highlighter v2.1.2 -->
+
+		<div id="crayon-517a87c945b79" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes" data-settings=" minimize scroll-mouseover" style=" margin-top: 12px; margin-bottom: 12px; float: none; clear: both; font-size: 12px !important; line-height: 15px !important;">
+		
+			<div class="crayon-toolbar" data-settings=" mouseover overlay hide delay" style="height: 18px !important; line-height: 18px !important;"><span class="crayon-title"></span>
+			<div class="crayon-tools"><div class="crayon-button crayon-nums-button" title="Toggle Line Numbers"></div><div class="crayon-button crayon-plain-button" title="Toggle Plain Code"></div><div class="crayon-button crayon-wrap-button" title="Toggle Line Wrap"></div><div class="crayon-button crayon-expand-button" title="Expand Code"></div><div class="crayon-button crayon-copy-button" title="Expand Code"></div><div class="crayon-button crayon-popup-button" title="Open Code In New Window"></div></div></div>
+			<div class="crayon-info" style="min-height: 15px !important; line-height: 15px !important;"></div>
+			<div class="crayon-plain-wrap"><textarea wrap="off" class="crayon-plain print-no" data-settings="dblclick" readonly style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 12px !important; line-height: 15px !important;">
+wget http://packages.sw.be/rpmforge-release/rpmforge-release-0.5.2-2.el5.rf.x86_64.rpm</textarea></div>
+			<div class="crayon-main" style="">
+				<table class="crayon-table">
+					<tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="crayon-517a87c945b79-1">1</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-line" id="crayon-517a87c945b79-1"><span class="e">wget </span><span class="i">http</span><span class="o">:</span><span class="c">//packages.sw.be/rpmforge-release/rpmforge-release-0.5.2-2.el5.rf.x86_64.rpm</span></div></div></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0006 seconds] -->
+<p></p><!-- Crayon Syntax Highlighter v2.1.2 -->
+
+		<div id="crayon-517a87c945bf0" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes" data-settings=" minimize scroll-mouseover" style=" margin-top: 12px; margin-bottom: 12px; float: none; clear: both; font-size: 12px !important; line-height: 15px !important;">
+		
+			<div class="crayon-toolbar" data-settings=" mouseover overlay hide delay" style="height: 18px !important; line-height: 18px !important;"><span class="crayon-title"></span>
+			<div class="crayon-tools"><div class="crayon-button crayon-nums-button" title="Toggle Line Numbers"></div><div class="crayon-button crayon-plain-button" title="Toggle Plain Code"></div><div class="crayon-button crayon-wrap-button" title="Toggle Line Wrap"></div><div class="crayon-button crayon-expand-button" title="Expand Code"></div><div class="crayon-button crayon-copy-button" title="Expand Code"></div><div class="crayon-button crayon-popup-button" title="Open Code In New Window"></div></div></div>
+			<div class="crayon-info" style="min-height: 15px !important; line-height: 15px !important;"></div>
+			<div class="crayon-plain-wrap"><textarea wrap="off" class="crayon-plain print-no" data-settings="dblclick" readonly style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 12px !important; line-height: 15px !important;">
+rpm --import http://apt.sw.be/RPM-GPG-KEY.dag.txt</textarea></div>
+			<div class="crayon-main" style="">
+				<table class="crayon-table">
+					<tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="crayon-517a87c945bf0-1">1</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-line" id="crayon-517a87c945bf0-1"><span class="i">rpm</span><span class="h"> </span><span class="o">--</span><span class="e">import </span><span class="i">http</span><span class="o">:</span><span class="c">//apt.sw.be/RPM-GPG-KEY.dag.txt</span></div></div></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0007 seconds] -->
+<p></p><!-- Crayon Syntax Highlighter v2.1.2 -->
+
+		<div id="crayon-517a87c945c64" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes" data-settings=" minimize scroll-mouseover" style=" margin-top: 12px; margin-bottom: 12px; float: none; clear: both; font-size: 12px !important; line-height: 15px !important;">
+		
+			<div class="crayon-toolbar" data-settings=" mouseover overlay hide delay" style="height: 18px !important; line-height: 18px !important;"><span class="crayon-title"></span>
+			<div class="crayon-tools"><div class="crayon-button crayon-nums-button" title="Toggle Line Numbers"></div><div class="crayon-button crayon-plain-button" title="Toggle Plain Code"></div><div class="crayon-button crayon-wrap-button" title="Toggle Line Wrap"></div><div class="crayon-button crayon-expand-button" title="Expand Code"></div><div class="crayon-button crayon-copy-button" title="Expand Code"></div><div class="crayon-button crayon-popup-button" title="Open Code In New Window"></div></div></div>
+			<div class="crayon-info" style="min-height: 15px !important; line-height: 15px !important;"></div>
+			<div class="crayon-plain-wrap"><textarea wrap="off" class="crayon-plain print-no" data-settings="dblclick" readonly style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 12px !important; line-height: 15px !important;">
+rpm -K rpmforge-release-0.5.2-2.el5.rf.*.rpm</textarea></div>
+			<div class="crayon-main" style="">
+				<table class="crayon-table">
+					<tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="crayon-517a87c945c64-1">1</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-line" id="crayon-517a87c945c64-1"><span class="i">rpm</span><span class="h"> </span><span class="o">-</span><span class="i">K</span><span class="h"> </span><span class="i">rpmforge</span><span class="o">-</span><span class="i">release</span><span class="o">-</span><span class="cn">0.5.2</span><span class="o">-</span><span class="cn">2.el5.rf.</span><span class="o">*</span><span class="sy">.</span><span class="v">rpm</span></div></div></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0008 seconds] -->
+<p></p><!-- Crayon Syntax Highlighter v2.1.2 -->
+
+		<div id="crayon-517a87c945cd7" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes" data-settings=" minimize scroll-mouseover" style=" margin-top: 12px; margin-bottom: 12px; float: none; clear: both; font-size: 12px !important; line-height: 15px !important;">
+		
+			<div class="crayon-toolbar" data-settings=" mouseover overlay hide delay" style="height: 18px !important; line-height: 18px !important;"><span class="crayon-title"></span>
+			<div class="crayon-tools"><div class="crayon-button crayon-nums-button" title="Toggle Line Numbers"></div><div class="crayon-button crayon-plain-button" title="Toggle Plain Code"></div><div class="crayon-button crayon-wrap-button" title="Toggle Line Wrap"></div><div class="crayon-button crayon-expand-button" title="Expand Code"></div><div class="crayon-button crayon-copy-button" title="Expand Code"></div><div class="crayon-button crayon-popup-button" title="Open Code In New Window"></div></div></div>
+			<div class="crayon-info" style="min-height: 15px !important; line-height: 15px !important;"></div>
+			<div class="crayon-plain-wrap"><textarea wrap="off" class="crayon-plain print-no" data-settings="dblclick" readonly style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 12px !important; line-height: 15px !important;">
+rpm -i rpmforge-release-0.5.2-2.el5.rf.*.rpm</textarea></div>
+			<div class="crayon-main" style="">
+				<table class="crayon-table">
+					<tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="crayon-517a87c945cd7-1">1</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-line" id="crayon-517a87c945cd7-1"><span class="i">rpm</span><span class="h"> </span><span class="o">-</span><span class="i">i</span><span class="h"> </span><span class="i">rpmforge</span><span class="o">-</span><span class="i">release</span><span class="o">-</span><span class="cn">0.5.2</span><span class="o">-</span><span class="cn">2.el5.rf.</span><span class="o">*</span><span class="sy">.</span><span class="v">rpm</span></div></div></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0008 seconds] -->
+<p>Now duplicity will install:</p><!-- Crayon Syntax Highlighter v2.1.2 -->
+
+		<div id="crayon-517a87c945d4a" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes" data-settings=" minimize scroll-mouseover" style=" margin-top: 12px; margin-bottom: 12px; float: none; clear: both; font-size: 12px !important; line-height: 15px !important;">
+		
+			<div class="crayon-toolbar" data-settings=" mouseover overlay hide delay" style="height: 18px !important; line-height: 18px !important;"><span class="crayon-title"></span>
+			<div class="crayon-tools"><div class="crayon-button crayon-nums-button" title="Toggle Line Numbers"></div><div class="crayon-button crayon-plain-button" title="Toggle Plain Code"></div><div class="crayon-button crayon-wrap-button" title="Toggle Line Wrap"></div><div class="crayon-button crayon-expand-button" title="Expand Code"></div><div class="crayon-button crayon-copy-button" title="Expand Code"></div><div class="crayon-button crayon-popup-button" title="Open Code In New Window"></div></div></div>
+			<div class="crayon-info" style="min-height: 15px !important; line-height: 15px !important;"></div>
+			<div class="crayon-plain-wrap"><textarea wrap="off" class="crayon-plain print-no" data-settings="dblclick" readonly style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 12px !important; line-height: 15px !important;">
+yum install duplicity</textarea></div>
+			<div class="crayon-main" style="">
+				<table class="crayon-table">
+					<tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="crayon-517a87c945d4a-1">1</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-line" id="crayon-517a87c945d4a-1"><span class="e">yum </span><span class="e">install </span><span class="i">duplicity</span></div></div></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0004 seconds] -->
+<p>It also requires Google&#8217;s boto library</p><!-- Crayon Syntax Highlighter v2.1.2 -->
+
+		<div id="crayon-517a87c945dbc" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes" data-settings=" minimize scroll-mouseover" style=" margin-top: 12px; margin-bottom: 12px; float: none; clear: both; font-size: 12px !important; line-height: 15px !important;">
+		
+			<div class="crayon-toolbar" data-settings=" mouseover overlay hide delay" style="height: 18px !important; line-height: 18px !important;"><span class="crayon-title"></span>
+			<div class="crayon-tools"><div class="crayon-button crayon-nums-button" title="Toggle Line Numbers"></div><div class="crayon-button crayon-plain-button" title="Toggle Plain Code"></div><div class="crayon-button crayon-wrap-button" title="Toggle Line Wrap"></div><div class="crayon-button crayon-expand-button" title="Expand Code"></div><div class="crayon-button crayon-copy-button" title="Expand Code"></div><div class="crayon-button crayon-popup-button" title="Open Code In New Window"></div></div></div>
+			<div class="crayon-info" style="min-height: 15px !important; line-height: 15px !important;"></div>
+			<div class="crayon-plain-wrap"><textarea wrap="off" class="crayon-plain print-no" data-settings="dblclick" readonly style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 12px !important; line-height: 15px !important;">
+yum install boto</textarea></div>
+			<div class="crayon-main" style="">
+				<table class="crayon-table">
+					<tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="crayon-517a87c945dbc-1">1</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-line" id="crayon-517a87c945dbc-1"><span class="e">yum </span><span class="e">install </span><span class="i">boto</span></div></div></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0004 seconds] -->
+<p></p>
+<h2>Make the backup script</h2>
+<p>Now make a shell script something like this:</p><!-- Crayon Syntax Highlighter v2.1.2 -->
+
+		<div id="crayon-517a87c945e2f" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes" data-settings=" minimize scroll-mouseover" style=" margin-top: 12px; margin-bottom: 12px; float: none; clear: both; font-size: 12px !important; line-height: 15px !important;">
+		
+			<div class="crayon-toolbar" data-settings=" mouseover overlay hide delay" style="height: 18px !important; line-height: 18px !important;"><span class="crayon-title"></span>
+			<div class="crayon-tools"><div class="crayon-button crayon-nums-button" title="Toggle Line Numbers"></div><div class="crayon-button crayon-plain-button" title="Toggle Plain Code"></div><div class="crayon-button crayon-wrap-button" title="Toggle Line Wrap"></div><div class="crayon-button crayon-expand-button" title="Expand Code"></div><div class="crayon-button crayon-copy-button" title="Expand Code"></div><div class="crayon-button crayon-popup-button" title="Open Code In New Window"></div></div></div>
+			<div class="crayon-info" style="min-height: 15px !important; line-height: 15px !important;"></div>
+			<div class="crayon-plain-wrap"><textarea wrap="off" class="crayon-plain print-no" data-settings="dblclick" readonly style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 12px !important; line-height: 15px !important;">
+export PASSPHRASE=XXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+export AWS_ACCESS_KEY_ID=XXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+export AWS_SECRET_ACCESS_KEY=XXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+dirs="/var/svn \
+     /var/www \
+     /home \
+     /usr/local/stuff"
+
+for d in $dirs; do
+  prefix=$(basename $d)
+  echo duplicity $d s3+http://backup.bucket.name/$prefix
+  duplicity --full-if-older-than 30D $d s3+http://backup.bucket.name/$prefix
+  echo ""
+done</textarea></div>
+			<div class="crayon-main" style="">
+				<table class="crayon-table">
+					<tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="crayon-517a87c945e2f-1">1</div><div class="crayon-num crayon-striped-num" data-line="crayon-517a87c945e2f-2">2</div><div class="crayon-num" data-line="crayon-517a87c945e2f-3">3</div><div class="crayon-num crayon-striped-num" data-line="crayon-517a87c945e2f-4">4</div><div class="crayon-num" data-line="crayon-517a87c945e2f-5">5</div><div class="crayon-num crayon-striped-num" data-line="crayon-517a87c945e2f-6">6</div><div class="crayon-num" data-line="crayon-517a87c945e2f-7">7</div><div class="crayon-num crayon-striped-num" data-line="crayon-517a87c945e2f-8">8</div><div class="crayon-num" data-line="crayon-517a87c945e2f-9">9</div><div class="crayon-num crayon-striped-num" data-line="crayon-517a87c945e2f-10">10</div><div class="crayon-num" data-line="crayon-517a87c945e2f-11">11</div><div class="crayon-num crayon-striped-num" data-line="crayon-517a87c945e2f-12">12</div><div class="crayon-num" data-line="crayon-517a87c945e2f-13">13</div><div class="crayon-num crayon-striped-num" data-line="crayon-517a87c945e2f-14">14</div><div class="crayon-num" data-line="crayon-517a87c945e2f-15">15</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-line" id="crayon-517a87c945e2f-1"><span class="e">export </span><span class="v">PASSPHRASE</span><span class="o">=</span><span class="e">XXXXXXXXXXXXXXXXXXXXXXXXXXXXX</span></div><div class="crayon-line crayon-striped-line" id="crayon-517a87c945e2f-2"><span class="e">export </span><span class="v">AWS_ACCESS_KEY_ID</span><span class="o">=</span><span class="e">XXXXXXXXXXXXXXXXXXXXXXXXXXXXX</span></div><div class="crayon-line" id="crayon-517a87c945e2f-3"><span class="e">export </span><span class="v">AWS_SECRET_ACCESS_KEY</span><span class="o">=</span><span class="e">XXXXXXXXXXXXXXXXXXXXXXXXXXXXX</span></div><div class="crayon-line crayon-striped-line" id="crayon-517a87c945e2f-4">&nbsp;</div><div class="crayon-line" id="crayon-517a87c945e2f-5"><span class="v">dirs</span><span class="o">=</span><span class="s">"/var/svn \</span></div><div class="crayon-line crayon-striped-line" id="crayon-517a87c945e2f-6"><span class="s">&nbsp;&nbsp;&nbsp;&nbsp; /var/www \</span></div><div class="crayon-line" id="crayon-517a87c945e2f-7"><span class="s">&nbsp;&nbsp;&nbsp;&nbsp; /home \</span></div><div class="crayon-line crayon-striped-line" id="crayon-517a87c945e2f-8"><span class="s">&nbsp;&nbsp;&nbsp;&nbsp; /usr/local/stuff"</span></div><div class="crayon-line" id="crayon-517a87c945e2f-9">&nbsp;</div><div class="crayon-line crayon-striped-line" id="crayon-517a87c945e2f-10"><span class="st">for</span><span class="h"> </span><span class="i">d</span><span class="h"> </span><span class="st">in</span><span class="h"> </span><span class="sy">$</span><span class="i">dirs</span><span class="sy">;</span><span class="h"> </span><span class="st">do</span></div><div class="crayon-line" id="crayon-517a87c945e2f-11"><span class="h">&nbsp;&nbsp;</span><span class="v">prefix</span><span class="o">=</span><span class="sy">$</span><span class="sy">(</span><span class="i">basename</span><span class="h"> </span><span class="sy">$</span><span class="i">d</span><span class="sy">)</span></div><div class="crayon-line crayon-striped-line" id="crayon-517a87c945e2f-12"><span class="h">&nbsp;&nbsp;</span><span class="e">echo </span><span class="i">duplicity</span><span class="h"> </span><span class="sy">$</span><span class="i">d</span><span class="h"> </span><span class="i">s3</span><span class="o">+</span><span class="i">http</span><span class="o">:</span><span class="c">//backup.bucket.name/$prefix</span></div><div class="crayon-line" id="crayon-517a87c945e2f-13"><span class="h">&nbsp;&nbsp;</span><span class="i">duplicity</span><span class="h"> </span><span class="o">--</span><span class="i">full</span><span class="o">-</span><span class="st">if</span><span class="o">-</span><span class="i">older</span><span class="o">-</span><span class="i">than</span><span class="h"> </span><span class="cn">30D</span><span class="h"> </span><span class="sy">$</span><span class="i">d</span><span class="h"> </span><span class="i">s3</span><span class="o">+</span><span class="i">http</span><span class="o">:</span><span class="c">//backup.bucket.name/$prefix</span></div><div class="crayon-line crayon-striped-line" id="crayon-517a87c945e2f-14"><span class="h">&nbsp;&nbsp;</span><span class="i">echo</span><span class="h"> </span><span class="s">""</span></div><div class="crayon-line" id="crayon-517a87c945e2f-15"><span class="i">done</span></div></div></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0032 seconds] -->
+<p>PASSPHRASE can be anything you want, just make it long so the encryption is strong.</p>
+<p>The keys come from AWS &#8211; see https://portal.aws.amazon.com/gp/aws/securityCredentials</p>
+<p>&#8220;&#8211;full-if-older-than 30D&#8221; will make duplicity perform a full backup every 30 days. Otherwise it does incremental backups.</p>
+<p>You can also make a restore script by swapping the duplicity arguments</p><!-- Crayon Syntax Highlighter v2.1.2 -->
+
+		<div id="crayon-517a87c945ea4" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes" data-settings=" minimize scroll-mouseover" style=" margin-top: 12px; margin-bottom: 12px; float: none; clear: both; font-size: 12px !important; line-height: 15px !important;">
+		
+			<div class="crayon-toolbar" data-settings=" mouseover overlay hide delay" style="height: 18px !important; line-height: 18px !important;"><span class="crayon-title"></span>
+			<div class="crayon-tools"><div class="crayon-button crayon-nums-button" title="Toggle Line Numbers"></div><div class="crayon-button crayon-plain-button" title="Toggle Plain Code"></div><div class="crayon-button crayon-wrap-button" title="Toggle Line Wrap"></div><div class="crayon-button crayon-expand-button" title="Expand Code"></div><div class="crayon-button crayon-copy-button" title="Expand Code"></div><div class="crayon-button crayon-popup-button" title="Open Code In New Window"></div></div></div>
+			<div class="crayon-info" style="min-height: 15px !important; line-height: 15px !important;"></div>
+			<div class="crayon-plain-wrap"><textarea wrap="off" class="crayon-plain print-no" data-settings="dblclick" readonly style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 12px !important; line-height: 15px !important;">
+duplicity s3+http://backup.bucket.name/$prefix $d</textarea></div>
+			<div class="crayon-main" style="">
+				<table class="crayon-table">
+					<tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="crayon-517a87c945ea4-1">1</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-line" id="crayon-517a87c945ea4-1"><span class="e">duplicity </span><span class="i">s3</span><span class="o">+</span><span class="i">http</span><span class="o">:</span><span class="c">//backup.bucket.name/$prefix $d</span></div></div></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0005 seconds] -->
+<p></p>
+<h2>Add the script to cron</h2>
+<p></p><!-- Crayon Syntax Highlighter v2.1.2 -->
+
+		<div id="crayon-517a87c945f17" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes" data-settings=" minimize scroll-mouseover" style=" margin-top: 12px; margin-bottom: 12px; float: none; clear: both; font-size: 12px !important; line-height: 15px !important;">
+		
+			<div class="crayon-toolbar" data-settings=" mouseover overlay hide delay" style="height: 18px !important; line-height: 18px !important;"><span class="crayon-title"></span>
+			<div class="crayon-tools"><div class="crayon-button crayon-nums-button" title="Toggle Line Numbers"></div><div class="crayon-button crayon-plain-button" title="Toggle Plain Code"></div><div class="crayon-button crayon-wrap-button" title="Toggle Line Wrap"></div><div class="crayon-button crayon-expand-button" title="Expand Code"></div><div class="crayon-button crayon-copy-button" title="Expand Code"></div><div class="crayon-button crayon-popup-button" title="Open Code In New Window"></div></div></div>
+			<div class="crayon-info" style="min-height: 15px !important; line-height: 15px !important;"></div>
+			<div class="crayon-plain-wrap"><textarea wrap="off" class="crayon-plain print-no" data-settings="dblclick" readonly style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 12px !important; line-height: 15px !important;">
+0 0 * * * /root/scripts/etc/backup.sh &amp;gt;&amp;gt;/var/log/duplicity/etc.log</textarea></div>
+			<div class="crayon-main" style="">
+				<table class="crayon-table">
+					<tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="crayon-517a87c945f17-1">1</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-line" id="crayon-517a87c945f17-1"><span class="cn">0</span><span class="h"> </span><span class="cn">0</span><span class="h"> </span><span class="o">*</span><span class="h"> </span><span class="o">*</span><span class="h"> </span><span class="o">*</span><span class="h"> </span><span class="o">/</span><span class="i">root</span><span class="o">/</span><span class="i">scripts</span><span class="o">/</span><span class="i">etc</span><span class="o">/</span><span class="i">backup</span><span class="sy">.</span><span class="v">sh</span><span class="h"> </span><span class="o">&amp;</span><span class="i">gt</span><span class="sy">;</span><span class="o">&amp;</span><span class="i">gt</span><span class="sy">;</span><span class="o">/</span><span class="t">var</span><span class="o">/</span><span class="i">log</span><span class="o">/</span><span class="i">duplicity</span><span class="o">/</span><span class="i">etc</span><span class="sy">.</span><span class="v">log</span></div></div></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0016 seconds] -->
+<p><strong>References</strong></p>
+<ul>
+<li><a href="http://wiki.kartbuilding.net/index.php/Duplicity_-_secure_incremental_backup" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://wiki.kartbuilding.net']);">http://www.blogbyben.com/2011/01/setting-up-s3-backup-solution-on-centos.html</a></li>
+<li><a href="http://www.brainonfire.net/blog/remote-encrypted-backup-duplicity-amazon-s3/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.brainonfire.net']);">http://www.brainonfire.net/blog/remote-encrypted-backup-duplicity-amazon-s3/</a></li>
+<li><a href="http://wiki.kartbuilding.net/index.php/Duplicity_-_secure_incremental_backup" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://wiki.kartbuilding.net']);">http://wiki.kartbuilding.net/index.php/Duplicity_-_secure_incremental_backup</a></li>
+<li><a href="http://icelab.com.au/articles/easy-server-backups-to-amazon-s3-with-duplicity/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://icelab.com.au']);">http://icelab.com.au/articles/easy-server-backups-to-amazon-s3-with-duplicity/</a></li>
+</ul>
+</p>
+		<div class="clear"></div>
+		
+				
+		<div class="clear"></div>
+		
+				<div class="clear"></div>
+		
+							<div id="author-info" class="clearfix">
+						<div id="author-avatar">
+							<img alt='' src='http://0.gravatar.com/avatar/026321ac609e36787cf5af40cd7fa75a?s=50&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D50&amp;r=G' class='avatar avatar-50 photo' height='50' width='50' />						</div>
+						<div id="author-description">
+							<h2><a href="http://samhassell.com/author/admin/" title="Posts by Sam" rel="author">Sam</a></h2>
+							<p>Drupal developer from Perth, Western Australia. I love programming, gaming, the Internet, growing vegetables and hiking.</p>
+						</div>
+					</div>
+				
+	<p class="meta-date">
+	<a href="http://samhassell.com/backups-with-amazon-s3-and-duplicity/#respond" title="Comment on Backups with Amazon S3 and Duplicity">Leave a comment</a>	<span class="separator">|</span>
+						Categories: <a href="http://samhassell.com/topic/devops/" title="View all posts in DevOps" rel="category tag">DevOps</a>, <a href="http://samhassell.com/topic/linux-2/" title="View all posts in Linux" rel="category tag">Linux</a>					
+								
+								<span class="separator">|</span>
+					Tags: <a href="http://samhassell.com/tag/duplicity-centos-backups/" rel="tag">duplicity centos backups</a>					
+					
+	
+					</p>
+	
+<div id="comments-content" class="clearfix">
+
+
+								<div id="respond">
+				<h3 id="reply-title">Leave a Reply <small><a rel="nofollow" id="cancel-comment-reply-link" href="/backups-with-amazon-s3-and-duplicity/#respond" style="display:none;">Cancel reply</a></small></h3>
+									<form action="http://samhassell.com/wp-comments-post.php" method="post" id="commentform">
+																			<p class="comment-notes">Required fields are marked <span class="required">*</span></p>							<p class="comment-form-author"><label for="author">Name <span class="required">*</span></label> <input id="author" name="author" type="text" value="" size="30" aria-required='true' /></p>
+<p class="comment-form-email"><label for="email">Email <span class="required">*</span></label> <input id="email" name="email" type="text" value="" size="30" aria-required='true' /></p>
+<p class="comment-form-url"><label for="url">Website</label><input id="url" name="url" type="text" value="" size="30" /></p>
+												<p class="comment-form-comment"><label for="comment">Comment</label><br/><textarea id="comment" name="comment" rows="8" 	aria-required="true"></textarea></p>												<p class="form-submit">
+							<input name="submit" type="submit" id="submit" value="Post Comment" />
+							<input type='hidden' name='comment_post_ID' value='100' id='comment_post_ID' />
+<input type='hidden' name='comment_parent' id='comment_parent' value='0' />
+						</p>
+						<p style="display: none;"><input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="1f374c1ddd" /></p>					</form>
+							</div><!-- #respond -->
+				<script type="text/javascript">
+		jQuery(document).ready(function () {
+			jQuery('#commentform').submit(function () {
+				_gaq.push(
+					['_setAccount', 'UA-39155372-1'],
+					['_trackEvent', 'comment', 'submit']
+				);
+			});
+		});
+	</script>
+				
+</div>
+	</article>
+	</div>
+	
+		
+	<p class="previous"><a href="http://samhassell.com/drupalcon-sydney-2013/" rel="prev">&larr;  Previous Post</a></p>
+	<p class="next"><a href="http://samhassell.com/christmas-1983-ohh-yeah/" rel="next">Next Post &rarr;</a></p>
+	 
+	
+</div>
+
+<footer class="clearfix">
+	
+			<div class="sidebar-foot-left">
+				<div id="text-2"><div class="widget-wrapper widget_text"><h3 class="widget-title clearfix">On the Net</h3><div class="clear"></div>			<div class="textwidget"><ul>
+<li><a href="http://github.com/tallsam" onclick="javascript:_gaq.push(['_trackEvent','outbound-widget','http://github.com']);">Github</a></li>
+<li><a href="https://twitter.com/samhassell" onclick="javascript:_gaq.push(['_trackEvent','outbound-widget','http://twitter.com']);">Twitter</a></li>
+<li><a href="http://drupal.org/user/18915" onclick="javascript:_gaq.push(['_trackEvent','outbound-widget','http://drupal.org']);">Drupal.org</a></li>
+</ul></div>
+		</div></div><div id="search-2"><div class="widget-wrapper widget_search"><form role="search" method="get" id="searchform" action="http://samhassell.com" >
+    <input type="text" class="search-input" value="" name="s" id="s" />
+    <input type="submit" id="searchsubmit" value="Search" />
+    </form></div></div><div id="categories-2"><div class="widget-wrapper widget_categories"><h3 class="widget-title clearfix">Categories</h3><div class="clear"></div>		<ul>
+	<li class="cat-item cat-item-19"><a href="http://samhassell.com/topic/devops/" title="View all posts filed under DevOps">DevOps</a>
+</li>
+	<li class="cat-item cat-item-2"><a href="http://samhassell.com/topic/drupal7/" title="View all posts filed under Drupal7">Drupal7</a>
+</li>
+	<li class="cat-item cat-item-3"><a href="http://samhassell.com/topic/drupal8/" title="View all posts filed under Drupal8">Drupal8</a>
+</li>
+	<li class="cat-item cat-item-18"><a href="http://samhassell.com/topic/linux-2/" title="View all posts filed under Linux">Linux</a>
+</li>
+	<li class="cat-item cat-item-15"><a href="http://samhassell.com/topic/node-js/" title="View all posts filed under node.js">node.js</a>
+</li>
+	<li class="cat-item cat-item-24"><a href="http://samhassell.com/topic/raspberry-pi/" title="View all posts filed under Raspberry Pi">Raspberry Pi</a>
+</li>
+	<li class="cat-item cat-item-10"><a href="http://samhassell.com/topic/ubuntu-12-10/" title="View all posts filed under ubuntu 12.10">ubuntu 12.10</a>
+</li>
+	<li class="cat-item cat-item-1"><a href="http://samhassell.com/topic/uncategorized/" title="View all posts filed under Uncategorized">Uncategorized</a>
+</li>
+	<li class="cat-item cat-item-8"><a href="http://samhassell.com/topic/wordpress/" title="View all posts filed under Wordpress">Wordpress</a>
+</li>
+		</ul>
+</div></div><div id="meta-2"><div class="widget-wrapper widget_meta"><h3 class="widget-title clearfix">Meta</h3><div class="clear"></div>			<ul>
+						<li><a href="http://samhassell.com/wp-login.php">Log in</a></li>
+			<li><a href="http://samhassell.com/feed/" title="Syndicate this site using RSS 2.0">Entries <abbr title="Really Simple Syndication">RSS</abbr></a></li>
+			<li><a href="http://samhassell.com/comments/feed/" title="The latest comments to all posts in RSS">Comments <abbr title="Really Simple Syndication">RSS</abbr></a></li>
+			<li><a href="http://wordpress.org/" title="Powered by WordPress, state-of-the-art semantic personal publishing platform.">WordPress.org</a></li>
+						</ul>
+</div></div>			</div>
+
+	
+			<div class="sidebar-foot-right">
+						<div id="recent-posts-2"><div class="widget-wrapper widget_recent_entries">		<h3 class="widget-title clearfix">Recent Posts</h3><div class="clear"></div>		<ul>
+					<li>
+				<a href="http://samhassell.com/setting-up-rasbmc-xbmc-on-a-raspberry-pi/" title="Setting up Rasbmc (XBMC) on a Raspberry Pi">Setting up Rasbmc (XBMC) on a Raspberry Pi</a>
+						</li>
+					<li>
+				<a href="http://samhassell.com/christmas-1983-ohh-yeah/" title="Christmas 1983 Ohh yeah, Galaxy Commander!">Christmas 1983 Ohh yeah, Galaxy Commander!</a>
+						</li>
+					<li>
+				<a href="http://samhassell.com/backups-with-amazon-s3-and-duplicity/" title="Backups with Amazon S3 and Duplicity">Backups with Amazon S3 and Duplicity</a>
+						</li>
+					<li>
+				<a href="http://samhassell.com/drupalcon-sydney-2013/" title="DrupalCon Sydney 2013">DrupalCon Sydney 2013</a>
+						</li>
+					<li>
+				<a href="http://samhassell.com/spotify-in-ubuntu-12-10/" title="Spotify in Ubuntu 12.10">Spotify in Ubuntu 12.10</a>
+						</li>
+				</ul>
+		</div></div><div id="recent-comments-2"><div class="widget-wrapper widget_recent_comments"><h3 class="widget-title clearfix">Recent Comments</h3><div class="clear"></div><ul id="recentcomments"><li class="recentcomments"><a href="http://akb.id.au" onclick="javascript:_gaq.push(['_trackEvent','outbound-commentauthor','http://akb.id.au']);"  rel='external nofollow' class='url'>Alex Bergin</a> on <a href="http://samhassell.com/setting-up-rasbmc-xbmc-on-a-raspberry-pi/#comment-352">Setting up Rasbmc (XBMC) on a Raspberry Pi</a></li><li class="recentcomments"><a href="http://www.code-elements.com" onclick="javascript:_gaq.push(['_trackEvent','outbound-commentauthor','http://www.code-elements.com']);"  rel='external nofollow' class='url'>Madmartigan</a> on <a href="http://samhassell.com/features-information-architecture-for-drupal-7-site-builders/#comment-2">Features Information Architecture for Drupal 7 Site Builders</a></li></ul></div></div><div id="archives-2"><div class="widget-wrapper widget_archive"><h3 class="widget-title clearfix">Archives</h3><div class="clear"></div>		<ul>
+			<li><a href='http://samhassell.com/2013/04/' title='April 2013'>April 2013</a></li>
+	<li><a href='http://samhassell.com/2013/03/' title='March 2013'>March 2013</a></li>
+	<li><a href='http://samhassell.com/2013/02/' title='February 2013'>February 2013</a></li>
+	<li><a href='http://samhassell.com/2013/01/' title='January 2013'>January 2013</a></li>
+		</ul>
+</div></div>			</div>
+
+	
+	<div class="clear"></div>
+	
+	<div class="botnav"></div>
+	<p class="aligncenter">&copy; 2013 <a href="http://samhassell.com">user/18915</a>. Theme: Baris by <a href="http://www.malvouz.com/omega/">Malvouz</a>. Proudly powered by <a href="http://wordpress.org/">WordPress</a>.</p>
+
+
+</footer>
+
+</div>
+
+<!-- End Container -->
+
+</body>
+</html>
