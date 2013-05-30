@@ -1,0 +1,147 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+        "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=iso-8859-1">
+	<title>Understanding vertical-align, or "How (Not) To Vertically Center Content"</title>
+	<link type="text/css" rel="stylesheet" href="http://phrogz.net/JS/Classes/docs.css">
+	<style type="text/css">
+		#problem	{ list-style-type:upper-alpha }
+		p	{ margin:1em 0 }
+		ul.tietoprevious,ol.tietoprevious	{ margin-top:-0.8em; margin-bottom:1.5em }
+		q	{ font-style:italic }
+		#tablecellexamples table, #tablecellexamples div	{ height:4em }
+		#tablecellexamples td, #tablecellexamples div	{ border:1px solid black; width:20em; padding:0 0.5em; line-height:97%; font-size:90%; background-color:#ffe }
+		#inlineexample span	{ border:1px solid red; padding:0.2em; line-height:80%; font-size:85%; text-align:center }
+
+		#myoutercontainer { position:relative; height:13em; border:1px solid black }
+		#myinnercontainer { position:absolute; top:50%; height:6em; margin-top:-3em }
+		
+		#myoutercontainer2	{ line-height:4em; border:1px solid black; }
+	</style>
+</head>
+<body>
+<h1>Understanding <code>vertical-align</code>, or "How (Not) To Vertically Center Content"</h1>
+<div id="pagecontent">
+	<p>A <acronym title="Frequently Asked Question">FAQ</acronym> on various IRC channels I help out on is <q>How do I vertically center my stuff inside this area?</q> This question is often followed by <q>I'm using <code>vertical-align:middle</code> but it's not working!</q></p>
+
+	<p>The problem here is three-fold:</p>
+	<ol id="problem" class="tietoprevious">
+		<li>HTML layout traditionally was not designed to specify vertical behavior. By its very nature, it scales width-wise, and the content flows to an appropriate height based on the available width. Traditionally, horizontal sizing and layout is easy; vertical sizing and layout was derived from that.</li>
+		<li>The reason <code>vertical-align:middle</code> isn't doing what is desired want is because the author doesn't understand what it's supposed to do, but &hellip;</li>
+		<li>&hellip; this is because the CSS specification really screwed this one up (in my opinion)&mdash;<code>vertical-align</code> is used to specify two completely different behaviors depending on where it is used.</li>
+	</ol>
+
+	<h2><code>vertical-align</code> in table cells</h2>
+	<p>When used in table cells, <code>vertical-align</code> does what most people expect it to, which is mimic the (old, deprecated) <code>valign</code> attribute. In a modern, standards-compliant browser, the following three code snippets do the same thing:</p>
+	<pre><code>&lt;td valign="middle"&gt; &lt;!-- <b>but you shouldn't ever use valign</b> --&gt; &lt;/td&gt;
+&lt;td style="vertical-align:middle"&gt; ... &lt;/td&gt;
+&lt;div style="display:table-cell; vertical-align:middle"&gt; ... &lt;/div&gt;</code></pre>
+	
+	<p>Shown in your browser, the above (with appropriate wrappers) display as:</p>
+	<div id="tablecellexamples">
+		<table><tr>
+			<td valign="middle"><code>&lt;td&gt;</code> using <code>valign="middle"</code></td>
+			<td valign="bottom"><code>&lt;td&gt;</code> using <code>valign="bottom"</code></td>
+		</tr></table>
+		<table><tr>
+			<td style="vertical-align:middle"><code>&lt;td&gt;</code> using <code>vertical-align:middle</code></td>
+			<td style="vertical-align:bottom"><code>&lt;td&gt;</code> using <code>vertical-align:bottom</code></td>
+		</tr></table>
+		<div style="display:table-row">
+			<div style="display:table-cell; vertical-align:middle"><code>&lt;div&gt;</code> using <code>display:table-cell; vertical-align:middle</code></div>
+			<div style="display:table-cell; vertical-align:bottom"><code>&lt;div&gt;</code> using <code>display:table-cell; vertical-align:bottom</code></div>
+		</div>
+	</div>
+	
+	<h2><code>vertical-align</code> on inline elements</h2>
+	
+	<p>When <code>vertical-align</code> is applied to inline elements, however, it's a whole new ballgame. In this situation, it behaves like the (old, deprecated) <code>align</code> attribute did on <code>&lt;img&gt;</code> elements. In a modern, standards-compliant browser, the following three code snippets do the same thing:</p>
+	<pre><code>&lt;img align="middle" ...&gt;
+&lt;img style="vertical-align:middle" ...&gt;
+&lt;span style="display:inline-block; vertical-align:middle"&gt; foo&lt;br&gt;bar &lt;/span&gt;</code></pre>
+
+	<p>In your browser, here's how the above code renders:</p>
+	<div id="inlineexample">
+		<p>In this paragraph, I have two images&mdash;<img src="align_middle.gif" align="middle" alt='align="middle"'> and <img src="align_bottom.gif" align="bottom" alt='align="bottom"'>&mdash;as examples.</p>
+		<p>In this paragraph, I have two images&mdash;<img src="verticalalign_middle.gif" style="vertical-align:middle" alt='style="vertical-align:middle"'> and <img src="verticalalign_bottom.gif" style="vertical-align:text-bottom" alt='style="vertical-align:text-bottom"'>&mdash;as examples.</p>
+		<p>In this paragraph, I have a cute little <code>&lt;span&gt;</code> <span style="display:inline-block; vertical-align:middle">display:inline-block<br>vertical-align:middle</span> and <span style="display:inline-block; vertical-align:text-bottom">display:inline-block<br>vertical-align:text-bottom</span> as an example.</p>
+	</div>
+	
+	<h2><code>vertical-align</code> on other elements</h2>
+	<p>Technically, this CSS attribute doesn't go on any other kinds of elements. When the novice developer applies <code>vertical-align</code> to normal block elements (like a standard <code>&lt;div&gt;</code>) most browsers set the value to inherit to all inline children of that element.</p>
+
+
+	<h2>So how <b><em>do</em></b> I vertically-center something?!</h2>
+	<p>If you are reading this page, you're probably not as interested in why what you were doing is wrong. You probably want to know how to do it properly.</p>
+	
+
+	<h3>Method 1</h3>
+	<p>The following example makes two (non-trivial) assumptions. If you can meet these assumptions, then this method is for you:</p>
+	<ul class="tietoprevious">
+		<li>You can put the content that you want to center inside a block and specify a fixed height for that inner content block.</li>
+		<li>It's alright to absolutely-position this content. (Usually fine, since the parent element inside which the content is centered can still be in flow.</li>
+	</ul>
+	<p>If you can accept the above necessities, the solution is:</p>
+	<ol class="tietoprevious">
+		<li>Specify the parent container as <code>position:relative</code> or <code>position:absolute</code>.</li>
+		<li>Specify a fixed height on the child container.</li>
+		<li>Set <code>position:absolute</code> and <code>top:50%</code> on the child container to move the top  down to the middle of the parent.</li>
+		<li>Set <code>margin-top:-yy</code> where <em>yy</em> is half the height of the child container to offset the item up.</li>
+	</ol>
+	
+	<p>An example of this in code:</p>
+	<pre><code>&lt;style type="text/css"&gt;
+	#myoutercontainer { position:relative }
+	#myinnercontainer { position:absolute; top:50%; height:10em; margin-top:-5em }
+&lt;/style&gt;
+...
+&lt;div id="myoutercontainer"&gt;
+	&lt;div id="myinnercontainer"&gt;
+		&lt;p&gt;Hey look! I'm vertically centered!&lt;/p&gt;
+		&lt;p&gt;How sweet is this?!&lt;/p&gt;
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+	<p>In your browser, the above example renders as:</p>
+	
+	<div id="myoutercontainer">
+		<div id="myinnercontainer">
+			<p>Hey look! I'm vertically centered!</p>
+			<p>How sweet is this?!</p>
+		</div>
+	</div>
+	
+	
+	<h3>Method 2</h3>
+	<p>This method requires that you be able to satisfy the following conditions:</p>
+	<ul class="tietoprevious">
+		<li>You have only a single line of text that you want to center.</li>
+		<li>You can specify a fixed-height for the parent element.</li>
+	</ul>
+	<p>If you can accept the above necessities, the solution is:</p>
+	<ol class="tietoprevious">
+		<li>Set the <code>line-height</code> of the parent element to the fixed height you want.</li>
+	</ol>
+	
+	<p>An example of this in code:</p>
+	<pre><code>&lt;style type="text/css"&gt;
+	#myoutercontainer2 { line-height:4em }
+&lt;/style&gt;
+...
+&lt;p id="myoutercontainer2"&gt;
+	Hey, this is vertically centered. Yay!
+&lt;/p&gt;</code></pre>
+
+	<p>In your browser, the above example renders as:</p>
+	<p id="myoutercontainer2">
+		Hey, this is vertically centered. Yay!
+	</p>
+
+</div>
+
+<p class="byline" id="copyright">Copyright &copy;2004 <a href="mailto:!@phrogz.net">Gavin Kistner</a>, all rights reserved. Comments/suggestions/flames welcome.</p>
+
+
+</body>
+</html>

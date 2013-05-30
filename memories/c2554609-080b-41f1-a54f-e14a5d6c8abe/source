@@ -1,0 +1,460 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <meta name="readability-verification" content="WMMgm9NJRpLhScSjQYrbY8eang5M9LVB5RMtFNcU"/>
+  <title>DailyJS: Run a Node PostgreSQL App on Heroku</title>
+  <meta name="author" content="DailyJS Staff" />
+  <link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="http://feeds.feedburner.com/dailyjs" />
+  <link rel="stylesheet" href="/stylesheets/syntax.css" type="text/css" />
+  <link rel="stylesheet" href="/stylesheets/screen.css" type="text/css" />
+  <script src="/javascripts/jquery-1.5.1.min.js" type="text/javascript"></script>
+  <script src="/javascripts/all.js" type="text/javascript"></script>
+  <link href="https://plus.google.com/110075199769457074728/" rel="publisher" />
+  <link rel="shortcut icon" href="/favicon.ico" />
+  <script type="text/javascript">
+    // var disqus_developer = 1; 
+  </script>
+  <script type="text/javascript">
+  var disqus_shortname = 'dailyjs';
+  (function () {
+    var s = document.createElement('script'); s.async = true;
+    s.src = 'http://disqus.com/forums/dailyjs/count.js';
+    (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+  }());
+  </script>
+  <script type="text/javascript">var _sf_startpt=(new Date()).getTime()</script>
+  <script type="text/javascript">
+  var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+  document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+  </script>
+  <script type="text/javascript">
+  try {
+  var pageTracker = _gat._getTracker("UA-11413789-1");
+  pageTracker._trackPageview();
+  } catch(err) {}</script>
+  <script type="text/javascript">
+  /* <![CDATA[ */
+      (function() {
+          var s = document.createElement('script'), t = document.getElementsByTagName('script')[0];
+          s.type = 'text/javascript';
+          s.async = true;
+          s.src = 'http://api.flattr.com/js/0.6/load.js?mode=auto';
+          t.parentNode.insertBefore(s, t);
+      })();
+  /* ]]> */
+  </script>
+</head>
+<body>
+  <div class="navbar">
+    <div class="navbar-inner">
+      <div class="container">
+        <a class="brand" href="http://dailyjs.com">
+          DailyJS
+        </a>
+      </div>
+      <ul class="nav">
+        <li class="twitter-button"><a href="https://twitter.com/dailyjs" class="twitter-follow-button" data-show-count="false">@dailyjs</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script></li>
+        <li><iframe src="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Ffacebook.com%2Fdailyjs&amp;layout=button_count&amp;show_faces=true&amp;width=90&amp;action=like&amp;colorscheme=light&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:90px; height:21px;" allowTransparency="true"></iframe></li>
+        <li><script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script><div class="g-plusone" data-size="medium" data-annotation="none"></div></li>
+        <li><a class="social-button" href="http://feeds.feedburner.com/dailyjs"><img src="/images/icons/feed24.png" alt="Feed" /></a></li>
+      </ul>
+      <div class="nav-collapse">
+        <form class="navbar-search" action="http://www.google.com/search" method="get">
+          <input name="sitesearch" type="hidden" value="dailyjs.com" />
+          <input type="text" class="search-query" name="q" placeholder="Search">
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="subnav">
+    <ul class="nav nav-pills">
+      <li><a href="/">Home</a></li>
+      <li><a href="http://contact.dailyjs.com">Contact</a></li>
+      <li><a href="/subscribe.html">Subscribe</a></li>
+      <li><a href="/sponsored-content.html">Sponsorship</a></li>
+    </ul>
+  </div>
+  <div id="container">
+    <div id="content">
+      <h2 class="post"><a href="/2011/09/26/heroku">Run a Node PostgreSQL App on Heroku</a></h2>
+
+<div class="meta">
+  26 Sep 2011 |
+  <span class="author">By Alex Young</span> |
+  <span class="tags">
+    <img alt="Tags" class="icon" src="/images/tag.gif" />
+    
+      <a href="/tags.html#databases">databases</a>
+    
+      <a href="/tags.html#heroku">heroku</a>
+    
+      <a href="/tags.html#node">node</a>
+    
+  </span>
+</div>
+
+<div id="post">
+<p>I really like the <a href="https://github.com/brianc/node-postgres">pg</a> PostgreSQL library by Brian Carlson, and considering the amount of attention we&#8217;ve given to Redis and MongoDB on DailyJS I thought it was time to give relational databases some coverage again.</p>
+<p>Heroku is one of many services that supports Node.  This tutorial will demonstrate how easy it is to get a simple <a href="http://expressjs.com/">Express</a> and <a href="https://github.com/brianc/node-postgres">pg</a> app running.</p>
+<p>This tutorial is based on the following documentation:</p>
+<ul>
+	<li><a href="http://devcenter.heroku.com/articles/node-js">Getting Started With Node.js on Heroku/Cedar</a></li>
+	<li><a href="http://devcenter.heroku.com/articles/database#frequently-asked-questions">Heroku Database <span class="caps">FAQ</span></a></li>
+	<li><a href="https://github.com/brianc/node-postgres">pg&#8217;s Documentation</a></li>
+	<li><a href="https://github.com/brianc/node-postgres/wiki/Example">pg&#8217;s Example App</a></li>
+</ul>
+<p>The files for this tutorial can be found here: <a href="https://github.com/alexyoung/dailyjs-heroku-postgres">alexyoung / dailyjs-heroku-postgres</a>.</p>
+<h3>Getting Started</h3>
+<p>An account at <a href="http://www.heroku.com/">Heroku</a> is required first.  Next, install the Heroku client:</p>
+<ul>
+	<li><a href="http://toolbelt.herokuapp.com/osx/download">Heroku for Mac OS X</a></li>
+	<li><a href="http://toolbelt.herokuapp.com/windows/download">Heroku for Windows</a></li>
+	<li><a href="http://toolbelt.herokuapp.com/linux/readme">Ubuntu Heroku installation instructions</a></li>
+	<li>For other operating systems, use the <a href="http://assets.heroku.com/heroku-client/heroku-client.tgz">Heroku client tarball</a></li>
+</ul>
+<p>Once that&#8217;s installed, try typing <code>heroku help</code> in a terminal to see what the command-client client can do.  Heroku obviously realised that us developers prefer using the command-line to a <span class="caps">GUI</span> &#8212; although some basic management features are available through Heroku&#8217;s web interface, almost everything is handled from the command-line tool.</p>
+<p>Authentication is requried before progressing:</p>
+<div class="highlight"><pre><code class="text">heroku login
+</code></pre>
+</div>
+<p>I had to tell Heroku about my public <span class="caps">SSH</span> key too:</p>
+<div class="highlight"><pre><code class="text">heroku keys:add ~/.ssh/id_rsa.pub
+</code></pre>
+</div>
+<h3>Module Installation</h3>
+<p>Heroku wisely supports <code>npm</code>, so our app begins with a <code>package.json</code>:</p>
+<div class="highlight"><pre><code class="javascript"><span class="p">{</span> 
+  <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;dailyjs-heroku-postgres&quot;</span>
+<span class="p">,</span> <span class="s2">&quot;version&quot;</span><span class="o">:</span> <span class="s2">&quot;0.0.1&quot;</span>
+<span class="p">,</span> <span class="s2">&quot;dependencies&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;express&quot;</span><span class="o">:</span> <span class="s2">&quot;2.4.5&quot;</span>
+  <span class="p">,</span> <span class="s2">&quot;pg&quot;</span><span class="o">:</span> <span class="s2">&quot;0.5.7&quot;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+<h3>PostgreSQL Setup</h3>
+<p>Heroku uses environmental variables to supply database connection parameters.  This is simply <code>process.env.DATABASE_URL</code> for PostgreSQL.  Connecting to the database is as simple as this:</p>
+<div class="highlight"><pre><code class="javascript"><span class="kd">var</span> <span class="nx">pg</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;pg&#39;</span><span class="p">).</span><span class="kr">native</span>
+  <span class="p">,</span> <span class="nx">connectionString</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">DATABASE_URL</span> <span class="o">||</span> <span class="s1">&#39;postgres://localhost:5432/dailyjs&#39;</span>
+  <span class="p">,</span> <span class="nx">client</span>
+  <span class="p">,</span> <span class="nx">query</span><span class="p">;</span>
+
+<span class="nx">client</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">pg</span><span class="p">.</span><span class="nx">Client</span><span class="p">(</span><span class="nx">connectionString</span><span class="p">);</span>
+<span class="nx">client</span><span class="p">.</span><span class="nx">connect</span><span class="p">();</span>
+<span class="nx">query</span> <span class="o">=</span> <span class="nx">client</span><span class="p">.</span><span class="nx">query</span><span class="p">(</span><span class="s1">&#39;SELECT * FROM mytable&#39;</span><span class="p">);</span>
+<span class="nx">query</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;end&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span> <span class="nx">client</span><span class="p">.</span><span class="nx">end</span><span class="p">();</span> <span class="p">});</span>
+</code></pre>
+</div>
+<p>Notice how <code>pg</code> uses events &#8212; I&#8217;ve called <code>client.end()</code> so this script will exit gracefully when it&#8217;s finished.  If you&#8217;ve got PostgreSQL installed locally you could try experimenting with this script.</p>
+<h3>Schema</h3>
+<p>There&#8217;s a few ways to change the database schema on Heroku.  I&#8217;ve made a little schema creation script:</p>
+<div class="highlight"><pre><code class="javascript"><span class="kd">var</span> <span class="nx">pg</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;pg&#39;</span><span class="p">).</span><span class="kr">native</span>
+  <span class="p">,</span> <span class="nx">connectionString</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">DATABASE_URL</span> <span class="o">||</span> <span class="s1">&#39;postgres://localhost:5432/dailyjs&#39;</span>
+  <span class="p">,</span> <span class="nx">client</span>
+  <span class="p">,</span> <span class="nx">query</span><span class="p">;</span>
+
+<span class="nx">client</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">pg</span><span class="p">.</span><span class="nx">Client</span><span class="p">(</span><span class="nx">connectionString</span><span class="p">);</span>
+<span class="nx">client</span><span class="p">.</span><span class="nx">connect</span><span class="p">();</span>
+<span class="nx">query</span> <span class="o">=</span> <span class="nx">client</span><span class="p">.</span><span class="nx">query</span><span class="p">(</span><span class="s1">&#39;CREATE TABLE visits (date date)&#39;</span><span class="p">);</span>
+<span class="nx">query</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;end&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span> <span class="nx">client</span><span class="p">.</span><span class="nx">end</span><span class="p">();</span> <span class="p">});</span>
+</code></pre>
+</div>
+<p>I&#8217;ll explain how to run this on Heroku later.</p>
+<p>Another option would be to use a library like <a href="https://github.com/visionmedia/node-migrate">node-migrate</a> by TJ Holowaychuk.  I haven&#8217;t actually used this before, but it seems like a sensible way to keep local schemas in sync as developers work on a project.</p>
+<p>Typing <code>heroku help pg</code> shows the commands available for PostgreSQL, and this includes <code>heroku pg:psql</code> which can be used to open a remote connection to a <em>dedicated</em> database.  This won&#8217;t be allowed for a shared database, but could be used to modify the schema.</p>
+<h3>Example App</h3>
+<p>Now we&#8217;ve got a <code>package.json</code>, we just need an app to run.  Create a file called <code>web.js</code> that starts like this:</p>
+<div class="highlight"><pre><code class="javascript"><span class="kd">var</span> <span class="nx">express</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;express&#39;</span><span class="p">)</span>
+  <span class="p">,</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">express</span><span class="p">.</span><span class="nx">createServer</span><span class="p">(</span><span class="nx">express</span><span class="p">.</span><span class="nx">logger</span><span class="p">())</span>
+  <span class="p">,</span> <span class="nx">pg</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;pg&#39;</span><span class="p">).</span><span class="kr">native</span>
+  <span class="p">,</span> <span class="nx">connectionString</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">DATABASE_URL</span> <span class="o">||</span> <span class="s1">&#39;postgres://localhost:5432/dailyjs&#39;</span>
+  <span class="p">,</span> <span class="nx">start</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">()</span>
+  <span class="p">,</span> <span class="nx">port</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">PORT</span> <span class="o">||</span> <span class="mi">3000</span>
+  <span class="p">,</span> <span class="nx">client</span><span class="p">;</span>
+</code></pre>
+</div>
+<p>Notice how I use Heroku&#8217;s environmental variable for the database connection string and server port, or defaults for development purposes.</p>
+<p>Now we can add the code required to connect to the database:</p>
+<div class="highlight"><pre><code class="javascript"><span class="nx">client</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">pg</span><span class="p">.</span><span class="nx">Client</span><span class="p">(</span><span class="nx">connectionString</span><span class="p">);</span>
+<span class="nx">client</span><span class="p">.</span><span class="nx">connect</span><span class="p">();</span>
+</code></pre>
+</div>
+<p>A single Express route should suffice for this tutorial:</p>
+<div class="highlight"><pre><code class="javascript"><span class="nx">app</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">date</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">();</span>
+
+  <span class="nx">client</span><span class="p">.</span><span class="nx">query</span><span class="p">(</span><span class="s1">&#39;INSERT INTO visits(date) VALUES($1)&#39;</span><span class="p">,</span> <span class="p">[</span><span class="nx">date</span><span class="p">]);</span>
+
+  <span class="nx">query</span> <span class="o">=</span> <span class="nx">client</span><span class="p">.</span><span class="nx">query</span><span class="p">(</span><span class="s1">&#39;SELECT COUNT(date) AS count FROM visits WHERE date = $1&#39;</span><span class="p">,</span> <span class="p">[</span><span class="nx">date</span><span class="p">]);</span>
+  <span class="nx">query</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;row&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">result</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">result</span><span class="p">);</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">result</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="nx">res</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="s1">&#39;No data found&#39;</span><span class="p">);</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+      <span class="nx">res</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="s1">&#39;Visits today: &#39;</span> <span class="o">+</span> <span class="nx">result</span><span class="p">.</span><span class="nx">count</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">});</span>
+<span class="p">});</span>
+</code></pre>
+</div>
+<p>And we better start the app too:</p>
+<div class="highlight"><pre><code class="javascript"><span class="nx">app</span><span class="p">.</span><span class="nx">listen</span><span class="p">(</span><span class="nx">port</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Listening on:&#39;</span><span class="p">,</span> <span class="nx">port</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre>
+</div>
+<h3>Procfile</h3>
+<p>The last thing we need is a file that tells Heroku what our main script is called.  Create a file called <code>Procfile</code>:</p>
+<div class="highlight"><pre><code class="text">web: node web.js
+</code></pre>
+</div>
+<h3>Deploying</h3>
+<p>Heroku uses Git for deployment, so set up a repo:</p>
+<div class="highlight"><pre><code class="text">git init
+git add .
+git commit -m &#39;First commit&#39;
+</code></pre>
+</div>
+<p>Then run this command which creates a remote app on the service with a random name:</p>
+<div class="highlight"><pre><code class="text">heroku create --stack cedar
+</code></pre>
+</div>
+<p>It&#8217;ll give you the <span class="caps">URL</span>, but your app isn&#8217;t quite ready yet.</p>
+<p>Now <code>push</code> the repo to make the magic happen:</p>
+<div class="highlight"><pre><code class="text">git push heroku master
+</code></pre>
+</div>
+<p>And tell Heroku you want to use a database:</p>
+<div class="highlight"><pre><code class="text">heroku addons:add shared-database
+</code></pre>
+</div>
+<p>And finally&#8230; run the schema creation script:</p>
+<div class="highlight"><pre><code class="javascript"><span class="nx">heroku</span> <span class="nx">run</span> <span class="nx">node</span> <span class="nx">schema</span><span class="p">.</span><span class="nx">js</span>
+</code></pre>
+</div>
+<p>Hopefully you now have a little Node and PostgreSQL app running on Heroku!</p>
+<p>If anything went wrong, <a href="http://devcenter.heroku.com/">Heroku&#8217;s documentation</a> is excellent, and you can download my sample source here: <a href="https://github.com/alexyoung/dailyjs-heroku-postgres">alexyoung / dailyjs-heroku-postgres</a>.</p>
+</div>
+
+<div id="related">
+  <h2>Other Recent Posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <div>13 May 2013</div>
+        <a href="/2013/05/13/bashful">Unix: It's Alive!</a>
+      </li>
+    
+      <li>
+        <div>10 May 2013</div>
+        <a href="/2013/05/10/p-openpgpjs-easywebworker">P, EasyWebWorker, OpenPGP.js</a>
+      </li>
+    
+      <li>
+        <div>09 May 2013</div>
+        <a href="/2013/05/09/angularjs-4">AngularJS: Managing Feeds</a>
+      </li>
+    
+  </ul>
+</div>
+
+
+
+<div><br clear="all" /></div>
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'dailyjs';
+    var disqus_url = 'http://dailyjs.com/2011/09/26/heroku/';
+    // var disqus_identifier = 'unique_dynamic_id_1234';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+    </div>
+    <div id="sidebar">
+  <ul>
+    <li>
+      <div id="carbonads-container"><div class="carbonad"><div id="azcarbon"></div><script type="text/javascript">var z = document.createElement("script"); z.type = "text/javascript"; z.async = true; z.src = "http://engine.carbonads.com/z/12104/azcarbon_2_1_0_VERT"; var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(z, s);</script></div></div>
+    </li>
+    <li class="itemlist">
+      <h3>Subscribe</h3>
+      <ul class="subscribe">
+        <li class="links">
+          <a class="social-button" href="http://twitter.com/dailyjs"><img src="/images/icons/twitter.png" alt="Twitter" /></a>
+          <a class="social-button" href="https://www.facebook.com/dailyjs"><img src="/images/icons/facebook.png" alt="Facebook Page" /></a>
+          <a class="social-button" href="https://plus.google.com/110075199769457074728/?prsrc=3&rel=author"><img src="/images/icons/google.png" alt="Google+ Page" /></a>
+          <a class="social-button" href="http://feeds.feedburner.com/dailyjs"><img src="/images/icons/feed.png" alt="Feed" /></a>
+          <a class="social-button" href="http://feedburner.google.com/fb/a/mailverify?uri=dailyjs&amp;loc=en_US"><img src="/images/icons/mail.png" alt="Email" /></a>
+        </li>
+        <li class="rss">
+          <p><a href="http://feeds.feedburner.com/dailyjs"><img src="http://feeds.feedburner.com/~fc/dailyjs?bg=000000&amp;fg=FFFFFF&amp;anim=0" height="26" width="88" style="border:0" alt="" /></a></p>
+        </li>
+        <li class="if">
+          <a class="FlattrButton" style="display:none;" rev="flattr;button:compact;" href="http://dailyjs.com"></a>
+          <noscript><a href="http://flattr.com/thing/456257/DailyJS" target="_blank">
+          <img src="http://api.flattr.com/button/flattr-badge-large.png" alt="Flattr this" title="Flattr this" border="0" /></a></noscript>
+        </li>
+      </ul>
+    </li> 
+    <li class="itemlist staff">
+      <h3>Staff</h3>
+      <ul>
+        <li>
+          <h4>Editor-in-Chief</h4>
+          <div class="twitter">
+            <a href="http://twitter.com/#!/alex_young">
+              <img width="48" height="48" src="/images/twitter/alex_young.png" alt="Alex R. Young" />
+              <span class="meta">
+                <strong class="fullname">Alex R. Young</strong>
+                <s>@</s>alex_young
+              </span>
+            </a>
+          </div>
+          <h4>Proof-Reading</h4>
+          <div class="twitter">
+            <a href="http://twitter.com/#!/YukaYoung">
+              <img width="48" height="48" src="/images/twitter/YukaYoung.png" alt="Yuka Young" />
+              <span class="meta">
+                <strong class="fullname">Yuka Young</strong>
+                <s>@</s>YukaYoung
+              </span>
+            </a>
+          </div>
+        </li>
+      </ul>
+    </li>
+    <li class="itemlist">
+      <h3>Buy the Book</h3>
+      <ul>
+        <li>
+          <p style="margin-top: 10px"><a href="http://affiliate.manning.com/idevaffiliate.php?id=1259_343"><img src="/images/young_cover150.jpeg" alt="Node.js in Practice" /></a></p>
+          <h4><a href="http://affiliate.manning.com/idevaffiliate.php?id=1259_343">Node.js in Practice</a></h4>
+          <p><em>By Alex Young and Marc Harter</em></p>
+        </li>
+      </ul>
+    </li>
+    <li class="itemlist">
+      <h3>Contributors</h3>
+      <ul>
+        <li>
+          <div class="twitter">
+            <a href="http://twitter.com/#!/ricroberts">
+              <img width="48" height="48" src="/images/twitter/RicRoberts.png" alt="Ric Roberts" />
+              <span class="meta">
+                <strong class="fullname">Ric Roberts</strong>
+                <s>@</s>RicRoberts
+              </span>
+            </a>
+          </div>
+        </li>
+        <li>
+          <div class="twitter">
+            <a href="http://twitter.com/#!/rvagg">
+              <img width="48" height="48" src="/images/twitter/rvagg.png" alt="Rod Vagg" />
+              <span class="meta">
+                <strong class="fullname">Rod Vagg</strong><br />
+                <s>@</s>rvagg
+              </span>
+            </a>
+          </div>
+        </li>
+        <li>
+          <div class="twitter">
+            <a href="http://twitter.com/#!/voidfiles">
+              <img width="48" height="48" src="/images/twitter/voidfiles.png" alt="Alex Kessinger" />
+              <span class="meta">
+                <strong class="fullname">Alex Kessinger</strong>
+                <s>@</s>voidfiles
+              </span>
+            </a>
+          </div>
+        </li>
+        <li>
+          <div class="twitter">
+            <a href="http://twitter.com/#!/jaknowlden">
+              <img width="48" height="48" src="/images/twitter/jaknowlden.png" alt="Justin Knowlden" />
+              <span class="meta">
+                <strong class="fullname">Justin Knowlden</strong>
+                <s>@</s>jaknowlden
+              </span>
+            </a>
+          </div>
+        </li>
+        <li>
+          <div class="twitter">
+            <a href="http://twitter.com/#!/olegpodsechin">
+              <img width="48" height="48" src="/images/twitter/olegpodsechin.png" alt="Oleg Podsechin" />
+              <span class="meta">
+                <strong class="fullname">Oleg Podsechin</strong>
+                <s>@</s>olegpodsechin
+              </span>
+            </a>
+          </div>
+        </li>
+      </ul>
+    </li>
+    <li class="itemlist">
+      <h3>Featured Series</h3>
+      <ul>
+        <li>
+          <h4><a href="/sponsored-content.html">Sponsored Content</a></h4>
+          <p>Advertise your JavaScript-related product or service through DailyJS.</p>
+        <li>
+          <h4><a href="/js101.html">JS101</a></h4>
+          <p>New to JavaScript?  Get started here.</p>
+        </li>
+        <li>
+          <h4><a href="/framework.html">Let's Make a Framework</a></h4>
+          <p>Learn how client-side frameworks are built, and then build your own.</p>
+        </li>
+        <li>
+          <h4><a href="/web-app.html">Let's Make a Web App</a></h4>
+          <p>Build a Node web app.</p>
+        </li>
+        <li>
+          <h4><a href="/history-of-javascript.html">History of JavaScript</a></h4>
+          <p>Find out who created JavaScript, and why.</p>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+
+    <div id="footer">
+      <p>Copyright &copy; DailyJS. | <a href="http://github.com/alexyoung/dailyjs">Site Source</a> | <a href="http://www.glyphicons.com">Glyphicons</a>
+      | <a href="/cookies.html">Cookies and Privacy</a></p>
+    </div>
+  </div>
+<script type="text/javascript">
+var _sf_async_config={uid:39178,domain:"dailyjs.com"};
+(function(){
+  function loadChartbeat() {
+    window._sf_endpt=(new Date()).getTime();
+    var e = document.createElement('script');
+    e.setAttribute('language', 'javascript');
+    e.setAttribute('type', 'text/javascript');
+    e.setAttribute('src',
+       (("https:" == document.location.protocol) ? "https://a248.e.akamai.net/chartbeat.download.akamai.com/102508/" : "http://static.chartbeat.com/") +
+       "js/chartbeat.js");
+    document.body.appendChild(e);
+  }
+  var oldonload = window.onload;
+  window.onload = (typeof window.onload != 'function') ?
+     loadChartbeat : function() { oldonload(); loadChartbeat(); };
+})();
+</script>
+</body>
+</html>

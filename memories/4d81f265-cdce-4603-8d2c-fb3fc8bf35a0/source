@@ -1,0 +1,1063 @@
+<!DOCTYPE html>
+<html>
+<head>
+        
+    <title>ruby on rails 3 - Bundled Gems installing in strange location - Stack Overflow</title>
+    <link rel="shortcut icon" href="http://cdn.sstatic.net/stackoverflow/img/favicon.ico">
+    <link rel="apple-touch-icon image_src" href="http://cdn.sstatic.net/stackoverflow/img/apple-touch-icon.png">
+    <link rel="search" type="application/opensearchdescription+xml" title="Stack Overflow" href="/opensearch.xml">
+    
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script type="text/javascript" src="http://cdn.sstatic.net/js/stub.js?v=62072796f399"></script>
+    <link rel="stylesheet" type="text/css" href="http://cdn.sstatic.net/stackoverflow/all.css?v=67dfedc8e5de">
+    
+    <meta name="relativepagescore" content="105555">
+    <link rel="canonical" href="http://stackoverflow.com/questions/8192945/bundled-gems-installing-in-strange-location">
+    <link rel="alternate" type="application/atom+xml" title="Feed for question 'Bundled Gems installing in strange location'" href="/feeds/question/8192945">
+    <script type="text/javascript">
+        
+        StackExchange.ready(function () {
+            StackExchange.using("postValidation", function () {
+                StackExchange.postValidation.initOnBlurAndSubmit($('#post-form'), 2, 'answer');
+            });
+
+            
+            StackExchange.question.init({showAnswerHelp:true,totalCommentCount:0,shownCommentCount:0,highlightColor:'#F4A83D',backgroundColor:'#FFF',questionId:8192945});
+
+            styleCode();
+
+                StackExchange.realtime.subscribeToQuestion('1', '8192945');
+            
+                
+        });
+    </script>
+
+
+    <script type="text/javascript">
+        StackExchange.init({"stackAuthUrl":"https://stackauth.com","serverTime":1369885557,"styleCode":true,"enableUserHovercards":true,"site":{"name":"Stack Overflow","description":"Q&A for professional and enthusiast programmers","isNoticesTabEnabled":true,"recaptchaPublicKey":"6LdchgIAAAAAAJwGpIzRQSOFaO0pU6s44Xt8aTwc","useNewStyleFavoriteTagsEditor":true,"enableSocialMediaInSharePopup":true},"user":{"fkey":"3dbde84fe19991e5176cfcfee3d7a0c8","isAnonymous":true}});
+        StackExchange.using.setCacheBreakers({"js/prettify-full.js":"6c261bebf56a","js/moderator.js":"f96f7e4ee5dc","js/full-anon.js":"0916c60ba5ef","js/full.js":"ee8dc25807f6","js/wmd.js":"61154666d6ef","js/third-party/jquery.autocomplete.min.js":"e5f01e97f7c3","js/mobile.js":"6eb68240242f","js/help.js":"fc9fb0517db2","js/tageditor.js":"450c9e8426fc","js/tageditornew.js":"b6c68ad4c7dd","js/inline-tag-editing.js":"8e84e8a137f7","js/revisions.js":"7273bb714bba","js/review.js":"56c3941a5bfc","js/tagsuggestions.js":"aa48ef6154df","js/post-validation.js":"4aec80fc0009","js/explore-qlist.js":"1c5bbd79b562"});
+        
+    </script>
+    <script type="text/javascript">
+        StackExchange.using("gps", function() {
+             StackExchange.gps.init(true);
+        });
+    </script>
+    
+        <script type="text/javascript">
+            StackExchange.ready(function () {
+                $('#nav-tour').click(function () {
+                    StackExchange.using("gps", function() {
+                        StackExchange.gps.track("aboutpage.click", { aboutclick_location: "headermain" }, true);
+                    });
+                });
+            });
+        </script>
+</head>
+<body class="question-page">
+    <noscript><div id="noscript-padding"></div></noscript>
+    <div id="notify-container"></div>
+    <div id="overlay-header"></div>
+    <div id="custom-header"></div>
+
+    <div class="container">
+        <div id="header" class=headeranon>
+            <div id="portalLink">
+                <a class="genu" href="http://stackexchange.com" onclick="StackExchange.ready(function(){genuwine.click();});return false;">Stack Exchange</a>
+            </div>
+            <div id="topbar">
+                <div id="hlinks">
+                    
+<span id="hlinks-user"></span>
+<span id="hlinks-nav">                        <a href="/users/login?returnurl=%2fquestions%2f8192945%2fbundled-gems-installing-in-strange-location">sign up</a>
+
+ <span class="lsep">|</span>
+                    <a href="/users/login?returnurl=%2fquestions%2f8192945%2fbundled-gems-installing-in-strange-location">log in</a>
+
+ <span class="lsep">|</span>
+                    <a href="http://careers.stackoverflow.com">careers 2.0</a>
+
+ <span class="lsep">|</span>
+</span>
+<span id="hlinks-custom"></span>
+                </div>
+                <div id="hsearch">
+                    <form id="search" action="/search" method="get" autocomplete="off">
+                        <div>
+                            <input autocomplete="off" name="q" class="textbox" placeholder="search" tabindex="1" type="text" maxlength="240" size="28" value="">
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <br class="cbt">
+            <div id="hlogo">
+                <a href="/" >
+                    Stack Overflow
+                </a>
+            </div>
+            <div id="hmenus">
+                <div class="nav mainnavs mainnavsanon">
+                    <ul>
+                            <li class="youarehere"><a id="nav-questions" href="/questions">Questions</a></li>
+                            <li><a id="nav-tags" href="/tags">Tags</a></li>
+                            <li><a id="nav-tour" href="/about">Tour</a></li>
+                            <li><a id="nav-users" href="/users">Users</a></li>
+                    </ul>
+                </div>
+                <div class="nav askquestion">
+                    <ul>
+                        <li>
+                            <a id="nav-askquestion"  href="/questions/ask">Ask Question</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        
+
+
+
+        <div id="content">
+            
+
+<div itemscope itemtype="http://schema.org/Article">
+<link itemprop="image" href="http://cdn.sstatic.net/stackoverflow/img/apple-touch-icon.png">
+<!--googleoff: snippet-->
+<div id="herobox-mini">
+    <div id="hero-content">
+        <span id="controls">
+            <a href="/about" id="tell-me-more" class="button">Tell me more</a>
+            <span id="close"><a title="click to dismiss">&times;</a></span>
+        </span>
+        <div id="blurb">
+            <span id="site-name">Stack Overflow</span> is a question and answer site for 
+            professional and enthusiast programmers. It's 100% free, no registration required.
+        </div>        
+    </div>
+    <script>
+        $('#tell-me-more').click(function () {
+            var clickSource = $("body").attr("class") + '-mini';
+            if ($("body").hasClass("questions-page")) {
+                clickSource = 'questionpagemini';
+            }
+            if ($("body").hasClass("home-page")) {
+                clickSource = 'homepagemini';
+            }
+
+            StackExchange.using("gps", function () {
+                StackExchange.gps.track("aboutpage.click", { aboutclick_location: clickSource } , true);
+            });
+        });
+        $('#herobox-mini #close').click(function () {
+            StackExchange.using("gps", function () {
+                StackExchange.gps.track("hero.action", { hero_action_type: "close" }, true);
+            });
+            $.cookie("hero", "none", { path: "/" });
+            var $hero = $("#herobox-mini");
+            $hero.slideUp('fast', function () { $hero.remove(); });
+            return false;
+        });
+    </script>
+</div>
+<!--googleon: snippet-->
+<div id="question-header">
+    <h1 itemprop="name"><a href="/questions/8192945/bundled-gems-installing-in-strange-location" class="question-hyperlink">Bundled Gems installing in strange location</a></h1>
+</div>
+<div id="mainbar">
+
+
+
+<div class="question" data-questionid="8192945"  id="question">
+    
+                <div class="everyonelovesstackoverflow" id="adzerk1">
+            </div>
+
+
+    <table>
+        <tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+    <input type="hidden" value="8192945">
+    <a class="vote-up-off" title="This question shows research effort; it is useful and clear">up vote</a>
+    <span class="vote-count-post ">0</span>
+    <a class="vote-down-off" title="This question does not show any research effort; it is unclear or not useful">down vote</a>
+    
+    <a class="star-off" href="#" title="This is a favorite question (click again to undo)">favorite</a>
+    <div class="favoritecount"><b></b></div>   
+
+</div>
+
+            </td>
+            
+<td class="postcell">
+<div>
+    <div class="post-text" itemprop="description">
+        <p>I'm using Subversion and Capistrano to deploy my rails app. Part of the organization is to put all of the bundled gems in a "shared" folder, so that the app doesn't have to carry them around and install them all every time I deploy.</p>
+
+<p>Usually they go under <code>/shared/bundle/</code>, and then there are the different folders (gems, specifications, etc.). However, for some reason, when I run <code>bundle install</code>, they are getting installed to <code>/shared/bundle/ruby/1.8</code>.</p>
+
+<p>Some extra information: When I run <code>bundle install</code>, the "success" line reads:</p>
+
+<blockquote>
+  <p>Your bundle is complete! It was installed into /home/shared/bundle</p>
+</blockquote>
+
+<p>No mention of the extra folders, but the only folder <code>bundle</code> contains is the <code>ruby</code> directory.</p>
+
+<p>Output of <code>bundle config</code>:</p>
+
+<pre><code>frozen
+  Set for your local app (/home/myapp/current/.bundle/config): "1"
+
+disable_shared_gems
+  Set for your local app (/home/myapp/current/.bundle/config): "1"
+
+without
+  Set for your local app (/home/myapp/current/.bundle/config): "development:test"
+
+path
+  Set for your local app (/home/myapp/current/.bundle/config): "/home/myapp/shared/bundle"
+</code></pre>
+
+<p>I don't see anything about <code>/ruby/1.8</code> anywhere. What might I be missing? Of course I can just set the bundler path to <code>/shared/bundle/ruby/1.8</code>, but I don't like to cheat.</p>
+
+<p>Thanks.</p>
+
+    </div>
+    <div class="post-taglist">
+        <a href="/questions/tagged/ruby-on-rails-3" class="post-tag" title="show questions tagged 'ruby-on-rails-3'" rel="tag">ruby-on-rails-3</a> <a href="/questions/tagged/rubygems" class="post-tag" title="show questions tagged 'rubygems'" rel="tag">rubygems</a> <a href="/questions/tagged/bundler" class="post-tag" title="show questions tagged 'bundler'" rel="tag">bundler</a> 
+    </div>
+    <table class="fw">
+    <tr>
+    <td class="vt">
+
+
+
+
+
+
+
+
+
+<div class="post-menu"><a href="/q/8192945" title="short permalink to this question" class="short-link" id="link-post-8192945">share</a><span class="lsep">|</span><a href="/posts/8192945/edit" class="suggest-edit-post" title="">improve this question</a></div>            </td>
+    <td class="post-signature owner">
+        
+
+    <div class="user-info ">
+        <div class="user-action-time">
+                                    asked <span title="2011-11-19 08:52:54Z" class="relativetime">Nov 19 '11 at 8:52</span>
+        </div>
+        <div class="user-gravatar32">
+            <a href="/users/885036/bricker"><div class=""><img src="http://www.gravatar.com/avatar/eb56e6fa19ee55379e313367f049c1f9?s=32&d=identicon&r=PG" alt="" width="32" height="32"></div></a>
+        </div>
+        <div class="user-details">
+            <a href="/users/885036/bricker">bricker</a><br>
+            <span class="reputation-score" title="reputation score" dir="ltr">4,465</span><span title="12 silver badges"><span class="badge2"></span><span class="badgecount">12</span></span><span title="33 bronze badges"><span class="badge3"></span><span class="badgecount">33</span></span>
+        </div>
+    </div>
+
+    </td>
+    </tr>
+    </table>
+</div>
+</td>
+        </tr>
+
+
+<tr>
+<td class="votecell"></td>
+<td>
+    <div id="comments-8192945" class="comments dno">
+        <table>
+        <tbody>
+        
+            <tr><td></td><td></td></tr>
+        
+        </tbody>
+    
+        </table>
+    </div>
+    
+</td>
+</tr>            </table>    
+</div>
+
+
+<div id="answers">
+
+    <a name="tab-top"></a>
+    <div id="answers-header">
+        <div class="subheader answers-subheader">
+            <h2>
+                    2 Answers
+            </h2>
+            <div id="tabs">
+                <a href="/questions/8192945/bundled-gems-installing-in-strange-location?answertab=active#tab-top" title="Answers with the latest activity first">active</a>
+<a href="/questions/8192945/bundled-gems-installing-in-strange-location?answertab=oldest#tab-top" title="Answers in the order they were provided">oldest</a>
+<a class="youarehere" href="/questions/8192945/bundled-gems-installing-in-strange-location?answertab=votes#tab-top" title="Answers with the highest score first">votes</a>
+
+            </div>
+        </div>    
+    </div>    
+
+
+
+
+  
+<a name="8193080"></a>
+<div id="answer-8193080" class="answer accepted-answer" data-answerid="8193080" >
+    <table>
+        <tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+    <input type="hidden" value="8193080">
+    <a class="vote-up-off" title="This answer is useful">up vote</a>
+    <span class="vote-count-post ">1</span>
+    <a class="vote-down-off" title="This answer is not useful">down vote</a>
+    
+
+            <span class="vote-accepted-on load-accepted-answer-date" title="loading when this answer was accepted...">accepted</span>
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text"><p>Bundler "scopes" its install into this folder based on Ruby engine and version.</p>
+
+<p><a href="https://github.com/carlhuda/bundler/blob/3431d6d/lib/bundler/settings.rb#L78" rel="nofollow">https://github.com/carlhuda/bundler/blob/3431d6d/lib/bundler/settings.rb#L78</a>:</p>
+
+<pre><code>"#{path}/#{Bundler.ruby_scope}"
+</code></pre>
+
+<p><code>Bundler.ruby_scope</code> is defined at <a href="https://github.com/carlhuda/bundler/blob/3431d6d/lib/bundler.rb#L141-143" rel="nofollow">https://github.com/carlhuda/bundler/blob/3431d6d/lib/bundler.rb#L141-143</a>:</p>
+
+<pre><code>def ruby_scope
+  "#{Bundler.rubygems.ruby_engine}/#{Gem::ConfigMap[:ruby_version]}"
+end
+</code></pre>
+</div>
+    <table class="fw">
+    <tr>
+    <td class="vt">
+
+
+
+
+
+
+
+
+
+<div class="post-menu"><a href="/a/8193080" title="short permalink to this answer" class="short-link" id="link-post-8193080">share</a><span class="lsep">|</span><a href="/posts/8193080/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    
+
+    <div class="user-info user-hover">
+        <div class="user-action-time">
+                                        answered <span title="2011-11-19 09:21:12Z" class="relativetime">Nov 19 '11 at 9:21</span>
+        </div>
+        <div class="user-gravatar32">
+            <a href="/users/62082/brandon-tilley"><div class=""><img src="http://www.gravatar.com/avatar/f60c93b1a8ff0e7e4ef0aa899284e571?s=32&d=identicon&r=PG" alt="" width="32" height="32"></div></a>
+        </div>
+        <div class="user-details">
+            <a href="/users/62082/brandon-tilley">Brandon Tilley</a><br>
+            <span class="reputation-score" title="reputation score 28204" dir="ltr">28.2k</span><span title="3 gold badges"><span class="badge1"></span><span class="badgecount">3</span></span><span title="51 silver badges"><span class="badge2"></span><span class="badgecount">51</span></span><span title="74 bronze badges"><span class="badge3"></span><span class="badgecount">74</span></span>
+        </div>
+    </div>
+
+    </td>
+    </tr>
+    </table>
+</td>
+        </tr>
+
+
+
+<tr>
+<td class="votecell"></td>
+<td>
+    <div id="comments-8193080" class="comments">
+        <table>
+        <tbody>
+                    
+    <tr id="comment-10067075" class="comment">
+        <td></td>
+        <td class="comment-text"><div><span class="comment-copy">You&#39;re right - my directory structure is correct, I was just remembering in incorrectly from an old project. Thanks!</span> &ndash;&nbsp;<a href="/users/885036/bricker" title="4465 reputation" class="comment-user owner">bricker</a> <span class="comment-date" dir="ltr"><span title="2011-11-19 09:41:33Z" class="relativetime-clean">Nov 19 '11 at 9:41</span></span></div></td>
+    </tr>
+
+        </tbody>
+    
+        </table>
+    </div>
+    
+</td>
+</tr>
+    </table>
+</div>
+            <div class="everyonelovesstackoverflow" id="adzerk3">
+            </div>
+
+
+
+  
+<a name="8193046"></a>
+<div id="answer-8193046" class="answer" data-answerid="8193046" >
+    <table>
+        <tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+    <input type="hidden" value="8193046">
+    <a class="vote-up-off" title="This answer is useful">up vote</a>
+    <span class="vote-count-post ">0</span>
+    <a class="vote-down-off" title="This answer is not useful">down vote</a>
+    
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text"><pre><code>bundle install --path=&lt;path&gt;
+</code></pre>
+
+<p>From the <a href="http://gembundler.com/man/bundle-install.1.html" rel="nofollow">docs</a>.</p>
+
+<blockquote>
+  <p>The location to install the gems in the bundle to. This defaults to
+  the gem home, which is the location that gem install installs gems to.
+  This means that, by default, gems installed without a --path setting
+  will show up in gem list. This setting is a remembered option.</p>
+</blockquote>
+</div>
+    <table class="fw">
+    <tr>
+    <td class="vt">
+
+
+
+
+
+
+
+
+
+<div class="post-menu"><a href="/a/8193046" title="short permalink to this answer" class="short-link" id="link-post-8193046">share</a><span class="lsep">|</span><a href="/posts/8193046/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    
+
+    <div class="user-info user-hover">
+        <div class="user-action-time">
+                                        answered <span title="2011-11-19 09:14:14Z" class="relativetime">Nov 19 '11 at 9:14</span>
+        </div>
+        <div class="user-gravatar32">
+            <a href="/users/214773/julio-santos"><div class=""><img src="http://www.gravatar.com/avatar/e83bd437d70b295397efca0b4f8ae9bf?s=32&d=identicon&r=PG" alt="" width="32" height="32"></div></a>
+        </div>
+        <div class="user-details">
+            <a href="/users/214773/julio-santos">J&#250;lio Santos</a><br>
+            <span class="reputation-score" title="reputation score" dir="ltr">2,271</span><span title="1 gold badge"><span class="badge1"></span><span class="badgecount">1</span></span><span title="11 silver badges"><span class="badge2"></span><span class="badgecount">11</span></span><span title="34 bronze badges"><span class="badge3"></span><span class="badgecount">34</span></span>
+        </div>
+    </div>
+
+    </td>
+    </tr>
+    </table>
+</td>
+        </tr>
+
+
+
+<tr>
+<td class="votecell"></td>
+<td>
+    <div id="comments-8193046" class="comments">
+        <table>
+        <tbody>
+                    
+    <tr id="comment-10066914" class="comment">
+        <td></td>
+        <td class="comment-text"><div><span class="comment-copy">Hmm, skipped your last line. Are you using RVM?</span> &ndash;&nbsp;<a href="/users/214773/julio-santos" title="2271 reputation" class="comment-user">J&#250;lio Santos</a> <span class="comment-date" dir="ltr"><span title="2011-11-19 09:18:28Z" class="relativetime-clean">Nov 19 '11 at 9:18</span></span></div></td>
+    </tr>
+            
+    <tr id="comment-10066937" class="comment">
+        <td></td>
+        <td class="comment-text"><div><span class="comment-copy">Running <code>bundle install --path=&#47;home&#47;myapp&#47;shared&#47;bundle</code> still installed all the gems to the <code>&#47;shared&#47;bundle&#47;ruby&#47;1.8</code> directory.</span> &ndash;&nbsp;<a href="/users/885036/bricker" title="4465 reputation" class="comment-user owner">bricker</a> <span class="comment-date" dir="ltr"><span title="2011-11-19 09:21:16Z" class="relativetime-clean">Nov 19 '11 at 9:21</span></span></div></td>
+    </tr>
+            
+    <tr id="comment-10066940" class="comment">
+        <td></td>
+        <td class="comment-text"><div><span class="comment-copy">No, I am not using RVM</span> &ndash;&nbsp;<a href="/users/885036/bricker" title="4465 reputation" class="comment-user owner">bricker</a> <span class="comment-date" dir="ltr"><span title="2011-11-19 09:21:38Z" class="relativetime-clean">Nov 19 '11 at 9:21</span></span></div></td>
+    </tr>
+
+        </tbody>
+    
+        </table>
+    </div>
+    
+</td>
+</tr>
+    </table>
+</div>
+    <a name='new-answer'></a>
+    <form id="post-form" action="/questions/8192945/answer/submit" method="post"  class="post-form">
+        <input type="hidden" id="post-id" value="8192945" />
+        <h2 class="space">Your Answer</h2>
+
+
+
+    
+<script type="text/javascript">
+    StackExchange.ready(function() {
+        initTagRenderer("".split(" "), "".split(" "));
+         
+        prepareEditor({
+            heartbeatType: 'answer',
+            bindNavPrevention: true,
+            postfix: "",
+            onDemand: true,
+            discardSelector: ".discard-answer"
+            ,immediatelyShowMarkdownHelp:true
+        });
+        
+
+    });  
+</script>
+
+
+<div id="post-editor" class="post-editor">
+
+    <div style="position: relative;">     
+        <div class="wmd-container">
+            <div id="wmd-button-bar" class="wmd-button-bar"></div>
+            <textarea id="wmd-input" class="wmd-input" name="post-text" cols="92" rows="15" tabindex="101" data-min-length=""></textarea>
+        </div>
+    </div>
+
+    <div class="fl" style="margin-top: 8px; height:24px;">&nbsp;</div>
+    <div id="draft-saved" class="draft-saved community-option fl" style="margin-top: 8px; height:24px; display:none;">draft saved</div>
+
+    <div id="draft-discarded" class="draft-discarded community-option fl" style="margin-top: 8px; height:24px; display:none;">draft discarded</div>
+
+
+
+    <div id="wmd-preview" class="wmd-preview"></div>
+    <div></div>
+    <div class="edit-block">
+        <input id="fkey" name="fkey" type="hidden" value="3dbde84fe19991e5176cfcfee3d7a0c8">
+        <input id="author" name="author" type="text">
+    </div>
+</div>
+        <div style="position: relative;"> 
+            <div class="form-item dno new-post-login">
+        
+                <div class="new-login-form">
+                    <div class="new-login-left">
+                        <h3>Sign up or <a id="login-link" href="/users/login?returnurl=%2fquestions%2f8192945%2fbundled-gems-installing-in-strange-location%23new-answer">log in</a></h3>
+                        <script type="text/javascript">
+                            StackExchange.ready(function () {
+                                StackExchange.helpers.onClickDraftSave('#login-link');
+                            });
+                        </script>
+                        <div class="preferred-login google-login">
+                            <p><span class="icon"></span><span>Sign up using Google</span></p>
+                        </div>
+                        <div class="preferred-login facebook-login">
+                            <p><span class="icon"></span><span>Sign up using Facebook</span></p>
+                        </div>
+                        <div class="preferred-login stackexchange-login">
+                            <p><span class="icon"></span><span>Sign up using Stack Exchange</span></p>
+                        </div>
+                    </div>
+                    <input type="hidden" name="manual-openid" class="manual-openid" />
+                    <input type="hidden" name="use-facebook" class="use-facebook" value="false" />
+                    <input type="button" class="submit-openid" value="Submit" style="display:none" />
+                    <div class="new-login-right">
+                                <h3>Post as a guest</h3>
+    <div class="form-item">
+        <table>
+        <tr>
+                    <script type="text/javascript">
+                StackExchange.ready(function () {
+                    StackExchange.helpers.bindHelpOverlayEvents($('.vm input'));
+                });
+            </script>
+            <td class="vm">
+                <div>
+                    <label for="display-name">Name</label>
+                    <input id="display-name" name="display-name" type="text" size="30" maxlength="30" value="" tabindex="105">
+                </div>
+                <div>
+                    <label for="m-address">Email</label>
+                    <input id="m-address" name="m-address" type="text" size="30" maxlength="100" value="" tabindex="106">
+                    <span class="edit-field-overlay">required, but not shown</span>
+                </div>
+            </td>
+        </tr>
+        </table>
+    </div>
+
+                    </div>
+                </div>
+            </div>
+            <script type="text/javascript">
+                StackExchange.ready(
+                    function () {
+                        StackExchange.openid.initPostLogin('.new-post-login', '%2fquestions%2f8192945%2fbundled-gems-installing-in-strange-location%23new-answer');
+                    }
+                );
+            </script>
+            <noscript>
+                        <h3>Post as a guest</h3>
+    <div class="form-item">
+        <table>
+        <tr>
+                    <script type="text/javascript">
+                StackExchange.ready(function () {
+                    StackExchange.helpers.bindHelpOverlayEvents($('.vm input'));
+                });
+            </script>
+            <td class="vm">
+                <div>
+                    <label for="display-name">Name</label>
+                    <input id="display-name" name="display-name" type="text" size="30" maxlength="30" value="" tabindex="105">
+                </div>
+                <div>
+                    <label for="m-address">Email</label>
+                    <input id="m-address" name="m-address" type="text" size="30" maxlength="100" value="" tabindex="106">
+                    <span class="edit-field-overlay">required, but not shown</span>
+                </div>
+            </td>
+        </tr>
+        </table>
+    </div>
+
+            </noscript>
+        </div>
+           
+            <div class="form-submit cbt">
+            <input id="submit-button" type="submit" value="Post Your Answer" tabindex="110">
+            <a href="#" class="discard-answer dno">discard</a>
+    <p class="privacy-policy-agreement">
+        By posting your answer, you agree to the 
+        <a href="http://stackexchange.com/legal/privacy-policy" target="_blank">privacy policy</a> and 
+        <a href="http://stackexchange.com/legal/terms-of-service" target="_blank">terms of service</a>.
+    </p>
+    <input type="hidden" name="legalLinksShown" value="1" />
+        </div>
+    </form>
+
+
+
+        <h2 class="bottom-notice">
+                Not the answer you're looking for? 
+            Browse other questions tagged <a href="/questions/tagged/ruby-on-rails-3" class="post-tag" title="show questions tagged 'ruby-on-rails-3'" rel="tag">ruby-on-rails-3</a> <a href="/questions/tagged/rubygems" class="post-tag" title="show questions tagged 'rubygems'" rel="tag">rubygems</a> <a href="/questions/tagged/bundler" class="post-tag" title="show questions tagged 'bundler'" rel="tag">bundler</a> 
+                or <a href="/questions/ask">ask your own question</a>.
+        </h2>
+</div>
+</div>
+<div id="sidebar" class=show-votes>
+        <div class="module question-stats">
+        <p class="label-key">tagged</p>
+        <div class="tagged"><a href="/questions/tagged/ruby-on-rails-3" class="post-tag" title="show questions tagged 'ruby-on-rails-3'" rel="tag">ruby-on-rails-3</a>&nbsp;<span class="item-multiplier"><span class="item-multiplier-x">&times;</span>&nbsp;<span class="item-multiplier-count">43868</span></span><br>
+<a href="/questions/tagged/rubygems" class="post-tag" title="show questions tagged 'rubygems'" rel="tag">rubygems</a>&nbsp;<span class="item-multiplier"><span class="item-multiplier-x">&times;</span>&nbsp;<span class="item-multiplier-count">3970</span></span><br>
+<a href="/questions/tagged/bundler" class="post-tag" title="show questions tagged 'bundler'" rel="tag">bundler</a>&nbsp;<span class="item-multiplier"><span class="item-multiplier-x">&times;</span>&nbsp;<span class="item-multiplier-count">1463</span></span><br>
+</div>
+        <table id="qinfo">
+            <tr>
+                <td><p class="label-key">asked</p></td>
+                <td style="padding-left:10px"><p class="label-key" title="2011-11-19 08:52:54Z"><b>1 year ago</b></p></td>
+            </tr>
+            <tr>
+                <td><p class="label-key">viewed</p></td>
+
+                <td style="padding-left:10px">
+                    <p class="label-key">
+                        <b>721 times</b>
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td><p class="label-key">active</p></td>
+                <td style="padding-left:10px"><p class="label-key"><b><a href="?lastactivity" class="lastactivity-link" title="2011-11-19 09:21:12Z">1 year ago</a></b></p></td>
+            </tr>
+        </table>
+    </div>
+    
+<div class="module community-bulletin" data-tracker="cb=1">
+    <h4>Community Bulletin</h4>
+    <div class="related">
+        <div class="spacer">
+            <div class="bulletin-item-type event-date">event</div>
+            <div class="bulletin-item-content">
+                <a href="http://apptivate.ms" class="question-hyperlink" target="_blank">Microsoft can help you port your app to Windows 8 - win prizes with Apptivate!</a> <span class="event-date" style="white-space: nowrap;">&ndash; now through June 7</span>
+            </div>
+            <br class="cbt" />
+        </div>
+
+    </div>
+</div>    
+                    <script type="text/javascript">
+                    var scriptSrc = "http://engine.adzerk.net/z/8277/adzerk1_2_4_43,adzerk2_2_17_45,adzerk3_2_4_44?keywords=ruby-on-rails-3,rubygems,bundler";
+                    if (document.referrer) {
+                        if (/\?/.test(scriptSrc))
+                            scriptSrc += "&";
+                        else
+                            scriptSrc += "?";
+                        scriptSrc += "xReferrer=" + document.referrer;
+                    }
+                    StackExchange.ready(function() {
+                        var z = document.createElement("script");
+                        z.type = "text/javascript";
+                        z.async = "true";
+                        z.src = scriptSrc;
+                        var s = document.getElementsByTagName("script")[0];
+                        s.parentNode.insertBefore(z, s);
+                    });
+                </script>
+            <div class="everyonelovesstackoverflow" id="adzerk2">
+            </div>
+    <div id="hireme">
+        <script type="text/javascript">
+            window.careers_adurl="http://careers.stackoverflow.com/gethired/js",window.careers_cssurl="//careerscdn.sstatic.net/careers/gethired/sidebar.min.css?v=7ae83073b37e",window.careers_leaderboardcssurl="//careerscdn.sstatic.net/careers/gethired/ninja.min.css?v=78ccbfa5c59f",window.careers_companycssurl="//careerscdn.sstatic.net/careers/gethired/company",window.careers_adselector="div.hireme, div#hireme",StackExchange.ready(function(){$.ajax({url:"//careerscdn.sstatic.net/careers/gethired/loader.min.js?v=607ab2dda910",dataType:"script",cache:!0})})
+        </script>
+    </div>
+
+
+
+        <div style="margin-bottom: 10px;">
+        
+
+<style type="text/css">
+#newsletter-ad {
+    width: 190px;
+    height: 250px;
+    overflow: hidden;
+    background: url('http://cdn.sstatic.net/stackoverflow/img/newsletter-ad.png');
+    padding: 0 15px 0 15px;
+}
+#newsletter-ad-header {
+    margin-top: 60px;
+}
+#newsletter-ad ul {
+    margin: 1em 0 1em 1.5em;
+}
+#newsletter-ad ul li {
+    margin-bottom: 5px;
+}
+#newsletter-signup-container {
+    text-align: center;
+}
+#newsletter-preview-container {
+    margin-top: 10px;
+    text-align: center;
+}
+#newsletter-email-input {
+    width: 200px;
+}
+</style>
+
+<script>
+    StackExchange.ready(function () {
+        StackExchange.newsletterAd.init();
+    });
+</script>
+
+<div id="newsletter-ad">
+    <p id="newsletter-ad-header">Get the <strong>weekly newsletter!</strong></p>
+    <ul>
+        <li>Top questions and answers</li>
+        <li>Important announcements</li>
+        <li>Unanswered questions</li>
+    </ul>
+    <div id="newsletter-signup-container"><input id="newsletter-signup" type="button" value="Sign up for the newsletter" /></div>
+    <p id="newsletter-preview-container">see an <a href="http://stackexchange.com/newsletters/newsletter?site=stackoverflow.com" id="newsletter-preview">example newsletter</a></p>
+    <div class="dno">
+            <p class="privacy-policy-agreement">
+        By subscribing, you agree to the 
+        <a href="http://stackexchange.com/legal/privacy-policy" target="_blank">privacy policy</a> and 
+        <a href="http://stackexchange.com/legal/terms-of-service" target="_blank">terms of service</a>.
+    </p>
+    <input type="hidden" name="legalLinksShown" value="1" />
+
+    </div>
+</div>
+
+    </div>
+  
+    
+    <div class="module sidebar-related">
+        <h4 id="h-related">Related</h4>
+        <div class="related" data-tracker="rq=1">
+            <div class="spacer">
+<a href="/q/2758813" title="Vote score (upvotes - downvotes)">
+        <div class="answer-votes default">1</div>
+</a>
+<a href="/questions/2758813/ruby-gem-error-no-such-file-to-load-bundler" class="question-hyperlink">Ruby gem error: no such file to load &mdash; bundler</a>
+</div>
+<div class="spacer">
+<a href="/q/3064599" title="Vote score (upvotes - downvotes)">
+        <div class="answer-votes default">0</div>
+</a>
+<a href="/questions/3064599/initialize-a-rails-3-plugin-gem-on-installation" class="question-hyperlink">Initialize a Rails 3 plugin gem on installation</a>
+</div>
+<div class="spacer">
+<a href="/q/4574176" title="Vote score (upvotes - downvotes)">
+        <div class="answer-votes answered-accepted default">20</div>
+</a>
+<a href="/questions/4574176/heroku-push-rejected-failed-to-install-gems-via-bundler" class="question-hyperlink">Heroku push rejected, failed to install gems via Bundler</a>
+</div>
+<div class="spacer">
+<a href="/q/4867473" title="Vote score (upvotes - downvotes)">
+        <div class="answer-votes default">1</div>
+</a>
+<a href="/questions/4867473/how-to-include-a-gem-file-in-bundler-not-source" class="question-hyperlink">How to include a .gem file in bundler (not source)</a>
+</div>
+<div class="spacer">
+<a href="/q/6770468" title="Vote score (upvotes - downvotes)">
+        <div class="answer-votes answered-accepted default">5</div>
+</a>
+<a href="/questions/6770468/bundle-install-installs-gems-in-mysql2-folder" class="question-hyperlink">Bundle install installs gems in ./mysql2 folder</a>
+</div>
+<div class="spacer">
+<a href="/q/7331092" title="Vote score (upvotes - downvotes)">
+        <div class="answer-votes answered-accepted default">4</div>
+</a>
+<a href="/questions/7331092/cant-fix-bundle-install-failing-for-gems-with-native-extensions" class="question-hyperlink">Can&#39;t fix &#39;bundle install&#39; failing for gems with native extensions</a>
+</div>
+<div class="spacer">
+<a href="/q/8990828" title="Vote score (upvotes - downvotes)">
+        <div class="answer-votes default">47</div>
+</a>
+<a href="/questions/8990828/rvm-bundle-install-missing-gem-error-even-though-gem-is-installed" class="question-hyperlink">RVM Bundle Install Missing Gem Error even though gem is installed</a>
+</div>
+<div class="spacer">
+<a href="/q/11736715" title="Vote score (upvotes - downvotes)">
+        <div class="answer-votes answered-accepted default">0</div>
+</a>
+<a href="/questions/11736715/why-is-bundle-install-when-using-capistrano-creating-a-capistrano-folder-for-g" class="question-hyperlink">Why is bundle install (when using capistrano) creating a capistrano folder for gems?</a>
+</div>
+<div class="spacer">
+<a href="/q/11748528" title="Vote score (upvotes - downvotes)">
+        <div class="answer-votes default">0</div>
+</a>
+<a href="/questions/11748528/why-does-bundle-install-not-use-the-version-of-bundler-in-gemfile-though-its-ava" class="question-hyperlink">Why does bundle install not use the version of bundler in Gemfile though its available?</a>
+</div>
+<div class="spacer">
+<a href="/q/13881608" title="Vote score (upvotes - downvotes)">
+        <div class="answer-votes answered-accepted default">0</div>
+</a>
+<a href="/questions/13881608/issues-installing-gems-when-using-bundlers-binstubs" class="question-hyperlink">Issues installing gems when using Bundler&#39;s binstubs</a>
+</div>
+
+        </div>
+    </div>
+</div>
+
+<div id="feed-link">
+    <div id="feed-link-text"><a href="/feeds/question/8192945" title="feed of this question and its answers"><span class="feed-icon"></span>question feed</a></div>
+</div>
+<script type="text/javascript">
+StackExchange.ready(function(){$.get('/posts/8192945/ivc/8250');});
+</script>
+<noscript>
+    <div><img src="/posts/8192945/ivc/8250" class="dno" alt="" width="0" height="0"></div>
+</noscript><div style="display:none" id="prettify-lang">lang-rb</div></div>
+
+
+
+        </div>
+    </div>
+    <div id="footer" class="categories">
+        <div class="footerwrap">
+            <div id="footer-menu">
+                <div class="top-footer-links">
+                        <a href="/about">about</a>
+                    <a href="/faq">faq</a>
+                        <a href="/badges">badges</a>
+                    <a href="http://blog.stackexchange.com?blb=1">blog</a>
+                        <a href="http://chat.stackoverflow.com">chat</a>
+                    <a href="http://data.stackexchange.com">data</a>
+                    <a href="http://stackexchange.com/legal">legal</a>
+                    <a href="http://stackexchange.com/legal/privacy-policy">privacy policy</a>
+                    <a href="http://stackexchange.com/about/hiring">jobs</a>
+                    <a href="http://engine.adzerk.net/redirect/0/2776/2751/0/4de3c60f719c4dfcb1a57531c7050090/0">advertising info</a>
+
+                    <a onclick='StackExchange.switchMobile("on", "/questions/8192945/bundled-gems-installing-in-strange-location")'>mobile</a>
+                    <b><a href="/help">contact us</a></b>
+                        <b><a href="http://meta.stackoverflow.com">feedback</a></b>
+                </div>
+                <div id="footer-sites">
+                <table>
+    <tr>
+            <th colspan=3>
+                Technology
+            </th>
+            <th >
+                Life / Arts
+            </th>
+            <th >
+                Culture / Recreation
+            </th>
+            <th >
+                Science
+            </th>
+            <th >
+                Other
+            </th>
+    </tr>
+    <tr>
+            <td>
+                <ol>
+                        <li><a href="http://stackoverflow.com" title="professional and enthusiast programmers">Stack Overflow</a></li>
+                        <li><a href="http://serverfault.com" title="professional system and network administrators">Server Fault</a></li>
+                        <li><a href="http://superuser.com" title="computer enthusiasts and power users">Super User</a></li>
+                        <li><a href="http://webapps.stackexchange.com" title="power users of web applications">Web Applications</a></li>
+                        <li><a href="http://askubuntu.com" title="Ubuntu users and developers">Ask Ubuntu</a></li>
+                        <li><a href="http://webmasters.stackexchange.com" title="pro webmasters">Webmasters</a></li>
+                        <li><a href="http://gamedev.stackexchange.com" title="professional and independent game developers">Game Development</a></li>
+                        <li><a href="http://tex.stackexchange.com" title="users of TeX, LaTeX, ConTeXt, and related typesetting systems">TeX - LaTeX</a></li>
+                            </ol></td><td><ol>
+                        <li><a href="http://programmers.stackexchange.com" title="professional programmers interested in conceptual questions about software development">Programmers</a></li>
+                        <li><a href="http://unix.stackexchange.com" title="users of Linux, FreeBSD and other Un*x-like operating systems.">Unix &amp; Linux</a></li>
+                        <li><a href="http://apple.stackexchange.com" title="power users of Apple hardware and software">Ask Different (Apple)</a></li>
+                        <li><a href="http://wordpress.stackexchange.com" title="WordPress developers and administrators">WordPress Answers</a></li>
+                        <li><a href="http://gis.stackexchange.com" title="cartographers, geographers and GIS professionals">Geographic Information Systems</a></li>
+                        <li><a href="http://electronics.stackexchange.com" title="electronics and electrical engineering professionals, students, and enthusiasts">Electrical Engineering</a></li>
+                        <li><a href="http://android.stackexchange.com" title="enthusiasts and power users of the Android operating system">Android Enthusiasts</a></li>
+                        <li><a href="http://security.stackexchange.com" title="IT security professionals">IT Security</a></li>
+                            </ol></td><td><ol>
+                        <li><a href="http://dba.stackexchange.com" title="database professionals who wish to improve their database skills and learn from others in the community">Database Administrators</a></li>
+                        <li><a href="http://drupal.stackexchange.com" title="Drupal developers and administrators">Drupal Answers</a></li>
+                        <li><a href="http://sharepoint.stackexchange.com" title="SharePoint enthusiasts">SharePoint</a></li>
+                        <li><a href="http://ux.stackexchange.com" title="user experience researchers and experts">User Experience</a></li>
+                        <li><a href="http://mathematica.stackexchange.com" title="users of Mathematica">Mathematica</a></li>
+                    
+                        <li>
+                            <a href="http://stackexchange.com/sites#technology" class="more">
+                                more (14)
+                            </a>
+                        </li>
+                </ol>
+            </td>
+            <td>
+                <ol>
+                        <li><a href="http://photo.stackexchange.com" title="professional, enthusiast and amateur photographers">Photography</a></li>
+                        <li><a href="http://scifi.stackexchange.com" title="science fiction and fantasy enthusiasts">Science Fiction &amp; Fantasy</a></li>
+                        <li><a href="http://cooking.stackexchange.com" title="professional and amateur chefs">Seasoned Advice (cooking)</a></li>
+                        <li><a href="http://diy.stackexchange.com" title="contractors and serious DIYers">Home Improvement</a></li>
+                    
+                        <li>
+                            <a href="http://stackexchange.com/sites#lifearts" class="more">
+                                more (13)
+                            </a>
+                        </li>
+                </ol>
+            </td>
+            <td>
+                <ol>
+                        <li><a href="http://english.stackexchange.com" title="linguists, etymologists, and serious English language enthusiasts">English Language &amp; Usage</a></li>
+                        <li><a href="http://skeptics.stackexchange.com" title="scientific skepticism">Skeptics</a></li>
+                        <li><a href="http://judaism.stackexchange.com" title="those who base their lives on Jewish law and tradition and anyone interested in learning more">Mi Yodeya (Judaism)</a></li>
+                        <li><a href="http://travel.stackexchange.com" title="road warriors and seasoned travelers">Travel</a></li>
+                        <li><a href="http://christianity.stackexchange.com" title="committed Christians, experts in Christianity and those interested in learning more">Christianity</a></li>
+                        <li><a href="http://gaming.stackexchange.com" title="passionate videogamers on all platforms">Arqade (gaming)</a></li>
+                        <li><a href="http://bicycles.stackexchange.com" title="people who build and repair bicycles, people who train cycling, or commute on bicycles">Bicycles</a></li>
+                        <li><a href="http://rpg.stackexchange.com" title="gamemasters and players of tabletop, paper-and-pencil role-playing games">Role-playing Games</a></li>
+                            </ol></td><td><ol>
+                    
+                        <li>
+                            <a href="http://stackexchange.com/sites#culturerecreation" class="more">
+                                more (21)
+                            </a>
+                        </li>
+                </ol>
+            </td>
+            <td>
+                <ol>
+                        <li><a href="http://math.stackexchange.com" title="people studying math at any level and professionals in related fields">Mathematics</a></li>
+                        <li><a href="http://stats.stackexchange.com" title="statisticians, data analysts, data miners and data visualization experts">Cross Validated (stats)</a></li>
+                        <li><a href="http://cstheory.stackexchange.com" title="theoretical computer scientists and researchers in related fields">Theoretical Computer Science</a></li>
+                        <li><a href="http://physics.stackexchange.com" title="active researchers, academics and students of physics">Physics</a></li>
+                    
+                        <li>
+                            <a href="http://stackexchange.com/sites#science" class="more">
+                                more (7)
+                            </a>
+                        </li>
+                </ol>
+            </td>
+            <td>
+                <ol>
+                        <li><a href="http://stackapps.com" title="apps, scripts, and development with the Stack Exchange API">Stack Apps</a></li>
+                        <li><a href="http://meta.stackoverflow.com" title="meta-discussion of the Stack Exchange family of Q&amp;A websites">Meta Stack Overflow</a></li>
+                        <li><a href="http://area51.stackexchange.com" title="proposing new sites in the Stack Exchange network">Area 51</a></li>
+                        <li><a href="http://careers.stackoverflow.com">Stack Overflow Careers</a></li>
+                    
+                </ol>
+            </td>
+    </tr>
+</table>
+                </div>
+            </div>
+
+            <div id="copyright">
+                site design / logo &copy; 2013 stack exchange inc; 
+                user contributions licensed under <a href="http://creativecommons.org/licenses/by-sa/3.0/" rel="license">cc-wiki</a> 
+                with <a href="http://blog.stackoverflow.com/2009/06/attribution-required/" rel="license">attribution required</a>
+            </div>
+            <div id="footer-flair">
+                <a href="http://creativecommons.org/licenses/by-sa/3.0/" class="cc-wiki-link"></a>
+            </div>
+            <div id="svnrev">
+                rev 2013.5.29.708
+            </div>
+            
+        </div>
+    </div>
+    <noscript>
+        <div id="noscript-warning">Stack Overflow works best with JavaScript enabled<img src="http://pixel.quantserve.com/pixel/p-c1rF4kxgLUzNc.gif" alt="" class="dno"></div>
+    </noscript>
+    <script type="text/javascript">var _gaq=_gaq||[];_gaq.push(['_setAccount','UA-5620270-1']);
+        _gaq.push(['_setCustomVar', 1, 'tags', '|ruby-on-rails-3|rubygems|bundler|']); 
+_gaq.push(['_trackPageview']);
+    var _qevents = _qevents || [];
+    (function(){
+        var s=document.getElementsByTagName('script')[0];
+        var ga=document.createElement('script');
+        ga.type='text/javascript';
+        ga.async=true;
+        ga.src='http://www.google-analytics.com/ga.js';
+        s.parentNode.insertBefore(ga,s);
+        var sc=document.createElement('script');
+        sc.type='text/javascript';
+        sc.async=true;
+        sc.src='http://edge.quantserve.com/quant.js'; 
+        s.parentNode.insertBefore(sc,s);
+    })();
+    </script>
+    <script type="text/javascript">
+        _qevents.push({ qacct: "p-c1rF4kxgLUzNc" });
+    </script>        
+    
+</body>
+</html>

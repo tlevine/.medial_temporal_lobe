@@ -1,0 +1,355 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Allow User Access to a Single S3 Bucket | Centroy</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="shortcut icon" href="https://centroy.com/sites/centroy.com/files/centrohub_favicon.ico" type="image/x-icon" />
+<meta name="description" content="Customer portal and business collaboration. Share files and manage projects with the Centroy customer extranet site." />
+  <link type="text/css" rel="stylesheet" media="all" href="https://centroy.com/sites/centroy.com/files/css/css_a64b2c6251a22f4c0cf29313feac5ef8.css" />
+<link type="text/css" rel="stylesheet" media="print" href="https://centroy.com/sites/centroy.com/files/css/css_7fcf72c23eeddc36a9a22f1901a69efc.css" />
+<!--[if IE]>
+<link type="text/css" rel="stylesheet" media="all" href="/sites/all/themes/centrohub/css/ie.css?Q" />
+<![endif]-->
+<!--[if lte IE 6]>
+<link type="text/css" rel="stylesheet" media="all" href="/sites/all/themes/centrohub/css/ie6.css?Q" />
+<![endif]-->
+  <script type="text/javascript" src="https://centroy.com/sites/centroy.com/files/js/js_f6fc8d1e1c699d65d47f94fac4145d40.js"></script>
+<script type="text/javascript" src="/sites/all/libraries/ckeditor/ckeditor.js?Q"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, {"basePath":"\/","googleanalytics":{"trackOutgoing":1,"trackMailto":1,"trackDownload":1,"trackDownloadExtensions":"7z|aac|arc|arj|asf|asx|avi|bin|csv|doc|exe|flv|gif|gz|gzip|hqx|jar|jpe?g|js|mp(2|3|4|e?g)|mov(ie)?|msi|msp|pdf|phps|png|ppt|qtm?|ra(m|r)?|sea|sit|tar|tgz|torrent|txt|wav|wma|wmv|wpd|xls|xml|z|zip"},"blog_tweet":{"nid":"13045","url":"https:\/\/centroy.com\/blog\/allow-user-access-single-s3-bucket"},"wysiwyg":{"configs":{"ckeditor":{"global":{"editorBasePath":"\/sites\/all\/libraries\/ckeditor","execMode":""},"format1":{"baseHref":"https:\/\/centroy.com\/","width":"100%","resize_minWidth":450,"height":420,"theme":"default","skin":"kama","entities_latin":false,"entities_greek":false,"toolbar":[[]]},"format2":{"baseHref":"https:\/\/centroy.com\/","width":"100%","resize_minWidth":450,"height":420,"theme":"default","skin":"kama","entities_latin":false,"entities_greek":false,"format_tags":"p;address;pre;h2;h3;h4;h5;h6;div","apply_source_formatting":0,"contentsCss":["\/sites\/all\/themes\/centrohub\/css\/html-reset.css","\/sites\/all\/themes\/centrohub\/css\/wireframes.css","\/sites\/all\/themes\/centrohub\/css\/layout-fixed.css","\/sites\/all\/themes\/centrohub\/css\/page-backgrounds.css","\/sites\/all\/themes\/centrohub\/css\/tabs.css","\/sites\/all\/themes\/centrohub\/css\/messages.css","\/sites\/all\/themes\/centrohub\/css\/pages.css","\/sites\/all\/themes\/centrohub\/css\/block-editing.css","\/sites\/all\/themes\/centrohub\/css\/blocks.css","\/sites\/all\/themes\/centrohub\/css\/navigation.css","\/sites\/all\/themes\/centrohub\/css\/panels-styles.css","\/sites\/all\/themes\/centrohub\/css\/views-styles.css","\/sites\/all\/themes\/centrohub\/css\/nodes.css","\/sites\/all\/themes\/centrohub\/css\/comments.css","\/sites\/all\/themes\/centrohub\/css\/forms.css","\/sites\/all\/themes\/centrohub\/css\/fields.css","\/sites\/all\/themes\/centrohub\/js\/ui\/themes\/default\/ui.all.css"],"language":"en","resize_enabled":true,"toolbarLocation":"top","toolbar":[["Bold","Italic","Underline","Strike","JustifyLeft","JustifyCenter","JustifyRight","JustifyBlock","BulletedList","NumberedList","Outdent","Indent","Undo","Redo","Link","Unlink","Anchor","Image","TextColor","BGColor","Superscript","Subscript","Blockquote","Source","HorizontalRule","Cut","Copy","Paste","PasteText","PasteFromWord","ShowBlocks","RemoveFormat","SpecialChar","Format","Font","FontSize","Styles","Table","SelectAll","Find","Replace","Flash","Smiley","CreateDiv","Iframe","Maximize","SpellChecker","Scayt","About","break"]],"extraPlugins":"break"}}},"plugins":{"drupal":{"break":{"path":"\/sites\/all\/modules\/contrib\/wysiwyg\/plugins\/break"}},"format2":{"drupal":{"break":{"title":"Teaser break","icon":"\/sites\/all\/modules\/contrib\/wysiwyg\/plugins\/break\/images\/break.gif","iconTitle":"Separate the teaser and body of this content","css":"\/sites\/all\/modules\/contrib\/wysiwyg\/plugins\/break\/break.css"}}}},"disable":"Disable rich-text","enable":"Enable rich-text"}});
+//--><!]]>
+</script>
+</head>
+<body class="page not-front not-logged-in node-type-blog one-sidebar sidebar-left page-blog-allow-user-access-single-s3-bucket section-blog contentinright">
+
+      <div id="skip-link"><a href="#main-menu">Jump to Navigation</a></div>
+  
+  <div id="page-wrapper"><div id="page">
+
+    <div id="header"><div class="section clearfix">
+
+              <a href="/" title="Home" rel="home" id="logo"><img src="https://centroy.com/sites/centroy.com/files/centrohub_logo.jpg" alt="Home" /></a>
+      
+      
+      
+      <div id="login_area"><a href="/user/sitelogin">&nbsp;</a></div>
+<div id="support">Questions:<span>888-789-5904</span></div>
+
+    </div></div> <!-- /.section, /#header -->
+
+    <div id="main-wrapper"><div id="main" class="clearfix with-navigation">
+
+      <div id="content" class="column"><div class="section">
+                  <div id="banner"><div class="clearfix"><h1 class="title">Allow User Access to a Single S3 Bucket</h1></div></div>
+                        
+        
+        
+                
+                                        
+                <div id="content-area">
+                  <div class="box-content-top"></div>          
+                  <div class="box-content-middle">
+                        <div id="left-area"><div id="block-block-6" class="block block-block first region-odd odd region-count-1 count-1">
+  <div class="top"></div>
+  <div class="middle">
+      <h2 class="title">Subscribe Via</h2>
+  
+  <div class="content">
+    <div class="subscribe">
+  <ul>
+    <li class="in"><a href="http://www.linkedin.com/company/centroy">in</a></li>
+    <li class="twitter"><a href="https://twitter.com/Centroyinc">twitter</a></li>
+    <li class="facebook"><a href="http://www.facebook.com/pages/Centroy/217280178379668">facebook</a></li>
+    <li class="youtube"><a href="http://www.youtube.com/user/CentroyStation">youtube</a></li>
+    <div class="clearfix"></div>
+  </ul>
+  <div class="clr"></div>
+  <div class="frm-subcribe">
+<form action="/blog/allow-user-access-single-s3-bucket"  accept-charset="UTF-8" method="post" id="ch-subscribeviemail-form">
+<div> <input type="text" maxlength="128" name="emails" id="edit-emails" size="30" value="Subscribe Via Email" onfocus="if(this.value==&#039;Subscribe Via Email&#039;) this.value=&#039;&#039;;" class="form-text" /> 
+<div style="display:none;"><div class="form-item form-item-checkboxes">
+ <label>Subscribe to</label>
+ <div class="form-checkboxes"><div class="form-item form-item-checkbox" id="edit-newsletters-1-wrapper">
+ <label class="option" for="edit-newsletters-1"><input type="checkbox" name="newsletters[1]" id="edit-newsletters-1" value="1"  checked="checked"  class="form-checkbox" /> Centro Hub newsletter</label> 
+<div class='clearfix'></div>
+</div>
+</div> <span class="form-required" title="This field is required.">*</span>
+<div class='clearfix'></div>
+</div>
+</div><input type="submit" name="op" id="edit-submit-1" value="Go"  class="form-submit" />
+<input type="hidden" name="form_build_id" id="form-d96fbe1be5c1b9204cd5418d77fa97df" value="form-d96fbe1be5c1b9204cd5418d77fa97df"  />
+<input type="hidden" name="form_id" id="edit-ch-subscribeviemail-form" value="ch_subscribeviemail_form"  />
+
+</div></form>
+  </div>
+<!-- FEEDCAT.NET -->
+<div id="feedcat-box"><a href="http://www.feedcat.net/" title="RSS Feed and Atom Feed Boosting Engine"></a></div><script type="text/javascript" src="http://www.feedcat.net/js2/button.js?pub=841353&bmode=b66x25&ilng=en&section="></script>
+<!-- FEEDCAT.NET -->
+</div>
+<!-- FEEDCAT.NET -->
+<div id="feedcat-box"><a href="http://www.feedcat.net/" title="RSS Feed and Atom Feed Boosting Engine"></a></div><script type="text/javascript" src="http://www.feedcat.net/js2/button.js?pub=841353&bmode=b66x25&ilng=en&section="></script>
+<!-- FEEDCAT.NET -->  </div>
+
+    </div>
+  <div class="bottom"></div>
+</div> <!-- /.block --><div id="block-blog-0" class="block block-blog last region-even even region-count-2 count-2">
+  <div class="top"></div>
+  <div class="middle">
+      <h2 class="title">Recent blog posts</h2>
+  
+  <div class="content">
+    <div class="item-list"><ul><li class="first"><a href="/blog/testing-internet-explorer-mac-its-actually-quite-easy">Testing Internet Explorer on a Mac. It&#039;s actually quite easy</a></li>
+<li><a href="/blog/secure-video-alternative-to-youtube">Secure Video: An alternative to YouTube</a></li>
+<li><a href="/blog/allow-user-access-single-s3-bucket" class="active">Allow User Access to a Single S3 Bucket</a></li>
+<li><a href="/blog/best-cloud-apps-run-business">Best Cloud Apps to Run a Business</a></li>
+<li><a href="/blog/law-firms-tackle-collaboration-software">Law Firms Tackle Collaboration Software</a></li>
+<li><a href="/blog/collaboration-adoption-should-be-easy">Collaboration Adoption Should Be Easy</a></li>
+<li class="last"><a href="/content/rfp-collaboration-theres-better-way">RFP Collaboration. There&#039;s A Better Way</a></li>
+</ul></div><div class="more-link"><a href="/blog" title="Read the latest blog entries.">more</a></div>  </div>
+
+    </div>
+  <div class="bottom"></div>
+</div> <!-- /.block --></div>
+                        <div id="right-area"><div id="node-13045" class="node node-type-blog node-promoted build-mode-full clearfix">
+  <div class="header">
+    <div class="date">
+      <h3>Dec 07</h3>
+      <h2>2012</h2>
+    </div>
+    <div class="title">
+      <h3><a href="/blog/allow-user-access-single-s3-bucket">Allow User Access to a Single S3 Bucket</a></h3>
+      <h5>Posted by: Andrew Homer</h5>
+    </div>
+    <div class="tweet" rel="https://centroy.com/blog/allow-user-access-single-s3-bucket">0</div>
+    <div class="retweet"><a target="_blank" href="http://www.addtoany.com/add_to/twitter?linkurl=https://centroy.com/blog/allow-user-access-single-s3-bucket&type=page&linkname=Allow User Access to a Single S3 Bucket&linknote=">retweet</a></div>
+    <div class="clr"></div>
+  </div>
+  <div class="content">
+    <h1><img alt="User permission access to an S3 Bucket" src="https://d321u2ikjm5b5x.cloudfront.net/blog/s3buckets.jpg" style="width: 230px; height: 173px; float: left; margin: 7px; border-width: 0px; border-style: solid;" />Allow User Access to a Single S3 Bucket</h1>
+<p>We're leveraging Amazon S3, in combination with IAM to allow user access to a single S3 bucket. With online team collaboration, customers can have hundreds of files spread across dozens of different groups. Customers can find themselves and their data suddenly 'locked in' if they decide to cancel. &nbsp;We hear nightmare stories about our competitors telling customers to manually right-click download each file when they cancel. Ouch. This can be a process that takes months.&nbsp;At&nbsp;<a href="http://centroy.com">Centroy</a>&nbsp;we needed a painless way for customers to download their data when they needed it. &nbsp;Of course it had to be easy and fast for the customer; however, we also needed to be efficient and secure with the approach. So what to do? &nbsp;Enter the power of <a href="http://aws.amazon.com/">Amazon Web Services</a>. AWS has some nice permission controls with Identity and Access Management (<a href="http://aws.amazon.com/iam/">IAM</a>). This allows us to create a user that can only access a single S3 bucket. &nbsp;IAM let's you get very granular with user permissions, right down to individual folders within buckets. However, in this tutorial we'll &nbsp;provide the high-level &nbsp;basics of permission policies (don't worry we'll make this easy). Here's the basic scenerio: you want to give a one-time user the ability to download files from a single S3 bucket.</p>
+<h3 style="margin-left: 40px;">1.<strong>&nbsp;</strong><strong>Zip up files for fast retrieval (may not apply to you)</strong></h3>
+<p style="margin-left: 40px;">First, what we did was dump the files into a folder and then zip the folder as a file. Basic stuff, but we can reduce the size in half, which is goodness for the customer to retrieve quickly and they won't have to manually download every file.&nbsp;<em> I should note that we have separate storage zones set up, and we don't permit direct access to our production buckets&nbsp; Also, in this example we're not downloading and then uploading files. That approach would be inefficient and not very secure. We're simply copying an S3 encrypted zip file over to another S3 bucket. AWS does not charge incurred bandwidth cost for moving files between S3 buckets, so that's economical and fast because we're using Amazon's internal transfer. This requires some 'PUT copy' magic, but I'll keep this simple and assume you want a single user to access files on a single S3 bucket.</em></p>
+<h3 style="margin-left: 40px;">2. Create a new isolated S3 bucket for single user accces (may not apply to you)</h3>
+<p style="margin-left: 40px;">Next we created an S3 bucket and gave it an arbitrary name: "BUCKETNAME". This step may not apply to you if you just want to grant user access to an existing S3 bucket.</p>
+<p style="margin-left: 40px;"><img alt="Create s3 bucket" src="http://content.screencast.com/users/Futz/folders/Jing/media/dad819dc-ed81-4dd9-847f-7d4b7c91a261/00000057.png" style="width: 150px; height: 83px; border-width: 1px; border-style: solid;" /></p>
+<h3 style="margin-left: 40px;">3. Encrypt the data.</h3>
+<p style="margin-left: 40px;">Encryption in transit happens automatically with AWS through the https transport layer (think bank transaction); however, Amazon also allows you encrypt the data at rest on their servers through AES-256.&nbsp; AWS has excellent security features and we should always take advantage of them. There's an automated way to do this, but you can right click on the file (or double click for the Mac crowd), select 'Properties', and select 'AES-256' server side encryption. The files will automatically decrypt on the local computer using Amazon's decrypt utility. You can read more about <a href="http://aws.typepad.com/aws/2011/10/new-amazon-s3-server-side-encryption.html">Amazon's encryption process</a> here.</p>
+<p style="margin-left: 40px;"><img alt="S3 server side encryption" src="http://content.screencast.com/users/Futz/folders/Jing/media/f926bc53-f118-406c-9ceb-08ade374788d/00000059.png" style="width: 400px; height: 280px; border-width: 1px; border-style: solid;" /></p>
+<p style="margin-left: 40px;">&nbsp;</p>
+<h3 style="margin-left: 40px;">4. Create a new user and set permissions to access a single bucket --the meat of it all</h3>
+<p style="margin-left: 40px;"><strong>&nbsp;</strong>I'm going to break this down into a few steps to keep it clean.</p>
+<h3 style="margin-left: 40px;">4a. Set user Log-in URL</h3>
+<p style="margin-left: 40px;">The user you create will NOT login to AWS the same way you will. They'll have a cutom login URL, so let's name it to make it a bit more intuitive. First, we want to go back to our main AWS console dashboard and select IAM.</p>
+<p style="margin-left: 40px;"><img alt="IAM AWS" src="http://content.screencast.com/users/Futz/folders/Jing/media/bc92d29a-74fe-46e6-aef4-48121652b40a/00000060.png" style="width: 400px; height: 277px; border-width: 1px; border-style: solid;" /></p>
+<p style="margin-left: 40px;">Next, we want to name our user login URL to an alias we can remember. Giving it an alias name is optional. We called ours Centroy so it was easy to remember. You'll need to give this URL to the users who have special access. Just copy and paste it into another browser (for testing) as well as an email draft for now. You can create your own custom login box directly on your website with an HTML snippet that masks the AWS login box entirely. I'll cover that in another post. We'll come back to this step to test later.</p>
+<p style="margin-left: 40px;"><img alt="Login URL" src="http://content.screencast.com/users/Futz/folders/Jing/media/518ed03c-05e2-4b5c-949d-243be4152348/00000068.png" style="width: 400px; height: 326px; border-width: 1px; border-style: solid;" /></p>
+<h3 style="margin-left: 40px;">&nbsp;4b. Create a new user</h3>
+<p style="margin-left: 40px;">Next we want to select 'Users', and then click &nbsp;'Create New Users'<br /><img alt="Create users" src="http://content.screencast.com/users/Futz/folders/Jing/media/c7bd1f87-6250-4c83-9e4d-47a6c6d21874/00000061.png" style="width: 400px; height: 137px; border-width: 1px; border-style: solid;" /></p>
+<p style="margin-left: 40px;">After that, you simply add the user (or users) that you want to grant access to our special S3 bucket. Here, my user is named "RickyRestricted', which will also be their username for login. You should also save their Access Key ID and Secret Access Key.</p>
+<p style="margin-left: 40px;"><img alt="Add users" src="http://content.screencast.com/users/Futz/folders/Jing/media/d87de5c6-df50-41c0-b6ed-c4762ec62c88/00000062.png" style="width: 400px; height: 262px; border-width: 1px; border-style: solid;" /></p>
+<h3 style="margin-left: 40px;">4c. Create a password for new user (RickyRestricted)</h3>
+<p style="margin-left: 40px;">We always want to have strict password policies.&nbsp; Select 'User', select 'Security Credentials', and select 'Manage password'.</p>
+<p style="margin-left: 40px;"><img alt="Password" src="http://content.screencast.com/users/Futz/folders/Jing/media/39071319-ed40-456c-b091-82965859028d/00000063.png" style="width: 400px; height: 111px; border-width: 1px; border-style: solid;" /></p>
+<p style="margin-left: 40px;">For the user password, you have the option of making up your own password, or have Amazon randomly generate one for you.&nbsp;It's your choice, but you'll need to remember this when you send credentials to the user. For the sake of this tutorial, copy and paste the username/password (and login URL) to an email draft. &nbsp;</p>
+<p style="margin-left: 40px;"><img alt="assign password" src="http://content.screencast.com/users/Futz/folders/Jing/media/35c320dc-e37a-4e2b-a38a-9a69a6ad1378/00000064.png" style="width: 400px; height: 114px; border-width: 1px; border-style: solid;" /></p>
+<h3 style="margin-left: 40px;">4c. Set user permissions</h3>
+<p style="margin-left: 40px;">Amazon allows you to set both "group" and "user" permissions. Don't be scared of this. Amazon is simply allowing you to be in better control. If you have dozens of user, managing them can become a bit cumbersome. So they allow the concept of group permissions, with common privledges. For example, you can create a group permission (a pool of users) to all have access to a single bucket. But then at the user-level, you can restrict folder access to certain users. For the sake of brevity, we'll just ignore group permissions and set at the user level. So first, what we want to do is click on our user "RickyRestricted', or whatever your user's name is. Click on 'Permissions', then click on 'Attach User Policy'.</p>
+<p style="margin-left: 40px;"><img alt="Attach user policy" src="http://content.screencast.com/users/Futz/folders/Jing/media/21257fa3-d6cf-497c-b231-38e2cfd83be7/00000065.png" style="width: 400px; height: 219px; border-width: 1px; border-style: solid;" /></p>
+<h3 style="margin-left: 40px;">4e. Add JSON code to user policy</h3>
+<p style="margin-left: 40px;">This is where the special sauce comes into play. After you select 'Attach User Policy' in the previous step, select the 'Custom Policy' radio button.<br /><img alt="Add policy code" src="http://content.screencast.com/users/Futz/folders/Jing/media/49554b54-5415-4583-b45a-be45c0427514/00000066.png" style="width: 400px; height: 192px; border-width: 1px; border-style: solid;" /></p>
+<p style="margin-left: 40px;">Now we want to name our policy (whatever you want) and then add some JSON code.<br /><img alt="Insert JSON code" src="http://content.screencast.com/users/Futz/folders/Jing/media/6941f36f-7430-4274-89d5-41572fa9fe82/00000067.png" style="width: 400px; height: 256px; border-width: 1px; border-style: solid;" /><br />&nbsp;</p>
+<h3 style="margin-left: 40px;">Read-only privilege code for a single bucket</h3>
+<p style="margin-left: 40px;">Here's the code. Copy and paste this, and type in your bucket where I have&nbsp;<span style="color: rgb(255, 0, 0);">BUCKETNAME</span>:</p>
+<p><code>{<br /> &nbsp;&nbsp;"Statement": [<br /> &nbsp;&nbsp;&nbsp;&nbsp;{<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Effect": "Allow",<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Action": [<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"s3:ListBucket",<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"s3:GetBucketLocation",<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"s3:ListBucketMultipartUploads"<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Resource": "arn:aws:s3:::<span style="color:#ff0000;">BUCKETNAME</span>",<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Condition": {}<br /> &nbsp;&nbsp;&nbsp;&nbsp;},<br /> &nbsp;&nbsp;&nbsp;&nbsp;{<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Effect": "Allow",<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Action": [<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"s3:AbortMultipartUpload",<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"s3:GetObject",<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"s3:GetObjectAcl",<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"s3:GetObjectVersion",<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"s3:GetObjectVersionAcl"<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Resource": "arn:aws:s3:::<span style="color:#ff0000;">BUCKETNAME</span>/*",<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Condition": {}<br /> &nbsp;&nbsp;&nbsp;&nbsp;},<br /> &nbsp;&nbsp;&nbsp;&nbsp;{<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Effect": "Allow",<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Action": "s3:ListAllMyBuckets",<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Resource": "*",<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Condition": {}<br /> &nbsp;&nbsp;&nbsp;&nbsp;}<br /> &nbsp;&nbsp;]<br /> } </code></p>
+<p style="margin-left: 40px;">Save the policy and now test it out by going to another browser and logging in. Remember to use the login URL of our special user (step 4a). &nbsp;Enter username and password of our special user (ex. RickyRestricted). Now you'll see this user only has access to our specific S3 bucket. Success!</p>
+<p class="p2" style="margin-left: 40px;">NOTE: Remember, I wanted my user to have<b> read-only</b> privileges. So when they try to upload a file, delete a file, they receive &nbsp;errors. Success!</p>
+<p class="p2" style="margin-left: 40px;"><img alt="Permission work" src="http://content.screencast.com/users/Futz/folders/Jing/media/3d99589b-f8f5-403d-8bb9-7cec6df329c8/00000069.png" style="width: 400px; height: 169px; border-width: 1px; border-style: solid;" /></p>
+<p class="p2" style="margin-left: 40px;">All you need to do now is email the user their special login URL, username, and password. &nbsp;(I'll show you how to create a custom login box in another post). That's it. If you're emailing them credentials, it's smart to have them to change their password. There's forced approach, but they can do this themselves, by clicking their username and selecting 'Security Credentials'.</p>
+<p class="p2" style="margin-left: 40px;"><img alt="Change password" src="http://content.screencast.com/users/Futz/folders/Jing/media/12162648-9b6e-4495-9a73-66410ebfadd5/00000071.png" style="width: 400px; height: 147px; border-width: 1px; border-style: solid;" /></p>
+<p class="p2" style="margin-left: 40px;">That's it! You created a user with read-only access to a single S3 bucket. BUT now suppose I wanted them to have full access, where the user can add/delete files, but only for their assigned bucket. &nbsp;Easy. We just add a little more JSON code for whichever <a href="http://docs.amazonwebservices.com/AmazonS3/latest/API/RESTObjectOps.html">Amazon object operation</a> we want to assign it.</p>
+<p class="p2" style="margin-left: 40px;">So to add write privleges, I just add a bit more code (Put &amp; delete object) based on the object operation we want.&nbsp;</p>
+<h3 style="margin-left: 40px;">Write privilege for a single bucket</h3>
+<p><code>{<br /> &nbsp;&nbsp;"Statement": [<br /> &nbsp;&nbsp;&nbsp;&nbsp;{<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Effect": "Allow",<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Action": [<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"s3:ListBucket",<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"s3:GetBucketLocation",<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"s3:ListBucketMultipartUploads"<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Resource": "arn:aws:s3:::<span style="color:#ff0000;">BUCKETNAME</span>",<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Condition": {}<br /> &nbsp;&nbsp;&nbsp;&nbsp;},<br /> &nbsp;&nbsp;&nbsp;&nbsp;{<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Effect": "Allow",<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Action": [<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"s3:AbortMultipartUpload",<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#0000ff;">"s3:DeleteObject",</span><br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#0000ff;">"s3:DeleteObjectVersion",</span><br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"s3:GetObject",<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"s3:GetObjectAcl",<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"s3:GetObjectVersion",<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"s3:GetObjectVersionAcl",<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#0000ff;">"s3:PutObject",</span><br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#0000ff;">"s3:PutObjectAcl",</span><br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#0000ff;">"s3:PutObjectAclVersion"</span><br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Resource": "arn:aws:s3:::<span style="color:#ff0000;">BUCKETNAME</span>/*",<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Condition": {}<br /> &nbsp;&nbsp;&nbsp;&nbsp;},<br /> &nbsp;&nbsp;&nbsp;&nbsp;{<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Effect": "Allow",<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Action": "s3:ListAllMyBuckets",<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Resource": "*",<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Condition": {}<br /> &nbsp;&nbsp;&nbsp;&nbsp;}<br /> &nbsp;&nbsp;]<br /> } </code></p>
+<p style="margin-left: 40px;">As I mentioned, you can get very granular and restrict user access to individual folders within a bucket, but this basic lesson should get you going.&nbsp; You can set this sort of thing up using tools from Cloudberry, or an FTP client, etc, but now you're asking a user to download a client.&nbsp;The nice thing here is that you're not asking the user to download anything special. You just email them the login URL, along with UN/PW and let them feast on an S3 bucket without worrying about them doing something naughty. Here we're making it easy for a user who may not know what an S3 bucket is.</p>
+<p style="margin-left: 40px;">A final word of caution: make sure you have solid change management controls, such as expiring user access, and setting up a process to manage multiple users, etc. But of course you already knew that :)</p>
+<p style="margin-left: 40px;">Enjoy!</p>
+<p style="margin-left: 40px;"><span style="color: rgb(34, 34, 34); font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 12px; line-height: 16px; background-color: rgb(252, 255, 232);">UYFFR357WCRD</span></p>
+<p style="margin-left: 40px;"></p>
+    
+  </div>
+  <div class="share">
+  
+<!-- AddToAny BEGIN -->
+<div class="a2a_kit a2a_default_style">
+<a class="a2a_dd" href="http://www.addtoany.com/share_save?linkurl=https://centroy.com/blog/allow-user-access-single-s3-bucket&amp;linkname=">Share</a>
+<span class="a2a_divider"></span>
+<a class="a2a_button_facebook"></a>
+<a class="a2a_button_twitter"></a>
+<a class="a2a_button_email"></a>
+</div>
+<!-- AddToAny END -->
+
+  </div>
+  <div class="links">
+  <ul class="links inline"><li class="comment_comments first active"><a href="/blog/allow-user-access-single-s3-bucket#comments" title="Jump to the first comment of this posting." class="active">0</a></li>
+<li class="comment_add active"><a href="/blog/allow-user-access-single-s3-bucket#comment-form" title="Add a new comment to this page." class="active">Add new comment</a></li>
+<li class="blog_usernames_blog last"><a href="/blogs/admin" title="Read Admin&#039;s latest blog entries.">Posted in Admin&#039;s blog</a></li>
+</ul>  </div>
+</div><div id="comments" class="comment_wrapper">
+  
+  <div class="box">
+
+  <h2>Post new comment</h2>
+
+  <div class="content"><form action="/comment/reply/13045"  accept-charset="UTF-8" method="post" id="comment-form">
+<div><h3>Leave a Comment</h3>
+<div class='form-layout-lookandfeel'><div class="form-item form-item-textfield" id="edit-name-wrapper">
+ <label for="edit-name">Your name</label>
+ <input type="text" maxlength="60" name="name" id="edit-name" size="30" value="Anonymous" class="form-text required" /> <span class="form-required" title="This field is required.">*</span>
+<div class='clearfix'></div>
+</div>
+<div class="form-item form-item-textfield" id="edit-mail-wrapper">
+ <label for="edit-mail">E-mail</label>
+ <input type="text" maxlength="64" name="mail" id="edit-mail" size="30" value="" class="form-text required" /> <span class="form-required" title="This field is required.">*</span>
+<div class='clearfix'></div>
+</div>
+<div class="form-item form-item-textfield" id="edit-subject-wrapper">
+ <label for="edit-subject">Subject</label>
+ <input type="text" maxlength="64" name="subject" id="edit-subject" size="60" value="" class="form-text" /> 
+<div class='clearfix'></div>
+</div>
+<div class="form-item form-item-textarea" id="edit-comment-wrapper">
+ <label for="edit-comment">Comment</label>
+ <textarea cols="60" rows="15" name="comment" id="edit-comment"  class="form-textarea required"></textarea> <span class="form-required" title="This field is required.">*</span>
+<div class='clearfix'></div>
+</div>
+<input type="hidden" name="form_build_id" id="form-f836a2dddcc577570e78a2a91f615bc2" value="form-f836a2dddcc577570e78a2a91f615bc2"  />
+<input type="hidden" name="form_id" id="edit-comment-form" value="comment_form"  />
+<input type="submit" name="op" id="edit-submit" value="Submit Comment"  class="form-submit" />
+</div>
+</div></form>
+</div>
+</div>
+</div>
+<div id="block-block-7" class="block block-block first last region-odd odd region-count-1 count-3">
+  
+  <div class="content">
+    <form action="/comment/reply/13045"  accept-charset="UTF-8" method="post" id="comment-form-1">
+<div><h3>Leave a Comment</h3>
+<div class='form-layout-lookandfeel'><div class="form-item form-item-textfield" id="edit-name-1-wrapper">
+ <label for="edit-name-1">Your name</label>
+ <input type="text" maxlength="60" name="name" id="edit-name-1" size="30" value="Anonymous" class="form-text required" /> <span class="form-required" title="This field is required.">*</span>
+<div class='clearfix'></div>
+</div>
+<div class="form-item form-item-textfield" id="edit-mail-1-wrapper">
+ <label for="edit-mail-1">E-mail</label>
+ <input type="text" maxlength="64" name="mail" id="edit-mail-1" size="30" value="" class="form-text required" /> <span class="form-required" title="This field is required.">*</span>
+<div class='clearfix'></div>
+</div>
+<div class="form-item form-item-textfield" id="edit-subject-1-wrapper">
+ <label for="edit-subject-1">Subject</label>
+ <input type="text" maxlength="64" name="subject" id="edit-subject-1" size="60" value="" class="form-text" /> 
+<div class='clearfix'></div>
+</div>
+<div class="form-item form-item-textarea" id="edit-comment-1-wrapper">
+ <label for="edit-comment-1">Comment</label>
+ <textarea cols="60" rows="15" name="comment" id="edit-comment-1"  class="form-textarea required"></textarea> <span class="form-required" title="This field is required.">*</span>
+<div class='clearfix'></div>
+</div>
+<input type="hidden" name="form_build_id" id="form-db5fb0c2d9ad74abee30cbae653c9ab1" value="form-db5fb0c2d9ad74abee30cbae653c9ab1"  />
+<input type="hidden" name="form_id" id="edit-comment-form-1" value="comment_form"  />
+<input type="submit" name="op" id="edit-submit-2" value="Submit Comment"  class="form-submit" />
+</div>
+</div></form>
+  </div>
+
+  </div> <!-- /.block -->
+</div>
+                        <div class="clearfix"></div>
+          </div><!-- box-content-middle end -->
+          <div class="box-content-bottom"></div>
+        </div>
+
+        
+        
+      </div></div> <!-- /.section, /#content -->
+
+              <div id="navigation">
+
+          <h2 class="element-invisible">Main menu</h2><ul id="main-menu" class="links clearfix"><li class="menu-255 first"><a href="/" title="">Home</a></li>
+<li class="menu-256"><a href="/about/contact">About</a></li>
+<li class="menu-7734"><a href="/industry-solutions">Industries</a></li>
+<li class="menu-7737"><a href="/support/getting-started">Support</a></li>
+<li class="menu-377 last"><a href="/user/register">Free Trial</a></li>
+</ul>
+          
+        </div> <!-- /#navigation -->
+      
+      
+      
+    </div></div> <!-- /#main, /#main-wrapper -->
+
+          <div id="footer"><div class="section">
+
+        <h2 class="element-invisible">Secondary menu</h2><ul id="secondary-menu" class="links clearfix"><li class="menu-400 first"><a href="/about/about-us">Company</a></li>
+<li class="menu-401"><a href="/about/contact">Contact</a></li>
+<li class="menu-468"><a href="/affiliate-program">Affiliate Program</a></li>
+<li class="menu-469 last"><a href="/blog" title="">Blog</a></li>
+</ul>
+                  <div id="footer-message">4757 Tangleberry Ln. Bainbridge Island, WA 98110
+</div>
+        
+        <div id="block-block-3" class="block block-block first region-odd odd region-count-1 count-5">
+  
+  <div class="content">
+    <div class="info"><span style="font-size:10px;">Centroy online team collaboration is perfect for building a business intranet, extranet site or customer portal. <a href="http://blogs.hbr.org/cs/2012/10/how_to_collaborate_in_a_virtua.html">Virtual teams</a> can leverage Centroy's online collaboration tools such as document management, project management, business wikis, CRM, and twitter-like chat. Centroy is reliable, secure and accessible from any computer or mobile device, so your team can use it wherever they are.</span></div>
+<div class="info"><a href="https://centroy.com/extranet-site">Extranet Site</a></div>
+<div class="info"><a href="https://centroy.com/extranet-site">B</a><a href="https://centroy.com/business-intranet">usiness Intranet</a></div>
+<div class="info"><a href="https://centroy.com/document-management">Document Management</a></div>
+<div class="info"><a href="https://centroy.com/project-management">Business Project Management</a></div>
+<div class="info"><a href="https://centroy.com/business-wiki">Business Wiki</a></div>
+<div class="info"><a href="https://centroy.com/online-collaboration">Online Collaboration</a></div>
+  </div>
+
+  </div> <!-- /.block -->
+<div id="block-block-4" class="block block-block last region-even even region-count-2 count-6">
+  
+  <div class="content">
+    <div class="connect"><span>Connect with us</span>
+<ul>
+<li class="facebook"><a href="http://www.facebook.com/pages/Centroy/217280178379668">facebook</a></li>
+<li class="in"><a href="http://www.linkedin.com/company/centroy">linkedin</a></li>
+<li class="twitter"><a href="https://twitter.com/#!/Centroyinc">twitter</a></li>
+<li class="google"><a href="//plus.google.com/114660737465904393509" rel="author">google</a></li>
+</ul>
+</div>
+  </div>
+
+  </div> <!-- /.block -->
+        <div class="clearfix"></div>
+        <div class="copyright"> &copy; 2013 Jibesite LLC | <a href="https://centroy.com/privacy-policy" >Privacy Policy</a> | <a href="https://centroy.com/terms-of-service" >Terms of Service</a></div>
+      </div></div> <!-- /.section, /#footer -->
+    
+  </div></div> <!-- /#page, /#page-wrapper -->
+
+  
+  <script type="text/javascript" src="https://centroy.com/sites/centroy.com/files/js/js_0277f4b25f88643b8c7e5dada1ebf8a9.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+var _gaq = _gaq || [];_gaq.push(["_setAccount", "UA-24937117-1"]);_gaq.push(["_trackPageview"]);(function() {var ga = document.createElement("script");ga.type = "text/javascript";ga.async = true;ga.src = ("https:" == document.location.protocol ? "https://ssl" : "http://www") + ".google-analytics.com/ga.js";var s = document.getElementsByTagName("script")[0];s.parentNode.insertBefore(ga, s);})();
+//--><!]]>
+</script>
+
+<script type="text/javascript">
+var a2a_config = a2a_config || {};
+a2a_config.linkurl = "https://centroy.com/blog/allow-user-access-single-s3-bucket";
+</script>
+<script type="text/javascript" src="https://static.addtoany.com/menu/page.js"></script><script type="text/javascript">
+document.write(unescape("%3Cscript src='" + ((document.location.protocol=="https:")?"https:":"http:") + "//snapabug.appspot.com/snapabug.js' type='text/javascript'%3E%3C/script%3E"));</script><script type="text/javascript">
+SnapABug.addButton('ffb2e44b-4bd4-4a4c-ab65-29cc33560b93',"1","40%");
+</script>
+</body>
+</html>

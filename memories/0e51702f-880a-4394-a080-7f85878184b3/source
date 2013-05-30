@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="client-nojs">
+<head>
+<title>Ruby - ArchWiki</title>
+<meta charset="UTF-8" />
+<meta name="generator" content="MediaWiki 1.20.5" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="search" type="application/opensearchdescription+xml" href="/opensearch_desc.php" title="ArchWiki (en)" />
+<link rel="EditURI" type="application/rsd+xml" href="https://wiki.archlinux.org/api.php?action=rsd" />
+<link rel="copyright" href="http://www.gnu.org/copyleft/fdl.html" />
+<link rel="alternate" type="application/atom+xml" title="ArchWiki Atom feed" href="/index.php?title=Special:RecentChanges&amp;feed=atom" />
+<link rel="stylesheet" href="https://wiki.archlinux.org/load.php?debug=false&amp;lang=en&amp;modules=mediawiki.legacy.commonPrint%2Cshared%7Cskins.archlinux&amp;only=styles&amp;skin=archlinux&amp;*" />
+<!--[if IE 6]><link rel="stylesheet" href="/skins/archlinux/IE60Fixes.css?303" media="screen" /><![endif]-->
+<!--[if IE 7]><link rel="stylesheet" href="/skins/archlinux/IE70Fixes.css?303" media="screen" /><![endif]--><meta name="ResourceLoaderDynamicStyles" content="" />
+
+<script src="https://wiki.archlinux.org/load.php?debug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=archlinux&amp;*"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Ruby","wgTitle":"Ruby","wgCurRevisionId":255941,"wgArticleId":9465,"wgIsArticle":true,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Programming language"],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"Ruby","wgRestrictionEdit":[],"wgRestrictionMove":[]});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function(){mw.user.options.set({"ccmeonemails":0,"cols":80,"date":"default","diffonly":0,"disablemail":0,"disablesuggest":0,"editfont":"default","editondblclick":0,"editsection":1,"editsectiononrightclick":0,"enotifminoredits":0,"enotifrevealaddr":0,"enotifusertalkpages":1,"enotifwatchlistpages":0,"extendwatchlist":0,"externaldiff":0,"externaleditor":0,"fancysig":0,"forceeditsummary":0,"gender":"unknown","hideminor":0,"hidepatrolled":0,"imagesize":2,"justify":0,"math":1,"minordefault":0,"newpageshidepatrolled":0,"nocache":0,"noconvertlink":0,"norollbackdiff":0,"numberheadings":0,"previewonfirst":0,"previewontop":1,"quickbar":5,"rcdays":7,"rclimit":50,"rememberpassword":0,"rows":25,"searchlimit":20,"showhiddencats":0,"showjumplinks":1,"shownumberswatching":1,"showtoc":1,"showtoolbar":1,"skin":"archlinux","stubthreshold":0,"thumbsize":2,"underline":2,"uselivepreview":0,"usenewrc":0,"watchcreations":0,"watchdefault":0,"watchdeletion":0,"watchlistdays":3,
+"watchlisthideanons":0,"watchlisthidebots":0,"watchlisthideliu":0,"watchlisthideminor":0,"watchlisthideown":0,"watchlisthidepatrolled":0,"watchmoves":0,"wllimit":250,"variant":"en","language":"en","searchNs0":true,"searchNs1":false,"searchNs2":false,"searchNs3":false,"searchNs4":false,"searchNs5":false,"searchNs6":false,"searchNs7":false,"searchNs8":false,"searchNs9":false,"searchNs10":false,"searchNs11":false,"searchNs12":false,"searchNs13":false,"searchNs14":false,"searchNs15":false});;},{},{});mw.loader.implement("user.tokens",function(){mw.user.tokens.set({"editToken":"+\\","watchToken":false});;},{},{});
+/* cache key: archwiki:resourceloader:filter:minify-js:7:d7d958b158f747a1a27187c8dfe3b417 */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax"]);
+}</script>
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-Ruby skin-archlinux action-view">
+
+<div id="archnavbar"><!-- Arch Linux global navigation bar -->
+	<div id="archnavbarlogo">
+		<p><a id="logo" href="http://www.archlinux.org/"></a></p>
+	</div>
+	<div id="archnavbarmenu">
+		<ul id="archnavbarlist">
+			<li id="anb-home"><a href="http://www.archlinux.org/">Home</a></li><li id="anb-packages"><a href="http://www.archlinux.org/packages/">Packages</a></li><li id="anb-forums"><a href="https://bbs.archlinux.org/">Forums</a></li><li id="anb-wiki" class="anb-selected"><a href="https://wiki.archlinux.org/">Wiki</a></li><li id="anb-bugs"><a href="https://bugs.archlinux.org/">Bugs</a></li><li id="anb-aur"><a href="https://aur.archlinux.org/">AUR</a></li><li id="anb-download"><a href="http://www.archlinux.org/download/">Download</a></li>		</ul>
+	</div>
+</div><!-- #archnavbar -->
+
+<div id="globalWrapper">
+<div id="column-content"><div id="content" class="mw-body-primary">
+	<a id="top"></a>
+	
+	<h1 id="firstHeading" class="firstHeading"><span dir="auto">Ruby</span></h1>
+	<div id="bodyContent" class="mw-body">
+		<div id="siteSub">From ArchWiki</div>
+		<div id="contentSub"></div>
+		<div id="jump-to-nav" class="mw-jump">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>
+		<!-- start content -->
+<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><p>Ruby is a dynamic, interpreted, open source programming language with a focus on simplicity and productivity.
+</p>
+<table id="toc" class="toc"><tr><td><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Installing_Ruby"><span class="tocnumber">1</span> <span class="toctext">Installing Ruby</span></a>
+<ul>
+<li class="toclevel-2 tocsection-2"><a href="#Ruby_2.0"><span class="tocnumber">1.1</span> <span class="toctext">Ruby 2.0</span></a></li>
+<li class="toclevel-2 tocsection-3"><a href="#Ruby_1.9"><span class="tocnumber">1.2</span> <span class="toctext">Ruby 1.9</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="#Ruby_1.8"><span class="tocnumber">1.3</span> <span class="toctext">Ruby 1.8</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Multiple_Versions"><span class="tocnumber">1.4</span> <span class="toctext">Multiple Versions</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-6"><a href="#RubyGems"><span class="tocnumber">2</span> <span class="toctext">RubyGems</span></a>
+<ul>
+<li class="toclevel-2 tocsection-7"><a href="#Usage"><span class="tocnumber">2.1</span> <span class="toctext">Usage</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="#Running_as_normal_user"><span class="tocnumber">2.2</span> <span class="toctext">Running as normal user</span></a></li>
+<li class="toclevel-2 tocsection-9"><a href="#Running_as_root"><span class="tocnumber">2.3</span> <span class="toctext">Running as root</span></a></li>
+<li class="toclevel-2 tocsection-10"><a href="#Bundler"><span class="tocnumber">2.4</span> <span class="toctext">Bundler</span></a></li>
+<li class="toclevel-2 tocsection-11"><a href="#Managing_RubyGems_using_pacman"><span class="tocnumber">2.5</span> <span class="toctext">Managing RubyGems using pacman</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-12"><a href="#See_also"><span class="tocnumber">3</span> <span class="toctext">See also</span></a></li>
+<li class="toclevel-1 tocsection-13"><a href="#References"><span class="tocnumber">4</span> <span class="toctext">References</span></a></li>
+</ul>
+</td></tr></table>
+<h2> <span class="mw-headline" id="Installing_Ruby"> Installing Ruby </span></h2>
+<p>The version of Ruby you need to install depends on your requirements. If you are supporting a legacy application, install Ruby 1.9 or 1.8 as necessary. If you are starting a new project, Ruby 2.0 is recommended. Below is a summary of the available versions and how to get them.
+</p>
+<h3> <span class="mw-headline" id="Ruby_2.0"> Ruby 2.0 </span></h3>
+<p>To install Ruby 2.0.0, install <span style="font-family: monospace"><a rel="nofollow" class="external text" href="https://www.archlinux.org/packages/?name=ruby">ruby</a></span>. Ruby 2.0 includes <a href="#RubyGems">#RubyGems</a>.
+</p>
+<h3> <span class="mw-headline" id="Ruby_1.9"> Ruby 1.9 </span></h3>
+<p>To install Ruby 1.9.3, install <span style="font-family: monospace"><a rel="nofollow" class="external text" href="https://www.archlinux.org/packages/?name=ruby1.9">ruby1.9</a></span>. Ruby 1.9 includes RubyGems.
+</p><p>Pros:
+</p>
+<ul><li> Vastly improved performance over 1.8
+</li><li> New features for concurrency such as fibers.
+</li><li> Various other language improvements, such as an improved CSV parser.
+</li></ul>
+<p>Cons:
+</p>
+<ul><li> Not compatible with many older gems (and Ruby On Rails versions prior to 2.3)
+</li><li> Changes in the language might cause older Ruby code not to run, or exhibit unexpected bugs.
+</li></ul>
+<div style="padding: 5px; margin: 0.50em 0; background-color: #DDDDFF; border: thin solid #BBBBDD; overflow: hidden;"><strong> Note: </strong>Visit <a rel="nofollow" class="external free" href="http://isitruby19.com/">http://isitruby19.com/</a> to determine if the gems/modules you require are compatible with Ruby 1.9.</div>
+<h3> <span class="mw-headline" id="Ruby_1.8"> Ruby 1.8 </span></h3>
+<p>To install Ruby 1.8.7, install <span style="font-family: monospace"><a rel="nofollow" class="external text" href="https://aur.archlinux.org/packages/ruby1.8/">ruby1.8</a></span> or <span style="font-family: monospace"><a rel="nofollow" class="external text" href="https://aur.archlinux.org/packages/ruby-1.8.7-svn/">ruby-1.8.7-svn</a></span> from the <a href="/index.php/AUR" title="AUR" class="mw-redirect">AUR</a>. Ruby 1.8 does not include RubyGems. Instead, it is available through the <span style="font-family: monospace"><a rel="nofollow" class="external text" href="https://aur.archlinux.org/packages/rubygems1.8/">rubygems1.8</a></span> package.
+</p>
+<h3> <span class="mw-headline" id="Multiple_Versions"> Multiple Versions </span></h3>
+<p>If you want to run multiple versions on the same system (e.g. 2.0.0-p0 and 1.9.3-p392), the easiest way is to use <a href="/index.php/RVM" title="RVM">RVM</a> or <a href="/index.php/Rbenv" title="Rbenv">rbenv</a>.
+</p>
+<h2> <span class="mw-headline" id="RubyGems"> RubyGems </span></h2>
+<p><i>gem</i> is a package manager for Ruby modules (called Gems), somewhat comparable to what <a href="/index.php/Pacman" title="Pacman">pacman</a> is to Arch Linux. The <i>gem</i> command will be installed if you followed the installation instructions above.
+</p>
+<h3> <span class="mw-headline" id="Usage"> Usage </span></h3>
+<p>To see what gems are installed:
+</p>
+<pre>$ gem list
+</pre>
+<p>To get information about a gem:
+</p>
+<pre>$ gem spec &lt;gem_name&gt;
+</pre>
+<p>By default, <code style="display:inline-block; padding: 0.1em 0.3em;">gem list</code> and <code style="display:inline-block; padding: 0.1em 0.3em;">gem spec</code> use the <code style="display:inline-block; padding: 0.1em 0.3em;">--local</code> option, which forces <i>gem</i> to search only the local system. This can be overridden with the <code style="display:inline-block; padding: 0.1em 0.3em;">--remote</code> flag. Thus, to search for the mysql gem:
+</p>
+<pre>$ gem list --remote mysql
+</pre>
+<p>To install a gem:
+</p>
+<pre>$ gem install mysql
+</pre>
+<p>The process can be sped up somewhat if you do not need local documentation:
+</p>
+<pre>$ gem install mysql --no-rdoc --no-ri
+</pre>
+<p>To update all installed gems:
+</p>
+<pre>$ gem update
+</pre>
+<h3> <span class="mw-headline" id="Running_as_normal_user"> Running as normal user </span></h3>
+<p>When running <i>gem</i> as a normal user, gems are installed into <code style="display:inline-block; padding: 0.1em 0.3em;">~/.gem</code> instead of system-wide. This is considered the best way to manage gems on Arch. Unfortunately, not all gems are happy with being installed in this way, and might insist on being installed by root, especially if they have native extensions (compiled C code). This per-user behavior is enabled via <code style="display:inline-block; padding: 0.1em 0.3em;">/etc/gemrc</code> and can be overridden by a <code style="display:inline-block; padding: 0.1em 0.3em;">~/.gemrc</code> file.
+</p><p>To use gems which install binaries, you need to add <code style="display:inline-block; padding: 0.1em 0.3em;">~/.gem/ruby/2.0.0/bin</code> to your <code style="display:inline-block; padding: 0.1em 0.3em;">$PATH</code>.
+</p>
+<h3> <span class="mw-headline" id="Running_as_root"> Running as root </span></h3>
+<p>When running as root, the gems will be installed into <code style="display:inline-block; padding: 0.1em 0.3em;">/root/.gems</code> and will <b>not</b> be installed to <code style="display:inline-block; padding: 0.1em 0.3em;">/usr/lib/ruby/gems/</code>.
+</p>
+<div style="padding: 5px; margin: 0.50em 0; background-color: #DDDDFF; border: thin solid #BBBBDD; overflow: hidden;"><strong> Note: </strong>See bug #<a rel="nofollow" class="external text" href="https://bugs.archlinux.org/task/33327">33327</a> for more information.</div>
+<p><a href="/index.php/Ruby#Bundler" title="Ruby">Bundler</a> solves these problems to some extent by packaging gems into your application. See the section below on using bundler.
+</p>
+<h3> <span class="mw-headline" id="Bundler"> Bundler </span></h3>
+<p><a rel="nofollow" class="external text" href="http://github.com/carlhuda/bundler">Bundler</a> allows you to specify which gems your application depends upon, and optionally which version those gems should be. Once this specification is in place, Bundler installs all required gems (including the full gem dependency tree) and logs the results for later inspection. By default, Bundler installs gems into a shared location, but they can also be installed directly into your application. When your application is run, Bundler provides the correct version of each gem, even if multiple versions of each gem have been installed. This requires a little bit of work: applications should be called with <code style="display:inline-block; padding: 0.1em 0.3em;">bundle exec</code>, and two lines of boilerplate code must be placed in your application's main executable.
+</p><p>To install Bundler:
+</p>
+<pre>$ gem install bundler
+</pre>
+<p>By default, Bundler installs gems system-wide, which is contrary to the behaviour of <i>gem</i> itself on Arch. To correct this, add the following to your <code style="display:inline-block; padding: 0.1em 0.3em;">~/.bashrc</code>:
+</p>
+<pre>export GEM_HOME=~/.gem/ruby/2.0.0
+</pre>
+<p>To start a new bundle:
+</p>
+<pre>$ bundle init
+</pre>
+<p>Then edit <code style="display:inline-block; padding: 0.1em 0.3em;">Gemfile</code> in the current directory (created by bundle init) and list your required gems:
+</p>
+<pre style="margin-bottom: 0; border-bottom:none; padding-bottom:0.8em;">Gemfile</pre>
+<pre style="margin-top: 0; border-top-style:dashed; padding-top: 0.8em;">
+gem "rails", "3.2.9"
+gem "mysql"
+</pre>
+<p>Run the following to install gems into <code style="display:inline-block; padding: 0.1em 0.3em;">GEM_HOME</code>:
+</p>
+<pre>$ bundle install
+</pre>
+<p>Alternatively, run the following to install gems to <code style="display:inline-block; padding: 0.1em 0.3em;">.bundle</code> in the working directory:
+</p>
+<pre>$ bundle install --path .bundle
+</pre>
+<p>Don't forget to edit your main executable:
+</p>
+<pre>#!/usr/bin/env ruby
+
+# "This will automatically discover your Gemfile, and make all of the gems in
+# your Gemfile available to Ruby." <a rel="nofollow" class="external free" href="http://gembundler.com/v1.3/rationale.html">http://gembundler.com/v1.3/rationale.html</a>
+require 'rubygems'
+require 'bundler/setup'
+
+...
+</pre>
+<p>Finally, run your program:
+</p>
+<pre>bundle exec &lt;main_executable_name.rb&gt;</pre>
+<h3> <span class="mw-headline" id="Managing_RubyGems_using_pacman"> Managing RubyGems using pacman </span></h3>
+<p>Instead of managing gems with <code style="display:inline-block; padding: 0.1em 0.3em;">gem</code>, you can use <code style="display:inline-block; padding: 0.1em 0.3em;">pacman</code>, or some <a href="/index.php/AUR" title="AUR" class="mw-redirect">AUR</a> helper. Ruby packages follow the naming convention ruby-[gemname]. This option provides the following advantages:
+</p>
+<ul><li> Gems are updated along with the rest of your system. As a result, you never need to run <code style="display:inline-block; padding: 0.1em 0.3em;">gem update</code>: <code style="display:inline-block; padding: 0.1em 0.3em;">pacman -Syu</code> suffices.
+</li><li> Installed gems are available system-wide, instead of being available only to the user who installed them.
+</li></ul>
+<p>If a gem is not available in the repositories, you can use <span style="font-family: monospace"><a rel="nofollow" class="external text" href="https://aur.archlinux.org/packages/pacgem/">pacgem</a></span> to automatically create a package, which can then be installed by pacman.
+</p>
+<h2> <span class="mw-headline" id="See_also"> See also </span></h2>
+<ul><li> <a href="/index.php/Ruby_On_Rails" title="Ruby On Rails" class="mw-redirect">Ruby On Rails</a>
+</li></ul>
+<h2> <span class="mw-headline" id="References"> References </span></h2>
+<ul><li> Ruby - <a rel="nofollow" class="external free" href="http://ruby-lang.org/">http://ruby-lang.org/</a>
+</li><li> Rubyforge - <a rel="nofollow" class="external free" href="http://rubyforge.org">http://rubyforge.org</a>
+</li><li> Bundler - <a rel="nofollow" class="external free" href="http://github.com/carlhuda/bundler">http://github.com/carlhuda/bundler</a>
+</li></ul>
+
+<!-- 
+NewPP limit report
+Preprocessor visited node count: 359/1000000
+Preprocessor generated node count: 958/1000000
+Post‐expand include size: 4326/2097152 bytes
+Template argument size: 1168/2097152 bytes
+Highest expansion depth: 6/40
+Expensive parser function count: 0/100
+-->
+
+<!-- Saved in parser cache with key archwiki:pcache:idhash:9465-0!*!0!!en!*!* and timestamp 20130503034833 -->
+</div><div class="printfooter">
+Retrieved from "<a href="https://wiki.archlinux.org/index.php?title=Ruby&amp;oldid=255941">https://wiki.archlinux.org/index.php?title=Ruby&amp;oldid=255941</a>"</div>
+		<div id='catlinks' class='catlinks'><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="/index.php/Special:Categories" title="Special:Categories">Category</a>: <ul><li><a href="/index.php/Category:Programming_language" title="Category:Programming language">Programming language</a></li></ul></div></div>		<!-- end content -->
+				<div class="visualClear"></div>
+	</div>
+</div></div>
+<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<div class="pBody">
+			<ul>
+				<li id="ca-nstab-main" class="selected"><a href="/index.php/Ruby" primary="1" context="subject" title="View the content page [c]" accesskey="c">Page</a></li>
+				<li id="ca-talk"><a href="/index.php/Talk:Ruby" primary="1" context="talk" title="Discussion about the content page [t]" accesskey="t">Discussion</a></li>
+				<li id="ca-viewsource"><a href="/index.php?title=Ruby&amp;action=edit" primary="1" title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></li>
+				<li id="ca-history"><a href="/index.php?title=Ruby&amp;action=history" rel="archives" title="Past revisions of this page [h]" accesskey="h">History</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-personal">
+		<h5>Personal tools</h5>
+		<div class="pBody">
+			<ul>
+				<li id="pt-createaccount"><a href="/index.php?title=Special:UserLogin&amp;returnto=Ruby&amp;type=signup">Create account</a></li>
+				<li id="pt-login"><a href="/index.php?title=Special:UserLogin&amp;returnto=Ruby" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-logo">
+<a href="/index.php/Main_Page" style="background-image: url(/skins/archlinux/archlogo.png);" title="Visit the main page"></a>
+	</div>
+	<div class="generated-sidebar portlet" id="p-navigation">
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage-description"><a href="/index.php/Main_Page" title="Visit the main page [z]" accesskey="z">Main page</a></li>
+				<li id="n-categories"><a href="/index.php/Table_of_Contents">Categories</a></li>
+				<li id="n-portal"><a href="/index.php/Getting_Involved" title="Various ways Archers can contribute to the community">Getting Involved</a></li>
+				<li id="n-currentevents"><a href="/index.php/ArchWiki:News" title="The latest lowdown on the wiki">Wiki News</a></li>
+				<li id="n-recentchanges"><a href="/index.php/Special:RecentChanges" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li>
+				<li id="n-randompage"><a href="/index.php/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li>
+				<li id="n-help"><a href="/index.php/Help:Contents" title="Wiki navigation, reading, and editing help">Help</a></li>
+			</ul>
+		</div>
+	</div>
+	<div id="p-search" class="portlet">
+		<h5><label for="searchInput">Search</label></h5>
+		<div id="searchBody" class="pBody">
+			<form action="/index.php" id="searchform">
+				<input type='hidden' name="title" value="Special:Search"/>
+				<input type="search" name="search" title="Search ArchWiki [f]" accesskey="f" id="searchInput" />
+				<input type="submit" name="go" value="Go" title="Go to a page with this exact name if exists" id="searchGoButton" class="searchButton" />&#160;
+				<input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton" />
+			</form>
+		</div>
+	</div>
+	<div class="portlet" id="p-tb">
+		<h5>Toolbox</h5>
+		<div class="pBody">
+			<ul>
+				<li id="t-whatlinkshere"><a href="/index.php/Special:WhatLinksHere/Ruby" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+				<li id="t-recentchangeslinked"><a href="/index.php/Special:RecentChangesLinked/Ruby" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+				<li id="t-specialpages"><a href="/index.php/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li>
+				<li id="t-print"><a href="/index.php?title=Ruby&amp;printable=yes" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>
+				<li id="t-permalink"><a href="/index.php?title=Ruby&amp;oldid=255941" title="Permanent link to this revision of the page">Permanent link</a></li>
+			</ul>
+		</div>
+	</div>
+	<div id="p-lang" class="portlet">
+		<h5>In other languages</h5>
+		<div class="pBody">
+			<ul>
+				<li class="interwiki-ja"><a href="https://wiki.archlinux.org/index.php/Ruby_(%E6%97%A5%E6%9C%AC%E8%AA%9E)" title="Ruby" lang="ja" hreflang="ja">日本語</a></li>
+				<li class="interwiki-zh-cn"><a href="https://wiki.archlinux.org/index.php/Ruby_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)" title="Ruby" lang="zh-cn" hreflang="zh-cn">‪中文（中国大陆）‬</a></li>
+			</ul>
+		</div>
+	</div>
+</div><!-- end of the left (by default at least) column -->
+<div class="visualClear"></div>
+<div id="footer">
+	<ul id="f-list">
+		<li id="lastmod"> This page was last modified on 3 May 2013, at 03:48.</li>
+		<li id="copyright">Content is available under <a class="external" href="http://www.gnu.org/copyleft/fdl.html">GNU Free Documentation License 1.3 or later</a>.</li>
+		<li id="privacy"><a href="/index.php/ArchWiki:Privacy_policy" title="ArchWiki:Privacy policy">Privacy policy</a></li>
+		<li id="about"><a href="/index.php/ArchWiki:About" title="ArchWiki:About">About ArchWiki</a></li>
+		<li id="disclaimer"><a href="/index.php/ArchWiki:General_disclaimer" title="ArchWiki:General disclaimer">Disclaimers</a></li>
+	</ul>
+</div>
+</div>
+<script>if(window.mw){
+mw.loader.state({"site":"loading","user":"missing","user.groups":"ready"});
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.user","mediawiki.page.ready","mediawiki.searchSuggest"], null, true);
+}</script>
+<script>if(window.mw){
+mw.loader.state({"site":"ready"});
+}</script>
+<!-- Served in 0.051 secs. --></body><!-- Cached/compressed 20130503042528 -->
+</html>
