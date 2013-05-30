@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Strong Password Hashing with Node.js Standard Library - Alexei Boronine</title>
+    <meta charset="utf-8" />
+    <link rel="shortcut icon" href="/favicon.ico"/>
+    <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Titillium+Web:400' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="../../../../theme/css/main.css" type="text/css" />
+    <link href="../../../../" type="application/atom+xml" rel="alternate" title="Alexei Boronine's Blog ATOM Feed" />
+</head>
+
+<body>
+    <div id="wrapper">
+        <header>
+        Alexei Boronine's <a href="/">blog</a>, <a href="/resume/">resume</a> &amp; <a href="/projects/">projects</a>.
+        </header>
+
+                
+        <div id="content">
+                    
+  <h1>Strong Password Hashing with Node.js Standard&nbsp;Library</h1>
+  <p>Cracking your users&#8217; hashed and salted password is pretty damn easy these days. To make it a bit harder for the bad guys, you should use something like <a class="reference external" href="http://en.wikipedia.org/wiki/PBKDF2"><span class="caps">PBDFK2</span></a>, which hashes the password thousands of times before giving you back the result. This is called <a class="reference external" href="http://en.wikipedia.org/wiki/Key_stretching">key-stretching</a> and it helps simply by making your passwords more computationally expensive to&nbsp;crack.</p>
+<p>Here&#8217;s a neat little function you can use to hash (and then verify) your passwords in Node.js, using its <a class="reference external" href="http://nodejs.org/api/crypto.html">crypto</a>&nbsp;module.</p>
+<div class="highlight"><pre><span class="nv">crypto = </span><span class="nx">require</span> <span class="s">&#39;crypto&#39;</span>
+
+<span class="nv">hasher = </span><span class="nf">(opts, callback) -&gt;</span>
+  <span class="c1"># Generate a random 8-character base64 password if none provided</span>
+  <span class="k">if</span> <span class="o">not</span> <span class="nx">opts</span><span class="p">.</span><span class="nx">plaintext</span>
+    <span class="k">return</span> <span class="nx">crypto</span><span class="p">.</span><span class="nx">randomBytes</span> <span class="mi">6</span><span class="p">,</span> <span class="nf">(err, buf) -&gt;</span>
+      <span class="nx">callback</span> <span class="nx">err</span> <span class="k">if</span> <span class="nx">err</span>
+      <span class="nv">opts.plaintext = </span><span class="nx">buf</span><span class="p">.</span><span class="nx">toString</span> <span class="s">&#39;base64&#39;</span>
+      <span class="nx">hasher</span> <span class="nx">opts</span><span class="p">,</span> <span class="nx">callback</span>
+  <span class="c1"># Generate random 512-bit salt if no salt provided</span>
+  <span class="k">if</span> <span class="o">not</span> <span class="nx">opts</span><span class="p">.</span><span class="nx">salt</span>
+    <span class="k">return</span> <span class="nx">crypto</span><span class="p">.</span><span class="nx">randomBytes</span> <span class="mi">64</span><span class="p">,</span> <span class="nf">(err, buf) -&gt;</span>
+      <span class="nx">callback</span> <span class="nx">err</span> <span class="k">if</span> <span class="nx">err</span>
+      <span class="nv">opts.salt = </span><span class="nx">buf</span>
+      <span class="nx">hasher</span> <span class="nx">opts</span><span class="p">,</span> <span class="nx">callback</span>
+  <span class="c1"># Node.js <span class="caps">PBKDF2</span> forces sha1</span>
+  <span class="nv">opts.hash = </span><span class="s">&#39;sha1&#39;</span>
+  <span class="nv">opts.iterations = </span><span class="nx">opts</span><span class="p">.</span><span class="nx">iterations</span> <span class="o">?</span> <span class="mi">10000</span>
+  <span class="nx">crypto</span><span class="p">.</span><span class="nx">pbkdf2</span> <span class="nx">opts</span><span class="p">.</span><span class="nx">plaintext</span><span class="p">,</span> <span class="nx">opts</span><span class="p">.</span><span class="nx">salt</span><span class="p">,</span> <span class="nx">opts</span><span class="p">.</span><span class="nx">iterations</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="nf">(err, key) -&gt;</span>
+    <span class="nx">callback</span> <span class="nx">err</span> <span class="k">if</span> <span class="nx">err</span>
+    <span class="nv">opts.key = </span><span class="k">new</span> <span class="nx">Buffer</span><span class="p">(</span><span class="nx">key</span><span class="p">)</span>
+    <span class="nx">callback</span> <span class="kc">null</span><span class="p">,</span> <span class="nx">opts</span>
+</pre></div>
+<p><tt class="docutils literal">opts</tt> is an object with a number of optional&nbsp;components:</p>
+<ul class="simple">
+<li><tt class="docutils literal">plaintext</tt>: The password to be hashed. If it is not provided, an 8 character base64 password will be randomly&nbsp;generated.</li>
+<li><tt class="docutils literal">iterations</tt>: How many times should the hash function be applied. Defaults to 10000. <a class="reference external" href="http://security.stackexchange.com/questions/3959/recommended-of-iterations-when-using-pkbdf2-sha256">Strong&nbsp;enough?</a></li>
+<li><tt class="docutils literal">salt</tt>: A string or <a class="reference external" href="http://nodejs.org/api/buffer.html">Buffer</a> with the salt. If not provided, a 512-bit salt will be randomly&nbsp;generated.</li>
+</ul>
+<p>Your callback should accept an object similar to the above, but with an additional component: <cite>key</cite> - the resulting 512-bit hash in the form of a&nbsp;Buffer.</p>
+<div class="section" id="hashing-a-password">
+<h2>Hashing a&nbsp;password</h2>
+<div class="highlight"><pre><span class="nx">hasher</span> <span class="p">{</span><span class="nv">plaintext: </span><span class="s">&#39;secret&#39;</span><span class="p">},</span> <span class="nf">(err, result) -&gt;</span>
+  <span class="c1"># Save as hex strings</span>
+  <span class="nv">user.salt = </span><span class="nx">result</span><span class="p">.</span><span class="nx">salt</span><span class="p">.</span><span class="nx">toString</span> <span class="s">&#39;hex&#39;</span>
+  <span class="nv">user.key = </span><span class="nx">result</span><span class="p">.</span><span class="nx">key</span><span class="p">.</span><span class="nx">toString</span> <span class="s">&#39;hex&#39;</span>
+  <span class="nx">user</span><span class="p">.</span><span class="nx">save</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="section" id="verifying-a-password">
+<h2>Verifying a&nbsp;password</h2>
+<div class="highlight"><pre><span class="c1"># Hex string to Binary</span>
+<span class="nv">salt = </span><span class="k">new</span> <span class="nx">Buffer</span> <span class="nx">user</span><span class="p">.</span><span class="nx">salt</span><span class="p">,</span> <span class="s">&#39;hex&#39;</span>
+<span class="nx">hasher</span> <span class="p">{</span><span class="nv">plaintext: </span><span class="s">&#39;secret&#39;</span><span class="p">,</span> <span class="nv">salt: </span><span class="nx">salt</span><span class="p">},</span> <span class="nf">(err, result) -&gt;</span>
+  <span class="k">if</span> <span class="nx">user</span><span class="p">.</span><span class="nx">key</span> <span class="o">==</span> <span class="nx">result</span><span class="p">.</span><span class="nx">key</span><span class="p">.</span><span class="nx">toString</span> <span class="s">&#39;hex&#39;</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span> <span class="s">&#39;Success!&#39;</span>
+</pre></div>
+</div>
+<div class="section" id="generating-a-password">
+<h2>Generating a&nbsp;password</h2>
+<div class="highlight"><pre><span class="nx">hasher</span> <span class="p">{},</span> <span class="nf">(err, result) -&gt;</span>
+  <span class="c1"># Save as hex strings</span>
+  <span class="nv">user.salt = </span><span class="nx">result</span><span class="p">.</span><span class="nx">salt</span><span class="p">.</span><span class="nx">toString</span> <span class="s">&#39;hex&#39;</span>
+  <span class="nv">user.key = </span><span class="nx">result</span><span class="p">.</span><span class="nx">key</span><span class="p">.</span><span class="nx">toString</span> <span class="s">&#39;hex&#39;</span>
+  <span class="nx">user</span><span class="p">.</span><span class="nx">save</span> <span class="nf">-&gt;</span>
+    <span class="nx">postmark</span><span class="p">.</span><span class="nx">send</span>
+      <span class="nv">From: </span><span class="s">&quot;you@example.com&quot;</span>
+      <span class="nv">To: </span><span class="nx">user</span><span class="p">.</span><span class="nx">email</span>
+      <span class="nv">Subject: </span><span class="s">&quot;Thank you for signing up with Example.com&quot;</span>
+      <span class="nv">TextBody: </span><span class="s">&quot;Your temporary password is </span><span class="si">#{</span><span class="nx">result</span><span class="p">.</span><span class="nx">plaintext</span><span class="si">}</span><span class="s">&quot;</span>
+</pre></div>
+<p>Let&#8217;s end on a troubling note, courtesy of <a class="reference external" href="http://www.tarsnap.com/scrypt/scrypt.pdf">scrypt</a> and <a class="reference external" href="http://stackoverflow.com/questions/4433216/password-encryption-pbkdf2-using-sha512-x-1000-vs-bcrypt">this StackOverflow answer</a>.</p>
+<img alt="|filename|/images/cracking_prices.png" src="../../../../static/images/cracking_prices.png" />
+<p>Hash, rinse,&nbsp;repeat!</p>
+</div>
+
+  <div id="disqus_thread" style="margin-top:100px"></div>
+        </div>
+
+        <footer>
+            <a href="https://github.com/boronine">GitHub</a> / <a href="https://twitter.com/#!/boronine">Twitter</a> / <a href="/atom.xml">Subscribe</a>
+        </footer>
+
+    </div>
+
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    var pluginUrl = '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
+    _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
+    _gaq.push(['_setAccount', 'UA-12144432-2']);
+    _gaq.push(['_trackPageview']);
+    (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+<script type="text/javascript">
+  var disqus_shortname = 'boronineblog';
+  (function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+</body>
+</html>

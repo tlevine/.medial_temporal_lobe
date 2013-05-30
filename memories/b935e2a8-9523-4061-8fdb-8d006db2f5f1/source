@@ -1,0 +1,839 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+		   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+	<title>Encrypting data with pgcrypto  - Postgres OnLine Journal</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta name="Powered-By" content="Serendipity v.1.4.1" />
+	<link rel="stylesheet" type="text/css" href="/jeditcode_simple.css" />
+	<link rel="stylesheet" type="text/css" href="http://www.postgresonline.com/journal/serendipity.css" />
+	<link rel="alternate"  type="application/rss+xml" title="Postgres OnLine Journal Magazine RSS feed" href="http://feeds.feedburner.com/PostgresOnlineJournal" />
+	<link rel="pingback" href="http://www.postgresonline.com/journal/comment.php?type=pingback&amp;entry_id=165" />
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-404903-6']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+<meta name="description" content="PostgreSQL has various levels of encryption to choose from.  In this article we'll go over the basics built-in and the more advanced provided by the contrib module pgcrypto. When encrypting data, as a general rule the harder you make it to
+keep people out of your data, the easier it is for you to lock yourself out of your data. Not only does encryption make it difficult to read data, it
+also takes more resources to query and decrypt. With those rules of thumb, its important to pick your encryption strategies based on the sensitivity of your data.  " />
+        <meta name="keywords" content="share/contrib/pgcrypto.sql,salt" />
+
+</head>
+
+<body>
+
+<div id="serendipity_banner">
+	<h1><a class="homelink1" href="/">Encrypting data with pgcrypto</a> &nbsp;&nbsp;<a href="http://www.postgis.us" target="_blank" title="PostGIS in Action"><img src="/images/postgisinaction_smaller.jpg" alt="Checkout our PostGIS in Action book.  First chapter is a free download" border="0"/></a>
+	&nbsp;<a href="/store.php?asin=1449326331" target="_blank"><img src="/images/postgresqlup_and_running_small.jpg" alt="PostgreSQL: Up and running" style="width:80px" /></a>
+	</h1>
+	<h2><a class="homelink2" href="/">Postgres OnLine Journal</a><br /><br /><a class="faces" href="http://www.postgresonline.com/journal/" id="blogview"><img src='../images/blogger.jpg' alt='Blog View' /></a>
+	&nbsp;&nbsp;&nbsp;<a class="faces" href="/periodical.php" id="periodicalview"><img src='../images/periodical.jpg' alt='Periodical View' /></a>
+	&nbsp;&nbsp;<a href="http://www.postgis.us/page_buy_book" class='homelink2'>PostGIS in Action</a>
+	&nbsp;&nbsp;<a href="/store.php?asin=1449326331" class='homelink2'>PostgreSQL: Up and Running</a>
+	&nbsp;&nbsp;<a href="/store.php" class='homelink2'>Book Store</a>
+	&nbsp;&nbsp;<a href="http://www.paragoncorporation.com/Team.aspx" class='homelink2' target="_blank">About the Authors</a>
+	&nbsp;&nbsp;<a href="http://www.paragoncorporation.com/Rates.aspx" class='homelink2' target="_blank">Consulting</a>
+	&nbsp;&nbsp;<a href="http://www.postgresql.org" class='homelink2' target="_blank">PostgreSQL</a>
+	&nbsp;&nbsp;<a href="http://postgis.net" class='homelink2' target="_blank">PostGIS</a>
+	</h2>
+
+</div>
+
+<table id="mainpane">
+	<tr>
+		<td id="content" valign="top"><!-- CONTENT START -->
+
+	<div class="serendipity_content_message"></div>
+
+<br /><br />
+<br /><a href="http://www.dpbolvw.net/click-7053191-11254634" target="_blank">
+<img src="http://www.tqlkg.com/image-7053191-11254634" alt="Check Out Daily O'Reilly Deals" border="0" height="31" width="88"></a>&nbsp;
+<a href="http://www.dpbolvw.net/click-7053191-11358174" target="_top">
+<img src="http://www.ftjcfx.com/image-7053191-11358174" width="120" height="90" alt="Learn more about O'Reilly Open Source Convention" border="0"/></a>
+<a href="http://www.postgis.us/page_buy_book" target="_blank"><img border="0" src="/images/postgisinaction_small.jpg" alt="Buy PostGIS in Action from Amazon or Manning"></a><img src="http://www.assoc-amazon.com/e/ir?t=postgresonline-20&l=as2&o=1&a=1935182269" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
+
+			<a href="http://www.pgcon.org/2013/" target="_blank"><img src="/images/pgcon2013_small.png" alt="PGCon 2013 Ottawa May 22nd-24th 2013" /><a href="http://foss4g-na.org/" target="_blank"><img src="http://foss4g-na.org/wp-content/themes/Archive/img/logo.png" alt="FOSS4G 2013 North America Minneapolis May 22-24 2013" width="100px"/></a> &nbsp;&nbsp;
+			<a href="http://2013.foss4g.org/" target="_blank"><img src="http://2013.foss4g.org/wp-content/themes/foss4g2013/images/foss4g2013-white-300.png" alt="FOSS4G 2013 Nottingham 17th-21st September 2013" border="0" width="200px" /></a>
+<br /><!-- ENTRIES START -->
+<br />
+<!--<a href="http://www.amazon.com/gp/search?ie=UTF8&keywords=postgresql&tag=postgresonline-20&index=books&linkCode=ur2&camp=1789&creative=9325" target="_blank">PostgreSQL Books</a><img src="http://www.assoc-amazon.com/e/ir?t=postgresonline-20&l=ur2&o=1" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" /> &nbsp;
+<a href="http://www.amazon.com/gp/search?ie=UTF8&keywords=database%20programming&tag=postgresonline-20&index=blended&linkCode=ur2&camp=1789&creative=9325" target="_blank">Database Programming Books</a><img src="http://www.assoc-amazon.com/e/ir?t=postgresonline-20&l=ur2&o=1" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
+<a href="http://www.amazon.com/gp/redirect.html?ie=UTF8&location=http%3A%2F%2Fwww.amazon.com%2Fs%3Fie%3DUTF8%26x%3D0%26ref_%3Dnb%5Fsb%5Fnoss%26y%3D0%26field-keywords%3Dlinux%26url%3Dsearch-alias%253Dstripbooks&tag=postgresonline-20&linkCode=ur2&camp=1789&creative=390957" target="_blank">Linux Books</a><img src="https://www.assoc-amazon.com/e/ir?t=postgresonline-20&l=ur2&o=1" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
+-->
+		<div class="serendipity_Entry_Date">
+				<h3 class="serendipity_date">Wednesday, June 16. 2010</h3>
+			<br />
+
+				
+		<h4 class="serendipity_title"><a href="/journal/archives/165-Encrypting-data-with-pgcrypto.html">Encrypting data with pgcrypto</a></h4>
+		<a href="/article_pfriendly/165.html" target="_blank"><b>Printer Friendly</b></a>
+		<div style='background-color:#EFEFEF'><b>Recommended Books:</b> <span style="font-size:0.8em;font-weight:bold" id='recommended_books'><a href="/store.php?asin=0764578014">The Database Hacker's Handbook: Defending Database Servers</a> &nbsp;&nbsp;
+<a href="/store.php?asin=0321320735">Cryptography in the Database: The Last Line of Defense</a></span></div>		<div class="serendipity_entry serendipity_entry_author_Leo-Hsu-and-Regina-Obe ">
+						<span class="serendipity_entryIcon">
+																																																							</span>
+						
+			<div class="serendipity_entry_body">
+				<p>PostgreSQL has various levels of encryption to choose from.  In this article we'll go over the basics built-in and the more advanced provided by the contrib module <a href="http://www.postgresql.org/docs/8.4/interactive/pgcrypto.html" target="_blank">pgcrypto</a>. When encrypting data, as a general rule the harder you make it to
+keep people out of your data, the easier it is for you to lock yourself out of your data. Not only does encryption make it difficult to read data, it
+also takes more resources to query and decrypt. With those rules of thumb, its important to pick your encryption strategies based on the sensitivity of your data.  </p>
+<p>There are two basic kinds of encryption, one way and two way.  In one way you don't ever care about decrypting the data into readable form, but you just want to verify the user knows what the underlying secret text is.  This is normally used for passwords.  In two way encryption, you want the ability to encrypt data as well as allow authorized users to decrypt it into a meaningful form.  Data such as credit cards and SSNs would fall in this category.</p>
+<h4>One way encryption</h4>
+<p>Normally when people want one way encryption and just want a basic simple level of encryption, they use the md5 function which is built into PostgreSQL by default.  The md5 function is equivalent to using the PASSWORD function in MySQL. If you want anything beyond that, you'll want to install
+the pgcrypto contrib module.</p>
+<p>pgcrypto comes packaged with most PostgreSQL installs including windows, and can be installed into a database by running the script in <b>share/contrib/pgcrypto.sql</b> of your PostgreSQL install.  For PostgreSQL 8.4+, this adds 34 someodd functions to your list of options.  For maintainability we like to install it in a
+separate schema say crypto, and add this schema to our database search path.</p>
+
+<p>For one way encryption, the crypt function packaged in pgcrypto provides an added level of security above the md5 way.  The reason is that with md5, you can tell who has the same password because there is no <a href="http://en.wikipedia.org/wiki/Salt_%28cryptography%29" target="_blank"><b>salt</b></a> so all people with the same password will have the same encoded md5 string.
+With crypt, they will be different.  To demonstrate lets create a table with two users who have happened to have chosen the same password. <p>
+
+			</div>
+
+						<div class="serendipity_entry_extended"><a id="extended"></a><pre><code><span class="syntax0"><span class="syntax-KEYWORD1">CREATE</span> <span class="syntax-KEYWORD1">TABLE</span> <span class="syntax-FUNCTION">testusers</span><span class="syntax-OPERATOR">(</span>username <span class="syntax-KEYWORD1">varchar</span><span class="syntax-OPERATOR">(</span><span class="syntax-DIGIT">100</span><span class="syntax-OPERATOR">)</span> <span class="syntax-KEYWORD1">PRIMARY</span> <span class="syntax-KEYWORD1">KEY</span>, cryptpwd <span class="syntax-KEYWORD1">text</span>, md5pwd <span class="syntax-KEYWORD1">text</span><span class="syntax-OPERATOR">)</span>;
+<span class="syntax-KEYWORD1">INSERT</span> <span class="syntax-KEYWORD1">INTO</span> <span class="syntax-FUNCTION">testusers</span><span class="syntax-OPERATOR">(</span>username, cryptpwd, md5pwd<span class="syntax-OPERATOR">)</span> 
+    <span class="syntax-KEYWORD1">VALUES</span> <span class="syntax-OPERATOR">(</span><span class="syntax-LITERAL1">'</span><span class="syntax-LITERAL1">robby</span><span class="syntax-LITERAL1">'</span>, <span class="syntax-FUNCTION">crypt</span><span class="syntax-OPERATOR">(</span><span class="syntax-LITERAL1">'</span><span class="syntax-LITERAL1">test</span><span class="syntax-LITERAL1">'</span>, <span class="syntax-FUNCTION">gen_salt</span><span class="syntax-OPERATOR">(</span><span class="syntax-LITERAL1">'</span><span class="syntax-LITERAL1">md5</span><span class="syntax-LITERAL1">'</span><span class="syntax-OPERATOR">)</span><span class="syntax-OPERATOR">)</span>, <span class="syntax-FUNCTION">md5</span><span class="syntax-OPERATOR">(</span><span class="syntax-LITERAL1">'</span><span class="syntax-LITERAL1">test</span><span class="syntax-LITERAL1">'</span><span class="syntax-OPERATOR">)</span><span class="syntax-OPERATOR">)</span>,
+        <span class="syntax-OPERATOR">(</span><span class="syntax-LITERAL1">'</span><span class="syntax-LITERAL1">artoo</span><span class="syntax-LITERAL1">'</span>, <span class="syntax-FUNCTION">crypt</span><span class="syntax-OPERATOR">(</span><span class="syntax-LITERAL1">'</span><span class="syntax-LITERAL1">test</span><span class="syntax-LITERAL1">'</span>,<span class="syntax-FUNCTION">gen_salt</span><span class="syntax-OPERATOR">(</span><span class="syntax-LITERAL1">'</span><span class="syntax-LITERAL1">md5</span><span class="syntax-LITERAL1">'</span><span class="syntax-OPERATOR">)</span><span class="syntax-OPERATOR">)</span>, <span class="syntax-FUNCTION">md5</span><span class="syntax-OPERATOR">(</span><span class="syntax-LITERAL1">'</span><span class="syntax-LITERAL1">test</span><span class="syntax-LITERAL1">'</span><span class="syntax-OPERATOR">)</span><span class="syntax-OPERATOR">)</span>;
+        
+<span class="syntax-KEYWORD1">SELECT</span> username, cryptpwd, md5pwd
+    <span class="syntax-KEYWORD1">FROM</span> testusers;
+    
+ username <span class="syntax-OPERATOR">|</span>              cryptpwd              <span class="syntax-OPERATOR">|</span>              md5pwd
+
+<span class="syntax-COMMENT1">--</span><span class="syntax-COMMENT1">--------+------------------------------------+---------------------------------</span>
+ robby   <span class="syntax-OPERATOR">|</span> $<span class="syntax-DIGIT">1</span>$IOchfG<span class="syntax-OPERATOR">/</span>z$bZW1pRFA3wuvn6pAuD.Du<span class="syntax-OPERATOR">/</span> <span class="syntax-OPERATOR">|</span> 098f6bcd4621d373cade4e832627b4f6
+ artoo   <span class="syntax-OPERATOR">|</span> $<span class="syntax-DIGIT">1</span>$84oZTXI<span class="syntax-OPERATOR">/</span>$yZ6wV5jhJo6aQYrTciMQR<span class="syntax-OPERATOR">/</span> <span class="syntax-OPERATOR">|</span> 098f6bcd4621d373cade4e832627b4f6
+</span></code></pre>
+
+
+<p>Observe that both users have chosen the same password <b>test</b>.  The md5 version is the same for both, but the crypted password is different although they are the same password.  When any log in, we do this test. </p>
+<pre>
+<code>
+<span class="syntax0"> 
+ <span class="syntax-COMMENT1">--</span><span class="syntax-COMMENT1"> </span><span class="syntax-COMMENT1">successful</span><span class="syntax-COMMENT1"> </span><span class="syntax-COMMENT1">login</span>
+ <span class="syntax-KEYWORD1">SELECT</span> username 
+    <span class="syntax-KEYWORD1">FROM</span> testusers 
+    <span class="syntax-KEYWORD1">WHERE</span> username <span class="syntax-OPERATOR">=</span> <span class="syntax-LITERAL1">'</span><span class="syntax-LITERAL1">robby</span><span class="syntax-LITERAL1">'</span> <span class="syntax-KEYWORD1">AND</span> cryptpwd <span class="syntax-OPERATOR">=</span> <span class="syntax-FUNCTION">crypt</span><span class="syntax-OPERATOR">(</span><span class="syntax-LITERAL1">'</span><span class="syntax-LITERAL1">test</span><span class="syntax-LITERAL1">'</span>, cryptpwd<span class="syntax-OPERATOR">)</span>;
+<span class="syntax-COMMENT1">--</span><span class="syntax-COMMENT1"> </span><span class="syntax-COMMENT1">successful</span><span class="syntax-COMMENT1"> </span><span class="syntax-COMMENT1">login</span><span class="syntax-COMMENT1"> </span><span class="syntax-COMMENT1">    </span>
+ <span class="syntax-KEYWORD1">SELECT</span> username 
+    <span class="syntax-KEYWORD1">FROM</span> testusers 
+    <span class="syntax-KEYWORD1">WHERE</span> username <span class="syntax-OPERATOR">=</span> <span class="syntax-LITERAL1">'</span><span class="syntax-LITERAL1">artoo</span><span class="syntax-LITERAL1">'</span> <span class="syntax-KEYWORD1">AND</span> cryptpwd <span class="syntax-OPERATOR">=</span> <span class="syntax-FUNCTION">crypt</span><span class="syntax-OPERATOR">(</span><span class="syntax-LITERAL1">'</span><span class="syntax-LITERAL1">test</span><span class="syntax-LITERAL1">'</span>, cryptpwd<span class="syntax-OPERATOR">)</span>;
+    
+<span class="syntax-COMMENT1">--</span><span class="syntax-COMMENT1"> </span><span class="syntax-COMMENT1">unsuccessful</span><span class="syntax-COMMENT1"> </span><span class="syntax-COMMENT1">login</span>
+ <span class="syntax-KEYWORD1">SELECT</span> username 
+    <span class="syntax-KEYWORD1">FROM</span> testusers 
+    <span class="syntax-KEYWORD1">WHERE</span> username <span class="syntax-OPERATOR">=</span> <span class="syntax-LITERAL1">'</span><span class="syntax-LITERAL1">artoo</span><span class="syntax-LITERAL1">'</span> <span class="syntax-KEYWORD1">AND</span> cryptpwd <span class="syntax-OPERATOR">=</span> <span class="syntax-FUNCTION">crypt</span><span class="syntax-OPERATOR">(</span><span class="syntax-LITERAL1">'</span><span class="syntax-LITERAL1">artoo</span><span class="syntax-LITERAL1">'</span>, cryptpwd<span class="syntax-OPERATOR">)</span>;
+    
+<span class="syntax-COMMENT1">--</span><span class="syntax-COMMENT1"> </span><span class="syntax-COMMENT1">using</span><span class="syntax-COMMENT1"> </span><span class="syntax-COMMENT1">md5</span>
+<span class="syntax-KEYWORD1">SELECT</span> username
+    <span class="syntax-KEYWORD1">FROM</span> testusers
+    <span class="syntax-KEYWORD1">WHERE</span> username <span class="syntax-OPERATOR">=</span> <span class="syntax-LITERAL1">'</span><span class="syntax-LITERAL1">robby</span><span class="syntax-LITERAL1">'</span> <span class="syntax-KEYWORD1">and</span> md5pwd <span class="syntax-OPERATOR">=</span> <span class="syntax-FUNCTION">md5</span><span class="syntax-OPERATOR">(</span><span class="syntax-LITERAL1">'</span><span class="syntax-LITERAL1">test</span><span class="syntax-LITERAL1">'</span><span class="syntax-OPERATOR">)</span>;
+</span>
+</code>
+</pre>
+
+<p>In the crypt case we use the encrypted password to determine the unencrypted password is the same as the encrypted.  Passing in the encrypted password unsaltifies things so to speak.  
+For md5, we don't need any of that and thus its easier to crack since the same password will yield the same md5 code.</p>
+
+<h4>Basics of 2 way encryption decryption with PGP encryption</h4>
+<p>For data that you care about retrieving, you don't want to know if the two pieces of information are the same, but you don't know that information, and you want only authorized users to be able to retrieve it.  
+Information like this would be things like credit cards, social security numbers
+or swiss bank account numbers etc.</p>
+
+<p>One of the most useful and easy to use encryption modes provided in pgcrypto is the PGP encryption functions.  For these set of exercises, 
+we'll go thru using PGP encryption to encrypt sensitive database data and also how to decrypt it. There are 2 kinds of PGP encryption you can use. </p> 
+<UL><LI>One is public/private also known as asymmetric - We call this <em>the shazam mode of conduct</em> because only the public key can encrypt it and only the private key can read it.</LI>
+    <LI>symmetric - <em>the shared secret web of trust</em>.  The keys to encrypt and read are the same.</LI>
+</UL>
+
+<p>
+Take the case of the database with sensitive information, if you are worried about the database falling in the wrong hands, you would probably be better to use the public/private key approach. This ensures you can encrypt the data with a public key you store in the database or even as part of a trigger or even in plain site in an application,
+but Users who need to be able to read this secure information would need the private key to decrypt it. So a person stealing your database even though they can see the public key, it does them no good at trying to get the information.</p>
+
+<h4>Making PGP Keys</h4>
+<p>Before we can use PGP encryption, we need to make keys. Details below:</p>
+<p>If you are on some Linux OS you probably have the command line tool called  <b>gpg</b> that you can use already available.  If you are on windows, you need to download them 
+from somewhere like this page <a href="http://www.gnupg.org/download/" target="_blank">GNU Pg binaries</a>. Way
+at the bottom of the page you should find gnupg-w32cli-1.4.10b.exe.  Download and install that or you can simply extract the folder instead of installing and run from anywhere.  By default
+it installs in folder C:\Program Files\GNU\GnuPG.  You can copy these files anywhere.  Really no need for installation.</p>
+
+<p>Next we do the following more or less verbatim from the PostgreSQL pgcrypto docs.  These steps will work on Linux/Unix/Mac OSX or windows</p>
+<UL>
+	<LI><code>gpg --gen-key</code> and follow the directions. Note if you don't need super security, you can just click enter to the password phrase thus one less argument you need to pass when decrypting your data.</LI>
+	<LI><code> gpg --list-secret-keys</code>  This will provide you a list of keys one being the one you generated.
+		It will look something like: <br />
+		<pre>sec   1024R/123ABCD 2010-06-15
+uid                  My data key (super data encrypt) <lr@pcorp.us>
+ssb   1024R/999DEFG 2010-06-15</pre>
+		<br />
+		Where the 1024R is the bit strength I chose and 123ABCD is the private key and 999DEFG is the public key.</LI>
+	<LI><code>gpg -a --export 999DEFG > public.key</code> Replacing the 999DEFG with hmm your public key code.  This is the key you will need to encrypt data.</LI>
+	<LI><code>gpg -a --export-secret-keys 123ABCD > secret.key</code> again Replacing the 123ABCD with hmm yourprivate  key code.  This is the key 
+		you will need to decrypt data.</LI>
+</UL>
+<p>As a general note the -a switch is short for armour. Each key by default is a binary ugly looking thing that is hard to handle.  The -a converts it to a palpable like piece of text easy for
+cut and paste.  When using it, you will need the PostgreSQL pgcrypto dearmor function to feed it into the relevant encrypt/decrypt functions.</p>
+
+<h4>Encrypting/Decrypting data using PGP Public Private</h4>
+<p>Now that we have our public and private keys, we are ready to encrypt the data. In this set of exercises, we'll demonstrate using the following functions:</p>
+<UL>
+    <LI><b>pgp_pub_encrypt</b> - this is the function we will use to encrypt our data using our public key.  There are two parallel functions pgp_pub_encrypt_bytea for encrypting binary data, pgp_sym_encrypt/pgp_sym_encrypt_bytea for using a symmetric key to 
+        encrypt data.</LI>
+    <LI><b>pgp_pub_decrypt</b> - this is the function we will use to decrypt our data using our private key.  There are parallel functions <b>pgp_pub_decrypt_bytea</b> for decrypting binary data,<b>pgp_sym_decrypt/pgp_sym_decrypt_bytea</b> for decrypting symmetrically
+        encrypted data.</LI>
+    <LI><b>dearmor</b> - as we stated earlier we used the -a argument in gpg to produce an easy to cut and paste text version of our keys.  The keys are binary in nature, so we need dearmor to convert them back to their native format suitable 
+            for passing to the encrypt/decrypt functions</LI>
+    <LI><b>pgp_key_id</b> - over time you may use several keys to encrypt your data in the database so some data may be accessible by one key and some by another.  You may even use different keys for different set of users 
+            so they can't view each others personal data.  This function tells you the key that was used to encrypt a given piece of data so that you can pull from your chest of collected keys, the right key to decrypt a certain piece of data.
+    </LI>
+</UL>
+
+<b>First encrypting the data</b>
+<br />
+<pre><code><span class="syntax0"><span class="syntax-KEYWORD1">CREATE</span> <span class="syntax-KEYWORD1">TABLE</span> <span class="syntax-FUNCTION">testuserscards</span><span class="syntax-OPERATOR">(</span>card_id SERIAL <span class="syntax-KEYWORD1">PRIMARY</span> <span class="syntax-KEYWORD1">KEY</span>, username <span class="syntax-KEYWORD1">varchar</span><span class="syntax-OPERATOR">(</span><span class="syntax-DIGIT">100</span><span class="syntax-OPERATOR">)</span>, cc bytea<span class="syntax-OPERATOR">)</span>; 
+
+<span class="syntax-COMMENT1">--</span><span class="syntax-COMMENT1"> </span><span class="syntax-COMMENT1">To</span><span class="syntax-COMMENT1"> </span><span class="syntax-COMMENT1">encrypt</span><span class="syntax-COMMENT1"> </span><span class="syntax-COMMENT1">the</span><span class="syntax-COMMENT1"> </span><span class="syntax-COMMENT1">data</span>
+<span class="syntax-KEYWORD1">INSERT</span> <span class="syntax-KEYWORD1">INTO</span> <span class="syntax-FUNCTION">testuserscards</span><span class="syntax-OPERATOR">(</span>username, cc<span class="syntax-OPERATOR">)</span>
+<span class="syntax-KEYWORD1">SELECT</span> robotccs.username, <span class="syntax-FUNCTION">pgp_pub_encrypt</span><span class="syntax-OPERATOR">(</span>robotccs.cc, keys.pubkey<span class="syntax-OPERATOR">)</span> <span class="syntax-KEYWORD1">As</span> cc
+<span class="syntax-KEYWORD1">FROM</span> <span class="syntax-OPERATOR">(</span><span class="syntax-KEYWORD1">VALUES</span> <span class="syntax-OPERATOR">(</span><span class="syntax-LITERAL1">'</span><span class="syntax-LITERAL1">robby</span><span class="syntax-LITERAL1">'</span>, <span class="syntax-LITERAL1">'</span><span class="syntax-LITERAL1">41111111111111111</span><span class="syntax-LITERAL1">'</span><span class="syntax-OPERATOR">)</span>,
+    <span class="syntax-OPERATOR">(</span><span class="syntax-LITERAL1">'</span><span class="syntax-LITERAL1">artoo</span><span class="syntax-LITERAL1">'</span>, <span class="syntax-LITERAL1">'</span><span class="syntax-LITERAL1">41111111111111112</span><span class="syntax-LITERAL1">'</span><span class="syntax-OPERATOR">)</span> <span class="syntax-OPERATOR">)</span> <span class="syntax-KEYWORD1">As</span> <span class="syntax-FUNCTION">robotccs</span><span class="syntax-OPERATOR">(</span>username, cc<span class="syntax-OPERATOR">)</span>
+     <span class="syntax-KEYWORD1">CROSS</span> <span class="syntax-KEYWORD1">JOIN</span> <span class="syntax-OPERATOR">(</span><span class="syntax-KEYWORD1">SELECT</span> <span class="syntax-FUNCTION">dearmor</span><span class="syntax-OPERATOR">(</span><span class="syntax-LITERAL1">'</span><span class="syntax-LITERAL1">-----BEGIN</span><span class="syntax-LITERAL1"> </span><span class="syntax-LITERAL1">PGP</span><span class="syntax-LITERAL1"> </span><span class="syntax-LITERAL1">PUBLIC</span><span class="syntax-LITERAL1"> </span><span class="syntax-LITERAL1">KEY</span><span class="syntax-LITERAL1"> </span><span class="syntax-LITERAL1">BLOCK-----</span>
+<span class="syntax-LITERAL1">super</span><span class="syntax-LITERAL1"> </span><span class="syntax-LITERAL1">publickey</span><span class="syntax-LITERAL1"> </span><span class="syntax-LITERAL1">goobly</span><span class="syntax-LITERAL1"> </span><span class="syntax-LITERAL1">gook</span><span class="syntax-LITERAL1"> </span><span class="syntax-LITERAL1">goes</span><span class="syntax-LITERAL1"> </span><span class="syntax-LITERAL1">here</span>
+<span class="syntax-LITERAL1">-----END</span><span class="syntax-LITERAL1"> </span><span class="syntax-LITERAL1">PGP</span><span class="syntax-LITERAL1"> </span><span class="syntax-LITERAL1">PUBLIC</span><span class="syntax-LITERAL1"> </span><span class="syntax-LITERAL1">KEY</span><span class="syntax-LITERAL1"> </span><span class="syntax-LITERAL1">BLOCK-----</span><span class="syntax-LITERAL1">'</span><span class="syntax-OPERATOR">)</span> <span class="syntax-KEYWORD1">As</span> pubkey<span class="syntax-OPERATOR">)</span> <span class="syntax-KEYWORD1">As</span> keys;
+
+<span class="syntax-COMMENT1">--</span><span class="syntax-COMMENT1"> </span><span class="syntax-COMMENT1">Now</span><span class="syntax-COMMENT1"> </span><span class="syntax-COMMENT1">if</span><span class="syntax-COMMENT1"> </span><span class="syntax-COMMENT1">we</span><span class="syntax-COMMENT1"> </span><span class="syntax-COMMENT1">select</span><span class="syntax-COMMENT1"> </span><span class="syntax-COMMENT1">our</span><span class="syntax-COMMENT1"> </span><span class="syntax-COMMENT1">data</span>
+<span class="syntax-KEYWORD1">SELECT</span> username, cc 
+<span class="syntax-KEYWORD1">FROM</span> testuserscards;
+</span></code></pre>
+
+<p>We will see a whole bunch of encrypted stuff in the cc column that is way too hard to print on this page.</p>
+<p>Now we can use pgp_keyid to verify which public key we used to encrypt our data.</p>
+
+<pre><code><span class="syntax0"><span class="syntax-KEYWORD1">SELECT</span> <span class="syntax-FUNCTION">pgp_key_id</span><span class="syntax-OPERATOR">(</span><span class="syntax-FUNCTION">dearmor</span><span class="syntax-OPERATOR">(</span><span class="syntax-LITERAL1">'</span><span class="syntax-LITERAL1">-----BEGIN</span><span class="syntax-LITERAL1"> </span><span class="syntax-LITERAL1">PGP</span><span class="syntax-LITERAL1"> </span><span class="syntax-LITERAL1">PUBLIC</span><span class="syntax-LITERAL1"> </span><span class="syntax-LITERAL1">KEY</span><span class="syntax-LITERAL1"> </span><span class="syntax-LITERAL1">BLOCK-----</span>
+<span class="syntax-LITERAL1">super</span><span class="syntax-LITERAL1"> </span><span class="syntax-LITERAL1">publickey</span><span class="syntax-LITERAL1"> </span><span class="syntax-LITERAL1">goobly</span><span class="syntax-LITERAL1"> </span><span class="syntax-LITERAL1">gook</span><span class="syntax-LITERAL1"> </span><span class="syntax-LITERAL1">goes</span><span class="syntax-LITERAL1"> </span><span class="syntax-LITERAL1">here</span>
+<span class="syntax-LITERAL1">-----END</span><span class="syntax-LITERAL1"> </span><span class="syntax-LITERAL1">PGP</span><span class="syntax-LITERAL1"> </span><span class="syntax-LITERAL1">PUBLIC</span><span class="syntax-LITERAL1"> </span><span class="syntax-LITERAL1">KEY</span><span class="syntax-LITERAL1"> </span><span class="syntax-LITERAL1">BLOCK-----</span><span class="syntax-LITERAL1">'</span><span class="syntax-OPERATOR">)</span><span class="syntax-OPERATOR">)</span>;
+
+<span class="syntax-COMMENT1">--</span><span class="syntax-COMMENT1"> </span><span class="syntax-COMMENT1">gives</span><span class="syntax-COMMENT1"> </span><span class="syntax-COMMENT1">you</span><span class="syntax-COMMENT1"> </span><span class="syntax-COMMENT1">something</span><span class="syntax-COMMENT1"> </span><span class="syntax-COMMENT1">like</span><span class="syntax-COMMENT1"> </span>
+<span class="syntax-COMMENT1">--</span><span class="syntax-COMMENT1"> </span><span class="syntax-COMMENT1">where</span><span class="syntax-COMMENT1"> </span><span class="syntax-COMMENT1">last</span><span class="syntax-COMMENT1"> </span><span class="syntax-COMMENT1">set</span><span class="syntax-COMMENT1"> </span><span class="syntax-COMMENT1">of</span><span class="syntax-COMMENT1"> </span><span class="syntax-COMMENT1">characters</span><span class="syntax-COMMENT1"> </span><span class="syntax-COMMENT1">is</span><span class="syntax-COMMENT1"> </span><span class="syntax-COMMENT1">the</span><span class="syntax-COMMENT1"> </span><span class="syntax-COMMENT1">public</span><span class="syntax-COMMENT1"> </span><span class="syntax-COMMENT1">key</span><span class="syntax-COMMENT1"> </span><span class="syntax-COMMENT1">id</span><span class="syntax-COMMENT1"> </span><span class="syntax-COMMENT1">you</span><span class="syntax-COMMENT1"> </span><span class="syntax-COMMENT1">got</span><span class="syntax-COMMENT1"> </span><span class="syntax-COMMENT1">in</span><span class="syntax-COMMENT1"> </span><span class="syntax-COMMENT1">gpg</span>
+E0B086C2999DEFG
+
+
+<span class="syntax-COMMENT1">--</span><span class="syntax-COMMENT1">verify</span><span class="syntax-COMMENT1"> </span><span class="syntax-COMMENT1">our</span><span class="syntax-COMMENT1"> </span><span class="syntax-COMMENT1">data</span><span class="syntax-COMMENT1"> </span><span class="syntax-COMMENT1">was</span><span class="syntax-COMMENT1"> </span><span class="syntax-COMMENT1">encrypted</span><span class="syntax-COMMENT1"> </span><span class="syntax-COMMENT1">with</span><span class="syntax-COMMENT1"> </span><span class="syntax-COMMENT1">the</span><span class="syntax-COMMENT1"> </span><span class="syntax-COMMENT1">above</span><span class="syntax-COMMENT1"> </span><span class="syntax-COMMENT1">public</span><span class="syntax-COMMENT1"> </span><span class="syntax-COMMENT1">key</span>
+<span class="syntax-KEYWORD1">SELECT</span> username, <span class="syntax-FUNCTION">pgp_key_id</span><span class="syntax-OPERATOR">(</span>cc<span class="syntax-OPERATOR">)</span> <span class="syntax-KEYWORD1">As</span> keyweused
+<span class="syntax-KEYWORD1">FROM</span> testuserscards;
+
+ username <span class="syntax-OPERATOR">|</span>    keyweused
+<span class="syntax-COMMENT1">--</span><span class="syntax-COMMENT1">--------+------------------</span>
+ robby    <span class="syntax-OPERATOR">|</span> E0B086C2999DEFG
+ artoo    <span class="syntax-OPERATOR">|</span> E0B086C2999DEFG
+
+</span></code></pre>
+
+<p>To decrypt the data we pull from our chest of private keys matching the public key we used to encrypt with.</p> <br />
+<pre><code><span class="syntax0"><span class="syntax-COMMENT1">--</span><span class="syntax-COMMENT1"> </span><span class="syntax-COMMENT1">To</span><span class="syntax-COMMENT1"> </span><span class="syntax-COMMENT1">decrpt</span><span class="syntax-COMMENT1"> </span><span class="syntax-COMMENT1">the</span><span class="syntax-COMMENT1"> </span><span class="syntax-COMMENT1">data</span>
+
+<span class="syntax-KEYWORD1">SELECT</span> username, <span class="syntax-FUNCTION">pgp_pub_decrypt</span><span class="syntax-OPERATOR">(</span>cc, keys.privkey<span class="syntax-OPERATOR">)</span> <span class="syntax-KEYWORD1">As</span> ccdecrypt
+<span class="syntax-KEYWORD1">FROM</span> testuserscards 
+    <span class="syntax-KEYWORD1">CROSS</span> <span class="syntax-KEYWORD1">JOIN</span>
+    <span class="syntax-OPERATOR">(</span><span class="syntax-KEYWORD1">SELECT</span> <span class="syntax-FUNCTION">dearmor</span><span class="syntax-OPERATOR">(</span><span class="syntax-LITERAL1">'</span><span class="syntax-LITERAL1">-----BEGIN</span><span class="syntax-LITERAL1"> </span><span class="syntax-LITERAL1">PGP</span><span class="syntax-LITERAL1"> </span><span class="syntax-LITERAL1">PRIVATE</span><span class="syntax-LITERAL1"> </span><span class="syntax-LITERAL1">KEY</span><span class="syntax-LITERAL1"> </span><span class="syntax-LITERAL1">BLOCK-----</span>
+<span class="syntax-LITERAL1">super</span><span class="syntax-LITERAL1"> </span><span class="syntax-LITERAL1">private</span><span class="syntax-LITERAL1"> </span><span class="syntax-LITERAL1">key</span><span class="syntax-LITERAL1"> </span><span class="syntax-LITERAL1">gobbly</span><span class="syntax-LITERAL1"> </span><span class="syntax-LITERAL1">gook</span><span class="syntax-LITERAL1"> </span><span class="syntax-LITERAL1">goes</span><span class="syntax-LITERAL1"> </span><span class="syntax-LITERAL1">here</span>
+<span class="syntax-LITERAL1">-----END</span><span class="syntax-LITERAL1"> </span><span class="syntax-LITERAL1">PGP</span><span class="syntax-LITERAL1"> </span><span class="syntax-LITERAL1">PRIVATE</span><span class="syntax-LITERAL1"> </span><span class="syntax-LITERAL1">KEY</span><span class="syntax-LITERAL1"> </span><span class="syntax-LITERAL1">BLOCK-----</span><span class="syntax-LITERAL1">'</span><span class="syntax-OPERATOR">)</span> <span class="syntax-KEYWORD1">As</span> privkey<span class="syntax-OPERATOR">)</span> <span class="syntax-KEYWORD1">As</span> keys;
+
+
+<span class="syntax-COMMENT1">--</span><span class="syntax-COMMENT1"> </span><span class="syntax-COMMENT1">We</span><span class="syntax-COMMENT1"> </span><span class="syntax-COMMENT1">get</span><span class="syntax-COMMENT1"> </span><span class="syntax-COMMENT1">--</span>
+ username <span class="syntax-OPERATOR">|</span>  ccdecrypt
+<span class="syntax-COMMENT1">--</span><span class="syntax-COMMENT1">--------+-------------------</span>
+ robby    <span class="syntax-OPERATOR">|</span> <span class="syntax-DIGIT">41111111111111111</span>
+ artoo    <span class="syntax-OPERATOR">|</span> <span class="syntax-DIGIT">41111111111111112</span>
+</span></code></pre></div>
+			
+			
+			<div class='serendipity_entryFooter'>
+				Posted by <a href="http://www.postgresonline.com/journal/authors/1-Leo-Hsu-and-Regina-Obe">Leo Hsu and Regina Obe</a>
+								   in <a href="http://www.postgresonline.com/journal/categories/50-82">8.2</a>, <a href="http://www.postgresonline.com/journal/categories/48-83">8.3</a>, <a href="http://www.postgresonline.com/journal/categories/49-84">8.4</a>, <a href="http://www.postgresonline.com/journal/categories/56-90">9.0</a>, <a href="http://www.postgresonline.com/journal/categories/3-contrib-spotlight">contrib spotlight</a>, <a href="http://www.postgresonline.com/journal/categories/58-pgcrypto">pgcrypto</a>, <a href="http://www.postgresonline.com/journal/categories/47-postgresql-versions">postgresql versions</a>				
+									at
+				 <a href="/journal/archives/165-Encrypting-data-with-pgcrypto.html">06:26</a>
+
+															| <a href="/journal/archives/165-Encrypting-data-with-pgcrypto.html#comments">Comments (6)</a>
+									
+															| <a href="/journal/archives/165-Encrypting-data-with-pgcrypto.html#trackbacks">Trackbacks (0)</a>
+									
+				
+				<div class="serendipity_freeTag">Defined tags for this entry: <a href="http://www.postgresonline.com/journal/index.php?/plugin/tag/contrib" title="contrib" rel="tag">contrib</a>, <a href="http://www.postgresonline.com/journal/index.php?/plugin/tag/pgcrypto" title="pgcrypto" rel="tag">pgcrypto</a></div><div class="serendipity_freeTag_related">Related entries by tags:<ul class="plainList"><li> <a href="http://www.postgresonline.com/journal/archives/238-Mail-Merging-using-Hstore.html" title="Mail Merging using Hstore">Mail Merging using Hstore</a></li><li> <a href="http://www.postgresonline.com/journal/archives/158-Where-is-soundex-and-other-warm-and-fuzzy-string-things.html" title="Where is soundex and other warm and fuzzy string things">Where is soundex and other warm and fuzzy string things</a></li></ul></div>
+			</div>
+		</div>
+		
+
+		<!-- no digg badge -->
+<div class="serendipity_findmore">
+
+<a href="http://del.icio.us/post?url=http%3A%2F%2Fwww.postgresonline.com%2Fjournal%2Farchives%2F165-Encrypting-data-with-pgcrypto.html&amp;title=Encrypting%20data%20with%20pgcrypto" title="Bookmark Encrypting data with pgcrypto  at del.icio.us"><img width="18" height="18" src="/journal/plugins/serendipity_event_findmore/img/delicious.png" class="socialbkmark" alt="Bookmark Encrypting data with pgcrypto  at del.icio.us"/></a>
+
+<a href="http://digg.com/submit?phase=2&amp;url=http%3A%2F%2Fwww.postgresonline.com%2Fjournal%2Farchives%2F165-Encrypting-data-with-pgcrypto.html" title="Digg Encrypting data with pgcrypto "><img src="/journal/plugins/serendipity_event_findmore/img/diggman.png" width="16" height="14" class="socialbkmark" alt="Digg Encrypting data with pgcrypto "/></a>
+
+<a href="http://www.bloglines.com/citations?url=http%3A%2F%2Fwww.postgresonline.com%2Fjournal%2Farchives%2F165-Encrypting-data-with-pgcrypto.html" title="Bloglines Encrypting data with pgcrypto "><img src="/journal/plugins/serendipity_event_findmore/img/bloglines.png" width="18" height="18" class="socialbkmark" alt="Bloglines Encrypting data with pgcrypto "/></a>
+
+<a href="http://technorati.com/search/http%3A%2F%2Fwww.postgresonline.com%2Fjournal%2Farchives%2F165-Encrypting-data-with-pgcrypto.html" title="Technorati Encrypting data with pgcrypto"><img src="/journal/plugins/serendipity_event_findmore/img/technorati.png" width="18" height="18" class="socialbkmark" alt="Technorati Encrypting data with pgcrypto "/></a>
+
+<a href="http://cgi.fark.com/cgi/fark/edit.pl?new_url=http%3A%2F%2Fwww.postgresonline.com%2Fjournal%2Farchives%2F165-Encrypting-data-with-pgcrypto.html&amp;new_comment=Encrypting%20data%20with%20pgcrypto&amp;new_link_other=&amp;linktype=Misc" title="Fark this: Encrypting data with pgcrypto "><img width="15" height="18" src="/journal/plugins/serendipity_event_findmore/img/fark.png" class="socialbkmark" alt="Fark this: Encrypting data with pgcrypto "/></a>
+
+<a href="http://myweb2.search.yahoo.com/myresults/bookmarklet?t=Encrypting%20data%20with%20pgcrypto&amp;u=http%3A%2F%2Fwww.postgresonline.com%2Fjournal%2Farchives%2F165-Encrypting-data-with-pgcrypto.html" title="Bookmark Encrypting data with pgcrypto  at YahooMyWeb"><img width="18" height="18" src="/journal/plugins/serendipity_event_findmore/img/yahoomyweb.png" class="socialbkmark" alt="Bookmark Encrypting data with pgcrypto  at YahooMyWeb"/></a>
+
+<a href="http://www.furl.net/storeIt.jsp?t=Encrypting%20data%20with%20pgcrypto&amp;u=http%3A%2F%2Fwww.postgresonline.com%2Fjournal%2Farchives%2F165-Encrypting-data-with-pgcrypto.html" title="Bookmark Encrypting data with pgcrypto  at Furl.net"><img src="/journal/plugins/serendipity_event_findmore/img/furl.png" width="16" height="17" class="socialbkmark" alt="Bookmark Encrypting data with pgcrypto  at Furl.net"/></a>
+
+<a href="http://reddit.com/submit?url=http%3A%2F%2Fwww.postgresonline.com%2Fjournal%2Farchives%2F165-Encrypting-data-with-pgcrypto.html&amp;title=Encrypting%20data%20with%20pgcrypto" title="Bookmark Encrypting data with pgcrypto  at reddit.com"><img src="/journal/plugins/serendipity_event_findmore/img/reddit.png" width="18" height="18" class="socialbkmark" alt="Bookmark Encrypting data with pgcrypto  at reddit.com"/></a>
+
+<a href="http://www.blinklist.com/index.php?Action=Blink/addblink.php&amp;Description=&amp;Url=http%3A%2F%2Fwww.postgresonline.com%2Fjournal%2Farchives%2F165-Encrypting-data-with-pgcrypto.html&amp;Title=Encrypting%20data%20with%20pgcrypto" title="Bookmark Encrypting data with pgcrypto  at blinklist.com"><img width="18" height="18" src="/journal/plugins/serendipity_event_findmore/img/blinklist.png" class="socialbkmark" alt="Bookmark Encrypting data with pgcrypto  at blinklist.com"/></a>
+
+<a href="http://www.spurl.net/spurl.php?title=Encrypting%20data%20with%20pgcrypto&amp;url=http%3A%2F%2Fwww.postgresonline.com%2Fjournal%2Farchives%2F165-Encrypting-data-with-pgcrypto.html" title="Bookmark Encrypting data with pgcrypto  at Spurl.net"><img width="16" height="16" src="/journal/plugins/serendipity_event_findmore/img/spurl.png" class="socialbkmark" alt="Bookmark Encrypting data with pgcrypto  at Spurl.net"/></a>
+
+
+<a href="http://www.simpy.com/simpy/LinkAdd.do?href=http%3A%2F%2Fwww.postgresonline.com%2Fjournal%2Farchives%2F165-Encrypting-data-with-pgcrypto.html&amp;title=Encrypting%20data%20with%20pgcrypto" title="Bookmark Encrypting data with pgcrypto  at Simpy.com"><img width="16" height="16" src="/journal/plugins/serendipity_event_findmore/img/simpy.png" class="socialbkmark" alt="Bookmark Encrypting data with pgcrypto  at Simpy.com"/></a>
+
+<a href="http://blogmarks.net/my/new.php?mini=1&amp;simple=1&amp;url=http%3A%2F%2Fwww.postgresonline.com%2Fjournal%2Farchives%2F165-Encrypting-data-with-pgcrypto.html&amp;title=Encrypting%20data%20with%20pgcrypto" title="Bookmark Encrypting data with pgcrypto  at blogmarks"><img width="16" height="16" src="/journal/plugins/serendipity_event_findmore/img/blogmarks.png" class="socialbkmark" alt="Bookmark Encrypting data with pgcrypto  at blogmarks"/></a>
+
+
+
+
+<script language="javascript" src="http://widgets.dzone.com/widgets/zoneit.js"></script>
+</div>
+
+					
+			
+			
+			
+			
+			<div class="serendipity_comments serendipity_section_trackbacks">
+				<br />
+				<a id="trackbacks"></a>
+				<div class="serendipity_commentsTitle">Trackbacks</div>
+					<div class="serendipity_center">
+						<a rel="nofollow" style="font-weight: normal" href="http://www.postgresonline.com/journal/comment.php?type=trackback&amp;entry_id=165" onclick="alert('This link is not meant to be clicked. It contains the trackback URI for this entry. You can use this URI to send ping- &amp; trackbacks from your own blog to this entry. To copy the link, right click and select &quot;Copy Shortcut&quot; in Internet Explorer or &quot;Copy Link Location&quot; in Mozilla.'); return false;" title="This link is not meant to be clicked. It contains the trackback URI for this entry. You can use this URI to send ping- &amp; trackbacks from your own blog to this entry. To copy the link, right click and select &quot;Copy Shortcut&quot; in Internet Explorer or &quot;Copy Link Location&quot; in Mozilla.">Trackback specific URI for this entry</a>
+					</div>
+					<br />
+						    <div class="serendipity_center">No Trackbacks</div>
+
+			</div>
+		
+				<br />
+
+
+
+<div style='background-color:#EFEFEF'><b>Recommended Books:</b> <span style="font-size:0.8em;font-weight:bold" id='recommended_books'><a href="/store.php?asin=0764578014">The Database Hacker's Handbook: Defending Database Servers</a> &nbsp;&nbsp;
+<a href="/store.php?asin=0321320735">Cryptography in the Database: The Last Line of Defense</a></span></div>		
+			<div class="serendipity_comments serendipity_section_comments">
+				<br />
+				<a id="comments"></a>
+				<div class="serendipity_commentsTitle">Comments</div>
+				<div class="serendipity_center">Display comments as
+									(<a rel="nofollow" href="/journal/index.php?url=archives/165-Encrypting-data-with-pgcrypto.html&amp;serendipity[cview]=linear#comments">Linear</a> | Threaded)
+								</div>
+				<br />
+					    <a id="c1848"></a>
+    <div id="serendipity_comment_1848" class="serendipity_comment serendipity_comment_author_foobar  comment_oddbox" style="padding-left: 0px">
+        <div class="serendipity_commentBody">
+                    For the record, &quot;one-way encryption&quot; does not exist, it's called &quot;hashing&quot;
+                </div>
+        <div class="serendipity_comment_source">
+            <a class="comment_source_trace" href="#c1848">#1</a>
+            <span class="comment_source_author">
+                            foobar
+                        </span>
+                        on
+            <span class="comment_source_date">2010-06-16 17:51</span>
+
+                                        (<a class="comment_reply" href="#serendipity_CommentForm" id="serendipity_reply_1848" onclick="document.getElementById('serendipity_replyTo').value='1848'; ">Reply</a>)
+                <div id="serendipity_replyform_1848"></div>
+                    </div>
+    </div>
+    <a id="c1926"></a>
+    <div id="serendipity_comment_1926" class="serendipity_comment serendipity_comment_author_Kailas-Chougule   comment_evenbox" style="padding-left: 20px">
+        <div class="serendipity_commentBody">
+                    Very nice.
+                </div>
+        <div class="serendipity_comment_source">
+            <a class="comment_source_trace" href="#c1926">#1.1</a>
+            <span class="comment_source_author">
+                            Kailas Chougule
+                        </span>
+                        on
+            <span class="comment_source_date">2010-07-01 07:33</span>
+
+                                        (<a class="comment_reply" href="#serendipity_CommentForm" id="serendipity_reply_1926" onclick="document.getElementById('serendipity_replyTo').value='1926'; ">Reply</a>)
+                <div id="serendipity_replyform_1926"></div>
+                    </div>
+    </div>
+    <a id="c4104"></a>
+    <div id="serendipity_comment_4104" class="serendipity_comment serendipity_comment_author_khadija  comment_oddbox" style="padding-left: 20px">
+        <div class="serendipity_commentBody">
+                    hi I get this error pleas advicethanks<br />
+<br />
+ERROR:  syntax error at or near &quot;,&quot;<br />
+LINE 6: FROM (VALUES ('robby', '41111111111111111'),<br />
+                                                   ^<br />
+<br />
+********** Error **********<br />
+<br />
+ERROR: syntax error at or near &quot;,&quot;<br />
+SQL state: 42601<br />
+Character: 274
+                </div>
+        <div class="serendipity_comment_source">
+            <a class="comment_source_trace" href="#c4104">#1.2</a>
+            <span class="comment_source_author">
+                            khadija
+                        </span>
+                        on
+            <span class="comment_source_date">2012-01-15 23:55</span>
+
+                                        (<a class="comment_reply" href="#serendipity_CommentForm" id="serendipity_reply_4104" onclick="document.getElementById('serendipity_replyTo').value='4104'; ">Reply</a>)
+                <div id="serendipity_replyform_4104"></div>
+                    </div>
+    </div>
+    <a id="c4105"></a>
+    <div id="serendipity_comment_4105" class="serendipity_comment serendipity_comment_author_Regina   comment_evenbox" style="padding-left: 40px">
+        <div class="serendipity_commentBody">
+                    khadija,<br />
+<br />
+Which version of PostgreSQL are you running?  The multirow feature input for VALUES came in 8.2, so if you are running below that you will get a syntax error.
+                </div>
+        <div class="serendipity_comment_source">
+            <a class="comment_source_trace" href="#c4105">#1.2.1</a>
+            <span class="comment_source_author">
+                            Regina
+                        </span>
+                        on
+            <span class="comment_source_date">2012-01-16 01:13</span>
+
+                                        (<a class="comment_reply" href="#serendipity_CommentForm" id="serendipity_reply_4105" onclick="document.getElementById('serendipity_replyTo').value='4105'; ">Reply</a>)
+                <div id="serendipity_replyform_4105"></div>
+                    </div>
+    </div>
+    <a id="c4111"></a>
+    <div id="serendipity_comment_4111" class="serendipity_comment serendipity_comment_author_khadija-braham  comment_oddbox" style="padding-left: 60px">
+        <div class="serendipity_commentBody">
+                    first of all thank you so much for you response <br />
+yes the version that I'm running is 8.1 <br />
+is there a solution to test this query on the server with the version 8.1 ?<br />
+2) I get this message when i tried this query on an other server with the version 9.1 please advice <br />
+Thanks<br />
+<br />
+NOTICE:  CREATE TABLE will create implicit sequence &quot;testuserscards_card_id_seq&quot; for serial column &quot;testuserscards.card_id&quot;<br />
+NOTICE:  CREATE TABLE / PRIMARY KEY will create implicit index &quot;testuserscards_pkey&quot; for table &quot;testuserscards&quot;<br />
+<br />
+<br />
+ERROR:  function dearmor(unknown) does not exist<br />
+LINE 8:      CROSS JOIN (SELECT dearmor('-----BEGIN PGP PUBLIC KEY B...<br />
+                                ^<br />
+HINT:  No function matches the given name and argument types. You might need to add explicit type casts.<br />
+<br />
+<br />
+********** Error **********
+                </div>
+        <div class="serendipity_comment_source">
+            <a class="comment_source_trace" href="#c4111">#1.2.1.1</a>
+            <span class="comment_source_author">
+                            khadija braham
+                        </span>
+                        on
+            <span class="comment_source_date">2012-01-17 16:11</span>
+
+                                        (<a class="comment_reply" href="#serendipity_CommentForm" id="serendipity_reply_4111" onclick="document.getElementById('serendipity_replyTo').value='4111'; ">Reply</a>)
+                <div id="serendipity_replyform_4111"></div>
+                    </div>
+    </div>
+    <a id="c4114"></a>
+    <div id="serendipity_comment_4114" class="serendipity_comment serendipity_comment_author_Regina   comment_evenbox" style="padding-left: 80px">
+        <div class="serendipity_commentBody">
+                    To use those functions, you have to install the pgcrypto extension.<br />
+<br />
+For 9.1 try running this sql statement in your database.<br />
+<br />
+CREATE EXTENSION pgcrypto;<br />
+<br />
+Then you should be able to use those functions.  <br />
+<br />
+For 8.1 you have to install the pgcrypto.sql usually located in contrib.<br />
+<br />
+As far as the multi VALUES syntax, you can just write them as separate inserts in 8.1 or use a SELECT .. UNION ALL SELECT ...
+                </div>
+        <div class="serendipity_comment_source">
+            <a class="comment_source_trace" href="#c4114">#1.2.1.1.1</a>
+            <span class="comment_source_author">
+                            Regina
+                        </span>
+                        on
+            <span class="comment_source_date">2012-01-20 06:17</span>
+
+                                        (<a class="comment_reply" href="#serendipity_CommentForm" id="serendipity_reply_4114" onclick="document.getElementById('serendipity_replyTo').value='4114'; ">Reply</a>)
+                <div id="serendipity_replyform_4114"></div>
+                    </div>
+    </div>
+
+
+								<a id="feedback"></a>
+
+				
+				
+				<br />
+				<div class="serendipity_section_commentform">
+					<div class="serendipity_commentsTitle">Add Comment</div>
+					<div id="serendipityCommentFormC" class="serendipityCommentForm">
+    <div id="serendipity_replyform_0"></div>
+    <a id="serendipity_CommentForm"></a>
+    <form id="serendipity_comment" action="/journal/index.php?url=archives/165-Encrypting-data-with-pgcrypto.html#feedback" method="post">
+    <div><input type="hidden" name="serendipity[entry_id]" value="165" /></div>
+    <table border="0" width="100%" cellpadding="3">
+        <tr>
+            <td class="serendipity_commentsLabel"><label for="serendipity_commentform_name">Name</label></td>
+            <td class="serendipity_commentsValue"><input type="text" id="serendipity_commentform_name" name="serendipity[name]" value="" size="30" /></td>
+        </tr>
+
+        <tr>
+            <td class="serendipity_commentsLabel"><label for="serendipity_commentform_email">Email</label></td>
+            <td class="serendipity_commentsValue"><input type="text" id="serendipity_commentform_email" name="serendipity[email]" value="" /></td>
+        </tr>
+
+        <tr>
+            <td class="serendipity_commentsLabel"><label for="serendipity_commentform_url">Homepage</label></td>
+            <td class="serendipity_commentsValue"><input type="text" id="serendipity_commentform_url" name="serendipity[url]" value="" /></td>
+        </tr>
+
+        <tr>
+            <td class="serendipity_commentsLabel"><label for="serendipity_replyTo">In reply to</label></td>
+            <td class="serendipity_commentsValue"><select id="serendipity_replyTo" onchange="" name="serendipity[replyTo]"><option value="0">[ Top level ]</option><option value="1848">#1: foobar on 2010-06-16 17:51</option>
+<option value="1926">&#160;&#160;#1.1: Kailas Chougule on 2010-07-01 07:33</option>
+<option value="4104">&#160;&#160;#1.2: khadija on 2012-01-15 23:55</option>
+<option value="4105">&#160;&#160;&#160;&#160;#1.2.1: Regina on 2012-01-16 01:13</option>
+<option value="4111">&#160;&#160;&#160;&#160;&#160;&#160;#1.2.1.1: khadija braham on 2012-01-17 16:11</option>
+<option value="4114">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;#1.2.1.1.1: Regina on 2012-01-20 06:17</option>
+</select></td>
+        </tr>
+
+        <tr>
+            <td class="serendipity_commentsLabel"><label for="serendipity_commentform_comment">Comment</label></td>
+            <td class="serendipity_commentsValue">
+                <textarea rows="10" cols="40" id="serendipity_commentform_comment" name="serendipity[comment]"></textarea><br />
+                <div class="serendipity_commentDirection serendipity_comment_spamblock">E-Mail addresses will not be displayed and will only be used for E-Mail notifications</div><input type="hidden" name="serendipity[token]" value="58703d2d6af9ca30cae82b54f040a762" /><div class="serendipity_commentDirection serendipity_comment_captcha"><br />To prevent automated Bots from commentspamming, please enter the string you see in the image below in the appropriate input box. Your comment will only be submitted if the strings match. Please ensure that your browser supports and accepts cookies, or your comment cannot be verified correctly.<br /><img src="http://www.postgresonline.com/journal/plugin/captcha_d9d7ddc515ca9f7c4fbf3d7a8154068e" onclick="this.src=this.src + '1'" title="Enter the string you see here in the input box!" alt="CAPTCHA" class="captcha" /><br /><label for="captcha">Enter the string from the spam-prevention image above: </label><br /><input class="input_textbox" type="text" size="5" name="serendipity[captcha]" value="" id="captcha" /></div>
+            </td>
+        </tr>
+
+        <tr>
+            <td>&#160;</td>
+            <td class="serendipity_commentsLabel">
+                <input id="checkbox_remember" type="checkbox" name="serendipity[remember]"  /><label for="checkbox_remember">Remember Information? </label>
+                    <br />
+                <input id="checkbox_subscribe" type="checkbox" name="serendipity[subscribe]"  /><label for="checkbox_subscribe">Subscribe to this entry</label>
+                </td>
+       </tr>
+
+
+       <tr>
+            <td>&#160;</td>
+            <td><input type="submit" name="serendipity[submit]" value="Submit Comment" /> <input type="submit" id="serendipity_preview" name="serendipity[preview]" value="Preview" /></td>
+        </tr>
+    </table>
+    </form>
+</div>
+				</div>
+
+							</div>
+		
+		
+			</div>
+	
+	<div class='serendipity_entryFooter' style="text-align: center">
+	
+	
+	
+
+	
+	</div>
+<!-- ENTRIES END -->
+
+
+<!-- CONTENT END --></td>
+		<td id="serendipityRightSideBar" valign="top">    <div class="serendipitySideBarItem container_serendipity_quicksearch_plugin">
+        <h3 class="serendipitySideBarTitle serendipity_quicksearch_plugin">Quicksearch</h3>        <div class="serendipitySideBarContent"><form id="searchform" action="/journal/index.php" method="get">
+    <div>
+        <input type="hidden"  name="serendipity[action]" value="search" />
+        <input alt="Quicksearch" type="text"   id="serendipityQuickSearchTermField" name="serendipity[searchTerm]" size="13" />
+        <input class="quicksearch_submit" type="submit" value="&gt;" alt="Quicksearch" name="serendipity[searchButton]" title="Go!" style="width: 2em;" />
+    </div>
+    <div id="LSResult" style="display: none;"><div id="LSShadow"></div></div>
+</form>
+</div>
+    </div>
+    <div class="serendipitySideBarItem container_serendipity_calendar_plugin">
+        <h3 class="serendipitySideBarTitle serendipity_calendar_plugin">Calendar</h3>        <div class="serendipitySideBarContent"><table style="width: 100%" cellspacing="0" cellpadding="0" class="serendipity_calendar">
+    <tr>
+        <td class="serendipity_calendarHeader">
+            <a title="Back" href="http://www.postgresonline.com/journal/archives/2013/04.html"><img alt="Back" src="/journal/templates/default/img/back.png" width="16" height="12" style="border: 0px" /></a>
+        </td>
+
+        <td colspan="5" class="serendipity_calendarHeader" style="text-align: center; vertical-align: bottom">
+            <b><a style="white-space: nowrap" href="http://www.postgresonline.com/journal/archives/2013/05.html">May '13</a></b>
+        </td>
+
+        <td class="serendipity_calendarHeader" style="text-align: right">
+            <a title="Forward" href="http://www.postgresonline.com/journal/archives/2013/06.html"><img alt="Forward" src="/journal/templates/default/img/forward.png" width="16" height="12" style="border: 0px" /></a>
+        </td>
+    </tr>
+
+    <tr>
+            <td scope="col" abbr="Monday" title="Monday" class="serendipity_weekDayName" align="center">Mon</td>
+            <td scope="col" abbr="Tuesday" title="Tuesday" class="serendipity_weekDayName" align="center">Tue</td>
+            <td scope="col" abbr="Wednesday" title="Wednesday" class="serendipity_weekDayName" align="center">Wed</td>
+            <td scope="col" abbr="Thursday" title="Thursday" class="serendipity_weekDayName" align="center">Thu</td>
+            <td scope="col" abbr="Friday" title="Friday" class="serendipity_weekDayName" align="center">Fri</td>
+            <td scope="col" abbr="Saturday" title="Saturday" class="serendipity_weekDayName" align="center">Sat</td>
+            <td scope="col" abbr="Sunday" title="Sunday" class="serendipity_weekDayName" align="center">Sun</td>
+        </tr>
+
+            <tr class="serendipity_calendar">
+                    <td class="serendipity_calendarDay FirstRow FirstInRow">&#160;</td>
+                    <td class="serendipity_calendarDay FirstRow">&#160;</td>
+                    <td class="serendipity_calendarDay FirstRow">1</td>
+                    <td class="serendipity_calendarDay FirstRow">2</td>
+                    <td class="serendipity_calendarDay FirstRow">3</td>
+                    <td class="serendipity_calendarDay FirstRow">4</td>
+                    <td class="serendipity_calendarDay FirstRow LastInRow">5</td>
+                </tr>
+            <tr class="serendipity_calendar">
+                    <td class="serendipity_calendarDay FirstInRow">6</td>
+                    <td class="serendipity_calendarDay ">7</td>
+                    <td class="serendipity_calendarDay ">8</td>
+                    <td class="serendipity_calendarDay ">9</td>
+                    <td class="serendipity_calendarDay ">10</td>
+                    <td class="serendipity_calendarDay ">11</td>
+                    <td class="serendipity_calendarDay LastInRow Active Link"><a href="http://www.postgresonline.com/journal/archives/2013/05/12.html">12</a></td>
+                </tr>
+            <tr class="serendipity_calendar">
+                    <td class="serendipity_calendarDay FirstInRow Active Link"><a href="http://www.postgresonline.com/journal/archives/2013/05/13.html">13</a></td>
+                    <td class="serendipity_calendarDay ">14</td>
+                    <td class="serendipity_calendarDay ">15</td>
+                    <td class="serendipity_calendarDay ">16</td>
+                    <td class="serendipity_calendarDay Today">17</td>
+                    <td class="serendipity_calendarDay ">18</td>
+                    <td class="serendipity_calendarDay LastInRow">19</td>
+                </tr>
+            <tr class="serendipity_calendar">
+                    <td class="serendipity_calendarDay FirstInRow">20</td>
+                    <td class="serendipity_calendarDay ">21</td>
+                    <td class="serendipity_calendarDay ">22</td>
+                    <td class="serendipity_calendarDay ">23</td>
+                    <td class="serendipity_calendarDay ">24</td>
+                    <td class="serendipity_calendarDay ">25</td>
+                    <td class="serendipity_calendarDay LastInRow">26</td>
+                </tr>
+            <tr class="serendipity_calendar">
+                    <td class="serendipity_calendarDay FirstInRow LastRow">27</td>
+                    <td class="serendipity_calendarDay LastRow">28</td>
+                    <td class="serendipity_calendarDay LastRow">29</td>
+                    <td class="serendipity_calendarDay LastRow">30</td>
+                    <td class="serendipity_calendarDay LastRow">31</td>
+                    <td class="serendipity_calendarDay LastRow">&#160;</td>
+                    <td class="serendipity_calendarDay LastInRow LastRow">&#160;</td>
+                </tr>
+    </table></div>
+    </div>
+    <div class="serendipitySideBarItem container_serendipity_categories_plugin">
+        <h3 class="serendipitySideBarTitle serendipity_categories_plugin">Categories</h3>        <div class="serendipitySideBarContent"><form action="http://www.postgresonline.com/journal/index.php?frontpage" method="post">
+              <div id="serendipity_category_form_content"><ul id="serendipity_categories_list" style="list-style: none; margin: 0px; padding: 0px"><li class="category_depth0 category_41" style="display: block;"><input style="width: 15px" type="checkbox" name="serendipity[multiCat][]" value="41" /><a class="serendipity_xml_icon" href="/journal/feeds/categories/41-adobe-flex.rss"><img src="/journal/templates/postgresqlmag/img/xml.gif" alt="XML" style="border: 0px" /></a> <a href="/journal/categories/41-adobe-flex" title="adobe flex" style="padding-left: 0px">adobe flex (2)</a></li>
+<li class="category_depth0 category_14" style="display: block;"><input style="width: 15px" type="checkbox" name="serendipity[multiCat][]" value="14" /><a class="serendipity_xml_icon" href="/journal/feeds/categories/14-adodb.rss"><img src="/journal/templates/postgresqlmag/img/xml.gif" alt="XML" style="border: 0px" /></a> <a href="/journal/categories/14-adodb" title="adodb" style="padding-left: 0px">adodb (2)</a></li>
+<li class="category_depth0 category_9" style="display: block;"><input style="width: 15px" type="checkbox" name="serendipity[multiCat][]" value="9" /><a class="serendipity_xml_icon" href="/journal/feeds/categories/9-advanced.rss"><img src="/journal/templates/postgresqlmag/img/xml.gif" alt="XML" style="border: 0px" /></a> <a href="/journal/categories/9-advanced" title="Advanced" style="padding-left: 0px">advanced (11)</a></li>
+<li class="category_depth0 category_1" style="display: block;"><input style="width: 15px" type="checkbox" name="serendipity[multiCat][]" value="1" /><a class="serendipity_xml_icon" href="/journal/feeds/categories/1-application-development.rss"><img src="/journal/templates/postgresqlmag/img/xml.gif" alt="XML" style="border: 0px" /></a> <a href="/journal/categories/1-application-development" title="Application Development" style="padding-left: 0px">application development (18)</a></li>
+<li class="category_depth1 category_39" style="display: block;"><input style="width: 15px" type="checkbox" name="serendipity[multiCat][]" value="39" /><a class="serendipity_xml_icon" href="/journal/feeds/categories/39-webservices.rss"><img src="/journal/templates/postgresqlmag/img/xml.gif" alt="XML" style="border: 0px" /></a> <a href="/journal/categories/39-webservices" title="webservices" style="padding-left: 6px">webservices (8)</a></li>
+<li class="category_depth0 category_2" style="display: block;"><input style="width: 15px" type="checkbox" name="serendipity[multiCat][]" value="2" /><a class="serendipity_xml_icon" href="/journal/feeds/categories/2-basics.rss"><img src="/journal/templates/postgresqlmag/img/xml.gif" alt="XML" style="border: 0px" /></a> <a href="/journal/categories/2-basics" title="Basics" style="padding-left: 0px">basics (56)</a></li>
+<li class="category_depth1 category_53" style="display: block;"><input style="width: 15px" type="checkbox" name="serendipity[multiCat][]" value="53" /><a class="serendipity_xml_icon" href="/journal/feeds/categories/53-yum.rss"><img src="/journal/templates/postgresqlmag/img/xml.gif" alt="XML" style="border: 0px" /></a> <a href="/journal/categories/53-yum" title="yum" style="padding-left: 6px">yum (7)</a></li>
+<li class="category_depth0 category_7" style="display: block;"><input style="width: 15px" type="checkbox" name="serendipity[multiCat][]" value="7" /><a class="serendipity_xml_icon" href="/journal/feeds/categories/7-beginner.rss"><img src="/journal/templates/postgresqlmag/img/xml.gif" alt="XML" style="border: 0px" /></a> <a href="/journal/categories/7-beginner" title="Beginner" style="padding-left: 0px">beginner (66)</a></li>
+<li class="category_depth0 category_44" style="display: block;"><input style="width: 15px" type="checkbox" name="serendipity[multiCat][]" value="44" /><a class="serendipity_xml_icon" href="/journal/feeds/categories/44-cheatsheet.rss"><img src="/journal/templates/postgresqlmag/img/xml.gif" alt="XML" style="border: 0px" /></a> <a href="/journal/categories/44-cheatsheet" title="Cheat Sheets" style="padding-left: 0px">cheatsheet (5)</a></li>
+<li class="category_depth0 category_65" style="display: block;"><input style="width: 15px" type="checkbox" name="serendipity[multiCat][]" value="65" /><a class="serendipity_xml_icon" href="/journal/feeds/categories/65-comparisons.rss"><img src="/journal/templates/postgresqlmag/img/xml.gif" alt="XML" style="border: 0px" /></a> <a href="/journal/categories/65-comparisons" title="comparisons" style="padding-left: 0px">comparisons (2)</a></li>
+<li class="category_depth0 category_3" style="display: block;"><input style="width: 15px" type="checkbox" name="serendipity[multiCat][]" value="3" /><a class="serendipity_xml_icon" href="/journal/feeds/categories/3-contrib-spotlight.rss"><img src="/journal/templates/postgresqlmag/img/xml.gif" alt="XML" style="border: 0px" /></a> <a href="/journal/categories/3-contrib-spotlight" title="Contrib Spot Light" style="padding-left: 0px">contrib spotlight (28)</a></li>
+<li class="category_depth1 category_70" style="display: block;"><input style="width: 15px" type="checkbox" name="serendipity[multiCat][]" value="70" /><a class="serendipity_xml_icon" href="/journal/feeds/categories/70-fdws.rss"><img src="/journal/templates/postgresqlmag/img/xml.gif" alt="XML" style="border: 0px" /></a> <a href="/journal/categories/70-fdws" title="foreign data wrappers" style="padding-left: 6px">fdws (7)</a></li>
+<li class="category_depth1 category_68" style="display: block;"><input style="width: 15px" type="checkbox" name="serendipity[multiCat][]" value="68" /><a class="serendipity_xml_icon" href="/journal/feeds/categories/68-first_last_agg.rss"><img src="/journal/templates/postgresqlmag/img/xml.gif" alt="XML" style="border: 0px" /></a> <a href="/journal/categories/68-first_last_agg" title="" style="padding-left: 6px">first_last_agg (1)</a></li>
+<li class="category_depth1 category_57" style="display: block;"><input style="width: 15px" type="checkbox" name="serendipity[multiCat][]" value="57" /><a class="serendipity_xml_icon" href="/journal/feeds/categories/57-fuzzystrmatch.rss"><img src="/journal/templates/postgresqlmag/img/xml.gif" alt="XML" style="border: 0px" /></a> <a href="/journal/categories/57-fuzzystrmatch" title="fuzzystrmatch" style="padding-left: 6px">fuzzystrmatch (2)</a></li>
+<li class="category_depth1 category_60" style="display: block;"><input style="width: 15px" type="checkbox" name="serendipity[multiCat][]" value="60" /><a class="serendipity_xml_icon" href="/journal/feeds/categories/60-hstore.rss"><img src="/journal/templates/postgresqlmag/img/xml.gif" alt="XML" style="border: 0px" /></a> <a href="/journal/categories/60-hstore" title="hstore" style="padding-left: 6px">hstore (8)</a></li>
+<li class="category_depth1 category_73" style="display: block;"><input style="width: 15px" type="checkbox" name="serendipity[multiCat][]" value="73" /><a class="serendipity_xml_icon" href="/journal/feeds/categories/73-json.rss"><img src="/journal/templates/postgresqlmag/img/xml.gif" alt="XML" style="border: 0px" /></a> <a href="/journal/categories/73-json" title="json" style="padding-left: 6px">json (1)</a></li>
+<li class="category_depth1 category_66" style="display: block;"><input style="width: 15px" type="checkbox" name="serendipity[multiCat][]" value="66" /><a class="serendipity_xml_icon" href="/journal/feeds/categories/66-kmean.rss"><img src="/journal/templates/postgresqlmag/img/xml.gif" alt="XML" style="border: 0px" /></a> <a href="/journal/categories/66-kmean" title="kmean window function" style="padding-left: 6px">kmean (1)</a></li>
+<li class="category_depth1 category_61" style="display: block;"><input style="width: 15px" type="checkbox" name="serendipity[multiCat][]" value="61" /><a class="serendipity_xml_icon" href="/journal/feeds/categories/61-ltree.rss"><img src="/journal/templates/postgresqlmag/img/xml.gif" alt="XML" style="border: 0px" /></a> <a href="/journal/categories/61-ltree" title="ltree" style="padding-left: 6px">ltree (3)</a></li>
+<li class="category_depth1 category_58" style="display: block;"><input style="width: 15px" type="checkbox" name="serendipity[multiCat][]" value="58" /><a class="serendipity_xml_icon" href="/journal/feeds/categories/58-pgcrypto.rss"><img src="/journal/templates/postgresqlmag/img/xml.gif" alt="XML" style="border: 0px" /></a> <a href="/journal/categories/58-pgcrypto" title="pgcrypto" style="padding-left: 6px">pgcrypto (1)</a></li>
+<li class="category_depth1 category_77" style="display: block;"><input style="width: 15px" type="checkbox" name="serendipity[multiCat][]" value="77" /><a class="serendipity_xml_icon" href="/journal/feeds/categories/77-pgRouting.rss"><img src="/journal/templates/postgresqlmag/img/xml.gif" alt="XML" style="border: 0px" /></a> <a href="/journal/categories/77-pgRouting" title="pgRouting" style="padding-left: 6px">pgRouting (1)</a></li>
+<li class="category_depth1 category_59" style="display: block;"><input style="width: 15px" type="checkbox" name="serendipity[multiCat][]" value="59" /><a class="serendipity_xml_icon" href="/journal/feeds/categories/59-pgtrgm.rss"><img src="/journal/templates/postgresqlmag/img/xml.gif" alt="XML" style="border: 0px" /></a> <a href="/journal/categories/59-pgtrgm" title="Trigram" style="padding-left: 6px">pgtrgm (3)</a></li>
+<li class="category_depth1 category_24" style="display: block;"><input style="width: 15px" type="checkbox" name="serendipity[multiCat][]" value="24" /><a class="serendipity_xml_icon" href="/journal/feeds/categories/24-tablefunc.rss"><img src="/journal/templates/postgresqlmag/img/xml.gif" alt="XML" style="border: 0px" /></a> <a href="/journal/categories/24-tablefunc" title="tablefunc" style="padding-left: 6px">tablefunc (2)</a></li>
+<li class="category_depth1 category_67" style="display: block;"><input style="width: 15px" type="checkbox" name="serendipity[multiCat][]" value="67" /><a class="serendipity_xml_icon" href="/journal/feeds/categories/67-temporal.rss"><img src="/journal/templates/postgresqlmag/img/xml.gif" alt="XML" style="border: 0px" /></a> <a href="/journal/categories/67-temporal" title="" style="padding-left: 6px">temporal (1)</a></li>
+<li class="category_depth1 category_30" style="display: block;"><input style="width: 15px" type="checkbox" name="serendipity[multiCat][]" value="30" /><a class="serendipity_xml_icon" href="/journal/feeds/categories/30-tsearch.rss"><img src="/journal/templates/postgresqlmag/img/xml.gif" alt="XML" style="border: 0px" /></a> <a href="/journal/categories/30-tsearch" title="tsearch" style="padding-left: 6px">tsearch (7)</a></li>
+<li class="category_depth1 category_63" style="display: block;"><input style="width: 15px" type="checkbox" name="serendipity[multiCat][]" value="63" /><a class="serendipity_xml_icon" href="/journal/feeds/categories/63-uuid_osp.rss"><img src="/journal/templates/postgresqlmag/img/xml.gif" alt="XML" style="border: 0px" /></a> <a href="/journal/categories/63-uuid_osp" title="uuid osp" style="padding-left: 6px">uuid_osp (1)</a></li>
+<li class="category_depth0 category_55" style="display: block;"><input style="width: 15px" type="checkbox" name="serendipity[multiCat][]" value="55" /><a class="serendipity_xml_icon" href="/journal/feeds/categories/55-cte.rss"><img src="/journal/templates/postgresqlmag/img/xml.gif" alt="XML" style="border: 0px" /></a> <a href="/journal/categories/55-cte" title="common table expression" style="padding-left: 0px">cte (8)</a></li>
+<li class="category_depth0 category_32" style="display: block;"><input style="width: 15px" type="checkbox" name="serendipity[multiCat][]" value="32" /><a class="serendipity_xml_icon" href="/journal/feeds/categories/32-demo-dbs.rss"><img src="/journal/templates/postgresqlmag/img/xml.gif" alt="XML" style="border: 0px" /></a> <a href="/journal/categories/32-demo-dbs" title="demo dbs" style="padding-left: 0px">demo dbs (1)</a></li>
+<li class="category_depth1 category_33" style="display: block;"><input style="width: 15px" type="checkbox" name="serendipity[multiCat][]" value="33" /><a class="serendipity_xml_icon" href="/journal/feeds/categories/33-pagila.rss"><img src="/journal/templates/postgresqlmag/img/xml.gif" alt="XML" style="border: 0px" /></a> <a href="/journal/categories/33-pagila" title="pagila" style="padding-left: 6px">pagila (9)</a></li>
+<li class="category_depth1 category_46" style="display: block;"><input style="width: 15px" type="checkbox" name="serendipity[multiCat][]" value="46" /><a class="serendipity_xml_icon" href="/journal/feeds/categories/46-usda.rss"><img src="/journal/templates/postgresqlmag/img/xml.gif" alt="XML" style="border: 0px" /></a> <a href="/journal/categories/46-usda" title="usda" style="padding-left: 6px">usda (3)</a></li>
+<li class="category_depth0 category_4" style="display: block;"><input style="width: 15px" type="checkbox" name="serendipity[multiCat][]" value="4" /><a class="serendipity_xml_icon" href="/journal/feeds/categories/4-editor-note.rss"><img src="/journal/templates/postgresqlmag/img/xml.gif" alt="XML" style="border: 0px" /></a> <a href="/journal/categories/4-editor-note" title="Editor's Note" style="padding-left: 0px">editor note (52)</a></li>
+<li class="category_depth0 category_37" style="display: block;"><input style="width: 15px" type="checkbox" name="serendipity[multiCat][]" value="37" /><a class="serendipity_xml_icon" href="/journal/feeds/categories/37-gis.rss"><img src="/journal/templates/postgresqlmag/img/xml.gif" alt="XML" style="border: 0px" /></a> <a href="/journal/categories/37-gis" title="gis" style="padding-left: 0px">gis (42)</a></li>
+<li class="category_depth0 category_8" style="display: block;"><input style="width: 15px" type="checkbox" name="serendipity[multiCat][]" value="8" /><a class="serendipity_xml_icon" href="/journal/feeds/categories/8-intermediate.rss"><img src="/journal/templates/postgresqlmag/img/xml.gif" alt="XML" style="border: 0px" /></a> <a href="/journal/categories/8-intermediate" title="Intermediate" style="padding-left: 0px">intermediate (90)</a></li>
+<li class="category_depth0 category_52" style="display: block;"><input style="width: 15px" type="checkbox" name="serendipity[multiCat][]" value="52" /><a class="serendipity_xml_icon" href="/journal/feeds/categories/52-joke.rss"><img src="/journal/templates/postgresqlmag/img/xml.gif" alt="XML" style="border: 0px" /></a> <a href="/journal/categories/52-joke" title="joke" style="padding-left: 0px">joke (2)</a></li>
+<li class="category_depth0 category_62" style="display: block;"><input style="width: 15px" type="checkbox" name="serendipity[multiCat][]" value="62" /><a class="serendipity_xml_icon" href="/journal/feeds/categories/62-jquery.rss"><img src="/journal/templates/postgresqlmag/img/xml.gif" alt="XML" style="border: 0px" /></a> <a href="/journal/categories/62-jquery" title="jquery" style="padding-left: 0px">jquery (1)</a></li>
+<li class="category_depth0 category_40" style="display: block;"><input style="width: 15px" type="checkbox" name="serendipity[multiCat][]" value="40" /><a class="serendipity_xml_icon" href="/journal/feeds/categories/40-mono-NET.rss"><img src="/journal/templates/postgresqlmag/img/xml.gif" alt="XML" style="border: 0px" /></a> <a href="/journal/categories/40-mono-NET" title="mono .NET" style="padding-left: 0px">mono .NET (3)</a></li>
+<li class="category_depth0 category_5" style="display: block;"><input style="width: 15px" type="checkbox" name="serendipity[multiCat][]" value="5" /><a class="serendipity_xml_icon" href="/journal/feeds/categories/5-new-in-postgresql.rss"><img src="/journal/templates/postgresqlmag/img/xml.gif" alt="XML" style="border: 0px" /></a> <a href="/journal/categories/5-new-in-postgresql" title="What's new and Upcoming in PostgreSQL" style="padding-left: 0px">new in postgresql (22)</a></li>
+<li class="category_depth0 category_23" style="display: block;"><input style="width: 15px" type="checkbox" name="serendipity[multiCat][]" value="23" /><a class="serendipity_xml_icon" href="/journal/feeds/categories/23-oobase.rss"><img src="/journal/templates/postgresqlmag/img/xml.gif" alt="XML" style="border: 0px" /></a> <a href="/journal/categories/23-oobase" title="Open Office Base" style="padding-left: 0px">oobase (8)</a></li>
+<li class="category_depth0 category_17" style="display: block;"><input style="width: 15px" type="checkbox" name="serendipity[multiCat][]" value="17" /><a class="serendipity_xml_icon" href="/journal/feeds/categories/17-other-dbms.rss"><img src="/journal/templates/postgresqlmag/img/xml.gif" alt="XML" style="border: 0px" /></a> <a href="/journal/categories/17-other-dbms" title="Other dbms" style="padding-left: 0px">other dbms (10)</a></li>
+<li class="category_depth1 category_29" style="display: block;"><input style="width: 15px" type="checkbox" name="serendipity[multiCat][]" value="29" /><a class="serendipity_xml_icon" href="/journal/feeds/categories/29-db2.rss"><img src="/journal/templates/postgresqlmag/img/xml.gif" alt="XML" style="border: 0px" /></a> <a href="/journal/categories/29-db2" title="db2" style="padding-left: 6px">db2 (19)</a></li>
+<li class="category_depth1 category_36" style="display: block;"><input style="width: 15px" type="checkbox" name="serendipity[multiCat][]" value="36" /><a class="serendipity_xml_icon" href="/journal/feeds/categories/36-Dbase.rss"><img src="/journal/templates/postgresqlmag/img/xml.gif" alt="XML" style="border: 0px" /></a> <a href="/journal/categories/36-Dbase" title="Dbase" style="padding-left: 6px">Dbase (2)</a></li>
+<li class="category_depth1 category_28" style="display: block;"><input style="width: 15px" type="checkbox" name="serendipity[multiCat][]" value="28" /><a class="serendipity_xml_icon" href="/journal/feeds/categories/28-firebird.rss"><img src="/journal/templates/postgresqlmag/img/xml.gif" alt="XML" style="border: 0px" /></a> <a href="/journal/categories/28-firebird" title="firebird" style="padding-left: 6px">firebird (11)</a></li>
+<li class="category_depth1 category_21" style="display: block;"><input style="width: 15px" type="checkbox" name="serendipity[multiCat][]" value="21" /><a class="serendipity_xml_icon" href="/journal/feeds/categories/21-informix.rss"><img src="/journal/templates/postgresqlmag/img/xml.gif" alt="XML" style="border: 0px" /></a> <a href="/journal/categories/21-informix" title="Informix" style="padding-left: 6px">informix (3)</a></li>
+<li class="category_depth1 category_22" style="display: block;"><input style="width: 15px" type="checkbox" name="serendipity[multiCat][]" value="22" /><a class="serendipity_xml_icon" href="/journal/feeds/categories/22-ms-access.rss"><img src="/journal/templates/postgresqlmag/img/xml.gif" alt="XML" style="border: 0px" /></a> <a href="/journal/categories/22-ms-access" title="MS Access" style="padding-left: 6px">ms access (15)</a></li>
+<li class="category_depth1 category_19" style="display: block;"><input style="width: 15px" type="checkbox" name="serendipity[multiCat][]" value="19" /><a class="serendipity_xml_icon" href="/journal/feeds/categories/19-mysql.rss"><img src="/journal/templates/postgresqlmag/img/xml.gif" alt="XML" style="border: 0px" /></a> <a href="/journal/categories/19-mysql" title="MySQL" style="padding-left: 6px">mysql (44)</a></li>
+<li class="category_depth1 category_35" style="display: block;"><input style="width: 15px" type="checkbox" name="serendipity[multiCat][]" value="35" /><a class="serendipity_xml_icon" href="/journal/feeds/categories/35-netezza.rss"><img src="/journal/templates/postgresqlmag/img/xml.gif" alt="XML" style="border: 0px" /></a> <a href="/journal/categories/35-netezza" title="netezza" style="padding-left: 6px">netezza (1)</a></li>
+<li class="category_depth1 category_18" style="display: block;"><input style="width: 15px" type="checkbox" name="serendipity[multiCat][]" value="18" /><a class="serendipity_xml_icon" href="/journal/feeds/categories/18-oracle.rss"><img src="/journal/templates/postgresqlmag/img/xml.gif" alt="XML" style="border: 0px" /></a> <a href="/journal/categories/18-oracle" title="Oracle" style="padding-left: 6px">oracle (39)</a></li>
+<li class="category_depth1 category_20" style="display: block;"><input style="width: 15px" type="checkbox" name="serendipity[multiCat][]" value="20" /><a class="serendipity_xml_icon" href="/journal/feeds/categories/20-sql-server.rss"><img src="/journal/templates/postgresqlmag/img/xml.gif" alt="XML" style="border: 0px" /></a> <a href="/journal/categories/20-sql-server" title="SQL Server" style="padding-left: 6px">sql server (67)</a></li>
+<li class="category_depth1 category_27" style="display: block;"><input style="width: 15px" type="checkbox" name="serendipity[multiCat][]" value="27" /><a class="serendipity_xml_icon" href="/journal/feeds/categories/27-sqlite.rss"><img src="/journal/templates/postgresqlmag/img/xml.gif" alt="XML" style="border: 0px" /></a> <a href="/journal/categories/27-sqlite" title="sqlite" style="padding-left: 6px">sqlite (4)</a></li>
+<li class="category_depth1 category_34" style="display: block;"><input style="width: 15px" type="checkbox" name="serendipity[multiCat][]" value="34" /><a class="serendipity_xml_icon" href="/journal/feeds/categories/34-terradata.rss"><img src="/journal/templates/postgresqlmag/img/xml.gif" alt="XML" style="border: 0px" /></a> <a href="/journal/categories/34-terradata" title="terradata" style="padding-left: 6px">terradata (1)</a></li>
+<li class="category_depth0 category_31" style="display: block;"><input style="width: 15px" type="checkbox" name="serendipity[multiCat][]" value="31" /><a class="serendipity_xml_icon" href="/journal/feeds/categories/31-pgadmin.rss"><img src="/journal/templates/postgresqlmag/img/xml.gif" alt="XML" style="border: 0px" /></a> <a href="/journal/categories/31-pgadmin" title="pgadmin" style="padding-left: 0px">pgadmin (21)</a></li>
+<li class="category_depth0 category_45" style="display: block;"><input style="width: 15px" type="checkbox" name="serendipity[multiCat][]" value="45" /><a class="serendipity_xml_icon" href="/journal/feeds/categories/45-pgagent.rss"><img src="/journal/templates/postgresqlmag/img/xml.gif" alt="XML" style="border: 0px" /></a> <a href="/journal/categories/45-pgagent" title="pgagent" style="padding-left: 0px">pgagent (2)</a></li>
+<li class="category_depth0 category_6" style="display: block;"><input style="width: 15px" type="checkbox" name="serendipity[multiCat][]" value="6" /><a class="serendipity_xml_icon" href="/journal/feeds/categories/6-pl-programming.rss"><img src="/journal/templates/postgresqlmag/img/xml.gif" alt="XML" style="border: 0px" /></a> <a href="/journal/categories/6-pl-programming" title="PL Programming" style="padding-left: 0px">pl programming (31)</a></li>
+<li class="category_depth1 category_71" style="display: block;"><input style="width: 15px" type="checkbox" name="serendipity[multiCat][]" value="71" /><a class="serendipity_xml_icon" href="/journal/feeds/categories/71-plcoffee.rss"><img src="/journal/templates/postgresqlmag/img/xml.gif" alt="XML" style="border: 0px" /></a> <a href="/journal/categories/71-plcoffee" title="PL/Coffee" style="padding-left: 6px">plcoffee (6)</a></li>
+<li class="category_depth1 category_75" style="display: block;"><input style="width: 15px" type="checkbox" name="serendipity[multiCat][]" value="75" /><a class="serendipity_xml_icon" href="/journal/feeds/categories/75-plLiveScript.rss"><img src="/journal/templates/postgresqlmag/img/xml.gif" alt="XML" style="border: 0px" /></a> <a href="/journal/categories/75-plLiveScript" title="PL/LiveScript" style="padding-left: 6px">plLiveScript (2)</a></li>
+<li class="category_depth1 category_43" style="display: block;"><input style="width: 15px" type="checkbox" name="serendipity[multiCat][]" value="43" /><a class="serendipity_xml_icon" href="/journal/feeds/categories/43-plperl.rss"><img src="/journal/templates/postgresqlmag/img/xml.gif" alt="XML" style="border: 0px" /></a> <a href="/journal/categories/43-plperl" title="plperl" style="padding-left: 6px">plperl (1)</a></li>
+<li class="category_depth1 category_26" style="display: block;"><input style="width: 15px" type="checkbox" name="serendipity[multiCat][]" value="26" /><a class="serendipity_xml_icon" href="/journal/feeds/categories/26-plpgsql.rss"><img src="/journal/templates/postgresqlmag/img/xml.gif" alt="XML" style="border: 0px" /></a> <a href="/journal/categories/26-plpgsql" title="plpgsql" style="padding-left: 6px">plpgsql (14)</a></li>
+<li class="category_depth1 category_51" style="display: block;"><input style="width: 15px" type="checkbox" name="serendipity[multiCat][]" value="51" /><a class="serendipity_xml_icon" href="/journal/feeds/categories/51-plpython.rss"><img src="/journal/templates/postgresqlmag/img/xml.gif" alt="XML" style="border: 0px" /></a> <a href="/journal/categories/51-plpython" title="plpython" style="padding-left: 6px">plpython (6)</a></li>
+<li class="category_depth1 category_13" style="display: block;"><input style="width: 15px" type="checkbox" name="serendipity[multiCat][]" value="13" /><a class="serendipity_xml_icon" href="/journal/feeds/categories/13-PLR.rss"><img src="/journal/templates/postgresqlmag/img/xml.gif" alt="XML" style="border: 0px" /></a> <a href="/journal/categories/13-PLR" title="PLR" style="padding-left: 6px">PLR (8)</a></li>
+<li class="category_depth1 category_72" style="display: block;"><input style="width: 15px" type="checkbox" name="serendipity[multiCat][]" value="72" /><a class="serendipity_xml_icon" href="/journal/feeds/categories/72-plv8js.rss"><img src="/journal/templates/postgresqlmag/img/xml.gif" alt="XML" style="border: 0px" /></a> <a href="/journal/categories/72-plv8js" title="PL/V8JS" style="padding-left: 6px">plv8js (7)</a></li>
+<li class="category_depth1 category_38" style="display: block;"><input style="width: 15px" type="checkbox" name="serendipity[multiCat][]" value="38" /><a class="serendipity_xml_icon" href="/journal/feeds/categories/38-sql-functions.rss"><img src="/journal/templates/postgresqlmag/img/xml.gif" alt="XML" style="border: 0px" /></a> <a href="/journal/categories/38-sql-functions" title="sql functions" style="padding-left: 6px">sql functions (14)</a></li>
+<li class="category_depth0 category_16" style="display: block;"><input style="width: 15px" type="checkbox" name="serendipity[multiCat][]" value="16" /><a class="serendipity_xml_icon" href="/journal/feeds/categories/16-postgis.rss"><img src="/journal/templates/postgresqlmag/img/xml.gif" alt="XML" style="border: 0px" /></a> <a href="/journal/categories/16-postgis" title="postgis" style="padding-left: 0px">postgis (107)</a></li>
+<li class="category_depth0 category_47" style="display: block;"><input style="width: 15px" type="checkbox" name="serendipity[multiCat][]" value="47" /><a class="serendipity_xml_icon" href="/journal/feeds/categories/47-postgresql-versions.rss"><img src="/journal/templates/postgresqlmag/img/xml.gif" alt="XML" style="border: 0px" /></a> <a href="/journal/categories/47-postgresql-versions" title="postgresql versions" style="padding-left: 0px">postgresql versions (75)</a></li>
+<li class="category_depth1 category_50" style="display: block;"><input style="width: 15px" type="checkbox" name="serendipity[multiCat][]" value="50" /><a class="serendipity_xml_icon" href="/journal/feeds/categories/50-82.rss"><img src="/journal/templates/postgresqlmag/img/xml.gif" alt="XML" style="border: 0px" /></a> <a href="/journal/categories/50-82" title="" style="padding-left: 6px">8.2 (30)</a></li>
+<li class="category_depth1 category_48" style="display: block;"><input style="width: 15px" type="checkbox" name="serendipity[multiCat][]" value="48" /><a class="serendipity_xml_icon" href="/journal/feeds/categories/48-83.rss"><img src="/journal/templates/postgresqlmag/img/xml.gif" alt="XML" style="border: 0px" /></a> <a href="/journal/categories/48-83" title="8.3" style="padding-left: 6px">8.3 (43)</a></li>
+<li class="category_depth1 category_49" style="display: block;"><input style="width: 15px" type="checkbox" name="serendipity[multiCat][]" value="49" /><a class="serendipity_xml_icon" href="/journal/feeds/categories/49-84.rss"><img src="/journal/templates/postgresqlmag/img/xml.gif" alt="XML" style="border: 0px" /></a> <a href="/journal/categories/49-84" title="" style="padding-left: 6px">8.4 (67)</a></li>
+<li class="category_depth1 category_56" style="display: block;"><input style="width: 15px" type="checkbox" name="serendipity[multiCat][]" value="56" /><a class="serendipity_xml_icon" href="/journal/feeds/categories/56-90.rss"><img src="/journal/templates/postgresqlmag/img/xml.gif" alt="XML" style="border: 0px" /></a> <a href="/journal/categories/56-90" title="9.0" style="padding-left: 6px">9.0 (47)</a></li>
+<li class="category_depth1 category_64" style="display: block;"><input style="width: 15px" type="checkbox" name="serendipity[multiCat][]" value="64" /><a class="serendipity_xml_icon" href="/journal/feeds/categories/64-91.rss"><img src="/journal/templates/postgresqlmag/img/xml.gif" alt="XML" style="border: 0px" /></a> <a href="/journal/categories/64-91" title="9.1" style="padding-left: 6px">9.1 (35)</a></li>
+<li class="category_depth1 category_69" style="display: block;"><input style="width: 15px" type="checkbox" name="serendipity[multiCat][]" value="69" /><a class="serendipity_xml_icon" href="/journal/feeds/categories/69-92.rss"><img src="/journal/templates/postgresqlmag/img/xml.gif" alt="XML" style="border: 0px" /></a> <a href="/journal/categories/69-92" title="9.2" style="padding-left: 6px">9.2 (24)</a></li>
+<li class="category_depth1 category_74" style="display: block;"><input style="width: 15px" type="checkbox" name="serendipity[multiCat][]" value="74" /><a class="serendipity_xml_icon" href="/journal/feeds/categories/74-93.rss"><img src="/journal/templates/postgresqlmag/img/xml.gif" alt="XML" style="border: 0px" /></a> <a href="/journal/categories/74-93" title="postgresql 9.3" style="padding-left: 6px">9.3 (10)</a></li>
+<li class="category_depth0 category_11" style="display: block;"><input style="width: 15px" type="checkbox" name="serendipity[multiCat][]" value="11" /><a class="serendipity_xml_icon" href="/journal/feeds/categories/11-product-showcase.rss"><img src="/journal/templates/postgresqlmag/img/xml.gif" alt="XML" style="border: 0px" /></a> <a href="/journal/categories/11-product-showcase" title="Product Showcase" style="padding-left: 0px">product showcase (16)</a></li>
+<li class="category_depth0 category_10" style="display: block;"><input style="width: 15px" type="checkbox" name="serendipity[multiCat][]" value="10" /><a class="serendipity_xml_icon" href="/journal/feeds/categories/10-qa.rss"><img src="/journal/templates/postgresqlmag/img/xml.gif" alt="XML" style="border: 0px" /></a> <a href="/journal/categories/10-qa" title="PostgreSQL Q &amp; A" style="padding-left: 0px">q&amp;a (58)</a></li>
+<li class="category_depth0 category_12" style="display: block;"><input style="width: 15px" type="checkbox" name="serendipity[multiCat][]" value="12" /><a class="serendipity_xml_icon" href="/journal/feeds/categories/12-serendipity.rss"><img src="/journal/templates/postgresqlmag/img/xml.gif" alt="XML" style="border: 0px" /></a> <a href="/journal/categories/12-serendipity" title="Serendipity" style="padding-left: 0px">serendipity (1)</a></li>
+<li class="category_depth0 category_15" style="display: block;"><input style="width: 15px" type="checkbox" name="serendipity[multiCat][]" value="15" /><a class="serendipity_xml_icon" href="/journal/feeds/categories/15-smarty.rss"><img src="/journal/templates/postgresqlmag/img/xml.gif" alt="XML" style="border: 0px" /></a> <a href="/journal/categories/15-smarty" title="smarty" style="padding-left: 0px">smarty (1)</a></li>
+<li class="category_depth0 category_25" style="display: block;"><input style="width: 15px" type="checkbox" name="serendipity[multiCat][]" value="25" /><a class="serendipity_xml_icon" href="/journal/feeds/categories/25-special-feature.rss"><img src="/journal/templates/postgresqlmag/img/xml.gif" alt="XML" style="border: 0px" /></a> <a href="/journal/categories/25-special-feature" title="Special Feature" style="padding-left: 0px">special feature (9)</a></li>
+<li class="category_depth0 category_54" style="display: block;"><input style="width: 15px" type="checkbox" name="serendipity[multiCat][]" value="54" /><a class="serendipity_xml_icon" href="/journal/feeds/categories/54-window-functions.rss"><img src="/journal/templates/postgresqlmag/img/xml.gif" alt="XML" style="border: 0px" /></a> <a href="/journal/categories/54-window-functions" title="window functions" style="padding-left: 0px">window functions (11)</a></li>
+<li class="category_depth0 category_76" style="display: block;"><input style="width: 15px" type="checkbox" name="serendipity[multiCat][]" value="76" /><a class="serendipity_xml_icon" href="/journal/feeds/categories/76-winextensions.rss"><img src="/journal/templates/postgresqlmag/img/xml.gif" alt="XML" style="border: 0px" /></a> <a href="/journal/categories/76-winextensions" title="Windows Extension Binaries" style="padding-left: 0px">winextensions (8)</a></li>
+</ul><div class="category_submit"><br /><input type="submit" name="serendipity[isMultiCat]" value="Go!" /></div><div class="category_link_all"><br /><a href="/journal/index.php?frontpage" title="All categories">All categories</a></div></div></form></div>
+    </div>
+    <div class="serendipitySideBarItem container_serendipity_archives_plugin">
+        <h3 class="serendipitySideBarTitle serendipity_archives_plugin">Archives</h3>        <div class="serendipitySideBarContent"><ul>
+<li><a href="/journal/archives/2013/05.html" title="May 2013">May 2013</a></li>
+<li><a href="/journal/archives/2013/04.html" title="April 2013">April 2013</a></li>
+<li><a href="/journal/archives/2013/03.html" title="March 2013">March 2013</a></li>
+<li><a href="/journal/index.php?frontpage">Recent...</a></li>
+<li><a href="http://www.postgresonline.com/journal/archive">Older...</a></li>
+</ul>
+</div>
+    </div>
+    <div class="serendipitySideBarItem container_serendipity_syndication_plugin">
+        <h3 class="serendipitySideBarTitle serendipity_syndication_plugin">Syndicate This Blog</h3>        <div class="serendipitySideBarContent"><ul>        <li>
+            <a class="serendipity_xml_icon" href="/journal/feeds/index.rss"><img src="/journal/templates/postgresqlmag/img/xml.gif" alt="XML" style="border: 0px" /></a>
+            <a href="/journal/feeds/index.rss">RSS 0.91 feed</a>
+        </li>
+        <li>
+            <a class="serendipity_xml_icon" href="/journal/feeds/index.rss1"><img src="/journal/templates/postgresqlmag/img/xml.gif" alt="XML" style="border: 0px" /></a>
+            <a href="/journal/feeds/index.rss1">RSS 1.0 feed</a>
+        </li>
+        <li>
+            <a class="serendipity_xml_icon" href="/journal/feeds/index.rss2"><img src="/journal/templates/postgresqlmag/img/xml.gif" alt="XML" style="border: 0px" /></a>
+            <a href="/journal/feeds/index.rss2">RSS 2.0 feed</a>
+        </li>
+        <li>
+            <a class="serendipity_xml_icon" href="/journal/feeds/atom03.xml"><img src="/journal/templates/postgresqlmag/img/xml.gif" alt="ATOM/XML" style="border: 0px" /></a>
+            <a href="/journal/feeds/atom03.xml">ATOM 0.3 feed</a>
+        </li>
+        <li>
+            <a class="serendipity_xml_icon" href="/journal/feeds/atom10.xml"><img src="/journal/templates/postgresqlmag/img/xml.gif" alt="ATOM/XML" style="border: 0px" /></a>
+            <a href="/journal/feeds/atom10.xml">ATOM 1.0 feed</a>
+        </li>
+        <li>
+            <a class="serendipity_xml_icon" href="/journal/feeds/comments.rss2"><img src="/journal/templates/postgresqlmag/img/xml.gif" alt="XML" style="border: 0px" /></a>
+            <a href="/journal/feeds/comments.rss2"><span style="white-space: nowrap">RSS 2.0 Comments</span></a>
+        </li>
+        <li>
+            <a class="serendipity_xml_icon" href="/journal/feeds/opml.xml"><img src="/journal/templates/postgresqlmag/img/xml.gif" alt="XML" style="border: 0px" /></a>
+            <a href="/journal/feeds/opml.xml">OPML 1.0 feed</a>
+        </li>
+</ul></div>
+    </div>
+    <div class="serendipitySideBarItem container_serendipity_plug_plugin">
+        <h3 class="serendipitySideBarTitle serendipity_plug_plugin">Powered by</h3>        <div class="serendipitySideBarContent"><div class="serendipityPlug">
+    <a title="Powered by Serendipity" href="http://www.s9y.org/"><img src="/journal/templates/default/img/s9y_banner_small.png" alt="Serendipity PHP Weblog" style="border: 0px" /></a>
+</div>
+</div>
+    </div>
+    <div class="serendipitySideBarItem container_serendipity_superuser_plugin">
+        <h3 class="serendipitySideBarTitle serendipity_superuser_plugin">Blog Administration</h3>        <div class="serendipitySideBarContent"><a href="/journal/admin" rel="nofollow" title="Open login screen">Open login screen</a></div>
+    </div>
+    <div class="serendipitySideBarItem container_serendipity_plugin_entrylinks">
+        <h3 class="serendipitySideBarTitle serendipity_plugin_entrylinks">Entry's Links</h3>        <div class="serendipitySideBarContent"><ul><li><a href="http://en.wikipedia.org/wiki/Salt_%28cryptography%29"  target="_blank" >salt</a> </li><li><a href="http://www.gnupg.org/download/"  target="_blank" >GNU Pg binaries</a> </li><li><a href="http://www.postgresql.org/docs/8.4/interactive/pgcrypto.html"  target="_blank" >pgcrypto</a> </li></ul></div>
+    </div>
+    <div class="serendipitySideBarItem container_serendipity_plugin_freetag">
+        <h3 class="serendipitySideBarTitle serendipity_plugin_freetag">Show tagged entries</h3>        <div class="serendipitySideBarContent"><div id="flashcontent37505195c93fe1303">
+
+<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="190" height="143" id="tagcloud37505195c93fe1303" name="tagcloud37505195c93fe1303">
+<param name="movie" value="/journal/plugins/serendipity_event_freetag/tagcloud.swf" />
+<param name="wmode" value="transparent" />
+<param name="flashvars" value="tcolor=0xff6600&amp;mode=tags&amp;distr=true&amp;tspeed=100&amp;tagcloud=%3Ctags%3E%3Ca href='http://www.postgresonline.com/journal/index.php?/plugin/tag/book+writing' style='20'%3Ebook&nbsp;writing%3C/a%3E%3Ca href='http://www.postgresonline.com/journal/index.php?/plugin/tag/common+table+expressions' style='20'%3Ecommon&nbsp;table&nbsp;expressions%3C/a%3E%3Ca href='http://www.postgresonline.com/journal/index.php?/plugin/tag/extensions' style='20'%3Eextensions%3C/a%3E%3Ca href='http://www.postgresonline.com/journal/index.php?/plugin/tag/oracle' style='20'%3Eoracle%3C/a%3E%3Ca href='http://www.postgresonline.com/journal/index.php?/plugin/tag/pgadmin' style='20'%3Epgadmin%3C/a%3E%3Ca href='http://www.postgresonline.com/journal/index.php?/plugin/tag/postgis' style='20'%3Epostgis%3C/a%3E%3Ca href='http://www.postgresonline.com/journal/index.php?/plugin/tag/postgresql+9%FF0' style='20'%3Epostgresql&nbsp;9.0%3C/a%3E%3Ca href='http://www.postgresonline.com/journal/index.php?/plugin/tag/postgresql+9%FF1' style='20'%3Epostgresql&nbsp;9.1%3C/a%3E%3Ca href='http://www.postgresonline.com/journal/index.php?/plugin/tag/postgresql+9%FF2' style='20'%3Epostgresql&nbsp;9.2%3C/a%3E%3Ca href='http://www.postgresonline.com/journal/index.php?/plugin/tag/sql+server' style='20'%3Esql&nbsp;server%3C/a%3E%3C/tags%3E" />
+<!--[if !IE]>-->
+
+<object type="application/x-shockwave-flash" data="/journal/plugins/serendipity_event_freetag/tagcloud.swf" width="190" height="143">
+<param name="wmode" value="transparent" />
+<param name="flashvars" value="tcolor=0xff6600&amp;mode=tags&amp;distr=true&amp;tspeed=100&amp;tagcloud=%3Ctags%3E%3Ca href='http://www.postgresonline.com/journal/index.php?/plugin/tag/book+writing' style='20'%3Ebook&nbsp;writing%3C/a%3E%3Ca href='http://www.postgresonline.com/journal/index.php?/plugin/tag/common+table+expressions' style='20'%3Ecommon&nbsp;table&nbsp;expressions%3C/a%3E%3Ca href='http://www.postgresonline.com/journal/index.php?/plugin/tag/extensions' style='20'%3Eextensions%3C/a%3E%3Ca href='http://www.postgresonline.com/journal/index.php?/plugin/tag/oracle' style='20'%3Eoracle%3C/a%3E%3Ca href='http://www.postgresonline.com/journal/index.php?/plugin/tag/pgadmin' style='20'%3Epgadmin%3C/a%3E%3Ca href='http://www.postgresonline.com/journal/index.php?/plugin/tag/postgis' style='20'%3Epostgis%3C/a%3E%3Ca href='http://www.postgresonline.com/journal/index.php?/plugin/tag/postgresql+9%FF0' style='20'%3Epostgresql&nbsp;9.0%3C/a%3E%3Ca href='http://www.postgresonline.com/journal/index.php?/plugin/tag/postgresql+9%FF1' style='20'%3Epostgresql&nbsp;9.1%3C/a%3E%3Ca href='http://www.postgresonline.com/journal/index.php?/plugin/tag/postgresql+9%FF2' style='20'%3Epostgresql&nbsp;9.2%3C/a%3E%3Ca href='http://www.postgresonline.com/journal/index.php?/plugin/tag/sql+server' style='20'%3Esql&nbsp;server%3C/a%3E%3C/tags%3E" />
+<!--<![endif]-->
+<span class="serendipity_freeTag_xmlTagEntry"><a rel="tag" class="serendipity_xml_icon" href="/journal/rss.php?serendipity[tag]=book+writing" title="book writing"><img alt="xml" src="/journal/templates/postgresqlmag/img/xml.gif" class="serendipity_freeTag_xmlButton" /></a>&nbsp;<a rel="tag" href="http://www.postgresonline.com/journal/index.php?/plugin/tag/book+writing" title="book writing (9) ">book&nbsp;writing</a></span><br />
+<span class="serendipity_freeTag_xmlTagEntry"><a rel="tag" class="serendipity_xml_icon" href="/journal/rss.php?serendipity[tag]=common+table+expressions" title="common table expressions"><img alt="xml" src="/journal/templates/postgresqlmag/img/xml.gif" class="serendipity_freeTag_xmlButton" /></a>&nbsp;<a rel="tag" href="http://www.postgresonline.com/journal/index.php?/plugin/tag/common+table+expressions" title="common table expressions (8) ">common&nbsp;table&nbsp;expressions</a></span><br />
+<span class="serendipity_freeTag_xmlTagEntry"><a rel="tag" class="serendipity_xml_icon" href="/journal/rss.php?serendipity[tag]=extensions" title="extensions"><img alt="xml" src="/journal/templates/postgresqlmag/img/xml.gif" class="serendipity_freeTag_xmlButton" /></a>&nbsp;<a rel="tag" href="http://www.postgresonline.com/journal/index.php?/plugin/tag/extensions" title="extensions (7) ">extensions</a></span><br />
+<span class="serendipity_freeTag_xmlTagEntry"><a rel="tag" class="serendipity_xml_icon" href="/journal/rss.php?serendipity[tag]=oracle" title="oracle"><img alt="xml" src="/journal/templates/postgresqlmag/img/xml.gif" class="serendipity_freeTag_xmlButton" /></a>&nbsp;<a rel="tag" href="http://www.postgresonline.com/journal/index.php?/plugin/tag/oracle" title="oracle (8) ">oracle</a></span><br />
+<span class="serendipity_freeTag_xmlTagEntry"><a rel="tag" class="serendipity_xml_icon" href="/journal/rss.php?serendipity[tag]=pgadmin" title="pgadmin"><img alt="xml" src="/journal/templates/postgresqlmag/img/xml.gif" class="serendipity_freeTag_xmlButton" /></a>&nbsp;<a rel="tag" href="http://www.postgresonline.com/journal/index.php?/plugin/tag/pgadmin" title="pgadmin (18) ">pgadmin</a></span><br />
+<span class="serendipity_freeTag_xmlTagEntry"><a rel="tag" class="serendipity_xml_icon" href="/journal/rss.php?serendipity[tag]=postgis" title="postgis"><img alt="xml" src="/journal/templates/postgresqlmag/img/xml.gif" class="serendipity_freeTag_xmlButton" /></a>&nbsp;<a rel="tag" href="http://www.postgresonline.com/journal/index.php?/plugin/tag/postgis" title="postgis (43) ">postgis</a></span><br />
+<span class="serendipity_freeTag_xmlTagEntry"><a rel="tag" class="serendipity_xml_icon" href="/journal/rss.php?serendipity[tag]=postgresql+9.0" title="postgresql 9.0"><img alt="xml" src="/journal/templates/postgresqlmag/img/xml.gif" class="serendipity_freeTag_xmlButton" /></a>&nbsp;<a rel="tag" href="http://www.postgresonline.com/journal/index.php?/plugin/tag/postgresql+9%FF0" title="postgresql 9.0 (9) ">postgresql&nbsp;9.0</a></span><br />
+<span class="serendipity_freeTag_xmlTagEntry"><a rel="tag" class="serendipity_xml_icon" href="/journal/rss.php?serendipity[tag]=postgresql+9.1" title="postgresql 9.1"><img alt="xml" src="/journal/templates/postgresqlmag/img/xml.gif" class="serendipity_freeTag_xmlButton" /></a>&nbsp;<a rel="tag" href="http://www.postgresonline.com/journal/index.php?/plugin/tag/postgresql+9%FF1" title="postgresql 9.1 (11) ">postgresql&nbsp;9.1</a></span><br />
+<span class="serendipity_freeTag_xmlTagEntry"><a rel="tag" class="serendipity_xml_icon" href="/journal/rss.php?serendipity[tag]=postgresql+9.2" title="postgresql 9.2"><img alt="xml" src="/journal/templates/postgresqlmag/img/xml.gif" class="serendipity_freeTag_xmlButton" /></a>&nbsp;<a rel="tag" href="http://www.postgresonline.com/journal/index.php?/plugin/tag/postgresql+9%FF2" title="postgresql 9.2 (12) ">postgresql&nbsp;9.2</a></span><br />
+<span class="serendipity_freeTag_xmlTagEntry"><a rel="tag" class="serendipity_xml_icon" href="/journal/rss.php?serendipity[tag]=sql+server" title="sql server"><img alt="xml" src="/journal/templates/postgresqlmag/img/xml.gif" class="serendipity_freeTag_xmlButton" /></a>&nbsp;<a rel="tag" href="http://www.postgresonline.com/journal/index.php?/plugin/tag/sql+server" title="sql server (14) ">sql&nbsp;server</a></span><br />
+<!--[if !IE]>-->
+</object>
+<!--<![endif]-->
+</object>
+</div>
+</div>
+    </div>
+    <div class="serendipitySideBarItem container_serendipity_plugin_remoterss">
+        <h3 class="serendipitySideBarTitle serendipity_plugin_remoterss">Remote RSS/OPML-Blogroll Feed</h3>        <div class="serendipitySideBarContent">No RSS/OPML feed selected</div>
+    </div>
+</td>
+	</tr>
+</table>
+
+
+
+
+
+
+
+<!-- Start of StatCounter Code -->
+<script type="text/javascript">
+var sc_project=3224770;
+var sc_invisible=0;
+var sc_partition=35;
+var sc_security="0c61dabb";
+</script>
+
+<script type="text/javascript" src="http://www.statcounter.com/counter/counter_xhtml.js"></script><noscript><div class="statcounter"><a class="statcounter" href="http://www.statcounter.com/"><img class="statcounter" src="http://c36.statcounter.com/3224770/0/0c61dabb/0/" alt="web analytics" /></a></div></noscript>
+<!-- End of StatCounter Code -->
+
+
+</body>
+</html>

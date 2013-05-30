@@ -1,0 +1,512 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+           "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>Magnus Hagander's PostgreSQL blog  - Entries tagged as pgcrypto</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="Powered-By" content="Serendipity v.1.6.2" />
+    <link rel="stylesheet" type="text/css" href="http://blog.hagander.net/serendipity.css" />
+    <link rel="alternate"  type="application/rss+xml" title="Magnus Hagander's PostgreSQL blog RSS feed" href="http://blog.hagander.net/feeds/index.rss2" />
+    <link rel="alternate"  type="application/x.atom+xml"  title="Magnus Hagander's PostgreSQL blog Atom feed"  href="http://blog.hagander.net/feeds/atom.xml" />
+
+    <script type="text/javascript" src="/templates/jquery.js"></script>
+    <script type="text/javascript">
+    jQuery.noConflict();
+    </script>
+<link rel="pingback" href="http://blog.hagander.net/serendipity_xmlrpc.php" />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://blog.hagander.net/serendipity_xmlrpc.php?xsd=true" />
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-1217836-3']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ga);
+  })();
+</script><style>
+div.serendipitySideBarContent ul {
+   margin-top: 1px;
+   padding-left: 3px;
+}
+div.serendipitySideBarContent h3 {
+   margin-bottom: 1px;
+}
+code {
+   border: 1px dashed black;
+   padding: 10px;
+   display: block;
+   background-color: #F6F8FB;
+}
+</style>
+</head>
+
+<body>
+
+<div id="wrap">
+<div id="serendipity_banner"><a id="topofpage"></a>
+    <h1><a class="homelink1" href="http://blog.hagander.net/">Magnus Hagander's PostgreSQL blog</a></h1>
+    <h2><a class="homelink2" href="http://blog.hagander.net/">Entries tagged as pgcrypto</a></h2>
+</div>
+
+<table id="mainpane">
+    <tr>
+        <td id="content" valign="top"><!-- CONTENT START -->
+
+	<div class="serendipity_content_message"></div>
+
+<!-- ENTRIES START -->
+    <div class="serendipity_Entry_Date freetag_cloud"><h2 class="serendipity_date">Entries tagged as pgcrypto</h2><div class="serendipity_freetag_taglist"><p class="serendipity_freetag_taglist_related">Related tags</p>
+<span class="tag_weight_110" style="font-size: 110%"><a rel="tag" href="http://blog.hagander.net/plugin/tag/9%FF1" title="9.1 (1) ">9.1</a></span> <span class="tag_weight_110" style="font-size: 110%"><a rel="tag" href="http://blog.hagander.net/plugin/tag/extensions" title="extensions (1) ">extensions</a></span> <span class="tag_weight_100" style="font-size: 100%"><a rel="tag" href="http://blog.hagander.net/plugin/tag/fdw" title="fdw (0.5) ">fdw</a></span> <span class="tag_weight_100" style="font-size: 100%"><a rel="tag" href="http://blog.hagander.net/plugin/tag/logging" title="logging (0.5) ">logging</a></span> <span class="tag_weight_110" style="font-size: 110%"><a rel="tag" href="http://blog.hagander.net/plugin/tag/postgresql" title="postgresql (1) ">postgresql</a></span> <span class="tag_weight_110" style="font-size: 110%"><a rel="tag" href="http://blog.hagander.net/plugin/tag/conferences" title="conferences (1) ">conferences</a></span> <span class="tag_weight_100" style="font-size: 100%"><a rel="tag" href="http://blog.hagander.net/plugin/tag/9%FF0" title="9.0 (0.5) ">9.0</a></span> <span class="tag_weight_100" style="font-size: 100%"><a rel="tag" href="http://blog.hagander.net/plugin/tag/encryption" title="encryption (0.5) ">encryption</a></span> <span class="tag_weight_110" style="font-size: 110%"><a rel="tag" href="http://blog.hagander.net/plugin/tag/fosdem" title="fosdem (1) ">fosdem</a></span> <span class="tag_weight_110" style="font-size: 110%"><a rel="tag" href="http://blog.hagander.net/plugin/tag/jdcon" title="jdcon (1) ">jdcon</a></span> <span class="tag_weight_100" style="font-size: 100%"><a rel="tag" href="http://blog.hagander.net/plugin/tag/keynote" title="keynote (0.5) ">keynote</a></span> <span class="tag_weight_100" style="font-size: 100%"><a rel="tag" href="http://blog.hagander.net/plugin/tag/pgcon" title="pgcon (0.5) ">pgcon</a></span> <span class="tag_weight_233" style="font-size: 233%"><a rel="tag" href="http://blog.hagander.net/plugin/tag/pgconfeu" title="pgconfeu (7.5) ">pgconfeu</a></span> <span class="tag_weight_176" style="font-size: 176%"><a rel="tag" href="http://blog.hagander.net/plugin/tag/pgconfeusite" title="pgconfeusite (4.5) ">pgconfeusite</a></span> <span class="tag_weight_148" style="font-size: 148%"><a rel="tag" href="http://blog.hagander.net/plugin/tag/pgconfeusite2012" title="pgconfeusite2012 (3) ">pgconfeusite2012</a></span> <span class="tag_weight_205" style="font-size: 205%"><a rel="tag" href="http://blog.hagander.net/plugin/tag/pgday" title="pgday (6) ">pgday</a></span> <span class="tag_weight_100" style="font-size: 100%"><a rel="tag" href="http://blog.hagander.net/plugin/tag/pgeast" title="pgeast (0.5) ">pgeast</a></span> <span class="tag_weight_300" style="font-size: 300%"><a rel="tag" href="http://blog.hagander.net/plugin/tag/pgeu" title="pgeu (11) ">pgeu</a></span> <span class="tag_weight_100" style="font-size: 100%"><a rel="tag" href="http://blog.hagander.net/plugin/tag/pgwest" title="pgwest (0.5) ">pgwest</a></span> <span class="tag_weight_100" style="font-size: 100%"><a rel="tag" href="http://blog.hagander.net/plugin/tag/photos" title="photos (0.5) ">photos</a></span> <span class="tag_weight_100" style="font-size: 100%"><a rel="tag" href="http://blog.hagander.net/plugin/tag/pictures" title="pictures (0.5) ">pictures</a></span> <span class="tag_weight_100" style="font-size: 100%"><a rel="tag" href="http://blog.hagander.net/plugin/tag/python" title="python (0.5) ">python</a></span> <span class="tag_weight_100" style="font-size: 100%"><a rel="tag" href="http://blog.hagander.net/plugin/tag/schedule" title="schedule (0.5) ">schedule</a></span> <span class="tag_weight_100" style="font-size: 100%"><a rel="tag" href="http://blog.hagander.net/plugin/tag/security" title="security (0.5) ">security</a></span> <span class="tag_weight_100" style="font-size: 100%"><a rel="tag" href="http://blog.hagander.net/plugin/tag/ssl" title="ssl (0.5) ">ssl</a></span> <span class="tag_weight_100" style="font-size: 100%"><a rel="tag" href="http://blog.hagander.net/plugin/tag/stockholm" title="stockholm (0.5) ">stockholm</a></span> <span class="tag_weight_100" style="font-size: 100%"><a rel="tag" href="http://blog.hagander.net/plugin/tag/sweden" title="sweden (0.5) ">sweden</a></span> <span class="tag_weight_110" style="font-size: 110%"><a rel="tag" href="http://blog.hagander.net/plugin/tag/talk" title="talk (1) ">talk</a></span> <span class="tag_weight_100" style="font-size: 100%"><a rel="tag" href="http://blog.hagander.net/plugin/tag/django" title="django (0.5) ">django</a></span> <span class="tag_weight_129" style="font-size: 129%"><a rel="tag" href="http://blog.hagander.net/plugin/tag/intrastructure" title="intrastructure (2) ">intrastructure</a></span> <span class="tag_weight_100" style="font-size: 100%"><a rel="tag" href="http://blog.hagander.net/plugin/tag/pgweb" title="pgweb (0.5) ">pgweb</a></span> <span class="tag_weight_100" style="font-size: 100%"><a rel="tag" href="http://blog.hagander.net/plugin/tag/varnish" title="varnish (0.5) ">varnish</a></span> <span class="tag_weight_100" style="font-size: 100%"><a rel="tag" href="http://blog.hagander.net/plugin/tag/8%FF4" title="8.4 (0.5) ">8.4</a></span> <span class="tag_weight_100" style="font-size: 100%"><a rel="tag" href="http://blog.hagander.net/plugin/tag/8%FF5" title="8.5 (0.5) ">8.5</a></span> <span class="tag_weight_100" style="font-size: 100%"><a rel="tag" href="http://blog.hagander.net/plugin/tag/amazon" title="amazon (0.5) ">amazon</a></span> <span class="tag_weight_100" style="font-size: 100%"><a rel="tag" href="http://blog.hagander.net/plugin/tag/android" title="android (0.5) ">android</a></span> <span class="tag_weight_100" style="font-size: 100%"><a rel="tag" href="http://blog.hagander.net/plugin/tag/backup" title="backup (0.5) ">backup</a></span> <span class="tag_weight_100" style="font-size: 100%"><a rel="tag" href="http://blog.hagander.net/plugin/tag/build" title="build (0.5) ">build</a></span> <span class="tag_weight_100" style="font-size: 100%"><a rel="tag" href="http://blog.hagander.net/plugin/tag/cloud" title="cloud (0.5) ">cloud</a></span> <span class="tag_weight_100" style="font-size: 100%"><a rel="tag" href="http://blog.hagander.net/plugin/tag/commit" title="commit (0.5) ">commit</a></span> <span class="tag_weight_100" style="font-size: 100%"><a rel="tag" href="http://blog.hagander.net/plugin/tag/core" title="core (0.5) ">core</a></span> <span class="tag_weight_100" style="font-size: 100%"><a rel="tag" href="http://blog.hagander.net/plugin/tag/cte" title="cte (0.5) ">cte</a></span> <span class="tag_weight_100" style="font-size: 100%"><a rel="tag" href="http://blog.hagander.net/plugin/tag/cvs" title="cvs (0.5) ">cvs</a></span> <span class="tag_weight_100" style="font-size: 100%"><a rel="tag" href="http://blog.hagander.net/plugin/tag/ddl" title="ddl (0.5) ">ddl</a></span> <span class="tag_weight_100" style="font-size: 100%"><a rel="tag" href="http://blog.hagander.net/plugin/tag/ec2" title="ec2 (0.5) ">ec2</a></span> <span class="tag_weight_100" style="font-size: 100%"><a rel="tag" href="http://blog.hagander.net/plugin/tag/fsm" title="fsm (0.5) ">fsm</a></span> <span class="tag_weight_100" style="font-size: 100%"><a rel="tag" href="http://blog.hagander.net/plugin/tag/git" title="git (0.5) ">git</a></span> <span class="tag_weight_100" style="font-size: 100%"><a rel="tag" href="http://blog.hagander.net/plugin/tag/hot+standby" title="hot standby (0.5) ">hot&nbsp;standby</a></span> <span class="tag_weight_100" style="font-size: 100%"><a rel="tag" href="http://blog.hagander.net/plugin/tag/ipv6" title="ipv6 (0.5) ">ipv6</a></span> <span class="tag_weight_100" style="font-size: 100%"><a rel="tag" href="http://blog.hagander.net/plugin/tag/limit" title="limit (0.5) ">limit</a></span> <span class="tag_weight_100" style="font-size: 100%"><a rel="tag" href="http://blog.hagander.net/plugin/tag/lists" title="lists (0.5) ">lists</a></span> <span class="tag_weight_100" style="font-size: 100%"><a rel="tag" href="http://blog.hagander.net/plugin/tag/mail" title="mail (0.5) ">mail</a></span> <span class="tag_weight_100" style="font-size: 100%"><a rel="tag" href="http://blog.hagander.net/plugin/tag/mailman" title="mailman (0.5) ">mailman</a></span> <span class="tag_weight_100" style="font-size: 100%"><a rel="tag" href="http://blog.hagander.net/plugin/tag/majordomo" title="majordomo (0.5) ">majordomo</a></span> <span class="tag_weight_100" style="font-size: 100%"><a rel="tag" href="http://blog.hagander.net/plugin/tag/munin" title="munin (0.5) ">munin</a></span> <span class="tag_weight_129" style="font-size: 129%"><a rel="tag" href="http://blog.hagander.net/plugin/tag/mysql" title="mysql (2) ">mysql</a></span> <span class="tag_weight_100" style="font-size: 100%"><a rel="tag" href="http://blog.hagander.net/plugin/tag/pgindent" title="pgindent (0.5) ">pgindent</a></span> <span class="tag_weight_100" style="font-size: 100%"><a rel="tag" href="http://blog.hagander.net/plugin/tag/release" title="release (0.5) ">release</a></span> <span class="tag_weight_100" style="font-size: 100%"><a rel="tag" href="http://blog.hagander.net/plugin/tag/update" title="update (0.5) ">update</a></span></div></div>
+    	
+    <div class="serendipity_Entry_Date">
+                <h3 class="serendipity_date">Monday, May 16. 2011</h3>
+                </div>
+<div class="serendipity_entry serendipity_entry_author_Magnus-Hagander  ">
+
+       <div class='serendipity_entryFooter'>
+		            <span class="serendipity_entryIcon">
+                                                    </span>
+            			<a href="/archives/193-Extensions-in-PostgreSQL-9.1-fixes-another-pet-peeve.html">Extensions in PostgreSQL 9.1 fixes ...</a> Posted by <a href="http://blog.hagander.net/authors/1-mha">Magnus Hagander</a>
+                                   in <a href="http://blog.hagander.net/categories/1-PostgreSQL">PostgreSQL</a>                                                    at
+                  07:58<br />
+					                                                            <br /><a href="/archives/193-Extensions-in-PostgreSQL-9.1-fixes-another-pet-peeve.html#comments">Comments (0)</a>
+                                    
+                                                            <br /><a href="/archives/193-Extensions-in-PostgreSQL-9.1-fixes-another-pet-peeve.html#trackbacks">Trackbacks (0)</a><br />
+                                    		<div class='serendipity_karmaVoting serendipity_karmaVoting_images'><a id='karma_vote193'></a><span class="serendipity_karmaVoting_visits"> 12161 hits</span>
+</div>
+<div class="serendipity_freeTag">Defined tags for this entry: <a href="http://blog.hagander.net/plugin/tag/9%FF1" title="9.1" rel="tag">9.1</a>, <a href="http://blog.hagander.net/plugin/tag/extensions" title="extensions" rel="tag">extensions</a>, <a href="http://blog.hagander.net/plugin/tag/pgcrypto" title="pgcrypto" rel="tag">pgcrypto</a>, <a href="http://blog.hagander.net/plugin/tag/postgresql" title="postgresql" rel="tag">postgresql</a></div>
+            </div>
+
+	<h4 class="serendipity_title"><a href="/archives/193-Extensions-in-PostgreSQL-9.1-fixes-another-pet-peeve.html">Extensions in PostgreSQL 9.1 fixes another pet-peeve</a></h4>
+<div class="serendipity_entry_body">
+	<p>One thing I've really disliked is the fact that contrib modules had installation scripts that enforced the schema to public for the installation. In my opinion, for no useful reason at all.</p>
+
+<p>For example, I often install the <i>pgcrypto</i> contrib module. And I install this in the <i>pgcrypto</i> schema, that I then either add to the <i>search_path</i> variable or just explicitly use in my queries, with things like <i>pcrypto.crypt('foobar','barfoo')</i>. For versions prior to 9.1, being able to do this required me to manually edit the installed pgcrypto.sql file, to remove the <i>SET search_path = public;</i> command.</p>
+
+<p>Extensions in 9.1 makes this so much nicer. To get pgcrypto into it's own schema, I now just need to do:</p>
+
+
+<pre><code>postgres=# CREATE SCHEMA pgcrypto;
+CREATE SCHEMA
+postgres=# CREATE EXTENSION pgcrypto SCHEMA pgcrypto;
+CREATE EXTENSION</code></pre>
+
+If I happen to create it in public by mistake, I can even move it after the fact!
+<pre><code>postgres=# ALTER EXTENSION pgcrypto SET SCHEMA pgcrypto;
+ALTER EXTENSION</code></pre>
+
+<p>You still need to create the schema manually - in theory we could auto-create that, but the work is still a lot easier than before. And fully supported!</p>
+
+
+            
+            
+        </div>
+
+        <!--
+        <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+                 xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+                 xmlns:dc="http://purl.org/dc/elements/1.1/">
+        <rdf:Description
+                 rdf:about="http://blog.hagander.net/feeds/ei_193.rdf"
+                 trackback:ping="http://blog.hagander.net/comment.php?type=trackback&amp;entry_id=193"
+                 dc:title="Extensions in PostgreSQL 9.1 fixes another pet-peeve"
+                 dc:identifier="http://blog.hagander.net/archives/193-Extensions-in-PostgreSQL-9.1-fixes-another-pet-peeve.html" />
+        </rdf:RDF>
+        -->
+        
+
+        
+        
+        
+            </div>
+    	
+    <div class="serendipity_Entry_Date">
+                <h3 class="serendipity_date">Tuesday, January 12. 2010</h3>
+                </div>
+<div class="serendipity_entry serendipity_entry_author_Magnus-Hagander  ">
+
+       <div class='serendipity_entryFooter'>
+		            <span class="serendipity_entryIcon">
+                                                    </span>
+            			<a href="/archives/161-Integrating-django-authentication-with-PostgreSQL.html">Integrating django authentication ...</a> Posted by <a href="http://blog.hagander.net/authors/1-mha">Magnus Hagander</a>
+                                   in <a href="http://blog.hagander.net/categories/1-PostgreSQL">PostgreSQL</a>                                                    at
+                  20:50<br />
+					                                                            <br /><a href="/archives/161-Integrating-django-authentication-with-PostgreSQL.html#comments">Comments (3)</a>
+                                    
+                                                            <br /><a href="/archives/161-Integrating-django-authentication-with-PostgreSQL.html#trackbacks">Trackbacks (0)</a><br />
+                                    		<div class='serendipity_karmaVoting serendipity_karmaVoting_images'><a id='karma_vote161'></a><span class="serendipity_karmaVoting_visits"> 10926 hits</span>
+</div>
+<div class="serendipity_freeTag">Defined tags for this entry: <a href="http://blog.hagander.net/plugin/tag/django" title="django" rel="tag">django</a>, <a href="http://blog.hagander.net/plugin/tag/pgcrypto" title="pgcrypto" rel="tag">pgcrypto</a>, <a href="http://blog.hagander.net/plugin/tag/postgresql" title="postgresql" rel="tag">postgresql</a>, <a href="http://blog.hagander.net/plugin/tag/security" title="security" rel="tag">security</a></div>
+            </div>
+
+	<h4 class="serendipity_title"><a href="/archives/161-Integrating-django-authentication-with-PostgreSQL.html">Integrating django authentication with PostgreSQL</a></h4>
+<div class="serendipity_entry_body">
+	<p>If you've been to any of my <i>pgcrypto</i> talks, you know I'm a fan of exposing a login interface in the database. It's a great way to allow multiple systems to use the same authentication system, without being limited to a single framework. However, it can often be nice and easy to  be able to use the account management system in said framework, because it's already there.</p>
+
+<p>When I go to frameworks, <a onclick="_gaq.push(['_trackPageview', '/extlink/www.djangoproject.com/']);"  href="http://www.djangoproject.com/" onclick="window.open(this.href, '_blank'); return false;">django</a> is my current favorite, and I do like the ability to use it's integrated admin system to edit users. For this reason, I wanted to add the ability to use a database function to authenticate other systems using the django user tables. Thanks to the fact that django choose a nicely readable text format for their hashes, and that PostgreSQL has the awesome <a onclick="_gaq.push(['_trackPageview', '/extlink/www.postgresql.org/docs/current/static/pgcrypto.html']);"  href="http://www.postgresql.org/docs/current/static/pgcrypto.html" onclick="window.open(this.href, '_blank'); return false;">pgcrypto</a> library, this is pretty simple. Here's a function that will simply return true if authentication was successful, and false if not.</p>
+
+
+<pre><code><div class="geshi" style="text-align: left"><br /><span style="color: #993333; font-weight: bold;">CREATE</span> <span style="color: #993333; font-weight: bold;">OR</span> <span style="color: #993333; font-weight: bold;">REPLACE</span> <span style="color: #993333; font-weight: bold;">FUNCTION</span> django_login <span style="color: #66cc66;">&#40;</span>_username text, _password text<span style="color: #66cc66;">&#41;</span><br />RETURNS <span style="color: #993333; font-weight: bold;">BOOLEAN</span><br /><span style="color: #993333; font-weight: bold;">AS</span> $$<br />BEGIN<br />&nbsp; &nbsp;<span style="color: #993333; font-weight: bold;">IF</span> <span style="color: #993333; font-weight: bold;">EXISTS</span> <span style="color: #66cc66;">&#40;</span><span style="color: #993333; font-weight: bold;">SELECT</span> * <span style="color: #993333; font-weight: bold;">FROM</span> auth_user <span style="color: #993333; font-weight: bold;">WHERE</span> username=_username<span style="color: #66cc66;">&#41;</span> THEN<br />&nbsp; &nbsp; &nbsp; <span style="color: #993333; font-weight: bold;">RETURN</span> encode<span style="color: #66cc66;">&#40;</span>pgcrypto.digest<span style="color: #66cc66;">&#40;</span>split_part<span style="color: #66cc66;">&#40;</span>password, <span style="color: #ff0000;">'$'</span>, <span style="color: #cc66cc;">2</span><span style="color: #66cc66;">&#41;</span> || _password, <span style="color: #ff0000;">'sha1'</span><span style="color: #66cc66;">&#41;</span>, <span style="color: #ff0000;">'hex'</span><span style="color: #66cc66;">&#41;</span> = <br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;split_part<span style="color: #66cc66;">&#40;</span>password, <span style="color: #ff0000;">'$'</span>, <span style="color: #cc66cc;">3</span><span style="color: #66cc66;">&#41;</span> <span style="color: #993333; font-weight: bold;">FROM</span> auth_user <span style="color: #993333; font-weight: bold;">WHERE</span> username=_username;<br />&nbsp; &nbsp;ELSE<br />&nbsp; &nbsp; &nbsp; <span style="color: #993333; font-weight: bold;">RETURN</span> <span style="color: #ff0000;">'f'</span>;<br />&nbsp; &nbsp;END <span style="color: #993333; font-weight: bold;">IF</span>;<br />END;<br />$$<br /><span style="color: #993333; font-weight: bold;">LANGUAGE</span> <span style="color: #ff0000;">'plpgsql'</span>;<br />&nbsp;</div></code></pre>
+
+<p>This assumes you have installed <i>pgcrypto</i> in it's own schema, something I always recommend. If you haven't, just remove the schema specifier in the query.</p>
+
+<p>Finally, if you use this type of authentication, remember to <strong>use SSL</strong>. And don't enable query logging...</p>
+
+
+            
+            
+        </div>
+
+        <!--
+        <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+                 xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+                 xmlns:dc="http://purl.org/dc/elements/1.1/">
+        <rdf:Description
+                 rdf:about="http://blog.hagander.net/feeds/ei_161.rdf"
+                 trackback:ping="http://blog.hagander.net/comment.php?type=trackback&amp;entry_id=161"
+                 dc:title="Integrating django authentication with PostgreSQL"
+                 dc:identifier="http://blog.hagander.net/archives/161-Integrating-django-authentication-with-PostgreSQL.html" />
+        </rdf:RDF>
+        -->
+        
+
+        
+        
+        
+            </div>
+    	
+    <div class="serendipity_Entry_Date">
+                <h3 class="serendipity_date">Thursday, May 21. 2009</h3>
+                </div>
+<div class="serendipity_entry serendipity_entry_author_Magnus-Hagander  ">
+
+       <div class='serendipity_entryFooter'>
+		            <span class="serendipity_entryIcon">
+                                                                                </span>
+            			<a href="/archives/144-pgcon,-1st-talk-day.html">pgcon, 1st talk day</a> Posted by <a href="http://blog.hagander.net/authors/1-mha">Magnus Hagander</a>
+                                   in <a href="http://blog.hagander.net/categories/3-Conferences">Conferences</a>, <a href="http://blog.hagander.net/categories/1-PostgreSQL">PostgreSQL</a>                                                    at
+                  17:37<br />
+					                                                            <br /><a href="/archives/144-pgcon,-1st-talk-day.html#comments">Comments (0)</a>
+                                    
+                                                            <br /><a href="/archives/144-pgcon,-1st-talk-day.html#trackbacks">Trackback (1)</a><br />
+                                    		<div class='serendipity_karmaVoting serendipity_karmaVoting_images'><a id='karma_vote144'></a><span class="serendipity_karmaVoting_visits"> 6387 hits</span>
+</div>
+<div class="serendipity_freeTag">Defined tags for this entry: <a href="http://blog.hagander.net/plugin/tag/conferences" title="conferences" rel="tag">conferences</a>, <a href="http://blog.hagander.net/plugin/tag/encryption" title="encryption" rel="tag">encryption</a>, <a href="http://blog.hagander.net/plugin/tag/keynote" title="keynote" rel="tag">keynote</a>, <a href="http://blog.hagander.net/plugin/tag/pgcon" title="pgcon" rel="tag">pgcon</a>, <a href="http://blog.hagander.net/plugin/tag/pgcrypto" title="pgcrypto" rel="tag">pgcrypto</a>, <a href="http://blog.hagander.net/plugin/tag/postgresql" title="postgresql" rel="tag">postgresql</a>, <a href="http://blog.hagander.net/plugin/tag/security" title="security" rel="tag">security</a>, <a href="http://blog.hagander.net/plugin/tag/ssl" title="ssl" rel="tag">ssl</a>, <a href="http://blog.hagander.net/plugin/tag/talk" title="talk" rel="tag">talk</a></div>
+            </div>
+
+	<h4 class="serendipity_title"><a href="/archives/144-pgcon,-1st-talk-day.html">pgcon, 1st talk day</a></h4>
+<div class="serendipity_entry_body">
+	<p>We're now up to the third day of pgcon, the first one of the actual conference - the previous ones being dedicated to tutorials. The day started with <a onclick="_gaq.push(['_trackPageview', '/extlink/www.chesnok.com/daily/']);"  href="http://www.chesnok.com/daily/" onclick="window.open(this.href, '_blank'); return false;">Selena</a>, me and <a onclick="_gaq.push(['_trackPageview', '/extlink/pgsnake.blogspot.com/2009/05/pgcon-2009-day-1.html']);"  href="http://pgsnake.blogspot.com/2009/05/pgcon-2009-day-1.html" onclick="window.open(this.href, '_blank'); return false;">Dave</a> doing a semi-improvised keynote. Well, it started with Dan saying welcome and going through some details, but he doesn't count... I doubt we actually spread any knowledge with that talk, but at least we got to plug some interesting talks at the conference, and show pictures of elephants.</p>
+
+<p>Missed the start of the <a onclick="_gaq.push(['_trackPageview', '/extlink/www.asterdata.com/index.php']);"  href="http://www.asterdata.com/index.php" onclick="window.open(this.href, '_blank'); return false;">Aster</a> talk on Petabyte databases using standard PostgreSQL, but the parts I caught sounded very interesting. I'm especially excited to hear they are planning to contribute a whole set of very interesting features back to core PostgreSQL. This makes a lot of sense since they're building their scaling on standard PostgreSQL and not a heavily modified one like some other players in the area, and it's very nice to see that they are realizing this.</p>
+
+<p>After this talk, it was time for my own talk on <i>PostgreSQL Encryption</i>. I had a hard time deciding the split between pgcrypto and SSL when I made the talk, but I think it came out fairly well. Had a number of very good questions at the end, so clearly some people were interested. Perhaps even <a onclick="_gaq.push(['_trackPageview', '/extlink/momjian.us/main/blogs/pgblog.html']);"  href="http://momjian.us/main/blogs/pgblog.html" onclick="window.open(this.href, '_blank'); return false;">Bruce</a> managed to learn something...</p>
+
+<p>After this we had lunch, and I'm now sitting in Greg Smiths talk about benchmarking hardware. This is some very low level stuff compared to what you usually see around database benchmarking, but since this is what sits underneath the database, it's important stuff. And very interesting.</p>
+
+<p>The rest of the day has a lineup of some very nice talks, I think. So there'll be no sitting around in the hallway! And in the evening there is the EnterpriseDB party, of course!</p>
+
+<p>Yesterday had the developer meeting, where a bunch (~20) of the most active developers that are here in Ottawa sat down together for the whole day to discuss topics around the next version of PostgreSQL, and how our development model works. Got some very important discussions started, and actually managed to get agreement on a couple of issues that have previously been going in circles. All in all, a very useful day.</p>
+
+
+            
+            
+        </div>
+
+        <!--
+        <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+                 xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+                 xmlns:dc="http://purl.org/dc/elements/1.1/">
+        <rdf:Description
+                 rdf:about="http://blog.hagander.net/feeds/ei_144.rdf"
+                 trackback:ping="http://blog.hagander.net/comment.php?type=trackback&amp;entry_id=144"
+                 dc:title="pgcon, 1st talk day"
+                 dc:identifier="http://blog.hagander.net/archives/144-pgcon,-1st-talk-day.html" />
+        </rdf:RDF>
+        -->
+        
+
+        
+        
+        
+            </div>
+    
+  <div class='serendipity_pageFooter' style="text-align: center">
+  					<span class="grey">&laquo; previous page</span>&#160;&#160;
+			
+			(Page 1 of 1, totaling 3 entries)
+	
+					&#160;&#160;<span class="grey">next page &raquo;</span>
+			
+	<br /><a href="http://blog.hagander.net/">Frontpage</a>    
+    </div>
+<!-- ENTRIES END -->
+
+
+<!-- CONTENT END --></td>
+        <td id="serendipityRightSideBar" valign="top">    <div class="serendipitySideBarItem container_serendipity_calendar_plugin">
+        <h3 class="serendipitySideBarTitle serendipity_calendar_plugin">Calendar</h3>        <div class="serendipitySideBarContent"><table style="width: 100%" cellspacing="0" cellpadding="0" class="serendipity_calendar">
+    <tr>
+        <td class="serendipity_calendarHeader">
+            <a title="Back" href="http://blog.hagander.net/archives/2013/04.html"><img alt="Back" src="/templates/mha/img/back.gif" width="16" height="12" style="border: 0px" /></a>
+        </td>
+
+        <td colspan="5" class="serendipity_calendarHeader" style="text-align: center; vertical-align: bottom">
+            <b><a style="white-space: nowrap" href="http://blog.hagander.net/archives/2013/05.html">May '13</a></b>
+        </td>
+
+        <td class="serendipity_calendarHeader" style="text-align: right">
+        </td>
+    </tr>
+
+    <tr>
+            <td scope="col" abbr="Monday" title="Monday" class="serendipity_weekDayName" align="center">Mon</td>
+            <td scope="col" abbr="Tuesday" title="Tuesday" class="serendipity_weekDayName" align="center">Tue</td>
+            <td scope="col" abbr="Wednesday" title="Wednesday" class="serendipity_weekDayName" align="center">Wed</td>
+            <td scope="col" abbr="Thursday" title="Thursday" class="serendipity_weekDayName" align="center">Thu</td>
+            <td scope="col" abbr="Friday" title="Friday" class="serendipity_weekDayName" align="center">Fri</td>
+            <td scope="col" abbr="Saturday" title="Saturday" class="serendipity_weekDayName" align="center">Sat</td>
+            <td scope="col" abbr="Sunday" title="Sunday" class="serendipity_weekDayName" align="center">Sun</td>
+        </tr>
+
+            <tr class="serendipity_calendar row1">
+                    <td class="serendipity_calendarDay FirstRow FirstInRow">&#160;</td>
+                    <td class="serendipity_calendarDay FirstRow">&#160;</td>
+                    <td class="serendipity_calendarDay FirstRow">1</td>
+                    <td class="serendipity_calendarDay FirstRow">2</td>
+                    <td class="serendipity_calendarDay FirstRow">3</td>
+                    <td class="serendipity_calendarDay FirstRow">4</td>
+                    <td class="serendipity_calendarDay FirstRow LastInRow">5</td>
+                </tr>
+            <tr class="serendipity_calendar  row2">
+                    <td class="serendipity_calendarDay FirstInRow">6</td>
+                    <td class="serendipity_calendarDay ">7</td>
+                    <td class="serendipity_calendarDay ">8</td>
+                    <td class="serendipity_calendarDay ">9</td>
+                    <td class="serendipity_calendarDay ">10</td>
+                    <td class="serendipity_calendarDay ">11</td>
+                    <td class="serendipity_calendarDay LastInRow">12</td>
+                </tr>
+            <tr class="serendipity_calendar  row3">
+                    <td class="serendipity_calendarDay FirstInRow">13</td>
+                    <td class="serendipity_calendarDay ">14</td>
+                    <td class="serendipity_calendarDay ">15</td>
+                    <td class="serendipity_calendarDay ">16</td>
+                    <td class="serendipity_calendarDay Today">17</td>
+                    <td class="serendipity_calendarDay ">18</td>
+                    <td class="serendipity_calendarDay LastInRow">19</td>
+                </tr>
+            <tr class="serendipity_calendar  row4">
+                    <td class="serendipity_calendarDay FirstInRow">20</td>
+                    <td class="serendipity_calendarDay ">21</td>
+                    <td class="serendipity_calendarDay ">22</td>
+                    <td class="serendipity_calendarDay ">23</td>
+                    <td class="serendipity_calendarDay ">24</td>
+                    <td class="serendipity_calendarDay ">25</td>
+                    <td class="serendipity_calendarDay LastInRow">26</td>
+                </tr>
+            <tr class="serendipity_calendar  row5">
+                    <td class="serendipity_calendarDay FirstInRow LastRow">27</td>
+                    <td class="serendipity_calendarDay LastRow">28</td>
+                    <td class="serendipity_calendarDay LastRow">29</td>
+                    <td class="serendipity_calendarDay LastRow">30</td>
+                    <td class="serendipity_calendarDay LastRow">31</td>
+                    <td class="serendipity_calendarDay LastRow">&#160;</td>
+                    <td class="serendipity_calendarDay LastInRow LastRow">&#160;</td>
+                </tr>
+    </table></div>
+    </div>
+    <div class="serendipitySideBarItem container_serendipity_archives_plugin">
+        <h3 class="serendipitySideBarTitle serendipity_archives_plugin">Archives</h3>        <div class="serendipitySideBarContent"><ul class="plainList">
+<li><a href="/archives/2013/05.html" title="May 2013">May 2013</a></li>
+<li><a href="/archives/2013/04.html" title="April 2013">April 2013</a></li>
+<li><a href="/archives/2013/03.html" title="March 2013">March 2013</a></li>
+<li><a href="/index.php?frontpage">Recent...</a></li>
+<li><a href="http://blog.hagander.net/archive">Older...</a></li>
+</ul>
+</div>
+    </div>
+    <div class="serendipitySideBarItem container_serendipity_html_nugget_plugin">
+        <h3 class="serendipitySideBarTitle serendipity_html_nugget_plugin">Upcoming conferences</h3>        <div class="serendipitySideBarContent"><h3>Planned Conferences</h3>
+<ul>
+ <li><a href="http://fosdem2013.pgconf.eu/">FOSDEM 2013 + PGDay</a></li>
+ <li><a href="http://confoo.ca/">Confoo</a></li>
+ <li><a href="http://pgday.nycpug.org/">NYCPUG PGDay</a></li>
+ <li><a href="http://pgcon.org/">PGCon</a></li>
+</ul>
+
+<h3>Tentative conferences</h3>
+<ul>
+ <li>OpenSource Days</li>
+</ul>
+
+<h3>Past conferences</h3>
+<ul>
+ <li>PGConf.EU 2012</li>
+ <li>Postgres Open 2012</li>
+ <li>PGCon 2012</li>
+ <li>GoOpen</li>
+ <li>Software Passion Summit</li>
+ <li>OpenSource Days</li>
+ <li>Prague PostgreSQL Dev Day</li>
+ <li>FOSDEM 2012</li>
+ <li>PGDay.IT 2011</li>
+ <li>FSCONS 2011</li>
+ <li>Postgres Open 2011</li>
+ <li>PGConf.EU 2011</li>
+ <li>Char(11) 2011</li>
+ <li>EuroPython 2011</li>
+ <li>PGCon 2011</li>
+ <li>NLUUG Spring</li>
+ <li>PG-East 2011</li>
+ <li>OpenSource Days 2011</li>
+ <li>P2D2 2011</li>
+ <li>FOSDEM 2011</li>
+ <li>PGDay.EU 2010</li>
+ <li>PG-West 2010</li>
+ <li>PG-East 2010</li>
+ <li>PGCon 2010</li>
+ <li>OpenSource Days 2010</li>
+ <li>FOSS-Stockholm #1</li>
+ <li>FOSDEM 2010</li>
+ <li>JPUG 2009</li>
+ <li>FSCONS</li>
+ <li>PGDay.EU 2009</li>
+ <li>PGcon.BR 2009</li>
+ <li>JDCon West 2009</li>
+ <li>Highload++ 2009</li>
+ <li>PGCon 2009</li>
+ <li>Prague PG Day 2009</li>
+ <li>FOSDEM 2009</li>
+ <li>FSCONS 2008</li>
+ <li>PGDay.EU 2008</li>
+ <li>Open Source Days 2008</li>
+ <li>PG-West 2008</li>
+ <li>PGCon 2008</li>
+ <li>PG-East 2008</li>
+ <li>FOSDEM 2008</li>
+</ul></div>
+    </div>
+    <div class="serendipitySideBarItem container_serendipity_plugin_freetag">
+        <h3 class="serendipitySideBarTitle serendipity_plugin_freetag">Tags</h3>        <div class="serendipitySideBarContent"><span class="serendipity_freeTag_xmlTagEntry"><a rel="tag" class="serendipity_xml_icon" href="/rss.php?serendipity[tag]=jdcon" title="jdcon"><img alt="xml" src="/templates/mha/img/xml.gif" class="serendipity_freeTag_xmlButton" /></a>&nbsp;<a rel="tag" href="http://blog.hagander.net/plugin/tag/jdcon" title="jdcon (2) ">jdcon</a></span><br />
+<span class="serendipity_freeTag_xmlTagEntry"><a rel="tag" class="serendipity_xml_icon" href="/rss.php?serendipity[tag]=keynote" title="keynote"><img alt="xml" src="/templates/mha/img/xml.gif" class="serendipity_freeTag_xmlButton" /></a>&nbsp;<a rel="tag" href="http://blog.hagander.net/plugin/tag/keynote" title="keynote (2) ">keynote</a></span><br />
+<span class="serendipity_freeTag_xmlTagEntry"><a rel="tag" class="serendipity_xml_icon" href="/rss.php?serendipity[tag]=fosdem" title="fosdem"><img alt="xml" src="/templates/mha/img/xml.gif" class="serendipity_freeTag_xmlButton" /></a>&nbsp;<a rel="tag" href="http://blog.hagander.net/plugin/tag/fosdem" title="fosdem (2) ">fosdem</a></span><br />
+<span class="serendipity_freeTag_xmlTagEntry"><a rel="tag" class="serendipity_xml_icon" href="/rss.php?serendipity[tag]=extensions" title="extensions"><img alt="xml" src="/templates/mha/img/xml.gif" class="serendipity_freeTag_xmlButton" /></a>&nbsp;<a rel="tag" href="http://blog.hagander.net/plugin/tag/extensions" title="extensions (2) ">extensions</a></span><br />
+<span class="serendipity_freeTag_xmlTagEntry"><a rel="tag" class="serendipity_xml_icon" href="/rss.php?serendipity[tag]=9.1" title="9.1"><img alt="xml" src="/templates/mha/img/xml.gif" class="serendipity_freeTag_xmlButton" /></a>&nbsp;<a rel="tag" href="http://blog.hagander.net/plugin/tag/9%FF1" title="9.1 (2) ">9.1</a></span><br />
+<span class="serendipity_freeTag_xmlTagEntry"><a rel="tag" class="serendipity_xml_icon" href="/rss.php?serendipity[tag]=django" title="django"><img alt="xml" src="/templates/mha/img/xml.gif" class="serendipity_freeTag_xmlButton" /></a>&nbsp;<a rel="tag" href="http://blog.hagander.net/plugin/tag/django" title="django (2) ">django</a></span><br />
+<span class="serendipity_freeTag_xmlTagEntry"><a rel="tag" class="serendipity_xml_icon" href="/rss.php?serendipity[tag]=logging" title="logging"><img alt="xml" src="/templates/mha/img/xml.gif" class="serendipity_freeTag_xmlButton" /></a>&nbsp;<a rel="tag" href="http://blog.hagander.net/plugin/tag/logging" title="logging (2) ">logging</a></span><br />
+<span class="serendipity_freeTag_xmlTagEntry"><a rel="tag" class="serendipity_xml_icon" href="/rss.php?serendipity[tag]=python" title="python"><img alt="xml" src="/templates/mha/img/xml.gif" class="serendipity_freeTag_xmlButton" /></a>&nbsp;<a rel="tag" href="http://blog.hagander.net/plugin/tag/python" title="python (2) ">python</a></span><br />
+<span class="serendipity_freeTag_xmlTagEntry"><a rel="tag" class="serendipity_xml_icon" href="/rss.php?serendipity[tag]=win64" title="win64"><img alt="xml" src="/templates/mha/img/xml.gif" class="serendipity_freeTag_xmlButton" /></a>&nbsp;<a rel="tag" href="http://blog.hagander.net/plugin/tag/win64" title="win64 (2) ">win64</a></span><br />
+<span class="serendipity_freeTag_xmlTagEntry"><a rel="tag" class="serendipity_xml_icon" href="/rss.php?serendipity[tag]=window+aggregates" title="window aggregates"><img alt="xml" src="/templates/mha/img/xml.gif" class="serendipity_freeTag_xmlButton" /></a>&nbsp;<a rel="tag" href="http://blog.hagander.net/plugin/tag/window+aggregates" title="window aggregates (2) ">window&nbsp;aggregates</a></span><br />
+<span class="serendipity_freeTag_xmlTagEntry"><a rel="tag" class="serendipity_xml_icon" href="/rss.php?serendipity[tag]=talk" title="talk"><img alt="xml" src="/templates/mha/img/xml.gif" class="serendipity_freeTag_xmlButton" /></a>&nbsp;<a rel="tag" href="http://blog.hagander.net/plugin/tag/talk" title="talk (2) ">talk</a></span><br />
+<span class="serendipity_freeTag_xmlTagEntry"><a rel="tag" class="serendipity_xml_icon" href="/rss.php?serendipity[tag]=ssl" title="ssl"><img alt="xml" src="/templates/mha/img/xml.gif" class="serendipity_freeTag_xmlButton" /></a>&nbsp;<a rel="tag" href="http://blog.hagander.net/plugin/tag/ssl" title="ssl (2) ">ssl</a></span><br />
+<span class="serendipity_freeTag_xmlTagEntry"><a rel="tag" class="serendipity_xml_icon" href="/rss.php?serendipity[tag]=sql" title="sql"><img alt="xml" src="/templates/mha/img/xml.gif" class="serendipity_freeTag_xmlButton" /></a>&nbsp;<a rel="tag" href="http://blog.hagander.net/plugin/tag/sql" title="sql (2) ">sql</a></span><br />
+<span class="serendipity_freeTag_xmlTagEntry"><a rel="tag" class="serendipity_xml_icon" href="/rss.php?serendipity[tag]=windows" title="windows"><img alt="xml" src="/templates/mha/img/xml.gif" class="serendipity_freeTag_xmlButton" /></a>&nbsp;<a rel="tag" href="http://blog.hagander.net/plugin/tag/windows" title="windows (3) ">windows</a></span><br />
+<span class="serendipity_freeTag_xmlTagEntry"><a rel="tag" class="serendipity_xml_icon" href="/rss.php?serendipity[tag]=schedule" title="schedule"><img alt="xml" src="/templates/mha/img/xml.gif" class="serendipity_freeTag_xmlButton" /></a>&nbsp;<a rel="tag" href="http://blog.hagander.net/plugin/tag/schedule" title="schedule (3) ">schedule</a></span><br />
+<span class="serendipity_freeTag_xmlTagEntry"><a rel="tag" class="serendipity_xml_icon" href="/rss.php?serendipity[tag]=planet" title="planet"><img alt="xml" src="/templates/mha/img/xml.gif" class="serendipity_freeTag_xmlButton" /></a>&nbsp;<a rel="tag" href="http://blog.hagander.net/plugin/tag/planet" title="planet (3) ">planet</a></span><br />
+<span class="serendipity_freeTag_xmlTagEntry"><a rel="tag" class="serendipity_xml_icon" href="/rss.php?serendipity[tag]=pgcrypto" title="pgcrypto"><img alt="xml" src="/templates/mha/img/xml.gif" class="serendipity_freeTag_xmlButton" /></a>&nbsp;<a rel="tag" href="http://blog.hagander.net/plugin/tag/pgcrypto" title="pgcrypto (3) ">pgcrypto</a></span><br />
+<span class="serendipity_freeTag_xmlTagEntry"><a rel="tag" class="serendipity_xml_icon" href="/rss.php?serendipity[tag]=mysql" title="mysql"><img alt="xml" src="/templates/mha/img/xml.gif" class="serendipity_freeTag_xmlButton" /></a>&nbsp;<a rel="tag" href="http://blog.hagander.net/plugin/tag/mysql" title="mysql (4) ">mysql</a></span><br />
+<span class="serendipity_freeTag_xmlTagEntry"><a rel="tag" class="serendipity_xml_icon" href="/rss.php?serendipity[tag]=pgcon" title="pgcon"><img alt="xml" src="/templates/mha/img/xml.gif" class="serendipity_freeTag_xmlButton" /></a>&nbsp;<a rel="tag" href="http://blog.hagander.net/plugin/tag/pgcon" title="pgcon (4) ">pgcon</a></span><br />
+<span class="serendipity_freeTag_xmlTagEntry"><a rel="tag" class="serendipity_xml_icon" href="/rss.php?serendipity[tag]=intrastructure" title="intrastructure"><img alt="xml" src="/templates/mha/img/xml.gif" class="serendipity_freeTag_xmlButton" /></a>&nbsp;<a rel="tag" href="http://blog.hagander.net/plugin/tag/intrastructure" title="intrastructure (4) ">intrastructure</a></span><br />
+<span class="serendipity_freeTag_xmlTagEntry"><a rel="tag" class="serendipity_xml_icon" href="/rss.php?serendipity[tag]=git" title="git"><img alt="xml" src="/templates/mha/img/xml.gif" class="serendipity_freeTag_xmlButton" /></a>&nbsp;<a rel="tag" href="http://blog.hagander.net/plugin/tag/git" title="git (5) ">git</a></span><br />
+<span class="serendipity_freeTag_xmlTagEntry"><a rel="tag" class="serendipity_xml_icon" href="/rss.php?serendipity[tag]=security" title="security"><img alt="xml" src="/templates/mha/img/xml.gif" class="serendipity_freeTag_xmlButton" /></a>&nbsp;<a rel="tag" href="http://blog.hagander.net/plugin/tag/security" title="security (6) ">security</a></span><br />
+<span class="serendipity_freeTag_xmlTagEntry"><a rel="tag" class="serendipity_xml_icon" href="/rss.php?serendipity[tag]=pgconfeusite2012" title="pgconfeusite2012"><img alt="xml" src="/templates/mha/img/xml.gif" class="serendipity_freeTag_xmlButton" /></a>&nbsp;<a rel="tag" href="http://blog.hagander.net/plugin/tag/pgconfeusite2012" title="pgconfeusite2012 (6) ">pgconfeusite2012</a></span><br />
+<span class="serendipity_freeTag_xmlTagEntry"><a rel="tag" class="serendipity_xml_icon" href="/rss.php?serendipity[tag]=pgconfeusite" title="pgconfeusite"><img alt="xml" src="/templates/mha/img/xml.gif" class="serendipity_freeTag_xmlButton" /></a>&nbsp;<a rel="tag" href="http://blog.hagander.net/plugin/tag/pgconfeusite" title="pgconfeusite (9) ">pgconfeusite</a></span><br />
+<span class="serendipity_freeTag_xmlTagEntry"><a rel="tag" class="serendipity_xml_icon" href="/rss.php?serendipity[tag]=pgday" title="pgday"><img alt="xml" src="/templates/mha/img/xml.gif" class="serendipity_freeTag_xmlButton" /></a>&nbsp;<a rel="tag" href="http://blog.hagander.net/plugin/tag/pgday" title="pgday (12) ">pgday</a></span><br />
+<span class="serendipity_freeTag_xmlTagEntry"><a rel="tag" class="serendipity_xml_icon" href="/rss.php?serendipity[tag]=pgconfeu" title="pgconfeu"><img alt="xml" src="/templates/mha/img/xml.gif" class="serendipity_freeTag_xmlButton" /></a>&nbsp;<a rel="tag" href="http://blog.hagander.net/plugin/tag/pgconfeu" title="pgconfeu (15) ">pgconfeu</a></span><br />
+<span class="serendipity_freeTag_xmlTagEntry"><a rel="tag" class="serendipity_xml_icon" href="/rss.php?serendipity[tag]=pgeu" title="pgeu"><img alt="xml" src="/templates/mha/img/xml.gif" class="serendipity_freeTag_xmlButton" /></a>&nbsp;<a rel="tag" href="http://blog.hagander.net/plugin/tag/pgeu" title="pgeu (22) ">pgeu</a></span><br />
+<span class="serendipity_freeTag_xmlTagEntry"><a rel="tag" class="serendipity_xml_icon" href="/rss.php?serendipity[tag]=conferences" title="conferences"><img alt="xml" src="/templates/mha/img/xml.gif" class="serendipity_freeTag_xmlButton" /></a>&nbsp;<a rel="tag" href="http://blog.hagander.net/plugin/tag/conferences" title="conferences (65) ">conferences</a></span><br />
+<span class="serendipity_freeTag_xmlTagEntry"><a rel="tag" class="serendipity_xml_icon" href="/rss.php?serendipity[tag]=postgresql" title="postgresql"><img alt="xml" src="/templates/mha/img/xml.gif" class="serendipity_freeTag_xmlButton" /></a>&nbsp;<a rel="tag" href="http://blog.hagander.net/plugin/tag/postgresql" title="postgresql (209) ">postgresql</a></span><br />
+</div>
+    </div>
+    <div class="serendipitySideBarItem container_serendipity_plugin_comments">
+        <h3 class="serendipitySideBarTitle serendipity_plugin_comments">Latest comments</h3>        <div class="serendipitySideBarContent"><div class="plugin_comment_wrap"><div class="plugin_comment_subject"><span class="plugin_comment_author">Matt Spencer</span> about <a class="highlight" href="http://blog.hagander.net/archives/73-PostgreSQL-vs-64-bit-windows.html#c309" title="PostgreSQL vs 64-bit windows">PostgreSQL vs 64-bit windows</a></div>
+<div class="plugin_comment_date">Wed, 06.06.2012 05:23</div>
+<div class="plugin_comment_body">I agree totally, the 64-bit ve
+rsion definitely solves the pr
+oblem if you need more memory.
+ We need to gradually sh [...]</div>
+
+</div><div class="plugin_comment_wrap"><div class="plugin_comment_subject"><span class="plugin_comment_author">Jim Smithson</span> about <a class="highlight" href="http://blog.hagander.net/archives/73-PostgreSQL-vs-64-bit-windows.html#c308" title="PostgreSQL vs 64-bit windows">PostgreSQL vs 64-bit windows</a></div>
+<div class="plugin_comment_date">Tue, 05.06.2012 07:04</div>
+<div class="plugin_comment_body">Users who are challenged by th
+e memory taxing qualities of t
+he 64 bit should go back to us
+ing 32 bit. It offers sm [...]</div>
+
+</div><div class="plugin_comment_wrap"><div class="plugin_comment_subject"><span class="plugin_comment_author">Magnus Hagander</span> about <a class="highlight" href="http://blog.hagander.net/archives/73-PostgreSQL-vs-64-bit-windows.html#c306" title="PostgreSQL vs 64-bit windows">PostgreSQL vs 64-bit windows</a></div>
+<div class="plugin_comment_date">Thu, 19.04.2012 08:22</div>
+<div class="plugin_comment_body">You are missing the point - wh
+ich is exactly that the filesy
+stem level cache does not ha
+ve a lower cache hit rat [...]</div>
+
+</div><div class="plugin_comment_wrap"><div class="plugin_comment_subject"><span class="plugin_comment_author">Marcov</span> about <a class="highlight" href="http://blog.hagander.net/archives/73-PostgreSQL-vs-64-bit-windows.html#c305" title="PostgreSQL vs 64-bit windows">PostgreSQL vs 64-bit windows</a></div>
+<div class="plugin_comment_date">Mon, 26.03.2012 19:57</div>
+<div class="plugin_comment_body">Any VM base caching is limited
+ to the maximal mappable addre
+ss space(which is about 4G in 
+windows 64-bit, 3GB in 3 [...]</div>
+
+</div><div class="plugin_comment_wrap"><div class="plugin_comment_subject"><span class="plugin_comment_author">Magnus Hagander</span> about <a class="highlight" href="http://blog.hagander.net/archives/203-Finding-gaps-in-partitioned-sequences.html#c303" title="Finding gaps in partitioned sequences">Finding gaps in partitioned sequences</a></div>
+<div class="plugin_comment_date">Mon, 06.02.2012 10:18</div>
+<div class="plugin_comment_body">Hah, thanks for pointing that 
+out. That's what I get for try
+ing to clean up the formatting
+ when posting it...</div>
+
+</div><div class="plugin_comment_wrap"><div class="plugin_comment_subject"><span class="plugin_comment_author">mark</span> about <a class="highlight" href="http://blog.hagander.net/archives/203-Finding-gaps-in-partitioned-sequences.html#c302" title="Finding gaps in partitioned sequences">Finding gaps in partitioned sequences</a></div>
+<div class="plugin_comment_date">Tue, 31.01.2012 19:01</div>
+<div class="plugin_comment_body">thanks, sorry I should have no
+ticed that was the seq MINUS t
+he lag function. 
+
+
+
+p.s. you 
+example may have a typo  [...]</div>
+
+</div><div class="plugin_comment_wrap"><div class="plugin_comment_subject"><span class="plugin_comment_author">Magnus Hagander</span> about <a class="highlight" href="http://blog.hagander.net/archives/203-Finding-gaps-in-partitioned-sequences.html#c301" title="Finding gaps in partitioned sequences">Finding gaps in partitioned sequences</a></div>
+<div class="plugin_comment_date">Mon, 30.01.2012 17:25</div>
+<div class="plugin_comment_body">No, there are no user defined 
+functions in this.
+
+seq is the
+ column name, then minus the o
+perator, then lag the bu [...]</div>
+
+</div><div class="plugin_comment_wrap"><div class="plugin_comment_subject"><span class="plugin_comment_author">mark</span> about <a class="highlight" href="http://blog.hagander.net/archives/203-Finding-gaps-in-partitioned-sequences.html#c300" title="Finding gaps in partitioned sequences">Finding gaps in partitioned sequences</a></div>
+<div class="plugin_comment_date">Mon, 30.01.2012 17:23</div>
+<div class="plugin_comment_body">what is seq-lag ? i assume thi
+s is a user defined func.</div>
+
+</div><div class="plugin_comment_wrap"><div class="plugin_comment_subject"><span class="plugin_comment_author">Magnus Hagander</span> about <a class="highlight" href="http://blog.hagander.net/archives/202-www.postgresql.org-brand-new,-yet-old-and-familiar.html#c299" title="www.postgresql.org - brand new, yet old and familiar">www.postgresql.org - brand new, yet old and familiar</a></div>
+<div class="plugin_comment_date">Thu, 22.12.2011 17:41</div>
+<div class="plugin_comment_body">Yeah, unfortunately we are sti
+ll waiting on David to migrate
+ the content over there.</div>
+
+</div><div class="plugin_comment_wrap"><div class="plugin_comment_subject"><span class="plugin_comment_author">Dave</span> about <a class="highlight" href="http://blog.hagander.net/archives/202-www.postgresql.org-brand-new,-yet-old-and-familiar.html#c298" title="www.postgresql.org - brand new, yet old and familiar">www.postgresql.org - brand new, yet old and familiar</a></div>
+<div class="plugin_comment_date">Thu, 22.12.2011 16:55</div>
+<div class="plugin_comment_body">The weekly news page (http://w
+ww.postgresql.org/community/we
+eklynews/) seems to be broken.
+ I see only a couple of  [...]</div>
+
+</div></div>
+    </div>
+</td>
+    </tr>
+</table>
+
+<img src="http://blog.hagander.net/index.php?/plugin/backtweets.png" width="1" height="1" align="right" class="serendipity_tweetback_check" alt="tweetbackcheck"/>
+<div id="footer">
+	<p>Powered by <a href="http://www.s9y.org">s9y</a> - Design by <a href="http://www.carlgalloway.com">Carl</a></p>
+</div>
+</div>
+</body>
+</html>
