@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<!--[if IE 7 | IE 8]>
+<html class="ie" dir="ltr" lang="en-US">
+<![endif]-->
+<!--[if !(IE 7) | !(IE 8)  ]><!-->
+<html dir="ltr" lang="en-US">
+<!--<![endif]-->
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width" />
+<title>Using the Node.js Bcrypt Module to Hash and Safely Store Passwords | Code Theory</title>
+<link rel="profile" href="http://gmpg.org/xfn/11" />
+<link rel="pingback" href="http://codetheory.in/xmlrpc.php" />
+<!--[if lt IE 9]>
+<script src="http://codetheory.in/wp-content/themes/twentytwelve/js/html5.js" type="text/javascript"></script>
+<![endif]-->
+
+<!-- This site is optimized with the Yoast WordPress SEO plugin v1.4.7 - http://yoast.com/wordpress/seo/ -->
+<link rel="canonical" href="http://codetheory.in/using-the-node-js-bcrypt-module-to-hash-and-safely-store-passwords/" />
+<!-- / Yoast WordPress SEO plugin. -->
+
+<link rel="alternate" type="application/rss+xml" title="Code Theory &raquo; Feed" href="http://codetheory.in/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Code Theory &raquo; Comments Feed" href="http://codetheory.in/comments/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Code Theory &raquo; Using the Node.js Bcrypt Module to Hash and Safely Store Passwords Comments Feed" href="http://codetheory.in/using-the-node-js-bcrypt-module-to-hash-and-safely-store-passwords/feed/" />
+<link rel='stylesheet' id='contact-form-7-css'  href='http://codetheory.in/wp-content/plugins/contact-form-7/includes/css/styles.css?ver=3.3.1' type='text/css' media='all' />
+<link rel='stylesheet' id='twentytwelve-fonts-css'  href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700&#038;subset=latin,latin-ext' type='text/css' media='all' />
+<link rel='stylesheet' id='twentytwelve-style-css'  href='http://codetheory.in/wp-content/themes/twentytwelve/style.css?ver=3.4.2' type='text/css' media='all' />
+<script type='text/javascript' src='http://codetheory.in/wp-includes/js/jquery/jquery.js?ver=1.7.2'></script>
+<script type='text/javascript' src='http://codetheory.in/wp-includes/js/comment-reply.js?ver=3.4.2'></script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://codetheory.in/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://codetheory.in/wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 3.4.2" />
+<link rel='shortlink' href='http://codetheory.in/?p=1058' />
+<style type="text/css" id="custom-background-css">
+body.custom-background { background-color: #e6e6e6; }
+</style>
+<meta id="syntaxhighlighteranchor" name="syntaxhighlighter-version" content="3.1.5" />
+</head>
+
+<body class="single single-post postid-1058 single-format-standard custom-background custom-font-enabled">
+<div id="page" class="hfeed site">
+	<header id="masthead" class="site-header" role="banner">
+		<hgroup>
+			<h1 class="site-title"><a href="http://codetheory.in/" title="Code Theory" rel="home">Code Theory</a></h1>
+			<h2 class="site-description">Web Development and Designing articles</h2>
+		</hgroup>
+
+		<nav id="site-navigation" class="main-navigation" role="navigation">
+			<h3 class="menu-toggle">Menu</h3>
+			<div class="skip-link assistive-text"><a href="#content" title="Skip to content">Skip to content</a></div>
+			<div class="nav-menu"><ul><li ><a href="http://codetheory.in/" title="Home">Home</a></li><li class="page_item page-item-2"><a href="http://codetheory.in/about/">About</a></li><li class="page_item page-item-156"><a href="http://codetheory.in/contact/">Contact</a></li></ul></div>
+		</nav><!-- #site-navigation -->
+
+			</header><!-- #masthead -->
+
+	<div id="main" class="wrapper">
+	<div id="primary" class="site-content">
+		<div id="content" role="main">
+
+							
+	<article id="post-1058" class="post-1058 post type-post status-publish format-standard hentry category-tools-tips tag-bcrypt tag-nodejs">
+				<header class="entry-header">
+									<h1 class="entry-title">Using the Node.js Bcrypt Module to Hash and Safely Store Passwords</h1>
+										<div class="comments-link">
+					<a href="http://codetheory.in/using-the-node-js-bcrypt-module-to-hash-and-safely-store-passwords/#respond" title="Comment on Using the Node.js Bcrypt Module to Hash and Safely Store Passwords"><span class="leave-reply">Leave a reply</span></a>				</div><!-- .comments-link -->
+					</header><!-- .entry-header -->
+
+		
+<!-- Share -->
+<div id="share-button-wrapper">
+	
+	<!-- google plus -->
+	<div class="share-button">
+		<!-- Place this tag where you want the share button to render. -->
+		<div class="g-plus" data-action="share" data-annotation="none"></div>
+		
+		<!-- Place this tag after the last share tag. -->
+		<script type="text/javascript">
+			(function() {
+				var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+				po.src = 'https://apis.google.com/js/plusone.js';
+				var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+			})();
+		</script>
+	</div>
+	
+	
+	<!-- Facebook --> 
+	<div class="share-button"><div id="fb-root"></div>
+	<fb:like send="false" layout="button_count" width="450" show_faces="false"></fb:like>
+		<script>(function(d, s, id) {
+	var js, fjs = d.getElementsByTagName(s)[0];
+	if (d.getElementById(id)) return;
+	js = d.createElement(s); js.id = id;
+	js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=190502394323833";
+	fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>	
+	</div>
+		
+	<!-- Twitter --> 
+	<div class="share-button">
+		<a href="https://twitter.com/share" class="twitter-share-button" data-via="_rishabhp" data-lang="en" data-count="none">Tweet</a>
+		<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script></div>		
+			</div>
+			<!-- /Share -->
+		<div class="entry-content">
+			<p>Using bcrypt is the proper way to store passwords in your database regardless of whatever language your backend is built in &#8211; PHP, Ruby, Python, Node.js, etc. Why ? <a href="http://codahale.com/how-to-safely-store-a-password/">Here&#8217;s</a> the answer.</p>
+<p><span id="more-1058"></span></p>
+<p>So how do we go about employing this technique in Node.js ? Thankfully we have a neat <a href="https://github.com/ncb000gt/node.bcrypt.js/">bcrypt module</a> from <a href="https://github.com/ncb000gt">Nick Campbell</a> to do the job for us. It&#8217;s super easy to use, lets see how.</p>
+<p>First of all install it via NPM.</p>
+<pre class="brush: bash; title: ; notranslate" title="">
+$ npm install bcrypt
+</pre>
+<p>The module provides us with 2 ways to hash the password &#8211; sync and async.</p>
+<h3>Sync Usage</h3>
+<p>For generating the password hash and storing it you&#8217;d do something like this -</p>
+<pre class="brush: jscript; title: ; notranslate" title="">
+// Load the bcrypt module
+var bcrypt = require('bcrypt');
+// Generate a salt
+var salt = bcrypt.genSaltSync(10);
+// Hash the password with the salt
+var hash = bcrypt.hashSync(&quot;my password&quot;, salt);
+
+// Finally just store the hash in your DB
+// .. code to store in Redis/Mongo/Mysql/Sqlite/Postgres/etc.
+</pre>
+<p>The salt+hash can also be auto-generated in a single line of code -</p>
+<pre class="brush: jscript; title: ; notranslate" title="">
+var hash = bcrypt.hashSync(&quot;my password&quot;, 10);
+</pre>
+<p>During authentication you need to check the incoming password string against the hash. This is what you&#8217;d do -</p>
+<pre class="brush: jscript; title: ; notranslate" title="">
+// Load the password hash from DB
+// Let's assume it's stored in a variable called `hash`
+bcrypt.compareSync(&quot;my password&quot;, hash); // true
+bcrypt.compareSync(&quot;not my password&quot;, hash); // false
+</pre>
+<p><code>"my password"</code> is the correct one (sent via login form or some other method by the user) hence <code>compareSync</code> returns <code>true</code> while in the second case, when the password is incorrect, it returns <code>false</code>.</p>
+<h3>Async Usage</h3>
+<p>The module also provides us with an async flavour that can be used like this -</p>
+<pre class="brush: jscript; title: ; notranslate" title="">
+var bcrypt = require('bcrypt');
+bcrypt.genSalt(10, function(err, salt) {
+    bcrypt.hash(&quot;my password&quot;, salt, function(err, hash) {
+        // Store hash in your password DB.
+    });
+});
+
+// or
+
+bcrypt.hash('bacon', 10, function(err, hash) {
+    // Store hash in your password DB.
+});
+</pre>
+<p>.. and this is how you&#8217;d compare the hash saved in DB with the user supplied password -</p>
+<pre class="brush: jscript; title: ; notranslate" title="">
+// Load password hash from DB
+bcrypt.compare(&quot;my password&quot;, hash, function(err, res) {
+    // res === true
+});
+bcrypt.compare(&quot;not my password&quot;, hash, function(err, res) {
+    // res === false
+});
+</pre>
+<p>If you&#8217;re wondering what the <code>10</code> (that&#8217;s used for hashing) is, then that&#8217;s the <em>work factor</em> or the number of rounds the data is processed for. More rounds leads to more secured hash but slower/expensive process.</p>
+<p>You can check out the full API documentation <a href="https://github.com/ncb000gt/node.bcrypt.js/#api">here</a>. Good Luck!</p>
+<div id="crp_related" class="crp_related"><h3>Related Posts:</h3><ul><li><a href="http://codetheory.in/serve-your-javascript-files-bundled-using-browserify-with-node-enchilada/"     class="crp_title">Serve Your JavaScript Files Bundled using Browserify with&hellip;</a></li><li><a href="http://codetheory.in/using-underscore-string-for-string-manipulations-in-javascript/"     class="crp_title">Using Underscore.string for String Manipulations in&hellip;</a></li><li><a href="http://codetheory.in/browser-side-node-js-style-modules-require-and-exports-with-browserify/"     class="crp_title">Browser-Side Node.js Style Modules require() and exports&hellip;</a></li><li><a href="http://codetheory.in/how-to-use-twitter-oauth-with-node-oauth-in-your-node-js-express-application/"     class="crp_title">How To Use Twitter OAuth with node-oauth in your Node.js /&hellip;</a></li><li><a href="http://codetheory.in/mongodb-pretty-print-result-objects-in-mongo-interactive-shell/"     class="crp_title">MongoDB Pretty Print Result Objects in Mongo Interactive&hellip;</a></li></ul></div>
+
+			<h3 style="margin: 0.714286rem 0;">Share:</h3>
+
+<!-- Share -->
+<div id="share-button-wrapper">
+	
+	<!-- google plus -->
+	<div class="share-button">
+		<!-- Place this tag where you want the share button to render. -->
+		<div class="g-plus" data-action="share" data-annotation="none"></div>
+		
+		<!-- Place this tag after the last share tag. -->
+		<script type="text/javascript">
+			(function() {
+				var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+				po.src = 'https://apis.google.com/js/plusone.js';
+				var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+			})();
+		</script>
+	</div>
+	
+	
+	<!-- Facebook --> 
+	<div class="share-button"><div id="fb-root"></div>
+	<fb:like send="false" layout="button_count" width="450" show_faces="false"></fb:like>
+		<script>(function(d, s, id) {
+	var js, fjs = d.getElementsByTagName(s)[0];
+	if (d.getElementById(id)) return;
+	js = d.createElement(s); js.id = id;
+	js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=190502394323833";
+	fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>	
+	</div>
+		
+	<!-- Twitter --> 
+	<div class="share-button">
+		<a href="https://twitter.com/share" class="twitter-share-button" data-via="_rishabhp" data-lang="en" data-count="none">Tweet</a>
+		<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script></div>		
+			</div>
+			<!-- /Share -->
+
+
+<div>
+<h3>Subscribe:</h3>
+<ul>
+<li><a href="http://twitter.com/_rishabhp">Twitter</a></li>
+<li><a href="http://feeds.feedburner.com/codetheory">RSS Feeds</a></li>
+</ul>
+</div>
+
+
+
+
+					</div><!-- .entry-content -->
+		
+
+		<footer class="entry-meta">
+			This entry was posted in <a href="http://codetheory.in/category/tools-tips/" title="View all posts in Tools &amp; Tips" rel="category tag">Tools &amp; Tips</a> and tagged <a href="http://codetheory.in/tag/bcrypt/" rel="tag">bcrypt</a>, <a href="http://codetheory.in/tag/nodejs/" rel="tag">nodejs</a> on <a href="http://codetheory.in/using-the-node-js-bcrypt-module-to-hash-and-safely-store-passwords/" title="10:28 AM" rel="bookmark"><time class="entry-date" datetime="2013-04-02T10:28:46+00:00" pubdate>April 2, 2013</time></a><span class="by-author"> by <span class="author vcard"><a class="url fn n" href="http://codetheory.in/author/admin/" title="View all posts by Rishabh" rel="author">Rishabh</a></span></span>.										<div class="author-info">
+					<div class="author-avatar">
+						<img alt='' src='http://0.gravatar.com/avatar/8921dd45d59014a713629ff642da8b54?s=68&amp;d=identicon&amp;r=G' class='avatar avatar-68 photo' height='68' width='68' />					</div><!-- .author-avatar -->
+					<div class="author-description">
+						<h2>About Rishabh</h2>
+						<p>Rishabh is a freelance web developer from India. He's involved in both backend and frontend development. Creator of CSSDeck and CodeTheory.</p>
+						<div class="author-link">
+							<a href="http://codetheory.in/author/admin/" rel="author">
+								View all posts by Rishabh <span class="meta-nav">&rarr;</span>							</a>
+						</div><!-- .author-link	-->
+					</div><!-- .author-description -->
+				</div><!-- .author-info -->
+					</footer><!-- .entry-meta -->
+	</article><!-- #post -->
+				<nav class="nav-single">
+					<h3 class="assistive-text">Post navigation</h3>
+					<span class="nav-previous"><a href="http://codetheory.in/strategies-for-select-dropdown-lists-placeholder/" rel="prev"><span class="meta-nav">&larr;</span> Strategies for Select Dropdown Lists Placeholder</a></span>
+					<span class="nav-next"><a href="http://codetheory.in/using-underscore-string-for-string-manipulations-in-javascript/" rel="next">Using Underscore.string for String Manipulations in JavaScript <span class="meta-nav">&rarr;</span></a></span>
+				</nav><!-- .nav-single -->
+
+				
+<div id="comments" class="comments-area">
+
+	
+	
+									<div id="respond">
+				<h3 id="reply-title">Leave a Reply <small><a rel="nofollow" id="cancel-comment-reply-link" href="/using-the-node-js-bcrypt-module-to-hash-and-safely-store-passwords/#respond" style="display:none;">Cancel reply</a></small></h3>
+									<form action="http://codetheory.in/wp-comments-post.php" method="post" id="commentform">
+																			<p class="comment-notes">Your email address will not be published. Required fields are marked <span class="required">*</span></p>							<p class="comment-form-author"><label for="author">Name</label> <span class="required">*</span><input id="author" name="author" type="text" value="" size="30" aria-required='true' /></p>
+<p class="comment-form-email"><label for="email">Email</label> <span class="required">*</span><input id="email" name="email" type="text" value="" size="30" aria-required='true' /></p>
+<p class="comment-form-url"><label for="url">Website</label><input id="url" name="url" type="text" value="" size="30" /></p>
+												<p class="comment-form-comment"><label for="comment">Comment</label><textarea id="comment" name="comment" cols="45" rows="8" aria-required="true"></textarea></p>						<p class="form-allowed-tags">You may use these <abbr title="HyperText Markup Language">HTML</abbr> tags and attributes:  <code>&lt;a href=&quot;&quot; title=&quot;&quot;&gt; &lt;abbr title=&quot;&quot;&gt; &lt;acronym title=&quot;&quot;&gt; &lt;b&gt; &lt;blockquote cite=&quot;&quot;&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=&quot;&quot;&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=&quot;&quot;&gt; &lt;strike&gt; &lt;strong&gt; </code></p>						<p class="form-submit">
+							<input name="submit" type="submit" id="submit" value="Post Comment" />
+							<input type='hidden' name='comment_post_ID' value='1058' id='comment_post_ID' />
+<input type='hidden' name='comment_parent' id='comment_parent' value='0' />
+						</p>
+						<p style="display: none;"><input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="e88bd1e56b" /></p>					</form>
+							</div><!-- #respond -->
+						
+</div><!-- #comments .comments-area -->
+			
+		</div><!-- #content -->
+	</div><!-- #primary -->
+
+
+			<div id="secondary" class="widget-area" role="complementary">
+			<aside id="search-2" class="widget widget_search"><form role="search" method="get" id="searchform" action="http://codetheory.in/" >
+	<div><label class="screen-reader-text" for="s">Search for:</label>
+	<input type="text" value="" name="s" id="s" />
+	<input type="submit" id="searchsubmit" value="Search" />
+	</div>
+	</form></aside><aside id="nav_menu-2" class="widget widget_nav_menu"><h3 class="widget-title">Subscribe</h3><div class="menu-subscribe-container"><ul id="menu-subscribe" class="menu"><li id="menu-item-161" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-161"><a href="http://twitter.com/_rishabhp">Twitter</a></li>
+<li id="menu-item-162" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-162"><a href="http://feeds.feedburner.com/codetheory">RSS Feeds</a></li>
+<li id="menu-item-683" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-683"><a href="http://feedburner.google.com/fb/a/mailverify?uri=CodeTheory&amp;loc=en_US">Subscribe by Email</a></li>
+</ul></div></aside>
+<!-- carbon ads -->
+<div id="carbonads-container" style="margin-bottom: 3.428571429rem; background: #F0F0F0; padding: 15px 0; border: 1px solid #E6E6E6;"><div class="carbonad" style="margin: 0 auto;"><div id="azcarbon"></div><script type="text/javascript">var z = document.createElement("script"); z.type = "text/javascript"; z.async = true; z.src = "http://engine.carbonads.com/z/19954/azcarbon_2_1_0_VERT"; var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(z, s);</script></div></div>
+<!-- /carbon ads -->
+
+<aside id="archives-2" class="widget widget_archive"><h3 class="widget-title">Archives</h3>		<ul>
+			<li><a href='http://codetheory.in/2013/05/' title='May 2013'>May 2013</a></li>
+	<li><a href='http://codetheory.in/2013/04/' title='April 2013'>April 2013</a></li>
+	<li><a href='http://codetheory.in/2013/03/' title='March 2013'>March 2013</a></li>
+	<li><a href='http://codetheory.in/2013/02/' title='February 2013'>February 2013</a></li>
+	<li><a href='http://codetheory.in/2013/01/' title='January 2013'>January 2013</a></li>
+	<li><a href='http://codetheory.in/2012/12/' title='December 2012'>December 2012</a></li>
+	<li><a href='http://codetheory.in/2012/11/' title='November 2012'>November 2012</a></li>
+	<li><a href='http://codetheory.in/2012/10/' title='October 2012'>October 2012</a></li>
+		</ul>
+</aside><aside id="categories-2" class="widget widget_categories"><h3 class="widget-title">Categories</h3>		<ul>
+	<li class="cat-item cat-item-13"><a href="http://codetheory.in/category/games/" title="View all posts filed under Games">Games</a>
+</li>
+	<li class="cat-item cat-item-1"><a href="http://codetheory.in/category/uncategorized/" title="View all posts filed under Random">Random</a>
+</li>
+	<li class="cat-item cat-item-46"><a href="http://codetheory.in/category/roundups/" title="View all posts filed under Roundups">Roundups</a>
+</li>
+	<li class="cat-item cat-item-40"><a href="http://codetheory.in/category/tools-tips/" title="View all posts filed under Tools &amp; Tips">Tools &amp; Tips</a>
+</li>
+	<li class="cat-item cat-item-12"><a href="http://codetheory.in/category/web-development/" title="View all posts filed under Web Development">Web Development</a>
+</li>
+		</ul>
+</aside>
+<aside id="side-projects" class="widget widget_categories">
+<h3 class="widget-title">Side Projects</h3>
+		<ul>
+	<li><a href="http://cssdeck.com" title="HTML5, CSS3, JS Demos and Codecasts">CSSDeck</a></li>
+	<li><a href="http://khele.in" title="HTML5 Games">Khele.in</a></li>
+	<li><a href="https://github.com/rishabhp/mentions" title="Social Sharing Analytics">Mentions</a></li>
+		</ul>
+</aside>
+
+
+		</div><!-- #secondary -->
+		</div><!-- #main .wrapper -->
+	<footer id="colophon" role="contentinfo">
+		<div class="site-info">
+						<a href="http://wordpress.org/" title="Semantic Personal Publishing Platform" rel="generator">Proudly powered by WordPress</a>
+		</div><!-- .site-info -->
+	</footer><!-- #colophon -->
+</div><!-- #page -->
+
+<script type='text/javascript' src='http://codetheory.in/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shCore.js?ver=3.0.83c'></script>
+<script type='text/javascript' src='http://codetheory.in/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushBash.js?ver=3.0.83c'></script>
+<script type='text/javascript' src='http://codetheory.in/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushJScript.js?ver=3.0.83c'></script>
+<script type='text/javascript'>
+	(function(){
+		var corecss = document.createElement('link');
+		var themecss = document.createElement('link');
+		var corecssurl = "http://codetheory.in/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/styles/shCore.css?ver=3.0.83c";
+		if ( corecss.setAttribute ) {
+				corecss.setAttribute( "rel", "stylesheet" );
+				corecss.setAttribute( "type", "text/css" );
+				corecss.setAttribute( "href", corecssurl );
+		} else {
+				corecss.rel = "stylesheet";
+				corecss.href = corecssurl;
+		}
+		document.getElementsByTagName("head")[0].insertBefore( corecss, document.getElementById("syntaxhighlighteranchor") );
+		var themecssurl = "http://codetheory.in/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/styles/shThemeDefault.css?ver=3.0.83c";
+		if ( themecss.setAttribute ) {
+				themecss.setAttribute( "rel", "stylesheet" );
+				themecss.setAttribute( "type", "text/css" );
+				themecss.setAttribute( "href", themecssurl );
+		} else {
+				themecss.rel = "stylesheet";
+				themecss.href = themecssurl;
+		}
+		//document.getElementById("syntaxhighlighteranchor").appendChild(themecss);
+		document.getElementsByTagName("head")[0].insertBefore( themecss, document.getElementById("syntaxhighlighteranchor") );
+	})();
+	SyntaxHighlighter.config.strings.expandSource = '+ expand source';
+	SyntaxHighlighter.config.strings.help = '?';
+	SyntaxHighlighter.config.strings.alert = 'SyntaxHighlighter\n\n';
+	SyntaxHighlighter.config.strings.noBrush = 'Can\'t find brush for: ';
+	SyntaxHighlighter.config.strings.brushNotHtmlScript = 'Brush wasn\'t configured for html-script option: ';
+	SyntaxHighlighter.defaults['pad-line-numbers'] = false;
+	SyntaxHighlighter.defaults['toolbar'] = false;
+	SyntaxHighlighter.all();
+</script>
+<script type='text/javascript' src='http://codetheory.in/wp-content/plugins/contact-form-7/includes/js/jquery.form.min.js?ver=3.18'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var _wpcf7 = {"loaderUrl":"http:\/\/codetheory.in\/wp-content\/plugins\/contact-form-7\/images\/ajax-loader.gif","sending":"Sending ..."};
+/* ]]> */
+</script>
+<script type='text/javascript' src='http://codetheory.in/wp-content/plugins/contact-form-7/includes/js/scripts.js?ver=3.3.1'></script>
+<script type='text/javascript' src='http://codetheory.in/wp-content/themes/twentytwelve/js/navigation.js?ver=1.0'></script>
+
+<!-- GA -->
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-35555370-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+<!-- CSSDeck Embeds -->
+<script async src="http://cssdeck.com/assets/js/embed.js"></script>
+
+</body>
+</html>

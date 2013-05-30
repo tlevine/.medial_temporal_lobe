@@ -1,0 +1,432 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta content="en-us" http-equiv="Content-Language" />
+<meta name="keywords" content="R, S-PLUS, statistical, programming, language" />
+<meta name="description" content="Things a programmer coming from another language needs to know about R, especially those things that might be most surprising" />
+<link rel="stylesheet" href="style.css" type="text/css" />
+<title>The R programming language for programmers coming from other programming languages</title>
+<script type="text/javascript" src="header.js"></script>
+</head>
+
+<body onload="w();">
+
+<div id="main">
+<h1>R programming for those coming from other languages</h1>
+
+<p><a href='#introduction'>Introduction</a><br />
+<a href='#assignment'>Assignment and underscore</a><br />
+<a href='#variable'>Variable name gotchas</a><br />
+<a href='#vectors'>Vectors</a><br />
+<a href='#sequences'>Sequences</a><br />
+<a href='#types'>Types</a><br />
+<a href='#boolean'>Boolean operators</a><br />
+<a href='#lists'>Lists</a><br />
+<a href='#matrices'>Matrices</a><br />
+<a href='#missing'>Missing values and NaNs</a><br />
+<a href='#comments'>Comments</a><br />
+<a href='#functions'>Functions</a><br />
+<a href='#scope'>Scope</a><br />
+<a href='#misc'>Misc.</a><br />
+<a href='#other'>Other resources</a><br />
+</p>
+
+<p>&nbsp;</p>
+
+<p><a href="http://www.webhostinghub.com/support/by/edu/johndcook-programming-uk">Ukrainian translation</a></p>
+<p>Other languages:</p>
+<div id="google_translate_element"></div><script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({
+    pageLanguage: 'en'
+  }, 'google_translate_element');
+}
+</script><script src="http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"  type="text/javascript"></script>
+
+<p>&nbsp;</p>
+
+<h2><a class="heading" id="introduction">Introduction</a></h2>
+
+<p>I have written software professionally in perhaps a dozen programming 
+languages, and the hardest language for me to learn has been R. The language is 
+actually fairly simple, but it is unconventional. These notes are intended to 
+make the language easier to learn for someone used to more commonly used 
+languages such as C++, Java, Perl, etc.</p>
+
+<p>R is more than a programming language. It is an interactive environment for 
+doing statistics. I find it more helpful to think of R as <em>having</em> a 
+programming language than <em>being</em> a programming language. The R language 
+is the scripting language for the R environment, just as VBA is the scripting 
+language for Microsoft Excel. Some of the more unusual features of the R 
+language begin to make sense when viewed from this perspective.</p>
+
+<p>This document is a work in progress. <a href="contact.html">Corrections and 
+comments</a> are welcome.</p>
+	
+<h2><a class="heading" id="assignment">Assignment and underscore</a></h2>
+
+<p>The assignment operator in R is <code class="notranslate">&lt;-</code> as in </p>
+	<p><code class="notranslate">e &lt;- m*c^2</code>.
+</p>
+	<p>It is also possible, though uncommon, to reverse the arrow and put
+the receiving variable on the right, as in </p>
+	<p><code class="notranslate">m*c^2 -&gt; e</code>.
+</p>
+	<p>It is sometimes possible to use <code class="notranslate">=</code> for assignment, though I don't
+understand when this is and is not allowed.  Most people avoid the issue
+by always using the arrow.</p>
+
+<p>However, when supplying default function arguments or calling
+functions with named arguments, you <em>must</em> use the <code class="notranslate">=</code>
+operator and cannot use the arrow.</p>
+
+<p>At some time in the past R, or its ancestor S, used underscore
+as assignment.  This meant that the C convention of using underscores
+as separators in multi-word variable names was not only disallowed
+but produced strange side effects.  For example, <code class="notranslate">first_name</code>
+would not be a single variable but rather the instruction to
+assign the value of <code class="notranslate">name</code> to the variable <code class="notranslate">first</code>!
+S-PLUS still follows this use of the underscore.  However,
+R allows underscore as a variable character and not as an assignment operator.</p>
+
+<h2><a class="heading" id="variable">Variable name gotchas</a></h2>
+
+<p>Because the underscore was not allowed as a variable character,
+the convention arose to use dot as a name separator.  Unlike its
+use in many object oriented languages, the dot character in R has no special
+significance, with two exceptions. First, the <code class="notranslate">ls()</code> function in R lists 
+active variables much as the <code class="notranslate">ls</code> Unix shell command lists directory
+contents.  As the <code class="notranslate">ls</code> shell command does not list files that begin
+with a dot, neither does the <code class="notranslate">ls()</code> function in R function show 
+variables that begin with dot by default. Second, <code class="notranslate">...</code> is used
+to indicate a variable number of function arguments.</p>
+
+<p>R uses <code class="notranslate">$</code> in a manner analogous to the way other languages use dot.</p>
+
+<p>R has several one-letter reserved words: <code class="notranslate">c</code>, <code class="notranslate">q</code>, <code class="notranslate">s</code>, 
+<code class="notranslate">t</code>, <code class="notranslate">C</code>, <code class="notranslate">D</code>, <code class="notranslate">F</code>, <code class="notranslate">I</code>, and <code class="notranslate">T</code>. 
+</p>
+	<p>(Actually, these are not reserved, but it&#39;s best to think of them as reserved. For example, <code class="notranslate">c</code> is a built-in function 
+for creating vectors, though you could also create a variable named <code class="notranslate">c</code>. Worse, <code class="notranslate">T</code> and <code class="notranslate">F</code>
+are not synonyms for <code class="notranslate">TRUE</code> and <code class="notranslate">FALSE</code> but variables that have the expected values by default. So someone
+could include the code <code class="notranslate">T &lt;- FALSE; F &lt;- TRUE</code> and reverse their meanings!)
+</p>
+
+<h2><a class="heading" id="vectors">Vectors</a></h2>
+
+<p>The primary data type in R is the vector.  Before describing
+how vectors work in R, it is helpful to distinguish two ideas
+of vectors in order to set the correct expectations</p>
+
+<p>The first idea of a vector is what I will call a container
+vector.  This is an ordered collection of numbers
+with no other structure, such as the <code class="notranslate">vector&lt;&gt;</code> container in C++.
+The length of a vector is the number of elements in the container.
+Operations are applied componentwise.  For example, given two vectors
+<code class="notranslate">x</code> and <code class="notranslate">y</code> of equal length, <code class="notranslate">x*y</code> would be the vector
+whose n<sup>th</sup> component is the product of the n<sup>th</sup> components of <code class="notranslate">x</code>
+and <code class="notranslate">y</code>.  Also, <code class="notranslate">log(x)</code> would be the vector whose n<sup>th</sup>
+component is the logarithm of the n<sup>th</sup> component of <code class="notranslate">x</code>.</p>
+
+<p>The other idea of a vector is a mathematical vector, an
+element of a vector space.  In this context &quot;length&quot; means
+geometrical length determined by an inner product;
+the number of components is called &quot;dimension.&quot; In general, operations are not applied componentwise.
+The expression <code class="notranslate">x*y</code> is a single number, the inner product of the vectors.
+The expression <code class="notranslate">log(x)</code> is meaningless.</p>
+
+<p><em>A vector in R is a container vector</em>, a statistician&#39;s collection of data, 
+not a mathematical vector.  The R language is designed around
+the assumption that a vector is an ordered set of measurements rather than
+a geometrical position or a physical state.  (R supports mathematical
+vector operations, but they are secondary in the design of the language.)
+This helps explain, for example, R&#39;s otherwise inexplicable vector recycling feature.</p>
+	<p>Adding a vector of length
+22 and a vector of length 45 in most languages would raise an exception; the 
+	language designers would assume the programmer has made an error and the program is now in an
+undefined state. However, R allows adding two vectors regardless of their relative lengths.
+The elements of the shorter summand are recycled as often as necessary to create
+a vector the length of the longer summand.  This is not attempting to add physical vectors
+that are incompatible for addition, but rather a syntactic convenience for manipulating
+sets of data. (R does issue a warning when adding vectors of different lengths 
+	and the length of the longer vector is not an integer multiple of the length 
+	of the shorter vector. So, for example, adding vectors of lengths 3 and 7 
+	would cause a warning, but adding vectors of length 3 and 6 would not.)</p>
+
+<p>The R language has no provision for scalars, nothing like a <code class="notranslate">double</code> in
+C-family languages.  The only way to represent a single
+number in a variable is to use a vector of length one. And while it
+is possible to iterate through vectors as one might do in a <code class="notranslate">for</code>
+loop in C, it is usually clearer and more efficient in R to operate
+on vectors as a whole.</p>
+
+<p>Vectors are created using the <code class="notranslate">c</code> function.  For example, <code class="notranslate"> p &lt;- c(2,3,5,7)</code>
+sets <code class="notranslate">p</code> to the vector containing the first four prime numbers.</p>
+
+<p>Vectors in R are indexed starting with 1 and matrices in are stored in column-major order.
+In both of these ways R resembles FORTRAN.</p>
+
+<p>Elements of a vector can be accessed using <code class="notranslate">[]</code>.  So in the above example, <code class="notranslate">p[3]</code>
+is 5.</p>
+
+<p>Vectors automatically expand when assigning to an index past the end of the vector, as in Perl.</p>
+
+<p>Negative indices are legal, but they have a very different meaning than in
+some other languages.  If <code class="notranslate">x</code> is an array in Python or Perl,
+<code class="notranslate">x[-n]</code> returns the n<sup>th</sup> element from the end of the vector.  In R,
+<code class="notranslate">x[-n]</code> returns a copy of <code class="notranslate">x</code> with the n<sup>th</sup> element removed.</p>
+	<p>Boolean values can also be used as indices, and they behave differently 
+	than integers. See 
+	<a href="http://www.johndcook.com/blog/2008/10/23/five-kinds-of-r-language-subscripts/">Five kinds of subscripts in R</a>.</p>
+
+<h2><a class="heading" id="sequences">Sequences</a></h2>
+
+<p>The expression <code class="notranslate">seq(a, b, n)</code> creates a closed interval from <code class="notranslate">a</code>
+to <code class="notranslate">b</code> in steps of size <code class="notranslate">n</code>.  For example, <code class="notranslate">seq(1, 10, 3)</code> returns
+the vector containing 1, 4, 7, and 10.  This is similar to <code class="notranslate">range(a, b, n)</code>
+in Python, except Python uses open intervals and so the 10 would not be included
+in this example. The step size argument <code class="notranslate">n</code> defaults to 1 in both R and Python.</p>
+
+<p>The notation <code class="notranslate">a:b</code> is an abbreviation for <code class="notranslate">seq(a, b, 1)</code>.</p>
+
+<p>The notation <code class="notranslate">seq(a, b, length=n)</code> is a variation that will set the step size
+to (b-a)/(n-1) so that the sequence has n points.</p>
+
+<h2><a class="heading" id="types">Types</a></h2>
+
+<p>The type of a vector is the type of the elements it contains and must be
+one of the following: <code class="notranslate">logical</code>, <code class="notranslate">integer</code>, <code class="notranslate">double</code>,
+<code class="notranslate">complex</code>, <code class="notranslate">character</code>, or <code class="notranslate">raw</code>.  All elements of a vector
+must have the same underlying type.  This restriction does not apply to lists.</p>
+
+<p>Type conversion functions have the naming convention <code class="notranslate">as.xxx</code>
+for the function converts its argument to type <code class="notranslate">xxx</code>.
+For example, <code class="notranslate">as.integer(3.2)</code> returns the integer 3, and <code class="notranslate">as.character(3.2)</code>
+returns the string &quot;3.2&quot;.</p>
+
+<h2><a class="heading" id="boolean">Boolean operators</a></h2>
+
+<p>You can input <code class="notranslate">T</code> or <code class="notranslate">TRUE</code> for true values and <code class="notranslate">F</code> or <code class="notranslate">FALSE</code> for false values.</p>
+
+<p>The operators <code class="notranslate">&amp;</code> and <code class="notranslate">|</code> apply element-wise on vectors.
+The operators <code class="notranslate">&amp;&amp;</code> and <code class="notranslate">||</code> are often used in conditional statements and
+use lazy evaluation as in C: the operators
+will not evaluate their second argument if the return value is determined by the first argument.</p>
+
+<h2><a class="heading" id="lists">Lists</a></h2>
+
+<p>Lists are like vectors, except elements need not all have the same type.
+For example, the first element of a list could be an integer and the second element
+be a string or a vector of Boolean values.</p>
+
+<p>Lists are created using the <code class="notranslate">list</code> function.  Elements can be access
+by position using <code class="notranslate">[[]]</code>.  Named elements may be accessed either by position
+or by name.</p>
+
+<p>Named elements of lists act like C <code class="notranslate">struct</code>s, except a dollar sign
+rather than a dot is used to access elements.
+For example, consider,</p>
+
+<pre>
+a &lt;- list(name="Joe", 4, foo=c(3,8,9))
+</pre>
+
+<p>Now <code class="notranslate">a[[1]]</code> and <code class="notranslate">a$name</code> both equal the string &quot;Joe&quot;.</p>
+
+<p>If you attempt to access a non-existent element of a list, say <code class="notranslate">a[[4]]</code>
+above, you will get an error.  However, you can <em>assign</em>
+to a non-existent element of a list, thus extending the list.  If the index you
+assign to is more than one past the end of the list, intermediate elements
+are created and assigned <code class="notranslate">NULL</code> values.  You can also assign to non-existent
+named fields, such as saying <code class="notranslate">a$baz = TRUE</code>.</p>
+
+<h2><a class="heading" id="matrices">Matrices</a></h2>
+
+<p>In a sense, R does not support matrices, only vectors.  But you can change the
+dimension of a vector, essentially making it a matrix.</p>
+
+<p>For example, <code class="notranslate">m &lt;- array( c(1,2,3,4,5,6), dim=c(2,3) )</code> creates
+a matrix <code class="notranslate">m</code>.  However, it may come as a surprise that the first row
+of <code class="notranslate">m</code> has elements 1, 3, and 5.
+This is because by default, R fills matrices by column, like FORTRAN.
+To fill <code class="notranslate">m</code> by row, add the argument <code class="notranslate">by.row = TRUE</code> to the call to the <code class="notranslate">array</code> function.</p>
+
+<h2><a class="heading" id="missing">Missing values and NaNs</a></h2>
+
+<p>As in other programming languages, the result of an operation on numbers may
+return <code class="notranslate">NaN</code>, the symbol for &quot;not a number.&quot;  For example, an
+operation might overflow the finite range of a machine number, or a program
+might request an undefined operation, such as dividing by zero.</p>
+
+<p>R also has
+a different type of non-number, <code class="notranslate">NA</code> for &quot;not applicable.&quot;
+<code class="notranslate">NA</code> is used to indicate missing data, and is
+unfortunately fairly common in data sets.  <code class="notranslate">NA</code> in R is similar
+to <code class="notranslate">NULL</code> in SQL or nullable types in C#.  However, one must be more
+careful about <code class="notranslate">NA</code> values in R than about nulls in SQL or C#.
+The designer of database or the author of a piece of C# code specifies
+which values are nullable and can avoid the issue by simply not allowing
+such values.  The author of an R function, however, has no control over
+the data his function will receive because <code class="notranslate">NA</code> is a legal value inside an R
+vector.  There is no way to specify that a function takes only vectors with
+non-null components.  You must handle <code class="notranslate">NA</code> values, even if you handle
+them by returning an error.</p>
+
+<p>The function <code class="notranslate">is.nan</code> will return <code class="notranslate">TRUE</code>
+for those components of its argument that are <code class="notranslate">NaN</code>.  The function
+<code class="notranslate">is.na</code> will return true for those components that are <code class="notranslate">NA</code>
+<em>or</em> <code class="notranslate">NaN</code>.</p>
+
+
+<h2><a class="heading" id="comments">Comments</a></h2>
+
+<p>Comments begin with # and continue to the end of the line, as in Python or 
+Perl. </p>
+
+<h2><a class="heading" id="functions">Functions</a></h2>
+
+<p>The function definition syntax of R is similar to that of JavaScript.  For example: </p>
+
+<pre>
+f &lt;- function(a, b)
+{
+    return (a+b)
+}
+</pre>
+
+<p>The function <code class="notranslate">function</code> returns a function, which is usually assigned to
+a variable, <code class="notranslate">f</code> in this case, but need not be.  You may use the <code class="notranslate">function</code>
+statement to create an anonymous function (lambda expression).</p>
+
+<p>Note that <code class="notranslate">return</code> is a function; its argument must be contained in parentheses,
+unlike C where parentheses are optional. The use of <code class="notranslate">return</code> is 
+optional; otherwise the value of the last line executed in a function is its 
+return value.</p>
+
+<p>Default values are defined similarly to C++.  In the following example, <code class="notranslate">b</code> is set to 10
+by default.</p>
+
+<pre>
+f &lt;- function(a, b=10)
+{
+    return (a+b)
+}
+</pre>
+
+<p>So <code class="notranslate">f(5, 1)</code> would return 6, and <code class="notranslate">f(5)</code> would return 15.
+R allows more sophisticated default values than does C++.
+A default value in R need not be a static type but
+could, for example, be a function of other arguments.</p>
+
+<p>C++ requires that if an argument has a default value then so do all values to the right.
+This is not the case in R, though it is still a good idea.  The function definition</p>
+
+<pre>
+f &lt;- function(a=10, b)
+{
+    return (a+b)
+}
+</pre>
+
+<p>is legal, but calling <code class="notranslate">f(5)</code> would cause an error. The argument <code class="notranslate">a</code> would be
+assigned 5, but no value would be assigned to <code class="notranslate">b</code>. The reason such a 
+function definition is not illegal is that one could still call the function 
+with one <em>named</em>
+argument.  For example, <code class="notranslate">f(b=2)</code> would return 12.</p>
+
+<p>Function arguments are passed by value.
+The most common mechanism for passing variables by reference is to use
+non-local variables.  (Not necessary global variables, but variables
+in the calling routine's scope.)  A safer alternative is to
+explicitly pass in all needed values and return a list as output.</p>
+
+<h2><a class="heading" id="scope">Scope</a></h2>
+
+<p>R uses lexical scoping while S-PLUS uses static scope.  The difference
+can be subtle, particularly when using closures.</p>
+
+<p>Since variables cannot be declared &mdash; they pop into existence on first assignment &mdash; it
+is not always easy to determine the scope of a variable.  You cannot tell just by
+looking at the source code of a function whether a variable is local to that function.</p>
+
+<h2><a class="heading" id="misc">Misc.</a></h2>
+
+<p>Here are a few miscellaneous facts about R that may be useful.</p>
+
+<ul>
+
+<li><code class="notranslate">help(fctn)</code> displays help on any function <code class="notranslate">fctn</code>, as in Python.</li>
+
+<li>To invoke complex arithmetic, add <code class="notranslate">0i</code> to a number.  For example,
+<code class="notranslate">sqrt(-1)</code> returns <code class="notranslate">NaN</code>, but <code class="notranslate">sqrt(-1 + 0i)</code> returns <code class="notranslate">0 + 1i</code>.</li>
+
+<li><code class="notranslate">sessionInfo()</code> prints the R version, OS, packages loaded, etc.</li>
+
+<li><code class="notranslate">ls()</code> shows which objects are defined.</li>
+
+<li><code class="notranslate">rm(list=ls())</code> clears all defined objects.</li>
+
+<!--
+<li><code class="notranslate">win.graph()</code> opens a new plotting window without overwriting the previous one.</li>
+-->
+
+<li><code class="notranslate">dev.new()</code> opens a new plotting window without overwriting the previous one.</li>
+
+<li>The function <code class="notranslate">sort()</code> does not change its argument.</li>
+
+<li>Distribution function prefixes <code class="notranslate">d</code>, <code class="notranslate">p</code>, <code class="notranslate">q</code>, <code class="notranslate">r</code>
+stand for density (PDF), probability (CDF), quantile (CDF<sup>-1</sup>), and random sample.
+For example, <code class="notranslate">dnorm</code> is the density function of a normal random variable and
+<code class="notranslate">rnorm</code> generates a sample from a normal random variable.  The corresponding
+functions for a uniform random variable are <code class="notranslate">dunif</code> and <code class="notranslate">runif</code>.</li>
+</ul>
+
+<h2><a class="heading" id="other">Other resources</a></h2>
+
+<p><a href="http://www.r-project.org/">The R Project</a></p>
+	<p>
+	<a href="http://www.amazon.com/gp/product/0470510242/104-5257411-2220725?ie=UTF8&amp;tag=theende-20&amp;linkCode=xm2&amp;camp=1789&amp;creativeASIN=0470510242">
+	The R Book</a></p>
+	<p>Radford Neal&#39;s series on design flaws in R. Part
+	<a href="http://radfordneal.wordpress.com/2008/08/06/design-flaws-in-r-1-reversing-sequences/">
+	I</a>,
+	<a href="http://radfordneal.wordpress.com/2008/08/20/design-flaws-in-r-2-—-dropped-dimensions/">
+	II</a>,
+	<a href="http://radfordneal.wordpress.com/2008/09/21/design-flaws-in-r-3-—-zero-subscripts/">
+	III</a>.</p>
+	<p><a href="http://www.burns-stat.com/pages/Tutor/R_inferno.pdf">The R 
+	Inferno</a></p>
+	<p><a href="http://stackoverflow.com/questions/tagged/r">StackOverflow 
+	questions tagged &#39;R&#39;</a></p>
+	<p><a href="http://www.johndcook.com/blog/tag/rstats/">My blog posts about R</a></p>
+	<p>&nbsp;</p>
+
+<script type="text/javascript">addthis_pub  = 'johndcook';</script>
+<p><a href="http://www.addthis.com/bookmark.php" onmouseover="return addthis_open(this, '', '[URL]', '[TITLE]')" onmouseout="addthis_close()" onclick="return addthis_sendto()"><img src="http://s9.addthis.com/button1-share.gif" width="125" height="16" alt="" /></a></p><script type="text/javascript" src="http://s7.addthis.com/js/152/addthis_widget.js"></script>
+
+<ul class="nav">
+<li><a href="index.html" title="John D. Cook">Home</a> </li>
+<li><a href="blog" title="My blog, The Endeavour">Blog</a></li>
+<li><a href="/twitter/index.html" title="List of my Twitter accounts"><span class="notranslate">Twitter</span></a> </li>
+<li><a href="consulting.html" title="Consulting services">Consulting</a></li>
+</ul>
+
+<p style="text-align:right"><a rel="author" href="https://plus.google.com/107357401349156916755/about">jdc</a></p>
+
+
+</div>
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-3581291-2");
+pageTracker._initData();
+pageTracker._trackPageview();
+</script>
+
+</body>
+
+</html>
