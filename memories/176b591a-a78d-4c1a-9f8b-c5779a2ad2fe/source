@@ -1,0 +1,1000 @@
+  
+
+
+<!DOCTYPE html>
+<html>
+  <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# githubog: http://ogp.me/ns/fb/githubog#">
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>einaros/ws · GitHub</title>
+    <link rel="search" type="application/opensearchdescription+xml" href="/opensearch.xml" title="GitHub" />
+    <link rel="fluid-icon" href="https://github.com/fluidicon.png" title="GitHub" />
+    <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-114.png" />
+    <link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114.png" />
+    <link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-144.png" />
+    <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144.png" />
+    <link rel="logo" type="image/svg" href="http://github-media-downloads.s3.amazonaws.com/github-logo.svg" />
+    <link rel="xhr-socket" href="/_sockets" />
+
+
+    <meta name="msapplication-TileImage" content="/windows-tile.png" />
+    <meta name="msapplication-TileColor" content="#ffffff" />
+    <meta name="selected-link" value="repo_source" data-pjax-transient />
+    <meta content="collector.githubapp.com" name="octolytics-host" /><meta content="github" name="octolytics-app-id" />
+
+    
+    
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+
+    <meta content="authenticity_token" name="csrf-param" />
+<meta content="T8AlqNOUSI4TqxSKgu+3E1euvnxobL8hoARhi3Zpvi4=" name="csrf-token" />
+
+    <link href="https://a248.e.akamai.net/assets.github.com/assets/github-e26d537951b309046eb5870a1edf7840c5c8e874.css" media="all" rel="stylesheet" type="text/css" />
+    <link href="https://a248.e.akamai.net/assets.github.com/assets/github2-8672ae0800703e0f9939a001a34e43c3c87836b5.css" media="all" rel="stylesheet" type="text/css" />
+    
+
+
+      <script src="https://a248.e.akamai.net/assets.github.com/assets/frameworks-ec9348b8374c693b0749d0b95b215fe3f5414fd0.js" type="text/javascript"></script>
+      <script src="https://a248.e.akamai.net/assets.github.com/assets/github-5ed450b261b3b303186d9febaf304db852ec3767.js" type="text/javascript"></script>
+      
+      <meta http-equiv="x-pjax-version" content="bf6f753cef5ad32563995d669d64565b">
+
+        <link data-pjax-transient rel='permalink' href='/einaros/ws/tree/0dce161f838e73581d96bd6f0ef6c78a675e6c20'>
+    <meta property="og:title" content="ws"/>
+    <meta property="og:type" content="githubog:gitrepository"/>
+    <meta property="og:url" content="https://github.com/einaros/ws"/>
+    <meta property="og:image" content="https://secure.gravatar.com/avatar/23b827c76b7eebbb1936f905a7ba2e24?s=420&amp;d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png"/>
+    <meta property="og:site_name" content="GitHub"/>
+    <meta property="og:description" content="`ws`: The fastest RFC-6455 WebSocket implementation for Node.js."/>
+    <meta property="twitter:card" content="summary"/>
+    <meta property="twitter:site" content="@GitHub">
+    <meta property="twitter:title" content="einaros/ws"/>
+
+    <meta name="description" content="`ws`: The fastest RFC-6455 WebSocket implementation for Node.js." />
+
+
+    <meta content="394360" name="octolytics-dimension-user_id" /><meta content="2744972" name="octolytics-dimension-repository_id" />
+  <link href="https://github.com/einaros/ws/commits/master.atom" rel="alternate" title="Recent Commits to ws:master" type="application/atom+xml" />
+
+  </head>
+
+
+  <body class="logged_out  linux vis-public env-production  ">
+    <div id="wrapper">
+
+      
+      
+      
+
+      
+      <div class="header header-logged-out">
+  <div class="container clearfix">
+
+    <a class="header-logo-wordmark" href="https://github.com/">Github</a>
+
+    <div class="header-actions">
+      <a class="button primary" href="/signup">Sign up</a>
+      <a class="button" href="/login?return_to=%2Feinaros%2Fws">Sign in</a>
+    </div>
+
+    <div class="command-bar js-command-bar  in-repository">
+
+
+      <ul class="top-nav">
+          <li class="explore"><a href="/explore">Explore</a></li>
+        <li class="features"><a href="/features">Features</a></li>
+          <li class="enterprise"><a href="http://enterprise.github.com/">Enterprise</a></li>
+          <li class="blog"><a href="/blog">Blog</a></li>
+      </ul>
+        <form accept-charset="UTF-8" action="/search" class="command-bar-form" id="top_search_form" method="get">
+  <a href="/search/advanced" class="advanced-search-icon tooltipped downwards command-bar-search" id="advanced_search" title="Advanced search"><span class="octicon octicon-gear "></span></a>
+
+  <input type="text" data-hotkey="/ s" name="q" id="js-command-bar-field" placeholder="Search or type a command" tabindex="1" autocapitalize="off"
+    
+      data-repo="einaros/ws"
+      data-branch="master"
+      data-sha="ec3ba3d701d862d3d20be2fb6bc12f810a61a70c"
+  >
+
+    <input type="hidden" name="nwo" value="einaros/ws" />
+
+    <div class="select-menu js-menu-container js-select-menu search-context-select-menu">
+      <span class="minibutton select-menu-button js-menu-target">
+        <span class="js-select-button">This repository</span>
+      </span>
+
+      <div class="select-menu-modal-holder js-menu-content js-navigation-container">
+        <div class="select-menu-modal">
+
+          <div class="select-menu-item js-navigation-item selected">
+            <span class="select-menu-item-icon octicon octicon-check"></span>
+            <input type="radio" class="js-search-this-repository" name="search_target" value="repository" checked="checked" />
+            <div class="select-menu-item-text js-select-button-text">This repository</div>
+          </div> <!-- /.select-menu-item -->
+
+          <div class="select-menu-item js-navigation-item">
+            <span class="select-menu-item-icon octicon octicon-check"></span>
+            <input type="radio" name="search_target" value="global" />
+            <div class="select-menu-item-text js-select-button-text">All repositories</div>
+          </div> <!-- /.select-menu-item -->
+
+        </div>
+      </div>
+    </div>
+
+  <span class="octicon help tooltipped downwards" title="Show command bar help">
+    <span class="octicon octicon-question"></span>
+  </span>
+
+
+  <input type="hidden" name="ref" value="cmdform">
+
+  <div class="divider-vertical"></div>
+
+</form>
+    </div>
+
+  </div>
+</div>
+
+
+      
+
+
+            <div class="site hfeed" itemscope itemtype="http://schema.org/WebPage">
+      <div class="hentry">
+        
+        <div class="pagehead repohead instapaper_ignore readability-menu ">
+          <div class="container">
+            <div class="title-actions-bar">
+              
+
+<ul class="pagehead-actions">
+
+
+
+    <li>
+      <a href="/login?return_to=%2Feinaros%2Fws"
+        class="minibutton js-toggler-target star-button entice tooltipped upwards"
+        title="You must be signed in to use this feature" rel="nofollow">
+        <span class="octicon octicon-star"></span>Star
+      </a>
+      <a class="social-count js-social-count" href="/einaros/ws/stargazers">
+        585
+      </a>
+    </li>
+    <li>
+      <a href="/login?return_to=%2Feinaros%2Fws"
+        class="minibutton js-toggler-target fork-button entice tooltipped upwards"
+        title="You must be signed in to fork a repository" rel="nofollow">
+        <span class="octicon octicon-git-branch"></span>Fork
+      </a>
+      <a href="/einaros/ws/network" class="social-count">
+        129
+      </a>
+    </li>
+</ul>
+
+              <h1 itemscope itemtype="http://data-vocabulary.org/Breadcrumb" class="entry-title public">
+                <span class="repo-label"><span>public</span></span>
+                <span class="mega-octicon octicon-repo"></span>
+                <span class="author vcard">
+                  <a href="/einaros" class="url fn" itemprop="url" rel="author">
+                  <span itemprop="title">einaros</span>
+                  </a></span> /
+                <strong><a href="/einaros/ws" class="js-current-repository">ws</a></strong>
+              </h1>
+            </div>
+
+            
+  <ul class="tabs">
+    <li class="pulse-nav"><a href="/einaros/ws/pulse" class="js-selected-navigation-item " data-selected-links="pulse /einaros/ws/pulse" rel="nofollow"><span class="octicon octicon-pulse"></span></a></li>
+    <li><a href="/einaros/ws" class="js-selected-navigation-item selected" data-selected-links="repo_source repo_downloads repo_commits repo_tags repo_branches /einaros/ws">Code</a></li>
+    <li><a href="/einaros/ws/network" class="js-selected-navigation-item " data-selected-links="repo_network /einaros/ws/network">Network</a></li>
+    <li><a href="/einaros/ws/pulls" class="js-selected-navigation-item " data-selected-links="repo_pulls /einaros/ws/pulls">Pull Requests <span class='counter'>5</span></a></li>
+
+      <li><a href="/einaros/ws/issues" class="js-selected-navigation-item " data-selected-links="repo_issues /einaros/ws/issues">Issues <span class='counter'>32</span></a></li>
+
+
+
+    <li><a href="/einaros/ws/graphs" class="js-selected-navigation-item " data-selected-links="repo_graphs repo_contributors /einaros/ws/graphs">Graphs</a></li>
+
+
+  </ul>
+  
+  <div id="repo_details" class="metabox clearfix
+       ">
+      <div id="repo_details_loader" class="context-loader" style="display:none">Sending Request&hellip;</div>
+
+        <div class="repo-desc-homepage">
+          
+    <div class="repository-lang-stats">
+      <div class="repository-lang-stats-graph">
+      <span class="language-color" style="width:96.1%; background-color:#f15501;" itemprop="keywords">JavaScript</span><span class="language-color" style="width:3.8%; background-color:#f34b7d;" itemprop="keywords">C++</span><span class="language-color" style="width:0.1%; background-color:#3581ba;" itemprop="keywords">Python</span>
+      </div>
+      <ol class="list-tip">
+        <li>
+            <a href="/languages/JavaScript">
+              <span class="color-block language-color" style="background-color:#f15501;"></span>
+              <span class="lang">JavaScript</span>
+              <span class="percent">96.1%</span>
+            </a>
+        </li>
+        <li>
+            <a href="/languages/C%2B%2B">
+              <span class="color-block language-color" style="background-color:#f34b7d;"></span>
+              <span class="lang">C++</span>
+              <span class="percent">3.8%</span>
+            </a>
+        </li>
+        <li>
+            <a href="/languages/Python">
+              <span class="color-block language-color" style="background-color:#3581ba;"></span>
+              <span class="lang">Python</span>
+              <span class="percent">0.1%</span>
+            </a>
+        </li>
+      </ol>
+    </div>
+
+<div id="repository_description" class="repository-description">
+    <p>`ws`: The fastest RFC-6455 WebSocket implementation for Node.js.
+      <span id="read_more" style="display:none">&mdash; <a href="#readme">Read more</a></span>
+    </p>
+</div>
+
+
+<div class="repository-homepage" id="repository_homepage">
+  <p><a href="http://einaros.github.com/ws" rel="nofollow">http://einaros.github.com/ws</a></p>
+</div>
+
+
+        </div>
+
+      <div class="edit-repo-desc-homepage" style="display:none">
+        <form accept-charset="UTF-8" action="/einaros/ws/settings/update_meta" id="js-update-repo-meta-form" method="post"><div style="margin:0;padding:0;display:inline"><input name="_method" type="hidden" value="put" /><input name="authenticity_token" type="hidden" value="T8AlqNOUSI4TqxSKgu+3E1euvnxobL8hoARhi3Zpvi4=" /></div>
+          <p class="error" style="display:none">Sorry, but there was a problem saving your changes.</p>
+          <input type="text" id="repository-description-field" class="description-field" name="repo_description" value="`ws`: The fastest RFC-6455 WebSocket implementation for Node.js." placeholder="Add a description to this repository">
+          <input type="text" id="repository-homepage-field" class="homepage-field" name="repo_homepage" value="http://einaros.github.com/ws" placeholder="Add a website to this repository">
+
+          <div class="edit-repo-actions">
+            <button type="submit" class="button save-button">Save changes</button>
+            <span class="cancel">
+              <a href="#" class="button danger">Cancel</a>
+            </span>
+          </div>
+</form>      </div>
+
+      
+<div class="url-box js-url-box">
+  <ul class="native-clones">
+      <li><a href="/einaros/ws/archive/master.zip" class="button minibutton " icon_class="octicon-cloud-download" rel="nofollow" title="Download this repository as a zip file"><span class="octicon octicon-cloud-download"></span>ZIP</a>
+  </ul>
+
+  <div class="clone-urls js-clone-urls ">
+    <span class="http_clone_url clone-url-button js-clone-url-button selected"><a href="https://github.com/einaros/ws.git" class="js-git-protocol-selector" data-permission="Read-Only" data-url="/users/set_protocol?protocol_selector=http&amp;protocol_type=clone">HTTP</a></span>
+<span class="public_clone_url clone-url-button js-clone-url-button"><a href="git@github.com:einaros/ws.git" class="js-git-protocol-selector" data-permission="Read-Only" data-url="/users/set_protocol?protocol_selector=ssh&amp;protocol_type=clone">SSH</a></span>
+<span class="public_clone_url clone-url-button js-clone-url-button"><a href="git://github.com/einaros/ws.git" class="js-git-protocol-selector" data-permission="Read-Only" data-url="/users/set_protocol?protocol_selector=gitweb&amp;protocol_type=clone">Git Read-Only</a></span>
+    <span class="clone-url">
+      <input type="text" readonly spellcheck="false" class="url-field js-url-field" value="https://github.com/einaros/ws.git" >
+    </span>
+    <span class="clone-url-button">
+      <span class="js-zeroclipboard url-box-clippy zeroclipboard-button" data-clipboard-text="https://github.com/einaros/ws.git" data-copied-hint="copied!" title="copy to clipboard"><span class="octicon octicon-clippy"></span></span>
+    </span>
+  </div>
+  <p class="url-description"><span class="bold js-clone-url-permission">Read-Only</span> access</p>
+</div>
+
+        </div>
+
+<div class="tabnav">
+
+  <span class="tabnav-right">
+    <ul class="tabnav-tabs">
+          <li><a href="/einaros/ws/tags" class="js-selected-navigation-item tabnav-tab" data-selected-links="repo_tags /einaros/ws/tags">Tags <span class="counter ">19</span></a></li>
+    </ul>
+  </span>
+
+  <div class="tabnav-widget scope">
+
+
+    <div class="select-menu js-menu-container js-select-menu js-branch-menu">
+      <a class="minibutton select-menu-button js-menu-target" data-hotkey="w" data-ref="master">
+        <span class="octicon octicon-branch"></span>
+        <i>branch:</i>
+        <span class="js-select-button">master</span>
+      </a>
+
+      <div class="select-menu-modal-holder js-menu-content js-navigation-container">
+
+        <div class="select-menu-modal">
+          <div class="select-menu-header">
+            <span class="select-menu-title">Switch branches/tags</span>
+            <span class="octicon octicon-remove-close js-menu-close"></span>
+          </div> <!-- /.select-menu-header -->
+
+          <div class="select-menu-filters">
+            <div class="select-menu-text-filter">
+              <input type="text" id="commitish-filter-field" class="js-filterable-field js-navigation-enable" placeholder="Filter branches/tags">
+            </div>
+            <div class="select-menu-tabs">
+              <ul>
+                <li class="select-menu-tab">
+                  <a href="#" data-tab-filter="branches" class="js-select-menu-tab">Branches</a>
+                </li>
+                <li class="select-menu-tab">
+                  <a href="#" data-tab-filter="tags" class="js-select-menu-tab">Tags</a>
+                </li>
+              </ul>
+            </div><!-- /.select-menu-tabs -->
+          </div><!-- /.select-menu-filters -->
+
+          <div class="select-menu-list select-menu-tab-bucket js-select-menu-tab-bucket css-truncate" data-tab-filter="branches">
+
+            <div data-filterable-for="commitish-filter-field" data-filterable-type="substring">
+
+                <div class="select-menu-item js-navigation-item ">
+                  <span class="select-menu-item-icon octicon octicon-check"></span>
+                  <a href="/einaros/ws/tree/gh-pages" class="js-navigation-open select-menu-item-text js-select-button-text css-truncate-target" data-name="gh-pages" rel="nofollow" title="gh-pages">gh-pages</a>
+                </div> <!-- /.select-menu-item -->
+                <div class="select-menu-item js-navigation-item selected">
+                  <span class="select-menu-item-icon octicon octicon-check"></span>
+                  <a href="/einaros/ws/tree/master" class="js-navigation-open select-menu-item-text js-select-button-text css-truncate-target" data-name="master" rel="nofollow" title="master">master</a>
+                </div> <!-- /.select-menu-item -->
+                <div class="select-menu-item js-navigation-item ">
+                  <span class="select-menu-item-icon octicon octicon-check"></span>
+                  <a href="/einaros/ws/tree/windowsCompatibility" class="js-navigation-open select-menu-item-text js-select-button-text css-truncate-target" data-name="windowsCompatibility" rel="nofollow" title="windowsCompatibility">windowsCompatibility</a>
+                </div> <!-- /.select-menu-item -->
+            </div>
+
+              <div class="select-menu-no-results">Nothing to show</div>
+          </div> <!-- /.select-menu-list -->
+
+
+          <div class="select-menu-list select-menu-tab-bucket js-select-menu-tab-bucket css-truncate" data-tab-filter="tags">
+            <div data-filterable-for="commitish-filter-field" data-filterable-type="substring">
+
+                <div class="select-menu-item js-navigation-item ">
+                  <span class="select-menu-item-icon octicon octicon-check"></span>
+                  <a href="/einaros/ws/tree/v0.4.19" class="js-navigation-open select-menu-item-text js-select-button-text css-truncate-target" data-name="v0.4.19" rel="nofollow" title="v0.4.19">v0.4.19</a>
+                </div> <!-- /.select-menu-item -->
+                <div class="select-menu-item js-navigation-item ">
+                  <span class="select-menu-item-icon octicon octicon-check"></span>
+                  <a href="/einaros/ws/tree/v0.4.18" class="js-navigation-open select-menu-item-text js-select-button-text css-truncate-target" data-name="v0.4.18" rel="nofollow" title="v0.4.18">v0.4.18</a>
+                </div> <!-- /.select-menu-item -->
+                <div class="select-menu-item js-navigation-item ">
+                  <span class="select-menu-item-icon octicon octicon-check"></span>
+                  <a href="/einaros/ws/tree/v0.4.16" class="js-navigation-open select-menu-item-text js-select-button-text css-truncate-target" data-name="v0.4.16" rel="nofollow" title="v0.4.16">v0.4.16</a>
+                </div> <!-- /.select-menu-item -->
+                <div class="select-menu-item js-navigation-item ">
+                  <span class="select-menu-item-icon octicon octicon-check"></span>
+                  <a href="/einaros/ws/tree/v0.4.15" class="js-navigation-open select-menu-item-text js-select-button-text css-truncate-target" data-name="v0.4.15" rel="nofollow" title="v0.4.15">v0.4.15</a>
+                </div> <!-- /.select-menu-item -->
+                <div class="select-menu-item js-navigation-item ">
+                  <span class="select-menu-item-icon octicon octicon-check"></span>
+                  <a href="/einaros/ws/tree/v0.4.6" class="js-navigation-open select-menu-item-text js-select-button-text css-truncate-target" data-name="v0.4.6" rel="nofollow" title="v0.4.6">v0.4.6</a>
+                </div> <!-- /.select-menu-item -->
+                <div class="select-menu-item js-navigation-item ">
+                  <span class="select-menu-item-icon octicon octicon-check"></span>
+                  <a href="/einaros/ws/tree/v0.4.5" class="js-navigation-open select-menu-item-text js-select-button-text css-truncate-target" data-name="v0.4.5" rel="nofollow" title="v0.4.5">v0.4.5</a>
+                </div> <!-- /.select-menu-item -->
+                <div class="select-menu-item js-navigation-item ">
+                  <span class="select-menu-item-icon octicon octicon-check"></span>
+                  <a href="/einaros/ws/tree/v0.4.0" class="js-navigation-open select-menu-item-text js-select-button-text css-truncate-target" data-name="v0.4.0" rel="nofollow" title="v0.4.0">v0.4.0</a>
+                </div> <!-- /.select-menu-item -->
+                <div class="select-menu-item js-navigation-item ">
+                  <span class="select-menu-item-icon octicon octicon-check"></span>
+                  <a href="/einaros/ws/tree/v0.3.9" class="js-navigation-open select-menu-item-text js-select-button-text css-truncate-target" data-name="v0.3.9" rel="nofollow" title="v0.3.9">v0.3.9</a>
+                </div> <!-- /.select-menu-item -->
+                <div class="select-menu-item js-navigation-item ">
+                  <span class="select-menu-item-icon octicon octicon-check"></span>
+                  <a href="/einaros/ws/tree/v0.3.8" class="js-navigation-open select-menu-item-text js-select-button-text css-truncate-target" data-name="v0.3.8" rel="nofollow" title="v0.3.8">v0.3.8</a>
+                </div> <!-- /.select-menu-item -->
+                <div class="select-menu-item js-navigation-item ">
+                  <span class="select-menu-item-icon octicon octicon-check"></span>
+                  <a href="/einaros/ws/tree/v0.3.7" class="js-navigation-open select-menu-item-text js-select-button-text css-truncate-target" data-name="v0.3.7" rel="nofollow" title="v0.3.7">v0.3.7</a>
+                </div> <!-- /.select-menu-item -->
+                <div class="select-menu-item js-navigation-item ">
+                  <span class="select-menu-item-icon octicon octicon-check"></span>
+                  <a href="/einaros/ws/tree/v0.3.4" class="js-navigation-open select-menu-item-text js-select-button-text css-truncate-target" data-name="v0.3.4" rel="nofollow" title="v0.3.4">v0.3.4</a>
+                </div> <!-- /.select-menu-item -->
+                <div class="select-menu-item js-navigation-item ">
+                  <span class="select-menu-item-icon octicon octicon-check"></span>
+                  <a href="/einaros/ws/tree/v0.3.2" class="js-navigation-open select-menu-item-text js-select-button-text css-truncate-target" data-name="v0.3.2" rel="nofollow" title="v0.3.2">v0.3.2</a>
+                </div> <!-- /.select-menu-item -->
+                <div class="select-menu-item js-navigation-item ">
+                  <span class="select-menu-item-icon octicon octicon-check"></span>
+                  <a href="/einaros/ws/tree/v0.3.1" class="js-navigation-open select-menu-item-text js-select-button-text css-truncate-target" data-name="v0.3.1" rel="nofollow" title="v0.3.1">v0.3.1</a>
+                </div> <!-- /.select-menu-item -->
+                <div class="select-menu-item js-navigation-item ">
+                  <span class="select-menu-item-icon octicon octicon-check"></span>
+                  <a href="/einaros/ws/tree/v0.3.0" class="js-navigation-open select-menu-item-text js-select-button-text css-truncate-target" data-name="v0.3.0" rel="nofollow" title="v0.3.0">v0.3.0</a>
+                </div> <!-- /.select-menu-item -->
+                <div class="select-menu-item js-navigation-item ">
+                  <span class="select-menu-item-icon octicon octicon-check"></span>
+                  <a href="/einaros/ws/tree/v0.2.8" class="js-navigation-open select-menu-item-text js-select-button-text css-truncate-target" data-name="v0.2.8" rel="nofollow" title="v0.2.8">v0.2.8</a>
+                </div> <!-- /.select-menu-item -->
+                <div class="select-menu-item js-navigation-item ">
+                  <span class="select-menu-item-icon octicon octicon-check"></span>
+                  <a href="/einaros/ws/tree/v0.2.7" class="js-navigation-open select-menu-item-text js-select-button-text css-truncate-target" data-name="v0.2.7" rel="nofollow" title="v0.2.7">v0.2.7</a>
+                </div> <!-- /.select-menu-item -->
+                <div class="select-menu-item js-navigation-item ">
+                  <span class="select-menu-item-icon octicon octicon-check"></span>
+                  <a href="/einaros/ws/tree/v0.2.5" class="js-navigation-open select-menu-item-text js-select-button-text css-truncate-target" data-name="v0.2.5" rel="nofollow" title="v0.2.5">v0.2.5</a>
+                </div> <!-- /.select-menu-item -->
+                <div class="select-menu-item js-navigation-item ">
+                  <span class="select-menu-item-icon octicon octicon-check"></span>
+                  <a href="/einaros/ws/tree/v0.2.0" class="js-navigation-open select-menu-item-text js-select-button-text css-truncate-target" data-name="v0.2.0" rel="nofollow" title="v0.2.0">v0.2.0</a>
+                </div> <!-- /.select-menu-item -->
+                <div class="select-menu-item js-navigation-item ">
+                  <span class="select-menu-item-icon octicon octicon-check"></span>
+                  <a href="/einaros/ws/tree/0.4.5" class="js-navigation-open select-menu-item-text js-select-button-text css-truncate-target" data-name="0.4.5" rel="nofollow" title="0.4.5">0.4.5</a>
+                </div> <!-- /.select-menu-item -->
+            </div>
+
+            <div class="select-menu-no-results">Nothing to show</div>
+
+          </div> <!-- /.select-menu-list -->
+
+        </div> <!-- /.select-menu-modal -->
+      </div> <!-- /.select-menu-modal-holder -->
+    </div> <!-- /.select-menu -->
+
+  </div> <!-- /.scope -->
+
+  <ul class="tabnav-tabs">
+    <li><a href="/einaros/ws" class="selected js-selected-navigation-item tabnav-tab" data-selected-links="repo_source /einaros/ws">Files</a></li>
+    <li><a href="/einaros/ws/commits/master" class="js-selected-navigation-item tabnav-tab" data-selected-links="repo_commits /einaros/ws/commits/master">Commits</a></li>
+    <li><a href="/einaros/ws/branches" class="js-selected-navigation-item tabnav-tab" data-selected-links="repo_branches /einaros/ws/branches" rel="nofollow">Branches <span class="counter ">3</span></a></li>
+  </ul>
+
+</div>
+
+  
+  
+  
+
+
+            
+          </div>
+        </div><!-- /.repohead -->
+
+        <div id="js-repo-pjax-container" class="container context-loader-container" data-pjax-container>
+          
+
+
+<!-- tree commit key: views10/v8/tree:v21:906437b7d62d90ced1c14819d4304979 -->
+
+  <div id="slider">
+      <div class="frame-meta">
+          
+
+          <p class="history-link js-history-link-replace">
+              <a href="/einaros/ws/commits/master">
+                <span class="octicon octicon-history tooltipped" title="Browse commits for this branch"></span>
+                565 commits
+</a>          </p>
+
+        <div class="breadcrumb">
+          <span class='bold'><span itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"><a href="/einaros/ws" class="js-slide-to" data-branch="master" data-direction="back" itemscope="url"><span itemprop="title">ws</span></a></span></span><span class="separator"> / </span><form action="/login?return_to=%2Feinaros%2Fws" class="js-new-blob-form tooltipped rightwards new-file-link" method="post" title="Sign in to make or propose changes"><span class="js-new-blob-submit octicon octicon-file-add"></span></form>
+        </div>
+
+        <a href="/einaros/ws/find/master"
+           class="js-slide-to" data-hotkey="t" style="display:none">Show File Finder</a>
+
+      </div><!-- ./.frame-meta -->
+
+      
+
+  <div class="frames">
+    <div class="frame" data-permalink-url="/einaros/ws/tree/0dce161f838e73581d96bd6f0ef6c78a675e6c20" data-title="einaros/ws · GitHub" data-type="tree">
+
+      <div class="bubble tree-browser-wrapper">
+
+      <table class="tree-browser css-truncate" cellpadding="0" cellspacing="0">
+        <thead>
+            
+  <div class="commit commit-tease js-details-container" >
+    <p class="commit-title ">
+        <a href="/einaros/ws/commit/0dce161f838e73581d96bd6f0ef6c78a675e6c20" class="message">Merge pull request</a> <a href="https://github.com/einaros/ws/issues/186" class="issue-link" title="missing semi colon">#186</a> <a href="/einaros/ws/commit/0dce161f838e73581d96bd6f0ef6c78a675e6c20" class="message">from joaojeronimo/patch-1</a>
+        <span class="hidden-text-expander inline"><a href="#" class="js-details-target">…</a></span>
+    </p>
+      <div class="commit-desc"><pre>missing semi colon</pre></div>
+    <div class="commit-meta">
+      <span class="js-zeroclipboard zeroclipboard-link" data-clipboard-text="0dce161f838e73581d96bd6f0ef6c78a675e6c20" data-copied-hint="copied!" title="Copy SHA"><span class="mini-icon mini-icon-clipboard"></span></span>
+      <a href="/einaros/ws/commit/0dce161f838e73581d96bd6f0ef6c78a675e6c20" class="sha-block" data-pjax>latest commit <span class="sha">0dce161f83</span></a>
+
+      <div class="authorship">
+        <img class="gravatar" height="20" src="https://secure.gravatar.com/avatar/21f4971707a00270b92e2ae791d5633d?s=140&amp;d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png" width="20" />
+        <span class="author-name"><a href="/3rd-Eden" data-skip-pjax="true" rel="contributor">3rd-Eden</a></span>
+        authored <time class="js-relative-date updated" datetime="2013-05-09T07:31:09-07:00" title="2013-05-09 07:31:09">May 09, 2013</time>
+
+      </div>
+    </div>
+  </div>
+
+        </thead>
+
+        
+
+<tbody class="tree-entries js-deferred-content"
+    data-url="/einaros/ws/tree-commits/master">
+
+
+    <tr>
+      <td class="icon"><span class="octicon octicon-file-directory"></span></td>
+      <td class="content"><a href="/einaros/ws/tree/master/bench" class="js-directory-link js-slide-to css-truncate-target" id="1d28d258250876fb7dde22a17436ef9c-08bd09ccdda10f22096d0b8f1a93d4b355adeee5" title="bench">bench</a></td>
+      <td class="age"><time class="js-relative-date" datetime="2012-02-29T05:55:58-08:00" title="2012-02-29 05:55:58">February 29, 2012</time></td>
+
+      <td class="message">
+          <a href="/einaros/ws/commit/e57aea63de69645ea65e391a3c19a2a1ce335d78" class="message">added throughput benchmark</a>
+          [<a href="/einaros" rel="author">einaros</a>]
+
+      </td>
+    </tr>
+    <tr>
+      <td class="icon"><span class="octicon octicon-file-directory"></span></td>
+      <td class="content"><a href="/einaros/ws/tree/master/bin" class="js-directory-link js-slide-to css-truncate-target" id="c1111bd512b29e821b120b86446026b8-f98bad14716c17c1ef359cb7406fea53ee82d97b" title="bin">bin</a></td>
+      <td class="age"><time class="js-relative-date" datetime="2013-01-16T01:15:36-08:00" title="2013-01-16 01:15:36">January 16, 2013</time></td>
+
+      <td class="message">
+          <a href="/einaros/ws/commit/198d7faf69053e03f1e428e80e2f6a355aa40a03" class="message">Don't mask frames from server in wscat</a>
+          [<a href="/slaskis" rel="author">slaskis</a>]
+
+      </td>
+    </tr>
+    <tr>
+      <td class="icon"><span class="octicon octicon-file-directory"></span></td>
+      <td class="content"><a href="/einaros/ws/tree/master/doc" class="js-directory-link js-slide-to css-truncate-target" id="9a09b4dfda82e3e665e31092d1c3ec8d-b2028bcd27277efa48f05ea1f8609bbe7dd88559" title="doc">doc</a></td>
+      <td class="age"><time class="js-relative-date" datetime="2013-04-11T07:28:44-07:00" title="2013-04-11 07:28:44">April 11, 2013</time></td>
+
+      <td class="message">
+          <a href="/einaros/ws/commit/dce4634e022b69522bdb53f7f97e48843c24a17b" class="message">Make it clear that the callback is only called when you supply the co…</a>
+          [<a href="/3rd-Eden" rel="author">3rd-Eden</a>]
+
+      </td>
+    </tr>
+    <tr>
+      <td class="icon"><span class="octicon octicon-file-directory"></span></td>
+      <td class="content"><a href="/einaros/ws/tree/master/examples" class="js-directory-link js-slide-to css-truncate-target" id="bfebe34154a0dfd9fc7b447fc9ed74e9-cd732e5c14d1b3d1f6e087048feb8c493acd4146" title="examples">examples</a></td>
+      <td class="age"><time class="js-relative-date" datetime="2013-04-30T08:03:26-07:00" title="2013-04-30 08:03:26">April 30, 2013</time></td>
+
+      <td class="message">
+          <a href="/einaros/ws/commit/ea47c1f3bdde498ed23824ff70c0225e4fa2e5b4" class="message">missing semi colon</a>
+          [<a href="/joaojeronimo" rel="author">joaojeronimo</a>]
+
+      </td>
+    </tr>
+    <tr>
+      <td class="icon"><span class="octicon octicon-file-directory"></span></td>
+      <td class="content"><a href="/einaros/ws/tree/master/lib" class="js-directory-link js-slide-to css-truncate-target" id="e8acc63b1e238f3255c900eed37254b8-64add5da2b3a51514976c7a9d5f2f792fe8fac12" title="lib">lib</a></td>
+      <td class="age"><time class="js-relative-date" datetime="2013-05-04T06:06:56-07:00" title="2013-05-04 06:06:56">May 04, 2013</time></td>
+
+      <td class="message">
+          <a href="/einaros/ws/commit/c091e1cc8cc1cb20e7e25b3568d97dcc8adb7817" class="message">Add 'Host' and 'Origin' to request header. Fixes problems with mtgox</a>
+          [<a href="/ralphtheninja" rel="author">ralphtheninja</a>]
+
+      </td>
+    </tr>
+    <tr>
+      <td class="icon"><span class="octicon octicon-file-directory"></span></td>
+      <td class="content"><a href="/einaros/ws/tree/master/src" class="js-directory-link js-slide-to css-truncate-target" id="25d902c24283ab8cfbac54dfa101ad31-d61433baa136451b14d209a6d48d5a8374c7a4cf" title="src">src</a></td>
+      <td class="age"><time class="js-relative-date" datetime="2012-06-13T04:06:52-07:00" title="2012-06-13 04:06:52">June 13, 2012</time></td>
+
+      <td class="message">
+          <a href="/einaros/ws/commit/573c5fc7aa0822c11412db03a47d4a4a83a8c829" class="message">expose valid module information, so that the native extensions are ac…</a>
+          [<a href="/einaros" rel="author">einaros</a>]
+
+      </td>
+    </tr>
+    <tr>
+      <td class="icon"><span class="octicon octicon-file-directory"></span></td>
+      <td class="content"><a href="/einaros/ws/tree/master/test" class="js-directory-link js-slide-to css-truncate-target" id="098f6bcd4621d373cade4e832627b4f6-d97b90cb3e776e0223b5c079283d1fd3302afcb7" title="test">test</a></td>
+      <td class="age"><time class="js-relative-date" datetime="2013-04-11T07:08:59-07:00" title="2013-04-11 07:08:59">April 11, 2013</time></td>
+
+      <td class="message">
+          <a href="/einaros/ws/commit/7dd06c0f09e753c7989505816239b3fafef3f3e4" class="message">The port number was causing conflicts with other services that run on…</a>
+          [<a href="/3rd-Eden" rel="author">3rd-Eden</a>]
+
+      </td>
+    </tr>
+    <tr>
+      <td class="icon"><span class="octicon octicon-file-text"></span></td>
+      <td class="content"><a href="/einaros/ws/blob/master/.gitignore" class="js-directory-link js-slide-to css-truncate-target" id="a084b794bc0759e7a6b77810e01874f2-8233793969ddf4cbca220f33f7789d94ebad4a64" title=".gitignore">.gitignore</a></td>
+      <td class="age"><time class="js-relative-date" datetime="2012-01-26T06:18:42-08:00" title="2012-01-26 06:18:42">January 26, 2012</time></td>
+
+      <td class="message">
+          <a href="/einaros/ws/commit/7013f272934d4e63f2368e891e53c4f3a185e116" class="message">updated</a>
+          [<a href="/einaros" rel="author">einaros</a>]
+
+      </td>
+    </tr>
+    <tr>
+      <td class="icon"><span class="octicon octicon-file-text"></span></td>
+      <td class="content"><a href="/einaros/ws/blob/master/.npmignore" class="js-directory-link js-slide-to css-truncate-target" id="0fd4ef892d9d4990033701887c2f9bcc-8233793969ddf4cbca220f33f7789d94ebad4a64" title=".npmignore">.npmignore</a></td>
+      <td class="age"><time class="js-relative-date" datetime="2012-01-26T06:18:42-08:00" title="2012-01-26 06:18:42">January 26, 2012</time></td>
+
+      <td class="message">
+          <a href="/einaros/ws/commit/7013f272934d4e63f2368e891e53c4f3a185e116" class="message">updated</a>
+          [<a href="/einaros" rel="author">einaros</a>]
+
+      </td>
+    </tr>
+    <tr>
+      <td class="icon"><span class="octicon octicon-file-text"></span></td>
+      <td class="content"><a href="/einaros/ws/blob/master/.travis.yml" class="js-directory-link js-slide-to css-truncate-target" id="354f30a63fb0907d4ad57269548329e3-08e4dad6fabf4fc2af29b4d0a55a39974e29b34d" title=".travis.yml">.travis.yml</a></td>
+      <td class="age"><time class="js-relative-date" datetime="2013-04-25T01:51:25-07:00" title="2013-04-25 01:51:25">April 25, 2013</time></td>
+
+      <td class="message">
+          <a href="/einaros/ws/commit/ffb8256c7fce8e0857c050223e6ea2c954b4e307" class="message">ensure travis node.10 build</a>
+          [<a href="/einaros" rel="author">einaros</a>]
+
+      </td>
+    </tr>
+    <tr>
+      <td class="icon"><span class="octicon octicon-file-text"></span></td>
+      <td class="content"><a href="/einaros/ws/blob/master/History.md" class="js-directory-link js-slide-to css-truncate-target" id="e1bbd4f15e3b63427b4261e05b948ea8-97c6ec2464a4136c7d8672b7313e8b4d5a7f2c78" title="History.md">History.md</a></td>
+      <td class="age"><time class="js-relative-date" datetime="2012-12-17T12:56:53-08:00" title="2012-12-17 12:56:53">December 17, 2012</time></td>
+
+      <td class="message">
+          <a href="/einaros/ws/commit/8c5ab0b6bc06d8f9a61626e0da91e67c7d37ef2c" class="message">fixed history date</a>
+          [<a href="/einaros" rel="author">einaros</a>]
+
+      </td>
+    </tr>
+    <tr>
+      <td class="icon"><span class="octicon octicon-file-text"></span></td>
+      <td class="content"><a href="/einaros/ws/blob/master/Makefile" class="js-directory-link js-slide-to css-truncate-target" id="b67911656ef5d18c4ae36cb6741b7965-a0b82a1e2abf24c70e6c3db291fc24f69f6a335f" title="Makefile">Makefile</a></td>
+      <td class="age"><time class="js-relative-date" datetime="2013-04-11T07:48:16-07:00" title="2013-04-11 07:48:16">April 11, 2013</time></td>
+
+      <td class="message">
+          <a href="/einaros/ws/commit/52371340d194879d6cf66864de6a384ed6a6095d" class="message">Allow self signed certs for testing.</a> <a href="https://github.com/einaros/ws/issues/182" class="issue-link" title="Tests do not run with Node 0.10">#182</a>
+          [<a href="/3rd-Eden" rel="author">3rd-Eden</a>]
+
+      </td>
+    </tr>
+    <tr>
+      <td class="icon"><span class="octicon octicon-file-text"></span></td>
+      <td class="content"><a href="/einaros/ws/blob/master/README.md" class="js-directory-link js-slide-to css-truncate-target" id="04c6e90faac2675aa89e2176d2eec7d8-7eb1a47114988c42c4f94ba04dc0eccb4752bb56" title="README.md">README.md</a></td>
+      <td class="age"><time class="js-relative-date" datetime="2012-07-16T17:22:22-07:00" title="2012-07-16 17:22:22">July 16, 2012</time></td>
+
+      <td class="message">
+          <a href="/einaros/ws/commit/f80a98dbe985dffed1cf0bdd34789d03ca992311" class="message">README typo:</a>
+          [<a href="/pje" rel="author">pje</a>]
+
+      </td>
+    </tr>
+    <tr>
+      <td class="icon"><span class="octicon octicon-file-text"></span></td>
+      <td class="content"><a href="/einaros/ws/blob/master/binding.gyp" class="js-directory-link js-slide-to css-truncate-target" id="21e418851ae48f9b11907837add9e39a-a83d2797660f7f0bba66a26a2145e3bfad829872" title="binding.gyp">binding.gyp</a></td>
+      <td class="age"><time class="js-relative-date" datetime="2012-03-07T20:27:53-08:00" title="2012-03-07 20:27:53">March 07, 2012</time></td>
+
+      <td class="message">
+          <a href="/einaros/ws/commit/768b6fd5f4af994ca9af1470cfcc7fa7eb216a8f" class="message">Add a binding.gyp file.</a>
+          [<a href="/TooTallNate" rel="author">TooTallNate</a>]
+
+      </td>
+    </tr>
+    <tr>
+      <td class="icon"><span class="octicon octicon-file-text"></span></td>
+      <td class="content"><a href="/einaros/ws/blob/master/index.js" class="js-directory-link js-slide-to css-truncate-target" id="168726dbe96b3ce427e7fedce31bb0bc-3423ff2323f7a12243f1c80ca80f77389ffb11a7" title="index.js">index.js</a></td>
+      <td class="age"><time class="js-relative-date" datetime="2012-11-29T16:46:27-08:00" title="2012-11-29 16:46:27">November 29, 2012</time></td>
+
+      <td class="message">
+          <a href="/einaros/ws/commit/262d787171fdc0436b271f7d1c532d5fdcaf59cf" class="message">Add some node-ish APIs</a>
+          [<a href="/mmalecki" rel="author">mmalecki</a>]
+
+      </td>
+    </tr>
+    <tr>
+      <td class="icon"><span class="octicon octicon-file-text"></span></td>
+      <td class="content"><a href="/einaros/ws/blob/master/package.json" class="js-directory-link js-slide-to css-truncate-target" id="b9cfc7f2cdf78a7f4b91a753d10865a2-e64bb00a763776ce241f25a8c80ca4d4dd74c1f2" title="package.json">package.json</a></td>
+      <td class="age"><time class="js-relative-date" datetime="2013-04-25T00:59:01-07:00" title="2013-04-25 00:59:01">April 25, 2013</time></td>
+
+      <td class="message">
+          <a href="/einaros/ws/commit/76a1ae3dde7c190f46f54a85c0fcf303de3c4351" class="message">require options greater than 0.5</a>
+          [<a href="/einaros" rel="author">einaros</a>]
+
+      </td>
+    </tr>
+</tbody>
+
+      </table>
+      </div>
+
+        <div id="readme" class="clearfix announce instapaper_body md">
+          <span class="name"><span class="octicon octicon-book"></span> README.md</span><article class="markdown-body entry-content" itemprop="mainContentOfPage"><p><a href="http://travis-ci.org/einaros/ws"><img src="https://secure.travis-ci.org/einaros/ws.png" alt="Build Status" style="max-width:100%;"></a></p>
+
+<h1>
+<a name="ws-a-nodejs-websocket-library" class="anchor" href="#ws-a-nodejs-websocket-library"><span class="octicon octicon-link"></span></a>ws: a node.js websocket library</h1>
+
+<p><code>ws</code> is a simple to use websocket implementation, up-to-date against RFC-6455, and <a href="http://hobbycoding.posterous.com/the-fastest-websocket-module-for-nodejs">probably the fastest WebSocket library for node.js</a>.</p>
+
+<p>Passes the quite extensive Autobahn test suite. See <a href="http://einaros.github.com/ws">http://einaros.github.com/ws</a> for the full reports.</p>
+
+<p>Comes with a command line utility, <code>wscat</code>, which can either act as a server (--listen), or client (--connect); Use it to debug simple websocket services.</p>
+
+<h2>
+<a name="protocol-support" class="anchor" href="#protocol-support"><span class="octicon octicon-link"></span></a>Protocol support</h2>
+
+<ul>
+<li>
+<strong>Hixie draft 76</strong> (Old and deprecated, but still in use by Safari and Opera. Added to ws version 0.4.2, but server only. Can be disabled by setting the <code>disableHixie</code> option to true.)</li>
+<li>
+<strong>HyBi drafts 07-12</strong> (Use the option <code>protocolVersion: 8</code>, or argument <code>-p 8</code> for wscat)</li>
+<li>
+<strong>HyBi drafts 13-17</strong> (Current default, alternatively option <code>protocolVersion: 13</code>, or argument <code>-p 13</code> for wscat)</li>
+</ul><p><em>See the echo.websocket.org example below for how to use the <code>protocolVersion</code> option.</em></p>
+
+<h2>
+<a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>Usage</h2>
+
+<h3>
+<a name="installing" class="anchor" href="#installing"><span class="octicon octicon-link"></span></a>Installing</h3>
+
+<p><code>npm install ws</code></p>
+
+<h3>
+<a name="sending-and-receiving-text-data" class="anchor" href="#sending-and-receiving-text-data"><span class="octicon octicon-link"></span></a>Sending and receiving text data</h3>
+
+<div class="highlight"><pre><span class="kd">var</span> <span class="nx">WebSocket</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'ws'</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">ws</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">WebSocket</span><span class="p">(</span><span class="s1">'ws://www.host.com/path'</span><span class="p">);</span>
+<span class="nx">ws</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">'open'</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="s1">'something'</span><span class="p">);</span>
+<span class="p">});</span>
+<span class="nx">ws</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">'message'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">,</span> <span class="nx">flags</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// flags.binary will be set if a binary data is received</span>
+    <span class="c1">// flags.masked will be set if the data was masked</span>
+<span class="p">});</span>
+</pre></div>
+
+<h3>
+<a name="sending-binary-data" class="anchor" href="#sending-binary-data"><span class="octicon octicon-link"></span></a>Sending binary data</h3>
+
+<div class="highlight"><pre><span class="kd">var</span> <span class="nx">WebSocket</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'ws'</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">ws</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">WebSocket</span><span class="p">(</span><span class="s1">'ws://www.host.com/path'</span><span class="p">);</span>
+<span class="nx">ws</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">'open'</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">array</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Float32Array</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">array</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="o">++</span><span class="nx">i</span><span class="p">)</span> <span class="nx">array</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">=</span> <span class="nx">i</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span>
+    <span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="nx">array</span><span class="p">,</span> <span class="p">{</span><span class="nx">binary</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span> <span class="nx">mask</span><span class="o">:</span> <span class="kc">true</span><span class="p">});</span>
+<span class="p">});</span>
+</pre></div>
+
+<p>Setting <code>mask</code>, as done for the send options above, will cause the data to be masked according to the websocket protocol. The same option applies for text data.</p>
+
+<h3>
+<a name="server-example" class="anchor" href="#server-example"><span class="octicon octicon-link"></span></a>Server example</h3>
+
+<div class="highlight"><pre><span class="kd">var</span> <span class="nx">WebSocketServer</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'ws'</span><span class="p">).</span><span class="nx">Server</span>
+  <span class="p">,</span> <span class="nx">wss</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">WebSocketServer</span><span class="p">({</span><span class="nx">port</span><span class="o">:</span> <span class="mi">8080</span><span class="p">});</span>
+<span class="nx">wss</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">'connection'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">ws</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">ws</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">'message'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">message</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'received: %s'</span><span class="p">,</span> <span class="nx">message</span><span class="p">);</span>
+    <span class="p">});</span>
+    <span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="s1">'something'</span><span class="p">);</span>
+<span class="p">});</span>
+</pre></div>
+
+<h3>
+<a name="error-handling-best-practices" class="anchor" href="#error-handling-best-practices"><span class="octicon octicon-link"></span></a>Error handling best practices</h3>
+
+<div class="highlight"><pre><span class="c1">// If the WebSocket is closed before the following send is attempted</span>
+<span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="s1">'something'</span><span class="p">);</span>
+
+<span class="c1">// Errors (both immediate and async write errors) can be detected in an optional callback.</span>
+<span class="c1">// The callback is also the only way of being notified that data has actually been sent.</span>
+<span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="s1">'something'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// if error is null, the send has been completed,</span>
+    <span class="c1">// otherwise the error object will indicate what failed.</span>
+<span class="p">});</span>
+
+<span class="c1">// Immediate errors can also be handled with try/catch-blocks, but **note**</span>
+<span class="c1">// that since sends are inherently asynchronous, socket write failures will *not*</span>
+<span class="c1">// be captured when this technique is used.</span>
+<span class="k">try</span> <span class="p">{</span>
+    <span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="s1">'something'</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="k">catch</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// handle error</span>
+<span class="p">}</span>
+</pre></div>
+
+<h3>
+<a name="echowebsocketorg-demo" class="anchor" href="#echowebsocketorg-demo"><span class="octicon octicon-link"></span></a>echo.websocket.org demo</h3>
+
+<div class="highlight"><pre><span class="kd">var</span> <span class="nx">WebSocket</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'ws'</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">ws</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">WebSocket</span><span class="p">(</span><span class="s1">'ws://echo.websocket.org/'</span><span class="p">,</span> <span class="p">{</span><span class="nx">protocolVersion</span><span class="o">:</span> <span class="mi">8</span><span class="p">,</span> <span class="nx">origin</span><span class="o">:</span> <span class="s1">'http://websocket.org'</span><span class="p">});</span>
+<span class="nx">ws</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">'open'</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'connected'</span><span class="p">);</span>
+    <span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="nb">Date</span><span class="p">.</span><span class="nx">now</span><span class="p">().</span><span class="nx">toString</span><span class="p">(),</span> <span class="p">{</span><span class="nx">mask</span><span class="o">:</span> <span class="kc">true</span><span class="p">});</span>
+<span class="p">});</span>
+<span class="nx">ws</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">'close'</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'disconnected'</span><span class="p">);</span>
+<span class="p">});</span>
+<span class="nx">ws</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">'message'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">,</span> <span class="nx">flags</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'Roundtrip time: '</span> <span class="o">+</span> <span class="p">(</span><span class="nb">Date</span><span class="p">.</span><span class="nx">now</span><span class="p">()</span> <span class="o">-</span> <span class="nb">parseInt</span><span class="p">(</span><span class="nx">data</span><span class="p">))</span> <span class="o">+</span> <span class="s1">'ms'</span><span class="p">,</span> <span class="nx">flags</span><span class="p">);</span>
+    <span class="nx">setTimeout</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="nb">Date</span><span class="p">.</span><span class="nx">now</span><span class="p">().</span><span class="nx">toString</span><span class="p">(),</span> <span class="p">{</span><span class="nx">mask</span><span class="o">:</span> <span class="kc">true</span><span class="p">});</span>
+    <span class="p">},</span> <span class="mi">500</span><span class="p">);</span>
+<span class="p">});</span>
+</pre></div>
+
+<h3>
+<a name="wscat-against-echowebsocketorg" class="anchor" href="#wscat-against-echowebsocketorg"><span class="octicon octicon-link"></span></a>wscat against echo.websocket.org</h3>
+
+<pre><code>$ npm install -g ws
+$ wscat -c ws://echo.websocket.org -p 8
+connected (press CTRL+C to quit)
+&gt; hi there
+&lt; hi there
+&gt; are you a happy parrot?
+&lt; are you a happy parrot?
+</code></pre>
+
+<h3>
+<a name="other-examples" class="anchor" href="#other-examples"><span class="octicon octicon-link"></span></a>Other examples</h3>
+
+<p>For a full example with a browser client communicating with a ws server, see the examples folder.</p>
+
+<p>Note that the usage together with Express 3.0 is quite different from Express 2.x. The difference is expressed in the two different serverstats-examples.</p>
+
+<p>Otherwise, see the test cases.</p>
+
+<h3>
+<a name="running-the-tests" class="anchor" href="#running-the-tests"><span class="octicon octicon-link"></span></a>Running the tests</h3>
+
+<p><code>make test</code></p>
+
+<h2>
+<a name="api-docs" class="anchor" href="#api-docs"><span class="octicon octicon-link"></span></a>API Docs</h2>
+
+<p>See the doc/ directory for Node.js-like docs for the ws classes.</p>
+
+<h2>
+<a name="license" class="anchor" href="#license"><span class="octicon octicon-link"></span></a>License</h2>
+
+<p>(The MIT License)</p>
+
+<p>Copyright (c) 2011 Einar Otto Stangvik &lt;<a href="mailto:einaros@gmail.com">einaros@gmail.com</a>&gt;</p>
+
+<p>Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files (the
+'Software'), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to
+the following conditions:</p>
+
+<p>The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.</p>
+
+<p>THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p></article>
+        </div>
+    </div>
+  </div>
+  <br style="clear:both;">
+
+
+<br style="clear:both;">
+
+<div id="js-frame-loading-template" class="frame frame-loading large-loading-area" style="display:none;">
+  <img class="js-frame-loading-spinner" src="https://a248.e.akamai.net/assets.github.com/images/spinners/octocat-spinner-128.gif?1360648843" height="64" width="64">
+</div>
+
+
+  </div>
+
+        </div>
+      </div>
+      <div class="modal-backdrop"></div>
+    </div>
+
+      <div id="footer-push"></div><!-- hack for sticky footer -->
+    </div><!-- end of wrapper - hack for sticky footer -->
+
+      <!-- footer -->
+      <div id="footer">
+  <div class="container clearfix">
+
+      <dl class="footer_nav">
+        <dt>GitHub</dt>
+        <dd><a href="/about">About us</a></dd>
+        <dd><a href="/blog">Blog</a></dd>
+        <dd><a href="/contact">Contact &amp; support</a></dd>
+        <dd><a href="http://enterprise.github.com/">GitHub Enterprise</a></dd>
+        <dd><a href="http://status.github.com/">Site status</a></dd>
+      </dl>
+
+      <dl class="footer_nav">
+        <dt>Applications</dt>
+        <dd><a href="http://mac.github.com/">GitHub for Mac</a></dd>
+        <dd><a href="http://windows.github.com/">GitHub for Windows</a></dd>
+        <dd><a href="http://eclipse.github.com/">GitHub for Eclipse</a></dd>
+        <dd><a href="http://mobile.github.com/">GitHub mobile apps</a></dd>
+      </dl>
+
+      <dl class="footer_nav">
+        <dt>Services</dt>
+        <dd><a href="http://get.gaug.es/">Gauges: Web analytics</a></dd>
+        <dd><a href="http://speakerdeck.com">Speaker Deck: Presentations</a></dd>
+        <dd><a href="https://gist.github.com">Gist: Code snippets</a></dd>
+        <dd><a href="http://jobs.github.com/">Job board</a></dd>
+      </dl>
+
+      <dl class="footer_nav">
+        <dt>Documentation</dt>
+        <dd><a href="http://help.github.com/">GitHub Help</a></dd>
+        <dd><a href="http://developer.github.com/">Developer API</a></dd>
+        <dd><a href="http://github.github.com/github-flavored-markdown/">GitHub Flavored Markdown</a></dd>
+        <dd><a href="http://pages.github.com/">GitHub Pages</a></dd>
+      </dl>
+
+      <dl class="footer_nav">
+        <dt>More</dt>
+        <dd><a href="http://training.github.com/">Training</a></dd>
+        <dd><a href="/edu">Students &amp; teachers</a></dd>
+        <dd><a href="http://shop.github.com">The Shop</a></dd>
+        <dd><a href="/plans">Plans &amp; pricing</a></dd>
+        <dd><a href="http://octodex.github.com/">The Octodex</a></dd>
+      </dl>
+
+      <hr class="footer-divider">
+
+
+    <p class="right">&copy; 2013 <span title="1.83549s from fe3.rs.github.com">GitHub</span>, Inc. All rights reserved.</p>
+    <a class="left" href="/">
+      <span class="mega-octicon octicon-mark-github"></span>
+    </a>
+    <ul id="legal">
+        <li><a href="/site/terms">Terms of Service</a></li>
+        <li><a href="/site/privacy">Privacy</a></li>
+        <li><a href="/security">Security</a></li>
+    </ul>
+
+  </div><!-- /.container -->
+
+</div><!-- /.#footer -->
+
+
+    <div class="fullscreen-overlay js-fullscreen-overlay" id="fullscreen_overlay">
+  <div class="fullscreen-container js-fullscreen-container">
+    <div class="textarea-wrap">
+      <textarea name="fullscreen-contents" id="fullscreen-contents" class="js-fullscreen-contents" placeholder="" data-suggester="fullscreen_suggester"></textarea>
+          <div class="suggester-container">
+              <div class="suggester fullscreen-suggester js-navigation-container" id="fullscreen_suggester"
+                 data-url="/einaros/ws/suggestions/commit">
+              </div>
+          </div>
+    </div>
+  </div>
+  <div class="fullscreen-sidebar">
+    <a href="#" class="exit-fullscreen js-exit-fullscreen tooltipped leftwards" title="Exit Zen Mode">
+      <span class="mega-octicon octicon-screen-normal"></span>
+    </a>
+    <a href="#" class="theme-switcher js-theme-switcher tooltipped leftwards"
+      title="Switch themes">
+      <span class="octicon octicon-color-mode"></span>
+    </a>
+  </div>
+</div>
+
+
+
+    <div id="ajax-error-message" class="flash flash-error">
+      <span class="octicon octicon-alert"></span>
+      Something went wrong with that request. Please try again.
+      <a href="#" class="octicon octicon-remove-close ajax-error-dismiss"></a>
+    </div>
+
+    
+    <span id='server_response_time' data-time='1.83596' data-host='fe3'></span>
+    
+  </body>
+</html>
+

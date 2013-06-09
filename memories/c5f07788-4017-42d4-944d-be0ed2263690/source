@@ -1,0 +1,643 @@
+  
+
+
+<!DOCTYPE html>
+<html>
+  <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# githubog: http://ogp.me/ns/fb/githubog#">
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>progrium/wssh · GitHub</title>
+    <link rel="search" type="application/opensearchdescription+xml" href="/opensearch.xml" title="GitHub" />
+    <link rel="fluid-icon" href="https://github.com/fluidicon.png" title="GitHub" />
+    <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-114.png" />
+    <link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114.png" />
+    <link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-144.png" />
+    <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144.png" />
+    <link rel="logo" type="image/svg" href="http://github-media-downloads.s3.amazonaws.com/github-logo.svg" />
+    <link rel="xhr-socket" href="/_sockets" />
+
+
+    <meta name="msapplication-TileImage" content="/windows-tile.png" />
+    <meta name="msapplication-TileColor" content="#ffffff" />
+    <meta name="selected-link" value="repo_source" data-pjax-transient />
+    <meta content="collector.githubapp.com" name="octolytics-host" /><meta content="github" name="octolytics-app-id" />
+
+    
+    
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+
+    <meta content="authenticity_token" name="csrf-param" />
+<meta content="LQI6G4yuHa+0Pd+/YrtvTR3VenPdL6SHD69rz/GrBcQ=" name="csrf-token" />
+
+    <link href="https://a248.e.akamai.net/assets.github.com/assets/github-e26d537951b309046eb5870a1edf7840c5c8e874.css" media="all" rel="stylesheet" type="text/css" />
+    <link href="https://a248.e.akamai.net/assets.github.com/assets/github2-8672ae0800703e0f9939a001a34e43c3c87836b5.css" media="all" rel="stylesheet" type="text/css" />
+    
+
+
+      <script src="https://a248.e.akamai.net/assets.github.com/assets/frameworks-ec9348b8374c693b0749d0b95b215fe3f5414fd0.js" type="text/javascript"></script>
+      <script src="https://a248.e.akamai.net/assets.github.com/assets/github-5ed450b261b3b303186d9febaf304db852ec3767.js" type="text/javascript"></script>
+      
+      <meta http-equiv="x-pjax-version" content="bf6f753cef5ad32563995d669d64565b">
+
+        <link data-pjax-transient rel='permalink' href='/progrium/wssh/tree/96cf209f3c81cad3910362c62d2fdd419c2363c3'>
+    <meta property="og:title" content="wssh"/>
+    <meta property="og:type" content="githubog:gitrepository"/>
+    <meta property="og:url" content="https://github.com/progrium/wssh"/>
+    <meta property="og:image" content="https://secure.gravatar.com/avatar/bb46488d2c90d51f366cafc776e2b3ad?s=420&amp;d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png"/>
+    <meta property="og:site_name" content="GitHub"/>
+    <meta property="og:description" content="wssh (&quot;wish&quot;) is a command-line utility/shell for WebSocket inspired by netcat"/>
+    <meta property="twitter:card" content="summary"/>
+    <meta property="twitter:site" content="@GitHub">
+    <meta property="twitter:title" content="progrium/wssh"/>
+
+    <meta name="description" content="wssh (&quot;wish&quot;) is a command-line utility/shell for WebSocket inspired by netcat" />
+
+
+    <meta content="647" name="octolytics-dimension-user_id" /><meta content="2921690" name="octolytics-dimension-repository_id" />
+  <link href="https://github.com/progrium/wssh/commits/master.atom" rel="alternate" title="Recent Commits to wssh:master" type="application/atom+xml" />
+
+  </head>
+
+
+  <body class="logged_out  linux vis-public env-production  ">
+    <div id="wrapper">
+
+      
+      
+      
+
+      
+      <div class="header header-logged-out">
+  <div class="container clearfix">
+
+    <a class="header-logo-wordmark" href="https://github.com/">Github</a>
+
+    <div class="header-actions">
+      <a class="button primary" href="/signup">Sign up</a>
+      <a class="button" href="/login?return_to=%2Fprogrium%2Fwssh">Sign in</a>
+    </div>
+
+    <div class="command-bar js-command-bar  in-repository">
+
+
+      <ul class="top-nav">
+          <li class="explore"><a href="/explore">Explore</a></li>
+        <li class="features"><a href="/features">Features</a></li>
+          <li class="enterprise"><a href="http://enterprise.github.com/">Enterprise</a></li>
+          <li class="blog"><a href="/blog">Blog</a></li>
+      </ul>
+        <form accept-charset="UTF-8" action="/search" class="command-bar-form" id="top_search_form" method="get">
+  <a href="/search/advanced" class="advanced-search-icon tooltipped downwards command-bar-search" id="advanced_search" title="Advanced search"><span class="octicon octicon-gear "></span></a>
+
+  <input type="text" data-hotkey="/ s" name="q" id="js-command-bar-field" placeholder="Search or type a command" tabindex="1" autocapitalize="off"
+    
+      data-repo="progrium/wssh"
+      data-branch="master"
+      data-sha="405afea8498308d2716dcf58ae8e7b2332347209"
+  >
+
+    <input type="hidden" name="nwo" value="progrium/wssh" />
+
+    <div class="select-menu js-menu-container js-select-menu search-context-select-menu">
+      <span class="minibutton select-menu-button js-menu-target">
+        <span class="js-select-button">This repository</span>
+      </span>
+
+      <div class="select-menu-modal-holder js-menu-content js-navigation-container">
+        <div class="select-menu-modal">
+
+          <div class="select-menu-item js-navigation-item selected">
+            <span class="select-menu-item-icon octicon octicon-check"></span>
+            <input type="radio" class="js-search-this-repository" name="search_target" value="repository" checked="checked" />
+            <div class="select-menu-item-text js-select-button-text">This repository</div>
+          </div> <!-- /.select-menu-item -->
+
+          <div class="select-menu-item js-navigation-item">
+            <span class="select-menu-item-icon octicon octicon-check"></span>
+            <input type="radio" name="search_target" value="global" />
+            <div class="select-menu-item-text js-select-button-text">All repositories</div>
+          </div> <!-- /.select-menu-item -->
+
+        </div>
+      </div>
+    </div>
+
+  <span class="octicon help tooltipped downwards" title="Show command bar help">
+    <span class="octicon octicon-question"></span>
+  </span>
+
+
+  <input type="hidden" name="ref" value="cmdform">
+
+  <div class="divider-vertical"></div>
+
+</form>
+    </div>
+
+  </div>
+</div>
+
+
+      
+
+
+            <div class="site hfeed" itemscope itemtype="http://schema.org/WebPage">
+      <div class="hentry">
+        
+        <div class="pagehead repohead instapaper_ignore readability-menu ">
+          <div class="container">
+            <div class="title-actions-bar">
+              
+
+<ul class="pagehead-actions">
+
+
+
+    <li>
+      <a href="/login?return_to=%2Fprogrium%2Fwssh"
+        class="minibutton js-toggler-target star-button entice tooltipped upwards"
+        title="You must be signed in to use this feature" rel="nofollow">
+        <span class="octicon octicon-star"></span>Star
+      </a>
+      <a class="social-count js-social-count" href="/progrium/wssh/stargazers">
+        81
+      </a>
+    </li>
+    <li>
+      <a href="/login?return_to=%2Fprogrium%2Fwssh"
+        class="minibutton js-toggler-target fork-button entice tooltipped upwards"
+        title="You must be signed in to fork a repository" rel="nofollow">
+        <span class="octicon octicon-git-branch"></span>Fork
+      </a>
+      <a href="/progrium/wssh/network" class="social-count">
+        17
+      </a>
+    </li>
+</ul>
+
+              <h1 itemscope itemtype="http://data-vocabulary.org/Breadcrumb" class="entry-title public">
+                <span class="repo-label"><span>public</span></span>
+                <span class="mega-octicon octicon-repo"></span>
+                <span class="author vcard">
+                  <a href="/progrium" class="url fn" itemprop="url" rel="author">
+                  <span itemprop="title">progrium</span>
+                  </a></span> /
+                <strong><a href="/progrium/wssh" class="js-current-repository">wssh</a></strong>
+              </h1>
+            </div>
+
+            
+  <ul class="tabs">
+    <li class="pulse-nav"><a href="/progrium/wssh/pulse" class="js-selected-navigation-item " data-selected-links="pulse /progrium/wssh/pulse" rel="nofollow"><span class="octicon octicon-pulse"></span></a></li>
+    <li><a href="/progrium/wssh" class="js-selected-navigation-item selected" data-selected-links="repo_source repo_downloads repo_commits repo_tags repo_branches /progrium/wssh">Code</a></li>
+    <li><a href="/progrium/wssh/network" class="js-selected-navigation-item " data-selected-links="repo_network /progrium/wssh/network">Network</a></li>
+    <li><a href="/progrium/wssh/pulls" class="js-selected-navigation-item " data-selected-links="repo_pulls /progrium/wssh/pulls">Pull Requests <span class='counter'>0</span></a></li>
+
+      <li><a href="/progrium/wssh/issues" class="js-selected-navigation-item " data-selected-links="repo_issues /progrium/wssh/issues">Issues <span class='counter'>8</span></a></li>
+
+
+
+    <li><a href="/progrium/wssh/graphs" class="js-selected-navigation-item " data-selected-links="repo_graphs repo_contributors /progrium/wssh/graphs">Graphs</a></li>
+
+
+  </ul>
+  
+  <div id="repo_details" class="metabox clearfix
+       ">
+      <div id="repo_details_loader" class="context-loader" style="display:none">Sending Request&hellip;</div>
+
+        <div class="repo-desc-homepage">
+          
+    <div class="repository-lang-stats">
+      <div class="repository-lang-stats-graph">
+      <span class="language-color" style="width:100%; background-color:#3581ba;" itemprop="keywords">Python</span>
+      </div>
+      <ol class="list-tip">
+        <li>
+            <a href="/languages/Python">
+              <span class="color-block language-color" style="background-color:#3581ba;"></span>
+              <span class="lang">Python</span>
+              <span class="percent">100%</span>
+            </a>
+        </li>
+      </ol>
+    </div>
+
+<div id="repository_description" class="repository-description">
+    <p>wssh (&quot;wish&quot;) is a command-line utility/shell for WebSocket inspired by netcat
+      <span id="read_more" style="display:none">&mdash; <a href="#readme">Read more</a></span>
+    </p>
+</div>
+
+
+<div class="repository-homepage" id="repository_homepage">
+  <p></p>
+</div>
+
+
+        </div>
+
+      <div class="edit-repo-desc-homepage" style="display:none">
+        <form accept-charset="UTF-8" action="/progrium/wssh/settings/update_meta" id="js-update-repo-meta-form" method="post"><div style="margin:0;padding:0;display:inline"><input name="_method" type="hidden" value="put" /><input name="authenticity_token" type="hidden" value="LQI6G4yuHa+0Pd+/YrtvTR3VenPdL6SHD69rz/GrBcQ=" /></div>
+          <p class="error" style="display:none">Sorry, but there was a problem saving your changes.</p>
+          <input type="text" id="repository-description-field" class="description-field" name="repo_description" value="wssh (&quot;wish&quot;) is a command-line utility/shell for WebSocket inspired by netcat" placeholder="Add a description to this repository">
+          <input type="text" id="repository-homepage-field" class="homepage-field" name="repo_homepage" value="" placeholder="Add a website to this repository">
+
+          <div class="edit-repo-actions">
+            <button type="submit" class="button save-button">Save changes</button>
+            <span class="cancel">
+              <a href="#" class="button danger">Cancel</a>
+            </span>
+          </div>
+</form>      </div>
+
+      
+<div class="url-box js-url-box">
+  <ul class="native-clones">
+      <li><a href="/progrium/wssh/archive/master.zip" class="button minibutton " icon_class="octicon-cloud-download" rel="nofollow" title="Download this repository as a zip file"><span class="octicon octicon-cloud-download"></span>ZIP</a>
+  </ul>
+
+  <div class="clone-urls js-clone-urls ">
+    <span class="http_clone_url clone-url-button js-clone-url-button selected"><a href="https://github.com/progrium/wssh.git" class="js-git-protocol-selector" data-permission="Read-Only" data-url="/users/set_protocol?protocol_selector=http&amp;protocol_type=clone">HTTP</a></span>
+<span class="public_clone_url clone-url-button js-clone-url-button"><a href="git@github.com:progrium/wssh.git" class="js-git-protocol-selector" data-permission="Read-Only" data-url="/users/set_protocol?protocol_selector=ssh&amp;protocol_type=clone">SSH</a></span>
+<span class="public_clone_url clone-url-button js-clone-url-button"><a href="git://github.com/progrium/wssh.git" class="js-git-protocol-selector" data-permission="Read-Only" data-url="/users/set_protocol?protocol_selector=gitweb&amp;protocol_type=clone">Git Read-Only</a></span>
+    <span class="clone-url">
+      <input type="text" readonly spellcheck="false" class="url-field js-url-field" value="https://github.com/progrium/wssh.git" >
+    </span>
+    <span class="clone-url-button">
+      <span class="js-zeroclipboard url-box-clippy zeroclipboard-button" data-clipboard-text="https://github.com/progrium/wssh.git" data-copied-hint="copied!" title="copy to clipboard"><span class="octicon octicon-clippy"></span></span>
+    </span>
+  </div>
+  <p class="url-description"><span class="bold js-clone-url-permission">Read-Only</span> access</p>
+</div>
+
+        </div>
+
+<div class="tabnav">
+
+  <span class="tabnav-right">
+    <ul class="tabnav-tabs">
+          <li><a href="/progrium/wssh/tags" class="js-selected-navigation-item tabnav-tab" data-selected-links="repo_tags /progrium/wssh/tags">Tags <span class="counter blank">0</span></a></li>
+    </ul>
+  </span>
+
+  <div class="tabnav-widget scope">
+
+
+    <div class="select-menu js-menu-container js-select-menu js-branch-menu">
+      <a class="minibutton select-menu-button js-menu-target" data-hotkey="w" data-ref="master">
+        <span class="octicon octicon-branch"></span>
+        <i>branch:</i>
+        <span class="js-select-button">master</span>
+      </a>
+
+      <div class="select-menu-modal-holder js-menu-content js-navigation-container">
+
+        <div class="select-menu-modal">
+          <div class="select-menu-header">
+            <span class="select-menu-title">Switch branches/tags</span>
+            <span class="octicon octicon-remove-close js-menu-close"></span>
+          </div> <!-- /.select-menu-header -->
+
+          <div class="select-menu-filters">
+            <div class="select-menu-text-filter">
+              <input type="text" id="commitish-filter-field" class="js-filterable-field js-navigation-enable" placeholder="Filter branches/tags">
+            </div>
+            <div class="select-menu-tabs">
+              <ul>
+                <li class="select-menu-tab">
+                  <a href="#" data-tab-filter="branches" class="js-select-menu-tab">Branches</a>
+                </li>
+                <li class="select-menu-tab">
+                  <a href="#" data-tab-filter="tags" class="js-select-menu-tab">Tags</a>
+                </li>
+              </ul>
+            </div><!-- /.select-menu-tabs -->
+          </div><!-- /.select-menu-filters -->
+
+          <div class="select-menu-list select-menu-tab-bucket js-select-menu-tab-bucket css-truncate" data-tab-filter="branches">
+
+            <div data-filterable-for="commitish-filter-field" data-filterable-type="substring">
+
+                <div class="select-menu-item js-navigation-item ">
+                  <span class="select-menu-item-icon octicon octicon-check"></span>
+                  <a href="/progrium/wssh/tree/go" class="js-navigation-open select-menu-item-text js-select-button-text css-truncate-target" data-name="go" rel="nofollow" title="go">go</a>
+                </div> <!-- /.select-menu-item -->
+                <div class="select-menu-item js-navigation-item selected">
+                  <span class="select-menu-item-icon octicon octicon-check"></span>
+                  <a href="/progrium/wssh/tree/master" class="js-navigation-open select-menu-item-text js-select-button-text css-truncate-target" data-name="master" rel="nofollow" title="master">master</a>
+                </div> <!-- /.select-menu-item -->
+            </div>
+
+              <div class="select-menu-no-results">Nothing to show</div>
+          </div> <!-- /.select-menu-list -->
+
+
+          <div class="select-menu-list select-menu-tab-bucket js-select-menu-tab-bucket css-truncate" data-tab-filter="tags">
+            <div data-filterable-for="commitish-filter-field" data-filterable-type="substring">
+
+            </div>
+
+            <div class="select-menu-no-results">Nothing to show</div>
+
+          </div> <!-- /.select-menu-list -->
+
+        </div> <!-- /.select-menu-modal -->
+      </div> <!-- /.select-menu-modal-holder -->
+    </div> <!-- /.select-menu -->
+
+  </div> <!-- /.scope -->
+
+  <ul class="tabnav-tabs">
+    <li><a href="/progrium/wssh" class="selected js-selected-navigation-item tabnav-tab" data-selected-links="repo_source /progrium/wssh">Files</a></li>
+    <li><a href="/progrium/wssh/commits/master" class="js-selected-navigation-item tabnav-tab" data-selected-links="repo_commits /progrium/wssh/commits/master">Commits</a></li>
+    <li><a href="/progrium/wssh/branches" class="js-selected-navigation-item tabnav-tab" data-selected-links="repo_branches /progrium/wssh/branches" rel="nofollow">Branches <span class="counter ">2</span></a></li>
+  </ul>
+
+</div>
+
+  
+  
+  
+
+
+            
+          </div>
+        </div><!-- /.repohead -->
+
+        <div id="js-repo-pjax-container" class="container context-loader-container" data-pjax-container>
+          
+
+
+<!-- tree commit key: views10/v8/tree:v21:7d57f10c918c4878fbf8eab176b1f715 -->
+
+  <div id="slider">
+      <div class="frame-meta">
+          
+
+          <p class="history-link js-history-link-replace">
+              <a href="/progrium/wssh/commits/master">
+                <span class="octicon octicon-history tooltipped" title="Browse commits for this branch"></span>
+                36 commits
+</a>          </p>
+
+        <div class="breadcrumb">
+          <span class='bold'><span itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"><a href="/progrium/wssh" class="js-slide-to" data-branch="master" data-direction="back" itemscope="url"><span itemprop="title">wssh</span></a></span></span><span class="separator"> / </span><form action="/login?return_to=%2Fprogrium%2Fwssh" class="js-new-blob-form tooltipped rightwards new-file-link" method="post" title="Sign in to make or propose changes"><span class="js-new-blob-submit octicon octicon-file-add"></span></form>
+        </div>
+
+        <a href="/progrium/wssh/find/master"
+           class="js-slide-to" data-hotkey="t" style="display:none">Show File Finder</a>
+
+      </div><!-- ./.frame-meta -->
+
+      
+
+  <div class="frames">
+    <div class="frame" data-permalink-url="/progrium/wssh/tree/96cf209f3c81cad3910362c62d2fdd419c2363c3" data-title="progrium/wssh · GitHub" data-type="tree">
+
+      <div class="bubble tree-browser-wrapper">
+
+      <table class="tree-browser css-truncate" cellpadding="0" cellspacing="0">
+        <thead>
+            
+  <div class="commit commit-tease js-details-container" >
+    <p class="commit-title ">
+        <a href="/progrium/wssh/commit/96cf209f3c81cad3910362c62d2fdd419c2363c3" class="message">Merge pull request</a> <a href="https://github.com/progrium/wssh/issues/16" class="issue-link" title="Install MD">#16</a> <a href="/progrium/wssh/commit/96cf209f3c81cad3910362c62d2fdd419c2363c3" class="message">from kyleroche/master</a>
+        <span class="hidden-text-expander inline"><a href="#" class="js-details-target">…</a></span>
+    </p>
+      <div class="commit-desc"><pre>Install MD</pre></div>
+    <div class="commit-meta">
+      <span class="js-zeroclipboard zeroclipboard-link" data-clipboard-text="96cf209f3c81cad3910362c62d2fdd419c2363c3" data-copied-hint="copied!" title="Copy SHA"><span class="mini-icon mini-icon-clipboard"></span></span>
+      <a href="/progrium/wssh/commit/96cf209f3c81cad3910362c62d2fdd419c2363c3" class="sha-block">latest commit <span class="sha">96cf209f3c</span></a>
+
+      <div class="authorship">
+        <img class="gravatar" height="20" src="https://secure.gravatar.com/avatar/bb46488d2c90d51f366cafc776e2b3ad?s=140&amp;d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png" width="20" />
+        <span class="author-name"><a href="/progrium" data-skip-pjax="true" rel="author">progrium</a></span>
+        authored <time class="js-relative-date updated" datetime="2013-01-07T14:39:17-08:00" title="2013-01-07 14:39:17">January 07, 2013</time>
+
+      </div>
+    </div>
+  </div>
+
+        </thead>
+
+        
+
+<tbody class="tree-entries js-deferred-content"
+    data-url="/progrium/wssh/tree-commits/master">
+
+
+    <tr>
+      <td class="icon"><span class="octicon octicon-file-directory"></span></td>
+      <td class="content"><a href="/progrium/wssh/tree/master/wssh" class="js-directory-link js-slide-to css-truncate-target" id="4442ff7fd811a79080c7215bc5811a8e-ffa36dcbdc6f82f405a2f18c4cb9f328a8fd27d7" title="wssh">wssh</a></td>
+      <td class="age"><time class="js-relative-date" datetime="2012-12-28T15:14:05-08:00" title="2012-12-28 15:14:05">December 28, 2012</time></td>
+
+      <td class="message">
+          <a href="/progrium/wssh/commit/09a6185daf8fe58a5ba46a820bd94ac1a2688ee9" class="message">Fix ws/wss parsing so that SSL is actually used when you enter a wss URL</a>
+          [<a href="/jefferai" rel="author">jefferai</a>]
+
+      </td>
+    </tr>
+    <tr>
+      <td class="icon"><span class="octicon octicon-file-text"></span></td>
+      <td class="content"><a href="/progrium/wssh/blob/master/.gitignore" class="js-directory-link js-slide-to css-truncate-target" id="a084b794bc0759e7a6b77810e01874f2-3e3dca4ba2e90321521e91f8040d9d2fc489bffb" title=".gitignore">.gitignore</a></td>
+      <td class="age"><time class="js-relative-date" datetime="2012-10-07T13:00:48-07:00" title="2012-10-07 13:00:48">October 07, 2012</time></td>
+
+      <td class="message">
+          <a href="/progrium/wssh/commit/6e6a09498ea8119fed113ab818096528cfdc0095" class="message">Ignoring build/ and dist/</a>
+          [<a href="/jasta" rel="author">jasta</a>]
+
+      </td>
+    </tr>
+    <tr>
+      <td class="icon"><span class="octicon octicon-file-text"></span></td>
+      <td class="content"><a href="/progrium/wssh/blob/master/README.md" class="js-directory-link js-slide-to css-truncate-target" id="04c6e90faac2675aa89e2176d2eec7d8-880e0a1a00f190cb094ccab43e9758719bc2abc6" title="README.md">README.md</a></td>
+      <td class="age"><time class="js-relative-date" datetime="2013-01-06T18:47:31-08:00" title="2013-01-06 18:47:31">January 06, 2013</time></td>
+
+      <td class="message">
+          <a href="/progrium/wssh/commit/ff54501079e8edba33d14d282d4224088057a2d3" class="message">Update README.md</a>
+          [<a href="/kyleroche" rel="author">kyleroche</a>]
+
+      </td>
+    </tr>
+    <tr>
+      <td class="icon"><span class="octicon octicon-file-text"></span></td>
+      <td class="content"><a href="/progrium/wssh/blob/master/setup.py" class="js-directory-link js-slide-to css-truncate-target" id="2eeaed663bd0d25b7e608891384b7298-8984ef8595863e50c24b60349bf2f5397a5a3e6e" title="setup.py">setup.py</a></td>
+      <td class="age"><time class="js-relative-date" datetime="2011-12-06T17:24:47-08:00" title="2011-12-06 17:24:47">December 06, 2011</time></td>
+
+      <td class="message">
+          <a href="/progrium/wssh/commit/43a730a1e024b14756e3c132f1f2c3b2916c6e40" class="message">now fully async with a server for listen mode and using argparse</a>
+          [<a href="/progrium" rel="author">progrium</a>]
+
+      </td>
+    </tr>
+</tbody>
+
+      </table>
+      </div>
+
+        <div id="readme" class="clearfix announce instapaper_body md">
+          <span class="name"><span class="octicon octicon-book"></span> README.md</span><article class="markdown-body entry-content" itemprop="mainContentOfPage"><h1>
+<a name="wssh---websocket-shell" class="anchor" href="#wssh---websocket-shell"><span class="octicon octicon-link"></span></a>wssh - websocket shell</h1>
+
+<p>wssh ("wish") is a command-line utility/shell for WebSocket inpsired by netcat.</p>
+
+<h2>
+<a name="install" class="anchor" href="#install"><span class="octicon octicon-link"></span></a>Install</h2>
+
+<ul>
+<li>Assumes Python 2.7</li>
+</ul><p>It uses currently uses gevent 0.13, so you may need to install libevent. This is because it uses the great work in <a href="https://github.com/Lawouach/WebSocket-for-Python">ws4py</a>. My gevent websocket server+client in there could probably be generalized to work with Eventlet; then this could be trivially ported to Eventlet to drop the libevent dependency.</p>
+
+<p>If you don't have libevent installed already, install it prior to running setup.py. You can install libevent using <code>apt-get</code> on Ubuntu or <code>brew</code> on a Mac. </p>
+
+<pre><code>git clone git://github.com/progrium/wssh.git
+cd wssh
+python setup.py install
+</code></pre>
+
+<h2>
+<a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>Usage</h2>
+
+<p>Listen for WebSocket connections on a particular path and print messages to STDOUT:</p>
+
+<pre><code>wssh -l localhost:8000/websocket
+</code></pre>
+
+<p>Once connected you can use STDIN to send messages. Each line is a message. You can just as well open a peristent client connection that prints incoming messages to STDOUT and sends messages from STDIN interactively:</p>
+
+<pre><code>wssh localhost:8000/websocket
+</code></pre>
+
+<h2>
+<a name="contributing" class="anchor" href="#contributing"><span class="octicon octicon-link"></span></a>Contributing</h2>
+
+<p>Feel free to fork and improve.</p>
+
+<h2>
+<a name="license" class="anchor" href="#license"><span class="octicon octicon-link"></span></a>License</h2>
+
+<p>MIT</p></article>
+        </div>
+    </div>
+  </div>
+  <br style="clear:both;">
+
+
+<br style="clear:both;">
+
+<div id="js-frame-loading-template" class="frame frame-loading large-loading-area" style="display:none;">
+  <img class="js-frame-loading-spinner" src="https://a248.e.akamai.net/assets.github.com/images/spinners/octocat-spinner-128.gif?1347543527" height="64" width="64">
+</div>
+
+
+  </div>
+
+        </div>
+      </div>
+      <div class="modal-backdrop"></div>
+    </div>
+
+      <div id="footer-push"></div><!-- hack for sticky footer -->
+    </div><!-- end of wrapper - hack for sticky footer -->
+
+      <!-- footer -->
+      <div id="footer">
+  <div class="container clearfix">
+
+      <dl class="footer_nav">
+        <dt>GitHub</dt>
+        <dd><a href="/about">About us</a></dd>
+        <dd><a href="/blog">Blog</a></dd>
+        <dd><a href="/contact">Contact &amp; support</a></dd>
+        <dd><a href="http://enterprise.github.com/">GitHub Enterprise</a></dd>
+        <dd><a href="http://status.github.com/">Site status</a></dd>
+      </dl>
+
+      <dl class="footer_nav">
+        <dt>Applications</dt>
+        <dd><a href="http://mac.github.com/">GitHub for Mac</a></dd>
+        <dd><a href="http://windows.github.com/">GitHub for Windows</a></dd>
+        <dd><a href="http://eclipse.github.com/">GitHub for Eclipse</a></dd>
+        <dd><a href="http://mobile.github.com/">GitHub mobile apps</a></dd>
+      </dl>
+
+      <dl class="footer_nav">
+        <dt>Services</dt>
+        <dd><a href="http://get.gaug.es/">Gauges: Web analytics</a></dd>
+        <dd><a href="http://speakerdeck.com">Speaker Deck: Presentations</a></dd>
+        <dd><a href="https://gist.github.com">Gist: Code snippets</a></dd>
+        <dd><a href="http://jobs.github.com/">Job board</a></dd>
+      </dl>
+
+      <dl class="footer_nav">
+        <dt>Documentation</dt>
+        <dd><a href="http://help.github.com/">GitHub Help</a></dd>
+        <dd><a href="http://developer.github.com/">Developer API</a></dd>
+        <dd><a href="http://github.github.com/github-flavored-markdown/">GitHub Flavored Markdown</a></dd>
+        <dd><a href="http://pages.github.com/">GitHub Pages</a></dd>
+      </dl>
+
+      <dl class="footer_nav">
+        <dt>More</dt>
+        <dd><a href="http://training.github.com/">Training</a></dd>
+        <dd><a href="/edu">Students &amp; teachers</a></dd>
+        <dd><a href="http://shop.github.com">The Shop</a></dd>
+        <dd><a href="/plans">Plans &amp; pricing</a></dd>
+        <dd><a href="http://octodex.github.com/">The Octodex</a></dd>
+      </dl>
+
+      <hr class="footer-divider">
+
+
+    <p class="right">&copy; 2013 <span title="0.06126s from fe16.rs.github.com">GitHub</span>, Inc. All rights reserved.</p>
+    <a class="left" href="/">
+      <span class="mega-octicon octicon-mark-github"></span>
+    </a>
+    <ul id="legal">
+        <li><a href="/site/terms">Terms of Service</a></li>
+        <li><a href="/site/privacy">Privacy</a></li>
+        <li><a href="/security">Security</a></li>
+    </ul>
+
+  </div><!-- /.container -->
+
+</div><!-- /.#footer -->
+
+
+    <div class="fullscreen-overlay js-fullscreen-overlay" id="fullscreen_overlay">
+  <div class="fullscreen-container js-fullscreen-container">
+    <div class="textarea-wrap">
+      <textarea name="fullscreen-contents" id="fullscreen-contents" class="js-fullscreen-contents" placeholder="" data-suggester="fullscreen_suggester"></textarea>
+          <div class="suggester-container">
+              <div class="suggester fullscreen-suggester js-navigation-container" id="fullscreen_suggester"
+                 data-url="/progrium/wssh/suggestions/commit">
+              </div>
+          </div>
+    </div>
+  </div>
+  <div class="fullscreen-sidebar">
+    <a href="#" class="exit-fullscreen js-exit-fullscreen tooltipped leftwards" title="Exit Zen Mode">
+      <span class="mega-octicon octicon-screen-normal"></span>
+    </a>
+    <a href="#" class="theme-switcher js-theme-switcher tooltipped leftwards"
+      title="Switch themes">
+      <span class="octicon octicon-color-mode"></span>
+    </a>
+  </div>
+</div>
+
+
+
+    <div id="ajax-error-message" class="flash flash-error">
+      <span class="octicon octicon-alert"></span>
+      Something went wrong with that request. Please try again.
+      <a href="#" class="octicon octicon-remove-close ajax-error-dismiss"></a>
+    </div>
+
+    
+    <span id='server_response_time' data-time='0.06162' data-host='fe16'></span>
+    
+  </body>
+</html>
+
