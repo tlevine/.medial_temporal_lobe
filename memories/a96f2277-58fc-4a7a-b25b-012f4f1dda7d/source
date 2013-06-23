@@ -1,0 +1,1472 @@
+<!-- $Id: index.html 600 2006-05-31 22:13:43Z wohler $ -->
+<html>
+  <head>
+    <meta name="Author" content="Jerry Peek">
+    <meta name="Description" content="Online edition of a book about the MH email system; includes its interfaces xmh, exmh, and MH-E, and the new version of MH called nmh.  MH is powerful and very flexible; its modular design makes it easy to customize and also to call from other programs.  MH runs on UNIX-like systems.">
+    <meta name="KEYWORDS" content="MH, nmh, xmh, exmh, MH-E, email, e-mail, electronic mail, UNIX, open, freely available, free, UNIX, Linux, programming, modular, ali, anno, burst, comp, dist, flist, flists, folder, folders, forw, inc, mark, mhbuild, mhl, mhmail, mhn, mhparam, mhpath, msgchk, msh, next, packf, pick, prev, prompter, rcvdist, rcvpack, rcvstore, rcvtty, refile, repl, rmf, rmm, scan, send, sendfiles, show, slocal, sortm, whatnow, whom, aligrep, append, autoinc, distprompter, execit, folder_table, fols, forwedit, fpick, getmsgs, getrich, incs, inmail-show, mhnftpmail, mhprofile, mimecat, mk_fol_names, mydist, mysend, myvi, newmsgs, original, pick2me, rcvxterm, recomp, resend, rfl, rmmer, scandrafts, showpr, storeparts, vidraft">
+    <title>MH &amp; nmh: Email for Users &amp; Programmers</title>
+        <link rel="stylesheet" href="./mh.css" type="text/css">
+    <style type="text/css">
+      dt { display: compact }
+    </style>
+  </head>
+
+  <!-- N.B. <a href="">Title</a> TOC entries MUST be on one line per -->
+  <!-- limitations in ADMIN/index-make.pl.  -->
+
+  <body>
+    <!-- $Id: mh.php 598 2006-05-31 21:34:20Z wohler $ -->
+
+
+<div class="headliner"></div>
+
+<div class="small-logo">
+  <img src="./overall/figs/mh-octopus.png"
+       alt="MH book cover"
+       width=110 height=88>
+</div>
+
+<div style="margin-left: 230px">
+  <h1 style="margin-bottom: 0px">
+    MH &amp; nmh: Email for Users &amp; Programmers
+  </h1>
+
+  <div class="book-version">May, 2006</div>
+</div>
+
+<!-- Navigation Bar -->
+<div class="navbar">
+  <a class="navbar" href="roadmap.html">Next</a>
+  <a class="navbar" href="overall/mimerg.html">Previous</a>
+  <a class="navbar" href="./index.html">Table of Contents</a>
+  <a class="navbar" href="./index/">Index</a>
+  <!-- SiteSearch Google -->
+  <form method="GET" action="http://www.google.com/search"
+        class="navbar-search">
+    <input type=hidden name=ie value=UTF-8>
+    <input type=hidden name=oe value=UTF-8>
+    <input type=hidden name=sitesearch value="rand-mh.sourceforge.net">
+    <input type=text name=q size=25 maxlength=255 value="Google Search"
+           class="navbar-search-text">
+    <input type=image name=btnG
+           src="./overall/figs/search-arrow.png" alt="Search"
+           class="navbar-search-button">
+  </form>
+  <!-- SiteSearch Google -->
+</div>
+
+
+    <div class="photo-right">
+      <img src="overall/figs/mhcover.jpg"
+           alt="MH book cover"
+           style="border: 1px solid black"
+           width=190 height=250>
+    </div>
+
+    <p> The book <i>MH &amp; xmh: Email for Users &amp;
+    Programmers</i>, ISBN 1-56592-093-7, written by Jerry Peek, was
+    published by and is copyright &copy; 1991, 1992, 1995 by O'Reilly
+    &amp; Associates, Inc.
+    (now <a href="http://www.oreilly.com/">O'Reilly Media, Inc.</a>).
+    In June, 1996, O'Reilly made the book freely available under the
+    terms of the GNU General Public License; please read the
+    <a href="copying.html">information about copying and distribution</a>.
+
+    <p> This is the fourth updated online edition. It originally came
+    from the book's third print edition. The title is "MH &amp; nmh"
+    instead of "MH &amp; xmh." But the book still covers
+    MH, <i>xmh</i> and <i>exmh</i> -- as well as the new version of MH
+    called nmh. <a href="http://mh-e.sourceforge.net/manual/"><i>The
+    MH-E Manual</i></a> is now a separate book.
+
+    <p>The <a href="roadmap.html">Road Map</a> is a good place to
+    start. Otherwise, jump to:
+
+    <ul>
+      <li><a href="#tocs">Finding Your Way Through This Book</a>
+      <li><a href="#brief">Brief Table of Contents</a>
+      <li><a href="#toc">Complete Table of Contents</a>
+    </ul>
+
+    <hr>
+
+    <h1><a name="tocs">Finding Your Way Through This Book</a></h1>
+
+    <dl>
+      <dt><a href="roadmap.html">Road Map (overview with suggested starting points)</a>
+      <dt><a href="whaboo.html">What's in This Book (short summary of each chapter)</a>
+      <dt><a href="NEWS">Changes to the Online Edition of MH &amp; nmh: Email for Users &amp; Programmers</a>
+      <dt><a href="copying.html">Using This Book (terms for copying, distributing, modifying)</a>
+      <dt><a href="structur.html">Structure of This Book (organization, files/directories)</a>
+      <dt><a href="browhelp.html">Browsing Help</a>
+      <dt><a href="to-do.html">To-do List: Suggestions for Revising This Book</a>
+    </dl>
+
+    <hr>
+
+    <h1><a name="brief">Brief Table of Contents</a></h1>
+
+    <h3>PART I: INTRODUCTION</h3>
+    <dl>
+      <dt><a href="#chPref">Chapter 0: Preface</a>
+      <dt><a href="#chIntro">Chapter 1: Introduction</a>
+      <dt><a href="#chKeyParts">Chapter 2: Key Parts of the UNIX Filesystem</a>
+      <dt><a href="#chIntMIME">Chapter 3: Introduction to MIME</a>
+      <dt><a href="#chSetUp">Chapter 4: Setting Up</a>
+    </dl>
+
+    <h3>PART II: USING MH</h3>
+    <dl>
+      <dt><a href="#chTourMH">Chapter 5: Tour Through MH</a>
+      <dt><a href="#chReMaMH">Chapter 6: Reading Your Mail with MH</a>
+      <dt><a href="#chSeMaMH">Chapter 7: Sending Mail with MH</a>
+      <dt><a href="#chFOMaMH">Chapter 8: Finding and Organizing Mail with MH</a>
+    </dl>
+
+    <h3>PART III: CUSTOMIZING MH</h3>
+    <dl>
+      <dt><a href="#chMHYrWy">Chapter 9: Making MH Work Your Way</a>
+      <dt><a href="#chNewVerMH">Chapter 10: New Versions of MH Commands</a>
+      <dt><a href="#chMHFmt">Chapter 11: MH Formatting</a>
+      <dt><a href="#chPrMaAu">Chapter 12: Processing New Mail Automatically</a>
+      <dt><a href="#chUPrMH">Chapter 13: Introduction to UNIX Programming with MH</a>
+    </dl>
+
+    <h3>PART IV: xmh</h3>
+    <dl>
+      <dt><a href="#chTourxmh">Chapter 14: Tour Through xmh</a>
+      <dt><a href="#chUsexmh">Chapter 15: Using xmh</a>
+      <dt><a href="#chCusxmh">Chapter 16: Customizing xmh</a>
+    </dl>
+
+    <h3>PART V: MH-E</h3>
+    <dl>
+      <dt>Moved to <a href="http://mh-e.sourceforge.net/manual/"><i>The MH-E Manual</i></a>
+    </dl>
+
+    <h3>PART VI: exmh</h3>
+    <dl>
+      <dt><a href="#chTourexmh">Chapter 20: Introducing exmh</a>
+      <dt><a href="#chUseexmh">Chapter 21: Using exmh</a>
+      <dt><a href="#chCusexmh">Chapter 22: Customizing exmh</a>
+    </dl>
+
+    <h3>PART VII: APPENDICES</h3>
+    <dl>
+      <dt><a href="#apWCYGFH">Appendix A: Where Can You Go from Here?</a>
+      <dt><a href="#apHists">Appendix B: History</a>
+      <dt><a href="#apRefLst">Appendix C: Reference List</a>
+      <dt><a href="#apExamp">Appendix D: Example Files and Programs</a>
+      <dt><a href="#apRefGde">Appendix E: Reference Guide</a>
+      <dt><a href="#figures">List of Figures</a>
+      <dt><a href="#tables">List of Tables</a>
+      <dt><a href="#examples">List of Examples</a>
+      <dt><a href="#ex-files">List of Example Files</a>
+      <dt><a href="#sidebars">List of Sidebars</a>
+    </dl>
+
+    <hr>
+
+    <h1><a name="toc">Table of Contents</a></h1>
+
+    <h2><a name="partIntro">PART I: INTRODUCTION</a></h2>
+
+    <h3><a name="chPref">Chapter 0: Preface</a></h3>
+    <dl>
+      <dt><a href="overall/ch-p.html">0.0 Chapter Introduction</a>
+      <dt><a href="overall/whymh.html">0.1 Why Choose MH?</a>
+      <dt><a href="overall/whyboo.html">0.2 Why Read This Book?</a>
+      <dt><a href="overall/whaboo.html">0.3 What's in This Book</a>
+      <dt><a href="overall/neitthed.html">0.4 New in the Third Edition</a>
+      <dt><a href="overall/whanotbo.html">0.5 What Isn't in This Book</a>
+      <dt><a href="overall/thefor.html">0.6 Conventions Used in This Book</a>
+      <dt><a href="overall/reqfocom.html">0.7 Request for Comments</a>
+      <dt><a href="overall/ack.html">0.8 Acknowledgments</a>
+      <dl>
+        <dt><a href="overall/ack.html#print3">0.8.1 Third Print Edition</a>
+        <dt><a href="overall/ack.html#online1">0.8.2 Online Edition</a>
+      </dl>
+      <dt>[<a href="#tocs">Top</a>]
+    </dl>
+
+    <h3><a name="chIntro">Chapter 1: Introduction</a></h3>
+    <dl>
+      <dt><a href="overall/ch-i.html">1.0 Chapter Introduction</a>
+      <dt><a href="overall/whaema.html">1.1 What is Email?</a>
+      <dt><a href="overall/howwor.html">1.2 How UNIX Email Works</a>
+      <dl>
+        <dt><a href="overall/howwor.html#EmaTrAge">1.2.1 Email Transfer Agents</a>
+        <dt><a href="overall/howwor.html#EmaUsAge">1.2.2 Email User Agents</a>
+      </dl>
+      <dt><a href="overall/intomim.html">1.3 Introduction to MIME</a>
+      <dt><a href="overall/addema.html">1.4 Addressing Email</a>
+      <dt><a href="overall/pro.html">1.5 MH Profile</a>
+      <dt><a href="overall/whamh.html">1.6 What Computers Support MH?</a>
+      <dt><a href="overall/obtxmh.html">1.7 Obtaining MH, nmh, xmh, exmh, and MH-E</a>
+      <dt>[<a href="#tocs">Top</a>]
+    </dl>
+
+    <h3><a name="chKeyParts">Chapter 2: Key Parts of the UNIX Filesystem</a></h3>
+    <dl>
+      <dt><a href="overall/ch-kpotu.html">2.0 Chapter Introduction</a>
+      <dt><a href="overall/anand.html">2.1 UNIX Filesystem Overview</a>
+      <dt><a href="overall/mhbindir.html">2.2 MH Programs (Binaries) Directory</a>
+      <dt><a href="overall/mhlibdir.html">2.3 Library and Etcetera Directories</a>
+      <dt><a href="overall/sysmai.html">2.4 System Mailboxes</a>
+      <dt><a href="overall/audir.html">2.5 A User's Directories</a>
+      <dl>
+        <dt><a href="overall/audir.html#binDir">2.5.1 bin Directory</a>
+        <dt><a href="overall/audir.html#TheSub">2.5.2 The MH Directory and Subdirectories</a>
+      </dl>
+      <dt><a href="overall/spexmh.html">2.6 Special Files for xmh</a>
+      <dt><a href="overall/speexmh.html">2.7 Special Files for exmh</a>
+      <dt><a href="overall/lin.html">2.8 Links</a>
+      <dl>
+        <dt><a href="overall/lin.html#WhaLin">2.8.1 What's a Link?</a>
+        <dt><a href="overall/lin.html#TecLin">2.8.2 Technical Stuff About Links</a>
+      </dl>
+      <dt><a href="overall/caucha.html">2.9 Caution About MH Files and Newline Characters</a>
+      <dt>[<a href="#tocs">Top</a>]
+    </dl>
+
+
+    <h3><a name="chIntMIME">Chapter 3: Introduction to MIME</a></h3>
+    <dl>
+      <dt><a href="overall/ch-itm.html">3.0 Chapter Introduction</a>
+      <dl>
+        <dt><a href="overall/abe.html">Sidebar: ASCII, bits, etc.</a>
+      </dl>
+      <dt><a href="overall/ovofmime.html">3.1 Overview of MIME Messages</a>
+      <dl>
+        <dt><a href="overall/ovofmime.html#PuofMI">3.1.1 Purposes of MIME</a>
+        <dt><a href="overall/ovofmime.html#MIHeFi">3.1.2 MIME Header Fields</a>
+        <dt><a href="overall/ovofmime.html#MIMEnc">3.1.3 MIME Encoding</a>
+      </dl>
+      <dt><a href="overall/mulmes.html">3.2 Multipart Messages</a>
+      <dl>
+        <dt><a href="overall/mulmes.html#ASaMuMe">3.2.1 A Sample Multipart Message</a>
+        <dt><a href="overall/mulmes.html#MualMe">3.2.2 Multipart/alternative Messages</a>
+        <dt><a href="overall/mulmes.html#PawiPa">3.2.3 Parts within Parts</a>
+      </dl>
+      <dt><a href="overall/moabmi.html">3.3 More About MIME</a>
+      <dt>[<a href="#tocs">Top</a>]
+    </dl>
+
+
+    <h3><a name="chSetUp">Chapter 4: Setting Up</a></h3>
+    <dl>
+      <dt><a href="overall/ch-su.html">4.0 Chapter Introduction</a>
+      <dt><a href="overall/getrea.html">4.1 Getting Mail Ready to Read</a>
+      <dt><a href="overall/setup.html">4.2 Setting Up MH</a>
+      <dt><a href="overall/onmanpag.html">4.3 Online Manual Pages</a>
+      <dt>[<a href="#tocs">Top</a>]
+    </dl>
+
+    <h2><a name="partUseMH">PART II: USING MH</a></h2>
+
+    <h3><a name="chTourMH">Chapter 5: Tour Through MH</a></h3>
+    <dl>
+      <dt><a href="mh/ch-ttm.html">5.0 Chapter Introduction</a>
+      <dt><a href="mh/getsta.html">5.1 Getting Started</a>
+      <dt><a href="mh/sensen.html">5.2 Sending Some Mail: comp, send</a>
+      <dt><a href="mh/reapre.html">5.3 Reading Mail: inc, show, next, prev</a>
+      <dt><a href="mh/reprep.html">5.4 Replying to Messages: repl</a>
+      <dt><a href="mh/comopt.html">5.5 MH Command-line Switches (Options)</a>
+      <dt><a href="mh/forfor.html">5.6 Forwarding Messages: forw</a>
+      <dt><a href="mh/faswsprs.html">5.7 Find and Specify with scan, pick, Ranges, Sequences</a>
+      <dt><a href="mh/clermm.html">5.8 Cleanup: rmm</a>
+      <dt><a href="mh/usimim.html">5.9 Using MIME</a>
+      <dl>
+        <dt><a href="mh/usimim.html#CaYoUsMI">5.9.1 Can You Use MIME?</a>
+        <dt><a href="mh/usimim.html#LiMIMeCo">5.9.2 Listing MIME Message Contents</a>
+        <dt><a href="mh/usimim.html#ReMIMa">5.9.3 Reading MIME Mail</a>
+        <dt><a href="mh/usimim.html#SeMIMa">5.9.4 Sending MIME Mail</a>
+        <dt><a href="mh/usimim.html#mhCaAlDo">5.9.5 Other MIME Operations</a>
+      </dl>
+      <dt><a href="mh/theswi.html">5.10 The -help and -version Switches</a>
+      <dt><a href="mh/othfea.html">5.11 Other MH Features</a>
+      <dt>[<a href="#tocs">Top</a>]
+    </dl>
+
+
+    <h3><a name="chReMaMH">Chapter 6: Reading Your Mail with MH</a></h3>
+    <dl>
+      <dt><a href="mh/ch-rymwm.html">6.0 Chapter Introduction</a>
+      <dt><a href="mh/shomes.html">6.1 Showing and Printing Messages</a>
+      <dl>
+        <dt><a href="mh/shomes.html#TheMes">6.1.1 The Current Message</a>
+        <dt><a href="mh/shomes.html#MesRea">6.1.2 Messages You Haven't Read</a>
+        <dt><a href="mh/shomes.html#WeOBeYRe">6.1.3 Weeding Out Before You Read</a>
+        <dt><a href="mh/shomes.html#WhthNeMe">6.1.4 Where's the Next Message?</a>
+        <dt><a href="mh/shomes.html#ChaPri">6.1.5 Changing Showproc for Viewing, Printing, and Editing</a>
+        <dt><a href="mh/shomes.html#Usisho">6.1.6 Using mhl</a>
+        <dt><a href="mh/shomes.html#Witsho">6.1.7 Without a showproc</a>
+        <dt><a href="mh/shomes.html#MuMHSe">6.1.8 Multiple MH Sessions</a>
+        <dt><a href="mh/shomes.html#Cussho">6.1.9 Custom Printing: showpr</a>
+        <dt><a href="mh/shomes.html#ShMuMe">6.1.10 Showing Multiple Messages</a>
+      </dl>
+      <dt><a href="mh/remime.html">6.2 Reading MIME Messages</a>
+      <dl>
+        <dt><a href="mh/remime.html#GeTeMIMe">6.2.1 Getting Test MIME Messages</a>
+        <dt><a href="mh/remime.html#Themhnpr">6.2.2 The mhnproc or showmimeproc</a>
+        <dt><a href="mh/remime.html#HomhShMe">6.2.3 Showing MIME Messages</a>
+        <dt><a href="mh/remime.html#PartMess">6.2.4 Partial Messages</a>
+        <dt><a href="mh/remime.html#ExtParts">6.2.5 External Parts</a>
+        <dt><a href="mh/remime.html#CachCont">6.2.6 Cached Contents</a>
+        <dt><a href="mh/remime.html#s6ShPaMIMe">6.2.7 Showing Part of a MIME Message</a>
+        <dt><a href="mh/remime.html#DeMewmi">6.2.8 Decoding Messages with mimecat</a>
+        <dt><a href="mh/remime.html#ChecMIMe">6.2.9 Checking a MIME Message</a>
+        <dt><a href="mh/remime.html#ReaPGP">6.2.10 Reading PGP Messages</a>
+        <dt><a href="mh/remime.html#Alttomhn">6.2.11 Other MIME Handlers</a>
+      </dl>
+      <dt><a href="mh/limimepa.html">6.3 Listing MIME Message Parts</a>
+      <dt><a href="mh/morsca.html">6.4 More About scan</a>
+      <dl>
+        <dt><a href="mh/morsca.html#sca">6.4.1 scan Format Files</a>
+        <dt><a href="mh/morsca.html#ScaBac">6.4.2 Scanning Backward</a>
+        <dt><a href="mh/morsca.html#ScaFil">6.4.3 Scanning a Mailbox File</a>
+      </dl>
+      <dt><a href="mh/chemsg.html">6.5 Checking for Mail Waiting: msgchk</a>
+      <dt><a href="mh/othinc.html">6.6 Other Features of inc</a>
+      <dl>
+        <dt><a href="mh/othinc.html#Log">6.6.1 Logging New Mail with -audit</a>
+        <dt><a href="mh/othinc.html#NoUsin">6.6.2 Not Using +inbox</a>
+        <dt><a href="mh/othinc.html#Lesfol">6.6.3 Less-used inc Features</a>
+        <dt><a href="mh/othinc.html#Newinc">6.6.4 If New Messages Arrive</a>
+      </dl>
+      <dt><a href="mh/usmwp.html">6.7 Using MH with POP</a>
+      <dt><a href="mh/pnmiba.html">6.8 Batch-process New Mail: autoinc</a>
+      <dt>[<a href="#tocs">Top</a>]
+    </dl>
+
+
+    <h3><a name="chSeMaMH">Chapter 7: Sending Mail with MH</a></h3>
+    <dl>
+      <dt><a href="mh/ch-smwm.html">7.0 Chapter Introduction</a>
+      <dt><a href="mh/senove.html">7.1 Overview: Sending MH Messages</a>
+      <dl>
+        <dt><a href="mh/senove.html#Mak">7.1.1 Making the Draft from the Template File</a>
+        <dt><a href="mh/senove.html#Edipro">7.1.2 Editing the Draft with prompter</a>
+        <dl>
+          <dt><a href="mh/wiabnab.html">Sidebar: When is a Backslash Not a Backslash?</a>
+        </dl>
+        <dt><a href="mh/senove.html#WhaPro">7.1.3 What now? -- and the whatnow Program</a>
+        <dt><a href="mh/senove.html#SDSaBR">7.1.4 Message Transfer; Sighted and Blind Recipients</a>
+        <dt><a href="mh/senove.html#ASAtDm">7.1.5 Add Text to Drafts: mysend</a>
+        <dt><a href="mh/senove.html#SenPGP">7.1.6 Sending PGP Messages</a>
+      </dl>
+      <dt><a href="mh/chaedi.html">7.2 Changing Default Editors</a>
+      <dl>
+        <dt><a href="mh/chaedi.html#Edi">7.2.1 Editor-next</a>
+        <dt><a href="mh/chaedi.html#RepEdi">7.2.2 Replacing the prompter Editor</a>
+      </dl>
+      <dt><a href="mh/mh.html">7.3 MH Aliases</a>
+      <dl>
+        <dt><a href="mh/mh.html#MakAli">7.3.1 Making MH Aliases</a>
+        <dt><a href="mh/mh.html#NamAli">7.3.2 Naming MH Alias Files</a>
+        <dt><a href="mh/mh.html#Shoali">7.3.3 Showing MH Aliases</a>
+        <dt><a href="mh/mh.html#AliAge">7.3.4 Aliases in Your Transfer Agent</a>
+      </dl>
+      <dt><a href="mh/hea.html">7.4 Header Fields and Addresses</a>
+      <dl>
+        <dt><a href="mh/hea.html#ComHea">7.4.1 Fields You Add to a Header</a>
+        <dt><a href="mh/hea.html#Sig">7.4.2 Signature and From:</a>
+        <dt><a href="mh/hea.html#MIMHea">7.4.3 MIME Fields in a Header</a>
+        <dt><a href="mh/hea.html#EdiHea">7.4.4 Editing the Header</a>
+      </dl>
+      <dt><a href="mh/wormes.html">7.5 Working with Draft Messages</a>
+      <dl>
+        <dt><a href="mh/wormes.html#SinMes">7.5.1 Single Draft Messages</a>
+        <dt><a href="mh/wormes.html#Dra">7.5.2 Draft Folder</a>
+        <dt><a href="mh/wormes.html#DelDrMes">7.5.3 Deleted Draft Messages</a>
+        <dt><a href="mh/wormes.html#AbDrMe">7.5.4 Aborted Draft Messages</a>
+        <dt><a href="mh/wormes.html#Finrec">7.5.5 Finish Draft Messages: recomp</a>
+        <dt><a href="mh/wormes.html#Worsca">7.5.6 Work on Draft Folder: scandrafts</a>
+        <dt><a href="mh/wormes.html#mhEdanau">7.5.7 Building MIME Drafts</a>
+        <dt><a href="mh/wormes.html#ReDrEdmh">7.5.8 Recovering MIME Drafts</a>
+      </dl>
+      <dt><a href="mh/cosemime.html">7.6 Composing and Sending MIME Messages</a>
+      <dl>
+        <dt><a href="mh/cosemime.html#ExDrwiDi">7.6.1 Example Drafts with Directives</a>
+        <dt><a href="mh/cosemime.html#mhnDirec">7.6.2 MIME Draft Directives</a>
+        <dt><a href="mh/cosemime.html#ParMes">7.6.3 Partial Messages</a>
+        <dt><a href="mh/cosemime.html#AdanInCh">7.6.4 Adding an Integrity Check</a>
+        <dt><a href="mh/cosemime.html#HomhChEn">7.6.5 Choosing MIME Encodings</a>
+      </dl>
+      <dt><a href="mh/thecom.html">7.7 The comp Command</a>
+      <dt><a href="mh/reprep-2.html">7.8 Replying to Mail with repl</a>
+      <dl>
+        <dt><a href="mh/reprep-2.html#Selque">7.8.1 Selective Replies with -query</a>
+        <dt><a href="mh/reprep-2.html#Sel">7.8.2 Selective Replies with -nocc and -cc</a>
+        <dt><a href="mh/reprep-2.html#Cha">7.8.3 Changing the Message Header with replcomps</a>
+        <dt><a href="mh/reprep-2.html#ReaEdi">7.8.4 Reading Original Message with an Editor</a>
+        <dt><a href="mh/reprep-2.html#Inc">7.8.5 Including the Original Message with -filter</a>
+        <dt><a href="mh/reprep-2.html#DisMes">7.8.6 Displaying the Original Message</a>
+        <dt><a href="mh/reprep-2.html#AnnOrMes">7.8.7 Annotating the Original Message</a>
+        <dt><a href="mh/reprep-2.html#ReMewiMI">7.8.8 Replying to Messages with MIME</a>
+      </dl>
+      <dt><a href="mh/forfor-2.html">7.9 Forwarding Messages with forw</a>
+      <dl>
+        <dt><a href="mh/forfor-2.html#For">7.9.1 Formatting Forwarded Messages</a>
+        <dt><a href="mh/forfor-2.html#AdTetTDr">7.9.2 Adding Text to the Draft</a>
+        <dt><a href="mh/forfor-2.html#LeMyDaAl">7.9.3 Leave My Dashes Alone</a>
+        <dt><a href="mh/forfor-2.html#MaYoMebu">7.9.4 Make Your Messages burst-able</a>
+        <dt><a href="mh/forfor-2.html#NoNefofo">7.9.5 Formatting the Header</a>
+        <dt><a href="mh/forfor-2.html#AnnOrMe2">7.9.6 Annotating the Original Message</a>
+        <dt><a href="mh/forfor-2.html#CreDig">7.9.7 Creating Digests</a>
+        <dt><a href="mh/forfor-2.html#FoinMIFo">7.9.8 Forwarding in MIME Format</a>
+      </dl>
+      <dt><a href="mh/disdis.html">7.10 Distributing Messages with dist</a>
+      <dl>
+        <dt><a href="mh/disdis.html#AdFil">7.10.1 A distcomps File</a>
+        <dt><a href="mh/disdis.html#AnnOrMe3">7.10.2 Annotating the Original Message</a>
+        <dt><a href="mh/disdis.html#Dradis">7.10.3 distprompter Edits dist Drafts</a>
+      </dl>
+      <dt><a href="mh/sencom.html">7.11 Sending Files</a>
+      <dl>
+        <dt><a href="mh/sencom.html#mhmail">7.11.1 Send Non-MIME Files: mhmail</a>
+        <dt><a href="mh/sencom.html#viamail">7.11.2 Send Files with MIME: viamail</a>
+        <dt><a href="mh/sencom.html#Addapp">7.11.3 Add Files to Your Drafts: append</a>
+      </dl>
+      <dt>[<a href="#tocs">Top</a>]
+    </dl>
+
+    <h3><a name="chFOMaMH">Chapter 8: Finding and Organizing Mail with MH</a></h3>
+    <dl>
+      <dt><a href="mh/ch-faomw.html">8.0 Chapter Introduction</a>
+      <dt><a href="mh/fol.html">8.1 Folders</a>
+      <dl>
+        <dt><a href="mh/fol.html#Youfol">8.1.1 Your Current Folder: folder</a>
+        <dt><a href="mh/fol.html#UsiFol">8.1.2 Using the folder Command to Create and Change Folders</a>
+        <dt><a href="mh/fol.html#ChAnFo">8.1.3 Changing to Another Folder</a>
+        <dl>
+          <dt><a href="mh/thplofmh.html">Sidebar: The Pluses of MH</a>
+        </dl>
+        <dt><a href="mh/fol.html#Movref">8.1.4 Moving and Linking Messages: refile</a>
+        <dt><a href="mh/fol.html#Sub">8.1.5 Subfolders</a>
+        <dt><a href="mh/fol.html#RelNam">8.1.6 Relative Folder Names</a>
+        <dt><a href="mh/fol.html#folfas">8.1.7 folder -fast</a>
+        <dt><a href="mh/fol.html#LisCom">8.1.8 List of All Folders: The folders Command</a>
+        <dt><a href="mh/fol.html#Lisfol">8.1.9 List Folders in Columns with fols</a>
+        <dt><a href="mh/fol.html#FolSta">8.1.10 Folder Stacks</a>
+        <dt><a href="mh/fol.html#RenFol">8.1.11 Renumbering Messages in a Folder</a>
+        <dt><a href="mh/fol.html#WiaMD">8.1.12 Working in an MH Directory</a>
+      </dl>
+      <dt><a href="mh/finpic.html">8.2 Finding Messages with pick</a>
+      <dl>
+        <dt><a href="mh/finpic.html#picSwi">8.2.1 pick Switches</a>
+        <dl>
+          <dt><a href="mh/gepiadse.html">Sidebar: Getting Picky About Date Searches</a>
+        </dl>
+        <dt><a href="mh/finpic.html#GivShe">8.2.2 Passing Message Numbers with Backquotes</a>
+        <dt><a href="mh/finpic.html#StoSeq">8.2.3 Storing Message Numbers in MH Sequences</a>
+        <dt><a href="mh/finpic.html#StoPro">8.2.4 Saving Time with Your MH Profile</a>
+        <dt><a href="mh/finpic.html#ComSwi">8.2.5 Combining pick Switches</a>
+        <dt><a href="mh/finpic.html#picCom">8.2.6 picking Miscellaneous Fields</a>
+        <dt><a href="mh/finpic.html#HowFinMe">8.2.7 How Searches Find Messages</a>
+        <dt><a href="mh/finpic.html#SeaSeq">8.2.8 Searching a Message Range or Sequence</a>
+        <dl>
+          <dt><a href="mh/prehpick.html">Sidebar: Prehistoric pick-ing</a>
+        </dl>
+        <dt><a href="mh/finpic.html#SeMTOnFo">8.2.9 Searching More Than One Folder</a>
+        <dt><a href="mh/finpic.html#EaSwaAMF">8.2.10 Easier Searches with a `Link Folder'</a>
+        <dt><a href="mh/finpic.html#FiMetoYo">8.2.11 Finding Messages to Yourself with pick2me</a>
+      </dl>
+      <dt><a href="mh/morseq.html">8.3 More About Sequences</a>
+      <dl>
+        <dt><a href="mh/morseq.html#AddSeq">8.3.1 Adding Messages to a Sequence</a>
+        <dt><a href="mh/morseq.html#DelSeq">8.3.2 Deleting Messages from a Sequence</a>
+        <dt><a href="mh/morseq.html#LisSeq">8.3.3 Listing Sequences</a>
+        <dt><a href="mh/morseq.html#PreSeq">8.3.4 Previous-Sequence, Sequence-Negation</a>
+        <dt><a href="mh/morseq.html#TheSeq">8.3.5 The unseen Sequence</a>
+        <dt><a href="mh/morseq.html#Thecur">8.3.6 The cur Sequence</a>
+        <dt><a href="mh/morseq.html#PubSeq">8.3.7 Public and Private Sequences</a>
+        <dt><a href="mh/morseq.html#flist">8.3.8 Searching for Sequences with flist</a>
+      </dl>
+      <dt><a href="mh/stormess.html">8.4 Storing Messages</a>
+      <dl>
+        <dt><a href="mh/stormess.html#CaMtaF">8.4.1 Copying a Message to a File</a>
+        <dt><a href="mh/stormess.html#SaFiSp">8.4.2 Saving Filesystem Space</a>
+        <dt><a href="mh/stormess.html#DeStMIMe">8.4.3 Decoding and Storing MIME Messages</a>
+      </dl>
+      <dt><a href="mh/sorsor.html">8.5 Sorting Messages: sortm</a>
+      <dl>
+        <dt><a href="mh/sorsor.html#NewCom">8.5.1 Sort by Any Field</a>
+        <dt><a href="mh/sorsor.html#NewLim">8.5.2 Date Limit</a>
+      </dl>
+      <dt><a href="mh/rem.html">8.6 Removing and Recovering Messages</a>
+      <dl>
+        <dt><a href="mh/rem.html#HowRemMe">8.6.1 How rmm Removes Messages</a>
+        <dt><a href="mh/rem.html#RecMes">8.6.2 Recovering a Removed Message</a>
+        <dt><a href="mh/rem.html#Charmm">8.6.3 Changing Your rmmproc</a>
+        <dt><a href="mh/rem.html#BetWay">8.6.4 Improve rmm: use rmmer</a>
+        <dt><a href="mh/rem.html#drmm">8.6.5 Delayed Removal: drmm</a>
+      </dl>
+      <dt><a href="mh/remrmf.html">8.7 Removing Folders: rmf</a>
+      <dt><a href="mh/annann.html">8.8 Annotating Headers with anno</a>
+      <dt><a href="mh/usilin.html">8.9 Using Links</a>
+      <dl>
+        <dt><a href="mh/usilin.html#MakLin">8.9.1 Making Links</a>
+        <dt><a href="mh/usilin.html#AreLin">8.9.2 Are These Two Messages Linked?</a>
+        <dt><a href="mh/usilin.html#AFoFuoLi">8.9.3 A Folder Full of Links</a>
+        <dt><a href="mh/usilin.html#LinUse">8.9.4 Links Between Users</a>
+        <dt><a href="mh/usilin.html#UsiSymLi">8.9.5 Using Symbolic Links</a>
+      </dl>
+      <dt><a href="mh/burdig.html">8.10 Bursting Messages</a>
+      <dt><a href="mh/pamiafwp.html">8.11 Files with Multiple Messages</a>
+      <dl>
+        <dt><a href="mh/pamiafwp.html#packf">8.11.1 MMDF Format</a>
+        <dt><a href="mh/pamiafwp.html#packmbox">8.11.2 Mailbox Format</a>
+        <dt><a href="mh/pamiafwp.html#rfl">8.11.3 Joining Messages with rfl</a>
+        <DL>
+          <dt><a href="mh/rfl_man.html">Special subsection of 8.11.3: rfl Manual Page</a>
+        </dl>
+      </dl>
+      <dt><a href="mh/mhsoamfm.html">8.12 MH Shell on a Mailbox File: msh</a>
+      <dl>
+        <dt><a href="mh/mhsoamfm.html#Oveofmsh">8.12.1 Overview of msh</a>
+        <dt><a href="mh/mhsoamfm.html#HaNMawms">8.12.2 Handling New Mail with msh</a>
+        <dt><a href="mh/mhsoamfm.html#msaYMHPr">8.12.3 msh and Your MH Profile</a>
+      </dl>
+      <dt>[<a href="#tocs">Top</a>]
+    </dl>
+
+    <h2><a name="partCusMH">PART III: CUSTOMIZING MH</a></h2>
+
+    <h3><a name="chMHYrWy">Chapter 9: Making MH Work Your Way</a></h3>
+    <dl>
+      <dt><a href="mh/ch-mmwyw.html">9.0 Chapter Introduction</a>
+      <dt><a href="mh/runcom.html">9.1 Running an MH Command</a>
+      <dt><a href="mh/mhanthsh.html">9.2 MH and the Shell</a>
+      <dl>
+        <dt><a href="mh/mhanthsh.html#UsSAaFwM">9.2.1 Using Shell Aliases and Functions with MH</a>
+        <dt><a href="mh/mhanthsh.html#UsShVawM">9.2.2 Using Shell Variables with MH</a>
+        <dt><a href="mh/mhanthsh.html#UsEnVawM">9.2.3 Using Environment Variables with MH</a>
+      </dl>
+      <dt><a href="mh/angen.html">9.3 An MH Profile, in General</a>
+      <dt><a href="mh/confmhn.html">9.4 MIME Configuration</a>
+      <dl>
+        <dt><a href="mh/confmhn.html#PrthmhRe">9.4.1 MIME Profiles</a>
+        <dt><a href="mh/confmhn.html#MaanMHPr">9.4.2 Making a MIME Profile</a>
+        <dt><a href="mh/confmhn.html#WhPrEnTh">9.4.3 What Profile Entries Are There?</a>
+        <dt><a href="mh/confmhn.html#ShComhsh">9.4.4 Showing MIME Contents</a>
+        <dt><a href="mh/confmhn.html#DiOChSmc">9.4.5 Displaying Other Character Sets</a>
+        <dt><a href="mh/confmhn.html#CoComhco">9.4.6 Composing MIME Content</a>
+        <dt><a href="mh/confmhn.html#SoComsms">9.4.7 Storing Content</a>
+        <dt><a href="mh/confmhn.html#CEBPmcmp">9.4.8 Caching External Body Parts</a>
+        <dt><a href="mh/confmhn.html#GEBPFmaf">9.4.9 Getting External Body Parts by FTP</a>
+        <dt><a href="mh/confmhn.html#Theautmh">9.4.10 Building MIME Drafts Automatically</a>
+      </dl>
+      <dt><a href="mh/inchsu.html">9.5 International Character Support</a>
+      <dt><a href="mh/chanam.html">9.6 Changing MH Directory Name</a>
+      <dt><a href="mh/setacc.html">9.7 Setting Access Permissions for Other Accounts</a>
+      <dt><a href="mh/defmai.html">9.8 Defining Alternate Mailboxes</a>
+      <dt><a href="mh/shafol.html">9.9 Sharing Other Users' Folders</a>
+      <dt><a href="mh/drafil.html">9.10 Draft Message Template Files</a>
+      <dl>
+        <dt><a href="mh/drafil.html#HowBui">9.10.1 How the Draft Message is Built</a>
+        <dt><a href="mh/drafil.html#ThecomFi">9.10.2 The components File</a>
+        <dt><a href="mh/drafil.html#TherepFi">9.10.3 The replcomps File</a>
+        <DL>
+          <dt><a href="mh/drafil-o.html">Special subsection of 9.10.3: replcomps lines 1-2 before MH 6.8</a>
+        </dl>
+        <dt><a href="mh/drafil.html#TheforFi">9.10.4 The forwcomps File</a>
+        <dt><a href="mh/drafil.html#ThedigFi">9.10.5 The digestcomps File</a>
+        <dt><a href="mh/drafil.html#ThedisFi">9.10.6 The distcomps File</a>
+      </dl>
+      <dt><a href="mh/pccewca.html">9.11 Periodic Cleanup, Checking, etc. with cron and at</a>
+      <dl>
+        <dt><a href="mh/pccewca.html#Caution">9.11.1 Caution</a>
+        <dt><a href="mh/pccewca.html#Stcrjo">9.11.2 Starting cron Jobs</a>
+        <dt><a href="mh/pccewca.html#Statjo">9.11.3 Starting at Jobs</a>
+        <dt><a href="mh/pccewca.html#NoabTi">9.11.4 Note about Times</a>
+        <dt><a href="mh/pccewca.html#OuanEr">9.11.5 Output and Errors</a>
+        <dt><a href="mh/pccewca.html#LiOlDr">9.11.6 List Old Drafts</a>
+        <dt><a href="mh/pccewca.html#RemDeMe">9.11.7 Remove Messages from rmmer</a>
+        <dt><a href="mh/pccewca.html#ClOlMe">9.11.8 Cleaning Up Old Messages</a>
+      </dl>
+      <dt><a href="mh/autmes.html">9.12 Automatic Signature on End of Messages</a>
+      <dt><a href="mh/qufoac.html">9.13 Quick Folder Access</a>
+      <dt>[<a href="#tocs">Top</a>]
+    </dl>
+
+    <h3><a name="chNewVerMH">Chapter 10: New Versions of MH Commands</a></h3>
+    <dl>
+      <dt><a href="mh/ch-nvomc.html">10.0 Chapter Introduction</a>
+      <dt><a href="mh/whacom.html">10.1 What's a New Command Version?</a>
+      <dt><a href="mh/makcom.html">10.2 Making a New Command Version</a>
+      <dl>
+        <dt><a href="mh/makcom.html#SetVer">10.2.1 Setup Before You Make First New Version</a>
+        <dt><a href="mh/makcom.html#WhaVer">10.2.2 What to Do for Each New Version</a>
+      </dl>
+      <dt><a href="mh/wcvaaof.html">10.3 Writing Command Versions as Aliases or Functions</a>
+      <dt><a href="mh/verrep.html">10.4 Versions of repl</a>
+      <dl>
+        <dt><a href="mh/verrep.html#IncRep">10.4.1 Including Original Message in Reply: replx</a>
+        <dt><a href="mh/verrep.html#StaRep">10.4.2 Standard Replies: thanks</a>
+        <dt><a href="mh/verrep.html#FolMes">10.4.3 Followup Mail Messages: foll, follx</a>
+        <dt><a href="mh/verrep.html#ReAnAdr">10.4.4 Reply from Another Address: replb</a>
+      </dl>
+      <dt><a href="mh/mmbwm.html">10.5 Make Message Bookmarks with mark</a>
+      <dt><a href="mh/vermes.html">10.6 msg: `While You Were Out' Messages with comp</a>
+      <dt><a href="mh/verfor.html">10.7 Versions of forw</a>
+      <dl>
+        <dt><a href="mh/verfor.html#Reres">10.7.1 Use forw to Resend a Returned Message</a>
+        <dt><a href="mh/verfor.html#FFoMMe">10.7.2 Filter Forwarded MIME Messages: mforw</a>
+        <dt><a href="mh/verfor.html#fFfHur">10.7.3 forwr: Format forw Headers using repl</a>
+      </dl>
+      <dt><a href="mh/edmeshm.html">10.8 Edit Messages with show: mhedit</a>
+      <dt><a href="mh/smmpws.html">10.9 Show MIME Message Parts with showpart</a>
+      <dt><a href="mh/verpro.html">10.10 Append Text with prompter.nopre</a>
+      <dt><a href="mh/verpus.html">10.11 Version of send: push</a>
+      <dt><a href="mh/versca.html">10.12 Versions of scan</a>
+      <dl>
+        <dt><a href="mh/versca.html#Scaetc">10.12.1 Scanning Message Ranges: cur, c10, l5, etc.</a>
+        <dt><a href="mh/versca.html#ScShSiM">10.12.2 Scan and Show Size of Message: sscan</a>
+        <dt><a href="mh/versca.html#Scamsg">10.12.3 Scan Messages Waiting: msgscan</a>
+        <dt><a href="mh/versca.html#GMeNuL">10.12.4 Get Message Number List: msgnums</a>
+      </dl>
+      <dt><a href="mh/vercha.html">10.13 Fast Folder Changes with fo</a>
+      <dt><a href="mh/verpic.html">10.14 Versions of pick: Repeatable Custom Searches</a>
+      <dt>[<a href="#tocs">Top</a>]
+    </dl>
+
+    <h3><a name="chMHFmt">Chapter 11: MH Formatting</a></h3>
+    <dl>
+      <dt><a href="mh/ch-mf.html">11.0 Chapter Introduction</a>
+      <dt><a href="mh/hl.html">11.1 mhl</a>
+      <dl>
+        <dt><a href="mh/hl.html#ForHea">11.1.1 Formatting the Message Header</a>
+        <dt><a href="mh/hl.html#ForBod">11.1.2 Formatting the Message Body</a>
+        <dt><a href="mh/hl.html#Defmhl">11.1.3 Default mhl Format File for show</a>
+        <dt><a href="mh/hl.html#forFil">11.1.4 forw Filter Files</a>
+        <dt><a href="mh/hl.html#Scrmor">11.1.5 Screen Size and moreproc</a>
+        <dt><a href="mh/hl.html#Sumomhl">11.1.6 Summary of mhl</a>
+      </dl>
+      <dt><a href="mh/mhstr.html">11.2 MH Format Strings</a>
+      <dl>
+        <dt><a href="mh/mhstr.html#scaStr">11.2.1 scan Format Strings</a>
+        <dt><a href="mh/mhstr.html#scaFil">11.2.2 scan Format Files</a>
+        <dt><a href="mh/mhstr.html#scanans">11.2.3 The scan.answer Format File</a>
+        <dt><a href="mh/mhstr.html#scanfor">11.2.4 The Default scan Format File</a>
+        <dt><a href="mh/mhstr.html#Adasca">11.2.5 More Header Information: scan.hdr</a>
+        <dt><a href="mh/mhstr.html#scaWid">11.2.6 scan Widths</a>
+        <dt><a href="mh/mhstr.html#scandat">11.2.7 The scan.dateparse Format File</a>
+        <dt><a href="mh/mhstr.html#scanmor">11.2.8 The scan.more Format File</a>
+        <dt><a href="mh/mhstr.html#TreadFF">11.2.9 The replcomps.addrfix Format File</a>
+        <dt><a href="mh/mhstr.html#TrcfoFi">11.2.10 The rcvtty.format File</a>
+        <dt><a href="mh/mhstr.html#TrcvdFi">11.2.11 The rcvdistcomps File</a>
+        <dt><a href="mh/mhstr.html#SumMFS">11.2.12 Summary of MH Format Strings</a>
+      </dl>
+      <dt>[<a href="#tocs">Top</a>]
+    </dl>
+
+
+    <h3><a name="chPrMaAu">Chapter 12: Processing New Mail Automatically</a></h3>
+    <dl>
+      <dt><a href="mh/ch-pnma.html">12.0 Chapter Introduction</a>
+      <dt><a href="mh/homwotb.html">12.1 The .maildelivery File: Overview</a>
+      <dt><a href="mh/thmafid.html">12.2 The .maildelivery File in Detail</a>
+      <dl>
+        <dt><a href="mh/thmafid.html#FimArfi">12.2.1 First .maildelivery Argument: Field</a>
+        <dt><a href="mh/thmafid.html#SemArpa">12.2.2 Second .maildelivery Argument: Pattern</a>
+        <dt><a href="mh/thmafid.html#ThmArac">12.2.3 Third .maildelivery Argument: Action</a>
+        <dt><a href="mh/thmafid.html#FomArre">12.2.4 Fourth .maildelivery Argument: Result</a>
+        <dt><a href="mh/thmafid.html#FimArst">12.2.5 Fifth .maildelivery Argument: String</a>
+        <dt><a href="mh/thmafid.html#UnDo6se">12.2.6 Undocumented Arguments 6-8: select</a>
+        <dt><a href="mh/thmafid.html#rcvsearch">12.2.7 Regular Expression Matching with rcvsearch</a>
+      </dl>
+      <dt><a href="mh/ruyomfi.html">12.3 Running Your .maildelivery File</a>
+      <dt><a href="mh/exmbcom.html">12.4 Experimenting?  Make Backups!</a>
+      <dt><a href="mh/nmenorc.html">12.5 New Message Notification: rcvtty</a>
+      <dl>
+        <dt><a href="mh/nmenorc.html#WrcNoYo">12.5.1 Where rcvtty Notifies You</a>
+        <dt><a href="mh/nmenorc.html#HrcNoYo">12.5.2 How rcvtty Notifies You</a>
+        <dt><a href="mh/nmenorc.html#UsaMePr">12.5.3 Using a Message Preprocessor</a>
+      </dl>
+      <dt><a href="mh/stmifrc.html">12.6 Storing in Folders: rcvstore</a>
+      <dt><a href="mh/redmerc.html">12.7 Redistributing Messages: rcvdist</a>
+      <dl>
+        <dt><a href="mh/redmerc.html#Rurcfma">12.7.1 Running rcvdist from .maildelivery</a>
+        <dt><a href="mh/redmerc.html#AutFoCo">12.7.2 Automatic Folder Copies</a>
+        <dt><a href="mh/redmerc.html#WaOufML">12.7.3 Watch Out for Mail Loops</a>
+      </dl>
+      <dt><a href="mh/samimfr.html">12.8 Storing in Mailbox Files: rcvpack</a>
+      <dt><a href="mh/altmhpr.html">12.9 Alternatives to mhook Programs</a>
+      <dl>
+        <dt><a href="mh/altmhpr.html#ReAoYma">12.9.1 Replacing All of Your .maildelivery File</a>
+        <dt><a href="mh/altmhpr.html#TvaMaHa">12.9.2 The vacation Mail Handler</a>
+        <dt><a href="mh/altmhpr.html#RuYMHfm">12.9.3 Running Your Own Mail Handler</a>
+        <dt><a href="mh/altmhpr.html#RerwPUW">12.9.4 Replacing rcvtty with Pop-Up Windows</a>
+        <dt><a href="mh/altmhpr.html#PwacobH">12.9.5 Processing with at or cron or by Hand</a>
+      </dl>
+      <dt><a href="mh/putitat.html">12.10 Practical Tips</a>
+      <dl>
+        <dt><a href="mh/putitat.html#FiMfMaL">12.10.1 Finding Mail from Mailing Lists</a>
+        <dt><a href="mh/putitat.html#HanPeMa">12.10.2 Handing Periodic Mail</a>
+        <dt><a href="mh/putitat.html#ThAbCRt">12.10.3 Think About cc:, Resent-To:, ...</a>
+        <dt><a href="mh/putitat.html#SAttaaF">12.10.4 System Aliases, the to and addr Fields</a>
+        <dt><a href="mh/putitat.html#FlaImMa">12.10.5 Flagging Important Mail</a>
+        <dt><a href="mh/putitat.html#MaYoMFY">12.10.6 Making Your Mail Follow You</a>
+        <dt><a href="mh/putitat.html#SpMtSeP">12.10.7 Splitting Mail to Several Places</a>
+      </dl>
+      <dt><a href="mh/debugti.html">12.11 slocal Debugging Tips</a>
+      <dl>
+        <dt><a href="mh/debugti.html#DovReLi">12.11.1 slocal Documentation vs. Real Life</a>
+        <dt><a href="mh/debugti.html#CatslEr">12.11.2 Catching slocal Errors</a>
+        <dt><a href="mh/debugti.html#EdDSSyE">12.11.3 Even -debug Doesn't Show Syntax Errors</a>
+        <dt><a href="mh/debugti.html#slEmaEr">12.11.4 slocal Eats .maildelivery Errors</a>
+        <dt><a href="mh/debugti.html#MEnVaHi">12.11.5 Most Environment Variables Hidden</a>
+      </dl>
+      <dt>[<a href="#tocs">Top</a>]
+    </dl>
+
+
+    <h3><a name="chUPrMH">Chapter 13: Introduction to UNIX Programming with MH</a></h3>
+    <dl>
+      <dt><a href="mh/ch-itupw.html">13.0 Chapter Introduction</a>
+      <dt><a href="mh/wripro.html">13.1 Writing Shell Scripts for MH</a>
+      <dt><a href="mh/wrioth.html">13.2 Using MH from Other Languages</a>
+      <dt><a href="mh/tesfil.html">13.3 How Does Your System Execute Files?</a>
+      <dt><a href="mh/comsub.html">13.4 Shell Command Substitution</a>
+      <dt><a href="mh/usista.html">13.5 Using Exit Status</a>
+      <dt><a href="mh/hanarg.html">13.6 Looping Through a List of Arguments</a>
+      <dt><a href="mh/finnam.html">13.7 Finding Program Name; Multiple Program Names</a>
+      <dl>
+        <dt><a href="mh/wgiafw1l.html">Sidebar: What Good is a File With 1000 Links?</a>
+      </dl>
+      <dt><a href="mh/atset.html">13.8 A Test Mail Setup</a>
+      <dt><a href="mh/maimhm.html">13.9 Mailing Non-interactively: mhmail</a>
+      <dt><a href="mh/thecom-2.html">13.10 The mhpath Command</a>
+      <dt><a href="mh/getmenu.html">13.11 Getting Message Numbers</a>
+      <dt><a href="mh/getpro.html">13.12 Settings from the MH Profile</a>
+      <dt><a href="mh/getenv.html">13.13 Settings from the Environment</a>
+      <dt><a href="mh/chaenv.html">13.14 Changing the MH Environment</a>
+      <dt><a href="mh/wriedi.html">13.15 Writing Your Own Draft Message Editor(s)</a>
+      <dt><a href="mh/usiinf.html">13.16 Get Information with scan Format Strings</a>
+      <dt><a href="mh/watpro.html">13.17 Watch Out for the MH Profile</a>
+      <dt><a href="mh/proref.html">13.18 Problems with folder, inc, and refile</a>
+      <dt>[<a href="#tocs">Top</a>]
+    </dl>
+
+    <h2><a name="partxmh">PART IV: xmh</a></h2>
+
+    <h3><a name="chTourxmh">Chapter 14: Tour Through xmh</a></h3>
+    <dl>
+      <dt><a href="xmh/ch-ttx.html">14.0 Chapter Introduction</a>
+      <dt><a href="xmh/getsta-2.html">14.1 Getting Started</a>
+      <dt><a href="xmh/runxmh.html">14.2 Running xmh</a>
+      <dt><a href="xmh/whawin.html">14.3 What's in the xmh Window</a>
+      <dt><a href="xmh/sendmai.html">14.4 Sending Mail</a>
+      <dt><a href="xmh/getmai.html">14.5 Getting New Mail</a>
+      <dt><a href="xmh/repmai.html">14.6 Replying to Mail</a>
+      <dt><a href="xmh/chaare.html">14.7 Changing Sizes of Each Area</a>
+      <dt><a href="xmh/seapic.html">14.8 Searching for Messages</a>
+      <dt><a href="xmh/formes.html">14.9 Forwarding Messages</a>
+      <dt><a href="xmh/remmes.html">14.10 Removing Messages</a>
+      <dt><a href="xmh/leaxmh.html">14.11 Leaving xmh</a>
+      <dt><a href="xmh/morxmh.html">14.12 More About xmh</a>
+      <dt>[<a href="#tocs">Top</a>]
+    </dl>
+
+    <h3><a name="chUsexmh">Chapter 15: Using xmh</a></h3>
+    <dl>
+      <dt><a href="xmh/ch-ux.html">15.0 Chapter Introduction</a>
+      <dt><a href="xmh/senmai.html">15.1 Sending Mail</a>
+      <dl>
+        <dt><a href="xmh/senmai.html#WorFol">15.1.1 Draft Messages and the drafts Folder</a>
+        <dt><a href="xmh/senmai.html#ChaHea">15.1.2 Changing the Draft Message Header</a>
+        <dt><a href="xmh/senmai.html#MorFor">15.1.3 More About Forwarding</a>
+        <dt><a href="xmh/senmai.html#MorRep">15.1.4 More About Replying</a>
+        <dt><a href="xmh/senmai.html#ReCom">15.1.5 Resend Messages with Use As Composition</a>
+        <dt><a href="xmh/senmai.html#Ali">15.1.6 Aliases</a>
+      </dl>
+      <dt><a href="xmh/scrbar.html">15.2 Scrollbars</a>
+      <dl>
+        <dt><a href="xmh/scrbar.html#WheApp">15.2.1 When They Appear</a>
+        <dt><a href="xmh/scrbar.html#LenThu">15.2.2 Length and Position of the Thumb</a>
+        <dt><a href="xmh/scrbar.html#MovThu">15.2.3 Moving the Thumb</a>
+      </dl>
+      <dt><a href="xmh/edixmh.html">15.3 Editing in xmh</a>
+      <dl>
+        <dt><a href="xmh/edixmh.html#TexCom">15.3.1 Text Editing Commands</a>
+        <dt><a href="xmh/edixmh.html#SeanRep">15.3.2 Search and Replace</a>
+        <dt><a href="xmh/edixmh.html#ComBut">15.3.3 Composition Window Buttons</a>
+        <dt><a href="xmh/edixmh.html#RefoPar">15.3.4 Reformatting Paragraphs</a>
+        <dt><a href="xmh/edixmh.html#LinWra">15.3.5 Line Wrapping</a>
+        <dt><a href="xmh/edixmh.html#CopPas">15.3.6 Copy and Paste</a>
+        <dt><a href="xmh/edixmh.html#UsAnoEd">15.3.7 Use Another Editor</a>
+      </dl>
+      <dt><a href="xmh/reamai.html">15.4 Reading Your Mail</a>
+      <dl>
+        <dt><a href="xmh/reamai.html#IncMai">15.4.1 Incorporate New Mail</a>
+        <dt><a href="xmh/reamai.html#VieWin">15.4.2 View Window</a>
+        <dt><a href="xmh/reamai.html#LinFol">15.4.3 Line Folding</a>
+        <dt><a href="xmh/reamai.html#MeNuLi">15.4.4 Message Number Limit</a>
+      </dl>
+      <dt><a href="xmh/primai.html">15.5 Printing Your Mail</a>
+      <dt><a href="xmh/orgfol.html">15.6 Organizing Messages with Folders</a>
+      <dl>
+        <dt><a href="xmh/orgfol.html#MakFol">15.6.1 Making a New Folder</a>
+        <dt><a href="xmh/orgfol.html#FolaSub">15.6.2 Folders and Subfolders</a>
+        <dt><a href="xmh/orgfol.html#SelFol">15.6.3 Using Another Folder</a>
+        <dt><a href="xmh/orgfol.html#MovFol">15.6.4 Moving Messages Between Folders</a>
+        <dt><a href="xmh/orgfol.html#LinkFol">15.6.5 Linking (not Copying) Messages Between Folders</a>
+        <dt><a href="xmh/orgfol.html#DelMes">15.6.6 Deleting (and Restoring) Messages</a>
+        <dt><a href="xmh/orgfol.html#ResFol">15.6.7 Rescan Folder</a>
+        <dt><a href="xmh/orgfol.html#VieFol">15.6.8 Viewed Message vs. Viewed Folder</a>
+        <dt><a href="xmh/orgfol.html#PacFol">15.6.9 Packing a Folder</a>
+        <dt><a href="xmh/orgfol.html#SorFol">15.6.10 Sorting a Folder</a>
+        <dt><a href="xmh/orgfol.html#DelFol">15.6.11 Deleting a Folder</a>
+      </dl>
+      <dt><a href="xmh/intseq.html">15.7 Introduction to Sequences</a>
+      <dt><a href="xmh/usipic.html">15.8 Using Pick</a>
+      <dl>
+        <dt><a href="xmh/usipic.html#ApExa">15.8.1 A Pick Example</a>
+        <dt><a href="xmh/usipic.html#UsiBut">15.8.2 Using the Big -Or- Button</a>
+        <dt><a href="xmh/usipic.html#FinCom">15.8.3 Find Other Fields, Skip Fields</a>
+        <dt><a href="xmh/usipic.html#BotWin">15.8.4 Bottom Area of the Pick Window</a>
+      </dl>
+      <dt><a href="xmh/modseq.html">15.9 Modifying Sequences</a>
+      <dt><a href="xmh/thewin.html">15.10 The Master xmh Window</a>
+      <dt>[<a href="#tocs">Top</a>]
+    </dl>
+
+    <h3><a name="chCusxmh">Chapter 16: Customizing xmh</a></h3>
+    <dl>
+      <dt><a href="xmh/ch-cx.html">16.0 Chapter Introduction</a>
+      <dt><a href="xmh/comopt-2.html">16.1 Command-line Settings</a>
+      <dt><a href="xmh/comliop.html">16.2 Command-line Options</a>
+      <dl>
+        <dt><a href="xmh/comliop.html#MHPat">16.2.1 MH Directory Path</a>
+        <dt><a href="xmh/comliop.html#IniFol">16.2.2 Initial Folder</a>
+        <dt><a href="xmh/comliop.html#TooOpt">16.2.3 Toolkit Options</a>
+      </dl>
+      <dt><a href="xmh/resfun.html">16.3 Changing How Commands Work</a>
+      <dl>
+        <dt><a href="xmh/resfun.html#Hid">16.3.1 HideBoringHeaders</a>
+        <dt><a href="xmh/resfun.html#Pri">16.3.2 PrintCommand</a>
+        <dt><a href="xmh/resfun.html#Rep">16.3.3 ReplyInsertFilter</a>
+        <dt><a href="xmh/resfun.html#SenBrea">16.3.4 SendBreakWidth</a>
+        <dt><a href="xmh/resfun.html#SenWid">16.3.5 SendWidth</a>
+        <dt><a href="xmh/resfun.html#SkiSki">16.3.6 SkipCopied, SkipDeleted, SkipMoved</a>
+        <dt><a href="xmh/resfun.html#TocGeom">16.3.7 TocGeometry</a>
+        <dt><a href="xmh/resfun.html#TocWid">16.3.8 TocWidth</a>
+        <dt><a href="xmh/resfun.html#Sha">16.3.9 ShapeStyle</a>
+        <dt><a href="xmh/resfun.html#SumoRes">16.3.10 Summary of Resources</a>
+      </dl>
+      <dt><a href="xmh/resacc.html">16.4 Changing Buttons; Accelerators</a>
+      <dl>
+        <dt><a href="xmh/resacc.html#NewMes">16.4.1 New Accelerator for Compose Message</a>
+        <dt><a href="xmh/resacc.html#RedBut">16.4.2 Redefining Composition Window Buttons</a>
+        <dt><a href="xmh/resacc.html#ANWin">16.4.3 A New Buttonbox for the Main Windows</a>
+        <dt><a href="xmh/resacc.html#AddCol">16.4.4 Adding Color</a>
+        <dt><a href="xmh/resacc.html#MovFol">16.4.5 Moving a Message to a Specific Folder</a>
+        <dt><a href="xmh/resacc.html#ChCOwed">16.4.6 Changing Command Options with edprofile</a>
+        <dt><a href="xmh/resacc.html#UsaExEd">16.4.7 Use an External Editor</a>
+      </dl>
+      <dt><a href="xmh/concus.html">16.5 Conflicts Between xmh and MH Customization</a>
+      <dt><a href="xmh/usihea.html">16.6 Template Draft Files Set Headers</a>
+      <dt><a href="xmh/chafor.html">16.7 Changing Table of Contents</a>
+      <dl>
+        <dt><a href="xmh/chafor.html#Int">16.7.1 Introduction</a>
+        <dt><a href="xmh/chafor.html#UsiFil">16.7.2 Using a Standard scan Format File</a>
+        <dt><a href="xmh/chafor.html#AWCon">16.7.3 A Wider Table of Contents</a>
+      </dl>
+      <dt><a href="xmh/chacom.html">16.8 Changing the Print Command</a>
+      <dl>
+        <dt><a href="xmh/chacom.html#GraOut">16.8.1 Grabbing Error Output</a>
+        <dt><a href="xmh/chacom.html#Priand">16.8.2 Printing with lpr and lp</a>
+        <dt><a href="xmh/chacom.html#OthScr">16.8.3 Other Printer Commands</a>
+        <dt><a href="xmh/chacom.html#BetPri">16.8.4 A Better xmh Printer: xmhprint</a>
+      </dl>
+      <dt><a href="xmh/snoxmh.html">16.9 Snooping on xmh</a>
+      <dl>
+        <dt><a href="xmh/snoxmh.html#UstdeRe">16.9.1 Use the debug Resource</a>
+        <dt><a href="xmh/snoxmh.html#UseInf">16.9.2 Use Accounting Information</a>
+        <dt><a href="xmh/snoxmh.html#MakScr">16.9.3 Make a Front End Shell Script</a>
+        <dt><a href="xmh/snoxmh.html#RetSoCo">16.9.4 Read the Source Code</a>
+      </dl>
+      <dt>[<a href="#tocs">Top</a>]
+    </dl>
+
+    <h2><a name="partmh-e">PART V: MH-E</a></h2>
+
+    <dl>
+      <dt>Moved to <a href="http://mh-e.sourceforge.net/manual/"><i>The MH-E Manual</i></a>
+    </dl>
+
+    <h2><a name="partexmh">PART VI: exmh</a></h2>
+
+    <h3><a name="chTourexmh">Chapter 20: Introducing exmh</a></h3>
+    <dl>
+      <dt><a href="exmh/ch-ie.html">20.0 Chapter Introduction</a>
+      <dt><a href="exmh/getsta-4.html">20.1 Getting Started</a>
+      <dt><a href="exmh/runexm.html">20.2 Running exmh</a>
+      <dt><a href="exmh/thexmdi.html">20.3 The exmh Display</a>
+      <dt><a href="exmh/senmai-5.html">20.4 Sending Mail</a>
+      <dt><a href="exmh/anacap.html">20.5 A Note about Cut and Paste</a>
+      <dt><a href="exmh/genema.html">20.6 Getting New Mail</a>
+      <dt><a href="exmh/remime-2.html">20.7 Reading MIME Messages</a>
+      <dt><a href="exmh/repmai-2.html">20.8 Replying to Mail</a>
+      <dt><a href="exmh/selmes.html">20.9 Selecting Multiple Messages</a>
+      <dl>
+        <dt><a href="exmh/selmes.html#UsiMou">20.9.1 Using the Mouse</a>
+        <dt><a href="exmh/selmes.html#SeaPic">20.9.2 Searching with Pick</a>
+        <dt><a href="exmh/selmes.html#FasSea">20.9.3 Fast Search</a>
+      </dl>
+      <dt><a href="exmh/formes-2.html">20.10 Forwarding Messages</a>
+      <dt><a href="exmh/delmes.html">20.11 Deleting Messages</a>
+      <dt><a href="exmh/prefer.html">20.12 Preferences</a>
+      <dt><a href="exmh/leaexm.html">20.13 Leaving exmh</a>
+      <dt><a href="exmh/moabex.html">20.14 More about exmh</a>
+      <dt>[<a href="#tocs">Top</a>]
+    </dl>
+
+    <h3><a name="chUseexmh">Chapter 21: Using exmh</a></h3>
+    <dl>
+      <dt><a href="exmh/ch-ue.html">21.0 Chapter Introduction</a>
+      <dt><a href="exmh/mouaro.html">21.1 Mousing Around</a>
+      <dt><a href="exmh/keycom.html">21.2 Keyboard Commands</a>
+      <dt><a href="exmh/thexmd-2.html">21.3 The exmh Display</a>
+      <dt><a href="exmh/foldis.html">21.4 Folder Display</a>
+      <dt><a href="exmh/folcac.html">21.5 Folder Cache</a>
+      <dt><a href="exmh/tabcon.html">21.6 Table of Contents</a>
+      <dt><a href="exmh/mesdis.html">21.7 Message Display</a>
+      <dt><a href="exmh/manmes.html">21.8 Managing Messages</a>
+      <dl>
+        <dt><a href="exmh/manmes.html#DelMes">21.8.1 Deleting Messages</a>
+        <dt><a href="exmh/manmes.html#RefMes">21.8.2 Refiling Messages</a>
+        <dt><a href="exmh/manmes.html#Undo">21.8.3 Undo</a>
+        <dt><a href="exmh/manmes.html#LinMes">21.8.4 Linking Messages</a>
+        <dt><a href="exmh/manmes.html#AutCom">21.8.5 Auto Commit</a>
+        <dt><a href="exmh/manmes.html#ImpDir">21.8.6 Implied Direction</a>
+        <dt><a href="exmh/manmes.html#SkMaMe">21.8.7 Skipping Marked Messages</a>
+        <dt><a href="exmh/manmes.html#ChFoAu">21.8.8 Changing Folders Automatically</a>
+      </dl>
+      <dt><a href="exmh/senmai-6.html">21.9 Sending Mail</a>
+      <dl>
+        <dt><a href="exmh/senmai-6.html#SeNeMe">21.9.1 Sending a New Message</a>
+        <dt><a href="exmh/senmai-6.html#RepMes">21.9.2 Replying to a Message</a>
+        <dt><a href="exmh/senmai-6.html#ForMes">21.9.3 Forwarding a Message</a>
+        <dt><a href="exmh/senmai-6.html#UaEMaaT">21.9.4 Using an Existing Message as a Template</a>
+      </dl>
+      <dt><a href="exmh/maiali.html">21.10 Mail Aliases</a>
+      <dt><a href="exmh/thbuied.html">21.11 The Built-in Editor</a>
+      <dl>
+        <dt><a href="exmh/thbuied.html#EditCom">21.11.1 Editing Commands</a>
+        <dt><a href="exmh/thbuied.html#SenaMes">21.11.2 Sending a Message</a>
+        <dt><a href="exmh/thbuied.html#SavDra">21.11.3 Saving a Draft</a>
+        <dt><a href="exmh/thbuied.html#AboDra">21.11.4 Aborting a Draft</a>
+        <dt><a href="exmh/thbuied.html#Signat">21.11.5 Signatures</a>
+        <dt><a href="exmh/thbuied.html#PGP">21.11.6 PGP</a>
+      </dl>
+      <dt><a href="exmh/maiform.html">21.12 Mail Formatting</a>
+      <dl>
+        <dt><a href="exmh/maiform.html#LinBre">21.12.1 Line Breaks</a>
+        <dt><a href="exmh/maiform.html#ChaFon">21.12.2 Changing Fonts</a>
+        <dt><a href="exmh/maiform.html#InsFil">21.12.3 Inserting Files</a>
+      </dl>
+      <dt><a href="exmh/mimfor.html">21.13 MIME Formatting</a>
+      <dt><a href="exmh/faces.html">21.14 Faces</a>
+      <dl>
+        <dt><a href="exmh/faces.html#FacDat">21.14.1 Facesaver Database</a>
+        <dt><a href="exmh/faces.html#XFHeFi">21.14.2 X-Face Header Fields</a>
+      </dl>
+      <dt><a href="exmh/usaned.html">21.15 Using Another Editor</a>
+      <dt><a href="exmh/filmai.html">21.16 Filtering Mail</a>
+      <dl>
+        <dt><a href="exmh/filmai.html#FiUnSe">21.16.1 Filtering and the Unseen Sequence</a>
+        <dt><a href="exmh/filmai.html#IncMai">21.16.2 Incorporating Mail</a>
+        <dt><a href="exmh/filmai.html#MFiFiE">21.16.3 Mail Filtering File Examples</a>
+      </dl>
+      <dt><a href="exmh/tips.html">21.17 Tips</a>
+      <dl>
+        <dt><a href="exmh/tips.html#BacPro">21.17.1 Background Processing</a>
+        <dt><a href="exmh/tips.html#ScaCac">21.17.2 Scan Caches</a>
+        <dt><a href="exmh/tips.html#OmMeDi">21.17.3 Optimizing Message Display</a>
+        <dt><a href="exmh/tips.html#MoKeSt">21.17.4 More Keyboard Stuff</a>
+        <dt><a href="exmh/tips.html#LarFol">21.17.5 Large Folders</a>
+      </dl>
+      <dt><a href="exmh/tksexa.html">21.18 Tk Send and Xauthority</a>
+      <dt><a href="exmh/morinf.html">21.19 More Information</a>
+      <dt>[<a href="#tocs">Top</a>]
+    </dl>
+
+    <h3><a name="chCusexmh">Chapter 22: Customizing exmh</a></h3>
+    <dl>
+      <dt><a href="exmh/ch-ce.html">22.0 Chapter Introduction</a>
+      <dt><a href="exmh/prefer-2.html">22.1 Preferences</a>
+      <dt><a href="exmh/presec.html">22.2 Preference Sections</a>
+      <dt><a href="exmh/bindui.html">22.3 Binding User Interface</a>
+      <dt><a href="exmh/mhprof.html">22.4 MH Profile</a>
+      <dt><a href="exmh/xresou.html">22.5 X Resources</a>
+      <dt><a href="exmh/wiclhi.html">22.6 Widget Class Hierarchy</a>
+      <dt><a href="exmh/resbut.html">22.7 Resources for Buttons</a>
+      <dt><a href="exmh/resmen.html">22.8 Resources for Menus</a>
+      <dt><a href="exmh/butgro.html">22.9 Button Groups</a>
+      <dt><a href="exmh/colres.html">22.10 Color Resources</a>
+      <dt><a href="exmh/colhea.html">22.11 Colorizing Header Fields</a>
+      <dt><a href="exmh/gepore.html">22.12 Geometry and Position Resources</a>
+      <dt><a href="exmh/icopos.html">22.13 Icon Positions</a>
+      <dt><a href="exmh/fodire.html">22.14 Folder Display Resources</a>
+      <dt><a href="exmh/mimres.html">22.15 MIME Resources</a>
+      <dt><a href="exmh/proexm.html">22.16 Programming exmh</a>
+      <dt><a href="exmh/codorg.html">22.17 Code Organization</a>
+      <dl>
+        <dt><a href="exmh/codorg.html#MaiScr">22.17.1 Main Scripts</a>
+        <dt><a href="exmh/codorg.html#Library">22.17.2 Library</a>
+      </dl>
+      <dt>[<a href="#tocs">Top</a>]
+    </dl>
+
+    <h2><a name="partApp">PART VII: APPENDICES</a></h2>
+
+    <h3><a name="apWCYGFH">Appendix A: Where Can You Go from Here?</a></h3>
+    <dl>
+      <dt><a href="mh/ap-wcygf.html">A.0 Appendix Introduction</a>
+      <dt><a href="mh/mhbbo.html">A.1 MH BBoards</a>
+      <dt><a href="mh/morabo.html">A.2 More Information About MH</a>
+      <dl>
+        <dt><a href="mh/morabo.html#Docwit">A.2.1 Documents Distributed with MH</a>
+        <dt><a href="mh/morabo.html#TheCod">A.2.2 The MH Source Code</a>
+        <dt><a href="mh/morabo.html#Web">A.2.3 World Wide Web Pages</a>
+        <dt><a href="mh/morabo.html#USE">A.2.4 Usenet Newsgroup</a>
+        <dt><a href="mh/morabo.html#MaLi">A.2.5 Mailing Lists</a>
+        <dt><a href="mh/morabo.html#FAQ">A.2.6 The FAQ</a>
+      </dl>
+      <dt>[<a href="#tocs">Top</a>]
+    </dl>
+
+    <h3><a name="apHists">Appendix B: History</a></h3>
+    <dl>
+      <dt><a href="overall/ap-homxa.html">B.0 Appendix Introduction</a>
+      <dt><a href="overall/hiofmh.html">B.1 History of MH</a>
+      <dl>
+        <dt><a href="overall/hiofmh.html#Overv">B.1.1 Overview</a>
+        <dt><a href="overall/hiofmh.html#FrBrBo">B.1.2 From Bruce Borden</a>
+        <dt><a href="overall/hiofmh.html#FrStGa">B.1.3 From Stockton Gaines</a>
+        <dt><a href="overall/hiofmh.html#TOMHP">B.1.4 The Original MH Proposal</a>
+      </dl>
+      <dt><a href="overall/xmh.html">B.2 History of xmh</a>
+      <dt><a href="overall/exmh.html">B.3 The History of exmh</a>
+      <dt><a href="http://mh-e.sourceforge.net/manual/html/History.html">B.4 Early History of MH-E (see <i>The MH-E Manual</i>)</a>
+      <dt>[<a href="#tocs">Top</a>]
+    </dl>
+
+    <h3><a name="apRefLst">Appendix C: Reference List</a></h3>
+    <dl>
+      <dt><a href="overall/ap-rl.html">C.0 Appendix Introduction</a>
+      <dt>[<a href="#tocs">Top</a>]
+    </dl>
+
+    <h3><a name="apExamp">Appendix D: Example Files and Programs</a></h3>
+    <dl>
+      <dt><a href="mh/ap-efap.html">D.0 Appendix Introduction</a>
+      <dt><a href="mh/obtpro.html">D.1 Obtaining Example Files From This Book</a>
+      <dt><a href="overall/faq.html">D.2 FAQ</a>
+      <dt><a href="overall/rfcaid.html">D.3 RFCs and Internet Drafts</a>
+      <dt><a href="mh/mh-2.html">D.4 MH and nmh Source Code</a>
+      <dt><a href="mh/mhscex.html">D.5 MH Scripts and Examples</a>
+      <dt><a href="overall/metama.html">D.6 Metamail</a>
+      <dt><a href="http://mh-e.sourceforge.net/manual/html/Getting-MH_002dE.html">D.7 Getting MH-E (see <i>The MH-E Manual</i>)</a>
+      <dt><a href="exmh/exmh-2.html">D.8 Getting exmh</a>
+      <dt><a href="mh/pritba.html">D.9 Programs in This Book's Archive</a>
+      <dt><a href="mh/e-aligre.html">D.10 Explanation of aligrep</a>
+      <dt><a href="mh/e-append.html">D.11 Explanation of append</a>
+      <dt><a href="mh/e-autoin.html">D.12 Explanation of autoinc</a>
+      <dt><a href="mh/e-automh.html">D.13 Explanation of automhn</a>
+      <dt><a href="mh/e-distpr.html">D.14 Explanation of distprompter</a>
+      <dl>
+        <dt><a href="mh/tiaooril.html">Sidebar: The Ins and Outs of Redirected I/O Loops</a>
+      </dl>
+      <dt><a href="mh/e-drmm.html">D.15 Explanation of drmm</a>
+      <dt><a href="xmh/e-edprof.html">D.16 Explanation of edprofile</a>
+      <dt><a href="mh/e-execit.html">D.17 The execit Programs</a>
+      <dt><a href="mh/e-fols.html">D.18 Explanation of fols</a>
+      <dt><a href="mh/e-forwed.html">D.19 Explanation of forwedit</a>
+      <dt><a href="mh/e-fpick.html">D.20 Explanation of fpick</a>
+      <dt><a href="mh/e-mhprof.html">D.21 Explanation of mhprofile</a>
+      <dt><a href="mh/e-mimeca.html">D.22 Explanation of mimecat</a>
+      <dt><a href="mh/e-mkfona.html">D.23 Explanation of mk_fol_names Package</a>
+      <dt><a href="mh/e-mysend.html">D.24 Explanation of mysend</a>
+      <dt><a href="mh/e-origin.html">D.25 Explanation of original</a>
+      <dt><a href="mh/e-pick2m.html">D.26 Explanation of pick2me</a>
+      <dt><a href="mh/e-pof.html">D.27 Explanation of pof</a>
+      <dt><a href="mh/e-rcvsea.html">D.28 Explanation of rcvsearch</a>
+      <dt><a href="mh/e-recomp.html">D.29 Explanation of recomp</a>
+      <dt><a href="mh/e-resend.html">D.30 Explanation of resend</a>
+      <dt><a href="mh/e-rfl.html">D.31 Explanation of rfl</a>
+      <dt><a href="mh/e-rmmer.html">D.32 Explanation of rmmer</a>
+      <dt><a href="mh/e-scandr.html">D.33 Explanation of scandrafts</a>
+      <dt><a href="mh/e-showpr.html">D.34 Explanation of showpr</a>
+      <dt><a href="mh/e-storep.html">D.35 Explanation of storeparts</a>
+      <dt><a href="xmh/e-xmhpri.html">D.36 Explanation of xmhprint</a>
+      <dt>[<a href="#tocs">Top</a>]
+    </dl>
+
+    <h3><a name="apRefGde">Appendix E: Reference Guide</a></h3>
+    <dl>
+      <dt><a href="overall/ap-rg.html">E.0 Appendix Introduction</a>
+      <dt><a href="mh/mhrg.html">E.1 MH Reference Guide</a>
+      <dl>
+        <dt><a href="mh/r-ali.html">E.1.1 ali Reference Guide</a>
+        <dt><a href="mh/r-anno.html">E.1.2 anno Reference Guide</a>
+        <dt><a href="mh/r-burst.html">E.1.3 burst Reference Guide</a>
+        <dt><a href="mh/r-comp.html">E.1.4 comp Reference Guide</a>
+        <dt><a href="mh/r-dist.html">E.1.5 dist Reference Guide</a>
+        <dt><a href="mh/r-flist.html">E.1.6 flist Reference Guide</a>
+        <dt><a href="mh/r-folder.html">E.1.7 folder Reference Guide</a>
+        <dt><a href="mh/r-foldrs.html">E.1.8 folders Reference Guide</a>
+        <dt><a href="mh/r-forw.html">E.1.9 forw Reference Guide</a>
+        <dt><a href="mh/r-inc.html">E.1.10 inc Reference Guide</a>
+        <dt><a href="mh/r-mark.html">E.1.11 mark Reference Guide</a>
+        <dt><a href="mh/r-mhbuil.html">E.1.12 mhbuild Reference Guide</a>
+        <dt><a href="mh/r-mhl.html">E.1.13 mhl Reference Guide</a>
+        <dt><a href="mh/r-mhlist.html">E.1.14 mhlist Reference Guide</a>
+        <dt><a href="mh/r-mhmail.html">E.1.15 mhmail Reference Guide</a>
+        <dt><a href="mh/r-mhn.html">E.1.16 mhn Reference Guide</a>
+        <dt><a href="mh/r-mhpara.html">E.1.17 mhparam Reference Guide</a>
+        <dt><a href="mh/r-mhpath.html">E.1.18 mhpath Reference Guide</a>
+        <dt><a href="mh/r-mhshow.html">E.1.19 mhshow Reference Guide</a>
+        <dt><a href="mh/r-mhstor.html">E.1.20 mhstore Reference Guide</a>
+        <dt><a href="mh/r-msgchk.html">E.1.21 msgchk Reference Guide</a>
+        <dt><a href="mh/r-msh.html">E.1.22 msh Reference Guide</a>
+        <dt><a href="mh/r-next.html">E.1.23 next Reference Guide</a>
+        <dt><a href="mh/r-packf.html">E.1.24 packf Reference Guide</a>
+        <dt><a href="mh/r-packmb.html">E.1.25 packmbox Reference Guide</a>
+        <dt><a href="mh/r-pick.html">E.1.26 pick Reference Guide</a>
+        <dt><a href="mh/r-prev.html">E.1.27 prev Reference Guide</a>
+        <dt><a href="mh/r-prompt.html">E.1.28 prompter Reference Guide</a>
+        <dt><a href="mh/r-rcvdis.html">E.1.29 rcvdist Reference Guide</a>
+        <dt><a href="mh/r-rcvpac.html">E.1.30 rcvpack Reference Guide</a>
+        <dt><a href="mh/r-rcvsto.html">E.1.31 rcvstore Reference Guide</a>
+        <dt><a href="mh/r-rcvtty.html">E.1.32 rcvtty Reference Guide</a>
+        <dt><a href="mh/r-refile.html">E.1.33 refile Reference Guide</a>
+        <dt><a href="mh/r-repl.html">E.1.34 repl Reference Guide</a>
+        <dt><a href="mh/r-rmf.html">E.1.35 rmf Reference Guide</a>
+        <dt><a href="mh/r-rmm.html">E.1.36 rmm Reference Guide</a>
+        <dt><a href="mh/r-scan.html">E.1.37 scan Reference Guide</a>
+        <dt><a href="mh/r-send.html">E.1.38 send Reference Guide</a>
+        <dt><a href="mh/r-show.html">E.1.39 show Reference Guide</a>
+        <dt><a href="mh/r-slocal.html">E.1.40 slocal Reference Guide</a>
+        <dt><a href="mh/r-sortm.html">E.1.41 sortm Reference Guide</a>
+        <dt><a href="mh/r-viamai.html">E.1.42 viamail Reference Guide</a>
+        <dt><a href="mh/r-whatno.html">E.1.43 whatnow Reference Guide</a>
+        <dt><a href="mh/r-whom.html">E.1.44 whom Reference Guide</a>
+      </dl>
+      <dt><a href="xmh/xmhrg.html">E.2 xmh Reference Guide</a>
+      <dl>
+        <dt><a href="xmh/xmhrg.html#table1">Table 1. Folder (Menu of global commands)</a>
+        <dt><a href="xmh/xmhrg.html#table2">Table 2. Table of Contents (Menu for handling viewed folder)</a>
+        <dt><a href="xmh/xmhrg.html#table3">Table 3. Message (Menu for handling current or selected message)</a>
+        <dt><a href="xmh/xmhrg.html#table4">Table 4. Sequence (Menu for message sequences and searching)</a>
+        <dt><a href="xmh/xmhrg.html#table5">Table 5. View (Menu for handling viewed message)</a>
+        <dt><a href="xmh/xmhrg.html#table6">Table 6. Options (Menu that may be longer some day)</a>
+        <dt><a href="xmh/xmhrg.html#table7">Table 7. Composition window (Buttonbox for handling drafts)</a>
+        <dt><a href="xmh/xmhrg.html#table8">Table 8. xmh Text Editing Commands (Adapted from xmh(1) manual page)</a>
+      </dl>
+      <dt><a href="http://mh-e.sourceforge.net/manual/">E.3 MH-E Reference Guide (see <i>The MH-E Manual</i>)</a>
+      <dt><a href="exmh/exmhrg.html">E.4 exmh Reference Guide</a>
+      <dl>
+        <dt><a href="exmh/exmhrg.html#CoLiOp">E.4.1 Command-line Options</a>
+        <dt><a href="exmh/exmhrg.html#MaBaM">E.4.2 Main Buttons and Menus</a>
+        <dt><a href="exmh/exmhrg.html#FBaM">E.4.3 Folder Buttons and Menus</a>
+        <dt><a href="exmh/exmhrg.html#MeBaM">E.4.4 Message Buttons and Menus</a>
+        <dt><a href="exmh/exmhrg.html#sBaM">E.4.5 sedit Buttons and Menus</a>
+        <dt><a href="exmh/exmhrg.html#WNBaM">E.4.6 What Now Buttons and Menus</a>
+        <dt><a href="exmh/exmhrg.html#ExEdIn">E.4.7 External Editor Interface</a>
+        <dt><a href="exmh/exmhrg.html#CoKe">E.4.8 Command Keys</a>
+        <dt><a href="exmh/exmhrg.html#EdKe">E.4.9 Editing Keys</a>
+      </dl>
+      <dt><a href="overall/mimerg.html">E.5 MIME Reference Guide</a>
+      <dl>
+        <dt><a href="overall/mimerg.html#SMctas">E.5.1 Some MIME Content Types and Subtypes</a>
+        <dt><a href="overall/mimerg.html#SomD">E.5.2 Syntax of MIME Draft Directives</a>
+      </dl>
+      <dt>[<a href="#tocs">Top</a>]
+    </dl>
+
+    <h3><a name="figures">List of Figures</a></h3>
+    <dl>
+      <dt><a href="overall/howwor.html#HammgfAtB">1-1 How a mail message gets from A to B</a>
+      <dt><a href="overall/howwor.html#MHFroEnd">1-2 MH and front-ends</a>
+      <dt><a href="overall/anand.html#ImpoaUNfi">2-1 Important parts of a UNIX filesystem</a>
+      <dt><a href="overall/lin.html#Twolinmes">2-2 Two linked messages</a>
+      <dt><a href="mh/senove.html#SamS1Mdft">7-1 Sending a message. Step 1: Making draft from template</a>
+      <dt><a href="mh/senove.html#S2Dmbapei">7-2 Sending a message. Steps 2-4: Draft message, before and after prompter edits it</a>
+      <dt><a href="mh/senove.html#S56Afcotd">7-3 Sending a message. Steps 5-6: After composing the draft</a>
+      <dt><a href="mh/fol.html#Meliithfo">8-1 Message linked into three folders</a>
+      <dt><a href="mh/fol.html#Asubfolde">8-2 A subfolder</a>
+      <dt><a href="mh/fol.html#Cufoafost">8-3 Current folder and folder stack</a>
+      <dt><a href="mh/fol.html#Aprottots">8-4 After pushing reports/jan onto the top of the stack</a>
+      <dt><a href="mh/fol.html#Afscfwtos">8-5 After swapping current folder with top of stack</a>
+      <dt><a href="xmh/whawin.html#xmfimawi">14-1 xmh first master window</a>
+      <dt><a href="xmh/whawin.html#Seleacom">14-2 Selecting a command</a>
+      <dt><a href="xmh/sendmai.html#xmmecowi">14-3 xmh message composition window</a>
+      <dt><a href="xmh/sendmai.html#Cowwfime">14-4 Composition window with finished message</a>
+      <dt><a href="xmh/sendmai.html#Clcwwsoe">14-5 Closing composition window without saving or sending</a>
+      <dt><a href="xmh/getmai.html#Afinneme">14-6 After incorporating new messages</a>
+      <dt><a href="xmh/getmai.html#Seametvi">14-7 Selecting a message to view</a>
+      <dt><a href="xmh/repmai.html#Cowiwire">14-8 Composition window with reply</a>
+      <dt><a href="xmh/chaare.html#Mxwbugcs">14-9 Master xmh window before using grips to change sizes</a>
+      <dt><a href="xmh/chaare.html#Mxwaivma">14-10 Master xmh window after increasing viewed message area</a>
+      <dt><a href="xmh/seapic.html#Pickwind">14-11 Pick window</a>
+      <dt><a href="xmh/seapic.html#Afpimecp">14-12 After picking messages containing pizza</a>
+      <dt><a href="xmh/seapic.html#Sethalse">14-13 Selecting the all sequence</a>
+      <dt><a href="xmh/formes.html#Fortwmes">14-14 Forwarding two messages</a>
+      <dt><a href="xmh/remmes.html#Mxwwtmmd">14-15 Master xmh window with two messages marked for deletion</a>
+      <dt><a href="xmh/ch-ux.html#xmawiwpl">15-1 xmh main window with parts labeled</a>
+      <dt><a href="xmh/senmai.html#Woosedao">15-2 Working on several drafts at once</a>
+      <dt><a href="xmh/senmai.html#Radfasmw">15-3 Recomposing a draft from a second main window</a>
+      <dt><a href="xmh/senmai.html#RarmwUaC">15-4 Resending a returned message with Use As Composition</a>
+      <dt><a href="xmh/edixmh.html#Searpowi">15-5 Search and replace pop-up window</a>
+      <dt><a href="xmh/edixmh.html#MEQReMi">15-6 META-Q reformatting mistake</a>
+      <dt><a href="xmh/reamai.html#Tftcinma">15-7 Two folders that can incorporate mail</a>
+      <dt><a href="xmh/reamai.html#Aviewwin">15-8 A view window</a>
+      <dt><a href="xmh/orgfol.html#Fbuwslfn">15-9 Folder buttonbox with some long folder names</a>
+      <dt><a href="xmh/orgfol.html#Afowonsu">15-10 A folder with one subfolder</a>
+      <dt><a href="xmh/orgfol.html#Afowfosu">15-11 A folder with four subfolders</a>
+      <dt><a href="xmh/orgfol.html#Twmemafm">15-12 Two messages marked for moving</a>
+      <dt><a href="xmh/orgfol.html#Reamedbr">15-13 Recovering a message deleted by rmmer</a>
+      <dt><a href="xmh/orgfol.html#MaToCodf">15-14 Message and Table of Contents from different folders</a>
+      <dt><a href="xmh/orgfol.html#Folbesor">15-15 Folder before sorting</a>
+      <dt><a href="xmh/orgfol.html#Folafsor">15-16 Folder after sorting</a>
+      <dt><a href="xmh/intseq.html#Selasema">15-17 Selecting a sequence (all)</a>
+      <dt><a href="xmh/usipic.html#Maanpiwi">15-18 Main and Pick windows</a>
+      <dt><a href="xmh/usipic.html#Mawapims">15-19 Main window after picking mailquestions sequence</a>
+      <dt><a href="xmh/usipic.html#PwabOcta">15-20 Pick window after big -Or- clicked in top area</a>
+      <dt><a href="xmh/usipic.html#ExPiskbu">15-21 Example of Pick skip button</a>
+      <dt><a href="xmh/modseq.html#Adamttms">15-22 Adding a message to the mailquestions sequence</a>
+      <dt><a href="xmh/comliop.html#xfmiwwmw">16-1 Old-fashioned xmh -flag mailbox icons</a>
+      <dt><a href="xmh/resfun.html#OrmarwsR">16-2 Original message and reply with special ReplyInsertFilter</a>
+      <dt><a href="xmh/resfun.html#SwboGaTs">16-3 Screen with new geometry settings</a>
+      <dt><a href="xmh/resacc.html#Decowibu">16-4 Default composition window buttonbox</a>
+      <dt><a href="xmh/resacc.html#CwNHcSaC">16-5 Composition window New Headers changed to Send and Close</a>
+      <dt><a href="xmh/resacc.html#Cowiwtbr">16-6 Composition window with two buttons redefined</a>
+      <dt><a href="xmh/resacc.html#DncywCBC">16-7 Display (not customized yet) with *CommandButtonCount:5</a>
+      <dt><a href="xmh/resacc.html#Mawiwnbu">16-8 Main window with new buttonbox</a>
+      <dt><a href="xmh/chafor.html#TaoCwdsf">16-9 Table of Contents with default scan(1) format</a>
+      <dt><a href="xmh/chafor.html#ToCwstff">16-10 Table of Contents with scan.timely format file</a>
+      <dt><a href="xmh/chafor.html#Wimwancw">16-11 Wide main window (and normal composition window)</a>
+      <dt><a href="xmh/snoxmh.html#Makanobo">16-12 Making a notice box</a>
+      <dt><a href="exmh/thexmdi.html#Mpoted">20-1 Main parts of the exmh display</a>
+      <dt><a href="exmh/thexmdi.html#HigKey">20-2 Highlighting Key</a>
+      <dt><a href="exmh/remime-2.html#DiMIme">20-3 Displaying a MIME message</a>
+      <dt><a href="exmh/selmes.html#ThPidi">20-4 The Pick dialog</a>
+      <dt><a href="exmh/thexmd-2.html#exmDis">21-1 exmh display</a>
+      <dt><a href="exmh/foldis.html#Follis">21-2 Folder list</a>
+      <dt><a href="exmh/maiali.html#AliInt">21-3 Alias interface</a>
+      <dt><a href="exmh/thbuied.html#BuinEd">21-4 Built-in editor</a>
+      <dt><a href="exmh/prefer-2.html#ASlPW">22-1 A second-level preferences window</a>
+    </dl>
+
+    <h3><a name="tables">List of Tables</a></h3>
+    <dl>
+      <dt><a href="mh/usimim.html#Exofmhdi">5-1 Examples of MIME draft directives</a>
+      <dt><a href="mh/usmwp.html#SCtMuP">6-1 Some Changes to MH Under POP</a>
+      <dt><a href="mh/finpic.html#picOpePre">8-1 pick Operator Precedence</a>
+      <dt><a href="mh/confmhn.html#DiStrEs">9-1 Display String Escapes</a>
+      <dt><a href="mh/confmhn.html#CoStrEsc">9-2 Composition String Escapes</a>
+      <dt><a href="mh/confmhn.html#mhStFoSt">9-3 MIME Storage Formatting Strings</a>
+      <dt><a href="mh/confmhn.html#mhStoEsc">9-4 MIME Storage Escapes</a>
+      <dt><a href="mh/inchsu.html#SaLASe">9-5 Sample LANG settings</a>
+      <dt><a href="mh/drafil.html#DraMeTeFi">9-6 Draft Message Template Filenames</a>
+      <dt><a href="mh/hl.html#MhlVar">11-1 mhl Variables</a>
+      <dt><a href="mh/mhstr.html#MHForEsc">11-2 MH Format Escapes</a>
+      <dt><a href="mh/mhstr.html#ATfMfF">11-3 Argument Types for MH-format Functions</a>
+      <dt><a href="mh/mhstr.html#MfFuEs1">11-4 MH-format Function Escapes (1 of 3)</a>
+      <dt><a href="mh/mhstr.html#MfFuEs2">11-5 MH-format Function Escapes (2 of 3)</a>
+      <dt><a href="mh/mhstr.html#MfFuEs3">11-6 MH-format Function Escapes (3 of 3)</a>
+      <dt><a href="mh/mhstr.html#Mfsce">11-7 MH-format Special Component and Function Escapes</a>
+      <dt><a href="mh/thmafid.html#VaSfpaq">12-1 Variables Set for pipe and qpipe</a>
+      <dt><a href="mh/getenv.html#EnVatMHS">13-1 Environment Variables that MH Sets</a>
+      <dt><a href="mh/chaenv.html#EnVatMHC">13-2 Environment Variables that MH Checks</a>
+      <dt><a href="xmh/edixmh.html#xmTECMod">15-1 xmh Text Editing Commands: Modifying</a>
+      <dt><a href="xmh/edixmh.html#xmTECMov">15-2 xmh Text Editing Commands: Moving</a>
+      <dt><a href="xmh/resfun.html#xmhRes">16-1 xmh Resources</a>
+      <dt><a href="xmh/resacc.html#xmhActio">16-2 xmh Release 5 Actions</a>
+      <dt><a href="exmh/keycom.html#exKeCo">21-1 exmh Keyboard Commands</a>
+      <dt><a href="exmh/foldis.html#DeFoHi">21-2 Default Folder Highlights</a>
+      <dt><a href="exmh/foldis.html#MoBiFoL">21-3 Mouse Bindings for Folder Labels</a>
+      <dt><a href="exmh/tabcon.html#TaCoHi">21-4 Table of Contents Highlighting</a>
+      <dt><a href="exmh/tabcon.html#ToCMB">21-5 Table of Contents Mouse Bindings</a>
+      <dt><a href="mh/e-distpr.html#UFiDeNu">D-1 UNIX File Descriptor Numbers</a>
+      <dt><a href="mh/e-showpr.html#ShEL2os">D-2 Shell Evaluating showpr eval Command</a>
+    </dl>
+
+    <h3><a name="examples">List of Examples</a></h3>
+    <dl>
+      <dt><a href="overall/pro.html#ShoMHPro">1-1 Short MH profile</a>
+      <dt><a href="overall/ovofmime.html#EncMIMes">3-1 Encoded MIME message</a>
+      <dt><a href="overall/mulmes.html#SaMuMeEn">3-2 Sample multipart message, encoded</a>
+      <dt><a href="overall/mulmes.html#SaMuMeDe">3-3 Sample multipart message, decoded</a>
+      <dt><a href="mh/sensen.html#Usithcoco">5-1 Using the comp command</a>
+      <dt><a href="mh/shomes.html#AuscoUnMe">6-1 Automatic scan of unread messages</a>
+      <dt><a href="mh/shomes.html#FiaRSNMQu">6-2 Finding and handling a group of messages quickly</a>
+      <dt><a href="mh/shomes.html#Shamewimh">6-3 Showing a message without mhl</a>
+      <dt><a href="mh/shomes.html#Shamwdemf">6-4 Showing a message with default mhl formatting</a>
+      <dt><a href="mh/shomes.html#Shamwcumf">6-5 Showing a message with customized mhl formatting</a>
+      <dt><a href="mh/shomes.html#SMswdcf">6-6 Separate MH sessions with different current folders</a>
+      <dt><a href="mh/shomes.html#ssdcfs">6-7 A second session with different current folder and sequences</a>
+      <dt><a href="mh/chemsg.html#Aumcssf">6-8 Automatic mail check in shell setup file</a>
+      <dt><a href="mh/mh.html#AMafwcarn">7-1 An MH alias file with comments and real names</a>
+      <dt><a href="mh/wormes.html#WofviEPmy">7-2 Workaround for vi editor problem: myvi</a>
+      <dt><a href="mh/cosemime.html#vMfEET">7-3 vi Macros for entering enriched text</a>
+      <dt><a href="mh/finpic.html#SeAlTLFo">8-1 Searching all top-level folders</a>
+      <dt><a href="mh/sorsor.html#Ussltsafo">8-2 Using shell loops to sort all folders</a>
+      <dt><a href="mh/usilin.html#LiEMiNAmF">8-3 Linking existing messages into new all-message folder</a>
+      <dt><a href="mh/usilin.html#SyCDLoROF">8-4 Symlink causes double listing of read-only folder</a>
+      <dt><a href="mh/pamiafwp.html#A8pacFiFor">8-5 packf file format</a>
+      <dt><a href="mh/pamiafwp.html#A8pacmFiFo">8-6 packmbox file format</a>
+      <dt><a href="mh/mhanthsh.html#ShalfoMH">9-1 Shell aliases for MH</a>
+      <dt><a href="mh/angen.html#AbigMHpro">9-2 A big MH profile</a>
+      <dt><a href="mh/confmhn.html#SPEHAaRC">9-3 Server profile entry to handle audio on a remote client</a>
+      <dt><a href="mh/drafil.html#DefMHrefi">9-4 Default MH replcomps file</a>
+      <dt><a href="mh/drafil.html#UpdMHrefi">9-5 Updated MH replcomps file</a>
+      <dt><a href="mh/drafil.html#DeMHdigi">9-6 Default MH digestcomps file</a>
+      <dt><a href="mh/hl.html#Umwlliib">11-1 Unformatted message with long lines in its body</a>
+      <dt><a href="mh/hl.html#Dmfamfwi">11-2 Default mhl.format file and message formatted with it</a>
+      <dt><a href="mh/hl.html#Rmfasmr">11-3 Revised mhl.format file and same message reformatted</a>
+      <dt><a href="mh/hl.html#mhdefffi">11-4 mhl.forward: Default forw format file</a>
+      <dt><a href="mh/hl.html#Fomefwmp">11-5 Four messages forwarded with mhl.prodsumry</a>
+      <dt><a href="mh/hl.html#mhprfoff">11-6 mhl.prodsumry:  forw filter file</a>
+      <dt><a href="mh/mhstr.html#Safowtwm">11-7 Sample folder with two messages</a>
+      <dt><a href="mh/mhstr.html#Descffsd">11-8 Default scan format file</a>
+      <dt><a href="mh/mhstr.html#Siscdefi">11-9 Default UK scan format file</a>
+      <dt><a href="mh/mhstr.html#schdfofi">11-10 scan.hdr format file</a>
+      <dt><a href="mh/mhstr.html#DaPaDesd">11-11 Date parsing demonstration: scan.dateparse</a>
+      <dt><a href="mh/mhstr.html#LoItsmff">11-12 Lots of information: The scan.more format file</a>
+      <dt><a href="mh/mhstr.html#Threarff">11-13 The replcomps.addrfix format file</a>
+      <dt><a href="mh/mhstr.html#Thrcfofi">11-14 The rcvtty.format file</a>
+      <dt><a href="mh/mhstr.html#ThrcvdFi">11-15 The rcvdistcomps file</a>
+      <dt><a href="mh/homwotb.html#SimmaiFi">12-1 Simple .maildelivery file</a>
+      <dt><a href="mh/altmhpr.html#MaHafoDe">12-2 Mail handler for debugging</a>
+      <dt><a href="mh/putitat.html#mftRotSP">12-3 .maildelivery that routes to several places</a>
+      <dt><a href="mh/putitat.html#rmffjbdm">12-4 mhl.roady file filters junk before distributing mail</a>
+      <dt><a href="mh/debugti.html#Ruslvin">12-5 Running slocal -verbose interactively</a>
+      <dt><a href="mh/debugti.html#Sasldvou">12-6 Sample slocal -debug -verbose output</a>
+      <dt><a href="mh/hanarg.html#folpacl">13-1 for loop parsing a command line</a>
+      <dt><a href="mh/atset.html#Csltm1tm">13-2 C shell loop to make 100 test messages</a>
+      <dt><a href="mh/atset.html#Bsnlm1tm">13-3 Bourne shell nested loop to make 100 test messages</a>
+      <dt><a href="xmh/reamai.html#Asixmhfi">15-1 A simple .xmhcheck file</a>
+      <dt><a href="xmh/resacc.html#Dememeac">16-1 Default message menu accelerators</a>
+      <dt><a href="xmh/resacc.html#MemawnCM">16-2 Message menu accelerators with new ComposeMessage()</a>
+      <dt><a href="xmh/resacc.html#Detotncb">16-3 Defining two of the new command buttons</a>
+      <dt><a href="xmh/resacc.html#Chsoored">16-4 Changing sort order with edprofile</a>
+      <dt><a href="xmh/resacc.html#Bteamwvi">16-5 Button to edit a message with vi</a>
+      <dt><a href="xmh/chafor.html#scdefofi">16-6 scan.default format file</a>
+      <dt><a href="xmh/chafor.html#scxmfofi">16-7 scan.xmhwide format file</a>
+      <dt><a href="exmh/filmai.html#mffmi">21-1 .maildelivery file for multidrop inc</a>
+      <dt><a href="exmh/filmai.html#xmhch">21-2 .xmhcheck file</a>
+      <dt><a href="exmh/filmai.html#mffpi">21-3 .maildelivery file for presort inc</a>
+      <dt><a href="exmh/filmai.html#mffems">21-4 .maildelivery file for exmh-modified slocal</a>
+      <dt><a href="exmh/bindui.html#FiXKey">22-1 Finding an X keysym</a>
+    </dl>
+
+    <h3><a name="ex-files">List of Example Files</a></h3>
+    <dl>
+      <dt><a href="examples/mh/bin/aligrep">The aligrep Shell Script</a>
+      <dt><a href="examples/mh/bin/append">The append Shell Script</a>
+      <dt><a href="examples/mh/bin/autoinc">The autoinc Shell Script</a>
+      <dt><a href="examples/mh/bin/distprompter">The distprompter Shell Script</a>
+      <dt><a href="examples/xmh/bin/edprofile">The edprofile Shell Script</a>
+      <dt><a href="examples/mh/execit/execit.c">The execit.c C Program</a>
+      <dt><a href="examples/mh/execit/execit.include">The execit.include File</a>
+      <dt><a href="examples/mh/execit/execit.link">The execit.link Shell Script</a>
+      <dt><a href="examples/mh/execit/Makefile">The execit Makefile</a>
+      <dt><a href="examples/mh/Mail/folder_table">The folder_table file for mk_fol_names</a>
+      <dt><a href="examples/mh/bin/fols">The fols Shell Script</a>
+      <dt><a href="examples/mh/bin/forwedit">The forwedit Shell Script</a>
+      <dt><a href="examples/mh/bin/fpick">The fpick Shell Script</a>
+      <dt><a href="examples/mh/bin/getmsgs">The getmsgs Shell Script</a>
+      <dt><a href="examples/mh/bin/getrich">The getrich Shell Script</a>
+      <dt><a href="examples/mh/bin/incs">The incs Shell Script</a>
+      <dt><a href="examples/mh/bin/inmail-show">The inmail-show Shell Script</a>
+      <dt><a href="examples/mh/bin/mhnftpmail">The mhnftpmail Shell Script</a>
+      <dt><a href="examples/mh/bin/mhprofile">The mhprofile Shell Script</a>
+      <dt><a href="examples/mh/bin/mimecat">The mimecat Shell Script</a>
+      <dt><a href="examples/mh/bin/mk_fol_names">The mk_fol_names Shell Script</a>
+      <dt><a href="examples/mh/bin/mk_fol_names.install">The mk_fol_names.install Shell Script</a>
+      <dt><a href="examples/mh/bin/mydist">The mydist Shell Script</a>
+      <dt><a href="examples/mh/bin/mysend">The mysend Shell Script</a>
+      <dt><a href="examples/mh/bin/myvi">The myvi Shell Script</a>
+      <dt><a href="examples/mh/bin/newmsgs">The newmsgs Shell Script</a>
+      <dt><a href="examples/mh/bin/original">The original Shell Script</a>
+      <dt><a href="examples/mh/bin/pick2me">The pick2me Shell Script</a>
+      <dt><a href="examples/mh/bin/rcvtty.fixup">The rcvtty.fixup Shell Script</a>
+      <dt><a href="examples/mh/bin/rcvxterm">The rcvxterm Shell Script</a>
+      <dt><a href="examples/mh/bin/recomp">The recomp Shell Script</a>
+      <dt><a href="examples/mh/bin/resend.fixmsg">The resend.fixmsg Shell Script</a>
+      <dt><a href="examples/mh/bin/rfl">The rfl Shell Script</a>
+      <dt><a href="examples/mh/bin/rmmer">The rmmer Shell Script</a>
+      <dt><a href="examples/mh/bin/scandrafts">The scandrafts Shell Script</a>
+      <dt><a href="examples/mh/bin/showpr">The showpr Shell Script</a>
+      <dt><a href="examples/mh/bin/storeparts">The storeparts Shell Script</a>
+      <dt><a href="examples/mh/bin/vidraft">The vidraft Shell Script</a>
+      <dt><a href="examples/xmh/bin/xmhprint">The xmhprint Shell Script</a>
+    </dl>
+
+    <h3><a name="sidebars">List of Sidebars</a></h3>
+    <dl>
+      <dt><a href="overall/abe.html">3-1 ASCII, bits, etc.</a>
+      <dt><a href="mh/wiabnab.html">7-1 When is a Backslash Not a Backslash?</a>
+      <dt><a href="mh/thplofmh.html">8-1 The Pluses of MH</a>
+      <dt><a href="mh/gepiadse.html">8-2 Getting Picky About Date Searches</a>
+      <dt><a href="mh/prehpick.html">8-3 Prehistoric pick-ing</a>
+      <dt><a href="mh/wgiafw1l.html">13-1 What Good is a File With 1000 Links?</a>
+      <dt><a href="mh/tiaooril.html">D-1 The Ins and Outs of Redirected I/O Loops</a>
+    </dl>
+
+    
+<hr class="clear">
+
+<p class="copyright">
+
+
+This file first appeared in the updated online edition of the
+book <i>MH &amp; nmh: Email for Users &amp; Programmers</i>, by Jerry
+Peek.
+
+
+It is freely available; you can redistribute it and/or modify it under
+the terms of the GNU General Public License as published by the Free
+Software Foundation. For more information,
+see <a href="./copying.html">COPYING</a>.
+
+
+<table width="100%">
+  <tr>
+
+    <td class="copyright" style="width:50%;padding-top: 5px">
+Copyright &copy; 1997 <a href="http://www.jpeek.com/contact.html">Jerry Peek</a> <br>
+Copyright &copy; 2006 <a href="http://www.newt.com/wohler/">Bill Wohler</a> <br>
+      <strong><i>Last modified</i></strong>: 2006-05-31 15:13:43 -0700    </td>
+
+    <td valign="top">
+      <a href="http://www.anybrowser.org/campaign/">
+        <img src="http://www.anybrowser.org/campaign/bvgraphics/dankarran.gif"
+             alt="Best Viewed With YOUR Browser"
+             width="88" height="31" style="margin-top: 5px">
+      </a>
+      <a href="http://validator.w3.org/check?uri=referer">
+        <img src="http://www.w3.org/Icons/valid-html401"
+             alt="Valid HTML 4.01!"
+             width="88" height="31" style="margin-top: 5px">
+      </a>
+      <a href="http://jigsaw.w3.org/css-validator/">
+        <img src="http://jigsaw.w3.org/css-validator/images/vcss" 
+             alt="Valid CSS!"
+             width="88" height="31" style="margin-top: 5px">
+      </a>
+      <a href="http://sourceforge.net">
+        <img src="http://sflogo.sourceforge.net/sflogo.php?group_id=143658&amp;type=1"
+             alt="SourceForge.net Logo"
+             width="88" height="31" style="margin-top: 5px"/>
+      </a>
+    </td>
+  </tr>
+</table>
+
+  </body>
+</html>

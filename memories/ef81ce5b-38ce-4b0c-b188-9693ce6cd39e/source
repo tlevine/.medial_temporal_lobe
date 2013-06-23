@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="client-nojs">
+<head>
+<meta charset="UTF-8" /><title>API:Main page - MediaWiki</title>
+<meta name="generator" content="MediaWiki 1.22wmf7" />
+<link rel="alternate" type="application/x-wiki" title="Edit" href="/w/index.php?title=API:Main_page&amp;action=edit" />
+<link rel="edit" title="Edit" href="/w/index.php?title=API:Main_page&amp;action=edit" />
+<link rel="shortcut icon" href="//bits.wikimedia.org/favicon/mediawiki.ico" />
+<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="MediaWiki (en)" />
+<link rel="EditURI" type="application/rsd+xml" href="//www.mediawiki.org/w/api.php?action=rsd" />
+<link rel="copyright" href="//creativecommons.org/licenses/by-sa/3.0/" />
+<link rel="alternate" type="application/atom+xml" title="MediaWiki Atom feed" href="/w/index.php?title=Special:RecentChanges&amp;feed=atom" />
+<link rel="stylesheet" href="//bits.wikimedia.org/www.mediawiki.org/load.php?debug=false&amp;lang=en&amp;modules=ext.gadget.Edittools%2CWmfProjectStatusHelper%2CcollapsibleTables%2Csite%7Cext.geshi.local%7Cext.rtlcite%2Cwikihiero%7Cext.uls.nojs%7Cmediawiki.legacy.commonPrint%2Cshared%7Cmw.PopUpMediaTransform%7Cskins.vector&amp;only=styles&amp;skin=vector&amp;*" />
+<meta name="ResourceLoaderDynamicStyles" content="" />
+<style>a:lang(ar),a:lang(ckb),a:lang(fa),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}
+/* cache key: mediawikiwiki:resourceloader:filter:minify-css:7:af38eb9a59ab7ad76e1442979723ab82 */</style>
+
+<script src="//bits.wikimedia.org/www.mediawiki.org/load.php?debug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=vector&amp;*"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"API","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":104,"wgPageName":"API:Main_page","wgTitle":"Main page","wgCurRevisionId":711771,"wgArticleId":14588,"wgIsArticle":true,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["MediaWiki API Overview","MediaWiki Development","Manual","Documentation","New contributors"],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"API:Main_page","wgRestrictionEdit":[],"wgRestrictionMove":[],"wgVectorEnabledModules":{"collapsiblenav":true,"collapsibletabs":true,"expandablesearch":false,"footercleanup":false,"sectioneditlinks":false,"experiments":true},"wgWikiEditorEnabledModules":{"toolbar":true,"dialogs":true,"hidesig":true,"templateEditor":false,"templates":false,"preview":false,"previewDialog":false,"publish":false,"toc":false},"wgVisualEditor":{"isPageWatched":false,"pageLanguageCode":"en","pageLanguageDir":"ltr","magnifyClipIconURL":"//bits.wikimedia.org/static-1.22wmf7/skins/common/images/magnify-clip.png"},"wikilove-recipient":"","wikilove-anon":0,"wgGuidedTourHelpGuiderUrl":"Help:Guided tours/guider","wgULSAcceptLanguageList":[],"wgFlaggedRevsParams":{"tags":{"accuracy":{"levels":2,"quality":2,"pristine":4}}},"wgStableRevisionId":null,"wgCategoryTreePageCategoryOptions":"{\"mode\":0,\"hideprefix\":20,\"showcount\":true,\"namespaces\":false}","Geo":{"city":"","country":""},"wgNoticeProject":"wikimedia"});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function(){mw.user.options.set({"ccmeonemails":0,"cols":80,"date":"default","diffonly":0,"disablemail":0,"disablesuggest":0,"editfont":"default","editondblclick":0,"editsection":1,"editsectiononrightclick":0,"enotifminoredits":0,"enotifrevealaddr":0,"enotifusertalkpages":1,"enotifwatchlistpages":0,"extendwatchlist":0,"fancysig":0,"forceeditsummary":0,"gender":"unknown","hideminor":0,"hidepatrolled":0,"imagesize":2,"justify":0,"math":0,"minordefault":0,"newpageshidepatrolled":0,"nocache":0,"noconvertlink":0,"norollbackdiff":0,"numberheadings":0,"previewonfirst":0,"previewontop":1,"rcdays":7,"rclimit":50,"rememberpassword":0,"rows":25,"searchlimit":20,"showhiddencats":false,"showjumplinks":1,"shownumberswatching":1,"showtoc":1,"showtoolbar":1,"skin":"vector","stubthreshold":0,"thumbsize":4,"underline":2,"uselivepreview":0,"usenewrc":0,"watchcreations":1,"watchdefault":0,"watchdeletion":0,"watchlistdays":3,"watchlisthideanons":0,"watchlisthidebots":0,
+"watchlisthideliu":0,"watchlisthideminor":0,"watchlisthideown":0,"watchlisthidepatrolled":0,"watchmoves":0,"wllimit":250,"useeditwarning":1,"flaggedrevssimpleui":1,"flaggedrevsstable":0,"flaggedrevseditdiffs":true,"flaggedrevsviewdiffs":false,"vector-simplesearch":1,"vector-collapsiblenav":1,"usebetatoolbar":1,"usebetatoolbar-cgd":1,"lqtnotifytalk":false,"lqtdisplaydepth":5,"lqtdisplaycount":25,"lqtcustomsignatures":true,"lqt-watch-threads":true,"visualeditor-enable":1,"wikilove-enabled":1,"translate":0,"translate-editlangs":"default","translate-jsedit":1,"translate-recent-groups":"","translationnotifications-lang-1":"","translationnotifications-lang-2":"","translationnotifications-lang-3":"","echo-notify-show-link":true,"echo-show-alert":true,"echo-email-frequency":0,"echo-subscriptions-email-system":true,"echo-subscriptions-web-system":true,"echo-subscriptions-email-other":false,"echo-subscriptions-web-other":true,"echo-subscriptions-email-edit-user-talk":false,
+"echo-subscriptions-web-edit-user-talk":true,"echo-subscriptions-email-reverted":false,"echo-subscriptions-web-reverted":true,"echo-subscriptions-email-article-linked":false,"echo-subscriptions-web-article-linked":false,"echo-subscriptions-email-mention":false,"echo-subscriptions-web-mention":true,"echo-subscriptions-web-edit-thank":true,"echo-subscriptions-email-edit-thank":false,"uls-preferences":"","variant":"en","language":"en","searchNs0":true,"searchNs1":false,"searchNs2":false,"searchNs3":false,"searchNs4":false,"searchNs5":false,"searchNs6":false,"searchNs7":false,"searchNs8":false,"searchNs9":false,"searchNs10":false,"searchNs11":false,"searchNs12":true,"searchNs13":false,"searchNs14":false,"searchNs15":false,"searchNs90":false,"searchNs91":false,"searchNs92":false,"searchNs93":false,"searchNs100":true,"searchNs101":false,"searchNs102":true,"searchNs103":false,"searchNs104":false,"searchNs105":false,"searchNs106":false,"searchNs107":false,"searchNs828":false,"searchNs829":
+false,"searchNs1198":false,"searchNs1199":false,"searchNs2500":false,"searchNs2501":false,"gadget-site":1,"gadget-externalsearch":1,"gadget-collapsibleTables":1,"gadget-Edittools":1,"gadget-WmfProjectStatusHelper":1});},{},{});mw.loader.implement("user.tokens",function(){mw.user.tokens.set({"editToken":"+\\","patrolToken":false,"watchToken":false});},{},{});
+/* cache key: mediawikiwiki:resourceloader:filter:minify-js:7:3d5ceb68eacbfef0d04ed962845f415c */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax","ext.uls.init","ext.uls.interface","ext.centralNotice.bannerController"]);
+}</script>
+<style type="text/css">/*<![CDATA[*/
+.source-php {line-height: normal;}
+.source-php li, .source-php pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for php
+ * CSS class: source-php, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.php.source-php .de1, .php.source-php .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;font-family: monospace, monospace;}
+.php.source-php  {font-family:monospace;}
+.php.source-php .imp {font-weight: bold; color: red;}
+.php.source-php li, .php.source-php .li1 {font-weight: normal; vertical-align:top;}
+.php.source-php .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.php.source-php .li2 {font-weight: bold; vertical-align:top;}
+.php.source-php .kw1 {color: #b1b100;}
+.php.source-php .kw2 {color: #000000; font-weight: bold;}
+.php.source-php .kw3 {color: #990000;}
+.php.source-php .kw4 {color: #009900; font-weight: bold;}
+.php.source-php .co1 {color: #666666; font-style: italic;}
+.php.source-php .co2 {color: #666666; font-style: italic;}
+.php.source-php .co3 {color: #0000cc; font-style: italic;}
+.php.source-php .co4 {color: #009933; font-style: italic;}
+.php.source-php .coMULTI {color: #666666; font-style: italic;}
+.php.source-php .es0 {color: #000099; font-weight: bold;}
+.php.source-php .es1 {color: #000099; font-weight: bold;}
+.php.source-php .es2 {color: #660099; font-weight: bold;}
+.php.source-php .es3 {color: #660099; font-weight: bold;}
+.php.source-php .es4 {color: #006699; font-weight: bold;}
+.php.source-php .es5 {color: #006699; font-weight: bold; font-style: italic;}
+.php.source-php .es6 {color: #009933; font-weight: bold;}
+.php.source-php .es_h {color: #000099; font-weight: bold;}
+.php.source-php .br0 {color: #009900;}
+.php.source-php .sy0 {color: #339933;}
+.php.source-php .sy1 {color: #000000; font-weight: bold;}
+.php.source-php .st0 {color: #0000ff;}
+.php.source-php .st_h {color: #0000ff;}
+.php.source-php .nu0 {color: #cc66cc;}
+.php.source-php .nu8 {color: #208080;}
+.php.source-php .nu12 {color: #208080;}
+.php.source-php .nu19 {color:#800080;}
+.php.source-php .me1 {color: #004000;}
+.php.source-php .me2 {color: #004000;}
+.php.source-php .re0 {color: #000088;}
+.php.source-php .ln-xtra, .php.source-php li.ln-xtra, .php.source-php div.ln-xtra {background-color: #ffc;}
+.php.source-php span.xtra { display:block; }
+
+/*]]>*/
+</style><script src="//bits.wikimedia.org/geoiplookup"></script><link rel="dns-prefetch" href="//meta.wikimedia.org" /><!--[if lt IE 7]><style type="text/css">body{behavior:url("/w/static-1.22wmf7/skins/vector/csshover.min.htc")}</style><![endif]--></head>
+<body class="mediawiki ltr sitedir-ltr ns-104 ns-subject page-API_Main_page skin-vector action-view vector-animateLayout">
+		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+			<div id="mw-js-message" style="display:none;"></div>
+						<div id="siteNotice"><!-- CentralNotice --></div>
+						<h1 id="firstHeading" class="firstHeading" lang="en"><span dir="auto">API:Main page</span></h1>
+			<div id="bodyContent">
+								<div id="siteSub">From MediaWiki.org</div>
+								<div id="contentSub"></div>
+																<div id="jump-to-nav" class="mw-jump">
+					Jump to:					<a href="#mw-navigation">navigation</a>, 					<a href="#p-search">search</a>
+				</div>
+								<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div style="background: #f0f0e0; border: 2px solid #aaa; padding: 4px 4px 4px 15px; width:80%; margin:0 auto">
+<ul>
+<li>In MediaWiki, 'API' is often a synonym of the <b><a href="//en.wikipedia.org/wiki/Web_API" class="extiw" title="w:Web API">WebAPI</a></b>, which provides convenient access to wiki features, data and meta-data. This is what this page covers.</li>
+<li>You may also be looking for the internal <b><a href="/wiki/Manual:Developing_extensions" title="Manual:Developing extensions">extension interface</a></b> (sort of "internal API" or "PHP API"), which allows PHP developers to add new functionality to a MediaWiki installation.</li>
+</ul>
+<p>MediaWiki has two more outward-facing interfaces:</p>
+<ul>
+<li>The <b><a href="/wiki/Special:Export" title="Special:Export">Special:Export</a></b> page, which provides bulk export of wiki content as XML. Read the <a href="//meta.wikimedia.org/wiki/Help:Export" class="extiw" title="m:Help:Export">Export help article on meta.wikimedia.org</a> for more information.</li>
+<li>The <b>standard web-based interface</b> (which you are likely using right now). Read <a href="/wiki/Manual:Parameters_to_index.php" title="Manual:Parameters to index.php">Manual:Parameters to index.php</a> for information on using the web-based interface.</li>
+</ul>
+</div>
+<div style="font-color:#535068; border:solid 1px #A8A8A8; padding:0.5em 1em 0.5em 0.7em; margin:0.5em 0em; background-color:#FFFFFF;">
+<table>
+<tr>
+<td><a href="/wiki/File:Tools_clipart.png" class="image"><img alt="Tools clipart.png" src="//upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Tools_clipart.png/20px-Tools_clipart.png" width="20" height="20" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Tools_clipart.png/30px-Tools_clipart.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Tools_clipart.png/40px-Tools_clipart.png 2x" /></a></td>
+<td>This page is part of the <strong class="selflink">MediaWiki API</strong> documentation.</td>
+</tr>
+</table>
+<table class="nmbox" style="border:1px solid #AAAAAA; border-collapse:collapse; clear:both; font-size:85%; margin: 0.5em 0;">
+<tr style="background: #EEF3E2">
+<th class="mbox-image" style="white-space: nowrap; padding: 4px 1em; border-right: 1px solid #aaaaaa;"><b><a href="/wiki/Project:Language_policy" title="Project:Language policy">Language:</a></b></th>
+<td class="mbox-text" style="background: #F6F9ED;"><b><strong class="selflink">English</strong></b> &#160;• <span lang="de"><a href="/wiki/API:Main_page/de" title="API:Main page/de">Deutsch</a></span>&#160;• <span lang="es"><a href="/wiki/API:Main_page/es" title="API:Main page/es">español</a></span>&#160;• <span lang="fr"><a href="/wiki/API:Main_page/fr" title="API:Main page/fr">français</a></span>&#160;• <span lang="id"><a href="/wiki/API:Main_page/id" title="API:Main page/id">Bahasa Indonesia</a></span>&#160;• <span lang="ja"><a href="/wiki/API:Main_page/ja" title="API:Main page/ja">日本語</a></span>&#160;• <span lang="ko"><a href="/wiki/API:Main_page/ko" title="API:Main page/ko">한국어</a></span>&#160;• <span lang="ru"><a href="/wiki/API:Main_page/ru" title="API:Main page/ru">русский</a></span>&#160;• <span lang="uk"><a href="/wiki/API:Main_page/uk" title="API:Main page/uk">українська</a></span>&#160;• <span lang="yue"><a href="/wiki/API:Main_page/yue" title="API:Main page/yue">粵語</a></span>&#160;• <span lang="zh"><a href="/wiki/API:Main_page/zh" title="API:Main page/zh">中文</a></span>&#160;• <span lang="zh-tw"><a href="/wiki/API:Main_page/zh-tw" title="API:Main page/zh-tw">中文（台灣）‎</a></span></td>
+</tr>
+</table>
+</div>
+<div style="clear:right; float:right; border:1px solid #A8A8A8; background: white; padding:10px; padding-right:13px; margin:5px 0px 5px 12px;">
+<div style="text-align:center; font-size:larger; font-weight:bold"><strong class="selflink">MediaWiki API</strong></div>
+<div class="mw-inputbox-hideapicheck">
+<div style="margin-left: auto; margin-right: auto; text-align: center; background-color:transparent">
+<form name="searchbox" id="searchbox" class="searchbox" action="/wiki/Special:Search">
+<p><input class="searchboxInput" name="search" type="text" value="" placeholder="" size="15" dir="ltr" /><br />
+<input type="hidden" name="ns104" value="1" id="mw-inputbox-ns104" checked="checked" /><br />
+<input type="submit" name="fulltext" class="searchboxSearchButton" value="Search API pages" /><input type="hidden" value="Search" name="fulltext" /></p>
+</form>
+</div>
+</div>
+<p><b>Quick overview:</b></p>
+<ul>
+<li><strong class="selflink">Quick start guide</strong></li>
+<li><a href="/wiki/API:FAQ" title="API:FAQ">FAQ</a>
+<ul>
+<li><a href="/wiki/API:Etiquette" title="API:Etiquette">Etiquette and usage limits</a></li>
+</ul>
+</li>
+<li><a href="/wiki/API:Tutorial" title="API:Tutorial">Tutorial</a></li>
+<li><a href="/wiki/API:Data_formats" title="API:Data formats">Formats</a></li>
+<li><a href="/wiki/API:Errors_and_warnings" title="API:Errors and warnings">Error reporting</a></li>
+<li><a href="/wiki/API:Restricting_API_usage" title="API:Restricting API usage">Restricting usage</a></li>
+<li><a href="/wiki/API:Cross-site_requests" title="API:Cross-site requests">Cross-site requests</a></li>
+<li>Authentication
+<ul>
+<li><a href="/wiki/API:Login" title="API:Login">Login</a></li>
+<li><a href="/wiki/API:Logout" title="API:Logout">Logout</a></li>
+<li><a href="/wiki/API:Account_creation" title="API:Account creation">Account creation</a></li>
+</ul>
+</li>
+<li><a href="/wiki/API:Query" title="API:Query">Queries</a>
+<ul>
+<li><a href="/wiki/API:Meta" title="API:Meta">Meta information</a></li>
+<li><a href="/wiki/API:Properties" title="API:Properties">Properties</a></li>
+<li><a href="/wiki/API:Lists" title="API:Lists">Lists</a></li>
+</ul>
+</li>
+<li><a href="/wiki/API:Opensearch" title="API:Opensearch">Search suggestions</a></li>
+<li><a href="/wiki/API:Parsing_wikitext" title="API:Parsing wikitext">Expanding templates and rendering</a></li>
+<li><a href="/wiki/API:Purge" title="API:Purge">Purging pages' caches</a></li>
+<li><a href="/wiki/API:Parameter_information" title="API:Parameter information">Parameter information</a></li>
+<li><a href="/wiki/API:Changing_wiki_content" title="API:Changing wiki content">Changing wiki content</a>
+<ul>
+<li><a href="/wiki/API:Edit" title="API:Edit">Create and edit pages</a></li>
+<li><a href="/wiki/API:Move" title="API:Move">Move pages</a></li>
+<li><a href="/wiki/API:Rollback" title="API:Rollback">Rollback</a></li>
+<li><a href="/wiki/API:Delete" title="API:Delete">Delete pages</a></li>
+<li><a href="/wiki/API:Undelete" title="API:Undelete">Restore deleted revisions</a></li>
+<li><a href="/wiki/API:Protect" title="API:Protect">(Un)protect pages</a></li>
+<li><a href="/wiki/API:Block" title="API:Block">(Un)block users</a></li>
+<li><a href="/wiki/API:Watch" title="API:Watch">(Un)watch pages</a></li>
+<li><a href="/wiki/API:Email" title="API:Email">Send email</a></li>
+<li><a href="/wiki/API:Patrol" title="API:Patrol">Patrol changes</a></li>
+<li><a href="/wiki/API:Import" title="API:Import">Import pages</a></li>
+<li><a href="/wiki/API:User_group_membership" title="API:User group membership">Change user group membership</a></li>
+<li><a href="/wiki/API:Upload" title="API:Upload">Upload files</a></li>
+<li><a href="/wiki/API:Options" title="API:Options">User options</a></li>
+</ul>
+</li>
+<li><a href="/wiki/API:Watchlist_feed" title="API:Watchlist feed">Watchlist feed</a></li>
+<li><a href="/wiki/API:Wikidata" title="API:Wikidata" class="mw-redirect">Wikidata</a></li>
+<li><a href="/wiki/API:Extensions" title="API:Extensions">Extensions</a></li>
+<li><a href="/wiki/API:Calling_internally" title="API:Calling internally">Using the API in MediaWiki and extensions</a></li>
+<li><a href="/wiki/API:Other_services" title="API:Other services">Miscellaneous</a></li>
+<li><a href="/wiki/API:Implementation_Strategy" title="API:Implementation Strategy">Implementation</a></li>
+<li><a href="/wiki/API:Client_code" title="API:Client code">Client code</a></li>
+</ul>
+<div style="text-align:right"><span class="noprint plainlinks navbar" style=""><small><span style="white-space:nowrap;word-spacing:-.12em;"><a href="/wiki/Template:API" title="Template:API"><span style="" title="View this template">v</span></a> <span style=""><b>·</b></span> <a href="/wiki/Template_talk:API" title="Template talk:API"><span style="" title="Discuss this template">d</span></a> <span style=""><b>·</b></span> <a class="external text" href="//www.mediawiki.org/w/index.php?title=Template:API&amp;action=edit"><span style="" title="Edit this template">e</span></a></span></small></span></div>
+</div>
+<p><b>This is an introductory overview. See the menu bar on the right for more detailed sub-topics.</b></p>
+<p>If you want to monitor a MediaWiki installation, or <a href="//en.wikipedia.org/wiki/Wikipedia:Creating_a_bot" class="extiw" title="w:Wikipedia:Creating a bot">create a bot</a> to automatically maintain one, you can use the MediaWiki web service <a href="//en.wikipedia.org/wiki/application_programming_interface" class="extiw" title="wikipedia:application programming interface">API</a>. The web service API provides direct, high-level access to the data contained in MediaWiki databases. <a href="/wiki/API:Client_code" title="API:Client code">Client programs</a> can log in to a wiki, get data, and post changes automatically by making HTTP requests to the web service. Supported clients include <a href="//en.wikipedia.org/wiki/Wikipedia:Creating_a_bot" class="extiw" title="w:Wikipedia:Creating a bot">bots</a>, thin web-based JavaScript clients such as <a href="//en.wikipedia.org/wiki/Wikipedia:Tools/Navigation_popups" class="extiw" title="en:Wikipedia:Tools/Navigation popups">Navigation popups</a> and <a href="//fr.wikipedia.org/wiki/User:EDUCA33E/LiveRC/Documentation" class="extiw" title="fr:User:EDUCA33E/LiveRC/Documentation">LiveRC</a>, end-user applications such as <a href="//en.wikipedia.org/wiki/User:Henna/VF" class="extiw" title="en:User:Henna/VF">Vandal Fighter</a>, and other web sites (<a rel="nofollow" class="external text" href="http://toolserver.org/">Toolserver</a>'s utilities).</p>
+<p>On new MediaWiki installations, the web service is enabled by default, but an administrator can <a href="/wiki/API:Restricting_API_usage#Disabling_the_entire_API" title="API:Restricting API usage">disable it</a>.</p>
+<table id="toc" class="toc">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#A_simple_example"><span class="tocnumber">1</span> <span class="toctext">A simple example</span></a>
+<ul>
+<li class="toclevel-2 tocsection-2"><a href="#The_endpoint"><span class="tocnumber">1.1</span> <span class="toctext">The endpoint</span></a></li>
+<li class="toclevel-2 tocsection-3"><a href="#The_format"><span class="tocnumber">1.2</span> <span class="toctext">The format</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="#The_action"><span class="tocnumber">1.3</span> <span class="toctext">The action</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Action-specific_parameters"><span class="tocnumber">1.4</span> <span class="toctext">Action-specific parameters</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-6"><a href="#Getting_started"><span class="tocnumber">2</span> <span class="toctext">Getting started</span></a></li>
+<li class="toclevel-1 tocsection-7"><a href="#Identifying_your_client"><span class="tocnumber">3</span> <span class="toctext">Identifying your client</span></a></li>
+<li class="toclevel-1 tocsection-8"><a href="#Logging_in"><span class="tocnumber">4</span> <span class="toctext">Logging in</span></a></li>
+<li class="toclevel-1 tocsection-9"><a href="#API_etiquette"><span class="tocnumber">5</span> <span class="toctext">API etiquette</span></a></li>
+<li class="toclevel-1 tocsection-10"><a href="#Useful_links"><span class="tocnumber">6</span> <span class="toctext">Useful links</span></a></li>
+<li class="toclevel-1 tocsection-11"><a href="#Archived_links"><span class="tocnumber">7</span> <span class="toctext">Archived links</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<h2><span class="mw-headline" id="A_simple_example">A simple example</span><span class="mw-editsection">[<a href="/w/index.php?title=API:Main_page&amp;action=edit&amp;section=1" title="Edit section: A simple example">edit</a>]</span></h2>
+<p>This URL tells English Wikipedia's web service API to send you the content of the main page:</p>
+<pre style="overflow:auto">
+http://en.wikipedia.org/w/api.php?format=json&amp;action=query&amp;titles=Main%20Page&amp;prop=revisions&amp;rvprop=content
+</pre>
+<p>Use any programming language to make an HTTP GET request for that URL (or just visit that link in your browser), and you'll get a JSON document which includes the current wiki markup for the page titled "Main Page". Changing format to <b>jsonfm</b> will return a "pretty-printed" HTML result good for debugging.</p>
+<p>Let's pick that URL apart to show how it works.</p>
+<h3><span class="mw-headline" id="The_endpoint">The endpoint</span><span class="mw-editsection">[<a href="/w/index.php?title=API:Main_page&amp;action=edit&amp;section=2" title="Edit section: The endpoint">edit</a>]</span></h3>
+<p><code><a class="external free" href="http://en.wikipedia.org/w/api.php">http://en.wikipedia.org/w/api.php</a></code></p>
+<p>This is the <i>endpoint</i>. It's like the home page of the Mediawiki web service API. This URL is the base URL for English Wikipedia's API, just as <code><a class="external free" href="http://en.wikipedia.org/wiki/">http://en.wikipedia.org/wiki/</a></code> is the base URL for its web site.</p>
+<p>If you're writing a program to use English Wikipedia, every URL you construct will begin with this base URL. If you're using a different MediaWiki installation, you'll need to find its endpoint and use that instead. All <a href="/wiki/Wikimedia" title="Wikimedia" class="mw-redirect">Wikimedia</a> wikis have endpoints that follow this pattern:</p>
+<pre>
+<a class="external free" href="http://en.wikipedia.org/w/api.php">http://en.wikipedia.org/w/api.php</a>      # English Wikipedia API
+<a class="external free" href="http://nl.wikipedia.org/w/api.php">http://nl.wikipedia.org/w/api.php</a>      # Dutch Wikipedia API
+<a class="external free" href="http://commons.wikimedia.org/w/api.php">http://commons.wikimedia.org/w/api.php</a> # Wikimedia Commons API
+</pre>
+<table style="border: 1px solid #888888; float: right; font-size: 80%; margin: 0 0 .5em .5em; line-height: 1.2; text-align: right; border-collapse:collapse">
+<tr>
+<td style="padding: .1em .3em;">MediaWiki version:</td>
+<td title="MediaWiki 1.17 is unsupported version" style="border-color: #FF0000; border-width: 5px; border-style: solid; text-align: center; padding: .1em .3em;"><abbr style="font-weight: bold; font-size: 180%;">1.17</abbr></td>
+</tr>
+</table>
+<p>Since <a href="/wiki/Special:Code/MediaWiki/75621" title="Special:Code/MediaWiki/75621">r75621</a>, we have RSD discovery for the endpoint: look for the <code>link rel="EditURI"</code> in the HTML source of any page and extract the <code>api.php</code> URL; the actual link contains additional info. For instance, on this wiki it's:</p>
+<pre style="overflow:auto">
+&lt;link rel="EditURI" type="application/rsd+xml" href="//www.mediawiki.org/w/api.php?action=rsd" /&gt;
+</pre>
+<p>Otherwise, there's no safe way to locate the endpoint on any wiki. If you're lucky, either the full path to index.php will not be hidden under strange rewrite rules so that you'll only have to take the "edit" (or history) link and replace index.php (etc.) with api.php, or you'll be able to use the default <a href="/wiki/Manual:$wgScriptPath" title="Manual:$wgScriptPath">ScriptPath</a> (like <code>w/api.php</code>).</p>
+<p>Now let's move on to the parameters in the query string of the URL.</p>
+<h3><span class="mw-headline" id="The_format">The format</span><span class="mw-editsection">[<a href="/w/index.php?title=API:Main_page&amp;action=edit&amp;section=3" title="Edit section: The format">edit</a>]</span></h3>
+<p><code>format=json</code></p>
+<p>This tells the Wikimedia web service API that we want data to be returned in JSON format. You might also want to try <code>format=jsonfm</code> to get an HTML version of the result that is good for debugging. Even though the API supports many different <a href="/wiki/API:Data_formats" title="API:Data formats">output formats</a> such as <a href="//en.wikipedia.org/wiki/WDDX" class="extiw" title="w:WDDX">WDDX</a>, <a href="//en.wikipedia.org/wiki/XML" class="extiw" title="w:XML">XML</a>, <a href="//en.wikipedia.org/wiki/YAML" class="extiw" title="w:YAML">YAML</a> and <a rel="nofollow" class="external text" href="http://php.net/manual/en/function.serialize.php">native PHP</a>, there are plans to remove all formats except for JSON, so you might not want to use them.</p>
+<h3><span class="mw-headline" id="The_action">The action</span><span class="mw-editsection">[<a href="/w/index.php?title=API:Main_page&amp;action=edit&amp;section=4" title="Edit section: The action">edit</a>]</span></h3>
+<p><code>action=query</code></p>
+<p>This is the 'action'. The MediaWiki web service API supports over fifty actions, and they're all documented in the <a class="external text" href="//en.wikipedia.org/w/api.php">API reference</a>. In this case, we're using "query" to tell the API that we want to get some data.</p>
+<p>The "query" action is one of the API's most important actions, and it has <a href="/wiki/API:Query" title="API:Query">extensive documentation of its own</a>. What follows is just an explanation of a single example.</p>
+<h3><span class="mw-headline" id="Action-specific_parameters">Action-specific parameters</span><span class="mw-editsection">[<a href="/w/index.php?title=API:Main_page&amp;action=edit&amp;section=5" title="Edit section: Action-specific parameters">edit</a>]</span></h3>
+<p><code>titles=Main%20Page</code></p>
+<p>The rest of the example URL contains parameters used by the "query" action. Here, we're telling the web service API that we want information about the Wiki page called "Main Page". (The&#160;%20 comes from <a href="//en.wikipedia.org/wiki/Percent-encoding" class="extiw" title="w:Percent-encoding">percent-encoding</a> a space.) If you need to work with multiple pages, please consider putting them all in one request to optimize network and server resources: <code>titles=PageA|PageB|PageC</code>. See the <a href="/wiki/API:Query" title="API:Query">query documentation</a> for details.</p>
+<p><code>prop=revisions</code></p>
+<p>This parameter tells the web service API that we are interested in a particular revision of the page. Since we're not specifying any revision information, the API will give us information about the latest revision — the main page of Wikipedia as it stands right now.</p>
+<p><code>rvprop=content</code></p>
+<p>Finally, this parameter tells the web service API that we want the content of the latest revision of the page. If we passed in <code>rvprop=content|user</code> instead, we'd get the latest page content <i>and</i> the name of the user who made the most recent revision.</p>
+<p>Again, this is just one example. Queries are explained in more detail <a href="/wiki/API:Query" title="API:Query">here</a>, and <a class="external text" href="http://en.wikipedia.org/w/api.php">the API reference</a> lists all the possible actions, all the possible values for <code>rvprop</code>, and so on.</p>
+<div class="thumb tright">
+<div class="thumbinner" style="width:402px;">
+<div class="mediaContainer" style="position:relative;display:block;width:400px"><video id="mwe_player_2" style="width:400px;height:225px" poster="//upload.wikimedia.org/wikipedia/commons/thumb/4/48/The_MediaWiki_Web_API_and_How_to_use_it_-_San_Francisco_Wikipedia_Hackathon_2012.ogv/400px--The_MediaWiki_Web_API_and_How_to_use_it_-_San_Francisco_Wikipedia_Hackathon_2012.ogv.jpg" controls="" preload="none" class="kskin" data-durationhint="3002.8586666667" data-startoffset="0" data-mwtitle="The_MediaWiki_Web_API_and_How_to_use_it_-_San_Francisco_Wikipedia_Hackathon_2012.ogv" data-mwprovider="wikimediacommons"><source src="//upload.wikimedia.org/wikipedia/commons/transcoded/4/48/The_MediaWiki_Web_API_and_How_to_use_it_-_San_Francisco_Wikipedia_Hackathon_2012.ogv/The_MediaWiki_Web_API_and_How_to_use_it_-_San_Francisco_Wikipedia_Hackathon_2012.ogv.480p.webm" type="video/webm; codecs=&quot;vp8, vorbis&quot;" transcodekey="480p.webm" data-title="Web streamable WebM (480P)" data-shorttitle="WebM 480P" data-width="854" data-height="480" data-bandwidth="268880" data-framerate="23.976023976024"></source><source src="//upload.wikimedia.org/wikipedia/commons/transcoded/4/48/The_MediaWiki_Web_API_and_How_to_use_it_-_San_Francisco_Wikipedia_Hackathon_2012.ogv/The_MediaWiki_Web_API_and_How_to_use_it_-_San_Francisco_Wikipedia_Hackathon_2012.ogv.360p.webm" type="video/webm; codecs=&quot;vp8, vorbis&quot;" transcodekey="360p.webm" data-title="Web streamable WebM (360P)" data-shorttitle="WebM 360P" data-width="640" data-height="360" data-bandwidth="577688" data-framerate="23.976023976024"></source><source src="//upload.wikimedia.org/wikipedia/commons/transcoded/4/48/The_MediaWiki_Web_API_and_How_to_use_it_-_San_Francisco_Wikipedia_Hackathon_2012.ogv/The_MediaWiki_Web_API_and_How_to_use_it_-_San_Francisco_Wikipedia_Hackathon_2012.ogv.480p.ogv" type="video/ogg; codecs=&quot;theora, vorbis&quot;" transcodekey="480p.ogv" data-title="Web streamable Ogg video (480P)" data-shorttitle="Ogg 480P" data-width="854" data-height="480" data-bandwidth="1058408" data-framerate="23.976023976024"></source><source src="//upload.wikimedia.org/wikipedia/commons/4/48/The_MediaWiki_Web_API_and_How_to_use_it_-_San_Francisco_Wikipedia_Hackathon_2012.ogv" type="video/ogg; codecs=&quot;theora, vorbis&quot;" data-title="Original Ogg file, 1,920 × 1,080 (7.16 Mbps)" data-shorttitle="Ogg source" data-width="1920" data-height="1080" data-bandwidth="7158938" data-framerate="23.976023976024"></source>Sorry, your browser either has JavaScript disabled or does not have any supported player.<br />
+You can <a href="//upload.wikimedia.org/wikipedia/commons/4/48/The_MediaWiki_Web_API_and_How_to_use_it_-_San_Francisco_Wikipedia_Hackathon_2012.ogv">download the clip</a> or <a href="//www.mediawiki.org/wiki/Extension:TimedMediaHandler/Client_download">download a player</a> to play the clip in your browser.</video></div>
+<div class="thumbcaption">
+<div class="magnify"><a href="/wiki/File:The_MediaWiki_Web_API_and_How_to_use_it_-_San_Francisco_Wikipedia_Hackathon_2012.ogv" class="internal" title="Enlarge"><img src="//bits.wikimedia.org/static-1.22wmf7/skins/common/images/magnify-clip.png" width="15" height="11" alt="" /></a></div>
+An introduction to the API by <a href="/wiki/User:Catrope" title="User:Catrope">Roan Kattouw</a> at the <a href="/wiki/San_Francisco_Hackathon_January_2012" title="San Francisco Hackathon January 2012">San Francisco Hackathon January 2012</a></div>
+</div>
+</div>
+<h2><span class="mw-headline" id="Getting_started">Getting started</span><span class="mw-editsection">[<a href="/w/index.php?title=API:Main_page&amp;action=edit&amp;section=6" title="Edit section: Getting started">edit</a>]</span></h2>
+<p>Before you start using the MediaWiki web service API, be sure to read these documents:</p>
+<ul>
+<li>The <a href="/wiki/API:FAQ" title="API:FAQ">FAQ</a>.</li>
+<li>The page about <a href="/wiki/API:Data_formats" title="API:Data formats">input and output formats</a></li>
+<li>The page about <a href="/wiki/API:Errors_and_warnings" title="API:Errors and warnings">errors and warnings</a></li>
+<li>Any policies that apply to the wiki you want to access, such as (for Wikimedia Foundation wikis) our <a href="//wikimediafoundation.org/wiki/Terms_of_Use" class="extiw" title="wmf:Terms of Use">terms of use</a>. These terms apply to you when you access or edit using the web service API, just as they do when you use your web browser.</li>
+</ul>
+<p>Beyond that point, what you need to read depends on what you want to do. The right-hand menu links to detailed, task-specific documentation, and some more general guidelines are given below.</p>
+<h2><span class="mw-headline" id="Identifying_your_client">Identifying your client</span><span class="mw-editsection">[<a href="/w/index.php?title=API:Main_page&amp;action=edit&amp;section=7" title="Edit section: Identifying your client">edit</a>]</span></h2>
+<p>When you make HTTP requests to the MediaWiki web service API, be sure to specify a <code>User-Agent</code> header that properly identifies your client. Don't use the default <code>User-Agent</code> provided by your client library, but make up a custom header that identifies your script or service and provides some type of means of contacting you (e.g., an e-mail address).</p>
+<p>An example User-Agent string might look like:</p>
+<pre>
+MyCoolTool/1.1 (<a rel="nofollow" class="external free" href="http://example.com/MyCoolTool/">http://example.com/MyCoolTool/</a>; MyCoolTool@example.com) BasedOnSuperLib/1.4
+</pre>
+<p>On Wikimedia wikis, if you don't supply a <code>User-Agent</code> header, or you supply an empty or generic one, your request will fail with an HTTP 403 error (cf. <a href="//meta.wikimedia.org/wiki/User-Agent_policy" class="extiw" title="m:User-Agent policy">m:User-Agent policy</a>). Other MediaWiki installations may have similar policies.</p>
+<p>If you are calling the API from browser-based JavaScript, you won't be able to influence the <code>User-Agent</code> header: the browser will use its own. There is currently no other mechanism for a browser-based client to identify itself.</p>
+<p>In PHP, you can identify your user-agent with code such as this:</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr">
+<div class="php source-php">
+<pre class="de1">
+<span class="kw3">ini_set</span><span class="br0">(</span><span class="st_h">'user_agent'</span><span class="sy0">,</span> <span class="st_h">'MyCoolTool/1.1 (http://example.com/MyCoolTool/; MyCoolTool@example.com) BasedOnSuperLib/1.4'</span><span class="br0">)</span><span class="sy0">;</span>
+</pre></div>
+</div>
+<p>Or if you use <a href="//en.wikipedia.org/wiki/cURL" class="extiw" title="wikipedia:cURL">cURL</a>:</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr">
+<div class="php source-php">
+<pre class="de1">
+<span class="kw3">curl_setopt</span><span class="br0">(</span><span class="re0">$curl</span><span class="sy0">,</span> CURLOPT_USERAGENT<span class="sy0">,</span> <span class="st_h">'MyCoolTool/1.1 (http://example.com/MyCoolTool/; MyCoolTool@example.com) BasedOnSuperLib/1.4'</span><span class="br0">)</span><span class="sy0">;</span>
+</pre></div>
+</div>
+<h2><span class="mw-headline" id="Logging_in">Logging in</span><span class="mw-editsection">[<a href="/w/index.php?title=API:Main_page&amp;action=edit&amp;section=8" title="Edit section: Logging in">edit</a>]</span></h2>
+<p>Your client will probably need to log in to MediaWiki, possibly via its own user account. See <a href="/wiki/API:Login" title="API:Login">the login manual page</a> for details.</p>
+<h2><span class="mw-headline" id="API_etiquette">API etiquette</span><span class="mw-editsection">[<a href="/w/index.php?title=API:Main_page&amp;action=edit&amp;section=9" title="Edit section: API etiquette">edit</a>]</span></h2>
+<p>If your requests obtain data that can be cached for a while, you should take steps to cache it, so you don't request the same data over and over again. More information about rate-limiting, concurrency, and general API etiquette can be found at <a href="/wiki/API:Etiquette" title="API:Etiquette">API:Etiquette</a>. Some clients may be able to cache data themselves, but for others (particularly JavaScript clients), this is not possible.</p>
+<p>Per the HTTP specification, POST requests cannot be cached. Therefore, whenever you're reading data from the web service API, you should use GET requests, not POST.</p>
+<p>Also note that a request cannot be served from cache unless the URL is <b>exactly the same</b>. If you make a request for <code>api.php?....titles=Foo|Bar|Hello</code>, and cache the result, then a request for <code>api.php?....titles=Hello|Bar|Hello|Foo</code> will not go through the cache — even though MediaWiki returns the same data!</p>
+<p>You should take care to normalize the URLs you send to the MediaWiki web service, so that slightly different user input won't cause you to waste time on unnecessary HTTP requests. You can normalize a list of page titles by <b>removing duplicates</b> and <b>sorting the titles alphabetically</b>. Similar techniques will work for other kinds of data.</p>
+<h2><span class="mw-headline" id="Useful_links">Useful links</span><span class="mw-editsection">[<a href="/w/index.php?title=API:Main_page&amp;action=edit&amp;section=10" title="Edit section: Useful links">edit</a>]</span></h2>
+<p>The menu bar on the right side of this page links to more detailed, task-specific documentation. Here are some links having to do with the API as a whole:</p>
+<ul>
+<li><a href="//en.wikipedia.org/wiki/Special:ApiSandbox" class="extiw" title="w:Special:ApiSandbox">The API sandbox</a> on English Wikipedia makes it easy to try out different actions interactively.</li>
+<li><a class="external text" href="//en.wikipedia.org/w/api.php">The API reference</a> contains automatically-generated descriptions of all actions and parameters.</li>
+<li><a rel="nofollow" class="external text" href="https://www.ibm.com/developerworks/xml/library/x-phpwikipedia/index.html">Hook into Wikipedia information using PHP and the MediaWiki API</a> (IBM developerWorks article, 17 May 2011)</li>
+<li><a rel="nofollow" class="external text" href="http://www.integratingstuff.com/2012/04/06/hook-into-wikipedia-using-java-and-the-mediawiki-api/">Hook into Wikipedia using Java and the MediaWiki API</a> (6 April 2012)</li>
+<li><a href="/wiki/API/Tutorial" title="API/Tutorial" class="mw-redirect">The API tutorial</a> leads you through hands-on exercises and includes a training video.</li>
+<li>Mailing list for notifications and questions: <b><a href="https://lists.wikimedia.org/mailman/listinfo/mediawiki-api" class="extiw" title="mail:mediawiki-api">API mailing list</a></b>
+<ul>
+<li>Low-traffic mailing list for announcements only (all posts to this list are posted to mediawiki-api as well): <b><a href="https://lists.wikimedia.org/mailman/listinfo/mediawiki-api-announce" class="extiw" title="mail:mediawiki-api-announce">mediawiki-api-announce</a></b></li>
+</ul>
+</li>
+<li>View and report API bugs: <b><a class="external text" href="http://bugzilla.wikimedia.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;component=API&amp;order=bugs.delta_ts">Bugzilla</a></b> (<i>When <a class="external text" href="https://bugzilla.wikimedia.org/enter_bug.cgi?product=MediaWiki&amp;component=API">reporting new bugs</a>, don't forget to set Component=API</i>)</li>
+<li><a class="external text" href="https://gerrit.wikimedia.org/r/gitweb?p=mediawiki/core.git;a=tree;f=includes/api">Browse the API source code</a></li>
+<li><a href="/wiki/Manual:Database_layout" title="Manual:Database layout">The current MediaWiki database schema</a></li>
+<li><a class="external text" href="https://gerrit.wikimedia.org/r/gitweb?p=mediawiki/core.git;a=blob;f=maintenance/tables.sql;hb=HEAD">Browse the current database schema in git</a></li>
+</ul>
+<h2><span class="mw-headline" id="Archived_links">Archived links</span><span class="mw-editsection">[<a href="/w/index.php?title=API:Main_page&amp;action=edit&amp;section=11" title="Edit section: Archived links">edit</a>]</span></h2>
+<ul>
+<li><a href="/wiki/API:Wikimania_2006_API_discussion" title="API:Wikimania 2006 API discussion">2006 API discussion</a></li>
+</ul>
+
+
+<!-- 
+NewPP limit report
+Preprocessor visited node count: 1476/1000000
+Preprocessor generated node count: 4934/1500000
+Post‐expand include size: 15100/2048000 bytes
+Template argument size: 4915/2048000 bytes
+Highest expansion depth: 13/40
+Expensive parser function count: 67/500
+-->
+
+<!-- Saved in parser cache with key mediawikiwiki:pcache:idhash:14588-0!*!0!!en!4!* and timestamp 20130615210624 -->
+</div>								<div class="printfooter">
+				Retrieved from "<a href="http://www.mediawiki.org/w/index.php?title=API:Main_page&amp;oldid=711771">http://www.mediawiki.org/w/index.php?title=API:Main_page&amp;oldid=711771</a>"				</div>
+												<div id='catlinks' class='catlinks'><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="/wiki/Special:Categories" title="Special:Categories">Categories</a>: <ul><li><a href="/wiki/Category:MediaWiki_API_Overview" title="Category:MediaWiki API Overview">MediaWiki API Overview</a></li><li><a href="/wiki/Category:MediaWiki_Development" title="Category:MediaWiki Development">MediaWiki Development</a></li><li><a href="/wiki/Category:Manual" title="Category:Manual">Manual</a></li><li><a href="/wiki/Category:Documentation" title="Category:Documentation">Documentation</a></li><li><a href="/wiki/Category:New_contributors" title="Category:New contributors">New contributors</a></li></ul></div></div>												<div class="visualClear"></div>
+							</div>
+		</div>
+		<div id="mw-navigation">
+			<h2>Navigation menu</h2>
+			<div id="mw-head">
+				<div id="p-personal" role="navigation" class="">
+	<h3>Personal tools</h3>
+	<ul>
+<li id="pt-uls" class="active"><a href="#" class="uls-trigger">English</a></li><li id="pt-createaccount"><a href="/w/index.php?title=Special:UserLogin&amp;returnto=API%3AMain+page&amp;type=signup">Create account</a></li><li id="pt-login"><a href="/w/index.php?title=Special:UserLogin&amp;returnto=API%3AMain+page" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li>	</ul>
+</div>
+				<div id="left-navigation">
+					<div id="p-namespaces" role="navigation" class="vectorTabs">
+	<h3>Namespaces</h3>
+	<ul>
+					<li  id="ca-nstab-api" class="selected"><span><a href="/wiki/API:Main_page" >API</a></span></li>
+					<li  id="ca-talk"><span><a href="/wiki/API_talk:Main_page"  title="Discussion about the content page [t]" accesskey="t">Discussion</a></span></li>
+			</ul>
+</div>
+<div id="p-variants" role="navigation" class="vectorMenu emptyPortlet">
+	<h3 id="mw-vector-current-variant">
+		</h3>
+	<h3><span>Variants</span><a href="#"></a></h3>
+	<div class="menu">
+		<ul>
+					</ul>
+	</div>
+</div>
+				</div>
+				<div id="right-navigation">
+					<div id="p-views" role="navigation" class="vectorTabs">
+	<h3>Views</h3>
+	<ul>
+					<li id="ca-view" class="selected"><span><a href="/wiki/API:Main_page" >Read</a></span></li>
+					<li id="ca-edit"><span><a href="/w/index.php?title=API:Main_page&amp;action=edit"  title="You can edit this page. Please use the preview button before saving [e]" accesskey="e">Edit</a></span></li>
+					<li id="ca-history" class="collapsible"><span><a href="/w/index.php?title=API:Main_page&amp;action=history"  title="Past revisions of this page [h]" accesskey="h">View history</a></span></li>
+			</ul>
+</div>
+<div id="p-cactions" role="navigation" class="vectorMenu emptyPortlet">
+	<h3><span>Actions</span><a href="#"></a></h3>
+	<div class="menu">
+		<ul>
+					</ul>
+	</div>
+</div>
+<div id="p-search" role="search">
+	<h3><label for="searchInput">Search</label></h3>
+	<form action="/w/index.php" id="searchform">
+				<div id="simpleSearch">
+						<input name="search" placeholder="Search" title="Search MediaWiki [f]" accesskey="f" id="searchInput" />						<button type="submit" name="button" title="Search the pages for this text" id="searchButton"><img src="//bits.wikimedia.org/static-1.22wmf7/skins/vector/images/search-ltr.png?303-4" alt="Search" width="12" height="13" /></button>								<input type='hidden' name="title" value="Special:Search"/>
+		</div>
+	</form>
+</div>
+				</div>
+			</div>
+			<div id="mw-panel">
+					<div id="p-logo" role="banner"><a style="background-image: url(//upload.wikimedia.org/wikipedia/mediawiki/b/bc/Wiki.png);" href="/wiki/MediaWiki"  title="Visit the main page"></a></div>
+				<div class="portal" role="navigation" id='p-navigation'>
+	<h3>Navigation</h3>
+	<div class="body">
+		<ul>
+			<li id="n-mainpage-description"><a href="/wiki/MediaWiki" title="Visit the main page [z]" accesskey="z">Main page</a></li>
+			<li id="n-mw-download"><a href="/wiki/Download">Get MediaWiki</a></li>
+			<li id="n-mw-extensions"><a href="/wiki/Category:Extensions">Get extensions</a></li>
+			<li id="n-mw-communication"><a href="/wiki/Special:MyLanguage/Communication">Communication</a></li>
+			<li id="n-blog-text"><a href="//blog.wikimedia.org/c/technology/">Tech blog</a></li>
+		</ul>
+	</div>
+</div>
+<div class="portal" role="navigation" id='p-support'>
+	<h3>Support</h3>
+	<div class="body">
+		<ul>
+			<li id="n-help"><a href="/wiki/Help:Contents" title="The place to find out">User help</a></li>
+			<li id="n-mw-manual"><a href="/wiki/Manual:Contents">Technical manual</a></li>
+			<li id="n-mw-faq"><a href="/wiki/Manual:FAQ">FAQ</a></li>
+			<li id="n-mw-supportdesk"><a href="/wiki/Project:Support_desk">Support desk</a></li>
+		</ul>
+	</div>
+</div>
+<div class="portal" role="navigation" id='p-MediaWiki.org'>
+	<h3>MediaWiki.org</h3>
+	<div class="body">
+		<ul>
+			<li id="n-cat-browser"><a href="/wiki/Category:Top_level">Browse categories</a></li>
+			<li id="n-portal"><a href="/wiki/Project:Help" title="About the project, what you can do, where to find things">Community portal</a></li>
+			<li id="n-recentchanges"><a href="/wiki/Special:RecentChanges" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li>
+			<li id="n-mw-discussion"><a href="/wiki/Project:Current_issues">Current issues</a></li>
+		</ul>
+	</div>
+</div>
+<div class="portal" role="navigation" id='p-development'>
+	<h3>Development</h3>
+	<div class="body">
+		<ul>
+			<li id="n-mw-bugtracker"><a href="/wiki/Bugzilla">Bug tracker</a></li>
+			<li id="n-mw-repo-commits"><a href="https://git.wikimedia.org/summary/mediawiki%2Fcore.git">View code changes</a></li>
+			<li id="n-mw-repo-codereview"><a href="https://gerrit.wikimedia.org/r/#/q/project:mediawiki/core+branch:master,n,z">Code review</a></li>
+			<li id="n-mw-repo-browse"><a href="https://git.wikimedia.org/">Browse repository</a></li>
+			<li id="n-phpdoc"><a href="//doc.wikimedia.org/mediawiki-core/master/php/html/">Code docs</a></li>
+		</ul>
+	</div>
+</div>
+<div class="portal" role="navigation" id='p-coll-print_export'>
+	<h3>Print/export</h3>
+	<div class="body">
+		<ul>
+			<li id="coll-create_a_book"><a href="/w/index.php?title=Special:Book&amp;bookcmd=book_creator&amp;referer=API%3AMain+page">Create a book</a></li>
+			<li id="coll-download-as-rl"><a href="/w/index.php?title=Special:Book&amp;bookcmd=render_article&amp;arttitle=API%3AMain+page&amp;oldid=711771&amp;writer=rl">Download as PDF</a></li>
+			<li id="t-print"><a href="/w/index.php?title=API:Main_page&amp;printable=yes" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>
+		</ul>
+	</div>
+</div>
+<div class="portal" role="navigation" id='p-tb'>
+	<h3>Toolbox</h3>
+	<div class="body">
+		<ul>
+			<li id="t-whatlinkshere"><a href="/wiki/Special:WhatLinksHere/API:Main_page" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+			<li id="t-recentchangeslinked"><a href="/wiki/Special:RecentChangesLinked/API:Main_page" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+			<li id="t-specialpages"><a href="/wiki/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li>
+			<li id="t-permalink"><a href="/w/index.php?title=API:Main_page&amp;oldid=711771" title="Permanent link to this revision of the page">Permanent link</a></li>
+			<li id="t-info"><a href="/w/index.php?title=API:Main_page&amp;action=info">Page information</a></li>
+		</ul>
+	</div>
+</div>
+			</div>
+		</div>
+		<div id="footer" role="contentinfo">
+							<ul id="footer-info">
+											<li id="footer-info-lastmod"> This page was last modified on 15 June 2013, at 21:06.</li>
+											<li id="footer-info-copyright">Text is available under the <a href="//creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution/Share-Alike License</a>;
+additional terms may apply.
+See <a href="//wikimediafoundation.org/wiki/Terms_of_Use">Terms of Use</a> for details.</li>
+									</ul>
+							<ul id="footer-places">
+											<li id="footer-places-privacy"><a href="//wikimediafoundation.org/wiki/Privacy_policy" title="wikimedia:Privacy policy">Privacy policy</a></li>
+											<li id="footer-places-about"><a href="/wiki/Project:About" title="Project:About">About MediaWiki.org</a></li>
+											<li id="footer-places-disclaimer"><a href="/wiki/Project:General_disclaimer" title="Project:General disclaimer">Disclaimers</a></li>
+											<li id="footer-places-mobileview"><a href="http://m.mediawiki.org/wiki/API:Main_page" class="noprint stopMobileRedirectToggle">Mobile view</a></li>
+									</ul>
+										<ul id="footer-icons" class="noprint">
+					<li id="footer-copyrightico">
+						<a href="//wikimediafoundation.org/"><img src="//bits.wikimedia.org/images/wikimedia-button.png" width="88" height="31" alt="Wikimedia Foundation"/></a>
+					</li>
+					<li id="footer-poweredbyico">
+						<a href="//www.mediawiki.org/"><img src="//bits.wikimedia.org/static-1.22wmf7/skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" width="88" height="31" /></a>
+					</li>
+				</ul>
+						<div style="clear:both"></div>
+		</div>
+		<script>/*<![CDATA[*/window.jQuery && jQuery.ready();/*]]>*/</script><script>if(window.mw){
+mw.loader.state({"site":"loading","user":"ready","user.groups":"ready"});
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mw.PopUpMediaTransform","mobile.desktop","mediawiki.action.view.postEdit","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest","ext.gadget.site","ext.gadget.collapsibleTables","ext.gadget.Edittools","ext.gadget.WmfProjectStatusHelper","mw.MwEmbedSupport.style","ext.vector.collapsibleNav","ext.vector.collapsibleTabs","ext.visualEditor.viewPageTarget","ext.navigationTiming","skins.vector.js"],null,true);
+}</script>
+<script src="/w/index.php?title=MediaWiki:Gadget-externalsearch.js&amp;action=raw&amp;ctype=text/javascript&amp;662461"></script>
+<script>if(window.mw){
+mw.loader.state({"site":"ready"});
+}</script>
+<!-- Served by mw1018 in 0.221 secs. -->
+	</body>
+</html>

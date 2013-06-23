@@ -1,0 +1,1908 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+	<meta charset="UTF-8">
+
+	<meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+	<meta name="viewport" content="width=device-width">
+
+	
+	<title>Box Sizing | CSS-Tricks</title>
+
+	<link rel="shortcut icon" href="http://cdn.css-tricks.com/favicon.ico">
+
+	<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+	<link rel="search" type="application/opensearchdescription+xml" href="/opensearch.xml" title="CSS-Tricks Search">
+
+	<link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="http://feeds.feedburner.com/CssTricks">
+
+	<link rel="author" href="https://plus.google.com/101987072260327250694/posts">
+
+	
+<!-- This site is optimized with the Yoast WordPress SEO plugin v1.4.7 - http://yoast.com/wordpress/seo/ -->
+<meta name="description" content="The &quot;box model&quot; in CSS works like this: width + padding + border = actual visible/rendered width of box height + padding + border = actual visible/rend"/>
+<link rel="canonical" href="http://css-tricks.com/box-sizing/" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:site" content="@Real_CSS_Tricks"/>
+<meta name="twitter:description" content="The &quot;box model&quot; in CSS works like this:
+width + padding + border = actual visible/rendered width of box
+height + padding + border = actual visible/rendered height of box
+It&#039;s a little weird, but you get used to it. In IE 6 and earlier, when in &quot;quirks mode,&quot; the box model was treated differently. 
+width = actual visible/rendered width of box
+height = actual visible/rendered height of box
+The border and padding values moved inward, cutting into the width/height &hellip;"/>
+<meta name="twitter:title" content="Box Sizing - CSS-Tricks"/>
+<meta name="twitter:url" content="http://css-tricks.com/box-sizing/"/>
+<!-- / Yoast WordPress SEO plugin. -->
+
+<link rel="alternate" type="application/rss+xml" title="CSS-Tricks &raquo; Box Sizing Comments Feed" href="http://css-tricks.com/box-sizing/feed/" />
+<link rel='stylesheet' id='jetpack-widgets-css'  href='http://cdn.css-tricks.com/wp-content/plugins/jetpack/modules/widgets/widgets.css?ver=20121003' type='text/css' media='all' />
+<script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js?ver=3.5.1'></script>
+<link rel='shortlink' href='http://css-tricks.com/?p=7323' />
+<!-- Better Art Direction Styles -->
+
+
+<style type='text/css'>img#wpstats{display:none}</style>  <script>window.jQuery || document.write('<script src="/wp-includes/js/jquery/jquery.js"><\/script>')</script>
+
+      <link rel="stylesheet" href="http://cloud.typography.com/610186/608840/css/fonts.css">
+  
+  <!--[if !IE]><!-->
+  <link rel="stylesheet" href="http://cdn.css-tricks.com/wp-content/themes/CSS-Tricks-10/style.css?v1.4">
+  <!--<![endif]-->
+  <!--[if lt IE 9]>
+  <link rel="stylesheet" href="http://cdn.css-tricks.com/wp-content/themes/CSS-Tricks-10/css/oldie.css">
+  <![endif]-->
+  <!--[if IE 9]>
+  <link rel="stylesheet" href="http://cdn.css-tricks.com/wp-content/themes/CSS-Tricks-10/style.css?v1.2">
+  <![endif]-->
+
+  
+			<script src='/wp-includes/js/comment-reply.js'></script>
+    <script src="http://cdn.css-tricks.com/wp-content/themes/CSS-Tricks-10/js/showdown-ck.js"></script>
+	
+	
+	
+	
+	
+  
+	
+	
+  
+  
+	
+	
+</head>
+
+<body class="single single-post postid-7323 single-format-standard user-0">
+
+    <script>
+  (function(){
+    var bsa = document.createElement('script');
+       bsa.type = 'text/javascript';
+       bsa.async = true;
+       bsa.src = 'http://s3.buysellads.com/ac/bsa.js';
+    (document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(bsa);
+  })();
+  </script>
+  
+  <header id="top" class="top">
+
+  <div class="logo">
+    <a href="/">
+      CSS<span>-Tricks</span>
+    </a>
+  </div>
+
+    <a class="top-treehouse-ad" href="http://teamtreehouse.com/redirect/css-tricks">
+    <div class="frog-foot-box">
+    <svg class="frog-foot" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 409.48 446.978" enable-background="new 0 0 409.48 446.978" xml:space="preserve"><path d="M361.51 82.324c-14.695-8.308-38.162 5.053-52.414 29.844l-25.805 44.9 c-9.43 18.662-8.137 40.9 3.8 58.034l0.752 1.082c11.959 17.2 28 33 33.3 38.7 c3.117 3.3 5.5 7.4 6.8 12.124c4.357 15.584-4.74 31.751-20.324 36.112c-15.584 4.359-31.752-4.738-36.111-20.324 c-1.096-3.912-1.34-7.859-0.848-11.648c0.838-6.439-1.229-16.927-10.461-27.223s-28.102 9.15-34.203 29.149l-0.281 0.9 c-6.102 19.998-9.953 37.45-8.801 39.13c0.686 1 1.3 2.1 1.9 3.147c8.561 16.1 2.4 36.105-13.664 44.7 c-16.108 8.562-36.105 2.444-44.668-13.662c-8.561-16.108-2.443-36.105 13.664-44.667c0.723-0.385 1.454-0.739 2.191-1.064 c1.23-0.541 4.72-8.948 7.748-18.878c3.031-9.932 5.486-17.98 5.486-17.98c0.324-1.057 0.605-2.102 0.861-3.138l16.3-58.202 l-17.435 35.785c-2.066-6.794-5.482-7.036-12.964-1.684c-4.513 3.229-11.974 9.586-15.618 12.2 c-6.844 4.897-12.569 14.408-15.6 20.235c-1.783 3.43-4.281 6.558-7.474 9.146c-12.482 10.128-30.81 8.219-40.937-4.263 c-10.127-12.48-8.218-30.808 4.262-40.935c3.658-2.969 7.821-4.903 12.131-5.841c7.333-1.593 32.271-16.827 47.296-27.578 c2.69-1.924 4.947-3.745 6.783-5.433l40.118-30.468l-34.939 18.879c0 0-3.555-0.36-7.913 0.1 c-12.788 1.419-25.957 3.221-28.445 6.388c-1.472 1.87-3.224 3.568-5.253 5.027c-11.66 8.4-27.924 5.756-36.324-5.906 c-8.402-11.663-5.755-27.928 5.905-36.326c4.812-3.464 10.404-5.049 15.901-4.896c9.353 0.3 34 5.2 54.5 1.6 l5.288-0.937c20.589-3.648 45.238-21.57 55.06-40.03c0 0 9.617-16.893 21.479-37.731c11.863-20.838 10.986-43.664-1.955-50.98 l-23.436-13.25c-11.824-6.685-31.18-6.697-43.013-0.025L22.827 97.395c-11.832 6.671-21.514 23.243-21.514 36.826v177.826 c0 13.6 9.7 30.2 21.5 36.828l161.416 90.997c11.833 6.7 31.2 6.7 43.013-0.025l160.863-90.947 c11.826-6.685 21.502-23.269 21.502-36.853V134.221c0-13.583-9.676-30.168-21.502-36.853 C388.12 97.4 376.2 90.6 361.5 82.324z" class="frog-foot-shape"/>
+    </svg>
+    </div>
+    <div class="top-treehouse-text">
+    <h5><span class="treehouse-brand">treehouse : </span> <strong>what would you like to learn today?</strong></h5>
+    <div class="treehouse-topics">
+      <span>Web Design</span>
+      <span>Web Development</span>
+      <span>iOS Development</span>
+    </div>
+    </div>
+  </a>
+  
+  <section class="search" role="search">
+
+    <div class="open-search">
+      <a href="#" title="Show search box" role="button">
+         <span data-icon="m" aria-hidden="true"></span>
+         <span class="screen-reader">Show search box</span>
+      </a>
+    </div>
+
+    <div class="close-search">
+      <form id="search-form" action="/search-results/">
+
+        <div>
+          <label for="q" id="search-label" class="screen-reader">Search</label>
+          <input aria-labelledby="search-label" id="q" type="search" name="q" class="search-field" placeholder="Search terms..." value="">
+          <input type="submit" value="Search" class="button search-button">
+        </div>
+
+        <div class="search-parts">
+          <strong>Search in:</strong>
+          <a data-url="/search-results/" class="active">All</a>
+          <a data-url="/search-results/articles/">Articles</a>
+          <a data-url="/search-results/forums/">Forums</a>
+          <a data-url="/search-results/snippets/">Snippets</a>
+          <a data-url="/search-results/video/">Videos</a>
+
+          <a href="#" id="x-search" class="x-search">✕</a>
+        </div>
+
+      </form>
+    </div>
+
+  </section>
+
+</header>
+  <div class="page-wrap">
+
+    <nav class="main-nav" id="main-nav">
+  <a href="/" class="home">
+    <span data-icon="&#xe007;" aria-hidden="true"></span>Home
+  </a>
+  <a href="/forums/" class="forums">
+    <span data-icon="9" aria-hidden="true"></span>Forums
+  </a>
+  <a href="/snippets/" class="snippets">
+    <span data-icon="Q" aria-hidden="true"></span>Snippets
+  </a>
+  <a href="/gallery/" class="gallery">
+    <span data-icon="p" aria-hidden="true"></span>Gallery
+  </a>
+  <a href="/video-screencasts/" class="videos">
+    <span data-icon="q" aria-hidden="true"></span>Videos
+  </a>
+  <a href="/almanac/" class="almanac">
+    <span data-icon="ó" aria-hidden="true"></span>Almanac
+  </a>
+  <a href="/downloads/" class="demos">
+    <span data-icon="&#x77;" aria-hidden="true"></span>Demos
+  </a>
+  <a href="/lodge/" class="lodge">
+    <span data-icon="6" aria-hidden="true"></span>Lodge
+  </a>
+
+
+  <a href="#main-nav" class="show-hide-navigation" id="show-hide-navigation">
+    Navigation 'n' Search
+  </a>
+</nav>
+<div class="grid group">
+
+	<section class="blog-posts grid-2-3">
+
+		<article class="module" id="post-7323">
+
+			<h1>Box Sizing</h1>
+
+			<p class="time">
+
+				Published
+				<time datetime="2010-09-10">
+					September 10, 2010				</time>
+
+				by Chris Coyier			</p>
+
+			<div class="google-ad">
+        				<div id="bsap_1279518" class="bsarocks bsap_3469a2a501a9e18091036aa0c89f9dcb"></div>
+              </div>
+
+			<p>The "box model" in CSS works like this:</p>
+<p>width + padding + border = actual visible/rendered width of box<br />
+height + padding + border = actual visible/rendered height of box</p>
+<p>It's a little weird, but you get used to it. In IE 6 and earlier, when in "quirks mode," the box model was treated differently. </p>
+<p>width = actual visible/rendered width of box<br />
+height = actual visible/rendered height of box</p>
+<p>The border and padding values moved inward, cutting into the width/height of the box rather than expanding it. Here is a dramatic example of the difference:</p>
+<figure>
+<img src="http://cdn.css-tricks.com/wp-content/uploads/2010/09/widthbox.png" alt="" title="widthbox" width="367" height="604" class="alignnone size-full wp-image-7394"><br />
+</figure>
+<p>It was weird quirk to have to deal with, although the fix was usually as easy as setting a proper DOCTYPE and getting out of quirks mode. More to the point, some people prefered this handling of the box model, claiming it to be more intuitive. It's a valid point. Having the actual visible width of a box not be what you declared in the CSS is a bit mind bending.</p>
+<p>The mind bending continues with the modern implementation. Let's say you have a block-level element like a <code>&lt;div&gt;</code> on the page. It's within another parent <code>&lt;div&gt;</code> with a width of 500px. The child div will automatically default to 100% as wide as the parent (500px) without any special CSS. That's how block-level elements work. But now let's say you add 10px of padding all around and a 2px border. The child div will behave like the old quirks-mode box and the padding and border will cut into the box. The visible box will remain 500px in width. Now if you go and explicitly declare the width of that child div to be 100%, the div will actually grow and break out of the parent. The width will start at 500px, but then 10px of padding and 2px of border on either side will leave the visible box at 524px. </p>
+<p>If you wanted to ensure the box kissed the edges of the parent, but still use a 100% width declaration, you'd have to set the child divs width to 476px. But now we've run into a problem, and that's fluid width design. Let's say instead of the parent being 500px, you use 72%. Now what do you set the inner divs width to be to make sure it kisses the edges? There is no answer with the current box model. The percentages mixed with pixel values just don't mix well. Setting the inner divs width to 95.2% will work when the parent just happens to be exactly 500px, but if it grows wider, as happens in fluid width design, the div will be too narrow, and if the parent grows narrower, the inner div will be too wide and break out of the parent. </p>
+<p>This <code>&lt;div&gt;</code> pseudo markup only takes us so far, because the answer of course is to not use a 100% width declaration. Removing that will solve our problems. However, there is one very important element which really needs this 100% width declaration, and that is the <a href="http://web.archive.org/web/20050816051837/http://www.whytheluckystiff.net/2004/05/20.html">venerable</a> <code>&lt;textarea&gt;</code>.</p>
+<p>The <code>&lt;textarea&gt;</code> doesn't care if you make it a block level element, it's width will be determined by the required <code>cols</code> attribute unless you explicitly set it. In a fluid width environment, it is very likely you'll want a textarea that is fluid width as well and your layout may demand that it matches up nicely both left and right. In fact, in the current design of this site, that is the case.</p>
+<figure>
+<img src="http://cdn.css-tricks.com/wp-content/uploads/2010/09/textarea-lineup.png" alt="" title="textarea-lineup" width="570" height="177" class="alignnone size-full wp-image-7393" /></p>
+<figcaption>Notice the textarea lines up with the text inputs at either width. The left edge and right edge are also of equal distance from other objects.</figcaption>
+</figure>
+<p>To accomplish this, we want to be using 100% width and pixel-based padding and border, and that is the unholy combination that is seemingly impossible. Even the great designer <a href="http://www.hicksdesign.co.uk/">Jon Hicks</a>, known for his excellent fluid width designs, had this to say on the subject in the <a href="http://css-tricks.com/css-wishlist/">CSS Wishlist</a> I put together a few years back:</p>
+<blockquote><p>I would love a different box model! I find it bizarre that padding and border add the width of an object, and would love to be able to give something like a textarea 100% width and 3px padding without worrying what it’s going to do the layout. Perhaps something like padding-inside as a new selector?</p>
+<p>In that vein I also wish I could specify a 100% width for an element, minus a set fixed width. Again, very useful when creating fluid designs with form elements!</p></blockquote>
+<h3>Kapow!</h3>
+<p>In an epic The DaVinci Code-like plot twist, the answer to our problem is right where we started, the box model itself. If we could force our <code>&lt;textarea&gt;</code> to have padding and border that cut into it's 100% width instead of expanding it, we'd be all set. Wouldn't you know it? <strong>There is a way!</strong></p>
+<pre rel="CSS"><code class="language-css">textarea { 
+	-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+	-moz-box-sizing: border-box;    /* Firefox, other Gecko */
+	box-sizing: border-box;         /* Opera/IE 8+ */
+}</code></pre>
+<p>The <code>box-sizing</code> CSS3 property can do just this. The <code>border-box</code> value (as opposed to the <code>content-box</code> default) makes the final rendered box the declared width, and any border and padding cut inside the box. We can now safely declare our textarea to be of 100% width, including pixel-based padding and border, and accomplish out layout perfectly.</p>
+<p><a href="http://css-tricks.com/examples/BoxSizing/" class="button">View Demo</a></p>
+<h3>Support</h3>
+<p>Chrome (any): box-sizing<br />
+Opera 8.5+: box-sizing<br />
+Firefox (any): -moz-box-sizing<br />
+Safari 3: -webkit-box-sizing (unprefixed in 5.1+ versions)<br />
+IE8+: box-sizing</p>
+<h3>Min / Max</h3>
+<p>Box-sizing should and does work with <code>min-width</code> / <code>max-width</code> / <code>min-height</code> / <code>max-height</code> with one exception: Firefox. In even modern Firefox, v11 at the time of this update, <code>min-height</code> and <code>max-height</code> don't respect box-sizing. See <a href="http://jsfiddle.net/beau/SCUED/">this fiddle</a> by Beau Smith to illustrate the problem. This is a <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=308801">known bug</a> since 2005.</p>
+<div class="explanation"><strong>Update November 2012:</strong> This bug <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=308801">was fixed</a> as of Firefox 17</div>
+<div class="explanation">Ready Iago reports that IE 9, while in IE 8 mode, exhibits the same bug. <a href="http://jsfiddle.net/IagoSRL/K9Gg9/">See research.</a></div>
+<h3>Notes</h3>
+<ul>
+<li>The <a href="https://developer.mozilla.org/en/CSS/box-sizing"><code>moz</code> prefix version</a> also supports <code>padding-box</code> which pulls the padding inside the box but not the border. Non-spec.</li>
+<li>Way to <a href="http://jsfiddle.net/cuyJ4/15/">calculate it all</a> with jQuery by Cody Lindley.</li>
+<li>I'm a big fan of using <code>box-sizing: border-box;</code> on everything, <a href="http://paulirish.com/2012/box-sizing-border-box-ftw/">as explained by Paul Irish here</a>.
+</ul>
+
+			
+		</article>
+
+		<div class='yarpp-related'>
+<section class="related-posts group">
+
+
+  
+    <div class="module module-related">
+
+      <h2 class="h4">
+        <a href="http://css-tricks.com/theres-more-to-the-css-rem-unit-than-font-sizing/">
+          There’s more to the CSS rem unit than font sizing        </a>
+      </h2>
+
+      <p>Many web designers and developers are familiar with the CSS <code>rem</code> <a href="http://css-tricks.com/the-lengths-of-css/">length</a> unit. But, you may not know that it has a couple of handy alternate uses. In this post, I’ll describe how to use the CSS <code>rem</code> unit to scale specific page elements while leaving others unaffected. I’ll also discuss how to use it as a replacement for the under-supported <code>vw</code> (viewporth width) unit.</p>
+
+      <a href="http://css-tricks.com/theres-more-to-the-css-rem-unit-than-font-sizing/">Read Article &rarr;</a>
+
+    </div>
+
+  
+    <div class="module module-related">
+
+      <h2 class="h4">
+        <a href="http://css-tricks.com/three-sided-border/">
+          Three-Sided Border        </a>
+      </h2>
+
+      <p>There are many ways to skin a cat. Also, there are many ways to accomplish the same thing in CSS. The three sided border is one of those things, so we&#8217;ll look at four different examples that all do it. I would think this kind of thing is a bit confusing as a beginner, so hopefully seeing these different bits of code isolated will make it clearer.</p>
+
+      <a href="http://css-tricks.com/three-sided-border/">Read Article &rarr;</a>
+
+    </div>
+
+  
+
+</section>
+<img src='http://yarpp.org/pixels/e42758635938f2ca7d47dfaa85074d5f'/>
+</div>
+
+    		<div id="bsap_1250418" class="bsarocks entry-unrelated bsap_3469a2a501a9e18091036aa0c89f9dcb"></div>
+    
+					<a href="#" class="button full-width-button view-comments-button" id="view-comments-button">View Comments</a>
+
+<section id="comments">
+
+
+
+	<h1 class="h2 comments-title">
+		<span aria-hidden="true" data-icon="9"></span>Comments
+	</h1>
+
+	<ol class="commentlist group">
+		
+		<li class="comment even thread-even depth-1 buried" id="li-comment-82889">
+
+      <div class="grid group nopadding comment-wrap" id="comment-82889">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt='' src='http://0.gravatar.com/avatar/ace0706d258ca5678521b3ebebd45899?s=160&amp;d=http%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png%3Fs%3D160&amp;r=R' class='avatar avatar-160 photo' height='160' width='160' />        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author"><a href='http://www.alexanderwassberg.com' rel='external nofollow' class='url'>Alexander Wassberg</a></div> <div class="comment-time"><a href="http://css-tricks.com/box-sizing/#comment-82889"><span class="screen-reader">Permalink to comment</span>#</span></a> <time pubdate datetime="2010-09-10T06:31:20+00:00">September 10, 2010</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>Perfect entry! Thanks!</p>
+
+            <div class="reply">
+                          </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+	</li>
+
+		<li class="comment odd alt thread-odd thread-alt depth-1 buried" id="li-comment-82890">
+
+      <div class="grid group nopadding comment-wrap" id="comment-82890">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt='' src='http://1.gravatar.com/avatar/fd2d83111e049542849de4462e3cb7cc?s=160&amp;d=http%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png%3Fs%3D160&amp;r=R' class='avatar avatar-160 photo' height='160' width='160' />        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author"><a href='http://blog.arsalan.biz' rel='external nofollow' class='url'>Arsalan Suzuki</a></div> <div class="comment-time"><a href="http://css-tricks.com/box-sizing/#comment-82890"><span class="screen-reader">Permalink to comment</span>#</span></a> <time pubdate datetime="2010-09-10T06:31:31+00:00">September 10, 2010</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>Nice useful tutorial.</p>
+
+            <div class="reply">
+                          </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+	</li>
+
+		<li class="comment even thread-even depth-1" id="li-comment-82891">
+
+      <div class="grid group nopadding comment-wrap" id="comment-82891">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt='' src='http://0.gravatar.com/avatar/a46bd3edac0bebecd751eebd56b3a53e?s=160&amp;d=http%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png%3Fs%3D160&amp;r=R' class='avatar avatar-160 photo' height='160' width='160' />        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author">Thomas</div> <div class="comment-time"><a href="http://css-tricks.com/box-sizing/#comment-82891"><span class="screen-reader">Permalink to comment</span>#</span></a> <time pubdate datetime="2010-09-10T07:26:37+00:00">September 10, 2010</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>Nice, didn&#8217;t know that works in IE8 &#8211; so its actually usable ;)<br />
+Unlike &#8220;decorative&#8221; CSS3 properties like text- or box shadow, box-sizing will totally ruin your design if the browser doesn&#8217;t get it.</p>
+
+            <div class="reply">
+                          </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+	<ul class='children'>
+
+		<li class="comment odd alt depth-2" id="li-comment-82939">
+
+      <div class="grid group nopadding comment-wrap" id="comment-82939">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt='' src='http://1.gravatar.com/avatar/b2f8297edf4a2ba4ca6ee951747bd791?s=160&amp;d=http%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png%3Fs%3D160&amp;r=R' class='avatar avatar-160 photo' height='160' width='160' />        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author"><a href='http://laroouse.com' rel='external nofollow' class='url'>esranull</a></div> <div class="comment-time"><a href="http://css-tricks.com/box-sizing/#comment-82939"><span class="screen-reader">Permalink to comment</span>#</span></a> <time pubdate datetime="2010-09-11T06:25:34+00:00">September 11, 2010</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>dont say İE8, i hate him</p>
+
+            <div class="reply">
+                          </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+	</li>
+
+		<li class="comment even depth-2" id="li-comment-83009">
+
+      <div class="grid group nopadding comment-wrap" id="comment-83009">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt='' src='http://1.gravatar.com/avatar/d30724725c2693852132722d30d2cc72?s=160&amp;d=http%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png%3Fs%3D160&amp;r=R' class='avatar avatar-160 photo' height='160' width='160' />        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author">ahmad</div> <div class="comment-time"><a href="http://css-tricks.com/box-sizing/#comment-83009"><span class="screen-reader">Permalink to comment</span>#</span></a> <time pubdate datetime="2010-09-13T11:43:10+00:00">September 13, 2010</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>me too. I hate IE versions. Unfortunately in my country people use ie6 until 10 years later.</p>
+
+            <div class="reply">
+                          </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+	</li>
+
+		<li class="comment odd alt depth-2" id="li-comment-82956">
+
+      <div class="grid group nopadding comment-wrap" id="comment-82956">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt='' src='http://0.gravatar.com/avatar/89e06a5cef6b1c52b0a860419c63821f?s=160&amp;d=http%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png%3Fs%3D160&amp;r=R' class='avatar avatar-160 photo' height='160' width='160' />        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author"><a href='http://engineercreativity.com' rel='external nofollow' class='url'>Amit</a></div> <div class="comment-time"><a href="http://css-tricks.com/box-sizing/#comment-82956"><span class="screen-reader">Permalink to comment</span>#</span></a> <time pubdate datetime="2010-09-11T19:41:33+00:00">September 11, 2010</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>So true. Thus, make sure you know your audience very well</p>
+
+            <div class="reply">
+                          </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+	</li>
+</ul>
+</li>
+
+		<li class="comment even thread-odd thread-alt depth-1" id="li-comment-82892">
+
+      <div class="grid group nopadding comment-wrap" id="comment-82892">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt='' src='http://1.gravatar.com/avatar/3b115e9f2640153a9290e76d5820140f?s=160&amp;d=http%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png%3Fs%3D160&amp;r=R' class='avatar avatar-160 photo' height='160' width='160' />        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author"><a href='http://ourhandyman.co.uk' rel='external nofollow' class='url'>Alan</a></div> <div class="comment-time"><a href="http://css-tricks.com/box-sizing/#comment-82892"><span class="screen-reader">Permalink to comment</span>#</span></a> <time pubdate datetime="2010-09-10T07:28:08+00:00">September 10, 2010</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>Fantastic tutorial, the best I have see for this subject</p>
+<p>Just to make more sense to can you change the line&#8230;.</p>
+<p>&#8220;height + padding + border = actual visible/rendered width of box&#8221;</p>
+<p>think it should read &#8211; rendered &#8220;height&#8221; of box.</p>
+
+            <div class="reply">
+                          </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+	</li>
+
+		<li class="comment odd alt thread-even depth-1" id="li-comment-82893">
+
+      <div class="grid group nopadding comment-wrap" id="comment-82893">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt='' src='http://0.gravatar.com/avatar/87126af6645d1594c27aa09376af77d2?s=160&amp;d=http%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png%3Fs%3D160&amp;r=R' class='avatar avatar-160 photo' height='160' width='160' />        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author">Ivan Nikolić</div> <div class="comment-time"><a href="http://css-tricks.com/box-sizing/#comment-82893"><span class="screen-reader">Permalink to comment</span>#</span></a> <time pubdate datetime="2010-09-10T07:47:44+00:00">September 10, 2010</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>Great property to use if you work on layouts for orientation change capable devices like iPhone.</p>
+
+            <div class="reply">
+                          </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+	</li>
+
+		<li class="comment even thread-odd thread-alt depth-1" id="li-comment-82894">
+
+      <div class="grid group nopadding comment-wrap" id="comment-82894">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt='' src='http://0.gravatar.com/avatar/ac8b050a96de25e66978819755ffc470?s=160&amp;d=http%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png%3Fs%3D160&amp;r=R' class='avatar avatar-160 photo' height='160' width='160' />        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author">Michael</div> <div class="comment-time"><a href="http://css-tricks.com/box-sizing/#comment-82894"><span class="screen-reader">Permalink to comment</span>#</span></a> <time pubdate datetime="2010-09-10T07:50:19+00:00">September 10, 2010</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>Hi,<br />
+My solution to this: never use padding. You get the same (optical) effect when you set margins for inner elements. By doing that, everything will be calculated and treated correctly.</p>
+<p>If you have multiple elements inside and don&#8217;t want to set margin for everything, than group them in another nested div and set a margin for this one, so that the parent will get a padding.</p>
+<p>Example:</p>
+<pre><code>&lt;div&gt;
+  &lt;div style="margin:10px;"&gt;
+     your content
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+<p>Of course this adds more code, but it is as safe as it can be, across all browsers and even in quirks mode.</p>
+
+            <div class="reply">
+                          </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+	<ul class='children'>
+
+		<li class="comment odd alt depth-2" id="li-comment-82908">
+
+      <div class="grid group nopadding comment-wrap" id="comment-82908">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt='' src='http://1.gravatar.com/avatar/3d58b82a8f7e793149816bcbcfc2b489?s=160&amp;d=http%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png%3Fs%3D160&amp;r=R' class='avatar avatar-160 photo' height='160' width='160' />        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author"><a href='http://www.shaneparkerphoto.com' rel='external nofollow' class='url'>shane</a></div> <div class="comment-time"><a href="http://css-tricks.com/box-sizing/#comment-82908"><span class="screen-reader">Permalink to comment</span>#</span></a> <time pubdate datetime="2010-09-10T13:39:36+00:00">September 10, 2010</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>But how would you do that with the textarea example?</p>
+
+            <div class="reply">
+                          </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+	</li>
+
+		<li class="comment even depth-2" id="li-comment-82934">
+
+      <div class="grid group nopadding comment-wrap" id="comment-82934">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt='' src='http://1.gravatar.com/avatar/de3b4addf7732705c6f6b15334b1fe5d?s=160&amp;d=http%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png%3Fs%3D160&amp;r=R' class='avatar avatar-160 photo' height='160' width='160' />        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author">Cao</div> <div class="comment-time"><a href="http://css-tricks.com/box-sizing/#comment-82934"><span class="screen-reader">Permalink to comment</span>#</span></a> <time pubdate datetime="2010-09-10T22:35:04+00:00">September 10, 2010</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>Interesting take Michael, <em>but</em>, doesn&#8217;t that messes backgrounds? paddings allow more background to be shown, while margins cut the backgrounds right out. I guess I could work for some cases where your inner element is 100% content.</p>
+
+            <div class="reply">
+                          </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+	</li>
+
+		<li class="comment odd alt depth-2" id="li-comment-83011">
+
+      <div class="grid group nopadding comment-wrap" id="comment-83011">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt='' src='http://1.gravatar.com/avatar/d30724725c2693852132722d30d2cc72?s=160&amp;d=http%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png%3Fs%3D160&amp;r=R' class='avatar avatar-160 photo' height='160' width='160' />        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author">ahmad</div> <div class="comment-time"><a href="http://css-tricks.com/box-sizing/#comment-83011"><span class="screen-reader">Permalink to comment</span>#</span></a> <time pubdate datetime="2010-09-13T12:04:12+00:00">September 13, 2010</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>I think wen can use this:</p>
+<p>and </p>
+<p>#parent {width:35%; padding:15%; border:3px; }<br />
+#paddingholder { padding:5%; border:2px;}<br />
+#content { width:100%; height:100px; }</p>
+
+            <div class="reply">
+                          </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+	</li>
+</ul>
+</li>
+
+		<li class="comment even thread-even depth-1" id="li-comment-82897">
+
+      <div class="grid group nopadding comment-wrap" id="comment-82897">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt='' src='http://0.gravatar.com/avatar/685b19a73a2487771da8ba4e7abfaa99?s=160&amp;d=http%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png%3Fs%3D160&amp;r=R' class='avatar avatar-160 photo' height='160' width='160' />        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author">David</div> <div class="comment-time"><a href="http://css-tricks.com/box-sizing/#comment-82897"><span class="screen-reader">Permalink to comment</span>#</span></a> <time pubdate datetime="2010-09-10T08:24:08+00:00">September 10, 2010</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>This is something that has always irked me.</p>
+<p>From the beginning of learning css/html I always thought it would be logical that added padding would be put inside the box, not outside.  It still frustrates me to this day.</p>
+
+            <div class="reply">
+                          </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+	<ul class='children'>
+
+		<li class="comment odd alt depth-2" id="li-comment-82909">
+
+      <div class="grid group nopadding comment-wrap" id="comment-82909">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt='' src='http://1.gravatar.com/avatar/d94a82e16f51b023ade391bf40ba9094?s=160&amp;d=http%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png%3Fs%3D160&amp;r=R' class='avatar avatar-160 photo' height='160' width='160' />        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author"><a href='http://www.reedeesign.com' rel='external nofollow' class='url'>Rick Lamers</a></div> <div class="comment-time"><a href="http://css-tricks.com/box-sizing/#comment-82909"><span class="screen-reader">Permalink to comment</span>#</span></a> <time pubdate datetime="2010-09-10T14:11:53+00:00">September 10, 2010</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>Same for me, man I also definitely think padding belongs to the inside of the elements it just doesn&#8217;t make any sense&#8230;</p>
+
+            <div class="reply">
+                          </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+	</li>
+
+		<li class="comment even depth-2" id="li-comment-82930">
+
+      <div class="grid group nopadding comment-wrap" id="comment-82930">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt='' src='http://0.gravatar.com/avatar/23b0f9cc3f87b84c7272ba43c49d1cb2?s=160&amp;d=http%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png%3Fs%3D160&amp;r=R' class='avatar avatar-160 photo' height='160' width='160' />        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author"><a href='http://www.custom-anything.com' rel='external nofollow' class='url'>traq</a></div> <div class="comment-time"><a href="http://css-tricks.com/box-sizing/#comment-82930"><span class="screen-reader">Permalink to comment</span>#</span></a> <time pubdate datetime="2010-09-10T21:35:56+00:00">September 10, 2010</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>the one thing that IE got right, the spec got wrong&#8230; c&#8217;est la vie</p>
+
+            <div class="reply">
+                          </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+	</li>
+</ul>
+</li>
+
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-82898">
+
+      <div class="grid group nopadding comment-wrap" id="comment-82898">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt='' src='http://1.gravatar.com/avatar/5acb8fa95c899a6bedae418c5305f43d?s=160&amp;d=http%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png%3Fs%3D160&amp;r=R' class='avatar avatar-160 photo' height='160' width='160' />        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author">Jason Evers</div> <div class="comment-time"><a href="http://css-tricks.com/box-sizing/#comment-82898"><span class="screen-reader">Permalink to comment</span>#</span></a> <time pubdate datetime="2010-09-10T08:43:25+00:00">September 10, 2010</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>Ya just blew my mind, yo.</p>
+<p>*boom*</p>
+
+            <div class="reply">
+                          </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+	</li>
+
+		<li class="comment even thread-even depth-1" id="li-comment-82899">
+
+      <div class="grid group nopadding comment-wrap" id="comment-82899">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt='' src='http://1.gravatar.com/avatar/1f670e351f1339e69a55374fc9a3f2ac?s=160&amp;d=http%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png%3Fs%3D160&amp;r=R' class='avatar avatar-160 photo' height='160' width='160' />        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author"><a href='http://www.tkp.com.br' rel='external nofollow' class='url'>Thiago</a></div> <div class="comment-time"><a href="http://css-tricks.com/box-sizing/#comment-82899"><span class="screen-reader">Permalink to comment</span>#</span></a> <time pubdate datetime="2010-09-10T08:47:08+00:00">September 10, 2010</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>Great article! I’m from Brazil, I’ve been following your works for a while and I’m always learning new things from you, congratulations.</p>
+
+            <div class="reply">
+                          </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+	</li>
+
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-82901">
+
+      <div class="grid group nopadding comment-wrap" id="comment-82901">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt='' src='http://0.gravatar.com/avatar/a47217ab70362351067f77a55dcbd9bc?s=160&amp;d=http%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png%3Fs%3D160&amp;r=R' class='avatar avatar-160 photo' height='160' width='160' />        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author"><a href='http://www.devseo.co.uk' rel='external nofollow' class='url'>Alex Hall</a></div> <div class="comment-time"><a href="http://css-tricks.com/box-sizing/#comment-82901"><span class="screen-reader">Permalink to comment</span>#</span></a> <time pubdate datetime="2010-09-10T08:50:28+00:00">September 10, 2010</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>Oddly enough, I&#8217;ve just been working with this myself! In creating a Firefox addon I&#8217;m using a nice fluid layout so that my section fit no matter what size browser you have. However, I also wanted a very nice &#8216;Facebook-style&#8217; border with rgba colours so that they were see-through.</p>
+<p>If you set a background-color on the element and apply a border, it won&#8217;t be see-through because the border is *technically* on top of the content. Using a mixture of border-box and background-clip I managed to get the desired effect, with ease!</p>
+
+            <div class="reply">
+                          </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+	</li>
+
+		<li class="comment even thread-even depth-1" id="li-comment-82902">
+
+      <div class="grid group nopadding comment-wrap" id="comment-82902">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt='' src='http://0.gravatar.com/avatar/a47217ab70362351067f77a55dcbd9bc?s=160&amp;d=http%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png%3Fs%3D160&amp;r=R' class='avatar avatar-160 photo' height='160' width='160' />        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author"><a href='http://www.devseo.co.uk' rel='external nofollow' class='url'>Alex Hall</a></div> <div class="comment-time"><a href="http://css-tricks.com/box-sizing/#comment-82902"><span class="screen-reader">Permalink to comment</span>#</span></a> <time pubdate datetime="2010-09-10T08:57:14+00:00">September 10, 2010</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>Should&#8217;ve posted a link to my tests&#8230; I do apologise!</p>
+<p><a href="http://www.devseo.co.uk/examples/facebook-style-overlay-css/" rel="nofollow">http://www.devseo.co.uk/examples/facebook-style-overlay-css/</a></p>
+
+            <div class="reply">
+                          </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+	</li>
+
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-82903">
+
+      <div class="grid group nopadding comment-wrap" id="comment-82903">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt='' src='http://1.gravatar.com/avatar/3fdfbb96a561770069d48f56f0a2be64?s=160&amp;d=http%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png%3Fs%3D160&amp;r=R' class='avatar avatar-160 photo' height='160' width='160' />        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author">David Garbacz</div> <div class="comment-time"><a href="http://css-tricks.com/box-sizing/#comment-82903"><span class="screen-reader">Permalink to comment</span>#</span></a> <time pubdate datetime="2010-09-10T09:51:31+00:00">September 10, 2010</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>I guess I never really thought of it that way. If you think about cellpadding with tables, it worked in that way didn&#8217;t it where the padding cut into the cell instead of adding to the outside.</p>
+<p>I&#8217;ll have to agree with Jason above and say that you definitely blew my mind on this one.  Big grin came across my face because of how big of a dork I am and found this to be super intriguing.</p>
+
+            <div class="reply">
+                          </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+	</li>
+
+		<li class="comment even thread-even depth-1" id="li-comment-82904">
+
+      <div class="grid group nopadding comment-wrap" id="comment-82904">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt='' src='http://0.gravatar.com/avatar/48dcba00735d9c6253f81e030b25d35c?s=160&amp;d=http%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png%3Fs%3D160&amp;r=R' class='avatar avatar-160 photo' height='160' width='160' />        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author"><a href='http://wp-not-a-human.co.cc' rel='external nofollow' class='url'>aki</a></div> <div class="comment-time"><a href="http://css-tricks.com/box-sizing/#comment-82904"><span class="screen-reader">Permalink to comment</span>#</span></a> <time pubdate datetime="2010-09-10T09:51:54+00:00">September 10, 2010</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>Always bother me time and time again when creating a box with a specific box, but after setting up with padding and some borders, the size of the box it completely different. I&#8217;ve scratch my head few times , until made some experiment myself that found out the padding+border is the cause of it.</p>
+<p>Nevertheless, a wonderful explanation.</p>
+
+            <div class="reply">
+                          </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+	</li>
+
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-82907">
+
+      <div class="grid group nopadding comment-wrap" id="comment-82907">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt='' src='http://1.gravatar.com/avatar/96ee269a18aae62266477d1390f5e9db?s=160&amp;d=http%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png%3Fs%3D160&amp;r=R' class='avatar avatar-160 photo' height='160' width='160' />        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author"><a href='http://ajcates.com' rel='external nofollow' class='url'>A.J. Cates</a></div> <div class="comment-time"><a href="http://css-tricks.com/box-sizing/#comment-82907"><span class="screen-reader">Permalink to comment</span>#</span></a> <time pubdate datetime="2010-09-10T11:59:01+00:00">September 10, 2010</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>You can also use `display: table` to throw items into border-box sizing mode.</p>
+
+            <div class="reply">
+                          </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+	<ul class='children'>
+
+		<li class="comment even depth-2" id="li-comment-82912">
+
+      <div class="grid group nopadding comment-wrap" id="comment-82912">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt='' src='http://1.gravatar.com/avatar/9d2ced053620d840630c21129312ce2e?s=160&amp;d=http%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png%3Fs%3D160&amp;r=R' class='avatar avatar-160 photo' height='160' width='160' />        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author"><a href='http://freshcutsd.com' rel='external nofollow' class='url'>Josh L</a></div> <div class="comment-time"><a href="http://css-tricks.com/box-sizing/#comment-82912"><span class="screen-reader">Permalink to comment</span>#</span></a> <time pubdate datetime="2010-09-10T16:41:07+00:00">September 10, 2010</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>LOL, sup AJ? How are things at Egghead? How random.</p>
+<p>On topic: If you have to choose one box model, the W3 box model is more versatile than the IE one. It bugs me when people who haven&#8217;t even read the spec view the W3 model as inferior simply because it is less intuitive.</p>
+<p>Now that we have the alternate box sizing available, we get the best of both worlds. For IE6/7 in standards mode, you could use CSS expressions to bring them in line.</p>
+<p>I&#8217;m guessing that this property will be extended soon &#8211; I can think of other box-sizing methods that, like border-box, would be useful in special situations. A value for instructing a block element to take up all the height that it can (in the same way that a block element takes up all the width it can) could be incredibly useful.</p>
+
+            <div class="reply">
+                          </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+	</li>
+</ul>
+</li>
+
+		<li class="comment odd alt thread-even depth-1" id="li-comment-82935">
+
+      <div class="grid group nopadding comment-wrap" id="comment-82935">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt='' src='http://1.gravatar.com/avatar/b56bb389c450c65f8197c34d3c8ec29f?s=160&amp;d=http%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png%3Fs%3D160&amp;r=R' class='avatar avatar-160 photo' height='160' width='160' />        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author">Asker</div> <div class="comment-time"><a href="http://css-tricks.com/box-sizing/#comment-82935"><span class="screen-reader">Permalink to comment</span>#</span></a> <time pubdate datetime="2010-09-10T22:47:05+00:00">September 10, 2010</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>you&#8217;re not getting any good topics to write..is it right Chris?</p>
+
+            <div class="reply">
+                          </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+	</li>
+
+		<li class="comment even thread-odd thread-alt depth-1" id="li-comment-82936">
+
+      <div class="grid group nopadding comment-wrap" id="comment-82936">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt='' src='http://0.gravatar.com/avatar/ca851fb1cf0d66afc9efd683ee06abf1?s=160&amp;d=http%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png%3Fs%3D160&amp;r=R' class='avatar avatar-160 photo' height='160' width='160' />        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author">Carey</div> <div class="comment-time"><a href="http://css-tricks.com/box-sizing/#comment-82936"><span class="screen-reader">Permalink to comment</span>#</span></a> <time pubdate datetime="2010-09-11T02:33:00+00:00">September 11, 2010</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>I’ve found that border-box sizing is pretty much required if you want to do a fixed size header and footer with scrolling content inset into the page (with overflow-y: scroll). It seems to be the only way to make the content and all its parents 100% high, with fixed top and bottom padding.</p>
+
+            <div class="reply">
+                          </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+	</li>
+
+		<li class="comment odd alt thread-even depth-1" id="li-comment-82945">
+
+      <div class="grid group nopadding comment-wrap" id="comment-82945">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt='' src='http://1.gravatar.com/avatar/f41649eb6074c468fb36c504d40e1b01?s=160&amp;d=http%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png%3Fs%3D160&amp;r=R' class='avatar avatar-160 photo' height='160' width='160' />        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author">Omnipotent</div> <div class="comment-time"><a href="http://css-tricks.com/box-sizing/#comment-82945"><span class="screen-reader">Permalink to comment</span>#</span></a> <time pubdate datetime="2010-09-11T10:46:35+00:00">September 11, 2010</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>Very nice and useful. it&#8217;s awesome that it works in IE 8, and hopefully im IE 9 too.<br />
+all this css3 goodness and still not all that practical, finally one that could really help with the design.</p>
+
+            <div class="reply">
+                          </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+	<ul class='children'>
+
+		<li class="comment even depth-2" id="li-comment-82960">
+
+      <div class="grid group nopadding comment-wrap" id="comment-82960">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt='' src='http://0.gravatar.com/avatar/cbb79dcc1de709689f577ab2f8623100?s=160&amp;d=http%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png%3Fs%3D160&amp;r=R' class='avatar avatar-160 photo' height='160' width='160' />        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author"><a href='http://joshbetz.com' rel='external nofollow' class='url'>Josh Betz</a></div> <div class="comment-time"><a href="http://css-tricks.com/box-sizing/#comment-82960"><span class="screen-reader">Permalink to comment</span>#</span></a> <time pubdate datetime="2010-09-11T21:55:25+00:00">September 11, 2010</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>The idea of &#8220;practical&#8221; CSS3 at this point is a little out of the question. Actually &#8211; we&#8217;re getting there, but if you&#8217;re designing a site that has any respectable amount of traffic coming in over a browser that doesn&#8217;t support CSS3, you wouldn&#8217;t want to make your site dependent upon it.</p>
+<p>As an aside, I&#8217;m confident  IE9 will be quite standards compliant.</p>
+
+            <div class="reply">
+                          </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+	</li>
+</ul>
+</li>
+
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-82950">
+
+      <div class="grid group nopadding comment-wrap" id="comment-82950">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt='' src='http://1.gravatar.com/avatar/fbe1b05e4ba6a9a2f4fa2cc0a6fcda5d?s=160&amp;d=http%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png%3Fs%3D160&amp;r=R' class='avatar avatar-160 photo' height='160' width='160' />        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author"><a href='http://www.craigfordham.net' rel='external nofollow' class='url'>Lisa Thomason</a></div> <div class="comment-time"><a href="http://css-tricks.com/box-sizing/#comment-82950"><span class="screen-reader">Permalink to comment</span>#</span></a> <time pubdate datetime="2010-09-11T12:30:19+00:00">September 11, 2010</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>&#8216;border-box&#8217; have to remember this one, excellent tip. LT</p>
+
+            <div class="reply">
+                          </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+	</li>
+
+		<li class="comment even thread-even depth-1" id="li-comment-82959">
+
+      <div class="grid group nopadding comment-wrap" id="comment-82959">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt='' src='http://0.gravatar.com/avatar/cbb79dcc1de709689f577ab2f8623100?s=160&amp;d=http%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png%3Fs%3D160&amp;r=R' class='avatar avatar-160 photo' height='160' width='160' />        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author"><a href='http://joshbetz.com' rel='external nofollow' class='url'>Josh Betz</a></div> <div class="comment-time"><a href="http://css-tricks.com/box-sizing/#comment-82959"><span class="screen-reader">Permalink to comment</span>#</span></a> <time pubdate datetime="2010-09-11T21:51:40+00:00">September 11, 2010</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>This is definitely good to know. I struggle with this every time a do a new design. I&#8217;ve liked the 3-across style input fields above the actual comment form for awhile now, but I went back to the standard layout for the comment form for the most recent design of my personal site because of this issue. Even though my site isn&#8217;t fluid width (yet), the comments have been fluid since they added that cool new reply feature in 2.8 or so. I&#8217;ll definitely be looking for this article again shortly.</p>
+
+            <div class="reply">
+                          </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+	</li>
+
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-82962">
+
+      <div class="grid group nopadding comment-wrap" id="comment-82962">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt='' src='http://0.gravatar.com/avatar/c897e2d83988414c8297d0f5e3ebca29?s=160&amp;d=http%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png%3Fs%3D160&amp;r=R' class='avatar avatar-160 photo' height='160' width='160' />        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author"><a href='http://www.bauglir.com' rel='external nofollow' class='url'>Bronislav Klucka</a></div> <div class="comment-time"><a href="http://css-tricks.com/box-sizing/#comment-82962"><span class="screen-reader">Permalink to comment</span>#</span></a> <time pubdate datetime="2010-09-12T01:39:12+00:00">September 12, 2010</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>This is one of the biggest error W3C have ever done, in 1997 more that 95% of browser share was occupied by browsers using box sizing model (quirk model) or browsers which didn&#8217;t understand those CSS at all. W3C should change specification at this point to reflect reality (over theory) and add new property: inner-padding.</p>
+
+            <div class="reply">
+                          </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+	</li>
+
+		<li class="comment even thread-even depth-1" id="li-comment-82964">
+
+      <div class="grid group nopadding comment-wrap" id="comment-82964">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt='' src='http://0.gravatar.com/avatar/6adaa621b9b1ad3ed0e638823e6673cb?s=160&amp;d=http%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png%3Fs%3D160&amp;r=R' class='avatar avatar-160 photo' height='160' width='160' />        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author"><a href='http://mr.hokya.com' rel='external nofollow' class='url'>Hokya</a></div> <div class="comment-time"><a href="http://css-tricks.com/box-sizing/#comment-82964"><span class="screen-reader">Permalink to comment</span>#</span></a> <time pubdate datetime="2010-09-12T04:32:16+00:00">September 12, 2010</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>about box-sizing and border-box,</p>
+<p>can it also be imbued in JQuery and traditional JS:</p>
+<p>[identifier].style.boxSizing<br />
+and<br />
+[identifier].style.borderBox</p>
+<p>thanks&#8230;</p>
+
+            <div class="reply">
+                          </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+	</li>
+
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-82968">
+
+      <div class="grid group nopadding comment-wrap" id="comment-82968">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt='' src='http://1.gravatar.com/avatar/b83306877d78707aed3cf1068093476c?s=160&amp;d=http%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png%3Fs%3D160&amp;r=R' class='avatar avatar-160 photo' height='160' width='160' />        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author">clara vargas</div> <div class="comment-time"><a href="http://css-tricks.com/box-sizing/#comment-82968"><span class="screen-reader">Permalink to comment</span>#</span></a> <time pubdate datetime="2010-09-12T12:08:39+00:00">September 12, 2010</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>When I first checked out this web write-up discussing the Facebook audience claim that&#8217;s off by 17,000 times I concluded CSS Trick&#8217;s regulars should check </p>
+<p>this out! <a href="http://hubpages.com/hub/Lies-Damned-Lies-Statistics-ComScores-Facebook-Audience-Claims-Are-Wrong-By-A-Factor-Of-17-000" rel="nofollow">http://hubpages.com/hub/Lies-Damned-Lies-Statistics-ComScores-Facebook-Audience-Claims-Are-Wrong-By-A-Factor-Of-17-000</a> According to ComScore, the </p>
+<p>average Facebook user is online half a second per day! Yeah, sure!</p>
+
+            <div class="reply">
+                          </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+	</li>
+
+		<li class="comment even thread-even depth-1" id="li-comment-82977">
+
+      <div class="grid group nopadding comment-wrap" id="comment-82977">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt='' src='http://0.gravatar.com/avatar/6287cab19752ee43e8d144c981f02ff8?s=160&amp;d=http%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png%3Fs%3D160&amp;r=R' class='avatar avatar-160 photo' height='160' width='160' />        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author"><a href='http://httpL//www.sumitchauhan.com' rel='external nofollow' class='url'>Sumit Chauhan</a></div> <div class="comment-time"><a href="http://css-tricks.com/box-sizing/#comment-82977"><span class="screen-reader">Permalink to comment</span>#</span></a> <time pubdate datetime="2010-09-12T21:27:58+00:00">September 12, 2010</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>Nice Article.</p>
+
+            <div class="reply">
+                          </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+	</li>
+
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-82991">
+
+      <div class="grid group nopadding comment-wrap" id="comment-82991">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt='' src='http://0.gravatar.com/avatar/49189af8242733e18d66b8b8b0a3ee6e?s=160&amp;d=http%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png%3Fs%3D160&amp;r=R' class='avatar avatar-160 photo' height='160' width='160' />        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author">Cédric Darné</div> <div class="comment-time"><a href="http://css-tricks.com/box-sizing/#comment-82991"><span class="screen-reader">Permalink to comment</span>#</span></a> <time pubdate datetime="2010-09-13T06:26:07+00:00">September 13, 2010</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>Very usefull article! This will help me a lot. Thanks!</p>
+
+            <div class="reply">
+                          </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+	</li>
+
+		<li class="comment even thread-even depth-1" id="li-comment-82996">
+
+      <div class="grid group nopadding comment-wrap" id="comment-82996">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt='' src='http://0.gravatar.com/avatar/c1201849caa3693e9b41824351c9dc3d?s=160&amp;d=http%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png%3Fs%3D160&amp;r=R' class='avatar avatar-160 photo' height='160' width='160' />        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author"><a href='http://mariuzzo.com/' rel='external nofollow' class='url'>Rubens Mariuzzo</a></div> <div class="comment-time"><a href="http://css-tricks.com/box-sizing/#comment-82996"><span class="screen-reader">Permalink to comment</span>#</span></a> <time pubdate datetime="2010-09-13T07:45:27+00:00">September 13, 2010</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>Hey, I really appreciate this legal trick.</p>
+
+            <div class="reply">
+                          </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+	</li>
+
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-83000">
+
+      <div class="grid group nopadding comment-wrap" id="comment-83000">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt='' src='http://0.gravatar.com/avatar/094aa975a8cd116f5392ee41eae68775?s=160&amp;d=http%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png%3Fs%3D160&amp;r=R' class='avatar avatar-160 photo' height='160' width='160' />        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author"><a href='http://ostiko.com' rel='external nofollow' class='url'>Justin Kopepasah</a></div> <div class="comment-time"><a href="http://css-tricks.com/box-sizing/#comment-83000"><span class="screen-reader">Permalink to comment</span>#</span></a> <time pubdate datetime="2010-09-13T09:04:37+00:00">September 13, 2010</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>Excellent short tut. I was sick and tired of declaring so many different values to fix for padding and borders. </p>
+<p>Thanks!</p>
+
+            <div class="reply">
+                          </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+	</li>
+
+		<li class="comment even thread-even depth-1" id="li-comment-83004">
+
+      <div class="grid group nopadding comment-wrap" id="comment-83004">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt='' src='http://0.gravatar.com/avatar/25baa2e0f526eff1e32dbde64b468944?s=160&amp;d=http%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png%3Fs%3D160&amp;r=R' class='avatar avatar-160 photo' height='160' width='160' />        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author"><a href='http://www.cancelbubble.com' rel='external nofollow' class='url'>cancel bubble</a></div> <div class="comment-time"><a href="http://css-tricks.com/box-sizing/#comment-83004"><span class="screen-reader">Permalink to comment</span>#</span></a> <time pubdate datetime="2010-09-13T09:48:15+00:00">September 13, 2010</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>&#8220;But hey, IE 9 is about to drop right, won’t be a problem for much longer,&#8221;</p>
+<p>Except IE9 won&#8217;t run on XP, which, for some users means not just getting a new browser, but a new PC.</p>
+<p>IE9 shipping is not a magical bullet for web devs.  IE7 will become the new IE6.  Then IE8.  And let&#8217;s face it, a lot of devs will still be dealing with IE6 for years to come (especially those in enterprise land).</p>
+
+            <div class="reply">
+                          </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+	<ul class='children'>
+
+		<li class="comment odd alt depth-2" id="li-comment-83015">
+
+      <div class="grid group nopadding comment-wrap" id="comment-83015">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt='' src='http://0.gravatar.com/avatar/e1f5f6dc6e509c4abf6b9b5bb637a29a?s=160&amp;d=http%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png%3Fs%3D160&amp;r=R' class='avatar avatar-160 photo' height='160' width='160' />        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author"><a href='http://css-plus.com' rel='external nofollow' class='url'>Jamy</a></div> <div class="comment-time"><a href="http://css-tricks.com/box-sizing/#comment-83015"><span class="screen-reader">Permalink to comment</span>#</span></a> <time pubdate datetime="2010-09-13T14:35:46+00:00">September 13, 2010</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>IE7 is dying faster than IE6. Even if it does become &#8216;the new IE6&#8242;, it won&#8217;t be another &#8216;IE6&#8242;.</p>
+<p>People are slowly upgrading PC&#8217;s and that is steadily killing older versions of IE. </p>
+<p>I don&#8217;t think anyone would buy a new PC to specifically run a certain browser, but if most of the PC&#8217;s running Vista and Win7 did upgrade to IE9, we could then relax knowing that an extra 15%+ would be able to make use of CSS3. Obviously this won&#8217;t happen over night, but the IE9 usage share will steadily grow per month.</p>
+<p>IE9 might not be a magical bullet, but I think it at least qualifies as a poisoned-dagger.</p>
+
+            <div class="reply">
+                          </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+	</li>
+
+		<li class="comment byuser comment-author-chriscoyier-2 bypostauthor even depth-2" id="li-comment-83018">
+
+      <div class="grid group nopadding comment-wrap" id="comment-83018">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt='' src='http://0.gravatar.com/avatar/8081b26e05bb4354f7d65ffc34cbbd67?s=160&amp;d=http%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png%3Fs%3D160&amp;r=R' class='avatar avatar-160 photo' height='160' width='160' />        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author"><a href='http://chriscoyier.net' rel='external nofollow' class='url'>Chris Coyier</a></div> <div class="comment-time"><a href="http://css-tricks.com/box-sizing/#comment-83018"><span class="screen-reader">Permalink to comment</span>#</span></a> <time pubdate datetime="2010-09-13T16:33:33+00:00">September 13, 2010</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <blockquote><p><em>IE7 is dying faster than IE6.</em></p></blockquote>
+<p>That&#8217;s pretty interesting. I bet it&#8217;s true&#8230; Do you have any data you&#8217;ve seen to support that?</p>
+
+            <div class="reply">
+                          </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+	</li>
+
+		<li class="comment odd alt depth-2" id="li-comment-83021">
+
+      <div class="grid group nopadding comment-wrap" id="comment-83021">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt='' src='http://0.gravatar.com/avatar/c897e2d83988414c8297d0f5e3ebca29?s=160&amp;d=http%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png%3Fs%3D160&amp;r=R' class='avatar avatar-160 photo' height='160' width='160' />        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author"><a href='http://www.bauglir.com' rel='external nofollow' class='url'>Bronislav Klucka</a></div> <div class="comment-time"><a href="http://css-tricks.com/box-sizing/#comment-83021"><span class="screen-reader">Permalink to comment</span>#</span></a> <time pubdate datetime="2010-09-13T17:32:48+00:00">September 13, 2010</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p><a href="http://marketshare.hitslink.com/browser-market-share.aspx?qprid=3" rel="nofollow">http://marketshare.hitslink.com/browser-market-share.aspx?qprid=3</a><br />
+<a href="http://www.w3schools.com/browsers/browsers_explorer.asp" rel="nofollow">http://www.w3schools.com/browsers/browsers_explorer.asp</a><br />
+<a href="http://www.w3counter.com/trends" rel="nofollow">http://www.w3counter.com/trends</a><br />
+<a href="http://www.xmarks.com/topic/browser_statistics" rel="nofollow">http://www.xmarks.com/topic/browser_statistics</a></p>
+<p>there are no &#8220;world wide&#8221; statistics, but those mentioned above show some trends</p>
+
+            <div class="reply">
+                          </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+	</li>
+
+		<li class="comment byuser comment-author-chriscoyier-2 bypostauthor even depth-2" id="li-comment-83022">
+
+      <div class="grid group nopadding comment-wrap" id="comment-83022">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt='' src='http://0.gravatar.com/avatar/8081b26e05bb4354f7d65ffc34cbbd67?s=160&amp;d=http%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png%3Fs%3D160&amp;r=R' class='avatar avatar-160 photo' height='160' width='160' />        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author"><a href='http://chriscoyier.net' rel='external nofollow' class='url'>Chris Coyier</a></div> <div class="comment-time"><a href="http://css-tricks.com/box-sizing/#comment-83022"><span class="screen-reader">Permalink to comment</span>#</span></a> <time pubdate datetime="2010-09-13T17:43:36+00:00">September 13, 2010</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>Very cool.</p>
+<p>Seems to me they indicate that they are falling about equally fast, but IE 7 has a larger slice still. So if they stay at and even falling rate, IE 7 will always have a higher percentage. That would be pretty crazy if IE 6 ever got higher than IE 7 again.</p>
+
+            <div class="reply">
+                          </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+	</li>
+</ul>
+</li>
+
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-83040">
+
+      <div class="grid group nopadding comment-wrap" id="comment-83040">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt='' src='http://1.gravatar.com/avatar/bd202a1f9127456d39edb06dc8ec700c?s=160&amp;d=http%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png%3Fs%3D160&amp;r=R' class='avatar avatar-160 photo' height='160' width='160' />        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author"><a href='http://jurasarts.com/' rel='external nofollow' class='url'>Yuriy Romadin</a></div> <div class="comment-time"><a href="http://css-tricks.com/box-sizing/#comment-83040"><span class="screen-reader">Permalink to comment</span>#</span></a> <time pubdate datetime="2010-09-14T13:57:31+00:00">September 14, 2010</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>Interesting, but not cross-browsing :(</p>
+
+            <div class="reply">
+                          </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+	</li>
+
+		<li class="comment even thread-even depth-1" id="li-comment-84395">
+
+      <div class="grid group nopadding comment-wrap" id="comment-84395">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt='' src='http://0.gravatar.com/avatar/68e716a782495e8fc4d4c8d236b7408c?s=160&amp;d=http%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png%3Fs%3D160&amp;r=R' class='avatar avatar-160 photo' height='160' width='160' />        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author">likeuclinux</div> <div class="comment-time"><a href="http://css-tricks.com/box-sizing/#comment-84395"><span class="screen-reader">Permalink to comment</span>#</span></a> <time pubdate datetime="2010-10-19T19:18:33+00:00">October 19, 2010</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>your demo code won&#8217;t work for:<br />
+<code></p>
+<p></code></p>
+
+            <div class="reply">
+                          </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+	<ul class='children'>
+
+		<li class="comment odd alt depth-2" id="li-comment-84396">
+
+      <div class="grid group nopadding comment-wrap" id="comment-84396">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt='' src='http://0.gravatar.com/avatar/68e716a782495e8fc4d4c8d236b7408c?s=160&amp;d=http%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png%3Fs%3D160&amp;r=R' class='avatar avatar-160 photo' height='160' width='160' />        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author">likeuclinux</div> <div class="comment-time"><a href="http://css-tricks.com/box-sizing/#comment-84396"><span class="screen-reader">Permalink to comment</span>#</span></a> <time pubdate datetime="2010-10-19T19:19:38+00:00">October 19, 2010</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>won&#8217;t work for doctype contains:<br />
+&#8220;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&#8221;</p>
+
+            <div class="reply">
+                          </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+	</li>
+</ul>
+</li>
+
+		<li class="comment even thread-odd thread-alt depth-1" id="li-comment-84496">
+
+      <div class="grid group nopadding comment-wrap" id="comment-84496">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt='' src='http://0.gravatar.com/avatar/2bd48ba52943d88eb065c698c1ba807e?s=160&amp;d=http%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png%3Fs%3D160&amp;r=R' class='avatar avatar-160 photo' height='160' width='160' />        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author">Acaz</div> <div class="comment-time"><a href="http://css-tricks.com/box-sizing/#comment-84496"><span class="screen-reader">Permalink to comment</span>#</span></a> <time pubdate datetime="2010-10-23T23:43:21+00:00">October 23, 2010</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>The best article ever&#8230;</p>
+
+            <div class="reply">
+                          </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+	</li>
+
+		<li class="comment odd alt thread-even depth-1" id="li-comment-84971">
+
+      <div class="grid group nopadding comment-wrap" id="comment-84971">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt='' src='http://1.gravatar.com/avatar/f9bd1f8df35143db8bb314e2732b717c?s=160&amp;d=http%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png%3Fs%3D160&amp;r=R' class='avatar avatar-160 photo' height='160' width='160' />        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author">Kal</div> <div class="comment-time"><a href="http://css-tricks.com/box-sizing/#comment-84971"><span class="screen-reader">Permalink to comment</span>#</span></a> <time pubdate datetime="2010-11-03T12:12:53+00:00">November 3, 2010</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>This has always been my biggest gripe with doing CSS layouts — well, aside from catering to all Internet Explorer&#8217;s quirks of course. Ironic that IE actually used to do it the border-box way.</p>
+<p>Thanks for the article. I&#8217;m going to introduce this into all my sites from now on — screw IE 7. Did I say that? I mean, we&#8217;ll find a dodgy workaround for IE in it&#8217;s own stylesheet or something.</p>
+
+            <div class="reply">
+                          </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+	</li>
+	</ol>
+
+
+
+<div class="module explanation">
+	This comment thread is closed. If you have important information to share, you can always <a href="/contact/">contact me</a>.
+</div>
+
+
+</section>		
+	</section>
+
+	<aside class="grid-1-3">
+
+    <div class="module module-image-ad module-treehouse">
+
+    <a href="http://teamtreehouse.com/redirect/css-tricks/sidebar">
+    <img src="http://cdn.css-tricks.com/images/Treehouse_600x500_02.jpg">
+    </a>
+
+    <p class="note">I recommend using <a href="http://teamtreehouse.com/redirect/css-tricks/sidebar">Treehouse</a> for learning web design, web development, and iOS development. Their structured course-based learning is like a more modern college at about 1% of the price.</p>
+
+  </div>
+  
+  <div class="module group module-lodge">
+    
+  
+    <p class="intro-lodge"><a href="/lodge/">The Lodge</a> is a <a href="/wp-login.php">member login</a> only area with access to video training on how to build websites from scratch using the best modern tools.</p>
+
+    <div class="lodge-actions">
+      <a href="/lodge/signup/" class="button">Sign up!</a>
+    </div>
+
+  
+  </div>
+
+    <div class="module module-image-ad">
+    <a id="wufoo-ad-graphic" class="wufoo-ad-graphic" href="http://ad.doubleclick.net/clk;270735259;98920367;x?http://www.wufoo.com/landing/1/?utm_source=csstricks&utm_medium=ppc&cmpid=brand&utm_network=d&utm_term=csstricks600x600banner">
+    </a>
+    <p class="note">
+      You already know 
+      <a href="http://ad.doubleclick.net/clk;270735316;98920367;r?http://www.wufoo.com/landing/1/?utm_source=csstricks&utm_medium=ppc&cmpid=brand&utm_network=d&utm_term=csstrickstextlinkwufoo">Wufoo</a> is the best online form builder. 
+      But did you know Wufoo forms can accept payments? That means you can take donations, start subscriptions, handle paid event registrations, or even sell Girl Scout cookies online as easy as, well, Wufoo.
+
+      <a href="http://ad.doubleclick.net/clk;270735352;98920367;r?http://www.wufoo.com/landing/1/?utm_source=csstricks&utm_medium=ppc&cmpid=brand&utm_network=d&utm_term=csstrickstextlinktryitfree">Try&nbsp;it&nbsp;free!</a><img src="http://ad.doubleclick.net/ad/N7439.1063086.CSS-TRICKS.COM/B7043538.2;sz=1x1;ord=2013-06-17T21:41:47+00:00?'); ?>?">
+    </p>
+  </div>
+  
+  <div class="module module-poll">
+    <div id="polls-42" class="wp-polls">
+	<form id="polls_form_42" class="wp-polls-form" action="/box-sizing/" method="post">
+		<p style="display: none;"><input type="hidden" id="poll_42_nonce" name="wp-polls-nonce" value="b349908fae" /></p>
+		<p style="display: none;"><input type="hidden" name="poll_id" value="42" /></p>
+		<h4>What is your opinion as to the web designers role in mobile design? <a href="http://css-tricks.com/repoll-whos-responsibility-is-mobile-design/">#</a></h4>
+
+<div id="polls-42-ans" class="wp-polls-ans">
+
+<ul class="wp-polls-ul group">
+		<li class="group"><input type="radio" id="poll-answer-247" name="poll_42" value="247" /> <label for="poll-answer-247">It is <strong>my job</strong> to make sure the website looks and functions well on mobile devices.</label></li>
+		<li class="group"><input type="radio" id="poll-answer-248" name="poll_42" value="248" /> <label for="poll-answer-248">It is <strong>the mobile device's job</strong> to make sure my website looks and functions well.</label></li>
+		</ul>
+
+<p class="voting-buttons">
+
+<input type="button" name="vote" value="   Vote   " class="button" onclick="poll_vote(42);" onkeypress="poll_result(42);" /> &nbsp; <a href="#ViewPollResults" class="button" onclick="poll_result(42); return false;" onkeypress="poll_result(42); return false;" title="View Results Of This Poll">View Results</a>
+
+</p>
+
+</div>
+	</form>
+</div>
+  </div>
+  <div class="module module-subscribe">
+    <h4>Over 100,000 of the best looking web workers subscribe to CSS-Tricks. Join them?</h4>
+    <div class="module-subscribe-buttons">
+      <a class="button" href="http://feeds.feedburner.com/CssTricks">
+        <span aria-hidden="true" data-icon="S"></span>RSS
+      </a>
+      <br>
+      <a class="button" href="http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewPodcast?id=273881728">
+        <span aria-hidden="true" data-icon="&#x61;"></span>iTunes
+      </a>
+    </div>
+    <a href="/subscription-options/">See all Subscription Options</a>
+  </div>
+
+</aside>
+</div>
+  </div>
+  <footer class="site-footer top-footer group">
+
+    <ul class="link-list left-links">
+      <li><a href="/contact/">Contact CSS-Tricks<span></span></a></li>
+      <li class="space"><a href="/advertising/">Advertise on CSS-Tricks<span></span></a></li>
+
+      <li><a href="http://twitter.com/real_css_tricks">Twitter: real_css_tricks<span></span></a></li>
+      <li><a href="http://facebook.com/CSSTricks">Facebook: CSSTricks<span></span></a></li>
+      <li><a href="http://www.youtube.com/realcsstricks">YouTube: realcsstricks<span></span></a></li>
+      <li class="space"><a href="https://github.com/CSS-Tricks/">GitHub: CSS-Tricks Org<span></span></a></li>
+
+      <li><a href="http://twitter.com/chriscoyier">Twitter: chriscoyier<span></span></a></li>
+      <li><a href="http://codepen.io/chriscoyier">CodePen: chriscoyier<span></span></a></li>
+      <li><a href="http://dribbble.com/chriscoyier">Dribbble: chriscoyier<span></span></a></li>
+      <li><a href="http://pinboard.in/u:chriscoyier">Pinboard: chriscoyier<span></span></a></li>
+      <li><a href="http://plus.google.com/101987072260327250694/posts">Google+: chriscoyier<span></span></a></li>
+    </ul>
+
+    <ul class="link-list right-links">
+      <li><a href="/bookshelf/">The Bookshelf<span></span></a></li>
+      <li><a href="/polls/">Poll Archive<span></span></a></li>
+      <li><a href="/design-history/">Design Archive<span></span></a></li>
+      <li class="space"><a href="/archives/">Article Archive<span></span></a></li>
+
+      <li><a href="http://digwp.com">Digging into WordPress<span></span></a></li>
+      <li><a href="http://www.lynda.com/home/DisplayCourse.aspx?lpk2=67160&utm_medium=affiliate&utm_source=ldc_affiliate&utm_content=524&utm_campaign=CD2269&bid=524&aid=CD2269&opt=">Lynda.com WP Theme Course<span></span></a></li>
+
+      <li><a href="http://quotesondesign.com/">Quotes on Design<span></span></a></li>
+      <li class="space"><a href="http://html-ipsum.com/">HTML-Ipsum<span></span></a></li>
+
+      <li><a href="/deals/">Deals<span></span></a></li>
+      <li><a class="footer-store-link" href="/store/">The Store<span></span></a></li>
+      <li><a href="/license/">The License<span></span></a></li>
+    </ul>
+
+  </footer>
+
+  <footer class="site-footer bottom-footer group">
+
+    <div class="bottom-footer-part footer-codepen">
+      <a href="http://codepen.io" class="footer-logo">
+        <img src="http://cdn.css-tricks.com/wp-content/themes/CSS-Tricks-10/images/footer-logo-codepen.png" alt="CodePen Logo">
+      </a>
+      <p>
+        <a href="http://codepen.io">
+          CodePen
+        </a>
+        is a social code playground for web designers and developers. Build demos, find inspiration, or troubleshoot code. With <a href="http://blog.codepen.io/documentation/pro-features/">CodePen PRO</a> you can teach students, pair program, host files, and more!
+      </p>
+    </div>
+
+    <div class="bottom-footer-part footer-shoptalk">
+      <a href="http://shoptalkshow.com" class="footer-logo">
+        <img src="http://cdn.css-tricks.com/wp-content/themes/CSS-Tricks-10/images/footer-logo-shoptalk.png" alt="ShopTalk Logo">
+      </a>
+      <p>
+        <a href="http://shoptalkshow.com">
+          ShopTalk
+        </a>
+         is a podcast about all things web design and development hosted by Dave Rupert and me. The show is recorded live and covers the week in #hotdrama and listener Q&amp;A.
+       </p>
+    </div>
+
+  </footer>
+
+  <footer class="site-footer slogan">
+    CSS-Tricks* is created, written by, and maintained by <a href="http://chriscoyier.net">Chris Coyier</a>. It is built on <a href="http://wordpress.org/">WordPress</a>, hosted by <a href="http://www.mediatemple.net/#a_aid=4e25c84480ed2">Media Temple</a> and <a href="http://www.netdna.com/">NetDNA</a>, with fonts by <a href="http://www.typography.com/">H&FJ</a>. *May or may not contain any "CSS" or "Tricks".
+  </footer>
+
+		<div style="display:none">
+	<div class="grofile-hash-map-ace0706d258ca5678521b3ebebd45899">
+	</div>
+	<div class="grofile-hash-map-fd2d83111e049542849de4462e3cb7cc">
+	</div>
+	<div class="grofile-hash-map-a46bd3edac0bebecd751eebd56b3a53e">
+	</div>
+	<div class="grofile-hash-map-b2f8297edf4a2ba4ca6ee951747bd791">
+	</div>
+	<div class="grofile-hash-map-d30724725c2693852132722d30d2cc72">
+	</div>
+	<div class="grofile-hash-map-89e06a5cef6b1c52b0a860419c63821f">
+	</div>
+	<div class="grofile-hash-map-3b115e9f2640153a9290e76d5820140f">
+	</div>
+	<div class="grofile-hash-map-87126af6645d1594c27aa09376af77d2">
+	</div>
+	<div class="grofile-hash-map-ac8b050a96de25e66978819755ffc470">
+	</div>
+	<div class="grofile-hash-map-3d58b82a8f7e793149816bcbcfc2b489">
+	</div>
+	<div class="grofile-hash-map-de3b4addf7732705c6f6b15334b1fe5d">
+	</div>
+	<div class="grofile-hash-map-685b19a73a2487771da8ba4e7abfaa99">
+	</div>
+	<div class="grofile-hash-map-d94a82e16f51b023ade391bf40ba9094">
+	</div>
+	<div class="grofile-hash-map-23b0f9cc3f87b84c7272ba43c49d1cb2">
+	</div>
+	<div class="grofile-hash-map-5acb8fa95c899a6bedae418c5305f43d">
+	</div>
+	<div class="grofile-hash-map-1f670e351f1339e69a55374fc9a3f2ac">
+	</div>
+	<div class="grofile-hash-map-a47217ab70362351067f77a55dcbd9bc">
+	</div>
+	<div class="grofile-hash-map-3fdfbb96a561770069d48f56f0a2be64">
+	</div>
+	<div class="grofile-hash-map-48dcba00735d9c6253f81e030b25d35c">
+	</div>
+	<div class="grofile-hash-map-96ee269a18aae62266477d1390f5e9db">
+	</div>
+	<div class="grofile-hash-map-9d2ced053620d840630c21129312ce2e">
+	</div>
+	<div class="grofile-hash-map-b56bb389c450c65f8197c34d3c8ec29f">
+	</div>
+	<div class="grofile-hash-map-ca851fb1cf0d66afc9efd683ee06abf1">
+	</div>
+	<div class="grofile-hash-map-f41649eb6074c468fb36c504d40e1b01">
+	</div>
+	<div class="grofile-hash-map-cbb79dcc1de709689f577ab2f8623100">
+	</div>
+	<div class="grofile-hash-map-fbe1b05e4ba6a9a2f4fa2cc0a6fcda5d">
+	</div>
+	<div class="grofile-hash-map-2502185b9bd8ace246502d3848176f42">
+	</div>
+	<div class="grofile-hash-map-6adaa621b9b1ad3ed0e638823e6673cb">
+	</div>
+	<div class="grofile-hash-map-b83306877d78707aed3cf1068093476c">
+	</div>
+	<div class="grofile-hash-map-6287cab19752ee43e8d144c981f02ff8">
+	</div>
+	<div class="grofile-hash-map-49189af8242733e18d66b8b8b0a3ee6e">
+	</div>
+	<div class="grofile-hash-map-c1201849caa3693e9b41824351c9dc3d">
+	</div>
+	<div class="grofile-hash-map-094aa975a8cd116f5392ee41eae68775">
+	</div>
+	<div class="grofile-hash-map-25baa2e0f526eff1e32dbde64b468944">
+	</div>
+	<div class="grofile-hash-map-e1f5f6dc6e509c4abf6b9b5bb637a29a">
+	</div>
+	<div class="grofile-hash-map-8081b26e05bb4354f7d65ffc34cbbd67">
+	</div>
+	<div class="grofile-hash-map-bd202a1f9127456d39edb06dc8ec700c">
+	</div>
+	<div class="grofile-hash-map-68e716a782495e8fc4d4c8d236b7408c">
+	</div>
+	<div class="grofile-hash-map-2bd48ba52943d88eb065c698c1ba807e">
+	</div>
+	<div class="grofile-hash-map-f9bd1f8df35143db8bb314e2732b717c">
+	</div>
+	</div>
+<script type='text/javascript' src='http://s0.wp.com/wp-content/js/devicepx-jetpack.js?ver=201325'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var pollsL10n = {"ajax_url":"http:\/\/css-tricks.com\/wp-admin\/admin-ajax.php","text_wait":"Your last request is still being processed. Please wait a while ...","text_valid":"Please choose a valid poll answer.","text_multiple":"Maximum number of choices allowed: ","show_loading":"0","show_fading":"1"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='http://cdn.css-tricks.com/wp-content/plugins/wp-polls/polls-js.js?ver=2.63'></script>
+
+	<script src="http://stats.wordpress.com/e-201325.js" type="text/javascript"></script>
+	<script type="text/javascript">
+	st_go({v:'ext',j:'1:2.2.5',blog:'45537868',post:'7323',tz:'-7'});
+	var load_cmc = function(){linktracker_init(45537868,7323,2);};
+	if ( typeof addLoadEvent != 'undefined' ) addLoadEvent(load_cmc);
+	else load_cmc();
+	</script>
+  <script src='http://cdn.css-tricks.com/wp-content/themes/CSS-Tricks-10/js/global-ck.js?v=1.4'></script>
+  <script async src="//codepen.io/assets/embed/ei.js"></script>
+
+  
+  
+  <script>
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-68528-29']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ga);
+  })();
+</script>
+
+<script>
+/* <![CDATA[ */
+var google_conversion_id = 1017883234;
+var google_conversion_label = "BsxVCM7ImAMQ4tSu5QM";
+var google_custom_params = window.google_tag_params;
+var google_remarketing_only = true;
+/* ]]> */
+</script>
+<script src="//www.googleadservices.com/pagead/conversion.js">
+</script>
+<noscript>
+<div style="display:inline;">
+<img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/1017883234/?value=0&amp;label=BsxVCM7ImAMQ4tSu5QM&amp;guid=ON&amp;script=0">
+</div>
+</noscript>
+
+</body>
+
+</html>
+<!-- Performance optimized by W3 Total Cache. Learn more: http://www.w3-edge.com/wordpress-plugins/
+
+Page Caching using disk
+Content Delivery Network via cdn.css-tricks.com
+
+ Served from: css-tricks.com @ 2013-06-17 14:41:48 by W3 Total Cache -->

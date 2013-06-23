@@ -1,0 +1,313 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<title>Data Competition: Announcing the Wikipedia Participation Challenge — Wikimedia blog</title>
+
+<meta name="generator" content="WordPress 3.6-beta2-24176" /> <!-- leave this for stats -->
+
+<link rel="stylesheet" href="http://blog.wikimedia.org/wp-content/themes/WP-Victor.git/style.css" type="text/css" media="screen" />
+<link rel="alternate" type="application/rss+xml" title="Wikimedia blog RSS Feed" href="http://blog.wikimedia.org/feed/" />
+<link rel="alternate" type="application/atom+xml" title="Wikimedia blog Atom Feed" href="http://blog.wikimedia.org/feed/atom/" />
+<link rel="shortcut icon" href="http://blog.wikimedia.org/wp-content/themes/WP-Victor.git/favicon.ico" />
+<link rel="pingback" href="http://blog.wikimedia.org/xmlrpc.php" />
+<script type="text/javascript" charset="utf-8" src="http://blog.wikimedia.org/wp-content/themes/WP-Victor.git/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="http://blog.wikimedia.org/wp-content/themes/WP-Victor.git/jquery.cookie.js"></script>
+<script type="text/javascript" charset="utf-8" src="http://blog.wikimedia.org/wp-content/themes/WP-Victor.git/jquery.json.js"></script>
+<script type="text/javascript" charset="utf-8" src="http://blog.wikimedia.org/wp-content/themes/WP-Victor.git/jquery.eventlogging.js"></script>
+<script type="text/javascript" charset="utf-8" src="http://blog.wikimedia.org/wp-content/themes/WP-Victor.git/CollapsibleNav.js"></script>
+<style type="text/css" media="screen">
+
+	#page { border: none; }
+
+</style>
+
+<link rel="alternate" type="application/rss+xml" title="Wikimedia blog &raquo; Data Competition: Announcing the Wikipedia Participation Challenge Comments Feed" href="http://blog.wikimedia.org/2011/06/28/data-competition-announcing-the-wikipedia-participation-challenge/feed/" />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://blog.wikimedia.org/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://blog.wikimedia.org/wp-includes/wlwmanifest.xml" /> 
+<link rel='prev' title='WikiLove: An experiment in appreciation' href='http://blog.wikimedia.org/2011/06/24/wikilove-an-experiment-in-appreciation/' />
+<link rel='next' title='Bringing Ansel Adams to Wikimedia Commons' href='http://blog.wikimedia.org/2011/06/28/bringing-ansel-adams-to-wikimedia-commons/' />
+<meta name="generator" content="WordPress 3.6-beta2-24176" />
+<link rel='canonical' href='http://blog.wikimedia.org/2011/06/28/data-competition-announcing-the-wikipedia-participation-challenge/' />
+<link rel='shortlink' href='http://blog.wikimedia.org/?p=4847' />
+</head>
+<body class="single single-post postid-4847 single-format-standard category-analytics category-technology">
+<div id="globalWrapper">
+	<div id="column-content">
+		<div id="wp-vector-header">
+			<h1><a href="http://blog.wikimedia.org">Wikimedia blog</a></h1>
+			<p id="desc">News from the Wikimedia Foundation and about the Wikimedia movement</p>
+		</div> <!-- wp-vector-header -->
+	<div id="content" class="narrowcolumn">
+
+	
+		<div class="navigation">
+			<div class="alignleft">&laquo; <a href="http://blog.wikimedia.org/2011/06/24/wikilove-an-experiment-in-appreciation/" rel="prev">WikiLove: An experiment in appreciation</a></div>
+			<div class="alignright"><a href="http://blog.wikimedia.org/2011/06/28/bringing-ansel-adams-to-wikimedia-commons/" rel="next">Bringing Ansel Adams to Wikimedia Commons</a> &raquo;</div>
+		</div>
+
+		<div class="post" id="post-4847">
+			<h1><a href="http://blog.wikimedia.org/2011/06/28/data-competition-announcing-the-wikipedia-participation-challenge/" rel="bookmark" title="Permanent Link: Data Competition: Announcing the Wikipedia Participation Challenge">Data Competition: Announcing the Wikipedia Participation Challenge</a></h1>
+			<div class="postinfo">Posted by <a href="http://blog.wikimedia.org/author/howief/" title="Posts by Howie Fung" rel="author">Howie Fung</a> on June 28, 2011</div>
+			
+			<div class="entry">
+				<p>We are pleased to announce the launch of the <a href="http://www.kaggle.com/c/wikichallenge/">Wikipedia Participation Challenge</a>, a data modeling competition to develop an algorithm that predicts future editing activity on Wikipedia. The competition is hosted by <a href="http://www.kaggle.com">Kaggle</a>, a platform for data modeling and prediction competitions.  The Participation Challenge is open to  community members and anyone else who is interested in analyzing  Wikipedia data.  This is the first of two data competitions the  Wikimedia Foundation will sponsor this year.</p>
+<p>The  goal of this competition is to gain a better understanding of the  factors that encourage or discourage people from editing Wikipedia. Increasing the number of active editors is one of our strategic priorities. Both the Wikipedia communities and the Wikimedia Foundation stand to benefit from models that quantify the factors that determine whether a Wikipedia editor is likely to continue contributing. The competition asks contestants to develop a model to predict the number of edits a given editor will make in six month&#8217;s time.</p>
+<p>The data used in this competition comes from the publicly available English Wikipedia <a href="http://dumps.wikimedia.org/">XML data dump</a>.  An  anonymous donor has generously contributed $10,000 as prize money.  There will be a Grand Prize for the best prediction, as well as special  prizes awarded for the use of open source software. The Grand Prize  winner will also be given the opportunity to present their prediction  model at the 2011 IEEE <a href="http://icdm2011.cs.ualberta.ca/index.php">International Conference on Data Mining</a>.  The competition starts today and will continue until September 20, 2011.</p>
+<p>Head over to our <a href="http://www.kaggle.com/c/wikichallenge">competition portal</a>, download  the data, and start crunching the data! And don&#8217;t forget to follow us on Twitter: <a href="https://twitter.com/#!/search/%23wikichallenge">#wikichallenge </a>and <a title="follow dvanliere on Twitter" href="http://twitter.com/#!/dvanliere">@dvanliere.</a></p>
+<p>Howie Fung<br />
+Senior Product Manager, Wikimedia Foundation</p>
+<p>Diederik van Liere<br />
+Research Consultant, Wikimedia Foundation</p>
+
+				
+				<ul class='post-meta'>
+</ul>
+				
+				<div class="postmetadata alt">
+					<p>Categories: <a href="http://blog.wikimedia.org/c/technology/analytics/" title="View all posts in Data analytics" rel="category tag">Data analytics</a>, <a href="http://blog.wikimedia.org/c/technology/" title="View all posts in Technology" rel="category tag">Technology</a><br />Tags: <a href="http://blog.wikimedia.org/tag/contest/" rel="tag">contest</a>, <a href="http://blog.wikimedia.org/tag/kaggle/" rel="tag">Kaggle</a>, <a href="http://blog.wikimedia.org/tag/research/" rel="tag">research</a></p>
+					<div class="metadata-small">
+						<p><a href='http://blog.wikimedia.org/2011/06/28/data-competition-announcing-the-wikipedia-participation-challenge/feed/'><strong>Watch responses</strong></a> to this entry
+						(RSS feed); comments and pings are currently closed.
+
+						</p>
+
+					</div>
+				</div>
+
+			</div> <!-- entry -->
+		</div> <!-- post-4847 -->
+
+	
+<!-- You can start editing here. -->
+
+	<h2 id="comments">9 Responses to &#8220;Data Competition: Announcing the Wikipedia Participation Challenge&#8221;</h2>
+
+	<ol class="commentlist">
+
+	
+			<li class="comment even thread-even depth-1" id="comment-9957">
+				<div id="div-comment-9957" class="comment-body">
+				<div class="comment-author vcard">
+						<cite class="fn">JS</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="http://blog.wikimedia.org/2011/06/28/data-competition-announcing-the-wikipedia-participation-challenge/comment-page-1/#comment-9957">
+			2011/06/29 at 10:58</a>		</div>
+
+		<p>We can&#8217;t get pending changes (or any initiative to prevent the massive vandalism that occurs daily), but things like this and <a href="http://www.wired.co.uk/news/archive/2011-01/10/making-wikipedia-more-welcoming" rel="nofollow">http://www.wired.co.uk/news/archive/2011-01/10/making-wikipedia-more-welcoming</a> is the focus.</p>
+
+		<div class="reply">
+					</div>
+				</div>
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-10024">
+				<div id="div-comment-10024" class="comment-body">
+				<div class="comment-author vcard">
+						<cite class="fn">WereSpielChequers</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="http://blog.wikimedia.org/2011/06/28/data-competition-announcing-the-wikipedia-participation-challenge/comment-page-1/#comment-10024">
+			2011/06/30 at 08:01</a>		</div>
+
+		<p>RE JS Pending changes is available, it is just that the community on the English language wiki rejected it. I would like to see it implemented, or alternatively some sort of flagged revisions as has been deployed in many language versions of wikipedia such as German. But we can&#8217;t blame the foundation if one of its projects opts out of an anti-vandalism tool, nor should we exaggerate and say we can&#8217;t get any initiative to deal with vandalism when so much has been done in recent years. The improved edit filters are preventing much if not most vandalism from happening and most that does happen is now reverted almost immediately by bots without human intervention. So we are a long way from the days when all vandalism had to be reverted manually.</p>
+<p>As for the model, good luck, this sounds useful if rather complex. Would I be right in thinking that deleted edits are not available to these modellers?</p>
+
+		<div class="reply">
+					</div>
+				</div>
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="comment-13381">
+				<div id="div-comment-13381" class="comment-body">
+				<div class="comment-author vcard">
+						<cite class="fn"><a href='http://www.gwern.net/In%20Defense%20Of%20Inclusionism' rel='external nofollow' class='url'>gwern</a></cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="http://blog.wikimedia.org/2011/06/28/data-competition-announcing-the-wikipedia-participation-challenge/comment-page-1/#comment-13381">
+			2011/07/05 at 11:50</a>		</div>
+
+		<p>JS, massive vandalism by anons is easy to deal with. The bots have massively cut down on the load, as has widespread rollbacker and undo. After a few months, you don&#8217;t even notice it.</p>
+<p>What you notice are other editors fact-bombing your articles, putting them up for deletion, chopping them up in futile reformattings, and deleting random lines. That&#8217;s the incredibly dispiriting part of working on Wikipedia. Look at the parting messages in WP:MISSING. How many of them are complaining about the petty anonymous vandalism? Now how many sound like my little summary just now&#8230;</p>
+<p>I will be *very* interested to see what the models put weight on. I suspect that the key parameter will be &#8216;how many of their contributions get deleted or massively changed&#8217;, and the longer the time their contributions live before getting deleted, the more predictive of eventual quitting&#8230; (This doesn&#8217;t necessarily require deleted edits to be available to the modellers, although that would certainly help.)</p>
+
+		<div class="reply">
+					</div>
+				</div>
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-13387">
+				<div id="div-comment-13387" class="comment-body">
+				<div class="comment-author vcard">
+						<cite class="fn"><a href='http://www.gwern.net/In%20Defense%20Of%20Inclusionism' rel='external nofollow' class='url'>gwern</a></cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="http://blog.wikimedia.org/2011/06/28/data-competition-announcing-the-wikipedia-participation-challenge/comment-page-1/#comment-13387">
+			2011/07/05 at 12:12</a>		</div>
+
+		<p>Reading more, I&#8217;m pretty troubled by the selection of data: <a href="http://www.kaggle.com/c/wikichallenge/forums/t/674/sampling-approach" rel="nofollow">http://www.kaggle.com/c/wikichallenge/forums/t/674/sampling-approach</a></p>
+<p>What&#8217;s the point of predicting only about recent editors, whose ranks have already been thoroughly harrowed by the endless tightening of policy and rise of deletionists? Wikipedia already has a horrendous reputation for screwing over contributors*, so anyone who does much editing (and whose departure would be noticed by the criterion) is self-selecting now.</p>
+<p>* just the other day cryonics researcher Mike Darwin told me he had no interest in contributing because he was sure all his contributions would be reverted under an extremely narrow reading of WP:RS, and wondered whether his BLP article could just be deleted since he certainly wasn&#8217;t going to edit it into an article worth a damn</p>
+
+		<div class="reply">
+					</div>
+				</div>
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="comment-14731">
+				<div id="div-comment-14731" class="comment-body">
+				<div class="comment-author vcard">
+						<cite class="fn">Jason</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="http://blog.wikimedia.org/2011/06/28/data-competition-announcing-the-wikipedia-participation-challenge/comment-page-1/#comment-14731">
+			2011/07/25 at 19:05</a>		</div>
+
+		<p>Here you go:</p>
+<p>Are you nerdy? If yes, Wikipedia editting += 3<br />
+Are you in a relationship? If yes, Wikipedia editting -= 2<br />
+Do you have kids? If yes, Wikipedia editting -= (number of kids)<br />
+Are you currently out of work? If yes, Wikipedia editting += 2<br />
+Are you upper or middle class? If yes, Wikipedia editting += 1<br />
+Are you a young male between the age of 15 and 35? If yes, Wikipedia editting += 2</p>
+<p>Listen, WMF, it&#8217;s obvious: people edit Wikipedia if they care, if they have the time, and if they can have the ability. A fundamental truth is this: the people who want to edit Wikipedia will edit Wikipedia but not all demographics equally want to do it. The Foundation cannot FORCE the editorship to be uniform across all demographics. Unfortunately, in the name of &#8220;promoting diversity&#8221;, the Foundation is going to interpret the results of this contest in a way that implies there&#8217;s barriers to participation that must be fixed. Policy trying to force a more uniform demographic. This is utterly utterly misguided.</p>
+
+		<div class="reply">
+					</div>
+				</div>
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-14760">
+				<div id="div-comment-14760" class="comment-body">
+				<div class="comment-author vcard">
+						<cite class="fn"><a href='http://www.tomcloyd.com' rel='external nofollow' class='url'>Tom Cloyd MS MA</a></cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="http://blog.wikimedia.org/2011/06/28/data-competition-announcing-the-wikipedia-participation-challenge/comment-page-1/#comment-14760">
+			2011/07/26 at 15:42</a>		</div>
+
+		<p>Jason, what you offer is speculation, not data modeling, which is a whole different game. Your cynicism and preemptive, gratuitous over-generalizations are unwarranted. Data modeling is about trying to produce an abstract representation of patterns that demonstrably ARE in the data. The validity of a model is measurable, in several ways. The interpretation is dependent upon what addition assumptions one brings to the model, and like all argumentation is open to analysis and critique.</p>
+<p>Why do you appear to assume bad faith relative to this who initiative? The WMF people I know are earnest, eager, serious, hard working, and want real answers. That&#8217;s way better than free-floating gratuitous over-generalizations.</p>
+<p>This project is a terrific one. Someone is willing to pay anyone in the community who can solve a real problem, which when solved, can be used to promote the welfare of the community. And the problem with this is? There isn&#8217;t a problem. None whatsoever.</p>
+<p>As for barriers to diversity which need to be better understood and resolved, here&#8217;s one which has been well-documented: We don&#8217;t have a good gender balance, and we lose female editors at a rate higher than for male editors. I don&#8217;t find this acceptable, and think we need to figure out what&#8217;s happening and try to fix it. Is this a bad idea? Hardly. Might some rigorous data modeling help us with it? You bet. So&#8230;get to work.</p>
+
+		<div class="reply">
+					</div>
+				</div>
+		</li><!-- #comment-## -->
+
+	</ol>
+
+ 
+
+
+	
+	</div> <!-- content -->
+      </div> <!-- column-content -->
+    <div id="column-one">
+
+        <div id="p-logo" class="" title="Main Page">
+
+            <a accesskey="z" title="Visit the Main Page" href="http://blog.wikimedia.org " style="background-image: url(//upload.wikimedia.org/wikipedia/foundation/9/9a/Wikimediafoundation-logo.png);background-repeat:no-repeat;"></a>
+        </div> <!-- end p-logo-->
+	
+        <div id="sidebar">
+            <ul id="sidebar-contents">
+		
+                <li id="nav_menu-3" class="widget widget_nav_menu"><h2 class="widgettitle">Navigation</h2>
+<div class="menu-blog-channels-container"><ul id="menu-blog-channels" class="menu"><li id="menu-item-3693" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-3693"><a title="Highlights" href="http://blog.wikimedia.org/c/highlights/">Highlights</a></li>
+<li id="menu-item-3695" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-3695"><a title="Tech blog" href="http://blog.wikimedia.org/c/technology/">Tech blog</a></li>
+<li id="menu-item-3696" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-3696"><a title="Global blog" href="http://blog.wikimedia.org/c/global/">Global blog</a></li>
+<li id="menu-item-6708" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-6708"><a title="Fundraising" href="http://blog.wikimedia.org/c/fundraising/fundraiser-2011/">Fundraising</a></li>
+<li id="menu-item-17747" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-17747"><a title="WikiWomen" href="http://blog.wikimedia.org/c/community/wikiwomen/">WikiWomen</a></li>
+</ul></div></li>
+<li id="nav_menu-4" class="widget widget_nav_menu"><h2 class="widgettitle">About Wikimedia</h2>
+<div class="menu-foundation-links-container"><ul id="menu-foundation-links" class="menu"><li id="menu-item-3697" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3697"><a title="Wikimedia Foundation website" href="http://wikimediafoundation.org">Home</a></li>
+<li id="menu-item-3698" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3698"><a title="Frequently Asked Questions" href="http://wikimediafoundation.org/wiki/Frequently_Asked_Questions">FAQ</a></li>
+<li id="menu-item-3699" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3699"><a href="http://wikimediafoundation.org/wiki/Our_projects">Our projects</a></li>
+<li id="menu-item-3700" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3700"><a href="http://wikimediafoundation.org/wiki/Press_room">Press room</a></li>
+<li id="menu-item-3701" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3701"><a href="http://wikimediafoundation.org/wiki/Contact_us">Contact us</a></li>
+<li id="menu-item-3702" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3702"><a href="http://wikimediafoundation.org/wiki/Staff">Staff</a></li>
+<li id="menu-item-3703" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3703"><a href="http://wikimediafoundation.org/wiki/Job_openings">Job openings</a></li>
+<li id="menu-item-3704" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3704"><a href="http://wikimediafoundation.org/wiki/Local_chapters">Local chapters</a></li>
+<li id="menu-item-13514" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-13514"><a href="http://shop.wikimedia.org">Wikimedia Shop</a></li>
+</ul></div></li>
+<li id="text-7" class="widget widget_text">			<div class="textwidget"><a href="http://donate.wikimedia.org"><img class="aligncenter size-full wp-image-2926" title="Make a donation" src="//blog.wikimedia.org/wp-content/uploads/2011/05/2008_fundraiser_square_button-en.png" alt="Support Wikipedia button" width="125" height="125" /></a>
+<p>Your donation will support <strong><a href="http://www.wikipedia.org/">Wikipedia</a></strong> and our movement, and it may be <strong><a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a></strong> in the United States.</p>
+</div>
+		</li>
+<li id="text-4" class="widget widget_text">			<div class="textwidget"><a href="//creativecommons.org/licenses/by/3.0/"><img src="//blog.wikimedia.org/wp-content/uploads/2011/05/somerights20.png" alt="Creative Commons Attribution 3.0" title="Creative Commons Attribution 3.0" width="88" height="31" class="aligncenter size-full wp-image-2951" /></a>
+<p>This work is licensed under a <a rel="license" href="//creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 Unported License</a>. Some images under <a rel="license" href="//creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>.</p></div>
+		</li>
+<li id="linkcat-286" class="widget widget_links"><h2 class="widgettitle">Technology links</h2>
+
+	<ul class='xoxo blogroll'>
+<li><a href="http://www.mediawiki.org" title="MediaWiki">MediaWiki</a></li>
+<li><a href="https://gerrit.wikimedia.org/r/#/q/project:mediawiki/core,n,z" title="MediaWiki commits">MediaWiki commits</a></li>
+<li><a href="http://wikitech.wikimedia.org/view/Server_admin_log" title="Server admin log">Server admin log</a></li>
+<li><a href="http://wikitech.wikimedia.org/view/Software_deployments" title="Software deployments">Software deployments</a></li>
+<li><a href="http://stats.wikimedia.org/" title="Wikimedia statistics">Wikistats</a></li>
+
+	</ul>
+</li>
+
+<li id="linkcat-287" class="widget widget_links"><h2 class="widgettitle">Community links</h2>
+
+	<ul class='xoxo blogroll'>
+<li><a href="http://meta.wikimedia.org" title="Wikimedia meta-wiki">Meta-Wiki</a></li>
+<li><a href="http://outreach.wikimedia.org" title="Public outreach wiki">Outreach wiki</a></li>
+<li><a href="http://wikimania.wikimedia.org" title="The annual Wikimedia conference">Wikimania</a></li>
+
+	</ul>
+</li>
+
+<li id="linkcat-288" class="widget widget_links"><h2 class="widgettitle">Global links</h2>
+
+	<ul class='xoxo blogroll'>
+<li><a href="http://wikimania.wikimedia.org" title="The annual Wikimedia conference">Wikimania</a></li>
+<li><a href="http://wikimediafoundation.org/wiki/Local_chapters" title="Local chapters">Wikimedia chapters</a></li>
+
+	</ul>
+</li>
+
+<li id="wmblog_meta_widget-2" class="widget widget_wmblog_meta_widget">			<ul>
+			<li><a href="http://blog.wikimedia.org/wp-login.php?action=register">Register</a></li>			<li><a href="http://blog.wikimedia.org/wp-login.php">Log in</a></li>
+			<li><a href="//meta.wikimedia.org/wiki/Wikimedia_Blog/Guidelines" title="General contribution guidelines for the Wikimedia blog">Blog guidelines</a></li>
+			<li><a href="http://blog.wikimedia.org/feed/" title="Syndicate this site using RSS 2.0">Entries <abbr title="Really Simple Syndication">RSS</abbr></a></li>
+			<li><a href="http://blog.wikimedia.org/comments/feed/" title="The latest comments to all posts in RSS">Comments <abbr title="Really Simple Syndication">RSS</abbr></a></li>
+			<li><a href="http://wordpress.org/" title="Powered by WordPress, state-of-the-art semantic personal publishing platform.">WordPress.org</a></li>
+						</ul>
+		</li>
+<li id="text-9" class="widget widget_text">			<div class="textwidget"></div>
+		</li>
+
+            </ul> <!-- end sidebar-contents -->
+
+        </div> <!-- end sidebar -->
+    </div> <!-- end column-one -->
+
+<div id="topsearch">
+	<div id="p-search" class="portlet">
+		<form action="http://blog.wikimedia.org/" method="get" id="searchform">
+	<div id="simpleSearch">
+		<input id="s" name="s" type="text"  title="Search blog" accesskey="f"  value="" />
+		<button id="searchButton" type='submit' name='button'>&nbsp;</button>
+	</div> <!-- simpleSearch -->
+</form>
+	</div>
+</div> <!-- end #topsearch -->
+<div id="footer">
+	<div id="lastline">
+	         <p align="center" style="width:100%;"><a href="http://wikimediafoundation.org/wiki/Privacy_policy">Privacy policy</a>&nbsp;&nbsp;&nbsp;&nbsp;<b>&middot;</b>&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://wikimediafoundation.org/wiki/FAQ/en">FAQ</a>
+	         </p>
+	</div> <!-- lastline -->
+<!-- If you'd like to support WordPress, having the "powered by" link somewhere on your blog is the best way; it's our only promotion or advertising. -->
+	<p>
+		Wikimedia blog is proudly powered by
+		<a href="http://wordpress.org/">WordPress</a>
+		<!-- 34 queries. 0.356 seconds. -->
+	</p>
+</div> <!-- footer -->
+
+</div> <!-- globalWrapper -->
+
+<!-- Gorgeous design by Michael Heilemann - http://binarybonsai.com/kubrick/ -->
+
+		</body>
+</html>
+
+<!-- Performance optimized by W3 Total Cache. Learn more: http://www.w3-edge.com/wordpress-plugins/
+
+ Served from: blog.wikimedia.org @ 2013-06-17 15:00:10 by W3 Total Cache -->
