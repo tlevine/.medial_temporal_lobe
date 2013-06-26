@@ -1,0 +1,1695 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en">
+<head>
+<base href="http://www.linuxquestions.org/questions/" /><!--[if IE]></base><![endif]-->
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+
+<meta name="keywords" content="Mutt,experts,Mutt,won,t,use,Maildir,I,specify,muttrc,debian, mutt,  Mutt experts - Mutt won't use the Maildir I specify in .muttrc, Linux,how to,tutorial,operating system,linux,red hat,mandrake,security,linux help,installation,question,forum" />
+<meta name="description" content="I'm posting this in the Debian because I have a suspicion it might be something inherent to the Mutt build for the distro (Debian Lenny). I have" />
+
+
+<!-- CSS Stylesheet -->
+<style type="text/css" id="vbulletin_css">
+/**
+* vBulletin 3.8.8 Beta 1 CSS
+* Style: 'LQ Style - child of default'; Style ID: 7
+*/
+@import url("http://www.linuxquestions.org/questions/clientscript/vbulletin_css/style-a31b45e8-00007.css");
+</style>
+<link rel="stylesheet" type="text/css" href="http://www.linuxquestions.org/questions/clientscript/vbulletin_important.css?v=388b1" />
+
+
+<!-- / CSS Stylesheet -->
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/yui/2.9.0/build/yahoo-dom-event/yahoo-dom-event.js?v=388b1"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/yui/2.9.0/build/connection/connection-min.js?v=388b1"></script>
+<script type="text/javascript">
+<!--
+var SESSIONURL = "s=fddcbab9a218a8c6a38df190229c6afd&";
+var SECURITYTOKEN = "guest";
+var IMGDIR_MISC = "https://lqo-thequestionsnetw.netdna-ssl.com/questions/images/misc";
+var vb_disable_ajax = parseInt("0", 10);
+// -->
+</script>
+
+<script type="text/javascript" src="https://lqo-thequestionsnetw.netdna-ssl.com/questions/clientscript/vbulletin_global.js?v=388b1"></script>
+<script type="text/javascript" src="https://lqo-thequestionsnetw.netdna-ssl.com/questions/clientscript/vbulletin_menu.js?v=388b1"></script>
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+<link rel="alternate" type="application/rss+xml" title="LQ Latest Threads" href="/syndicate/lqlatest.xml" />
+<link rel="alternate" type="application/rss+xml" title="LQ News and Articles" href="/syndicate/lqnews.rss" />
+<link rel="alternate" type="application/rss+xml" title="LQ Zero Reply Threads" href="/syndicate/lqnoreplies.xml" />
+<link rel="search" type="application/opensearchdescription+xml" title="LinuxQuestions.org" href="http://static.linuxquestions.org/lq-osd.xml" />
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/yui/2.9.0/build/json/json-min.js?v=388b1"></script>
+<script type="text/javascript" src="http://account.thequestionsnetwork.org/?do=qnetlogin"></script><script type="text/javascript">
+<!--
+function bb2_addLoadEvent(func) {
+	var oldonload = window.onload;
+	if (typeof window.onload != 'function') {
+		window.onload = func;
+	} else {
+		window.onload = function() {
+			oldonload();
+			func();
+		}
+	}
+}
+
+bb2_addLoadEvent(function() {
+	for ( i=0; i < document.forms.length; i++ ) {
+		if (document.forms[i].method == 'post') {
+			var myElement = document.createElement('input');
+			myElement.setAttribute('type', 'hidden');
+			myElement.name = 'bb2_screener_';
+			myElement.value = '1372287803 108.6.177.114 108.6.177.114';
+			document.forms[i].appendChild(myElement);
+		}
+	}
+});
+// --></script>
+		
+	<title> Mutt experts - Mutt won't use the Maildir I specify in .muttrc</title>
+
+	<style type="text/css" id="vbulletin_showthread_css">
+	<!--
+	
+	#tag_edit_list { list-style:none; margin:0px; padding:0px; }
+	#tag_edit_list li { float:left; display:block; width:200px; }
+	#tag_edit_list li.mine { font-weight:bold; }
+	
+	#links div { white-space: nowrap; }
+	#links img { vertical-align: middle; }
+	-->
+	</style>
+
+<script type="text/javascript"><!--
+window.google_analytics_uacct = 'UA-71419-4'; var _gaq = _gaq || []; _gaq.push(['_setAccount', 'UA-71419-4'], ['_trackPageview'], ['_trackPageLoadTime']); (function() { var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true; ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);  })();
+//--></script>
+</head>
+<body onload="">
+<div id="header"></div>
+<!-- logo -->
+<a name="top"></a>
+<table border="0" width="100%" cellpadding="0" cellspacing="0" align="center">
+<tr>
+    <td align="left"><a href="/questions/"><img src="https://lqo-thequestionsnetw.netdna-ssl.com/questions/images/LinuxQuestions.png" border="0" alt="LinuxQuestions.org" /></a></td>
+    <td align="right">
+     <div align="right">Visit the LQ <a href="http://www.linuxquestions.org/linux/articles/">Articles and Editorials</a> section</div>
+    </td>
+</tr>
+</table>
+<!-- /logo -->
+
+<!-- content table -->
+<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:100%; text-align:left">
+		<div style="padding:0px 0px 0px 0px" align="left">
+
+
+
+
+
+<div class="vbmenu_popup" id="vbbloglinks_menu" style="display:none;margin-top:3px" align="left">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tr>
+		<td class="thead"><a href="/questions/blog/">Blogs</a></td>
+	</tr>
+	
+	<tr>
+		<td class="vbmenu_option"><a href="/questions/blog/recent-entries/">Recent Entries</a></td>
+	</tr>
+	<tr>
+		<td class="vbmenu_option"><a href="/questions/blog/best-entries/">Best Entries</a></td>
+	</tr>
+	<tr>
+		<td class="vbmenu_option"><a href="/questions/blog/best-blogs/">Best Blogs</a></td>
+	</tr>
+	<tr>
+		<td class="vbmenu_option"><a href="/questions/blog/all/">Blog List</a></td>
+	</tr>
+	
+	<tr>
+		<td class="vbmenu_option"><a rel="nofollow" href="/questions/blog_search.php?do=search">Search Blogs</a></td>
+	</tr>
+	
+	</table>
+</div>
+<script type="text/javascript">
+<!--
+function log_out()
+{
+    ht = document.getElementsByTagName("html");
+    ht[0].style.filter = "progid:DXImageTransform.Microsoft.BasicImage(grayscale=1)";
+    if (confirm('Are you sure you want to log out?'))
+    {
+        return true;
+    }
+    else
+    {
+        ht[0].style.filter = "";
+        return false;
+    }
+}
+//-->
+</script>
+<div style="text-align:center;margin-bottom:15px" align="center"> 
+<script type="text/javascript"><!--
+google_ad_client = "pub-4420048478783872";
+/* LQ Main - Top Leaderboard */
+google_ad_slot = "2731986808";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div>
+<!-- START: LQ Table Top -->
+<table cellpadding="0" cellspacing="0" border="0" width="100%" align="center">
+<tr>
+<td class="page" valign="top">
+<!-- END: LQ Table Top -->
+<!-- nav buttons bar -->
+<div align="center">
+	<table class="tborder" cellpadding="3" cellspacing="0" border="0" width="100%" align="center" style="border-top-width:0px">
+	<tr align="center">
+		<td class="vbmenu_control"><a href="/" accesskey="1">Home</a></td>
+		<td class="vbmenu_control"><a href="/questions/">Forums</a></td>
+		<td class="vbmenu_control"><a href="/hcl/">HCL</a></td>
+		<td class="vbmenu_control"><a href="/reviews/">Reviews</a></td>
+		<td class="vbmenu_control"><a href="/linux/answers/">Tutorials</a></td>
+		<td class="vbmenu_control"><a href="/linux/articles/">Articles</a></td>
+		
+			<td class="vbmenu_control"><a href="/questions/register.php" rel="nofollow">Register</a></td>
+		
+				
+			
+				<td id="navbar_search" class="vbmenu_control"><a href="/questions/search.php" accesskey="4" rel="nofollow">Search</a> <script type="text/javascript"> vbmenu_register("navbar_search"); </script></td>
+			
+			
+		
+		
+	</tr>
+	</table>
+</div>
+<!-- / nav buttons bar -->
+
+
+<!-- NAVBAR POPUP MENUS -->
+	
+	
+	<!-- header quick search form -->
+	<div class="vbmenu_popup" id="navbar_search_menu" style="display:none">
+		<table cellpadding="4" cellspacing="1" border="0">
+		<tr>
+			<td class="thead">Search Forums</td>
+		</tr>
+		<tr>
+			<td class="vbmenu_option" title="nohilite">
+			<form action="/questions/search.php" method="post">
+				<input type="hidden" name="do" value="process" />
+				<input type="hidden" name="showposts" value="1" />
+				<input type="hidden" name="quicksearch" value="1" />
+				<input type="hidden" name="s" value="fddcbab9a218a8c6a38df190229c6afd" />
+	<input type="hidden" name="securitytoken" value="guest" />
+				<input type="text" class="bginput" name="query" size="20" /><input type="submit" class="button" value="Go"  /><br />
+			</form>
+			</td>
+		</tr>
+		<tr>
+			<td class="vbmenu_option"><a href="/questions/search.php" accesskey="4" rel="nofollow">Advanced Search</a></td>
+		</tr>
+
+		<tr>
+			<td class="thead">Search Tags</td>
+		</tr>
+		<tr>
+			<td class="vbmenu_option" title="nohilite"><form action="/questions/search.php" method="post"><input type="text" class="bginput" name="tag" size="20" /><input type="hidden" name="do" value="process" /><input type="hidden" name="posttags" value="1" /><input type="hidden" name="s" value="fddcbab9a218a8c6a38df190229c6afd" />
+	<input type="hidden" name="securitytoken" value="guest" /><input type="submit" class="button" value="Go"  /><br /></form>
+			</td>
+		</tr>
+
+		<tr>
+			<td class="thead">Search LQ Wiki</td>
+		</tr>
+		<tr>
+			<td class="vbmenu_option" title="nohilite">
+            <form action="http://wiki.linuxquestions.org/wiki/Special:Search">
+              <input name="fulltext" value="Search" type="hidden">              <input name="search" class="bginput" type="text" size="20"><input type="submit" class="button" value="Go"  /><br />
+            </form>
+			</td>
+		</tr>
+
+		<tr>
+			<td class="thead">Search Tutorials/Articles</td>
+		</tr>
+		<tr>
+			<td class="vbmenu_option" title="nohilite">
+		<form action="/linux/search/node" method="post">
+			<input name="op" value="Search" type="hidden">
+			<input class="bginput" name="edit[keys]" size="20" type="text"><input type="submit" class="button" value="Go"  /><br />
+		</form>
+			</td>
+		</tr>
+
+		<tr>
+			<td class="thead">Search HCL</td>
+		</tr>
+		<tr>
+			<td class="vbmenu_option" title="nohilite">
+
+		<form method="get" action="/hcl/showcat.php">
+			<input name="cat" value="all" type="hidden">
+			<input name="stype" value="1" type="hidden">
+			<input name="si" size="20" class="bginput" type="text"><input type="submit" class="button" value="Go"  /><br />
+		</form>
+			</td>
+		</tr>
+		<tr>
+			<td class="thead">Search Reviews</td>
+		</tr>
+		<tr>
+			<td class="vbmenu_option" title="nohilite">
+		<form method="get" action="/reviews/showcat.php">
+			<input name="cat" value="all" type="hidden">
+			<input name="stype" value="1" type="hidden">
+			<input name="si" size="20" class="bginput" type="text"><input type="submit" class="button" value="Go"  /><br />
+		</form>
+			</td>
+		</tr>
+
+		<tr>
+			<td class="thead">Search ISOs</td>
+		</tr>
+		<tr>
+			<td class="vbmenu_option" title="nohilite">
+		<form method="get" action="http://iso.linuxquestions.org/search.php">
+			<input name="query" size="20" class="bginput" type="text"><input type="submit" class="button" value="Go"  /><br />
+		</form>
+			</td>
+		</tr>
+		</table>
+	</div>
+	<!-- / header quick search form -->
+	
+
+	
+<!-- / NAVBAR POPUP MENUS -->
+
+<!-- PAGENAV POPUP -->
+
+	<div class="vbmenu_popup" id="pagenav_menu" style="display:none">
+		<table cellpadding="4" cellspacing="1" border="0">
+		<tr>
+			<td class="thead" nowrap="nowrap">Go to Page...</td>
+		</tr>
+		<tr>
+			<td class="vbmenu_option" title="nohilite">
+			<form action="/questions/" method="get" onsubmit="return this.gotopage()" id="pagenav_form">
+				<input type="text" class="bginput" id="pagenav_itxt" style="font-size:11px" size="4" />
+				<input type="button" class="button" id="pagenav_ibtn" value="Go" />
+			</form>
+			</td>
+		</tr>
+		</table>
+	</div>
+
+<!-- / PAGENAV POPUP -->
+
+
+<!-- breadcrumb, login, pm info -->
+<table class="tborder" cellpadding="3" cellspacing="1" border="0" width="100%" align="center" style="border-top:0px">
+<tr>
+	<td class="alt1" width="100%">
+		
+			<table cellpadding="0" cellspacing="0" border="0">
+			<tr valign="bottom">
+				<td><a href="http://www.linuxquestions.org/questions/debian-26/mutt-experts-mutt-won't-use-the-maildir-i-specify-in-muttrc-749792/#" onclick="history.back(1); return false;"><img src="https://lqo-thequestionsnetw.netdna-ssl.com/questions/images/misc/navbits_start.gif" alt="Go Back" border="0" /></a></td>
+				<td>&nbsp;</td>
+				<td width="100%"><span class="navbar"><a href="/" accesskey="1">LinuxQuestions.org</a></span> 
+
+<span class="navbar">&gt; <a href="/questions/" accesskey="1">Forums</a></span> 
+
+
+	<span class="navbar">&gt; <a href="/questions/linux-forums-50/">Linux Forums</a></span>
+
+
+	<span class="navbar">&gt; <a href="/questions/linux-distributions-5/">Linux - Distributions</a></span>
+
+
+	<span class="navbar">&gt; <a href="/questions/debian-26/">Debian</a></span>
+
+</td>
+			</tr>
+			<tr>
+				<td class="navbar" style="font-size:10pt; padding-top:1px" colspan="3"><a href="/questions/debian-26/mutt-experts-mutt-won%27t-use-the-maildir-i-specify-in-muttrc-749792/"><img class="inlineimg" src="https://lqo-thequestionsnetw.netdna-ssl.com/questions/images/misc/navbits_finallink.gif" alt="Reload this Page" border="0" /></a> <strong>
+	 Mutt experts - Mutt won't use the Maildir I specify in .muttrc
+
+</strong></td>
+			</tr>
+			</table>			
+		
+	</td>	
+	
+	
+		
+		<td class="alt2" nowrap="nowrap" style="padding:0px">
+			
+		<!-- login form -->
+		<form action="/questions/login.php" method="post" onsubmit="md5hash(vb_login_password, vb_login_md5password, vb_login_md5password_utf, 0)">
+		<script type="text/javascript" src="/questions/clientscript/vbulletin_md5.js?v=388b1"></script>
+		<table cellpadding="0" cellspacing="3" border="0">
+		<tr>
+			<td class="smallfont">User Name</td>
+			<td><input type="text" class="bginput" style="font-size: 11px" name="vb_login_username" id="navbar_username" size="10" accesskey="u" tabindex="101" value="User Name" onfocus="if (this.value == 'User Name') this.value = '';" /></td>
+			<td class="smallfont" colspan="2" nowrap="nowrap"><label for="cb_cookieuser_navbar"><input type="checkbox" name="cookieuser" value="1" tabindex="103" id="cb_cookieuser_navbar" accesskey="c" checked="checked" />Remember Me?</label></td>
+		</tr>
+		<tr>
+			<td class="smallfont">Password</td>
+			<td><input type="password" class="bginput" style="font-size: 11px" name="vb_login_password" size="10" accesskey="p" tabindex="102" /></td>
+			<td><input type="submit" class="button" value="Log in" tabindex="104" title="Enter your username and password in the boxes provided to login, or click the 'register' button to create a profile for yourself." accesskey="s" /></td>
+		</tr>
+		</table>
+		<input type="hidden" name="s" value="fddcbab9a218a8c6a38df190229c6afd" />
+	<input type="hidden" name="securitytoken" value="guest" />
+		<input type="hidden" name="do" value="login" />		
+		<input type="hidden" name="vb_login_md5password" />
+		<input type="hidden" name="vb_login_md5password_utf" />
+		</form>
+		<!-- / login form -->
+			
+		</td>
+		
+		
+	
+</tr>
+</table>
+<!-- / breadcrumb, login, pm info -->
+
+
+	<table class="tborder" cellpadding="3" cellspacing="1" border="0" width="100%" align="center" style="border-top:0px">
+	<tr>
+		<td class="alt1" width="100%"><strong>Debian</strong> <span class="smallfont">This forum is for the discussion of Debian Linux.<br /></span></td>
+	</tr>
+	</table>
+
+
+
+
+	<br />
+	<table class="tborder" cellpadding="3" cellspacing="1" border="0" width="100%" align="center">
+	<tr>
+		<td class="thead">Notices</td>
+	</tr>
+	<tr>
+		<td class="alt1"><div class="navbar_notice" id="navbar_notice_1">
+	Welcome to <strong>LinuxQuestions.org</strong>, a friendly and active Linux Community. <br /><br />
+You are currently viewing LQ as a guest.  By joining our community you will have the ability to post topics, receive our newsletter, use the advanced search, subscribe to threads and access many other special features. Registration is quick, simple and absolutely free. <a href="/questions/register.php"><strong>Join our community</strong></a> today!<br /><br />
+<strong>Note that registered members see fewer ads, and ContentLink is completely disabled once you log in.</strong><br /><br />
+Are you new to LinuxQuestions.org?  Visit the following links:<br />
+<a href="/linux/answers/LinuxQuestions_org/How_to_Use_LinuxQuestions_org">Site Howto</a> |
+<a href="/questions/faq.php">Site FAQ</a> |
+<a href="/linux/sitemap.html">Sitemap</a> | 
+<a href="/questions/register.php">Register Now</a>
+<br /><br />If you have any problems with the registration process or your account login, please <a href="/questions/sendmessage.php">contact us</a>.  If you need to reset your password, <a rel="nofollow" href="/questions/login.php?do=lostpw">click here</a>.<br /><br />
+<strong>Having a problem logging in? Please visit <a href="/removecookies.php">this page</a> to clear all LQ-related cookies.</strong>
+</div><div class="navbar_notice" id="navbar_notice_18">
+	<br />
+<table>
+<tr><td>
+<a href="http://linuxquestions.tradepub.com/free/w_mach01/prgm.cgi" rel="nofollow"><img src="http://static.linuxquestions.org/ads/w_mach01c.gif" border="0" align="left" /></a></td><td>
+
+<em>Introduction to Linux - A Hands on Guide</em>
+<br /><br />
+This guide was created as an overview of the Linux Operating System, geared toward new users as an exploration tour and getting started guide, with exercises at the end of each chapter.
+For more advanced trainees it can be a desktop reference, and a collection of the base knowledge needed to proceed with system and network administration. This book contains many real life examples derived from the author's experience as a Linux system and network administrator, trainer and consultant. They hope these examples will help you to get a better understanding of the Linux system and that you feel encouraged to try out things on your own. 
+<br />
+
+<br /><br />
+<a href="http://linuxquestions.tradepub.com/free/w_mach01/" rel="nofollow" target="_blank">Click Here</a> to receive this Complete Guide absolutely free.</td></tr>
+</table>
+</div></td>
+	</tr>
+	</table>
+
+
+
+	<br />
+
+<!-- <div style="text-align:center;margin-bottom:15px"> 
+google_leaderboard_white_text
+</div>-->
+<div class="KonaBody">
+
+	
+			
+	
+
+
+
+
+
+<a name="poststop" id="poststop"></a>
+
+<!-- controls above postbits -->
+<table cellpadding="0" cellspacing="0" border="0" width="100%" style="margin-bottom:3px">
+<tr valign="bottom">
+	
+		<td class="smallfont"><a href="/questions/newreply.php?do=newreply&amp;noquote=1&amp;p=3655173" rel="nofollow"><img src="https://lqo-thequestionsnetw.netdna-ssl.com/questions/images/buttons/reply.gif" alt="Reply" border="0" /></a></td>
+	
+	
+</tr>
+</table>
+<!-- / controls above postbits -->
+
+<!-- toolbar -->
+<table class="tborder" cellpadding="3" cellspacing="1" border="0" width="100%" align="center" style="border-bottom-width:0px">
+<tr>
+	<td class="tcat" width="100%">
+		<div class="smallfont">
+		
+		
+		&nbsp;
+		</div>
+	</td>
+
+
+<td class="vbmenu_control" id="linkbacktools" nowrap="nowrap">
+	<a rel="nofollow" href="/questions/debian-26/mutt-experts-mutt-won%27t-use-the-maildir-i-specify-in-muttrc-749792/?nojs=1#links">LinkBack</a>
+	<script type="text/javascript"> vbmenu_register("linkbacktools"); </script>
+</td>
+
+<!--$vbseo_linkback_menu-->
+	
+		<td class="vbmenu_control" id="threadsearch" nowrap="nowrap">
+			<a rel="nofollow" href="/questions/debian-26/mutt-experts-mutt-won%27t-use-the-maildir-i-specify-in-muttrc-749792/?nojs=1#goto_threadsearch">Search this Thread</a>
+			<script type="text/javascript"> vbmenu_register("threadsearch"); </script>
+		</td>
+	
+	
+	
+
+	
+
+</tr>
+</table>
+<!-- / toolbar -->
+
+
+
+
+
+
+
+<div id="posts"><!-- post #3655173 -->
+
+	<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:100%; text-align:left">
+		<div style="padding:0px 0px 0px 0px" align="left">
+
+	<div id="edit3655173" style="padding:0px 0px 3px 0px">
+	<!-- this is not the last post shown on the page -->
+
+
+
+<table id="post3655173" class="tborder" cellpadding="3" cellspacing="0" border="0" width="100%" align="center">
+<tr>
+	
+		<td class="thead" style="font-weight:normal; border: 1px solid #FFFFFF; border-right: 0px" >		
+			<!-- status icon and date -->
+			<a name="post3655173"><img class="inlineimg" src="https://lqo-thequestionsnetw.netdna-ssl.com/questions/images/statusicon/post_old.gif" alt="Old" border="0" /></a>
+			08-24-2009, 02:10 AM
+			
+			<!-- / status icon and date -->
+		</td>
+		<td class="thead" style="font-weight:normal; border: 1px solid #FFFFFF; border-left: 0px" align="right">
+			&nbsp;
+		
+			#<a href="/questions/debian-26/mutt-experts-mutt-won%27t-use-the-maildir-i-specify-in-muttrc-749792/#post3655173" rel="nofollow" id="postcount3655173" name="1"><strong>1</strong></a>
+			
+		
+		</td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt2" width="175" style="border: 1px solid #FFFFFF; border-top: 0px; border-bottom: 0px">			
+			<div id="postmenu_3655173">
+				<div class="bigusername">
+				<!-- google_ad_section_start(weight=ignore) -->moistTowelette<!-- google_ad_section_end --></div>
+				
+			</div>
+			<div class="smallfont">Member</div>
+			
+			
+			
+			
+			
+			<div class="smallfont">
+				&nbsp;<br />
+				<div>Registered: Sep 2003</div>
+				
+				
+				
+				<div>
+					Posts: 79
+				</div>
+				
+				
+				
+				<br /><div><span id="repdisplay_3655173_65601">Rep: <img class="inlineimg" src="https://lqo-thequestionsnetw.netdna-ssl.com/questions/images/reputation/reputation_pos.gif" alt="Reputation: 15" border="0" /> <!-- <smallfont>(15)</smallfont>--></span></div>
+				
+				<div>    </div>
+			</div>					
+	</td>
+	
+	<td class="alt2" id="td_post_3655173" style="border-right: 1px solid #FFFFFF">
+	
+		
+		
+			<!-- icon and title -->
+			<div class="smallfont">
+				
+				<strong><!-- google_ad_section_start -->Mutt experts - Mutt won't use the Maildir I specify in .muttrc<!-- google_ad_section_end --></strong>
+			</div>
+			<hr size="1" style="color:#FFFFFF" />
+			<!-- / icon and title -->
+		
+		
+
+		<!-- message -->
+
+
+<div style="float: right; margin-left: 5px; margin-bottom: 5px; margin-top: -3px; margin-right: -3px">
+<script type="text/javascript"><!--
+google_ad_client = "pub-4420048478783872";
+/* LQ Main - Content Medium Rectangle */
+google_ad_slot = "3618825872";
+google_ad_width = 300;
+google_ad_height = 250;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+<br />
+<script language="javascript" type="text/javascript">
+document.write('[<a href="/questions/lqlogin.php">Log in</a> to <strong>get rid</strong> of this advertisement]');
+</script>
+</div>
+
+		<div id="post_message_3655173"><!-- google_ad_section_start -->I'm posting this in the Debian because I have a suspicion it might be something inherent to the Mutt build for the distro (Debian Lenny). I have configured Exim to drop mail in ~/Maildir, and I want Mutt to read this directory automatically when started; however:<br />
+<ol style="list-style-type: decimal"><li>When I start mutt manually with 'mutt -m Maildir -f ~/Maildir', everything works as expected.</li>
+<li>When I start mutt with no command line options, I am warned that /var/mail/&lt;username&gt; does not exist, and would I like to create it. Understandably, mutt does not look in ~/Maildir.</li>
+<li>I create ~/.muttrc, add the line 'set folder = ~/Maildir', and start mutt. This time I don't get the offer to create /var/mail/&lt;username&gt;, mutt simply tells me that the directory does not exist and gives me 'errno = 2'. Typing ':set ?folder' returns 'folder=&quot;~/Maildir&quot;' as expected, however mutt refuses to read this folder automatically.</li>
+</ol><br />
+The reason I think this may be to do with the distro build is the 'MAILPATH' flag in the output of 'mutt -v':<br />
+<br />
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="bbcodeblock" dir="ltr" style="
+		margin: 0px;
+		margin-right: -99999px;
+		padding: 3px;
+		border: 1px inset;
+		width: 98%;
+		height: 498px;
+		text-align: left;
+		overflow: auto">Mutt 1.5.18 (2008-05-17)
+Copyright (C) 1996-2008 Michael R. Elkins and others.
+Mutt comes with ABSOLUTELY NO WARRANTY; for details type `mutt -vv'.
+Mutt is free software, and you are welcome to redistribute it
+under certain conditions; type `mutt -vv' for details.
+
+System: Linux 2.6.27.2-xenU (i686)
+ncurses: ncurses 5.7.20081213 (compiled with 5.7)
+libidn: 1.8 (compiled with 1.10)
+hcache backend: GDBM version 1.8.3. 10/15/2002 (built Apr 24 2006 03:25:20)
+Compile options:
+-DOMAIN
++DEBUG
+-HOMESPOOL  +USE_SETGID  +USE_DOTLOCK  +DL_STANDALONE
++USE_FCNTL  -USE_FLOCK
++USE_POP  +USE_IMAP  +USE_SMTP  +USE_GSS  -USE_SSL_OPENSSL  +USE_SSL_GNUTLS  +USE_SASL  +HAVE_GETADDRINFO
++HAVE_REGCOMP  -USE_GNU_REGEX
++HAVE_COLOR  +HAVE_START_COLOR  +HAVE_TYPEAHEAD  +HAVE_BKGDSET
++HAVE_CURS_SET  +HAVE_META  +HAVE_RESIZETERM
++CRYPT_BACKEND_CLASSIC_PGP  +CRYPT_BACKEND_CLASSIC_SMIME  -CRYPT_BACKEND_GPGME
+-EXACT_ADDRESS  -SUN_ATTACHMENT
++ENABLE_NLS  -LOCALES_HACK  +COMPRESSED  +HAVE_WC_FUNCS  +HAVE_LANGINFO_CODESET  +HAVE_LANGINFO_YESEXPR
++HAVE_ICONV  -ICONV_NONTRANS  +HAVE_LIBIDN  +HAVE_GETSID  +USE_HCACHE
+-ISPELL
+SENDMAIL=&quot;/usr/sbin/sendmail&quot;
+<b>MAILPATH=&quot;/var/mail&quot;</b>
+PKGDATADIR=&quot;/usr/share/mutt&quot;
+SYSCONFDIR=&quot;/etc&quot;
+EXECSHELL=&quot;/bin/sh&quot;
+MIXMASTER=&quot;mixmaster&quot;
+To contact the developers, please mail to &lt;mutt-dev@mutt.org&gt;.
+To report a bug, please visit http://bugs.mutt.org/.
+
+patch-1.5.13.cd.ifdef.2
+patch-1.5.13.cd.purge_message.3.4
+patch-1.5.13.nt+ab.xtitles.4
+patch-1.5.4.vk.pgp_verbose_mime
+patch-1.5.6.dw.maildir-mtime.1
+patch-1.5.8.hr.sensible_browser_position.3</pre>
+</div>Is the only way to specify MAILPATH at compile time? And if so, is there (seriously) no way to override it?<br />
+<br />
+For reference, here is the content of my .muttrc:<br />
+<br />
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="bbcodeblock" dir="ltr" style="
+		margin: 0px;
+		margin-right: -99999px;
+		padding: 3px;
+		border: 1px inset;
+		width: 98%;
+		height: 50px;
+		text-align: left;
+		overflow: auto">set mbox_type = Maildir
+set folder = ~/Maildir</pre>
+</div>...and the output of 'mutt -debug 3':<br />
+<br />
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="bbcodeblock" dir="ltr" style="
+		margin: 0px;
+		margin-right: -99999px;
+		padding: 3px;
+		border: 1px inset;
+		width: 98%;
+		height: 386px;
+		text-align: left;
+		overflow: auto">Mutt 1.5.18 started at Mon Aug 24 07:06:06 2009
+.
+Debugging at level 3.
+
+Reading configuration file '/etc/Muttrc'.
+Reading configuration file '/usr/lib/mutt/source-muttrc.d|'.
+Reading configuration file '/etc/Muttrc.d/charset.rc'.
+Reading configuration file '/etc/Muttrc.d/colors.rc'.
+mutt_alloc_color(): Color pairs used so far: 1
+mutt_alloc_color(): Color pairs used so far: 2
+mutt_alloc_color(): Color pairs used so far: 3
+mutt_alloc_color(): Color pairs used so far: 4
+mutt_alloc_color(): Color pairs used so far: 5
+mutt_alloc_color(): Color pairs used so far: 6
+mutt_alloc_color(): Color pairs used so far: 7
+mutt_alloc_color(): Color pairs used so far: 8
+Reading configuration file '/etc/Muttrc.d/compressed-folders.rc'.
+Reading configuration file '/etc/Muttrc.d/gpg.rc'.
+Reading configuration file '/etc/Muttrc.d/smime-paths.rc'.
+Reading configuration file '/home/aaron/.muttrc'.
+mx_get_magic(): unable to stat /var/mail/aaron: No such file or directory (errno 2).
+/var/mail/aaron: No such file or directory (errno = 2)
+/var/mail/aaron: No such file or directory (errno = 2)</pre>
+</div>Help much appreciated.<!-- google_ad_section_end --></div>
+		<!-- / message -->
+	
+		
+		
+		
+		
+
+		
+		
+		
+		
+		
+	
+	</td>
+</tr>
+<tr>
+	<td class="alt2" style="border: 1px solid #FFFFFF; border-top: 0px">
+
+
+		
+
+		
+		
+		&nbsp;
+	</td>
+
+	
+	<td class="alt2" align="right" style="border: 1px solid #FFFFFF; border-left: 0px; border-top: 0px">
+	
+		<!-- controls -->
+	
+		
+		
+		
+		
+		
+		
+		
+			
+		
+		
+				
+			
+		
+		
+		<!-- / controls -->
+	</td>
+</tr>
+</table>
+
+<div align="center"><!-- lq_leader_afterpost --> </div>
+
+
+
+<!-- post 3655173 popup menu -->
+<div class="vbmenu_popup" id="postmenu_3655173_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tr>
+		<td class="thead">moistTowelette</td>
+	</tr>
+	
+	<tr><td class="vbmenu_option"><a rel="nofollow" href="/questions/user/moisttowelette-65601/">View Public Profile</a></td></tr>
+	
+	<tr><td class="vbmenu_option"><a href="/questions/blog/moistTowelette-65601/">View LQ Blog</a></td></tr>
+	<tr><td class="vbmenu_option"><a rel="nofollow" href="/reviews/showcat.php?cat=myprod&amp;ppuser=65601">View Review Entries</a></td></tr>
+	<tr><td class="vbmenu_option"><a rel="nofollow" href="/hcl/showcat.php?cat=myprod&amp;ppuser=65601">View HCL Entries</a></td></tr>
+	
+	
+	
+	
+	
+	
+	
+		<tr><td class="vbmenu_option"><a href="/questions/search.php?do=finduser&amp;u=65601" rel="nofollow">Find More Posts by moistTowelette</a></td></tr>
+	
+	
+	
+	</table>
+</div>
+<!-- / post 3655173 popup menu -->
+
+
+	</div>
+	
+		</div>
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<!-- / post #3655173 --><!-- post #3655339 -->
+
+	<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:100%; text-align:left">
+		<div style="padding:0px 0px 0px 0px" align="left">
+
+	<div id="edit3655339" style="padding:0px 0px 3px 0px">
+	<!-- this is not the last post shown on the page -->
+
+
+
+<table id="post3655339" class="tborder" cellpadding="3" cellspacing="0" border="0" width="100%" align="center">
+<tr>
+	
+		<td class="thead" style="font-weight:normal; border: 1px solid #FFFFFF; border-right: 0px" >		
+			<!-- status icon and date -->
+			<a name="post3655339"><img class="inlineimg" src="https://lqo-thequestionsnetw.netdna-ssl.com/questions/images/statusicon/post_old.gif" alt="Old" border="0" /></a>
+			08-24-2009, 06:47 AM
+			
+			<!-- / status icon and date -->
+		</td>
+		<td class="thead" style="font-weight:normal; border: 1px solid #FFFFFF; border-left: 0px" align="right">
+			&nbsp;
+		
+			#<a href="/questions/debian-26/mutt-experts-mutt-won%27t-use-the-maildir-i-specify-in-muttrc-749792/#post3655339" rel="nofollow" id="postcount3655339" name="2"><strong>2</strong></a>
+			
+		
+		</td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt1" width="175" style="border: 1px solid #FFFFFF; border-top: 0px; border-bottom: 0px">			
+			<div id="postmenu_3655339">
+				<div class="bigusername">
+				<!-- google_ad_section_start(weight=ignore) -->Telemachos<!-- google_ad_section_end --></div>
+				
+			</div>
+			<div class="smallfont">Member</div>
+			
+			
+			
+			
+			
+			<div class="smallfont">
+				&nbsp;<br />
+				<div>Registered: May 2007</div>
+				
+				<div>Distribution: Debian</div>
+				
+				<div>
+					Posts: 754
+				</div>
+				
+				
+				
+				<br /><div><span id="repdisplay_3655339_343664">Rep: <img class="inlineimg" src="https://lqo-thequestionsnetw.netdna-ssl.com/questions/images/reputation/reputation_pos.gif" alt="Reputation: 59" border="0" /> <!-- <smallfont>(59)</smallfont>--></span></div>
+				
+				<div>    </div>
+			</div>					
+	</td>
+	
+	<td class="alt1" id="td_post_3655339" style="border-right: 1px solid #FFFFFF">
+	
+		
+		
+		
+
+		<!-- message -->
+
+
+		<div id="post_message_3655339"><!-- google_ad_section_start -->I'm at work now (no Debian box to check here), but this works fine for me on Debian. My mail is found, even though it's in an odd place:<br />
+<br />
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="bbcodeblock" dir="ltr" style="
+		margin: 0px;
+		margin-right: -99999px;
+		padding: 3px;
+		border: 1px inset;
+		width: 98%;
+		height: 114px;
+		text-align: left;
+		overflow: auto">set mbox_type=Maildir
+set mbox=&quot;~/.maildir/Inbox&quot;
+set spoolfile=&quot;~/.maildir/Inbox&quot;
+set folder=&quot;~/.maildir/&quot;
+set record=&quot;~/.maildir/Sent/&quot;
+set postponed=&quot;~/.maildir/Drafts&quot;</pre>
+</div><b>Edit</b>: A quick follow-up thought - Is the folder a proper Maildir folder? It must have inside it three folders: <b>cur new tmp</b>. (See <a href="http://www.qmail.org/man/man5/maildir.html" target="_blank" rel="nofollow">here</a> for more technical details.)<!-- google_ad_section_end --></div>
+		<!-- / message -->
+	
+		
+		
+		
+		
+
+		
+		
+		
+		
+		
+		<!-- edit note -->
+			<div class="smallfont">
+				<hr size="1" style="color:#FFFFFF" />
+				<em>
+					
+						Last edited by Telemachos; 08-24-2009 at <span class="time">07:40 AM</span>.
+					
+					
+				</em>
+			</div>
+		<!-- / edit note -->
+		
+	
+	</td>
+</tr>
+<tr>
+	<td class="alt1" style="border: 1px solid #FFFFFF; border-top: 0px">
+
+
+		
+
+		
+		
+		&nbsp;
+	</td>
+
+	
+	<td class="alt1" align="right" style="border: 1px solid #FFFFFF; border-left: 0px; border-top: 0px">
+	
+		<!-- controls -->
+	
+		
+		
+		
+		
+		
+		
+		
+			
+		
+		
+				
+					
+			<div id="helpfulanswers_box_3655339">		
+								
+				
+				
+					
+				
+					
+					
+				
+				
+				
+				
+			</div>			
+			
+		
+		
+		<!-- / controls -->
+	</td>
+</tr>
+</table>
+
+
+
+<!-- post 3655339 popup menu -->
+<div class="vbmenu_popup" id="postmenu_3655339_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tr>
+		<td class="thead">Telemachos</td>
+	</tr>
+	
+	<tr><td class="vbmenu_option"><a rel="nofollow" href="/questions/user/telemachos-343664/">View Public Profile</a></td></tr>
+	
+	<tr><td class="vbmenu_option"><a href="/questions/blog/Telemachos-343664/">View LQ Blog</a></td></tr>
+	<tr><td class="vbmenu_option"><a rel="nofollow" href="/reviews/showcat.php?cat=myprod&amp;ppuser=343664">View Review Entries</a></td></tr>
+	<tr><td class="vbmenu_option"><a rel="nofollow" href="/hcl/showcat.php?cat=myprod&amp;ppuser=343664">View HCL Entries</a></td></tr>
+	
+	
+	
+	
+	
+	
+	
+		<tr><td class="vbmenu_option"><a href="/questions/search.php?do=finduser&amp;u=343664" rel="nofollow">Find More Posts by Telemachos</a></td></tr>
+	
+	
+	
+	</table>
+</div>
+<!-- / post 3655339 popup menu -->
+
+
+	</div>
+	
+		</div>
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<!-- / post #3655339 --><!-- post #3655409 -->
+
+	<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:100%; text-align:left">
+		<div style="padding:0px 0px 0px 0px" align="left">
+
+	<div id="edit3655409" style="padding:0px 0px 3px 0px">
+	
+
+
+
+<table id="post3655409" class="tborder" cellpadding="3" cellspacing="0" border="0" width="100%" align="center">
+<tr>
+	
+		<td class="thead" style="font-weight:normal; border: 1px solid #FFFFFF; border-right: 0px" >		
+			<!-- status icon and date -->
+			<a name="post3655409"><img class="inlineimg" src="https://lqo-thequestionsnetw.netdna-ssl.com/questions/images/statusicon/post_old.gif" alt="Old" border="0" /></a>
+			08-24-2009, 08:04 AM
+			
+			<!-- / status icon and date -->
+		</td>
+		<td class="thead" style="font-weight:normal; border: 1px solid #FFFFFF; border-left: 0px" align="right">
+			&nbsp;
+		
+			#<a href="/questions/debian-26/mutt-experts-mutt-won%27t-use-the-maildir-i-specify-in-muttrc-749792/#post3655409" rel="nofollow" id="postcount3655409" name="3"><strong>3</strong></a>
+			
+		
+		</td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt2" width="175" style="border: 1px solid #FFFFFF; border-top: 0px; border-bottom: 0px">			
+			<div id="postmenu_3655409">
+				<div class="bigusername">
+				<!-- google_ad_section_start(weight=ignore) -->moistTowelette<!-- google_ad_section_end --></div>
+				
+			</div>
+			<div class="smallfont">Member</div>
+			
+			
+			
+			
+			
+			<div class="smallfont">
+				&nbsp;<br />
+				<div>Registered: Sep 2003</div>
+				
+				
+				
+				<div>
+					Posts: 79
+				</div>
+				
+				<!-- Threadauthor -->
+
+
+<br /><strong>Original Poster</strong>
+<!-- / Threadauthor -->
+				
+				<br /><div><span id="repdisplay_3655409_65601">Rep: <img class="inlineimg" src="https://lqo-thequestionsnetw.netdna-ssl.com/questions/images/reputation/reputation_pos.gif" alt="Reputation: 15" border="0" /> <!-- <smallfont>(15)</smallfont>--></span></div>
+				
+				<div>    </div>
+			</div>					
+	</td>
+	
+	<td class="alt2" id="td_post_3655409" style="border-right: 1px solid #FFFFFF">
+	
+		
+		
+		
+
+		<!-- message -->
+
+
+		<div id="post_message_3655409"><!-- google_ad_section_start -->Yay - thank you.<br />
+<br />
+After adding the 'set spoolfile' and 'set mbox' lines with my own directory paths, everything works as it should. I wasn't aware I needed to specify those.<br />
+<br />
+More specifically, I wasn't aware of the $MAIL environment variable which is where mutt was getting the incorrect mail spool path from. So I added 'MAIL=/home/aaron/Maildir' to .bashrc and removed the 'set spoolfile' line from .muttrc, just in case any other programs look at $MAIL for their info.<br />
+<br />
+Cheers!<!-- google_ad_section_end --></div>
+		<!-- / message -->
+	
+		
+		
+		
+		
+
+		
+		
+		
+		
+		
+	
+	</td>
+</tr>
+<tr>
+	<td class="alt2" style="border: 1px solid #FFFFFF; border-top: 0px">
+
+
+		
+
+		
+		
+		&nbsp;
+	</td>
+
+	
+	<td class="alt2" align="right" style="border: 1px solid #FFFFFF; border-left: 0px; border-top: 0px">
+	
+		<!-- controls -->
+	
+		
+		
+		
+		
+		
+		
+		
+			
+		
+		
+				
+					
+			<div id="helpfulanswers_box_3655409">		
+								
+				
+				
+					
+				
+					
+					
+				
+				
+				
+				
+			</div>			
+			
+		
+		
+		<!-- / controls -->
+	</td>
+</tr>
+</table>
+
+
+
+<!-- post 3655409 popup menu -->
+<div class="vbmenu_popup" id="postmenu_3655409_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tr>
+		<td class="thead">moistTowelette</td>
+	</tr>
+	
+	<tr><td class="vbmenu_option"><a rel="nofollow" href="/questions/user/moisttowelette-65601/">View Public Profile</a></td></tr>
+	
+	<tr><td class="vbmenu_option"><a href="/questions/blog/moistTowelette-65601/">View LQ Blog</a></td></tr>
+	<tr><td class="vbmenu_option"><a rel="nofollow" href="/reviews/showcat.php?cat=myprod&amp;ppuser=65601">View Review Entries</a></td></tr>
+	<tr><td class="vbmenu_option"><a rel="nofollow" href="/hcl/showcat.php?cat=myprod&amp;ppuser=65601">View HCL Entries</a></td></tr>
+	
+	
+	
+	
+	
+	
+	
+		<tr><td class="vbmenu_option"><a href="/questions/search.php?do=finduser&amp;u=65601" rel="nofollow">Find More Posts by moistTowelette</a></td></tr>
+	
+	
+	
+	</table>
+</div>
+<!-- / post 3655409 popup menu -->
+
+
+	</div>
+	
+		</div>
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<!-- / post #3655409 --><div id="lastpost"></div></div>
+
+<div align="center"><span style="float: left; margin-left: 20%;"><script type="text/javascript"><!--
+google_ad_client = "pub-4420048478783872";
+/* LQ Main - Bottom Medium Rectangle */
+google_ad_slot = "0665833758";
+google_ad_width = 300;
+google_ad_height = 250;
+//-->
+</script>
+<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></span>&nbsp;&nbsp;<span style="float: left;"></span></div><br />
+<div style="clear: both;"><br /></div>
+
+<!-- start content table -->
+<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:100%; text-align:left">
+		<div style="padding:0px 0px 0px 0px" align="left">
+
+<!-- / start content table -->
+
+<!-- controls below postbits -->
+<table cellpadding="0" cellspacing="0" border="0" width="100%">
+<tr valign="top">
+	
+		<td class="smallfont"><a href="/questions/newreply.php?do=newreply&amp;noquote=1&amp;p=3655409" rel="nofollow"><img src="https://lqo-thequestionsnetw.netdna-ssl.com/questions/images/buttons/reply.gif" alt="Reply" border="0" /></a></td>
+	
+	
+</tr>
+</table>
+<!-- / controls below postbits -->
+
+
+
+
+
+
+<!-- thread tags -->
+	<br />
+	<table class="tborder" cellpadding="3" cellspacing="1" border="0" width="100%" align="center">
+	<tr>
+		<td class="thead">
+			
+			<a name="taglist"></a>
+			<a href="/questions/tags/">Tags</a>
+		</td>
+	</tr>
+	<tr>
+		<td class="alt1 smallfont" id="tag_list_cell"><a href="/questions/tags/debian/" rel="nofollow">debian</a>, <a href="/questions/tags/mutt/" rel="nofollow">mutt</a> <img src="https://lqo-thequestionsnetw.netdna-ssl.com/questions/images/misc/11x11progress.gif" id="tag_form_progress" class="inlineimg" style="display:none" alt="" /></td>
+	</tr>
+	</table>
+
+	<script type="text/javascript" src="http://www.linuxquestions.org/questions/clientscript/vbulletin_ajax_taglist.js?v=388b1"></script>
+		<script type="text/javascript" src="http://www.linuxquestions.org/questions/clientscript/vbulletin_ajax_tagsugg.js?v=388b1"></script>
+<!-- / thread tags -->
+
+
+
+
+
+<!-- lightbox scripts -->
+	<script type="text/javascript" src="http://www.linuxquestions.org/questions/clientscript/vbulletin_lightbox.js?v=388b1"></script>
+	<script type="text/javascript">
+	<!--
+	vBulletin.register_control("vB_Lightbox_Container", "posts", 1);
+	//-->
+	</script>
+<!-- / lightbox scripts -->
+
+
+
+
+
+
+
+
+
+<br />
+<br />
+
+<!-- currently active users -->
+
+<!-- end currently active users -->
+
+
+<!-- popup menu contents -->
+<br />
+
+<!-- thread tools menu -->
+<div class="vbmenu_popup" id="threadtools_menu" style="display:none">
+<form action="/questions/postings.php?t=749792&amp;pollid=" method="post" name="threadadminform">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tr>
+		<td class="thead">Thread Tools<a name="goto_threadtools"></a></td>
+	</tr>
+	<tr>
+		<td class="vbmenu_option"><img class="inlineimg" src="https://lqo-thequestionsnetw.netdna-ssl.com/questions/images/buttons/printer.gif" alt="Show Printable Version" /> <a href="/questions/debian-26/mutt-experts-mutt-won%27t-use-the-maildir-i-specify-in-muttrc-749792-print/" accesskey="3" rel="nofollow">Show Printable Version</a></td>
+	</tr>
+	<tr>
+		<td class="vbmenu_option"><img class="inlineimg" src="https://lqo-thequestionsnetw.netdna-ssl.com/questions/images/buttons/sendtofriend.gif" alt="Email this Page" /> <a href="/questions/sendmessage.php?do=sendtofriend&amp;t=749792" rel="nofollow">Email this Page</a></td>
+	</tr>
+	
+	
+	
+			
+	
+	
+	</table>
+</form>
+</div>
+<!-- / thread tools menu -->
+
+<!-- **************************************************** -->
+
+
+<!-- thread search menu -->
+<div class="vbmenu_popup" id="threadsearch_menu" style="display:none">
+<form action="/questions/search.php?do=process&amp;searchthreadid=749792" method="post">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tr>
+		<td class="thead">Search this Thread<a name="goto_threadsearch"></a></td>
+	</tr>
+	<tr>
+		<td class="vbmenu_option" title="nohilite">
+			<input type="hidden" name="s" value="fddcbab9a218a8c6a38df190229c6afd" />
+			<input type="hidden" name="securitytoken" value="guest" />
+			<input type="hidden" name="do" value="process" />
+			<input type="hidden" name="searchthreadid" value="749792" />
+			<input type="text" class="bginput" name="query" size="25" /><input type="submit" class="button" value="Go"  /><br />
+		</td>
+	</tr>
+	<tr>
+		<td class="vbmenu_option"><a rel="nofollow" href="/questions/search.php?searchthreadid=749792">Advanced Search</a></td>
+	</tr>
+	</table>
+</form>
+</div>
+<!-- / thread search menu -->
+
+
+<!-- **************************************************** -->
+
+
+
+<!-- / popup menu contents -->
+
+
+<!-- forum rules and admin links -->
+<table cellpadding="0" cellspacing="0" border="0" width="100%" align="center">
+<tr valign="bottom">
+	<td class="smallfont" align="left">
+		<table class="tborder" cellpadding="3" cellspacing="1" border="0" width="210">
+<thead>
+<tr>
+	<td class="thead">
+		<a style="float:right" href="http://www.linuxquestions.org/questions/debian-26/mutt-experts-mutt-won't-use-the-maildir-i-specify-in-muttrc-749792/#top" onclick="return toggle_collapse('forumrules')"><img id="collapseimg_forumrules" src="https://lqo-thequestionsnetw.netdna-ssl.com/questions/images/buttons/collapse_thead.gif" alt="" border="0" /></a>
+		Posting Rules
+	</td>
+</tr>
+</thead>
+<tbody id="collapseobj_forumrules" style="">
+<tr>
+	<td class="alt1" nowrap="nowrap"><div class="smallfont">
+		
+		<div>You <strong>may not</strong> post new threads</div>
+		<div>You <strong>may not</strong> post replies</div>
+		<div>You <strong>may not</strong> post attachments</div>
+		<div>You <strong>may not</strong> edit your posts</div>
+		<hr />
+		
+		<div><a rel="nofollow" href="/questions/misc.php?do=bbcode" target="_blank">BB code</a> is <strong>On</strong></div>
+		<div><a rel="nofollow" href="/questions/misc.php?do=showsmilies" target="_blank">Smilies</a> are <strong>On</strong></div>
+		<div><a rel="nofollow" href="/questions/misc.php?do=bbcode#imgcode" target="_blank">[IMG]</a> code is <strong>Off</strong></div>
+		<div>HTML code is <strong>Off</strong></div><div><a rel="nofollow" href="/questions/misc.php?do=linkbacks#trackbacks" target="_blank">Trackbacks</a> are <strong>Off</strong></div>
+<div><a rel="nofollow" href="/questions/misc.php?do=linkbacks#pingbacks" target="_blank">Pingbacks</a> are <strong>On</strong></div>
+<div><a rel="nofollow" href="/questions/misc.php?do=linkbacks#refbacks" target="_blank">Refbacks</a> are <strong>Off</strong></div>
+		<hr />
+		<div><a rel="nofollow" href="/questions/misc.php?do=showrules" target="_blank">Forum Rules</a></div>
+	</div></td>
+</tr>
+</tbody>
+</table>
+	</td>
+	<td class="smallfont" align="right">
+		<table cellpadding="0" cellspacing="0" border="0">
+		
+		<tr>
+			<td>
+			
+			</td>
+		</tr>
+		</table>
+	</td>
+</tr>
+</table>
+<!-- /forum rules and admin links -->
+
+<br />
+
+
+<table class="tborder" cellpadding="3" cellspacing="1" border="0" width="100%" align="center">
+<thead>
+	<tr>
+		<td class="tcat" width="100%" colspan="5">
+			<a style="float:right" href="http://www.linuxquestions.org/questions/debian-26/mutt-experts-mutt-won't-use-the-maildir-i-specify-in-muttrc-749792/#top" onclick="return toggle_collapse('similarthreads')"><img id="collapseimg_similarthreads" src="https://lqo-thequestionsnetw.netdna-ssl.com/questions/images/buttons/collapse_tcat.gif" alt="" border="0" /></a>
+			Similar Threads<a name="similarthreads"></a>
+		</td>
+	</tr>
+</thead>
+<tbody id="collapseobj_similarthreads" style="">
+<tr class="thead" align="center">
+	<td class="thead" width="40%">Thread</td>
+	<td class="thead" width="15%" nowrap="nowrap">Thread Starter</td>
+	<td class="thead" width="20%">Forum</td>
+	<td class="thead" width="5%">Replies</td>
+	<td class="thead" width="20%">Last Post</td>
+</tr>
+<tr>
+	<td class="alt1" align="left">
+		
+		<span class="smallfont"> <a href="/questions/linux-software-2/what-is-better-than-mutt-598500/" title="Hey Everyone, 
+ 
+Is there a better program out there than Mutt for command line mail reading etc? I know of Pine, can you guys think of any others..." target="_blank">What is better than Mutt?</a></span>
+	</td>
+	<td class="alt2" nowrap="nowrap"><span class="smallfont">leebrent</span></td>
+	<td class="alt1" nowrap="nowrap"><span class="smallfont">Linux - Software</span></td>
+	<td class="alt2" align="center"><span class="smallfont">7</span></td>
+	<td class="alt1" align="right"><span class="smallfont">11-11-2007 <span class="time">04:00 PM</span></span></td>
+</tr><tr>
+	<td class="alt1" align="left">
+		
+		<span class="smallfont"> <a href="/questions/linux-software-2/mutt-question-how-can-i-configure-mutt-for-not-automarking-as-read-587231/" title="Hi everybody 
+ 
+I am new to mutt. Before mutt, I was used to left the messages unread til I finished the task asociated with them, so my list of..." target="_blank">Mutt question: &quot;How can I configure mutt for not automarking as read??&quot;</a></span>
+	</td>
+	<td class="alt2" nowrap="nowrap"><span class="smallfont">xowl</span></td>
+	<td class="alt1" nowrap="nowrap"><span class="smallfont">Linux - Software</span></td>
+	<td class="alt2" align="center"><span class="smallfont">0</span></td>
+	<td class="alt1" align="right"><span class="smallfont">09-25-2007 <span class="time">09:09 AM</span></span></td>
+</tr><tr>
+	<td class="alt1" align="left">
+		
+		<span class="smallfont"> <a href="/questions/linux-software-2/basic-setup-for-mutt-using-maildir-378597/" title="I have Postfix and Dovecot(POP/IMAP) running, using Maildir message format. 
+ 
+Now I want to read my e-mail using Mutt (which I think is the tool to..." target="_blank">Basic setup for Mutt using Maildir</a></span>
+	</td>
+	<td class="alt2" nowrap="nowrap"><span class="smallfont">buskmann</span></td>
+	<td class="alt1" nowrap="nowrap"><span class="smallfont">Linux - Software</span></td>
+	<td class="alt2" align="center"><span class="smallfont">2</span></td>
+	<td class="alt1" align="right"><span class="smallfont">10-31-2005 <span class="time">02:12 PM</span></span></td>
+</tr><tr>
+	<td class="alt1" align="left">
+		
+		<span class="smallfont"> <a href="/questions/linux-software-2/mutt-reconfigure-no-%7E-muttrc-354875/" title="Hey All, 
+  IN an effort to learn the great email client MUTT, I am having trouble locating my .muttrc file.  I have this file : 
+ 
+  ..." target="_blank">MUTT reconfigure (no ~/.muttrc)</a></span>
+	</td>
+	<td class="alt2" nowrap="nowrap"><span class="smallfont">blizunt7</span></td>
+	<td class="alt1" nowrap="nowrap"><span class="smallfont">Linux - Software</span></td>
+	<td class="alt2" align="center"><span class="smallfont">1</span></td>
+	<td class="alt1" align="right"><span class="smallfont">08-21-2005 <span class="time">01:33 AM</span></span></td>
+</tr><tr>
+	<td class="alt1" align="left">
+		
+		<span class="smallfont"> <a href="/questions/linux-software-2/new-to-mutt-ng-354547/" title="Hi, 
+ 
+I recently installed Mutt-ng on Ubuntu Hoary 5.04 and I have been working on the muttngrc trying to customize the MUA to be just how I like..." target="_blank">New To Mutt-ng</a></span>
+	</td>
+	<td class="alt2" nowrap="nowrap"><span class="smallfont">hzs202</span></td>
+	<td class="alt1" nowrap="nowrap"><span class="smallfont">Linux - Software</span></td>
+	<td class="alt2" align="center"><span class="smallfont">0</span></td>
+	<td class="alt1" align="right"><span class="smallfont">08-18-2005 <span class="time">09:12 AM</span></span></td>
+</tr>
+</tbody>
+</table>
+
+<br />
+
+<!-- end content table  -->
+
+		</div>
+	</div>
+</div>
+
+<!-- / close content container -->
+<!-- / end content table -->
+
+</div>
+
+<br />
+<div class="smallfont" align="center">All times are GMT -5. The time now is <span class="time">06:03 PM</span>.</div>
+<br />
+<!-- /content area table -->
+
+<form action="/questions/" method="get">
+<table cellpadding="3" cellspacing="0" border="0" width="100%" class="page" align="center">
+<tr>
+	
+	
+	<td class="tfoot" align="right" width="100%">
+		<div class="smallfont">
+			<strong>
+				<a href="/questions/sendmessage.php" rel="nofollow">Contact Us</a> -
+				<a href="/linux/adinfo.html">Advertising Info</a> - 
+				<a href="/linux/rules.html">Rules</a> - 
+				<a href="http://www.zazzle.com/linuxquestions* " rel="nofollow">LQ Merchandise</a> - 
+				<a href="/linux/donation.html">Donations</a> - 
+				<a href="/linux/member.html">Contributing Member</a> - 
+				<a href="http://www.linuxquestions.org/linux/sitemap.html">LQ Sitemap</a> - 
+				
+				
+				
+			</strong>
+		</div>
+	</td>
+</tr>
+</table>
+
+</form>
+
+
+<!-- START: LQ Table Bottom -->
+</td>
+<td width="165px" class="page" style="padding-left:5px" valign="top">
+<table style="margin-bottom:5px" cellpadding="2" cellspacing="0" border="0" width="100%" class="tborder" align="center">
+<tr><td class="vbmenu_control">Main Menu</td></tr>
+<tr><td class="alt1">
+<ul class="lqrightmenu">
+<li><a href="/questions/">Linux Forums</a></li>
+<li><a href="http://www.androidquestions.org/forum.php">Android Forum</a></li>
+<li><a href="http://www.chromeosquestions.org/forum.php">Chrome OS Forum</a></li>
+<li><a href="/questions/search.php">Search</a></li>
+<li><a href="/questions/tags/" rel="nofollow">LQ Tags</a></li>
+<li><a href="/hcl/">Linux HCL</a></li>
+<li><a href="/linux/answers/">Linux Tutorials</a></li>
+<li><a href="http://jobs.linuxquestions.org" target="_blank">LQ Job Marketplace</a></li>
+<li><a href="http://wiki.linuxquestions.org/">Linux Wiki</a></li>
+<li><a href="/reviews/index.php/cat/2">Distro Reviews</a></li>
+<li><a href="/reviews/index.php/cat/15">Book Reviews</a></li>
+<li><a href="http://iso.linuxquestions.org/">Download Linux</a></li>
+<!-- <li><a href="http://radio.linuxquestions.org/linux/lq-podcasts/">Linux Podcast</a></li> -->
+<li><a href="/questions/groups/">Social Groups</a></li>
+<li><a href="/questions/blog/">LQ Blogs</a></li>
+<!-- <li><a href="http://radio.linuxquestions.org/">LQ Radio</a></li> -->
+<li><a href="/">Home</a></li>
+</ul>
+<div align="center"><a href="/questions/debian-26/mutt-experts-mutt-won%27t-use-the-maildir-i-specify-in-muttrc-749792/#main_cont">(Con't)</a></div>
+</td></tr>
+</table>
+
+
+
+
+<div style="text-align:center;margin-bottom:5px" class="alt1">
+<script type="text/javascript" src="http://s.skimresources.com/js/21603X797475X981.adunit.js"></script>
+</div>
+
+
+<!-- netseer_side -->
+
+<table style="margin-bottom:5px" cellpadding="2" cellspacing="0" border="0" width="100%" class="tborder" align="center">
+<tr><td class="vbmenu_control">My LQ</td></tr>
+<tr><td class="alt1"><ul class="lqrightmenu">
+<li><a href="/questions/lqlogin.php">Login</a></li>
+<li><a href="/questions/register.php">Register</a></li>
+
+</ul>
+</td></tr>
+</table>
+
+<table style="margin-bottom:5px" cellpadding="2" cellspacing="0" border="0" width="100%" class="tborder" align="center">
+<tr><td class="vbmenu_control">Write for LQ</td></tr>
+<tr><td class="alt1">
+LinuxQuestions.org is looking for people interested in writing
+Editorials, Articles, Reviews, and more. If you'd like to contribute
+content, <a href="/questions/sendmessage.php">let us know</a>.
+</td></tr>
+</table>
+
+<table style="margin-bottom:5px" cellpadding="2" cellspacing="0" border="0" width="100%" class="tborder" align="center">
+<tr><td class="vbmenu_control" id="main_cont">Main Menu</td></tr>
+<tr><td class="alt1">
+<ul class="lqrightmenu">
+<li><a href="/questions/calendar.php">LQ Calendar</a></li>
+<li><a href="/linux/rules.html">LQ Rules</a></li>
+<li><a href="/linux/sitemap.html">LQ Sitemap</a></li>
+<li><a href="/questions/faq.php">Site FAQ</a></li>
+<li><a rel="nofollow" href="/questions/search.php?do=getnew">View New Posts</a></li>
+<li><a rel="nofollow" href="/questions/lqsearch.php?do=getnew&amp;daysprune=7">View Latest Posts</a></li>
+<li><a rel="nofollow" href="/questions/lqsearch.php?do=noreplies">Zero Reply Threads</a></li>
+<li><a href="http://wiki.linuxquestions.org/wiki/Special:Wantedpages">LQ Wiki Most Wanted</a></li>
+<li><a href="http://jeremy.linuxquestions.org/">Jeremy's Blog</a></li>
+<li><a href="/questions/project.php">Report LQ Bug</a></li>
+</ul>
+</td></tr>
+</table>
+<table style="margin-bottom:5px" cellpadding="2" cellspacing="0" border="0" width="100%" class="tborder" align="center">
+<tr><td class="vbmenu_control">Syndicate</td></tr>
+<tr><td class="alt1">
+<a href="http://www.linuxquestions.org/syndicate/lqlatest.xml"><img src="https://lqo-thequestionsnetw.netdna-ssl.com/questions/images/misc/rss.gif" alt="RSS1" border="0" width="16" height="16" /></a>&nbsp; Latest Threads<br />
+<a href="http://www.linuxquestions.org/syndicate/lqnews.rss"><img src="https://lqo-thequestionsnetw.netdna-ssl.com/questions/images/misc/rss.gif" alt="RSS1" border="0" width="16" height="16" /></a>&nbsp; LQ News<br />
+<!-- <a href="http://radio.linuxquestions.org/syndicate/lqpodcast.php"><img src="https://lqo-thequestionsnetw.netdna-ssl.com/questions/images/misc/rss.gif" alt="RSS2" border="0" width="16" height="16" /></a>&nbsp; LQ Podcast<br />
+<a href="http://radio.linuxquestions.org/syndicate/lqradio.php"><img src="https://lqo-thequestionsnetw.netdna-ssl.com/questions/images/misc/rss.gif" alt="RSS2" border="0" width="16" height="16" /></a>&nbsp; LQ Radio<br /> -->
+<div class="smallfont">Twitter: <a href="http://twitter.com/linuxquestions" rel="nofollow">@linuxquestions</a><br />
+identi.ca: <a href="http://identi.ca/linuxquestions" rel="nofollow">@linuxquestions</a><br />
+Facebook: <a href="http://www.facebook.com/LinuxQuestions.org" rel="nofollow">@linuxquestions</a>
+</div>
+</td></tr>
+</table>
+</td>
+</tr>
+</table>
+<!-- END: LQ Table Bottom -->
+
+
+		</div>
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<div align="center">
+	<div class="smallfont" align="center">
+<a href="http://www.lqconsulting.com/">Open Source Consulting</a> |
+<a href="http://www.lqconsulting.com/client/check.php">Domain Registration</a>
+</div><br /><br />
+	
+	<div class="smallfont" align="center">
+	
+	</div>
+</div>
+
+
+<script type="text/javascript">
+<!--
+	// Main vBulletin Javascript Initialization
+	vBulletin_init();
+//-->
+</script>
+
+
+<script type="text/javascript">
+var dc_UnitID = 14;
+var dc_PublisherID = 4566;
+var dc_AdLinkColor = 'blue';
+var dc_adprod='ADL';
+</script>
+<script type="text/javascript" src="http://kona.kontera.com/javascript/lib/KonaLibInline.js"></script><script type="text/javascript" src="http://s.skimresources.com/js/21603X797475.skimlinks.js"></script>
+
+
+<!-- temp -->
+<div style="display:none">
+	<!-- thread rate -->
+	
+		
+	
+	<!-- / thread rate -->
+</div>
+<div class="vbmenu_popup" id="linkbacktools_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tr>
+		<td class="thead">LinkBack<a name="goto_linkback"></a></td>
+	</tr>
+
+	<tr>
+		<td class="vbmenu_option"><img class="inlineimg" src="http://www.linuxquestions.org/questions/vbseo/resources/images/forum/linkback_url.gif" alt="LinkBack URL" /> <a href="http://www.linuxquestions.org/questions/debian-26/mutt-experts-mutt-wont-use-the-maildir-i-specify-in-muttrc-749792/" onclick="prompt('Use the following URL when referencing this thread from another forum or blog.','http://www.linuxquestions.org/questions/debian-26/mutt-experts-mutt-wont-use-the-maildir-i-specify-in-muttrc-749792/');return false;">LinkBack URL</a></td>
+	</tr>
+	<tr>
+		<td class="vbmenu_option"><img class="inlineimg" src="http://www.linuxquestions.org/questions/vbseo/resources/images/forum/linkback_about.gif" alt="About LinkBacks" /> <a rel="nofollow" href="/questions/misc.php?do=linkbacks">About LinkBacks</a></td>
+	</tr>
+
+	<tr>
+		<td class="thead">Bookmark &amp; Share</td>
+	</tr>
+<tr><td class="vbmenu_option"><g:plusone size="small" annotation="none"></g:plusone> </td></tr>
+	<tr><td class="vbmenu_option"><img class="inlineimg" src="http://www.linuxquestions.org/questions/vbseo/resources/images/forum/digg.gif" alt="Digg this Thread!" /> <a rel="nofollow" href="http://digg.com/submit?phase=2&amp;url=http%3A%2F%2Fwww.linuxquestions.org%2Fquestions%2Fdebian-26%2Fmutt-experts-mutt-wont-use-the-maildir-i-specify-in-muttrc-749792%2F&amp;title=Mutt+experts+-+Mutt+won%27t+use+the+Maildir+I+specify+in+.muttrc" target="_blank">Digg this Thread!</a><a name="vbseodm_0"></a></td></tr><tr><td class="vbmenu_option"><img class="inlineimg" src="http://www.linuxquestions.org/questions/vbseo/resources/images/forum/delicious.gif" alt="Add Thread to del.icio.us" /> <a rel="nofollow" href="http://del.icio.us/post?url=http%3A%2F%2Fwww.linuxquestions.org%2Fquestions%2Fdebian-26%2Fmutt-experts-mutt-wont-use-the-maildir-i-specify-in-muttrc-749792%2F&amp;title=Mutt+experts+-+Mutt+won%27t+use+the+Maildir+I+specify+in+.muttrc" target="_blank">Add Thread to del.icio.us</a><a name="vbseodm_1"></a></td></tr><tr><td class="vbmenu_option"><img class="inlineimg" src="http://www.linuxquestions.org/questions/vbseo/resources/images/forum/twitter.png" alt="Tweet this thread" /> <a rel="nofollow" href="http://twitter.com/home?status=Mutt+experts+-+Mutt+won%27t+use+the+Maildir+I+specify+in+.muttrc http%3A%2F%2Fwww.linuxquestions.org%2Fquestions%2Fdebian-26%2Fmutt-experts-mutt-wont-use-the-maildir-i-specify-in-muttrc-749792%2F" target="_blank">Tweet this thread</a><a name="vbseodm_2"></a></td></tr><tr><td class="vbmenu_option"><img class="inlineimg" src="http://static.linuxquestions.org/questions/images/misc/sb/facebook.gif" alt="Share on Facebook" /> <a rel="nofollow" href="http://www.facebook.com/share.php?u=http%3A%2F%2Fwww.linuxquestions.org%2Fquestions%2Fdebian-26%2Fmutt-experts-mutt-wont-use-the-maildir-i-specify-in-muttrc-749792%2F" target="_blank">Share on Facebook</a><a name="vbseodm_3"></a></td></tr><tr><td class="vbmenu_option"><img class="inlineimg" src="http://static.linuxquestions.org/questions/images/misc/sb/reddit.gif" alt="Reddit!" /> <a rel="nofollow" href="http://reddit.com/submit?url=http%3A%2F%2Fwww.linuxquestions.org%2Fquestions%2Fdebian-26%2Fmutt-experts-mutt-wont-use-the-maildir-i-specify-in-muttrc-749792%2F&amp;title=Mutt+experts+-+Mutt+won%27t+use+the+Maildir+I+specify+in+.muttrc" target="_blank">Reddit!</a><a name="vbseodm_4"></a></td></tr>
+
+	</table>
+</div>
+
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
+
+<script type="text/javascript">
+//<![CDATA[
+
+window.orig_onload = window.onload;
+window.onload = function() {
+var cpost=document.location.hash.substring(1);var cpost2='';if(cpost && (typeof fetch_object != 'undefined')){ var ispost=cpost.substring(0,4)=='post';if(ispost)cpost2='post_'+cpost.substring(4);if((cobj = fetch_object(cpost))||(cobj = fetch_object(cpost2))){cobj.scrollIntoView(true);}else if(ispost){cpostno = cpost.substring(4,cpost.length);if(parseInt(cpostno)>0){location.replace('http://www.linuxquestions.org/questions/showthread.php?p='+cpostno);};} }
+
+if(typeof window.orig_onload == "function") window.orig_onload();
+}
+
+//]]>
+</script>
+</body>
+</html>

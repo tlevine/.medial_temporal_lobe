@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="client-nojs">
+<head>
+<title>msmtp - ArchWiki</title>
+<meta charset="UTF-8" />
+<meta name="generator" content="MediaWiki 1.20.6" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="search" type="application/opensearchdescription+xml" href="/opensearch_desc.php" title="ArchWiki (en)" />
+<link rel="EditURI" type="application/rsd+xml" href="https://wiki.archlinux.org/api.php?action=rsd" />
+<link rel="copyright" href="http://www.gnu.org/copyleft/fdl.html" />
+<link rel="alternate" type="application/atom+xml" title="ArchWiki Atom feed" href="/index.php?title=Special:RecentChanges&amp;feed=atom" />
+<link rel="stylesheet" href="https://wiki.archlinux.org/load.php?debug=false&amp;lang=en&amp;modules=mediawiki.legacy.commonPrint%2Cshared%7Cskins.archlinux&amp;only=styles&amp;skin=archlinux&amp;*" />
+<!--[if IE 6]><link rel="stylesheet" href="/skins/archlinux/IE60Fixes.css?303" media="screen" /><![endif]-->
+<!--[if IE 7]><link rel="stylesheet" href="/skins/archlinux/IE70Fixes.css?303" media="screen" /><![endif]--><meta name="ResourceLoaderDynamicStyles" content="" />
+
+<script src="https://wiki.archlinux.org/load.php?debug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=archlinux&amp;*"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Msmtp","wgTitle":"Msmtp","wgCurRevisionId":260051,"wgArticleId":5410,"wgIsArticle":true,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Email Client","Mail Server"],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"Msmtp","wgRestrictionEdit":[],"wgRestrictionMove":[]});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function(){mw.user.options.set({"ccmeonemails":0,"cols":80,"date":"default","diffonly":0,"disablemail":0,"disablesuggest":0,"editfont":"default","editondblclick":0,"editsection":1,"editsectiononrightclick":0,"enotifminoredits":0,"enotifrevealaddr":0,"enotifusertalkpages":1,"enotifwatchlistpages":0,"extendwatchlist":0,"externaldiff":0,"externaleditor":0,"fancysig":0,"forceeditsummary":0,"gender":"unknown","hideminor":0,"hidepatrolled":0,"imagesize":2,"justify":0,"math":1,"minordefault":0,"newpageshidepatrolled":0,"nocache":0,"noconvertlink":0,"norollbackdiff":0,"numberheadings":0,"previewonfirst":0,"previewontop":1,"quickbar":5,"rcdays":7,"rclimit":50,"rememberpassword":0,"rows":25,"searchlimit":20,"showhiddencats":0,"showjumplinks":1,"shownumberswatching":1,"showtoc":1,"showtoolbar":1,"skin":"archlinux","stubthreshold":0,"thumbsize":2,"underline":2,"uselivepreview":0,"usenewrc":0,"watchcreations":0,"watchdefault":0,"watchdeletion":0,"watchlistdays":3,
+"watchlisthideanons":0,"watchlisthidebots":0,"watchlisthideliu":0,"watchlisthideminor":0,"watchlisthideown":0,"watchlisthidepatrolled":0,"watchmoves":0,"wllimit":250,"variant":"en","language":"en","searchNs0":true,"searchNs1":false,"searchNs2":false,"searchNs3":false,"searchNs4":false,"searchNs5":false,"searchNs6":false,"searchNs7":false,"searchNs8":false,"searchNs9":false,"searchNs10":false,"searchNs11":false,"searchNs12":false,"searchNs13":false,"searchNs14":false,"searchNs15":false});;},{},{});mw.loader.implement("user.tokens",function(){mw.user.tokens.set({"editToken":"+\\","watchToken":false});;},{},{});
+/* cache key: archwiki:resourceloader:filter:minify-js:7:d7d958b158f747a1a27187c8dfe3b417 */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax"]);
+}</script>
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-Msmtp skin-archlinux action-view">
+
+<div id="archnavbar"><!-- Arch Linux global navigation bar -->
+	<div id="archnavbarlogo">
+		<p><a id="logo" href="http://www.archlinux.org/"></a></p>
+	</div>
+	<div id="archnavbarmenu">
+		<ul id="archnavbarlist">
+			<li id="anb-home"><a href="http://www.archlinux.org/">Home</a></li><li id="anb-packages"><a href="http://www.archlinux.org/packages/">Packages</a></li><li id="anb-forums"><a href="https://bbs.archlinux.org/">Forums</a></li><li id="anb-wiki" class="anb-selected"><a href="https://wiki.archlinux.org/">Wiki</a></li><li id="anb-bugs"><a href="https://bugs.archlinux.org/">Bugs</a></li><li id="anb-aur"><a href="https://aur.archlinux.org/">AUR</a></li><li id="anb-download"><a href="http://www.archlinux.org/download/">Download</a></li>		</ul>
+	</div>
+</div><!-- #archnavbar -->
+
+<div id="globalWrapper">
+<div id="column-content"><div id="content" class="mw-body-primary">
+	<a id="top"></a>
+	
+	<h1 id="firstHeading" class="firstHeading"><span dir="auto">msmtp</span></h1>
+	<div id="bodyContent" class="mw-body">
+		<div id="siteSub">From ArchWiki</div>
+		<div id="contentSub"></div>
+		<div id="jump-to-nav" class="mw-jump">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>
+		<!-- start content -->
+<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><p><span></span>
+</p>
+<table style="margin-left: 5px; padding: 5px; border-spacing: 0px 4px; float: right; clear: right; width: 25%;" cellpadding="0">
+
+<tr style="text-align: center; border-bottom: 5px #08c solid;">
+<th style="background: #333; color: white; padding: 3px;"> <b>Summary</b>
+</th></tr>
+<tr>
+<td style="text-align: left; padding: 3px"> msmtp configuration and usage hints.
+</td></tr>
+<tr style="text-align: center; height: 1.5em; border-bottom: 5px #08c solid;">
+<th style="background: #333; color: white; padding: 2px;"> <b>Required software</b>
+</th></tr>
+<tr>
+<td style="text-align: left; padding: 3px"> <a rel="nofollow" class="external text" href="http://msmtp.sourceforge.net/">msmtp</a>
+</td></tr>
+<tr style="text-align: center; height: 1.5em; border-bottom: 5px #08c solid;">
+<th style="background: #333; color: white; padding: 2px;"> <b>Related</b>
+</th></tr>
+<tr>
+<td style="text-align: left; padding: 3px"> <a href="/index.php/Mutt" title="Mutt">mutt</a>
+</td></tr>
+<tr>
+<td style="text-align: left; padding: 3px"> <a href="/index.php/OfflineIMAP" title="OfflineIMAP">OfflineIMAP</a>
+</td></tr></table>
+<p><b>msmtp</b> is a very simple and easy to use smtp client with excellent <a href="http://en.wikipedia.org/wiki/sendmail" class="extiw" title="wikipedia:sendmail">sendmail</a> compatibility.
+</p><p>An alternative lightweight MTA that also handles local mail is <span style="font-family: monospace"><a rel="nofollow" class="external text" href="https://aur.archlinux.org/packages/dma/">dma</a></span>, available in the <a href="/index.php/AUR" title="AUR" class="mw-redirect">AUR</a>.
+</p>
+<table id="toc" class="toc"><tr><td><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Installing"><span class="tocnumber">1</span> <span class="toctext">Installing</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Quick_start"><span class="tocnumber">2</span> <span class="toctext">Quick start</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Using_the_mail_command"><span class="tocnumber">3</span> <span class="toctext">Using the mail command</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Test_msmtp"><span class="tocnumber">4</span> <span class="toctext">Test msmtp</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="#Configuring_cron_for_msmtp"><span class="tocnumber">5</span> <span class="toctext">Configuring cron for msmtp</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="#Miscellaneous"><span class="tocnumber">6</span> <span class="toctext">Miscellaneous</span></a>
+<ul>
+<li class="toclevel-2 tocsection-7"><a href="#Practical_password_management"><span class="tocnumber">6.1</span> <span class="toctext">Practical password management</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="#Using_msmtp_offline"><span class="tocnumber">6.2</span> <span class="toctext">Using msmtp offline</span></a></li>
+<li class="toclevel-2 tocsection-9"><a href="#Vim_syntax_highlighting"><span class="tocnumber">6.3</span> <span class="toctext">Vim syntax highlighting</span></a></li>
+<li class="toclevel-2 tocsection-10"><a href="#Send_mail_with_PHP_using_msmtp"><span class="tocnumber">6.4</span> <span class="toctext">Send mail with PHP using msmtp</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-11"><a href="#Troubleshooting"><span class="tocnumber">7</span> <span class="toctext">Troubleshooting</span></a>
+<ul>
+<li class="toclevel-2 tocsection-12"><a href="#Issues_with_TLS"><span class="tocnumber">7.1</span> <span class="toctext">Issues with TLS</span></a></li>
+</ul>
+</li>
+</ul>
+</td></tr></table>
+<h2> <span class="mw-headline" id="Installing">Installing</span></h2>
+<p>msmtp can be <a href="/index.php/Pacman" title="Pacman">installed</a> with package <span style="font-family: monospace"><a rel="nofollow" class="external text" href="https://www.archlinux.org/packages/?name=msmtp">msmtp</a></span>, available in the <a href="/index.php/Official_repositories" title="Official repositories" class="mw-redirect">official repositories</a>. Optionally, installing <span style="font-family: monospace"><a rel="nofollow" class="external text" href="https://www.archlinux.org/packages/?name=msmtp-mta">msmtp-mta</a></span> creates a sendmail alias to msmtp.
+</p>
+<h2> <span class="mw-headline" id="Quick_start">Quick start</span></h2>
+<p>The following is an example of a msmtp configuration file for several accounts. If msmtp throws errors when using this file, search for double byte '\xc2\xa0' characters that may have been erroneously inserted.
+</p>
+<pre style="margin-bottom: 0; border-bottom:none; padding-bottom:0.8em;">~/.msmtprc</pre>
+<pre style="margin-top: 0; border-top-style:dashed; padding-top: 0.8em;">
+# Accounts will inherit settings from this section
+defaults
+auth             on
+tls              on
+tls_trust_file   /usr/share/ca-certificates/mozilla/Thawte_Premium_Server_CA.crt
+
+# A first gmail address
+account        gmail
+host           smtp.gmail.com
+port           587
+from           username@gmail.com
+user           username@gmail.com
+password       password
+tls_trust_file /etc/ssl/certs/ca-certificates.crt
+
+# A second gmail address
+account    gmail2&#160;: gmail
+from       username2@gmail.com
+user       username2@gmail.com
+password   password2
+
+# A freemail service
+account    freemail
+host       smtp.freemail.example
+from       joe_smith@freemail.example
+user       joe.smith
+password   secret
+
+# A provider's service
+account   provider
+host      smtp.provider.example
+
+# Set a default account
+account default&#160;: gmail
+</pre>
+<p>msmtp will refuse to start if <i>user</i> configuration file is readable and writeable to anyone else but the owner:
+</p>
+<pre>$ chmod 600 ~/.msmtprc
+</pre>
+<p>This does not apply to system configuration file (in Arch, this is /etc/msmtprc; copy the example over from /usr/share/doc/msmtp/ ).
+</p>
+<h2> <span class="mw-headline" id="Using_the_mail_command">Using the mail command</span></h2>
+<p>To send mails using the 'mail' command you have to <a href="/index.php/Pacman" title="Pacman">install</a> package <span style="font-family: monospace"><a rel="nofollow" class="external text" href="https://www.archlinux.org/packages/?name=heirloom-mailx">heirloom-mailx</a></span> (some applications require it, e.g. smartd):
+</p><p>Either install <span style="font-family: monospace"><a rel="nofollow" class="external text" href="https://www.archlinux.org/packages/?name=msmtp-mta">msmtp-mta</a></span> or edit /etc/mail.rc to set sendmail
+</p>
+<pre style="margin-bottom: 0; border-bottom:none; padding-bottom:0.8em;">/etc/mail.rc</pre>
+<pre style="margin-top: 0; border-top-style:dashed; padding-top: 0.8em;">set sendmail=/usr/bin/msmtp</pre>
+<p>You need to have a .msmtprc file in the home of every users who want to send mail (for example if you want to send mails as root), or alternatively you can use a system wide /etc/msmtprc
+</p><p>msmtp also understands aliases. Add the following line to the defaults section of msmtprc or your local configuration file:
+</p>
+<pre style="margin-bottom: 0; border-bottom:none; padding-bottom:0.8em;">/etc/msmtprc</pre>
+<pre style="margin-top: 0; border-top-style:dashed; padding-top: 0.8em;">aliases               /etc/aliases</pre>
+<p>and create an aliases file in /etc
+</p>
+<pre style="margin-bottom: 0; border-bottom:none; padding-bottom:0.8em;">/etc/aliases</pre>
+<pre style="margin-top: 0; border-top-style:dashed; padding-top: 0.8em;"># Example aliases file
+     
+# Send root to Joe and Jane
+root: joe_smith@example.com, jane_chang@example.com
+     
+# Send cron to Mark
+cron: mark_jones@example.com
+   
+# Send everything else to admin
+default: admin@domain.example</pre>
+<h2> <span class="mw-headline" id="Test_msmtp">Test msmtp</span></h2>
+<p>The <code style="display:inline-block; padding: 0.1em 0.3em;">-a</code> flag specifies the account to use as sender; <code style="display:inline-block; padding: 0.1em 0.3em;">&lt;username&gt;@domain.com</code> is the recipient.
+</p><p>Save (with the addresses you want to use)
+</p>
+<pre>To: &lt;username&gt;@domain.com
+From: username@gmail.com
+Subject: A test
+
+Yadda, yadda, yadda.
+</pre>
+<p>as, say, "test.mail".
+</p><p>Then execute
+</p>
+<pre>$ cat test.mail | msmtp -a default &lt;username&gt;@domain.com
+</pre>
+<p>Do <i>not</i> merely use "echo 'Yadda, yadda, yadda.'" instead of "cat test.mail". This causes at least Gmail and Yahoo to deliver the mail incorrectly.
+</p>
+<h2> <span class="mw-headline" id="Configuring_cron_for_msmtp">Configuring cron for msmtp</span></h2>
+<p>Assuming you're using the default cron daemon, <span style="font-family: monospace"><a rel="nofollow" class="external text" href="https://www.archlinux.org/packages/?name=cronie">cronie</a></span>, you'll want to make sure it knows to use msmtp rather than sendmail.
+</p><p>You can do this by either installing <span style="font-family: monospace"><a rel="nofollow" class="external text" href="https://www.archlinux.org/packages/?name=msmtp-mta">msmtp-mta</a></span> or by adding the proper crond option in /etc/conf.d/crond:
+</p>
+<pre>CRONDARGS=-m/usr/bin/msmtp
+</pre>
+<h2> <span class="mw-headline" id="Miscellaneous">Miscellaneous</span></h2>
+<h3> <span class="mw-headline" id="Practical_password_management">Practical password management</span></h3>
+<p>The <code style="display:inline-block; padding: 0.1em 0.3em;">password</code> directive may be omitted. In that case, if the account in question has <code style="display:inline-block; padding: 0.1em 0.3em;">auth</code> set to a legitimate value other than <code style="display:inline-block; padding: 0.1em 0.3em;">off</code>, invoking msmtp from an interactive shell will ask for the password before sending mail. msmtp will not prompt if it has been called by another type of application, such as <a href="/index.php/Mutt" title="Mutt">Mutt</a>.
+There is a solution for such cases: the <code style="display:inline-block; padding: 0.1em 0.3em;">--passwordeval</code> parameter.
+You can call msmtp to use an external keyring tool like gpg:
+</p>
+<pre>msmtp --passwordeval 'gpg -d mypwfile.gpg'</pre>
+<p>If gpg prompt for the passphrase cannot be issued (e.g. when called from Mutt) then start the gpg-agent before.
+</p><p>If you cannot use a keyring tool for any reason, you may want to use the password directly. There is a patched version <span style="font-family: monospace"><a rel="nofollow" class="external text" href="https://aur.archlinux.org/packages/msmtp-pwpatched/">msmtp-pwpatched</a></span> in the AUR that provides the <code style="display:inline-block; padding: 0.1em 0.3em;">--password</code> parameter. Note that it is a <b>huge security flaw</b>, since any user connected to you machine can see the parameter of any command (in the /proc filesystem for example).
+</p><p>If this is not desired, an alternative is to place passwords in <code style="display:inline-block; padding: 0.1em 0.3em;">~/.netrc</code>, a file that can act as a common pool for msmtp, <a href="/index.php/OfflineIMAP" title="OfflineIMAP">OfflineIMAP</a>, and associated tools.
+</p>
+<h3> <span class="mw-headline" id="Using_msmtp_offline">Using msmtp offline</span></h3>
+<p>Although msmtp is great, it requires that you be online to use it. This isn't ideal for people on laptops with intermittent connections to the Internet or dialup users. Several scripts have been written to remedy this fact, collectively called msmtpqueue.
+</p><p>The scripts are installed under <code style="display:inline-block; padding: 0.1em 0.3em;">/usr/share/doc/msmtp/msmtpqueue</code>. You might want to copy the scripts to a convenient location on your computer, (<code style="display:inline-block; padding: 0.1em 0.3em;">/usr/local/bin</code> is a good choice).
+</p><p>Finally, change your MUA to use msmtp-enqueue.sh instead of msmtp when sending e-mail. By default, queued messages will be stored in <code style="display:inline-block; padding: 0.1em 0.3em;">~/.msmtpqueue</code>. To change this location, change the <code style="display:inline-block; padding: 0.1em 0.3em;">QUEUEDIR&#61;$HOME/.msmtpqueue</code> line in the scripts (or delete the line, and export the QUEUEDIR variable in <code style="display:inline-block; padding: 0.1em 0.3em;">.bash_profile</code> like so: <code style="display:inline-block; padding: 0.1em 0.3em;">export QUEUEDIR&#61;"$XDG_DATA_HOME/msmtpqueue"</code>). 
+</p><p>When you want to send any mail that you've created and queued up run:
+</p>
+<pre>$ /usr/local/bin/msmtp-runqueue.sh
+</pre>
+<p>Adding <code style="display:inline-block; padding: 0.1em 0.3em;">/usr/local/bin</code> to your PATH can save you some keystrokes if you're doing it manually. The README file that comes with the scripts has some handy information, reading it is recommended.
+</p>
+<h3> <span class="mw-headline" id="Vim_syntax_highlighting">Vim syntax highlighting</span></h3>
+<p>The msmtp source distribution includes a <code style="display:inline-block; padding: 0.1em 0.3em;">msmtprc</code> highlighting script for <a href="/index.php/Vim" title="Vim">Vim</a>. Install it from <code style="display:inline-block; padding: 0.1em 0.3em;">./scripts/vim/msmtp.vim</code>.
+</p>
+<h3> <span class="mw-headline" id="Send_mail_with_PHP_using_msmtp">Send mail with PHP using msmtp</span></h3>
+<p>Look for <i>sendmail_path</i> option in your <code style="display:inline-block; padding: 0.1em 0.3em;">php.ini</code> and edit like this:
+</p>
+<pre>sendmail_path = "/usr/bin/msmtp -C /path/to/your/config -t"</pre>
+<p>Note that you <b>can not</b> use a user configuration file (ie: one under ~/) if you plan on using msmtp as a sendmail replacement with php or something similar.
+In that case just create /etc/msmtprc, and remove your user configuration (or not if you plan on using it for something else). Also make sure it's readable by whatever you're using it with (php, django, etc...)
+</p><p>From the msmtp manual: <i>Accounts defined in the user configuration file override accounts from the system configuration file. The user configuration file must have no more permissions than user read/write</i>
+</p><p>So it's impossible to have a conf file under ~/ and have it still be readable by the php user.
+</p><p>To test it place this file in your php enabled server or using php-cli.
+</p>
+<pre>
+&lt;?php
+mail("your@email.com", "Test email from PHP", "msmtp as sendmail for PHP");
+?&gt;
+</pre>
+<h2> <span class="mw-headline" id="Troubleshooting">Troubleshooting</span></h2>
+<h3> <span class="mw-headline" id="Issues_with_TLS">Issues with TLS</span></h3>
+<p>If you see the following message:
+</p>
+<pre> msmtp: TLS certificate verification failed: the certificate hasn't got a known issuer
+</pre>
+<p>it probably means your tls_trust_file is not right.
+</p><p>Just follow the <a rel="nofollow" class="external text" href="http://msmtp.sourceforge.net/doc/msmtp.html#Transport-Layer-Security">fine manual</a>. It explains you how to find out the server certificate issuer of a given smtp server. Then you can explore the <code style="display:inline-block; padding: 0.1em 0.3em;">/usr/share/ca-certificates/</code> directory to find out if by any chance, the certificate you need is there. If not, you will have to get the certificate on your own.
+</p><p>If you are trying to send mail through GMail and are receiving this error, have a look at <a rel="nofollow" class="external text" href="http://www.mail-archive.com/msmtp-users@lists.sourceforge.net/msg00141.html">this</a> thread or just use the second GMail example above.
+</p><p>If you are completely desperate, but are 100% sure you are communicating with the right server, you can always temporarily disable the cert check:
+</p>
+<pre>$ msmtp --tls-certcheck off
+</pre>
+<!-- 
+NewPP limit report
+Preprocessor visited node count: 418/1000000
+Preprocessor generated node count: 1215/1000000
+Post‐expand include size: 6095/2097152 bytes
+Template argument size: 1898/2097152 bytes
+Highest expansion depth: 4/40
+Expensive parser function count: 0/100
+-->
+
+<!-- Saved in parser cache with key archwiki:pcache:idhash:5410-0!*!0!!en!*!* and timestamp 20130601112722 -->
+</div><div class="printfooter">
+Retrieved from "<a href="https://wiki.archlinux.org/index.php?title=Msmtp&amp;oldid=260051">https://wiki.archlinux.org/index.php?title=Msmtp&amp;oldid=260051</a>"</div>
+		<div id='catlinks' class='catlinks'><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="/index.php/Special:Categories" title="Special:Categories">Categories</a>: <ul><li><a href="/index.php/Category:Email_Client" title="Category:Email Client">Email Client</a></li><li><a href="/index.php/Category:Mail_Server" title="Category:Mail Server">Mail Server</a></li></ul></div></div>		<!-- end content -->
+				<div class="visualClear"></div>
+	</div>
+</div></div>
+<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<div class="pBody">
+			<ul>
+				<li id="ca-nstab-main" class="selected"><a href="/index.php/Msmtp" primary="1" context="subject" title="View the content page [c]" accesskey="c">Page</a></li>
+				<li id="ca-talk"><a href="/index.php/Talk:Msmtp" primary="1" context="talk" title="Discussion about the content page [t]" accesskey="t">Discussion</a></li>
+				<li id="ca-viewsource"><a href="/index.php?title=Msmtp&amp;action=edit" primary="1" title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></li>
+				<li id="ca-history"><a href="/index.php?title=Msmtp&amp;action=history" rel="archives" title="Past revisions of this page [h]" accesskey="h">History</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-personal">
+		<h5>Personal tools</h5>
+		<div class="pBody">
+			<ul>
+				<li id="pt-createaccount"><a href="/index.php?title=Special:UserLogin&amp;returnto=Msmtp&amp;type=signup">Create account</a></li>
+				<li id="pt-login"><a href="/index.php?title=Special:UserLogin&amp;returnto=Msmtp" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-logo">
+<a href="/index.php/Main_Page" style="background-image: url(/skins/archlinux/archlogo.png);" title="Visit the main page"></a>
+	</div>
+	<div class="generated-sidebar portlet" id="p-navigation">
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage-description"><a href="/index.php/Main_Page" title="Visit the main page [z]" accesskey="z">Main page</a></li>
+				<li id="n-categories"><a href="/index.php/Table_of_Contents">Categories</a></li>
+				<li id="n-portal"><a href="/index.php/Getting_Involved" title="Various ways Archers can contribute to the community">Getting Involved</a></li>
+				<li id="n-currentevents"><a href="/index.php/ArchWiki:News" title="The latest lowdown on the wiki">Wiki News</a></li>
+				<li id="n-recentchanges"><a href="/index.php/Special:RecentChanges" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li>
+				<li id="n-randompage"><a href="/index.php/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li>
+				<li id="n-help"><a href="/index.php/Help:Contents" title="Wiki navigation, reading, and editing help">Help</a></li>
+			</ul>
+		</div>
+	</div>
+	<div id="p-search" class="portlet">
+		<h5><label for="searchInput">Search</label></h5>
+		<div id="searchBody" class="pBody">
+			<form action="/index.php" id="searchform">
+				<input type='hidden' name="title" value="Special:Search"/>
+				<input type="search" name="search" title="Search ArchWiki [f]" accesskey="f" id="searchInput" />
+				<input type="submit" name="go" value="Go" title="Go to a page with this exact name if exists" id="searchGoButton" class="searchButton" />&#160;
+				<input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton" />
+			</form>
+		</div>
+	</div>
+	<div class="portlet" id="p-tb">
+		<h5>Toolbox</h5>
+		<div class="pBody">
+			<ul>
+				<li id="t-whatlinkshere"><a href="/index.php/Special:WhatLinksHere/Msmtp" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+				<li id="t-recentchangeslinked"><a href="/index.php/Special:RecentChangesLinked/Msmtp" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+				<li id="t-specialpages"><a href="/index.php/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li>
+				<li id="t-print"><a href="/index.php?title=Msmtp&amp;printable=yes" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>
+				<li id="t-permalink"><a href="/index.php?title=Msmtp&amp;oldid=260051" title="Permanent link to this revision of the page">Permanent link</a></li>
+			</ul>
+		</div>
+	</div>
+</div><!-- end of the left (by default at least) column -->
+<div class="visualClear"></div>
+<div id="footer">
+	<ul id="f-list">
+		<li id="lastmod"> This page was last modified on 1 June 2013, at 11:27.</li>
+		<li id="copyright">Content is available under <a class="external" href="http://www.gnu.org/copyleft/fdl.html">GNU Free Documentation License 1.3 or later</a>.</li>
+		<li id="privacy"><a href="/index.php/ArchWiki:Privacy_policy" title="ArchWiki:Privacy policy">Privacy policy</a></li>
+		<li id="about"><a href="/index.php/ArchWiki:About" title="ArchWiki:About">About ArchWiki</a></li>
+		<li id="disclaimer"><a href="/index.php/ArchWiki:General_disclaimer" title="ArchWiki:General disclaimer">Disclaimers</a></li>
+	</ul>
+</div>
+</div>
+<script>if(window.mw){
+mw.loader.state({"site":"loading","user":"missing","user.groups":"ready"});
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.user","mediawiki.page.ready","mediawiki.searchSuggest"], null, true);
+}</script>
+<script>if(window.mw){
+mw.loader.state({"site":"ready"});
+}</script>
+<!-- Served in 0.040 secs. --></body><!-- Cached/compressed 20130601114333 -->
+</html>

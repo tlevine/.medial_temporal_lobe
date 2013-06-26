@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="client-nojs">
+<head>
+<title>Sendmail - ArchWiki</title>
+<meta charset="UTF-8" />
+<meta name="generator" content="MediaWiki 1.20.5" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="search" type="application/opensearchdescription+xml" href="/opensearch_desc.php" title="ArchWiki (en)" />
+<link rel="EditURI" type="application/rsd+xml" href="https://wiki.archlinux.org/api.php?action=rsd" />
+<link rel="copyright" href="http://www.gnu.org/copyleft/fdl.html" />
+<link rel="alternate" type="application/atom+xml" title="ArchWiki Atom feed" href="/index.php?title=Special:RecentChanges&amp;feed=atom" />
+<link rel="stylesheet" href="https://wiki.archlinux.org/load.php?debug=false&amp;lang=en&amp;modules=mediawiki.legacy.commonPrint%2Cshared%7Cskins.archlinux&amp;only=styles&amp;skin=archlinux&amp;*" />
+<!--[if IE 6]><link rel="stylesheet" href="/skins/archlinux/IE60Fixes.css?303" media="screen" /><![endif]-->
+<!--[if IE 7]><link rel="stylesheet" href="/skins/archlinux/IE70Fixes.css?303" media="screen" /><![endif]--><meta name="ResourceLoaderDynamicStyles" content="" />
+
+<script src="https://wiki.archlinux.org/load.php?debug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=archlinux&amp;*"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Sendmail","wgTitle":"Sendmail","wgCurRevisionId":243070,"wgArticleId":15024,"wgIsArticle":true,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Mail Server"],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"Sendmail","wgRestrictionEdit":[],"wgRestrictionMove":[]});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function(){mw.user.options.set({"ccmeonemails":0,"cols":80,"date":"default","diffonly":0,"disablemail":0,"disablesuggest":0,"editfont":"default","editondblclick":0,"editsection":1,"editsectiononrightclick":0,"enotifminoredits":0,"enotifrevealaddr":0,"enotifusertalkpages":1,"enotifwatchlistpages":0,"extendwatchlist":0,"externaldiff":0,"externaleditor":0,"fancysig":0,"forceeditsummary":0,"gender":"unknown","hideminor":0,"hidepatrolled":0,"imagesize":2,"justify":0,"math":1,"minordefault":0,"newpageshidepatrolled":0,"nocache":0,"noconvertlink":0,"norollbackdiff":0,"numberheadings":0,"previewonfirst":0,"previewontop":1,"quickbar":5,"rcdays":7,"rclimit":50,"rememberpassword":0,"rows":25,"searchlimit":20,"showhiddencats":0,"showjumplinks":1,"shownumberswatching":1,"showtoc":1,"showtoolbar":1,"skin":"archlinux","stubthreshold":0,"thumbsize":2,"underline":2,"uselivepreview":0,"usenewrc":0,"watchcreations":0,"watchdefault":0,"watchdeletion":0,"watchlistdays":3,
+"watchlisthideanons":0,"watchlisthidebots":0,"watchlisthideliu":0,"watchlisthideminor":0,"watchlisthideown":0,"watchlisthidepatrolled":0,"watchmoves":0,"wllimit":250,"variant":"en","language":"en","searchNs0":true,"searchNs1":false,"searchNs2":false,"searchNs3":false,"searchNs4":false,"searchNs5":false,"searchNs6":false,"searchNs7":false,"searchNs8":false,"searchNs9":false,"searchNs10":false,"searchNs11":false,"searchNs12":false,"searchNs13":false,"searchNs14":false,"searchNs15":false});;},{},{});mw.loader.implement("user.tokens",function(){mw.user.tokens.set({"editToken":"+\\","watchToken":false});;},{},{});
+/* cache key: archwiki:resourceloader:filter:minify-js:7:d7d958b158f747a1a27187c8dfe3b417 */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax"]);
+}</script>
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-Sendmail skin-archlinux action-view">
+
+<div id="archnavbar"><!-- Arch Linux global navigation bar -->
+	<div id="archnavbarlogo">
+		<p><a id="logo" href="http://www.archlinux.org/"></a></p>
+	</div>
+	<div id="archnavbarmenu">
+		<ul id="archnavbarlist">
+			<li id="anb-home"><a href="http://www.archlinux.org/">Home</a></li><li id="anb-packages"><a href="http://www.archlinux.org/packages/">Packages</a></li><li id="anb-forums"><a href="https://bbs.archlinux.org/">Forums</a></li><li id="anb-wiki" class="anb-selected"><a href="https://wiki.archlinux.org/">Wiki</a></li><li id="anb-bugs"><a href="https://bugs.archlinux.org/">Bugs</a></li><li id="anb-aur"><a href="https://aur.archlinux.org/">AUR</a></li><li id="anb-download"><a href="http://www.archlinux.org/download/">Download</a></li>		</ul>
+	</div>
+</div><!-- #archnavbar -->
+
+<div id="globalWrapper">
+<div id="column-content"><div id="content" class="mw-body-primary">
+	<a id="top"></a>
+	
+	<h1 id="firstHeading" class="firstHeading"><span dir="auto">Sendmail</span></h1>
+	<div id="bodyContent" class="mw-body">
+		<div id="siteSub">From ArchWiki</div>
+		<div id="contentSub"></div>
+		<div id="jump-to-nav" class="mw-jump">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>
+		<!-- start content -->
+<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><p>Sendmail is the classical SMTP server from the unix world. It was originally coded long time ago, when the internet was a safer place, and back then, security didn't matter as much as does today. Therefore it used to have several security bugs and it got some bad reputation for that. But those bugs are long fixed and a recent sendmail version is as safe as any other SMTP server. If your top priority is security, you should probably use netqmail, however.
+</p><p>The goal of this article is to setup Sendmail for local users accounts, <b>without using mysql or other database</b>, and allowing also the creation of <i>mail-only accounts</i>. 
+</p><p>This article only explains the required steps configuring Sendmail; after that, you probably want to add IMAP and POP3 access, so you could follow the <a href="/index.php/Dovecot" title="Dovecot">Dovecot</a> article.
+</p>
+<table id="toc" class="toc"><tr><td><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Installation"><span class="tocnumber">1</span> <span class="toctext">Installation</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#DNS_Records"><span class="tocnumber">2</span> <span class="toctext">DNS Records</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Adding_users"><span class="tocnumber">3</span> <span class="toctext">Adding users</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Configuration"><span class="tocnumber">4</span> <span class="toctext">Configuration</span></a>
+<ul>
+<li class="toclevel-2 tocsection-5"><a href="#Create_SSL_certs"><span class="tocnumber">4.1</span> <span class="toctext">Create SSL certs</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#sendmail.cf"><span class="tocnumber">4.2</span> <span class="toctext">sendmail.cf</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="#local-host-names"><span class="tocnumber">4.3</span> <span class="toctext">local-host-names</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="#access.db"><span class="tocnumber">4.4</span> <span class="toctext">access.db</span></a></li>
+<li class="toclevel-2 tocsection-9"><a href="#aliases.db"><span class="tocnumber">4.5</span> <span class="toctext">aliases.db</span></a></li>
+<li class="toclevel-2 tocsection-10"><a href="#virtusertable.db"><span class="tocnumber">4.6</span> <span class="toctext">virtusertable.db</span></a></li>
+<li class="toclevel-2 tocsection-11"><a href="#Start_on_boot"><span class="tocnumber">4.7</span> <span class="toctext">Start on boot</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-12"><a href="#Tips_and_tricks"><span class="tocnumber">5</span> <span class="toctext">Tips and tricks</span></a>
+<ul>
+<li class="toclevel-2 tocsection-13"><a href="#Forward_all_the_mail_of_one_domain_to_certain_user"><span class="tocnumber">5.1</span> <span class="toctext">Forward all the mail of one domain to certain user</span></a></li>
+</ul>
+</li>
+</ul>
+</td></tr></table>
+<h2> <span class="mw-headline" id="Installation">Installation</span></h2>
+<p>Install the package <span style="font-family: monospace"><a rel="nofollow" class="external text" href="https://aur.archlinux.org/packages/sendmail/">sendmail</a></span> from the <a href="/index.php/AUR" title="AUR" class="mw-redirect">AUR</a>, and the packages <span style="font-family: monospace"><a rel="nofollow" class="external text" href="https://www.archlinux.org/packages/?name=procmail">procmail</a></span> and <span style="font-family: monospace"><a rel="nofollow" class="external text" href="https://www.archlinux.org/packages/?name=m4">m4</a></span> from the <a href="/index.php/Official_Repositories" title="Official Repositories">official repositories</a>.
+</p>
+<h2> <span class="mw-headline" id="DNS_Records">DNS Records</span></h2>
+<p>You should have a domain, and edit your MX records to point your server. Remember some servers have problems with MX records pointing to CNAMEs, so your MX should point to an A record instead.
+</p>
+<h2> <span class="mw-headline" id="Adding_users">Adding users</span></h2>
+<ul><li> By default, all the local users can have an email address like username@your-domain.com. But if you want to add <i>mail-only accounts</i>, that is, users who can get email, but can't have shell access or login on X, you can add them like this:
+</li></ul>
+<pre>useradd -m -s /sbin/nologin joenobody</pre>
+<ul><li> Assign a password:
+</li></ul>
+<pre>passwd joenobody</pre>
+<h2> <span class="mw-headline" id="Configuration">Configuration</span></h2>
+<h3> <span class="mw-headline" id="Create_SSL_certs"> Create SSL certs </span></h3>
+<ul><li> Generate a key and sign it. Read <a href="/index.php/OpenSSL#Generating_keys" title="OpenSSL">OpenSSL</a> for more information.
+</li></ul>
+<h3> <span class="mw-headline" id="sendmail.cf">sendmail.cf</span></h3>
+<ul><li> Create the file <code style="display:inline-block; padding: 0.1em 0.3em;">/etc/mail/sendmail.mc</code>. 
+</li></ul>
+<p>You can read all the options for configuring sendmail on the file <code style="display:inline-block; padding: 0.1em 0.3em;">/usr/share/sendmail-cf/README</code>.
+</p>
+<div style="padding: 5px; margin: 0.50em 0; background-color: #FFDDDD; border: thin solid #DDBBBB; overflow: hidden;"><strong> Warning: </strong>If you create your own sendmail.mc file, remember that plaintext auth over <b>non-TLS</b> is very risky. Using the following example forces TLS and is therefore more safe unless you know what are you doing</div>
+<p>Here is an example using auth over <a href="http://en.wikipedia.org/wiki/Transport_Layer_Security" class="extiw" title="wikipedia:Transport Layer Security">TLS</a>. The example has comments explaing how it works. The comments start with <code style="display:inline-block; padding: 0.1em 0.3em;">dnl </code>.
+</p>
+<pre style="margin-bottom: 0; border-bottom:none; padding-bottom:0.8em;">/etc/mail/sendmail.mc</pre>
+<pre style="margin-top: 0; border-top-style:dashed; padding-top: 0.8em;">
+include(`/usr/share/sendmail-cf/m4/cf.m4')
+define(`confDOMAIN_NAME', `your-domain.com')dnl
+FEATURE(use_cw_file)
+dnl  The following allows relaying if the user authenticates,
+dnl  and disallows plaintext authentication (PLAIN/LOGIN) on
+dnl  non-TLS links:
+define(`confAUTH_OPTIONS', `A p y')dnl
+dnl
+dnl  Accept PLAIN and LOGIN authentications:
+TRUST_AUTH_MECH(`LOGIN PLAIN')dnl
+define(`confAUTH_MECHANISMS', `LOGIN PLAIN')dnl
+dnl
+dnl Make sure this paths correctly point to your SSL cert files:
+define(`confCACERT_PATH',`/etc/ssl/certs')
+define(`confCACERT',`/etc/ssl/certs/ca.pem')
+define(`confSERVER_CERT',`/etc/ssl/certs/server.crt')
+define(`confSERVER_KEY',`/etc/ssl/private/server.key')
+dnl
+FEATURE(`virtusertable', `hash /etc/mail/virtusertable.db')dnl
+OSTYPE(linux)dnl
+MAILER(local)dnl
+MAILER(smtp)dnl
+</pre>
+<ul><li> Then process it with
+</li></ul>
+<pre># m4 /etc/mail/sendmail.mc &gt; /etc/mail/sendmail.cf</pre>
+<h3> <span class="mw-headline" id="local-host-names">local-host-names</span></h3>
+<ul><li> Put your domains on the <code style="display:inline-block; padding: 0.1em 0.3em;">local-host-names</code> file:
+</li></ul>
+<pre style="margin-bottom: 0; border-bottom:none; padding-bottom:0.8em;">/etc/mail/local-host-names</pre>
+<pre style="margin-top: 0; border-top-style:dashed; padding-top: 0.8em;">
+localhost
+your-domain.com
+mail.your-domain.com
+localhost.localdomain
+</pre>
+<ul><li> Make sure the domains are also resolved by your <code style="display:inline-block; padding: 0.1em 0.3em;">/etc/hosts</code> file.
+</li></ul>
+<h3> <span class="mw-headline" id="access.db">access.db</span></h3>
+<ul><li> Create the file <code style="display:inline-block; padding: 0.1em 0.3em;">/etc/mail/access</code>  and put there the base addresses where you want to be able to relay mail. Lets suppose you have a vpn on <code style="display:inline-block; padding: 0.1em 0.3em;">10.5.0.0/24</code>, and you want to relay mails from any ip in that range:
+</li></ul>
+<pre style="margin-bottom: 0; border-bottom:none; padding-bottom:0.8em;">/etc/mail/access</pre>
+<pre style="margin-top: 0; border-top-style:dashed; padding-top: 0.8em;">
+10.5.0 RELAY
+127.0.0 RELAY
+</pre>
+<ul><li> Then process it with
+</li></ul>
+<pre># makemap hash /etc/mail/access.db &lt; /etc/mail/access</pre>
+<h3> <span class="mw-headline" id="aliases.db">aliases.db</span></h3>
+<ul><li> Edit the file <code style="display:inline-block; padding: 0.1em 0.3em;">/etc/mail/aliases</code>  and  uncomment the line <code style="display:inline-block; padding: 0.1em 0.3em;">#root:         human being here</code> and change it to be like this:
+</li></ul>
+<pre>root:         your-username</pre>
+<ul><li> You can add aliases for your usernames there, like:
+</li></ul>
+<pre>coolguy:      your-username
+somedude:     your-username</pre>
+<ul><li> Then process it with
+</li></ul>
+<pre># newaliases</pre>
+<h3> <span class="mw-headline" id="virtusertable.db">virtusertable.db</span></h3>
+<ul><li> Create your <code style="display:inline-block; padding: 0.1em 0.3em;">virtusertable</code> file and put there aliases that includes domains (useful if your server is hosting several domains)
+</li></ul>
+<pre style="margin-bottom: 0; border-bottom:none; padding-bottom:0.8em;">/etc/mail/virtusertable</pre>
+<pre style="margin-top: 0; border-top-style:dashed; padding-top: 0.8em;">
+your-username@your-domain.com         your-username
+joe@my-other.tk                       joenobody
+</pre>
+<ul><li> Then process it with
+</li></ul>
+<pre># makemap hash /etc/mail/virtusertable.db &lt; /etc/mail/virtusertable</pre>
+<h3> <span class="mw-headline" id="Start_on_boot"> Start on boot </span></h3>
+<p>Enable and start the following services. Read <a href="/index.php/Daemons" title="Daemons">Daemons</a> for more datails.
+</p>
+<ul><li> <code style="display:inline-block; padding: 0.1em 0.3em;">saslauthd.service</code>
+</li><li> <code style="display:inline-block; padding: 0.1em 0.3em;">sendmail.service</code>
+</li><li> <code style="display:inline-block; padding: 0.1em 0.3em;">sm-client.service</code>
+</li></ul>
+<h2> <span class="mw-headline" id="Tips_and_tricks"> Tips and tricks </span></h2>
+<h3> <span class="mw-headline" id="Forward_all_the_mail_of_one_domain_to_certain_user"> Forward all the mail of one domain to certain user </span></h3>
+<p>To forward all mail addressed to any user in the <b>my-other.tk</b> domain to <b>your-username@your-domain.com</b>, add to the <code style="display:inline-block; padding: 0.1em 0.3em;">/etc/mail/virtusertable</code> file:
+</p>
+<pre>@my-other.tk        your-username@your-domain.com</pre>
+<p>Do not forget to process it again with 
+</p>
+<pre># makemap hash /etc/mail/virtusertable.db &lt; /etc/mail/virtusertable</pre>
+
+<!-- 
+NewPP limit report
+Preprocessor visited node count: 356/1000000
+Preprocessor generated node count: 1034/1000000
+Post‐expand include size: 5296/2097152 bytes
+Template argument size: 1680/2097152 bytes
+Highest expansion depth: 6/40
+Expensive parser function count: 0/100
+-->
+
+<!-- Saved in parser cache with key archwiki:pcache:idhash:15024-0!*!0!!en!*!* and timestamp 20130501070242 -->
+</div><div class="printfooter">
+Retrieved from "<a href="https://wiki.archlinux.org/index.php?title=Sendmail&amp;oldid=243070">https://wiki.archlinux.org/index.php?title=Sendmail&amp;oldid=243070</a>"</div>
+		<div id='catlinks' class='catlinks'><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="/index.php/Special:Categories" title="Special:Categories">Category</a>: <ul><li><a href="/index.php/Category:Mail_Server" title="Category:Mail Server">Mail Server</a></li></ul></div></div>		<!-- end content -->
+				<div class="visualClear"></div>
+	</div>
+</div></div>
+<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<div class="pBody">
+			<ul>
+				<li id="ca-nstab-main" class="selected"><a href="/index.php/Sendmail" primary="1" context="subject" title="View the content page [c]" accesskey="c">Page</a></li>
+				<li id="ca-talk"><a href="/index.php/Talk:Sendmail" primary="1" context="talk" title="Discussion about the content page [t]" accesskey="t">Discussion</a></li>
+				<li id="ca-viewsource"><a href="/index.php?title=Sendmail&amp;action=edit" primary="1" title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></li>
+				<li id="ca-history"><a href="/index.php?title=Sendmail&amp;action=history" rel="archives" title="Past revisions of this page [h]" accesskey="h">History</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-personal">
+		<h5>Personal tools</h5>
+		<div class="pBody">
+			<ul>
+				<li id="pt-createaccount"><a href="/index.php?title=Special:UserLogin&amp;returnto=Sendmail&amp;type=signup">Create account</a></li>
+				<li id="pt-login"><a href="/index.php?title=Special:UserLogin&amp;returnto=Sendmail" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-logo">
+<a href="/index.php/Main_Page" style="background-image: url(/skins/archlinux/archlogo.png);" title="Visit the main page"></a>
+	</div>
+	<div class="generated-sidebar portlet" id="p-navigation">
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage-description"><a href="/index.php/Main_Page" title="Visit the main page [z]" accesskey="z">Main page</a></li>
+				<li id="n-categories"><a href="/index.php/Table_of_Contents">Categories</a></li>
+				<li id="n-portal"><a href="/index.php/Getting_Involved" title="Various ways Archers can contribute to the community">Getting Involved</a></li>
+				<li id="n-currentevents"><a href="/index.php/ArchWiki:News" title="The latest lowdown on the wiki">Wiki News</a></li>
+				<li id="n-recentchanges"><a href="/index.php/Special:RecentChanges" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li>
+				<li id="n-randompage"><a href="/index.php/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li>
+				<li id="n-help"><a href="/index.php/Help:Contents" title="Wiki navigation, reading, and editing help">Help</a></li>
+			</ul>
+		</div>
+	</div>
+	<div id="p-search" class="portlet">
+		<h5><label for="searchInput">Search</label></h5>
+		<div id="searchBody" class="pBody">
+			<form action="/index.php" id="searchform">
+				<input type='hidden' name="title" value="Special:Search"/>
+				<input type="search" name="search" title="Search ArchWiki [f]" accesskey="f" id="searchInput" />
+				<input type="submit" name="go" value="Go" title="Go to a page with this exact name if exists" id="searchGoButton" class="searchButton" />&#160;
+				<input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton" />
+			</form>
+		</div>
+	</div>
+	<div class="portlet" id="p-tb">
+		<h5>Toolbox</h5>
+		<div class="pBody">
+			<ul>
+				<li id="t-whatlinkshere"><a href="/index.php/Special:WhatLinksHere/Sendmail" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+				<li id="t-recentchangeslinked"><a href="/index.php/Special:RecentChangesLinked/Sendmail" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+				<li id="t-specialpages"><a href="/index.php/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li>
+				<li id="t-print"><a href="/index.php?title=Sendmail&amp;printable=yes" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>
+				<li id="t-permalink"><a href="/index.php?title=Sendmail&amp;oldid=243070" title="Permanent link to this revision of the page">Permanent link</a></li>
+			</ul>
+		</div>
+	</div>
+</div><!-- end of the left (by default at least) column -->
+<div class="visualClear"></div>
+<div id="footer">
+	<ul id="f-list">
+		<li id="lastmod"> This page was last modified on 5 January 2013, at 22:15.</li>
+		<li id="copyright">Content is available under <a class="external" href="http://www.gnu.org/copyleft/fdl.html">GNU Free Documentation License 1.3 or later</a>.</li>
+		<li id="privacy"><a href="/index.php/ArchWiki:Privacy_policy" title="ArchWiki:Privacy policy">Privacy policy</a></li>
+		<li id="about"><a href="/index.php/ArchWiki:About" title="ArchWiki:About">About ArchWiki</a></li>
+		<li id="disclaimer"><a href="/index.php/ArchWiki:General_disclaimer" title="ArchWiki:General disclaimer">Disclaimers</a></li>
+	</ul>
+</div>
+</div>
+<script>if(window.mw){
+mw.loader.state({"site":"loading","user":"missing","user.groups":"ready"});
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.user","mediawiki.page.ready","mediawiki.searchSuggest"], null, true);
+}</script>
+<script>if(window.mw){
+mw.loader.state({"site":"ready"});
+}</script>
+<!-- Served in 0.095 secs. --></body><!-- Cached/compressed 20130501070242 -->
+</html>
