@@ -1,0 +1,553 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en-US" class="no-js">
+<head profile="http://gmpg.org/xfn/11">
+<title>Free consultation on data strategy (NLP, ML, business intelligence, etc.) &#8211; MetaOptimize</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+<link rel="stylesheet" type="text/css" href="http://metaoptimize.com/blog/wp-content/themes/the-obscurantist/css/erudite.css"/>
+<!--[if lte IE 6]> <link rel="stylesheet" href="http://metaoptimize.com/blog/wp-content/themes/the-obscurantist/css/ie6.css" type="text/css"> 
+	<style type="text/css" media="screen">
+		.hr {behavior: url(http://metaoptimize.com/blog/wp-content/themes/the-obscurantist/library/iepngfix.htc); }
+	</style> <![endif]-->
+<!--[if lte IE 7 ]> <link rel="stylesheet" href="http://metaoptimize.com/blog/wp-content/themes/the-obscurantist/css/ie7.css" type="text/css"> <![endif]-->
+<!--[if gte IE 8 ]> <link rel="stylesheet" href="http://metaoptimize.com/blog/wp-content/themes/the-obscurantist/css/ie8.css" type="text/css"> <![endif]-->
+<script type="text/javascript">
+// <![CDATA[
+		var erdt = {
+			More: '<span>↓</span> Keep Reading',
+			Less: '<span>↑</span> Put Away',
+			Info: '&#x2193; Further Information',
+			MenuShow: '<span>↓</span> Show Menu',
+			MenuHide: '<span>↑</span> Hide Menu',
+			DisableKeepReading: false,
+			DisableHide: false 
+		};
+		(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)
+// ]]>
+	</script>
+<script type="text/javascript">//<![CDATA[
+	// Google Analytics for WordPress by Yoast v4.06 | http://yoast.com/wordpress/google-analytics/
+	var _gaq = _gaq || [];
+	_gaq.push(['_setAccount','UA-8035005-1']);
+	_gaq.push(['_trackPageview']);
+	(function() {
+		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	})();
+	// End of Google Analytics for WordPress by Yoast v4.0
+	//]]></script>
+<link rel="alternate" type="application/rss+xml" title="MetaOptimize &raquo; Free consultation on data strategy (&lt;span class=&quot;caps&quot;&gt;NLP&lt;/span&gt;, &lt;span class=&quot;caps&quot;&gt;ML&lt;/span&gt;, business intelligence, etc.) Comments Feed" href="http://metaoptimize.com/blog/2010/08/20/free-consultation-on-data-strategy-nlp-ml-business-intelligence-etc/feed/"/>
+<link rel='stylesheet' id='openid-css' href='http://metaoptimize.com/blog/wp-content/plugins/openid/f/openid.css?ver=519' type='text/css' media='all'/>
+<script type='text/javascript' src='http://metaoptimize.com/blog/wp-includes/js/jquery/jquery.js?ver=1.3.2'></script>
+<script type='text/javascript' src='http://metaoptimize.com/blog/wp-content/plugins/openid/f/openid.js?ver=519'></script>
+<script type='text/javascript' src='http://metaoptimize.com/blog/wp-includes/js/comment-reply.js?ver=20090102'></script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://metaoptimize.com/blog/xmlrpc.php?rsd"/>
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://metaoptimize.com/blog/wp-includes/wlwmanifest.xml"/>
+<link rel='index' title='MetaOptimize' href='http://metaoptimize.com/blog'/>
+<link rel='start' title='Fast deserialization in Python' href='http://metaoptimize.com/blog/2009/03/22/fast-deserialization-in-python/'/>
+<link rel='prev' title='&lt;span class=&quot;caps&quot;&gt;KEA&lt;/span&gt; Keyphrase Extraction as an &lt;span class=&quot;caps&quot;&gt;XML-RPC&lt;/span&gt; service (code release)' href='http://metaoptimize.com/blog/2010/08/18/kea-keyphrase-extraction-as-an-xml-rpc-service/'/>
+<link rel='next' title='Information Organization: A case study in music recommendations' href='http://metaoptimize.com/blog/2010/09/15/information-organization-a-case-study-in-music-recommendations/'/>
+<link rel='canonical' href='http://metaoptimize.com/blog/2010/08/20/free-consultation-on-data-strategy-nlp-ml-business-intelligence-etc/'/>
+<link rel="stylesheet" href="http://disqus.com/stylesheets/metaoptimize/disqus.css?v=2.0" type="text/css" media="screen"/><link rel="shortlink" href="http://wp.me/psyzd-2X"/><script type="text/javascript" id="topsy_global_settings">
+    var topsy_style = 'big';
+    var topsy_nick = 'turian';
+    var topsy_order = 'count,badge,retweet';
+    var topsy_theme = 'blue';
+    var topsy_tweet_text = 'tweet';
+    var topsy_retweet_text = 'retweet';
+    var topsy_streaming = 'on';
+</script><script type="text/javascript" id="topsy-js-elem" src="http://cdn.topsy.com/topsy.js?init=topsyWidgetCreator"></script>
+<style type="text/css">sup{vertical-align:60%;font-size:75%;line-height:100%;}sub{vertical-align:-10%;font-size:75%;line-height:100%;}.amp{font-family:Baskerville,"Goudy Old Style","Palatino","Book Antiqua","Warnock Pro",serif;font-weight:normal;font-style:italic;font-size:1.1em;line-height:1em;}.caps{font-size:90%;}.dquo{margin-left:-.40em;}.quo{margin-left:-.2em;}</style>
+<style type="text/css">.broken_link,a.broken_link{text-decoration:line-through;}</style> <link rel="alternate" type="application/rss+xml" href="http://metaoptimize.com/blog/feed/" title="MetaOptimize latest posts"/>
+<link rel="alternate" type="application/rss+xml" href="http://metaoptimize.disqus.com/latest.rss" title="MetaOptimize latest comments"/>
+<link rel="pingback" href="http://metaoptimize.com/blog/xmlrpc.php"/>
+</head>
+<body class="single postid-183 hiding">
+<div id="wrapper" class="hfeed">
+<div id="header-wrap">
+<div id="header" role="banner">
+<div id='header-image' style="position:absolute;right:0pt;Top:0pt"><img src="http://metaoptimize.com/blog/wp-content/uploads/2010/06/weird_science_header3-locontrast.jpg"></div>
+<h1 id="blog-title"><span><a href="http://metaoptimize.com/blog/" title="MetaOptimize" rel="home">MetaOptimize</a></span></h1>
+<div id="blog-description">building machine learning and natural language processing tools</div>
+</div> 
+<div id="access" role="navigation">
+<div class="skip-link"><a href="#content" title="Skip to content">Skip to content</a></div>
+<div id="menu"><ul><li class="page_item page-item-30"><a href="http://metaoptimize.com/blog/about-joseph-turian/" title="About Joseph Turian">About Joseph Turian</a></li></ul></div>
+</div> 
+</div> 
+<div id="container">
+<div id="content" role="main">
+<div id="post-183" class="post-183 post hentry category-uncategorized tag-ai tag-artificial-intelligence tag-bi tag-business-intelligence tag-data-mining tag-large-datasets tag-machine-learning tag-ml tag-natural-language-processing tag-nlp tag-statistical-modeling tag-text-analysis tag-web-as-corpus">
+<h2 class="entry-title">Free consultation on data strategy (<span class="caps">NLP</span>, <span class="caps">ML</span>, business intelligence, etc.)</h2>
+<div class="entry-content">
+<div class="topsy_widget_data topsy_theme_blue" style="float: right;margin-left: 0.75em; background: url(data:,%7B%20%22url%22%3A%20%22http%253A%252F%252Fmetaoptimize.com%252Fblog%252F2010%252F08%252F20%252Ffree-consultation-on-data-strategy-nlp-ml-business-intelligence-etc%252F%22%2C%20%22shorturl%22%3A%20%22http%3A%2F%2Fbit.ly%2Fbarjgj%22%2C%20%22style%22%3A%20%22big%22%2C%20%22title%22%3A%20%22Free%20consultation%20on%20data%20strategy%20%28NLP%2C%20ML%2C%20business%20intelligence%2C%20etc.%29%22%20%7D);"></div>
+<h2>Sum­mary</h2>
+<p><a href="http://www.cloudflare.com/email-protection#4d27223e283d256d2c396d2028392c223d3924202437286d2922396d2e2220">Email me</a> your pitch and how you need help mon­e­tiz­ing data.<br/>
+If I like your pitch, I’ll give you a free con­sul­ta­tion on data strat­egy (<span class="caps">NLP</span>, <span class="caps">ML</span>, busi­ness intel­li­gence, etc.)<br/>
+After­wards, if we both think that I can add value to your busi­ness, we can talk about a longer-term relationship.</p>
+<p>You should for­ward this blog post to any friend who could use this information.</p>
+<hr/>
+<h2>What is data strategy?</h2>
+<p>Do you know how to mon­e­tize the data you have? How can you improve mon­e­ti­za­tion using other data avail­able to you? How do you trans­form your data into action­able busi­ness intelligence?</p>
+<p>I can help you shape your <b>data strat­egy</b>, your long-term plan for how your busi­ness will cap­ture, process, and mon­e­tize data. For exam­ple, data strat­egy can help you in the fol­low­ing circumstances:</p>
+<ul>
+<li>You don’t know who your indi­vid­ual users are or what they want, so you can’t effec­tively tar­get ads.</li>
+<li>You don’t know what user behav­ior on your site to track.</li>
+<li>You don’t know what infor­ma­tion you should start scrap­ing from the web, infor­ma­tion which you could use months or years down the line.</li>
+</ul>
+<p>Besides work­ing back­wards from your busi­ness goals and busi­ness assets to a viable data strat­egy, I can also help you with more con­crete chal­lenges in <span class="caps">NLP</span> and machine learning:</p>
+<ul>
+<li>How do I improve my search engine so that users don’t miss out on rel­e­vant results?</li>
+<li>How do I add or improve rec­om­men­da­tion, to con­nect users with what they want?</li>
+<li>How do I scale this <span class="caps">ML</span> algo­rithm to bil­lions of exam­ples with mil­lions of features?</li>
+<li>How do I improve the accu­racy of this <span class="caps">NLP</span> or <span class="caps">ML</span> tool?</li>
+</ul>
+<hr/>
+<p><a name="whoami"></p>
+<h2>Who am I?</h2>
+<p></a></p>
+<p>My name is Joseph Turian, and I head MetaOp­ti­mize <span class="caps">LLC</span>. We con­sult on <span class="caps">NLP</span>, <span class="caps">ML</span>, and data strat­egy. We also run the <a href="http://metaoptimize.com/qa/">MetaOp­ti­mize Q<span class="amp">&amp;</span>A site</a>, where <span class="caps">ML</span> and <span class="caps">NLP</span> experts share their knowledge.</p>
+<ul>
+<li>I am a data expert, hold­ing a Ph.D. in nat­ural lan­guage pro­cess­ing and machine learn­ing. I have a decade of expe­ri­ence in these top­ics. I spe­cial­ize in <b>large data sets</b>.</li>
+<li>I’m <b>business-minded</b>, so I focus on busi­ness goals and the most direct path of exe­cu­tion to achieve these goals.</li>
+<li>I am also a <b>tech­nol­ogy gen­er­al­ist</b> who has been hack­ing since age 10 and has pro­grammed com­pet­i­tively at a world-class level.</li>
+</ul>
+<p>Ref­er­ences from clients past and present avail­able upon request.</p>
+<hr/>
+<h2>What is the offer?</h2>
+<p>You send me infor­ma­tion about what you’re doing and why you think I can help you.<br/>
+<i>Bonus points</i> if you send me your deck, so I can under­stand your entire busi­ness pic­ture. You are ask­ing me to invest valu­able exper­tise and poten­tially <span class="caps">IP</span> in your com­pany, so appeal to me as a poten­tial investor.<br/>
+<i>Demer­its</i> if you send me an <span class="caps">NDA</span> pre­ma­turely. Uptight com­pa­nies who think what they are doing isn’t pro­tected by good exe­cu­tion are a turn-off. But if you must be all James Bond about it, I’ll still con­sider you.</p>
+<p>If I like what you’re doing and I can bud­get time, we sched­ule a meet­ing (in per­son or over Skype) and I’ll give you a free con­sul­ta­tion on what you’re doing.</p>
+<p>If the ini­tial meet­ing goes well, and we both see how I can add value to your busi­ness, we can decide to con­tinue work­ing together. I can con­tinue to help you either:</p>
+<ul>
+<li>Advis­ing you peri­od­i­cally about your data strategy.</li>
+<li>Build­ing you new tools to use in your product.</li>
+<li>Licens­ing to you exist­ing tools I’ve already built.</li>
+<li>Train­ing your smart tech geeks on <span class="caps">NLP</span> and <span class="caps">ML</span> tech­nol­ogy for you to build in-house.</li>
+</ul>
+<p>Com­pen­sa­tion accepted in the form of cash or equity or a mix of both. Pro-bono if you’re an awe­some non-profit.</p>
+<hr/>
+<h2>Why am I doing this?</h2>
+<ul>
+<li>More deals is always good.</li>
+<li>I am a social hacker, and enjoy con­nect­ing and shar­ing with other entre­pre­neurs. I want to meet some more excel­lent people.</li>
+<li>I would like to improve my under­stand­ing of wide­spread chal­lenges and pain points in data strat­egy. That way, I can build a prod­uct that is use­ful for many people.</li>
+<li>This is an inter­est­ing social busi­ness experiment.</li>
+</ul>
+<hr/>
+<h2>Who is this offer for?</h2>
+<ul>
+<li>Open-source projects look­ing to use <span class="caps">NLP</span> + <span class="caps">ML</span> to improve their users’ experience.</li>
+<li>Unfunded star­tups with a promis­ing team, prod­uct, and market.</li>
+<li>Funded star­tups.</li>
+<li>Estab­lished companies.</li>
+</ul>
+<hr/>
+<h2>What are you wait­ing for?</h2>
+<p><a href="http://www.cloudflare.com/email-protection#cda7a2bea8bda5edacb9eda0a8b9aca2bdb9a4a0a4b7a8eda9a2b9edaea2a0">Email me</a> your pitch and how you need help mon­e­tiz­ing data.<br/>
+Or for­ward this blog post to a friend who could use this information.</p>
+<div style="float:left;margin:0px 0px 0px 0px;"></div>
+</div>
+<div class="entry-meta">
+<span class="entry-date"><abbr class="published" title="2010-08-20T13:22:23+0000">2010.08.20; Friday &#8211; 13:22</abbr></span>
+<span class="meta-sep">|</span>
+<span class="author vcard">By <a href="http://metaoptimize.com/blog/author/joseph/" title="Posts by Joseph Turian">Joseph Turian</a></span>
+<span class="meta-sep">|</span>
+<span class="cat-links">Posted in <a href="http://metaoptimize.com/blog/category/uncategorized/" title="View all posts in Uncategorized" rel="category tag">Uncategorized</a></span>
+<span class="meta-sep">|</span>
+<span class="tag-links">Tagged <a href="http://metaoptimize.com/blog/tag/ai/" rel="tag">AI</a>, <a href="http://metaoptimize.com/blog/tag/artificial-intelligence/" rel="tag">artificial intelligence</a>, <a href="http://metaoptimize.com/blog/tag/bi/" rel="tag">BI</a>, <a href="http://metaoptimize.com/blog/tag/business-intelligence/" rel="tag">business intelligence</a>, <a href="http://metaoptimize.com/blog/tag/data-mining/" rel="tag">data mining</a>, <a href="http://metaoptimize.com/blog/tag/large-datasets/" rel="tag">large datasets</a>, <a href="http://metaoptimize.com/blog/tag/machine-learning/" rel="tag">machine learning</a>, <a href="http://metaoptimize.com/blog/tag/ml/" rel="tag">ML</a>, <a href="http://metaoptimize.com/blog/tag/natural-language-processing/" rel="tag">natural language processing</a>, <a href="http://metaoptimize.com/blog/tag/nlp/" rel="tag">NLP</a>, <a href="http://metaoptimize.com/blog/tag/statistical-modeling/" rel="tag">statistical modeling</a>, <a href="http://metaoptimize.com/blog/tag/text-analysis/" rel="tag">text analysis</a>, <a href="http://metaoptimize.com/blog/tag/web-as-corpus/" rel="tag">web as corpus</a></span>
+<span class="meta-sep">|</span>
+<span class="comments-link"><a href="http://metaoptimize.com/blog/2010/08/20/free-consultation-on-data-strategy-nlp-ml-business-intelligence-etc/#comments" title="Comment on Free consultation on data strategy (NLP, ML, business intelligence, etc.)"><span class="dsq-postid" rel="183 http://metaoptimize.com/blog/?p=183">View Comments</span></a></span>
+<iframe src="http://www.google.com/talk/service/badge/Show?tk=z01q6amlqldvms5l83vkbv0vk6hfg3g29dehf0lo711doe0a09r2njgmr5av98j8re3o12trk8i1muatnh02v0lcar1d6pjtm17ooqlqs9kk9jfvue2v7rv84h0hj47ubgsf3q9k6iir0a56jmaj54feccbojfs551orskkm4&amp;w=200&amp;h=60" allowtransparency="true" width="200" frameborder="0" height="60"></iframe>
+</div>
+</div> 
+<div id="nav-below" class="navigation">
+<div class="nav-previous"><a href="http://metaoptimize.com/blog/2010/08/18/kea-keyphrase-extraction-as-an-xml-rpc-service/" rel="prev"><span class="meta-nav">&larr;</span> <span class="caps">KEA</span> Keyphrase Extraction as an <span class="caps">XML-RPC</span> service (code release)</a></div>
+<div class="nav-next"><a href="http://metaoptimize.com/blog/2010/09/15/information-organization-a-case-study-in-music-recommendations/" rel="next">Information Organization: A case study in music recommendations <span class="meta-nav">&rarr;</span></a></div>
+</div>
+<div id="disqus_thread">
+<div id="dsq-content">
+<ul id="dsq-comments">
+<li id="dsq-comment-795">
+<div id="dsq-comment-header-795" class="dsq-comment-header">
+<cite id="dsq-cite-795">
+http://twitter.com/hntweets/status/21686285480 <span id="dsq-author-user-795">Hacker News</span>
+</cite>
+</div>
+<div id="dsq-comment-body-795" class="dsq-comment-body">
+<div id="dsq-comment-message-795" class="dsq-comment-message"><p><span class="topsy_trackback_comment"><span class="topsy_twitter_username"><span class="topsy_trackback_content">Free con­sul­ta­tion on data strat­egy (<span class="caps">NLP</span>, <span class="caps">ML</span>, busi­ness intel­li­gence, etc.): <a href="http://bit.ly/9WaOke" onclick="javascript:_gaq.push(['_trackEvent','outbound-comment','bit.ly']);" rel="nofollow">http://bit.ly/9WaOke</a> Com­ments: <a href="http://bit.ly/dDcCXJ" onclick="javascript:_gaq.push(['_trackEvent','outbound-comment','bit.ly']);" rel="nofollow">http://bit.ly/dDcCXJ</a></span></span></span></p>
+</div>
+</div>
+</li>
+<li id="dsq-comment-797">
+<div id="dsq-comment-header-797" class="dsq-comment-header">
+<cite id="dsq-cite-797">
+http://twitter.com/turian/status/21686961228 <span id="dsq-author-user-797">Joseph Turian</span>
+</cite>
+</div>
+<div id="dsq-comment-body-797" class="dsq-comment-body">
+<div id="dsq-comment-message-797" class="dsq-comment-message"><p><span class="topsy_trackback_comment"><span class="topsy_twitter_username"><span class="topsy_trackback_content">Free con­sul­ta­tion on data strat­egy (<span class="caps">NLP</span>, <span class="caps">ML</span>, busi­ness intel­li­gence, etc.) <a href="http://bit.ly/barjgj" onclick="javascript:_gaq.push(['_trackEvent','outbound-comment','bit.ly']);" rel="nofollow">http://bit.ly/barjgj</a></span></span></span></p>
+</div>
+</div>
+</li>
+<li id="dsq-comment-796">
+<div id="dsq-comment-header-796" class="dsq-comment-header">
+<cite id="dsq-cite-796">
+http://twitter.com/sarajdizzle/status/21686982924 <span id="dsq-author-user-796">Sara</span>
+</cite>
+</div>
+<div id="dsq-comment-body-796" class="dsq-comment-body">
+<div id="dsq-comment-message-796" class="dsq-comment-message"><p><span class="topsy_trackback_comment"><span class="topsy_twitter_username"><span class="topsy_trackback_content"><span class="caps">RT</span> @turian — Free con­sul­ta­tion on data strat­egy (<span class="caps">NLP</span>, <span class="caps">ML</span>, busi­ness intel­li­gence, etc.) <a href="http://bit.ly/barjgj" onclick="javascript:_gaq.push(['_trackEvent','outbound-comment','bit.ly']);" rel="nofollow">http://bit.ly/barjgj</a></span></span></span></p>
+</div>
+</div>
+</li>
+<li id="dsq-comment-800">
+<div id="dsq-comment-header-800" class="dsq-comment-header">
+<cite id="dsq-cite-800">
+http://twitter.com/kicauan/status/21711105231 <span id="dsq-author-user-800">eBot</span>
+</cite>
+</div>
+<div id="dsq-comment-body-800" class="dsq-comment-body">
+<div id="dsq-comment-message-800" class="dsq-comment-message"><p><span class="topsy_trackback_comment"><span class="topsy_twitter_username"><span class="topsy_trackback_content">Free con­sul­ta­tion on data strat­egy (<span class="caps">NLP</span>, <span class="caps">ML</span>, busi­ness intel­li­gence, etc.) — <a href="http://su.pr/5XPlGz" onclick="javascript:_gaq.push(['_trackEvent','outbound-comment','su.pr']);" rel="nofollow">http://su.pr/5XPlGz</a></span></span></span></p>
+</div>
+</div>
+</li>
+<li id="dsq-comment-801">
+<div id="dsq-comment-header-801" class="dsq-comment-header">
+<cite id="dsq-cite-801">
+http://twitter.com/eicg/status/21712106373 <span id="dsq-author-user-801">eicg</span>
+</cite>
+</div>
+<div id="dsq-comment-body-801" class="dsq-comment-body">
+<div id="dsq-comment-message-801" class="dsq-comment-message"><p><span class="topsy_trackback_comment"><span class="topsy_twitter_username"><span class="topsy_trackback_content">Free con­sul­ta­tion on data strat­egy (<span class="caps">NLP</span>, <span class="caps">ML</span>, busi­ness intel­li­gence, etc.) — <a href="http://su.pr/5XPlGz" onclick="javascript:_gaq.push(['_trackEvent','outbound-comment','su.pr']);" rel="nofollow">http://su.pr/5XPlGz</a></span></span></span></p>
+</div>
+</div>
+</li>
+<li id="dsq-comment-899">
+<div id="dsq-comment-header-899" class="dsq-comment-header">
+<cite id="dsq-cite-899">
+http://twitter.com/bradfordcross/status/23888267247 <span id="dsq-author-user-899">brad­ford cross</span>
+</cite>
+</div>
+<div id="dsq-comment-body-899" class="dsq-comment-body">
+<div id="dsq-comment-message-899" class="dsq-comment-message"><p><span class="topsy_trackback_comment"><span class="topsy_twitter_username"><span class="topsy_trackback_content">take advan­tage of my last tweet about @turian <a href="http://bit.ly/bTvDA5" onclick="javascript:_gaq.push(['_trackEvent','outbound-comment','bit.ly']);" rel="nofollow">http://bit.ly/bTvDA5</a> Free con­sul­ta­tion on data strat­egy (<span class="caps">NLP</span>, <span class="caps">ML</span>, <span class="caps">BI</span>)</span></span></span></p>
+</div>
+</div>
+</li>
+<li id="dsq-comment-898">
+<div id="dsq-comment-header-898" class="dsq-comment-header">
+<cite id="dsq-cite-898">
+http://twitter.com/turian/status/23888520150 <span id="dsq-author-user-898">Joseph Turian</span>
+</cite>
+</div>
+<div id="dsq-comment-body-898" class="dsq-comment-body">
+<div id="dsq-comment-message-898" class="dsq-comment-message"><p><span class="topsy_trackback_comment"><span class="topsy_twitter_username"><span class="topsy_trackback_content">@bradfordcross has mad twit­ter dint. He tweeted about my free data strat­egy con­sul­ta­tion (<a href="http://bit.ly/bTvDA5" onclick="javascript:_gaq.push(['_trackEvent','outbound-comment','bit.ly']);" rel="nofollow">http://bit.ly/bTvDA5</a>) and I got 20 new followers.</span></span></span></p>
+</div>
+</div>
+</li>
+<li id="dsq-comment-900">
+<div id="dsq-comment-header-900" class="dsq-comment-header">
+<cite id="dsq-cite-900">
+http://twitter.com/peteskomoroch/status/23889332602 <span id="dsq-author-user-900">Peter Sko­moroch</span>
+</cite>
+</div>
+<div id="dsq-comment-body-900" class="dsq-comment-body">
+<div id="dsq-comment-message-900" class="dsq-comment-message"><p><span class="topsy_trackback_comment"><span class="topsy_twitter_username"><span class="topsy_trackback_content"><span class="caps">RT</span> @bradfordcross: take advan­tage of my last tweet about @turian <a href="http://bit.ly/bTvDA5" onclick="javascript:_gaq.push(['_trackEvent','outbound-comment','bit.ly']);" rel="nofollow">http://bit.ly/bTvDA5</a> Free con­sul­ta­tion on data strat­egy (<span class="caps">NLP</span>, <span class="caps">ML</span>, <span class="caps">BI</span>)</span></span></span></p>
+</div>
+</div>
+</li>
+<li id="dsq-comment-901">
+<div id="dsq-comment-header-901" class="dsq-comment-header">
+<cite id="dsq-cite-901">
+<span id="dsq-author-user-901">eicg</span>
+</cite>
+</div>
+<div id="dsq-comment-body-901" class="dsq-comment-body">
+<div id="dsq-comment-message-901" class="dsq-comment-message"><p><span class="topsy_trackback_comment"><span class="topsy_twitter_username"><span class="topsy_trackback_content"><span class="caps">RT</span> @bradfordcross: take advan­tage of my last tweet about @turian <a href="http://bit.ly/bTvDA5" onclick="javascript:_gaq.push(['_trackEvent','outbound-comment','bit.ly']);" rel="nofollow">http://bit.ly/bTvDA5</a> Free con­sul­ta­tion on data strat­egy (<span class="caps">NLP</span>, <span class="caps">ML</span>, <span class="caps">BI</span>)</span></span></span></p>
+</div>
+</div>
+</li>
+<li id="dsq-comment-903">
+<div id="dsq-comment-header-903" class="dsq-comment-header">
+<cite id="dsq-cite-903">
+http://twitter.com/daniel_levine/status/23890056441 <span id="dsq-author-user-903">Daniel Levine</span>
+</cite>
+</div>
+<div id="dsq-comment-body-903" class="dsq-comment-body">
+<div id="dsq-comment-message-903" class="dsq-comment-message"><p><span class="topsy_trackback_comment"><span class="topsy_twitter_username"><span class="topsy_trackback_content"><span class="caps">RT</span> @turian: Free con­sul­ta­tion on data strat­egy (<span class="caps">NLP</span>, <span class="caps">ML</span>, busi­ness intel­li­gence, etc.) <a href="http://bit.ly/barjgj" onclick="javascript:_gaq.push(['_trackEvent','outbound-comment','bit.ly']);" rel="nofollow">http://bit.ly/barjgj</a></span></span></span></p>
+</div>
+</div>
+</li>
+<li id="dsq-comment-923">
+<div id="dsq-comment-header-923" class="dsq-comment-header">
+<cite id="dsq-cite-923">
+http://followthedata.wordpress.com/2010/09/12/quick-links-2/ <span id="dsq-author-user-923">Quick links « Fol­low the Data</span>
+</cite>
+</div>
+<div id="dsq-comment-body-923" class="dsq-comment-body">
+<div id="dsq-comment-message-923" class="dsq-comment-message"><p>[…] Turian offers a free con­sul­ta­tion on data strat­egy; how to cap­ture, process and mon­e­tize your […]</p>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+<script type="text/javascript">
+	var disqus_url = 'http://metaoptimize.com/blog/2010/08/20/free-consultation-on-data-strategy-nlp-ml-business-intelligence-etc/ ';
+	var disqus_identifier = '183 http://metaoptimize.com/blog/?p=183';
+	var disqus_container_id = 'disqus_thread';
+	var disqus_domain = 'disqus.com';
+	var disqus_shortname = 'metaoptimize';
+	var disqus_title = "Free consultation on data strategy (NLP, ML, business intelligence, etc.)";
+		var disqus_config = function () {
+	    var config = this; // Access to the config object
+
+	    /* 
+	       All currently supported events:
+	        * preData — fires just before we request for initial data
+	        * preInit - fires after we get initial data but before we load any dependencies
+	        * onInit  - fires when all dependencies are resolved but before dtpl template is rendered
+	        * afterRender - fires when template is rendered but before we show it
+	        * onReady - everything is done
+	     */
+
+		config.callbacks.preData.push(function() {
+			// clear out the container (its filled for SEO/legacy purposes)
+			document.getElementById(disqus_container_id).innerHTML = '';
+		});
+				config.callbacks.onReady.push(function() {
+			// sync comments in the background so we don't block the page
+			DISQUS.request.get('?cf_action=sync_comments&post_id=183');
+		});
+			};
+	var facebookXdReceiverPath = 'http://metaoptimize.com/blog/wp-content/plugins/disqus-comment-system/xd_receiver.htm';
+</script>
+<script type="text/javascript">
+	var DsqLocal = {
+		'trackbacks': [
+			{
+				'author_name':	"Hacker News",
+				'author_url':	"http:\/\/twitter.com\/hntweets\/status\/21686285480",
+				'date':			"08\/20\/2010 06:40 PM",
+				'excerpt':		"Free consultation on data strategy (NLP, ML, business intelligence, etc.): http:\/\/bit.ly\/9WaOke Comments: http:\/\/bit.ly\/dDcCXJ ",
+				'type':			"trackback"			}
+,			{
+				'author_name':	"Joseph Turian",
+				'author_url':	"http:\/\/twitter.com\/turian\/status\/21686961228",
+				'date':			"08\/20\/2010 06:51 PM",
+				'excerpt':		"Free consultation on data strategy (NLP, ML, business intelligence, etc.) http:\/\/bit.ly\/barjgj ",
+				'type':			"trackback"			}
+,			{
+				'author_name':	"Sara",
+				'author_url':	"http:\/\/twitter.com\/sarajdizzle\/status\/21686982924",
+				'date':			"08\/20\/2010 06:51 PM",
+				'excerpt':		"RT @turian - Free consultation on data strategy (NLP, ML, business intelligence, etc.) http:\/\/bit.ly\/barjgj ",
+				'type':			"trackback"			}
+,			{
+				'author_name':	"eBot",
+				'author_url':	"http:\/\/twitter.com\/kicauan\/status\/21711105231",
+				'date':			"08\/21\/2010 01:37 AM",
+				'excerpt':		"Free consultation on data strategy (NLP, ML, business intelligence, etc.) - http:\/\/su.pr\/5XPlGz ",
+				'type':			"trackback"			}
+,			{
+				'author_name':	"eicg",
+				'author_url':	"http:\/\/twitter.com\/eicg\/status\/21712106373",
+				'date':			"08\/21\/2010 01:52 AM",
+				'excerpt':		"Free consultation on data strategy (NLP, ML, business intelligence, etc.) - http:\/\/su.pr\/5XPlGz ",
+				'type':			"trackback"			}
+,			{
+				'author_name':	"bradford cross",
+				'author_url':	"http:\/\/twitter.com\/bradfordcross\/status\/23888267247",
+				'date':			"09\/08\/2010 05:29 AM",
+				'excerpt':		"take advantage of my last tweet about @turian http:\/\/bit.ly\/bTvDA5 Free consultation on data strategy (NLP, ML, BI) ",
+				'type':			"trackback"			}
+,			{
+				'author_name':	"Joseph Turian",
+				'author_url':	"http:\/\/twitter.com\/turian\/status\/23888520150",
+				'date':			"09\/08\/2010 05:34 AM",
+				'excerpt':		"@bradfordcross has mad twitter dint. He tweeted about my free data strategy consultation (http:\/\/bit.ly\/bTvDA5) and I got 20 new followers. ",
+				'type':			"trackback"			}
+,			{
+				'author_name':	"Peter Skomoroch",
+				'author_url':	"http:\/\/twitter.com\/peteskomoroch\/status\/23889332602",
+				'date':			"09\/08\/2010 05:49 AM",
+				'excerpt':		"RT @bradfordcross: take advantage of my last tweet about @turian http:\/\/bit.ly\/bTvDA5 Free consultation on data strategy (NLP, ML, BI) ",
+				'type':			"trackback"			}
+,			{
+				'author_name':	"eicg",
+				'author_url':	"",
+				'date':			"09\/08\/2010 05:54 AM",
+				'excerpt':		"RT @bradfordcross: take advantage of my last tweet about @turian http:\/\/bit.ly\/bTvDA5 Free consultation on data strategy (NLP, ML, BI) ",
+				'type':			"trackback"			}
+,			{
+				'author_name':	"Daniel Levine",
+				'author_url':	"http:\/\/twitter.com\/daniel_levine\/status\/23890056441",
+				'date':			"09\/08\/2010 06:02 AM",
+				'excerpt':		"RT @turian: Free consultation on data strategy (NLP, ML, business intelligence, etc.) http:\/\/bit.ly\/barjgj ",
+				'type':			"trackback"			}
+,			{
+				'author_name':	"Quick links &laquo; Follow the Data",
+				'author_url':	"http:\/\/followthedata.wordpress.com\/2010\/09\/12\/quick-links-2\/",
+				'date':			"09\/12\/2010 02:49 AM",
+				'excerpt':		"[...] Turian offers a free consultation on data strategy; how to capture, process and monetize your [...] ",
+				'type':			"pingback"			}
+		],
+		'trackback_url': "http:\/\/metaoptimize.com\/blog\/2010\/08\/20\/free-consultation-on-data-strategy-nlp-ml-business-intelligence-etc\/trackback\/"	};
+</script>
+<script type="text/javascript">
+(function() {
+	var dsq = document.createElement('script'); dsq.type = 'text/javascript';
+	dsq.async = true;
+	dsq.src = 'http://' + disqus_shortname + '.' + disqus_domain + '/embed.js?pname=wordpress&pver=2.49';
+	(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+</div> 
+</div> 
+<div id="footer-wrap">
+<div id="footer-wrap-inner">
+<div id="primary" class="footer">
+<ul class="xoxo">
+<li id="pages-2" class="widget widget_pages">
+<h3 class="widgettitle">Pages</h3>
+<ul>
+<li class="page_item page-item-30"><a href="http://metaoptimize.com/blog/about-joseph-turian/" title="About Joseph Turian">About Joseph Turian</a></li>
+</ul>
+</li>
+<li id="recent-posts-2" class="widget widget_recent_entries">
+<h3 class="widgettitle">Recent Posts</h3>
+<ul>
+<li><a href="http://metaoptimize.com/blog/2011/05/22/discussion-2-0-personalization/" title="Discussion 2.0: Personalization">Discussion 2.0: Personalization </a></li>
+<li><a href="http://metaoptimize.com/blog/2010/12/29/fat-free-crm-in-five-minutes-on-a-fresh-amazon-ec2-micro-instance/" title="Fat Free &lt;span class=&quot;caps&quot;&gt;CRM&lt;/span&gt; in five minutes on a fresh Amazon &lt;span class=&quot;caps&quot;&gt;EC2&lt;/span&gt; micro instance">Fat Free <span class="caps">CRM</span> in five minutes on a fresh Amazon <span class="caps">EC2</span> micro instance </a></li>
+<li><a href="http://metaoptimize.com/blog/2010/11/05/nlp-challenge-find-semantically-related-terms-over-a-large-vocabulary-1m/" title="&lt;span class=&quot;caps&quot;&gt;NLP&lt;/span&gt; Challenge: Find semantically related terms over a large vocabulary (&gt;&lt;span class=&quot;caps&quot;&gt;1M&lt;/span&gt;)?"><span class="caps">NLP</span> Challenge: Find semantically related terms over a large vocabulary (&gt;<span class="caps">1M</span>)? </a></li>
+<li><a href="http://metaoptimize.com/blog/2010/09/15/information-organization-a-case-study-in-music-recommendations/" title="Information Organization: A case study in music recommendations">Information Organization: A case study in music recommendations </a></li>
+<li><a href="http://metaoptimize.com/blog/2010/08/20/free-consultation-on-data-strategy-nlp-ml-business-intelligence-etc/" title="Free consultation on data strategy (&lt;span class=&quot;caps&quot;&gt;NLP&lt;/span&gt;, &lt;span class=&quot;caps&quot;&gt;ML&lt;/span&gt;, business intelligence, etc.)">Free consultation on data strategy (<span class="caps">NLP</span>, <span class="caps">ML</span>, business intelligence, etc.) </a></li>
+</ul>
+</li>
+<li id="archives-2" class="widget widget_archive">
+<h3 class="widgettitle">Archives</h3>
+<ul>
+<li><a href='http://metaoptimize.com/blog/2011/05/' title='May 2011'>May 2011</a></li>
+<li><a href='http://metaoptimize.com/blog/2010/12/' title='December 2010'>December 2010</a></li>
+<li><a href='http://metaoptimize.com/blog/2010/11/' title='November 2010'>November 2010</a></li>
+<li><a href='http://metaoptimize.com/blog/2010/09/' title='September 2010'>September 2010</a></li>
+<li><a href='http://metaoptimize.com/blog/2010/08/' title='August 2010'>August 2010</a></li>
+<li><a href='http://metaoptimize.com/blog/2010/04/' title='April 2010'>April 2010</a></li>
+<li><a href='http://metaoptimize.com/blog/2010/03/' title='March 2010'>March 2010</a></li>
+<li><a href='http://metaoptimize.com/blog/2010/02/' title='February 2010'>February 2010</a></li>
+<li><a href='http://metaoptimize.com/blog/2009/12/' title='December 2009'>December 2009</a></li>
+<li><a href='http://metaoptimize.com/blog/2009/10/' title='October 2009'>October 2009</a></li>
+<li><a href='http://metaoptimize.com/blog/2009/09/' title='September 2009'>September 2009</a></li>
+<li><a href='http://metaoptimize.com/blog/2009/03/' title='March 2009'>March 2009</a></li>
+</ul>
+</li>
+<li id="linkcat-2" class="widget widget_links">
+<h3 class="widgettitle">Blogroll</h3>
+<ul class='xoxo blogroll'>
+<li><a href="http://anyall.org/blog/" target="" onclick="javascript:_gaq.push(['_trackEvent','outbound-blogroll','http://anyall.org/blog/']);">Brendan O&#8217;Connor</a></li>
+<li><a href="http://nlpers.blogspot.com/" target="" onclick="javascript:_gaq.push(['_trackEvent','outbound-blogroll','http://nlpers.blogspot.com/']);">Hal Daumé III (NLP)</a></li>
+<li><a href="http://hunch.net/" target="" onclick="javascript:_gaq.push(['_trackEvent','outbound-blogroll','http://hunch.net/']);">John Langford (ml)</a></li>
+<li><a href="http://lingpipe-blog.com/" target="" onclick="javascript:_gaq.push(['_trackEvent','outbound-blogroll','http://lingpipe-blog.com/']);">LingPipe blog</a></li>
+</ul>
+</li>
+<li id="search-2" class="widget widget_search"><form role="search" method="get" id="searchform" action="http://metaoptimize.com/blog/">
+<div><label class="screen-reader-text" for="s">Search for:</label>
+<input type="text" value="" name="s" id="s"/>
+<input type="submit" id="searchsubmit" value="Search"/>
+</div>
+</form>
+</li>
+</ul>
+</div> 
+<div id="secondary" class="footer">
+<ul class="xoxo">
+<li id="categories">
+<h3>Categories</h3>
+<ul>
+<li class="cat-item cat-item-1"><a href="http://metaoptimize.com/blog/category/uncategorized/" title="View all posts filed under Uncategorized">Uncategorized</a>
+</li>
+</ul>
+</li>
+<li id="archives">
+<h3>Archives</h3>
+<ul>
+<li><a href='http://metaoptimize.com/blog/2011/05/' title='May 2011'>May 2011</a></li>
+<li><a href='http://metaoptimize.com/blog/2010/12/' title='December 2010'>December 2010</a></li>
+<li><a href='http://metaoptimize.com/blog/2010/11/' title='November 2010'>November 2010</a></li>
+<li><a href='http://metaoptimize.com/blog/2010/09/' title='September 2010'>September 2010</a></li>
+<li><a href='http://metaoptimize.com/blog/2010/08/' title='August 2010'>August 2010</a></li>
+<li><a href='http://metaoptimize.com/blog/2010/04/' title='April 2010'>April 2010</a></li>
+<li><a href='http://metaoptimize.com/blog/2010/03/' title='March 2010'>March 2010</a></li>
+<li><a href='http://metaoptimize.com/blog/2010/02/' title='February 2010'>February 2010</a></li>
+<li><a href='http://metaoptimize.com/blog/2009/12/' title='December 2009'>December 2009</a></li>
+<li><a href='http://metaoptimize.com/blog/2009/10/' title='October 2009'>October 2009</a></li>
+<li><a href='http://metaoptimize.com/blog/2009/09/' title='September 2009'>September 2009</a></li>
+<li><a href='http://metaoptimize.com/blog/2009/03/' title='March 2009'>March 2009</a></li>
+</ul>
+</li>
+</ul>
+</div> 
+<div id="ternary" class="footer">
+<ul class="xoxo">
+<li id="search">
+<h3><label for="s">Search</label></h3>
+<form id="searchform" class="blog-search" method="get" action="http://metaoptimize.com/blog">
+<div>
+<input id="s" name="s" type="text" class="text" value="" size="10" tabindex="1"/>
+<input type="submit" class="button" value="Find" tabindex="2"/>
+</div>
+</form>
+</li>
+<li id="linkcat-2" class="linkcat"><h3>Blogroll</h3>
+<ul class='xoxo blogroll'>
+<li><a href="http://anyall.org/blog/" target="" onclick="javascript:_gaq.push(['_trackEvent','outbound-blogroll','http://anyall.org/blog/']);">Brendan O&#8217;Connor</a></li>
+<li><a href="http://nlpers.blogspot.com/" target="" onclick="javascript:_gaq.push(['_trackEvent','outbound-blogroll','http://nlpers.blogspot.com/']);">Hal Daumé III (NLP)</a></li>
+<li><a href="http://hunch.net/" target="" onclick="javascript:_gaq.push(['_trackEvent','outbound-blogroll','http://hunch.net/']);">John Langford (ml)</a></li>
+<li><a href="http://lingpipe-blog.com/" target="" onclick="javascript:_gaq.push(['_trackEvent','outbound-blogroll','http://lingpipe-blog.com/']);">LingPipe blog</a></li>
+</ul>
+</li>
+<li id="rss-links">
+<h3>RSS Feeds</h3>
+<ul>
+<li><a href="http://metaoptimize.com/blog/feed/" title="MetaOptimize latest posts" rel="alternate" type="application/rss+xml">All posts</a></li>
+<li><a href="http://metaoptimize.disqus.com/latest.rss" title="MetaOptimize latest comments" rel="alternate" type="application/rss+xml">All comments</a></li>
+</ul>
+</li>
+<li id="meta">
+<h3>Meta</h3>
+<ul>
+<li><a href="http://metaoptimize.com/blog/wp-login.php">Log in</a></li>
+</ul>
+</li>
+</ul>
+</div> 
+<div id="footer">
+<span id="generator-link"><a href="http://wordpress.org/" title="WordPress" rel="generator">WordPress</a></span>
+<span class="meta-sep">|</span>
+<span id="theme-link"><a href="http://somadesign.ca/" title="The Erudite theme for WordPress" rel="designer nofollow">The Erudite</a></span>
+</div> 
+</div> 
+</div> 
+</div> 
+<script type='text/javascript' src='http://metaoptimize.com/blog/wp-content/themes/the-obscurantist/js/jquery.scrollTo-min.js?ver=1.4.2'></script>
+<script type='text/javascript' src='http://metaoptimize.com/blog/wp-content/themes/the-obscurantist/js/common.js?ver=2.7.1'></script>
+ <script src="http://stats.wordpress.com/e-201128.js" type="text/javascript"></script>
+<script type="text/javascript">
+st_go({blog:'6806063',v:'ext',post:'183'});
+var load_cmc = function(){linktracker_init(6806063,183,2);};
+if ( typeof addLoadEvent != 'undefined' ) addLoadEvent(load_cmc);
+else load_cmc();
+</script>
+<script type="text/javascript">
+/* <![CDATA[ */
+(function(){try{var s,a,i,j,r,c,l=document.getElementsByTagName("a"),t=document.createElement("textarea");for(i=0;l.length-i;i++){try{a=l[i].getAttribute("href");if(a&&"www.cloudflare.com/email-protection"==a.substr(7 ,35)){s='';j=43;r=parseInt(a.substr(j,2),16);for(j+=2;a.length-j&&a.substr(j,1)!='X';j+=2){c=parseInt(a.substr(j,2),16)^r;s+=String.fromCharCode(c);}j+=1;s+=a.substr(j,a.length-j);t.innerHTML=s.replace(/</g,"&lt;").replace(/>/g,"&gt;");l[i].setAttribute("href","mailto:"+t.value);}}catch(e){}}}catch(e){}})();
+/* ]]> */
+</script>
+</body>
+</html>
+ 
+ 
+ 

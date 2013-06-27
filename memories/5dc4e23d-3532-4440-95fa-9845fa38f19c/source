@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><title>pbrisbin - mutt_gmail_offlineimap</title><meta name="description" content="pbrisbin dot com"><meta name="author" content="Patrick Brisbin"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="author" href="https://plus.google.com/103657657323567990861/posts" /><link href="http://pbrisbin.com/feed" type="application/rss+xml" rel="alternate" title="rss feed">
+<meta name="keywords" content="patrick brisbin, pbrisbin, brisbin, linux, gmail, mutt">
+<link rel="stylesheet" href="http://pbrisbin.com/static/css/bootstrap.min.css?etag=QIInHH-H"><link rel="stylesheet" href="http://pbrisbin.com/static/css/bootstrap-responsive.min.css?etag=-ImtsIhh"><link rel="stylesheet" href="http://pbrisbin.com/static/tmp/rU14FmXl.css"><script>var _gaq = _gaq || [];_gaq.push(['_setAccount', 'UA-22304237-1']);_gaq.push(['_trackPageview']);(function() {var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);})();</script></head><body><div class="container"><ul class="breadcrumb"><li><a href="http://pbrisbin.com/">home</a> <span class="divider">/</span> </li><li><a href="http://pbrisbin.com/archives">archives</a> <span class="divider">/</span> </li><li class="active">mutt gmail offlineimap</li></ul><div class="btn-group login-controls"><a class="btn" href="http://pbrisbin.com/auth/login">login</a></div><div class="page-header"><h1>Mutt + Gmail + Offlineimap</h1></div><section class="content"><p>Most people use Gmail. Some people like CLI mail clients. This post describes how I use Gmail in the best CLI mail client, mutt. Many people will back me up when I say it’s a very good setup.</p><p>This post shares a lot of information with my second mutt post regarding <a href="/posts/two_accounts_in_mutt">multiple accounts</a>. If that’s something you’re planning on setting up, you can skip this tutorial as it’s a subset of the information there.</p><p>My full, working setup can always be found in my <a href="https://github.com/pbrisbin/mutt-config">mutt-config repo</a>.</p><h2 id="offlineimap">Offlineimap</h2><p>Step one is to setup Offlineimap to keep <code>~/Mail</code> in sync with Gmail. This is a two way sync so anything moved, deleted, or sent from any IMAP-connected interface or our local mutt interface will act exactly the same. This also has the added benefit of storing offline, local copies of all your mails.</p><p>First, install Offlineimap and fill in an <code>~/.offlineimaprc</code> like so:</p><pre class="sourceCode python"><code class="sourceCode python">[general]
+ui = ttyui
+accounts = Gmail
+
+[Account Gmail]
+localrepository = Gmail-Local
+remoterepository = Gmail-Remote
+
+[Repository Gmail-Local]
+<span class="dt">type</span> = Maildir
+localfolders = ~/Mail/Gmail
+
+[Repository Gmail-Remote]
+<span class="dt">type</span> = Gmail
+remoteuser = you@gmail.com
+remotepass = secret
+realdelete = no
+maxconnections = <span class="dv">3</span>
+
+<span class="co"># newer offlineimap needs this</span>
+cert_fingerprint = f3043dd689a2e7dddfbef82703a6c65ea9b634c1</code></pre><p>Test that this works by running <code>offlineimap -o</code>. Your first sync could take some time, but once done, you should see the folders under <code>~/Mail/Gmail</code> with the proper structure.</p><p>Offlineimap is kind of buggy for me; if I use its built-in refresh mechanism, I find it’ll often hang or quit and I’ll be left with an unsynced mailbox. Therefore, I choose to set offlineimap to never refresh and put a [re]start script in a cronjob to take care of it.</p><p>Once you’re sure things are syncing fine, set up a cron job to run a script called <code>mailrun.sh</code> every 3 minutes:</p><pre><code>crontab -e
+
+# add this:
+*/3 * * * * /path/to/mailrun.sh</code></pre><p>Then create that script with these contents:</p><pre class="sourceCode bash"><code class="sourceCode bash"><span class="co">#!/bin/bash</span>
+<span class="kw">read</span> -r <span class="ot">pid</span> <span class="kw">&lt;</span> <span class="kw">~/.offlineimap/pid</span>
+
+<span class="kw">if</span> <span class="kw">ps</span> <span class="ot">$pid</span> <span class="kw">&amp;&gt;</span>/dev/null<span class="kw">;</span> <span class="kw">then</span>
+  <span class="kw">echo</span> <span class="st">&quot;offlineimap (</span><span class="ot">$pid</span><span class="st">): another instance running.&quot;</span> <span class="kw">&gt;&amp;2</span>
+  <span class="kw">kill</span> -9 <span class="ot">$pid</span>
+<span class="kw">fi</span>
+
+<span class="kw">offlineimap</span> -o -u quiet <span class="kw">&amp;</span></code></pre><p>And make it executable via <code>chmod +x /path/to/mailrun.sh</code></p><div class="note">You may have to restart cron for these changes to take affect.</div>
+<h2 id="msmtp">Msmtp</h2><p>Now we need a way to send mails. I like msmtp, you can also use other smtp clients. If you choose to install msmtp, the config file is at <code>~/.msmtprc</code> and should look like this:</p><pre><code>account default 
+host smtp.gmail.com
+port 587
+protocol smtp
+auth on
+from user@gmail.com
+user user@gmail.com
+password secret
+tls on
+tls_nocertcheck</code></pre><p>You can test this by executing <code>echo &quot;a test message&quot; | msmtp you@gmail.com</code>.</p><h2 id="mutt">Mutt</h2><p>Now the fun part! I don’t know how many hours I’ve spent in the past year fine tuning my muttrc, but it’ll never be done. Here are the parts required to get this setup working.</p><pre><code>set mbox_type   = Maildir
+set sendmail    = /usr/bin/msmtp
+
+set folder      = ~/Mail
+set spoolfile   = &quot;+INBOX&quot;
+set mbox        = &quot;+[Gmail]/All Mail&quot;
+set postponed   = &quot;+[Gmail]/Drafts&quot;
+unset record
+
+mailboxes +INBOX
+
+macro index D \
+    &quot;&lt;save-message&gt;+[Gmail]/Trash&lt;enter&gt;&quot; \
+    &quot;move message to the trash&quot;
+
+macro index S \
+    &quot;&lt;save-message&gt;+[Gmail]/Spam&lt;enter&gt;&quot; \
+    &quot;mark message as spam&quot;</code></pre><p>The above should be enough to get a connection and start sending/receiving mail, but here are some other must-have options that make it feel a bit more like gmail:</p><pre><code># main options
+set realname   = &quot;Real Name&quot;
+set from       = &quot;user@gmail.com&quot;
+set mail_check = 0
+set envelope_from
+
+unset move           # gmail does that
+set delete           # don't ask, just do
+unset confirmappend  # don't ask, just do!
+set quit             # don't ask, just do!!
+unset mark_old       # read/new is good enough for me
+
+# sort/threading
+set sort     = threads
+set sort_aux = reverse-last-date-received
+set sort_re
+
+# look and feel
+set pager_index_lines = 8
+set pager_context     = 5
+set pager_stop
+set menu_scroll
+set smart_wrap
+set tilde
+unset markers
+
+# composing 
+set fcc_attach
+unset mime_forward
+set forward_format = &quot;Fwd: %s&quot;
+set include
+set forward_quote
+
+ignore *                               # first, ignore all headers
+unignore from: to: cc: date: subject:  # then, show only these
+hdr_order from: to: cc: date: subject: # and in this order</code></pre><p>I’ve left out quite a few tweaks in the above so that those who are happy with mutt’s <em>very sane</em> defaults aren’t overwhelmed. Keep in mind, <code>man muttrc</code> is a great command for when you’re bored.</p><p>That should do it. Hopefully this info will get you going in the right direction.</p><small>published on Dec  5, 2009, tagged with <a title="linux" href="http://pbrisbin.com/tags/linux">linux</a>, <a title="gmail" href="http://pbrisbin.com/tags/gmail">gmail</a>, <a title="mutt" href="http://pbrisbin.com/tags/mutt">mutt</a></small></section><section><h2>Comments</h2><div class="yesod_comments"><div class="list"><h4>5 comments:</h4>
+<div class="comment "><div class="attribution"><p><span class="avatar"><img src="http://www.gravatar.com/avatar/b17a01106f31973c290fe34e4d018135?s=20&amp;d=mm">
+</span>
+<a href="#comment_1" id="comment_1">on Dec 30, 2011</a>
+, howardshippin wrote:</p>
+</div>
+<div class="content"><blockquote><p>I read in https://wiki.archlinux.org/index.php/OfflineIMAP#Gmail_configuration : “Note: after version 6.3.5, offlineimap also creates remote folders to match your local ones. Thus you may need a nametrans rule for your local repository too that reverses the effects of this nametrans rule.” Not knowing how to play with nametrans syntax, and having read of bugs, I’ve been trying to use the native Gmail folder names - so far without success. Could you comment on either of these issues please</p></blockquote>
+</div>
+</div>
+<div class="comment "><div class="attribution"><p><span class="avatar"><img src="http://www.gravatar.com/avatar/b17a01106f31973c290fe34e4d018135?s=20&amp;d=mm">
+</span>
+<a href="#comment_2" id="comment_2">on Dec 30, 2011</a>
+, howardshippin wrote:</p>
+</div>
+<div class="content"><blockquote><ul><li>ok seem to have got the native Gmail folder names working.</li></ul></blockquote>
+</div>
+</div>
+<div class="comment "><div class="attribution"><p><span class="avatar"><img src="http://www.gravatar.com/avatar/2be502055b6c21ff470730beead2a998?s=20&amp;d=mm">
+</span>
+<a href="#comment_3" id="comment_3">on Jan  5, 2012</a>
+, pbrisbin wrote:</p>
+</div>
+<div class="content"><blockquote><p>You know, it’s funny, someone came to me in IRC b/c they were getting errors using my nametrans.</p><p>Offlineimap was talking about some sort of cyclical dependency. He stated that copying the nametrans into both the Local and Remote blocks solved it for him (as the error instructed him to do so). I’m not sure how this works since your quote says the Local nametrans should “reverse” the Remote one so things stay in sync whereas what he had done would make the same translation twice (and, in that specific case, have no effect the second time).</p><p>During trouble shooting, I noticed that under his Mail directory he had folders of both the original and translated names (as well as a few mash-up versions too). I cited that as the likely culprit and suggested a cleanup – I haven’t heard back.</p><p>All I know is the following:</p><p>I’m using the latest version, (only) the nametrans listed in this post, and everything is working fine. I get no errors, and I have no extra folders created on the Remote side to match the differently-named version I keep locally. Offlineimap seems to deal with it sanely (which I would expect).</p><p>Perhaps if I were to all-of-a-sudden drop a new folder locally, and it was named in a way that my nametrans would have an effect, Offlineimap would push it up to the remote but then try to sync to a translated local version thus leaving that folder as extra (requiring an upload) and causing an infinite loop.</p><p>So, by keeping my local versions in accordance with the nametrans or by not adding ad-hoc local folders, I avoid the issue.</p></blockquote>
+</div>
+</div>
+<div class="comment "><div class="attribution"><p><span class="avatar"><img src="http://www.gravatar.com/avatar/a31433021d95b8f8fd0a8b85c07941d8?s=20&amp;d=mm">
+</span>
+<a href="#comment_4" id="comment_4">on Jul 20</a>
+, kim.callis wrote:</p>
+</div>
+<div class="content"><blockquote><p>Ok, this is driving me nuts. I have finally switched back to using mutt everyday. Again, I fell back to using your configuration and once upon a time it work flawlessly. I am having two issues this time around! One is that offlineimap, does initially start unless I actually fat finger start runmail.sh. I have runmail.sh in cron, but absolutely nothing unless I start it. Once it is started, it pulls down the mail once, then nothing. Even if I restart runmail.sh, it doesn’t pull down any other mail. Secondly, when I try to send a message, and let it go out with msmtp, it seems like everything is good to go, but when I check for the message (a test message sent my gmail account), it never arrives. As I said, I am using your configuration almost to the letter, and it is failing. Any pointer would be greatly appreciated!</p></blockquote>
+</div>
+</div>
+<div class="comment "><div class="attribution"><p><span class="avatar"><img src="http://www.gravatar.com/avatar/2be502055b6c21ff470730beead2a998?s=20&amp;d=mm">
+</span>
+<a href="#comment_5" id="comment_5">on Jul 23</a>
+, pbrisbin wrote:</p>
+</div>
+<div class="content"><blockquote><p>Hi Kim,</p><p>First of all, make sure that the following things work on their own:</p><pre><code>offlineimap -o</code></pre><p>Try it a few times, see if you can get any sort of error message.</p><pre><code>echo a test message | \
+    msmtp -- you@whatever.com</code></pre><p>See if you get an error or the message does/does not arrive.</p><p>Now, if the <code>offlineimap</code> command works consistently, then you’ve got an issue in <code>runmail.sh</code> or your <code>cron</code> setup. If it does not work, you should have an error you can report back to me and we can go from there.</p><p>If <code>msmtp</code> command works then you’ve got an issue in your <code>muttrc</code> where you’re defining the <code>sendmail</code> option. Similarly, if it does not work, you should have an error you can report back, or at least we know then the issue is your <code>msmtprc</code>.</p><p>While you’re at it, if you want, please post your configs somewhere so I can take a look.</p><p>Good luck, and let me know.</p></blockquote>
+</div>
+</div>
+</div>
+
+<h4>Please <a href="http://pbrisbin.com/auth/login">log in</a>
+ to post a comment.</h4>
+</div>
+</section><section><p><span class="left">&larr; <a title="Display Manager" href="http://pbrisbin.com/posts/display_manager">Display Manager</a></span><span class="right"><a title="Status Bars in XMonad" href="http://pbrisbin.com/posts/xmonad_statusbars">Status Bars in XMonad</a> &rarr;</span></p></section><script src="http://pbrisbin.com/static/js/jquery.min.js?etag=3bhMFYco"></script><script src="http://pbrisbin.com/static/js/bootstrap.min.js?etag=1wCpMzcS"></script><script src="http://pbrisbin.com/static/tmp/CrlJZ8IK.js"></script><footer><div class="row"><div class="span4"><ul><li>follow me on <a href="https://github.com/pbrisbin">github</a> and <a href="http://twitter.com/patbrisbin">twitter</a></li><li>subscribe to the <a href="http://pbrisbin.com/feed">feed</a></li><li>see <a href="http://pbrisbin.com/archives">archives</a> of all posts</li></ul></div><div class="span4"><ul><li><a href="https://aur.archlinux.org/packages.php?K=brisbin33&SeB=m">aur</a> packages</li><li><a href="http://docs.pbrisbin.com/haskell">haddocks</a> for my haskell projects</li><li><a href="http://docs.pbrisbin.com/ruby">rdocs</a> for my ruby projects</li></ul></div><div class="span4"><ul><li><a href="http://yesodweb.com">yesod</a> version 1.2.1</li><li><a href="http://twitter.github.com/bootstrap/">bootstrap</a> by twitter</li></ul></div></div><p>&copy; <a href="http://pbrisbin.com/">pbrisbin</a> dot com 2013. <a href="https://github.com/pbrisbin/devsite">source</a>.</p></footer></div></body></html>
