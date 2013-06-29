@@ -1,0 +1,454 @@
+<!-- Parent-Version: 1.52 -->
+
+<!-- This is the template document for GNU web pages.  We use
+     server side includes (#include) for common elements, for
+     instance, the very first line of the file.  If you're reading
+     this in its expanded form, you can retrieve the original source,
+     with the SSI statements intact, from
+     http://web.cvs.savannah.gnu.org/viewvc/*checkout*/www/server/standards/boilerplate.html?root=www&content-type=text%2Fplain
+-->
+
+<!-- 4. You can use the patch-from-parent script to semi-automate
+        merging future changes to the boilerplate with your file:
+        http://web.cvs.savannah.gnu.org/viewvc/*checkout*/www/server/standards/patch-from-parent?root=www&content-type=text%2Fplain
+-->
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+<!-- start of server/head-include-1.html -->
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rev="made" href="mailto:webmasters@gnu.org" />
+<link rel="icon" type="image/png" href="/graphics/gnu-head-mini.png" />
+<meta name="ICBM" content="42.355469,-71.058627" />
+<meta name="DC.title" content="gnu.org" />
+<!-- end of server/head-include-1.html -->
+
+<!-- end of server/header.html -->
+
+<title>GNU Make
+- GNU Project - Free Software Foundation</title>
+<!-- start of server/banner.html -->
+<!-- start of head-include-2.html -->
+
+<link rel="stylesheet" href="/combo.css" media="screen" />
+<link rel="stylesheet" href="/layout.css" media="screen" />
+
+<link rel="stylesheet" href="/mini.css" media="handheld" />
+
+<link rel="stylesheet" href="/print.css" media="print" />
+
+<!-- end of head-include-2.html -->
+
+</head>
+<body>
+<!-- start of server/body-include-1.html -->
+
+<div id="toplinks"><a href="#content">Skip to content</a> |
+<span class="netscape4">
+<a href="#navigation">Skip to navigation</a> |</span>
+<a href="/accessibility/">Accessibility</a></div>
+
+<!-- end of server/body-include-1.html -->
+
+
+<div id="null-wrapper">
+
+<!-- start of server/body-include-2 -->
+
+      <div id="header">
+        <div class="inner" style="position: relative;">
+
+        <h1 id="logo"><a href="/">The GNU Operating System</a></h1>
+
+
+
+	<div id="fssbox">
+<a href="http://www.defectivebydesign.org/no-drm-in-html5"><img src="//static.fsf.org/dbd/hollywebshare.jpeg" alt="Stop the Hollyweb! No DRM in HTML5." /></a> 
+
+	</div>
+	</div>
+      </div>
+
+<div id="navigation">
+ <div class="inner">
+
+  <div id="searcher">
+   <form method="get" action="http://www.gnu.org/cgi-bin/estseek.cgi">
+    <div><label class="netscape4" for="phrase">Search:</label>
+    <input name="phrase" id="phrase" type="text" size="18" accesskey="s"
+           value="Why GNU/Linux?" onfocus="this.value=''" />
+    <input type="submit" value="Search" /></div><!-- unnamed label -->
+   </form>
+  </div><!-- /searcher -->
+
+  <ul>
+   <li id="tabAboutGNU"><a href="/gnu/gnu.html">About GNU</a></li>
+   <li id="tabPhilosophy"><a href=
+                           "/philosophy/philosophy.html">Philosophy</a></li>
+   <li id="tabLicenses"><a href="/licenses/licenses.html">Licenses</a></li>
+   <li id="tabEducation"><a href="/education/education.html">Education</a></li>
+   <li id="tabSoftware"><a href="/software/software.html">Software</a></li>
+   <li id="tabDoc"><a href="/doc/doc.html">Documentation</a></li>
+   <li id="tabHelp"><a href="/help/help.html">Help&nbsp;GNU</a></li>
+  </ul>
+
+ </div><!-- /inner -->
+</div><!--  /navigation -->
+
+<!-- end of server/body-include-2 -->
+
+
+<div id="content" class="inner">
+<!-- end of server/banner.html -->
+
+<h2>GNU Make</h2>
+
+<p>Make is a tool which controls the generation of executables and other
+non-source files of a program from the program's source files. </p>
+
+<p>Make gets its knowledge of how to build your program from a file
+called the <i>makefile</i>, which lists each of the non-source files
+and how to compute it from other files.  When you write a program, you
+should write a makefile for it, so that it is possible to use Make to
+build and install the program.</p>
+
+<h4>Capabilities of Make</h4>
+
+<ul>
+
+<li>Make enables the end user to build and install your package
+without knowing the details of how that is done -- because these
+details are recorded in the makefile that you supply. </li>
+
+<li>Make figures out automatically which files it needs to update,
+based on which source files have changed.  It also automatically
+determines the proper order for updating files, in case one non-source
+file depends on another non-source file.
+
+<p>As a result, if you change a few source files and then run Make, it
+does not need to recompile all of your program.  It updates only those
+non-source files that depend directly or indirectly on the source
+files that you changed. </p> </li>
+
+<li>Make is not limited to any particular language.  For each
+non-source file in the program, the makefile specifies the shell
+commands to compute it.  These shell commands can run a compiler to
+produce an object file, the linker to produce an executable,
+<code>ar</code> to update a library, or TeX or Makeinfo to format
+documentation. </li>
+
+<li>Make is not limited to building a package.  You can also use Make
+to control installing or deinstalling a package, generate tags tables for
+it, or anything else you want to do often enough to make it worth
+while writing down how to do it. </li>
+
+</ul>
+
+<h4>Make Rules and Targets</h4>
+
+<p>A <i>rule</i> in the makefile tells Make how to execute a series of
+commands in order to build a <i>target</i> file from source files.
+It also specifies a list of <i>dependencies</i> of the target file.
+This list should include all files (whether source files or other targets)
+which are used as inputs to the commands in the rule. </p>
+
+<p>Here is what a simple rule looks like: </p>
+
+<pre>
+target:   dependencies ...
+          commands
+          ...
+</pre>
+
+<p>When you run Make, you can specify particular targets to update;
+otherwise, Make updates the first target listed in the makefile.  Of
+course, any other target files needed as input for generating these
+targets must be updated first. </p>
+
+<p>Make uses the makefile to figure out which target files ought to be
+brought up to date, and then determines which of them actually need to
+be updated.  If a target file is newer than all of its dependencies,
+then it is already up to date, and it does not need to be regenerated.
+The other target files do need to be updated, but in the right order:
+each target file must be regenerated before it is used in regenerating
+other targets. </p>
+
+<h4>Advantages of GNU Make</h4>
+
+<p>GNU Make has many powerful features for use in makefiles, beyond what
+other Make versions have.  It can also regenerate, use, and then delete
+intermediate files which need not be saved. </p>
+
+<p>GNU Make also has a few simple features that are very convenient.  For
+example, the <code>-o <i>file</i></code> option which says ``pretend that
+source file <i>file</i> has not changed, even though it has changed.''
+This is extremely useful when you add a new macro to a header file.
+Most versions of Make will assume they must therefore recompile all the
+source files that use the header file; but GNU Make gives you a way to
+avoid the recompilation, in the case where you know your change to the
+header file does not require it. </p>
+
+<p>However, the most important difference between GNU Make and most
+versions of Make is that GNU Make is free software. </p>
+
+<h4>Makefiles And Conventions</h4>
+
+<p>We have developed conventions for how to write Makefiles, which all
+GNU packages ought to follow.  It is a good idea to follow these
+conventions in your program even if you don't intend it to be GNU
+software, so that users will be able to build your package just
+like many other packages, and will not need to learn anything special
+before doing so. </p>
+
+<p>These conventions are found in the chapter
+<a href="/prep/standards/html_node/Makefile-Conventions.html#Makefile-Conventions">``Makefile conventions'' (147 k
+characters)</a> of the <a href="/prep/standards.html">GNU Coding
+Standards (147 k characters)</a>. </p>
+
+<h3>Downloading
+  GNU Make</h3>
+
+<p>GNU Make
+can be found on the main GNU ftp server:
+<a href="http://ftp.gnu.org/gnu/make/">http://ftp.gnu.org/gnu/make/</a>
+(via HTTP) and
+<a href="ftp://ftp.gnu.org/gnu/make/">ftp://ftp.gnu.org/gnu/make/</a>
+(via FTP).  It can also be found
+on the <a href="/prep/ftp.html">GNU mirrors</a>;
+please
+<a href="http://ftpmirror.gnu.org/make/">use
+a mirror</a> if possible.</p>
+
+
+<h3>Documentation</h3>
+
+<p><a href="manual/">Documentation for
+Make</a>
+is available online, as
+is <a href="/manual/">documentation for most GNU software</a>.  You may
+also find more information about
+Make
+by running
+<em>info&nbsp;make</em>
+or
+<em>man&nbsp;make</em>,
+or by looking at
+<em>/usr/doc/make/</em>,
+<em>/usr/local/doc/make/</em>,
+or similar directories on your system.  A brief summary is available by
+running <tt>make&nbsp;--help</tt>.</p>
+
+
+<h3>Mailing lists</h3>
+
+<p>Make
+has two mailing lists:
+<a href="mailto:bug-make@gnu.org">&lt;bug-make@gnu.org&gt;</a> and
+<a href="mailto:help-make@gnu.org">&lt;help-make@gnu.org&gt;</a>.</p>
+
+<p>The main discussion list is
+<a href="mailto:bug-make@gnu.org">&lt;bug-make@gnu.org&gt;</a>,
+and is used to discuss most aspects of
+Make,
+including development and
+enhancement requests, as well as bug reports.</p>
+
+<p>There is a separate list for general user help and discussion,
+<a href="mailto:help-make@gnu.org">&lt;help-make@gnu.org&gt;</a>.</p>
+
+<p>GNU Make has been ported to a great many systems.  One that poses unique
+challenges is Microsoft DOS and Windows platforms; because of that there
+is a GNU Make mailing list dedicated specifically to users of those
+platforms: <a href="mailto:make-w32@gnu.org">&lt;make-w32@gnu.org&gt;</a>.</p>
+
+<p>Announcements about
+Make
+and most other GNU software are made on
+<a href="mailto:info-gnu@gnu.org">&lt;info-gnu@gnu.org&gt;</a>.</p>
+
+<p>To subscribe to these or any GNU mailing lists, please send an empty
+mail with a Subject: header of just <tt>subscribe</tt> to the relevant
+-request list.  For example, to subscribe yourself to the GNU
+announcement list, you would send mail to <a
+href="mailto:info-gnu-request@gnu.org?Subject=subscribe"
+>&lt;info-gnu-request@gnu.org&gt;</a>.
+Or you can use the <a
+href="http://lists.gnu.org/mailman/listinfo/info-gnu">mailing list web
+interface</a>.</p>
+
+
+<h3>Getting involved</h3>
+
+<p>Development of
+Make,
+and GNU in general, is a volunteer effort, and you can contribute.  For
+information, please read <a href="/help/">How to help GNU</a>.  If you'd
+like to get involved, it's a good idea to join the discussion mailing
+list (see above).</p>
+
+
+<dl>
+<dt>Test releases</dt>
+
+<dd>Trying the latest test release (when available) is always
+appreciated.  Test releases of
+Make
+can be found at
+<a href="http://alpha.gnu.org/gnu/make/">http://alpha.gnu.org/gnu/make/</a>
+(via HTTP) and
+<a href="ftp://alpha.gnu.org/gnu/make/">ftp://alpha.gnu.org/gnu/make/</a>
+(via FTP).</dd>
+
+
+<dt>Development</dt>
+
+<dd>For development sources, bug and patch trackers, and other
+information, please see the
+<a href="http://savannah.gnu.org/projects/make/">Make
+project page</a>
+at <a href="http://savannah.gnu.org">savannah.gnu.org</a>.</dd>
+
+
+<dt>Translating
+  Make</dt>
+
+<dd>To translate
+Make's
+messages into other languages, please see the <a
+href="http://translationproject.org/domain/make.html">Translation Project
+page for
+Make</a>.
+If you have a new translation of the message strings,
+or updates to the existing strings, please have the changes made in this
+repository.  Only translations from this site will be incorporated into
+Make.
+For more information, see the <a
+href="http://translationproject.org/html/welcome.html">Translation
+Project</a>.</dd>
+
+
+<dt>Maintainer</dt>
+
+<dd>GNU Make was written by Richard Stallman and Roland McGrath.  It has
+been maintained and updated by Paul Smith since version 3.76 (1997).
+Please use the mailing lists for contact.</dd>
+
+
+</dl>
+
+
+<h3>Licensing</h3>
+
+<p>Make
+is free software; you can redistribute it and/or modify it under the
+terms of the <a href="http://www.gnu.org/licenses/gpl.html"
+rel="license">GNU General Public License</a> as published by the Free
+Software Foundation; either version&nbsp;3 of the License, or (at your
+option) any later version.</p>
+
+
+<!-- If needed, change the copyright block at the bottom. In general,
+     all pages on the GNU web server should have the section about
+     verbatim copying.  Please do NOT remove this without talking
+     with the webmasters first.
+     Please make sure the copyright date is consistent with the document
+     and that it is like this: "2001, 2002", not this: "2001-2002". -->
+</div><!-- for id="content", starts in the include above -->
+
+              <!-- begin server/footer-text.html -->
+<div class="inner">
+    
+<div class="yui-g" id="fsf-links">
+	<ul>
+		<li><a href="/">GNU&nbsp;home&nbsp;page</a></li>
+		<li><a href="http://www.fsf.org/">FSF&nbsp;home&nbsp;page</a></li>
+		<li><a href="/graphics/graphics.html">GNU&nbsp;Art</a></li>
+		<li><a href="/fun/fun.html">GNU&nbsp;Fun</a></li>
+		<li><a href="/people/people.html">GNU's&nbsp;Who?</a></li>
+		<li><a href="http://directory.fsf.org">Free&nbsp;Software&nbsp;Directory</a></li>
+		<li><a href="/server/sitemap.html">Site&nbsp;map</a></li>
+	</ul>
+</div>
+
+<div class="yui-g" id="mission-statement">
+
+<p><small>The <a href="http://www.fsf.org">Free Software
+Foundation</a> is the principal organizational sponsor of the <a
+href="http://www.gnu.org/">GNU Operating System</a>. <strong>Our
+mission is to preserve, protect and promote the freedom to use, study,
+copy, modify, and redistribute computer software, and to defend the
+rights of Free Software users.</strong> Support GNU and the FSF by <a
+href="http://shop.fsf.org/">buying manuals and gear</a>, <a
+href="http://www.fsf.org/join">joining the FSF as an associate
+member</a> or by making a
+donation, either <a href="http://donate.fsf.org/">directly to the FSF</a> 
+or <a href="http://flattr.com/thing/313733/gnuproject-on-Flattr">via Flattr</a>.</small></p>
+
+<p id="backtotop"><a href="#header">back to top</a></p>
+
+
+
+
+</div>
+
+
+</div>
+<!-- end server/footer-text.html -->
+
+
+<div id="footer">
+
+<p>Please send general FSF &amp; GNU inquiries to
+<a href="mailto:gnu@gnu.org">&lt;gnu@gnu.org&gt;</a>.
+There are also <a href="/contact/">other ways to contact</a>
+the FSF.<br />
+Please send broken links and other corrections or suggestions to
+<a href="mailto:bug-make@gnu.org">&lt;bug-make@gnu.org&gt;</a>.</p>
+
+<p>Please see the <a
+href="/server/standards/README.translations.html">Translations
+README</a> for information on coordinating and submitting translations
+of this article.</p>
+
+<p>Copyright &copy; 1997, 1998, 1999, 2000, 2001, 2002, 2003, 2004, 2006, 2010 Free Software Foundation, Inc.</p>
+
+<p>Verbatim copying and distribution of this entire article are
+permitted worldwide, without royalty, in any medium, provided this
+notice, and the copyright notice, are preserved.</p>
+
+<p>Updated:
+<!-- timestamp start -->
+$Date: 2010/07/03 18:28:15 $
+<!-- timestamp end -->
+</p>
+</div>
+
+<div id="translations">
+<h4>Translations of this page</h4>
+
+<!-- Please keep this list alphabetical by language code.
+     Comment what the language is for each type, i.e. de is German.
+     Write the language name in its own language (Deutsch) in the text.
+     If you add a new language here, please
+     advise web-translators@gnu.org and add it to
+      - /home/www/html/server/standards/README.translations.html
+      - one of the lists under the section "Translations Underway"
+      - if there is a translation team, you also have to add an alias
+      to mail.gnu.org:/com/mailer/aliases
+     Please also check you have the language code right; see:
+     http://www.loc.gov/standards/iso639-2/php/code_list.php
+     If the 2-letter ISO 639-1 code is not available,
+     use the 3-letter ISO 639-2.
+     Please use W3C normative character entities. -->
+
+<ul class="translations-list">
+<!-- English -->
+<li><a href="/server/standards/boilerplate.html">English</a>&nbsp;[en]</li>
+</ul>
+</div>
+</div>
+</body>
+</html>

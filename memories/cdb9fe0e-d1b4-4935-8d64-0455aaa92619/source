@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html dir='ltr' lang='en' prefix='og: http://ogp.me/ns#'>
+<head>
+<meta charset='UTF-8'>
+<meta content='text/html;charset=utf-8' http-equiv='content-type'>
+<meta content='IE=edge' http-equiv='X-UA-Compatible'>
+<meta content='width=device-width,initial-scale=1.0,user-scalable=no' name='viewport'>
+<meta content='Ariejan de Vroom' name='author'>
+<meta content='a blog by ariejan de vroom about software engineering and craftsmanship.' name='description'>
+<meta content='software engineering, programming, craftsmanship, devops, ruby, rubyonrails, rails, git, svn, postgres, postgresql, mysql, mac, ios, apple, web2.0, go, golang' name='keywords'>
+<meta content='3bgidck6YUMyx-kvL_a8E4ry0DJOAIOYaZkZxQ0kZw4' name='google-site-verification'>
+<link href='http://www.myopenid.com/server' rel='openid.server'>
+<link href='http://ariejan.myopenid.com/' rel='openid.delegate'>
+<link href='/images/favicon.ico' rel='shortcut icon' type='image/x-icon'>
+<link href='https://ariejan.net/rss.xml' rel='alternate' title='RSS' type='application/rss+xml'>
+<link href='/css/screen-cb9fe42d004.css' media='screen' rel='stylesheet' type='text/css'>
+<link href='//netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.css' rel='stylesheet' type='text/css'>
+<link href='//fonts.googleapis.com/css?family=Lato:900|PT+Sans:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+<title>How to create and apply a patch with Git — ariejan.net</title>
+</head>
+<body>
+<script>
+  (function(){
+    var bsa = document.createElement('script');
+       bsa.type = 'text/javascript';
+       bsa.async = true;
+       bsa.src = '//s3.buysellads.com/ac/bsa.js';
+    (document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(bsa);
+  })();
+</script>
+<header id='title'>
+<h1><a href="https://ariejan.net/">ariejan.net</a></h1>
+</header>
+<nav id='social'>
+<ol>
+<li><a href="https://github.com/ariejan"><i class='icon-github'></i></a></li>
+<li><a href="https://twitter.com/ariejan"><i class='icon-twitter'></i></a></li>
+<li><a href="http://www.linkedin.com/in/ariejan"><i class='icon-linkedin'></i></a></li>
+<li><a href="https://ariejan.net/rss.xml"><i class='icon-rss'></i></a></li>
+<li><a href="mailto:ariejan@ariejan.net"><i class='icon-envelope'></i></a></li>
+</ol>
+</nav>
+<nav id='primary'>
+<ol class='interal'>
+<li><a href="/">Home</a></li>
+<li><a href="/projects/">Projects</a></li>
+<li><a href="/craftsmanship/">Craftsmanship</a></li>
+<li><a href="/talks/">Talks</a></li>
+<li><a href="/about/">About</a></li>
+</ol>
+</nav>
+<div id='wrapper'>
+<section class='post'>
+<section id='main'>
+<div id='content'>
+<article class='post'>
+<h1>How to create and apply a patch with Git</h1>
+<p class='meta'>
+Written by <strong>Ariejan de Vroom</strong> on 26 October 2009.
+</p>
+<p>Git is quite common nowadays and a lot of people are asking me how they can create a patch file. Creating a patch file with git is quite easy to do, you just need to see how it’s done a few&nbsp;times.</p>
+
+<p>This article will show you how to create a patch from the last few commits in your repository. Next, I’ll also show you how you can correctly apply this patch to another&nbsp;repository.
+~
+<strong>Before you&nbsp;start</strong></p>
+
+<p>To make creating patches easier, there are some common git practices you should follow. It’s not necessary, but it will make your life&nbsp;easier.</p>
+
+<p>If you fix a bug or create a new feature – do it in a separate&nbsp;branch!</p>
+
+<p>Let’s say you want to create a patch for <a href="http://github.com/ariejan/imdb">my imdb gem</a>. You should clone my repository and create a new branch for the fix you have in mind. In this sample we’ll do an imaginary fix for empty&nbsp;posters.</p>
+
+<pre class="plaincode">git clone git://github.com/ariejan/imdb.git
+cd imdb
+git checkout -b fix_empty_poster
+</pre>
+
+<p>Now, in the new <code>fix_empty_poster</code> branch you can hack whatever you need to fix. Write tests, update code etc.&nbsp;etc.</p>
+
+<p>When you’re satisfied with all you changes, it’s time to create your patch. <span class="caps">FYI</span>: I’m assuming you made a few commits in the <code>fix_empty_poster</code> branch and did <em>not</em> yet merge it back in to the <code>master</code>&nbsp;branch.</p>
+
+<p><strong>Creating the&nbsp;patch</strong></p>
+
+<p>Okay, I’ve made some commits, here’s the <code>git log</code> for the <code>fix_empty_poster</code>&nbsp;branch:</p>
+
+<pre class="plaincode">git log --pretty=oneline -3
+* ce30d1f - (fix_empty_poster) Added poster URL as part of cli output (7 minutes ago)
+* 5998b80 - Added specs to test empty poster URL behaviour (12 minutes ago)
+* aecb8cb - (REL-0.5.0, origin/master, origin/HEAD, master) Prepare release 0.5.0 (4 months ago)
+</pre>
+
+<p>In GitX it would look like&nbsp;this:</p>
+
+<p><img src="http://assets.ariejan.net/wp-content/uploads/2009/10/imdb_fix_empty_poster_01.jpg" alt="imdb_fix_empty_poster_01" title="imdb_fix_empty_poster_01" width="397" height="53" class="aligncenter size-full wp-image-575"></p>
+
+<p>Okay, now it’s time to go and make a patch! All we really want are the two latest commits, stuff them in a file and send them to someone to apply them. But, since we created a separate branch, we don’t have to worry about commits at&nbsp;all!</p>
+
+<pre class="plaincode">git format-patch master --stdout &gt; fix_empty_poster.patch
+</pre>
+
+<p>This will create a new file <code>fix_empty_poster.patch</code> with all changes from the current (<code>fix_empty_poster</code>) against <code>master</code>. Normally, git would create a separate patch file for each commit, but that’s not what we want. All we need is a single patch&nbsp;file.</p>
+
+<p>Now, you have a patch for the fix you wrote. Send it to the maintainer of the project&nbsp;…</p>
+
+<p><strong>Applying the&nbsp;patch</strong></p>
+
+<p>… who will apply the patch you just sent! But, before you do that, there are some other steps you should&nbsp;take.</p>
+
+<p>First, take a look at what changes are in the patch. You can do this easily with&nbsp;<code>git apply</code></p>
+
+<pre class="plaincode">git apply --stat fix_empty_poster.patch
+</pre>
+
+<p>Note that this command does not apply the patch, but only shows you the stats about what it’ll do. After peeking into the patch file with your favorite editor, you can see what the actual changes&nbsp;are.</p>
+
+<p>Next, you’re interested in how troublesome the patch is going to be. Git allows you to test the patch before you actually apply&nbsp;it.</p>
+
+<pre class="plaincode">git apply --check fix_empty_poster.patch
+</pre>
+
+<p>If you don’t get any errors, the patch can be applied cleanly. Otherwise you may see what trouble you’ll run into. To apply the patch, I’ll use <code>git am</code> instead of <code>git apply</code>. The reason for this is that <code>git am</code> allows you to <em>sign off</em> an applied patch. This may be useful for later&nbsp;reference.</p>
+
+<pre class="plaincode">git am --signoff &lt; fix_empty_poster.patch
+Applying: Added specs to test empty poster URL behaviour
+Applying: Added poster URL as part of cli output
+</pre>
+
+<p>Okay, patches were applied cleanly and you’re master branch has been updated. Of course, run your tests again to make sure nothing got&nbsp;borked.</p>
+
+<p>In you git log, you’ll find that the commit messages contain a “Signed-off-by” tag. This tag will be read by Github and others to provide useful info about how the commit ended up in the&nbsp;code.</p>
+
+<p><img src="http://assets.ariejan.net/wp-content/uploads/2009/10/imdb_signed_off.jpg" alt="imdb_signed_off" title="imdb_signed_off" width="395" height="203" class="aligncenter size-full wp-image-578"></p>
+
+<p>That’s all&nbsp;folks!</p>
+
+<p><em>Are there any other git topics you’d like covered here? Please let me&nbsp;know!</em></p>
+</article>
+<section id='comments'>
+<div id='disqus_thread'></div>
+</section>
+<script>
+  var disqus_url = "http://ariejan.net/2009/10/26/how-to-create-and-apply-a-patch-with-git/";
+  (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//ariejannet.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+</div>
+</section>
+<section id='sidebar'>
+<aside class='adpack'>
+<div class='bsarocks bsap_a40a34b3f2d124df05e7c20ddaa79bd8' id='bsap_1287881'></div>
+<a href='http://adpacks.com' id='bsap_aplink'>via Ad Packs</a>
+</aside>
+</section>
+</section>
+
+</div>
+<footer>
+<div class='copyright'>
+<p>
+Copyright &copy; 1999 - 2013 Ariejan de Vroom
+</p>
+<ul class='tla'>
+<li>A message from the Dark Side:</li>
+<li><a href="http://www.rankexecutives.com/white-hat-seo">White Hat SEO</a></li>
+<li><a href="http://www.healthy-dietplans.com/coupons/medifast-promo-codes/">Medifast Coupon Code</a></li>
+</ul>
+</div>
+</footer>
+<script>
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-60089-16']);
+  _gaq.push(['_trackPageview']);
+  
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</body>
+</html>

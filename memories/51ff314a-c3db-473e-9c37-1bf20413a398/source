@@ -1,0 +1,1838 @@
+<!DOCTYPE html>
+<html>
+<head>
+        
+    <title>compiler - How did you learn the GNU make tools? - Stack Overflow</title>
+    <link rel="shortcut icon" href="http://cdn.sstatic.net/stackoverflow/img/favicon.ico">
+    <link rel="apple-touch-icon image_src" href="http://cdn.sstatic.net/stackoverflow/img/apple-touch-icon.png">
+    <link rel="search" type="application/opensearchdescription+xml" title="Stack Overflow" href="/opensearch.xml">
+    
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script type="text/javascript" src="http://cdn.sstatic.net/js/stub.js?v=70876234eee5"></script>
+    <link rel="stylesheet" type="text/css" href="http://cdn.sstatic.net/stackoverflow/all.css?v=74bfa90e1b62">
+    
+    <link rel="canonical" href="http://stackoverflow.com/questions/73799/how-did-you-learn-the-gnu-make-tools">
+    <link rel="alternate" type="application/atom+xml" title="Feed for question 'How did you learn the GNU make tools?'" href="/feeds/question/73799">
+    <script type="text/javascript">
+        
+        StackExchange.ready(function () {
+            StackExchange.using("postValidation", function () {
+                StackExchange.postValidation.initOnBlurAndSubmit($('#post-form'), 2, 'answer');
+            });
+
+            
+            StackExchange.question.init({showAnswerHelp:true,totalCommentCount:0,shownCommentCount:0,highlightColor:'#F4A83D',backgroundColor:'#FFF',questionId:73799});
+
+            styleCode();
+
+                StackExchange.realtime.subscribeToQuestion('1', '73799');
+            
+                
+        });
+    </script>
+
+
+    <script type="text/javascript">
+        StackExchange.init({"stackAuthUrl":"https://stackauth.com","serverTime":1372486017,"styleCode":true,"enableUserHovercards":true,"site":{"name":"Stack Overflow","description":"Q&A for professional and enthusiast programmers","isNoticesTabEnabled":true,"recaptchaPublicKey":"6LdchgIAAAAAAJwGpIzRQSOFaO0pU6s44Xt8aTwc","enableSocialMediaInSharePopup":true},"user":{"fkey":"ad60d875811d8951ea137ccfb08d670a","isAnonymous":true}});
+        StackExchange.using.setCacheBreakers({"js/prettify-full.js":"6c261bebf56a","js/moderator.js":"82e0bdb93733","js/full-anon.js":"761e0ff892e6","js/full.js":"96302e0b9d3d","js/wmd.js":"2f79c03846d5","js/third-party/jquery.autocomplete.min.js":"e5f01e97f7c3","js/mobile.js":"e8e23ad37820","js/help.js":"6e6623243cf6","js/tageditor.js":"450c9e8426fc","js/tageditornew.js":"b6c68ad4c7dd","js/inline-tag-editing.js":"8e84e8a137f7","js/revisions.js":"7273bb714bba","js/review.js":"aa4e9e92f60d","js/tagsuggestions.js":"aa48ef6154df","js/post-validation.js":"bb996020492a","js/explore-qlist.js":"1c5bbd79b562"});
+        
+    </script>
+    <script type="text/javascript">
+        StackExchange.using("gps", function() {
+             StackExchange.gps.init(true);
+        });
+    </script>
+    
+        <script type="text/javascript">
+            StackExchange.ready(function () {
+                $('#nav-tour').click(function () {
+                    StackExchange.using("gps", function() {
+                        StackExchange.gps.track("aboutpage.click", { aboutclick_location: "headermain" }, true);
+                    });
+                });
+            });
+        </script>
+</head>
+<body class="question-page">
+    <noscript><div id="noscript-padding"></div></noscript>
+    <div id="notify-container"></div>
+    <div id="overlay-header"></div>
+    <div id="custom-header"></div>
+
+    <div class="container">
+        <div id="header" class=headeranon>
+            <div id="portalLink">
+                <a class="genu" href="http://stackexchange.com" onclick="StackExchange.ready(function(){genuwine.click();});return false;">Stack Exchange</a>
+            </div>
+            <div id="topbar">
+                <div id="hlinks">
+                    
+<span id="hlinks-user"></span>
+<span id="hlinks-nav">                        <a href="/users/login?returnurl=%2fquestions%2f73799%2fhow-did-you-learn-the-gnu-make-tools">sign up</a>
+
+ <span class="lsep">|</span>
+                    <a href="/users/login?returnurl=%2fquestions%2f73799%2fhow-did-you-learn-the-gnu-make-tools">log in</a>
+
+ <span class="lsep">|</span>
+                    <a href="http://careers.stackoverflow.com">careers 2.0</a>
+
+ <span class="lsep">|</span>
+</span>
+<span id="hlinks-custom"></span>
+                </div>
+                <div id="hsearch">
+                    <form id="search" action="/search" method="get" autocomplete="off">
+                        <div>
+                            <input autocomplete="off" name="q" class="textbox" placeholder="search" tabindex="1" type="text" maxlength="240" size="28" value="">
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <br class="cbt">
+            <div id="hlogo">
+                <a href="/" >
+                    Stack Overflow
+                </a>
+            </div>
+            <div id="hmenus">
+                <div class="nav mainnavs mainnavsanon">
+                    <ul>
+                            <li class="youarehere"><a id="nav-questions" href="/questions">Questions</a></li>
+                            <li><a id="nav-tags" href="/tags">Tags</a></li>
+                            <li><a id="nav-tour" href="/about">Tour</a></li>
+                            <li><a id="nav-users" href="/users">Users</a></li>
+                    </ul>
+                </div>
+                <div class="nav askquestion">
+                    <ul>
+                        <li>
+                            <a id="nav-askquestion"  href="/questions/ask">Ask Question</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+
+
+
+        <div id="content">
+            
+
+<div itemscope itemtype="http://schema.org/Article">
+<link itemprop="image" href="http://cdn.sstatic.net/stackoverflow/img/apple-touch-icon.png">
+<!--googleoff: snippet-->
+<div id="herobox-mini">
+    <div id="hero-content">
+        <span id="controls">
+            <a href="/about" id="tell-me-more" class="button">Tell me more</a>
+            <span id="close"><a title="click to dismiss">&times;</a></span>
+        </span>
+        <div id="blurb">
+            <span id="site-name">Stack Overflow</span> is a question and answer site for 
+            professional and enthusiast programmers. It's 100% free, no registration required.
+        </div>        
+    </div>
+    <script>
+        $('#tell-me-more').click(function () {
+            var clickSource = $("body").attr("class") + '-mini';
+            if ($("body").hasClass("questions-page")) {
+                clickSource = 'questionpagemini';
+            }
+            if ($("body").hasClass("home-page")) {
+                clickSource = 'homepagemini';
+            }
+
+            StackExchange.using("gps", function () {
+                StackExchange.gps.track("aboutpage.click", { aboutclick_location: clickSource } , true);
+            });
+        });
+        $('#herobox-mini #close').click(function () {
+            StackExchange.using("gps", function () {
+                StackExchange.gps.track("hero.action", { hero_action_type: "close" }, true);
+            });
+            $.cookie("hero", "none", { path: "/" });
+            var $hero = $("#herobox-mini");
+            $hero.slideUp('fast', function () { $hero.remove(); });
+            return false;
+        });
+    </script>
+</div>
+<!--googleon: snippet-->
+<div id="question-header">
+    <h1 itemprop="name"><a href="/questions/73799/how-did-you-learn-the-gnu-make-tools" class="question-hyperlink">How did you learn the GNU make tools?</a></h1>
+</div>
+<div id="mainbar">
+
+
+
+<div class="question" data-questionid="73799"  id="question">
+    
+            <div class="everyonelovesstackoverflow" id="careers1">
+        </div>
+
+
+    <table>
+        <tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+    <input type="hidden" value="73799">
+    <a class="vote-up-off" title="This question shows research effort; it is useful and clear">up vote</a>
+    <span class="vote-count-post ">39</span>
+    <a class="vote-down-off" title="This question does not show any research effort; it is unclear or not useful">down vote</a>
+    
+    <a class="star-off" href="#" title="This is a favorite question (click again to undo)">favorite</a>
+    <div class="favoritecount"><b>36</b></div>   
+
+</div>
+
+            </td>
+            
+<td class="postcell">
+<div>
+    <div class="post-text" itemprop="description">
+        <p>I've been a professional web developer for about five years now, and have compiled many many things for servers. I've also written many simple C programs (one or two files).</p>
+
+<p>The main thing which has held me back from creating more complex applications is the fear of learning to the GNU build tools. The documentation is huge and a bit intimidating.</p>
+
+<p>Does anyone have a good resource to learn these?</p>
+
+    </div>
+    <div class="post-taglist">
+        <a href="/questions/tagged/compiler" class="post-tag" title="show questions tagged 'compiler'" rel="tag">compiler</a> <a href="/questions/tagged/build" class="post-tag" title="show questions tagged 'build'" rel="tag">build</a> <a href="/questions/tagged/make" class="post-tag" title="show questions tagged 'make'" rel="tag">make</a> <a href="/questions/tagged/gnu" class="post-tag" title="show questions tagged 'gnu'" rel="tag">gnu</a> 
+    </div>
+    <table class="fw">
+    <tr>
+    <td class="vt">
+
+
+
+
+
+
+
+
+
+
+<div class="post-menu"><a href="/q/73799" title="short permalink to this question" class="short-link" id="link-post-73799">share</a><span class="lsep">|</span><a href="/posts/73799/edit" class="suggest-edit-post" title="">improve this question</a></div>        
+    </td>
+    <td align="right" class="post-signature">
+
+
+    <div class="user-info ">
+        <div class="user-action-time">
+                            <a href="/posts/73799/revisions" title="show all edits to this post">edited <span title="2013-03-25 05:42:54Z" class="relativetime">Mar 25 at 5:42</span></a>
+
+        </div>
+        <div class="user-gravatar32">
+            <a href="/users/28324/mikez302"><div class=""><img src="https://www.gravatar.com/avatar/df93bdbaaf88550ea285080c3091a3c1?s=32&d=identicon&r=PG" alt="" width="32" height="32"></div></a>
+        </div>
+        <div class="user-details">
+            <a href="/users/28324/mikez302">mikez302</a><br>
+            <span class="reputation-score" title="reputation score" dir="ltr">6,830</span><span title="9 gold badges"><span class="badge1"></span><span class="badgecount">9</span></span><span title="37 silver badges"><span class="badge2"></span><span class="badgecount">37</span></span><span title="80 bronze badges"><span class="badge3"></span><span class="badgecount">80</span></span>
+        </div>
+    </div>
+    </td>
+    <td class="post-signature owner">
+        
+
+    <div class="user-info ">
+        <div class="user-action-time">
+                                    asked <span title="2008-09-16 15:48:33Z" class="relativetime">Sep 16 '08 at 15:48</span>
+        </div>
+        <div class="user-gravatar32">
+            <a href="/users/8325/mitchell"><div class=""><img src="https://www.gravatar.com/avatar/54079122b67de9677c1f93933ce8b63a?s=32&d=identicon&r=PG" alt="" width="32" height="32"></div></a>
+        </div>
+        <div class="user-details">
+            <a href="/users/8325/mitchell">Mitchell</a><br>
+            <span class="reputation-score" title="reputation score" dir="ltr">1,966</span><span title="15 silver badges"><span class="badge2"></span><span class="badgecount">15</span></span><span title="22 bronze badges"><span class="badge3"></span><span class="badgecount">22</span></span>
+        </div>
+    </div>
+
+    </td>
+    </tr>
+    </table>
+</div>
+</td>
+        </tr>
+
+
+<tr>
+<td class="votecell"></td>
+<td>
+    <div id="comments-73799" class="comments dno">
+        <table>
+        <tbody>
+        
+            <tr><td></td><td></td></tr>
+        
+        </tbody>
+    
+        </table>
+    </div>
+    
+</td>
+</tr>            </table>    
+</div>
+
+
+<div id="answers">
+
+    <a name="tab-top"></a>
+    <div id="answers-header">
+        <div class="subheader answers-subheader">
+            <h2>
+                    12 Answers
+            </h2>
+            <div id="tabs">
+                <a href="/questions/73799/how-did-you-learn-the-gnu-make-tools?answertab=active#tab-top" title="Answers with the latest activity first">active</a>
+<a href="/questions/73799/how-did-you-learn-the-gnu-make-tools?answertab=oldest#tab-top" title="Answers in the order they were provided">oldest</a>
+<a class="youarehere" href="/questions/73799/how-did-you-learn-the-gnu-make-tools?answertab=votes#tab-top" title="Answers with the highest score first">votes</a>
+
+            </div>
+        </div>    
+    </div>    
+
+
+
+
+  
+<a name="74650"></a>
+<div id="answer-74650" class="answer accepted-answer" data-answerid="74650" >
+    <table>
+        <tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+    <input type="hidden" value="74650">
+    <a class="vote-up-off" title="This answer is useful">up vote</a>
+    <span class="vote-count-post ">88</span>
+    <a class="vote-down-off" title="This answer is not useful">down vote</a>
+    
+
+            <span class="vote-accepted-on load-accepted-answer-date" title="loading when this answer was accepted...">accepted</span>
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text"><p>The first step is simply to realize there's nothing to fear.  While the documentation for make can be intimidating, it's all lots of cool features that you don't have to rely on.  A functional Makefile can be just a couple of lines long, or in simple cases, even a single line.  Once you've started writing simple ones, it becomes easier to slowly learn a feature at a time as they become useful.</p>
+
+<p>A basic makefile is just a set of rules.  Each rule has a name, a list of requirements that must be up to date as a prerequisite for the rule, and a set of commands to run for that rule.  When you run make, you can give it a list of rules to build as command line arguments.  If you don't give it any, it will build the "all" rule, if it exists.  A simple Makefile for a project with one C source file could be:</p>
+
+<pre><code>all:
+    gcc foo.c -o foo</code></pre>
+
+<p>(note that the indention is important, and it has to be a single tab character).  The file can be named anything you want, but by default make looks for a file named Makefile.  If you create a file by that name with the example contents, then run make in that directory, the gcc command in the file will be executed to build your program.  For even a simple program with a single source file, this already saves some typing when you compile.  If you have some extra compiler flags you always want to pass, now you only have to put them in the Makefile, not try to remember to add them every time you compile.</p>
+
+<p>For a slightly more complex example, let's try a project with two source files:</p>
+
+<pre><code>all:
+    gcc -c foo.c
+    gcc -c bar.c
+    gcc foo.o bar.o -o app</code></pre>
+
+<p>This will work just fine, but it has a few drawbacks.  As we start adding more source files, adding a gcc line for each one, plus adding each output object to the final line starts to feel clumsy.  Also, this recompiles every source file every time we build.  In a simple example, this probably isn't a big deal, but as things get larger, recompiling everything every time gets slow, and probably unnecessary.  If I've only edited foo.c since the last time I compiled, there's no need to recompile bar.c again; I just need to recompile foo.c then relink the object files.  This is where rule prerequisites come in handy.  Rather than compiling each source file in our rule, we can make a separate rule for each oject file, then tell the final rule that those object files are required:</p>
+
+<pre><code>foo.o:
+    gcc -c foo.c
+
+bar.o:
+    gcc -c bar.c
+
+all: foo.o bar.o
+    gcc foo.o bar.o -o app</code></pre>
+
+<p>We're half way there, but make will still recompile everything every time.  It has no way to know if foo.o and bar.o are up to date, so it will build them every time, before building the application in our all rule.  So we need to tell make what files foo.o and bar.o depend on:</p>
+
+<pre><code>foo.o: foo.c
+    gcc -c foo.c
+
+bar.o: bar.c
+    gcc -c bar.c
+
+all: foo.o bar.o
+    gcc foo.o bar.o -o app</code></pre>
+
+<p>Now make knows that foo.o depends on foo.c.  Since there isn't a rule for how to build foo.c, it assumes that's one of your source files.  Now, when you run make, and it sees that all requires foo.o, it will look at the timestamps on foo.o and foo.c.  If foo.c is not newer than foo.o, it knows that the source file hasn't changed, so it won't bother rebuilding foo.o.</p>
+
+<p>We're improving, but there are still a few things that could be better.  Right now we'll still link all the object files every time we run make, even if none of the object files were recompiled.  We also still have to type those redundant rules for every C file, and we have to list all our object files twice, once in the requirements for all, and once in the actual build line.  Typing the redundant rules turns out to be an easy fix.  It's so common to build a .o file from a .c file (or a number of other common source code extensions) that make already knows how to handle it.  So we can actually leave out the foo.o and bar.o rules.  If a rule requires foo.o, and you have a file named foo.c in that directory, make will figure out the rest.  We can also use variables to keep from having to retype things.  And making a rule for our executable, which all then requires, allows make to check if it needs to be rebuilt.  That gives us:</p>
+
+<pre><code>OBJS=foo.o bar.o
+
+app: $(OBJS)
+    gcc $(OBJS) -o app
+
+all: app</code></pre>
+
+<p>That will pretty much do what we want.  The only problem is that we no longer have a way to pass the flags we want to the compiler.  Also, make assumes we use the cc command to compile C files, but we want to use gcc.  No problem.  The built in rules for C files actually use two variables, CC and CFLAGS, for our compiler of choice and any options to pass to it.  We simply set those variables at the beginning of the file, and we're good to go:</p>
+
+<pre><code>CC=gcc
+CFLAGS=-Wall -g
+OBJS=foo.o bar.o
+
+app: $(OBJS)
+    $(CC) $(CFLAGS) $(OBJS) -o app
+
+all: app</code></pre>
+
+<p>And we have a nice Makefile.  When we run make, it builds our project.  It doesn't ever do any extra work.  When we add new source files to our project, we just have to add the name of the object file to one line in our Makefile, and it does the rest.</p>
+
+<p>Now, there's obviously a lot more to writing make files, and a lot more they can do, or the documentation wouldn't be so big.  But this is all it takes to write makefiles for simple projects, and you can then learn piecemeal from there, as you find yourself wanting new things.</p>
+</div>
+    <table class="fw">
+    <tr>
+    <td class="vt">
+
+
+
+
+
+
+
+
+
+
+<div class="post-menu"><a href="/a/74650" title="short permalink to this answer" class="short-link" id="link-post-74650">share</a><span class="lsep">|</span><a href="/posts/74650/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    
+
+    <div class="user-info ">
+        <div class="user-action-time">
+                                        answered <span title="2008-09-16 17:11:44Z" class="relativetime">Sep 16 '08 at 17:11</span>
+        </div>
+        <div class="user-gravatar32">
+            <a href="/users/12825/thomee"><div class=""><img src="https://www.gravatar.com/avatar/48494a6021693a761bf822e12bce36c3?s=32&d=identicon&r=PG" alt="" width="32" height="32"></div></a>
+        </div>
+        <div class="user-details">
+            <a href="/users/12825/thomee">Thomee</a><br>
+            <span class="reputation-score" title="reputation score" dir="ltr">1,586</span><span title="6 silver badges"><span class="badge2"></span><span class="badgecount">6</span></span><span title="9 bronze badges"><span class="badge3"></span><span class="badgecount">9</span></span>
+        </div>
+    </div>
+
+    </td>
+    </tr>
+    </table>
+</td>
+        </tr>
+
+
+
+<tr>
+<td class="votecell"></td>
+<td>
+    <div id="comments-74650" class="comments">
+        <table>
+        <tbody>
+                    
+    <tr id="comment-15006763" class="comment">
+        <td></td>
+        <td class="comment-text"><div><span class="comment-copy">This is one of the best answers I&#39;ve ever seen! I wish I could give you extra points for this.</span> &ndash;&nbsp;<a href="/users/62163/allyourcode" title="4320 reputation" class="comment-user">allyourcode</a> <span class="comment-date" dir="ltr"><span title="2012-07-08 18:02:19Z" class="relativetime-clean">Jul 8 '12 at 18:02</span></span></div></td>
+    </tr>
+
+        </tbody>
+    
+        </table>
+    </div>
+    
+</td>
+</tr>
+    </table>
+</div>
+        <div class="everyonelovesstackoverflow" id="careers3">
+        </div>
+
+
+
+  
+<a name="74861"></a>
+<div id="answer-74861" class="answer" data-answerid="74861" >
+    <table>
+        <tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+    <input type="hidden" value="74861">
+    <a class="vote-up-off" title="This answer is useful">up vote</a>
+    <span class="vote-count-post ">4</span>
+    <a class="vote-down-off" title="This answer is not useful">down vote</a>
+    
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text"><p>Reading <a href="http://miller.emu.id.au/pmiller/books/rmch/" rel="nofollow">Recursive Make Considered Harmful</a> was a huge help in understanding how <em>make</em> is supposed to work.  The rest of the GNU make tools (<em>autoconf</em>, <em>automake</em>, and so on) seem like overkill for projects that target one OS.  Further, once you know <em>make</em> inside and out, the other tools functionality become more obvious.</p>
+</div>
+    <table class="fw">
+    <tr>
+    <td class="vt">
+
+
+
+
+
+
+
+
+
+
+<div class="post-menu"><a href="/a/74861" title="short permalink to this answer" class="short-link" id="link-post-74861">share</a><span class="lsep">|</span><a href="/posts/74861/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+    <td align="right" class="post-signature">
+
+
+    <div class="user-info user-hover">
+        <div class="user-action-time">
+                            <a href="/posts/74861/revisions" title="show all edits to this post">edited <span title="2011-05-18 22:07:04Z" class="relativetime">May 18 '11 at 22:07</span></a>
+
+        </div>
+        <div class="user-gravatar32">
+            <a href="/users/511601/fred-nurk"><div class=""><img src="https://www.gravatar.com/avatar/33937c8ce1d23c78d384dec6680e07fd?s=32&d=identicon&r=PG" alt="" width="32" height="32"></div></a>
+        </div>
+        <div class="user-details">
+            <a href="/users/511601/fred-nurk">Fred Nurk</a><br>
+            <span class="reputation-score" title="reputation score" dir="ltr">8,208</span><span title="3 gold badges"><span class="badge1"></span><span class="badgecount">3</span></span><span title="16 silver badges"><span class="badge2"></span><span class="badgecount">16</span></span><span title="37 bronze badges"><span class="badge3"></span><span class="badgecount">37</span></span>
+        </div>
+    </div>
+    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    
+
+    <div class="user-info user-hover">
+        <div class="user-action-time">
+                                        answered <span title="2008-09-16 17:34:33Z" class="relativetime">Sep 16 '08 at 17:34</span>
+        </div>
+        <div class="user-gravatar32">
+            <a href="/users/1438/jon-ericson"><div class=""><img src="https://www.gravatar.com/avatar/8989210e0bee8c33c698cfbb79a2afe7?s=32&d=identicon&r=PG" alt="" width="32" height="32"></div></a>
+        </div>
+        <div class="user-details">
+            <a href="/users/1438/jon-ericson">Jon Ericson</a><br>
+            <span class="reputation-score" title="reputation score" dir="ltr">8,718</span><span title="3 gold badges"><span class="badge1"></span><span class="badgecount">3</span></span><span title="41 silver badges"><span class="badge2"></span><span class="badgecount">41</span></span><span title="83 bronze badges"><span class="badge3"></span><span class="badgecount">83</span></span>
+        </div>
+    </div>
+
+    </td>
+    </tr>
+    </table>
+</td>
+        </tr>
+
+
+
+<tr>
+<td class="votecell"></td>
+<td>
+    <div id="comments-74861" class="comments">
+        <table>
+        <tbody>
+                    
+    <tr id="comment-16377" class="comment">
+        <td></td>
+        <td class="comment-text"><div><span class="comment-copy">that is ia good read.  curious to know - do you actually use cook now?</span> &ndash;&nbsp;<a href="/users/10468/darenw" title="6491 reputation" class="comment-user">DarenW</a> <span class="comment-date" dir="ltr"><span title="2008-09-19 03:30:18Z" class="relativetime-clean">Sep 19 '08 at 3:30</span></span></div></td>
+    </tr>
+            
+    <tr id="comment-16733" class="comment">
+        <td></td>
+        <td class="comment-text"><div><span class="comment-copy">No.  I never heard of it until now.  Do you?</span> &ndash;&nbsp;<a href="/users/1438/jon-ericson" title="8718 reputation" class="comment-user">Jon Ericson</a> <span class="comment-date" dir="ltr"><span title="2008-09-19 07:06:13Z" class="relativetime-clean">Sep 19 '08 at 7:06</span></span></div></td>
+    </tr>
+
+        </tbody>
+    
+        </table>
+    </div>
+    
+</td>
+</tr>
+    </table>
+</div>
+
+  
+<a name="75768"></a>
+<div id="answer-75768" class="answer" data-answerid="75768" >
+    <table>
+        <tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+    <input type="hidden" value="75768">
+    <a class="vote-up-off" title="This answer is useful">up vote</a>
+    <span class="vote-count-post ">3</span>
+    <a class="vote-down-off" title="This answer is not useful">down vote</a>
+    
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text"><p>Start by understanding <a href="http://www.gnu.org/software/make/manual/html_node/index.html" rel="nofollow">GNU Make</a>. The online documentation is very useful and no-nonsense.</p>
+
+<p>Meditate on <a href="http://miller.emu.id.au/pmiller/books/rmch/" rel="nofollow">Recursive Make Considered Harmful</a> in order to grok how make is intended to be used.</p>
+
+<p>Then if you start having to check the availability of libraries before starting the compilation, learn <a href="http://www.gnu.org/software/autoconf/manual/html_node/index.html" rel="nofollow">Autoconf</a>.</p>
+
+<p>Autoconf will take you a long way. It's reasonably straightforward once you wrap your mind around M4 quoting rules. With autoconf you can detect annoying situations like obsolete broken version of libraries you depend on.</p>
+
+<p>I never needed to go any further. I tried several time to wrap my head around <a href="http://www.gnu.org/software/automake/" rel="nofollow">Automake</a>, but it still caused my brain to melt, even after I had years of experience with GNU Make and Autoconf.</p>
+
+<p>There are other funky things like <a href="http://www.gnu.org/software/libtool/" rel="nofollow">libtool</a> and <a href="http://pkg-config.freedesktop.org/wiki/" rel="nofollow">pkg-config</a> that can be nice bonus, but it's not something you need to spend time on before you have a clearly identified need.</p>
+
+<p>If your software is internationalized, you <em>need</em> to use <a href="http://www.gnu.org/software/gettext/manual/gettext.html" rel="nofollow">gettext</a> too. But i18n is a whole domain, and you <em>will</em> do it wrong if you are not mentored. Fortunately, the i18n community is full of extremely helpful people. </p>
+</div>
+    <table class="fw">
+    <tr>
+    <td class="vt">
+
+
+
+
+
+
+
+
+
+
+<div class="post-menu"><a href="/a/75768" title="short permalink to this answer" class="short-link" id="link-post-75768">share</a><span class="lsep">|</span><a href="/posts/75768/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+    <td align="right" class="post-signature">
+
+
+    <div class="user-info user-hover">
+        <div class="user-action-time">
+                            <a href="/posts/75768/revisions" title="show all edits to this post">edited <span title="2011-05-18 22:07:24Z" class="relativetime">May 18 '11 at 22:07</span></a>
+
+        </div>
+        <div class="user-gravatar32">
+            <a href="/users/511601/fred-nurk"><div class=""><img src="https://www.gravatar.com/avatar/33937c8ce1d23c78d384dec6680e07fd?s=32&d=identicon&r=PG" alt="" width="32" height="32"></div></a>
+        </div>
+        <div class="user-details">
+            <a href="/users/511601/fred-nurk">Fred Nurk</a><br>
+            <span class="reputation-score" title="reputation score" dir="ltr">8,208</span><span title="3 gold badges"><span class="badge1"></span><span class="badgecount">3</span></span><span title="16 silver badges"><span class="badge2"></span><span class="badgecount">16</span></span><span title="37 bronze badges"><span class="badge3"></span><span class="badgecount">37</span></span>
+        </div>
+    </div>
+    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    
+
+    <div class="user-info user-hover">
+        <div class="user-action-time">
+                                        answered <span title="2008-09-16 19:02:59Z" class="relativetime">Sep 16 '08 at 19:02</span>
+        </div>
+        <div class="user-gravatar32">
+            <a href="/users/11549/ddaa"><div class=""><img src="https://www.gravatar.com/avatar/87719853dc06836b007091f08ed57568?s=32&d=identicon&r=PG" alt="" width="32" height="32"></div></a>
+        </div>
+        <div class="user-details">
+            <a href="/users/11549/ddaa">ddaa</a><br>
+            <span class="reputation-score" title="reputation score 14071" dir="ltr">14.1k</span><span title="2 gold badges"><span class="badge1"></span><span class="badgecount">2</span></span><span title="25 silver badges"><span class="badge2"></span><span class="badgecount">25</span></span><span title="43 bronze badges"><span class="badge3"></span><span class="badgecount">43</span></span>
+        </div>
+    </div>
+
+    </td>
+    </tr>
+    </table>
+</td>
+        </tr>
+
+
+
+<tr>
+<td class="votecell"></td>
+<td>
+    <div id="comments-75768" class="comments dno">
+        <table>
+        <tbody>
+        
+            <tr><td></td><td></td></tr>
+        
+        </tbody>
+    
+        </table>
+    </div>
+    
+</td>
+</tr>
+    </table>
+</div>
+
+  
+<a name="74778"></a>
+<div id="answer-74778" class="answer" data-answerid="74778" >
+    <table>
+        <tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+    <input type="hidden" value="74778">
+    <a class="vote-up-off" title="This answer is useful">up vote</a>
+    <span class="vote-count-post ">2</span>
+    <a class="vote-down-off" title="This answer is not useful">down vote</a>
+    
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text"><p>Mostly by editing broken Makefiles. :)</p>
+
+<p>The other answers here are quite good, but you can write <code>Makefile.am</code> templates for Automake without having to have a deep knowledge of how to write Makefiles (arguably that's the point). I'm using Automake for my current project, and I haven't had to do much makefile editing (or even reading) to get stuff to work.</p>
+</div>
+    <table class="fw">
+    <tr>
+    <td class="vt">
+
+
+
+
+
+
+
+
+
+
+<div class="post-menu"><a href="/a/74778" title="short permalink to this answer" class="short-link" id="link-post-74778">share</a><span class="lsep">|</span><a href="/posts/74778/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    
+
+    <div class="user-info ">
+        <div class="user-action-time">
+                                        answered <span title="2008-09-16 17:24:00Z" class="relativetime">Sep 16 '08 at 17:24</span>
+        </div>
+        <div class="user-gravatar32">
+            <a href="/users/6043/allen"><div class=""><img src="https://www.gravatar.com/avatar/7b19b7049d7a3b14bd0c5623ad08f124?s=32&d=identicon&r=PG" alt="" width="32" height="32"></div></a>
+        </div>
+        <div class="user-details">
+            <a href="/users/6043/allen">Allen</a><br>
+            <span class="reputation-score" title="reputation score" dir="ltr">3,075</span><span title="7 silver badges"><span class="badge2"></span><span class="badgecount">7</span></span><span title="20 bronze badges"><span class="badge3"></span><span class="badgecount">20</span></span>
+        </div>
+    </div>
+
+    </td>
+    </tr>
+    </table>
+</td>
+        </tr>
+
+
+
+<tr>
+<td class="votecell"></td>
+<td>
+    <div id="comments-74778" class="comments dno">
+        <table>
+        <tbody>
+        
+            <tr><td></td><td></td></tr>
+        
+        </tbody>
+    
+        </table>
+    </div>
+    
+</td>
+</tr>
+    </table>
+</div>
+
+  
+<a name="87471"></a>
+<div id="answer-87471" class="answer" data-answerid="87471" >
+    <table>
+        <tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+    <input type="hidden" value="87471">
+    <a class="vote-up-off" title="This answer is useful">up vote</a>
+    <span class="vote-count-post ">1</span>
+    <a class="vote-down-off" title="This answer is not useful">down vote</a>
+    
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text"><p>I like SCons. I really do. There is only one problem, and its a major one. SCons does not scale beyond small-medium sized projects. When the number of source files approach go up in the 1000s, the incremental build performance goes down the drain. SCons can spend minutes just figuring out if anything needs to be rebuilt. This has been discussed over and over again on the SCons mailing list, but unfortunately there does not seem to be a solution anywhere near.</p>
+
+<p>Autoconf is really a pain to use, and I'm not complaining about the M4 syntax. Google on "autoconf hell" for further reading. If you're running in a Unix environment (Cygwin included), you can solve many issues inside your makefile instead of resorting to Autoconf tools.</p>
+</div>
+    <table class="fw">
+    <tr>
+    <td class="vt">
+
+
+
+
+
+
+
+
+
+
+<div class="post-menu"><a href="/a/87471" title="short permalink to this answer" class="short-link" id="link-post-87471">share</a><span class="lsep">|</span><a href="/posts/87471/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    
+
+    <div class="user-info user-hover">
+        <div class="user-action-time">
+                                        answered <span title="2008-09-17 20:44:04Z" class="relativetime">Sep 17 '08 at 20:44</span>
+        </div>
+        <div class="user-gravatar32">
+            <a href="/users/13051/jespere"><div class=""><img src="https://www.gravatar.com/avatar/05f4118d01fe03a82a43d8ab7ae17034?s=32&d=identicon&r=PG" alt="" width="32" height="32"></div></a>
+        </div>
+        <div class="user-details">
+            <a href="/users/13051/jespere">JesperE</a><br>
+            <span class="reputation-score" title="reputation score 28985" dir="ltr">29k</span><span title="5 gold badges"><span class="badge1"></span><span class="badgecount">5</span></span><span title="63 silver badges"><span class="badge2"></span><span class="badgecount">63</span></span><span title="121 bronze badges"><span class="badge3"></span><span class="badgecount">121</span></span>
+        </div>
+    </div>
+
+    </td>
+    </tr>
+    </table>
+</td>
+        </tr>
+
+
+
+<tr>
+<td class="votecell"></td>
+<td>
+    <div id="comments-87471" class="comments dno">
+        <table>
+        <tbody>
+        
+            <tr><td></td><td></td></tr>
+        
+        </tbody>
+    
+        </table>
+    </div>
+    
+</td>
+</tr>
+    </table>
+</div>
+
+  
+<a name="221304"></a>
+<div id="answer-221304" class="answer" data-answerid="221304" >
+    <table>
+        <tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+    <input type="hidden" value="221304">
+    <a class="vote-up-off" title="This answer is useful">up vote</a>
+    <span class="vote-count-post ">1</span>
+    <a class="vote-down-off" title="This answer is not useful">down vote</a>
+    
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text"><p>As Thomee pointed out, there's nothing to fear. Makefiles are not strictly related to GNU build tools, you can automate any task you want with makefiles. </p>
+
+<p>Whenever you want to rebuild (recompile, regenerate, reformat, reconfigure, ...) just a part of your system depending on which source file has changed, makefiles are your friends.</p>
+
+<p>Things get nasty when you want to automate tasks (e.g. programs recompilation) taking into account the specific platform you're are on. Then you have to invent methods to detect which platform you are on, whether it supports certains compilers, where some libraries are, etc etc. </p>
+
+<p>I learned first by looking at others makefiles (you learn a lot of tricks and hacks this way!) than using man and other online documentation.</p>
+
+<p>Just as a side note, if you plan to move away from make, have a look at jam (<a href="http://www.perforce.com/jam/jam.html" rel="nofollow">http://www.perforce.com/jam/jam.html</a>) or, the one that I use, ftjam (<a href="http://www.freetype.org/jam/" rel="nofollow">http://www.freetype.org/jam/</a>), I've just discovered it after years of using make and I've been amazed of its simplicity and power.</p>
+</div>
+    <table class="fw">
+    <tr>
+    <td class="vt">
+
+
+
+
+
+
+
+
+
+
+<div class="post-menu"><a href="/a/221304" title="short permalink to this answer" class="short-link" id="link-post-221304">share</a><span class="lsep">|</span><a href="/posts/221304/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    
+
+    <div class="user-info user-hover">
+        <div class="user-action-time">
+                                        answered <span title="2008-10-21 09:36:37Z" class="relativetime">Oct 21 '08 at 9:36</span>
+        </div>
+        <div class="user-gravatar32">
+            <a href="/users/16827/remo-d"><div class=""><img src="https://www.gravatar.com/avatar/f1c883ae199f81d98a0d12db43306303?s=32&d=identicon&r=PG" alt="" width="32" height="32"></div></a>
+        </div>
+        <div class="user-details">
+            <a href="/users/16827/remo-d">Remo.D</a><br>
+            <span class="reputation-score" title="reputation score" dir="ltr">8,540</span><span title="2 gold badges"><span class="badge1"></span><span class="badgecount">2</span></span><span title="21 silver badges"><span class="badge2"></span><span class="badgecount">21</span></span><span title="42 bronze badges"><span class="badge3"></span><span class="badgecount">42</span></span>
+        </div>
+    </div>
+
+    </td>
+    </tr>
+    </table>
+</td>
+        </tr>
+
+
+
+<tr>
+<td class="votecell"></td>
+<td>
+    <div id="comments-221304" class="comments dno">
+        <table>
+        <tbody>
+        
+            <tr><td></td><td></td></tr>
+        
+        </tbody>
+    
+        </table>
+    </div>
+    
+</td>
+</tr>
+    </table>
+</div>
+
+  
+<a name="7582220"></a>
+<div id="answer-7582220" class="answer" data-answerid="7582220" >
+    <table>
+        <tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+    <input type="hidden" value="7582220">
+    <a class="vote-up-off" title="This answer is useful">up vote</a>
+    <span class="vote-count-post ">1</span>
+    <a class="vote-down-off" title="This answer is not useful">down vote</a>
+    
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text"><p>I have a suggestion. Do not go to the GNU make tutorial directly. It is vast, and as a beginner one can get a setback. </p>
+
+<p>What i suggest is, you start by googling on the web by keyword like "GNU make" or "Understanding makefile". You will get a lot of simple tutorials which are simple and easy. </p>
+
+<p>Once you get a hand in that, and master it, then you can go to the GNU make tutorials to enhance and add more flavours to your current knowledge.</p>
+
+<p>P.S: This is how i started and learnt a lot</p>
+</div>
+    <table class="fw">
+    <tr>
+    <td class="vt">
+
+
+
+
+
+
+
+
+
+
+<div class="post-menu"><a href="/a/7582220" title="short permalink to this answer" class="short-link" id="link-post-7582220">share</a><span class="lsep">|</span><a href="/posts/7582220/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+    <td align="right" class="post-signature">
+
+
+    <div class="user-info ">
+        <div class="user-action-time">
+                            <a href="/posts/7582220/revisions" title="show all edits to this post">edited <span title="2011-09-28 13:06:04Z" class="relativetime">Sep 28 '11 at 13:06</span></a>
+
+        </div>
+        <div class="user-gravatar32">
+            
+        </div>
+        <div class="user-details">
+            <br>
+            
+        </div>
+    </div>
+    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    
+
+    <div class="user-info user-hover">
+        <div class="user-action-time">
+                                        answered <span title="2011-09-28 11:03:09Z" class="relativetime">Sep 28 '11 at 11:03</span>
+        </div>
+        <div class="user-gravatar32">
+            <a href="/users/575281/kingsmasher1"><div class="gravatar-wrapper-32"><img src="http://i.stack.imgur.com/2a3iz.jpg?s=32&g=1" alt=""></div></a>
+        </div>
+        <div class="user-details">
+            <a href="/users/575281/kingsmasher1">kingsmasher1</a><br>
+            <span class="reputation-score" title="reputation score" dir="ltr">1,440</span><span title="3 gold badges"><span class="badge1"></span><span class="badgecount">3</span></span><span title="11 silver badges"><span class="badge2"></span><span class="badgecount">11</span></span><span title="42 bronze badges"><span class="badge3"></span><span class="badgecount">42</span></span>
+        </div>
+    </div>
+
+    </td>
+    </tr>
+    </table>
+</td>
+        </tr>
+
+
+
+<tr>
+<td class="votecell"></td>
+<td>
+    <div id="comments-7582220" class="comments dno">
+        <table>
+        <tbody>
+        
+            <tr><td></td><td></td></tr>
+        
+        </tbody>
+    
+        </table>
+    </div>
+    
+</td>
+</tr>
+    </table>
+</div>
+
+  
+<a name="73856"></a>
+<div id="answer-73856" class="answer" data-answerid="73856" >
+    <table>
+        <tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+    <input type="hidden" value="73856">
+    <a class="vote-up-off" title="This answer is useful">up vote</a>
+    <span class="vote-count-post ">0</span>
+    <a class="vote-down-off" title="This answer is not useful">down vote</a>
+    
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text"><p>there's a few free tech books that cover this</p>
+
+<p><a href="http://www.freetechbooks.com/gnu-linux-f7.html" rel="nofollow">http://www.freetechbooks.com/gnu-linux-f7.html</a></p>
+</div>
+    <table class="fw">
+    <tr>
+    <td class="vt">
+
+
+
+
+
+
+
+
+
+
+<div class="post-menu"><a href="/a/73856" title="short permalink to this answer" class="short-link" id="link-post-73856">share</a><span class="lsep">|</span><a href="/posts/73856/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    
+
+    <div class="user-info ">
+        <div class="user-action-time">
+                                        answered <span title="2008-09-16 15:52:42Z" class="relativetime">Sep 16 '08 at 15:52</span>
+        </div>
+        <div class="user-gravatar32">
+            <span class="anonymous-gravatar"></span>
+        </div>
+        <div class="user-details">
+            RightToLeft<br>
+            
+        </div>
+    </div>
+
+    </td>
+    </tr>
+    </table>
+</td>
+        </tr>
+
+
+
+<tr>
+<td class="votecell"></td>
+<td>
+    <div id="comments-73856" class="comments dno">
+        <table>
+        <tbody>
+        
+            <tr><td></td><td></td></tr>
+        
+        </tbody>
+    
+        </table>
+    </div>
+    
+</td>
+</tr>
+    </table>
+</div>
+
+  
+<a name="74808"></a>
+<div id="answer-74808" class="answer" data-answerid="74808" >
+    <table>
+        <tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+    <input type="hidden" value="74808">
+    <a class="vote-up-off" title="This answer is useful">up vote</a>
+    <span class="vote-count-post ">0</span>
+    <a class="vote-down-off" title="This answer is not useful">down vote</a>
+    
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text"><p>I learnt from the OReilly book, which I found really helpful.</p>
+</div>
+    <table class="fw">
+    <tr>
+    <td class="vt">
+
+
+
+
+
+
+
+
+
+
+<div class="post-menu"><a href="/a/74808" title="short permalink to this answer" class="short-link" id="link-post-74808">share</a><span class="lsep">|</span><a href="/posts/74808/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    
+
+    <div class="user-info ">
+        <div class="user-action-time">
+                                        answered <span title="2008-09-16 17:27:54Z" class="relativetime">Sep 16 '08 at 17:27</span>
+        </div>
+        <div class="user-gravatar32">
+            <a href="/users/9119/garth-gilmour"><div class=""><img src="https://www.gravatar.com/avatar/e16a0db493bd8e24baaad60b5dc0254e?s=32&d=identicon&r=PG" alt="" width="32" height="32"></div></a>
+        </div>
+        <div class="user-details">
+            <a href="/users/9119/garth-gilmour">Garth Gilmour</a><br>
+            <span class="reputation-score" title="reputation score" dir="ltr">4,084</span><span title="2 gold badges"><span class="badge1"></span><span class="badgecount">2</span></span><span title="10 silver badges"><span class="badge2"></span><span class="badgecount">10</span></span><span title="23 bronze badges"><span class="badge3"></span><span class="badgecount">23</span></span>
+        </div>
+    </div>
+
+    </td>
+    </tr>
+    </table>
+</td>
+        </tr>
+
+
+
+<tr>
+<td class="votecell"></td>
+<td>
+    <div id="comments-74808" class="comments">
+        <table>
+        <tbody>
+                    
+    <tr id="comment-1024452" class="comment">
+        <td></td>
+        <td class="comment-text"><div><span class="comment-copy">Though as far as entertaining goes, I&#39;d say that&#39;d be near the bottom.</span> &ndash;&nbsp;<a href="/users/39036/samoz" title="11610 reputation" class="comment-user">samoz</a> <span class="comment-date" dir="ltr"><span title="2009-07-29 16:12:17Z" class="relativetime-clean">Jul 29 '09 at 16:12</span></span></div></td>
+    </tr>
+
+        </tbody>
+    
+        </table>
+    </div>
+    
+</td>
+</tr>
+    </table>
+</div>
+
+  
+<a name="75445"></a>
+<div id="answer-75445" class="answer" data-answerid="75445" >
+    <table>
+        <tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+    <input type="hidden" value="75445">
+    <a class="vote-up-off" title="This answer is useful">up vote</a>
+    <span class="vote-count-post ">0</span>
+    <a class="vote-down-off" title="This answer is not useful">down vote</a>
+    
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text"><p>Grab a random small project and see how they use it. To be honest I've always let an IDE (Netbeans, Eclipse, etc) generate the stuff for me.</p>
+</div>
+    <table class="fw">
+    <tr>
+    <td class="vt">
+
+
+
+
+
+
+
+
+
+
+<div class="post-menu"><a href="/a/75445" title="short permalink to this answer" class="short-link" id="link-post-75445">share</a><span class="lsep">|</span><a href="/posts/75445/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    
+
+    <div class="user-info ">
+        <div class="user-action-time">
+                                        answered <span title="2008-09-16 18:27:01Z" class="relativetime">Sep 16 '08 at 18:27</span>
+        </div>
+        <div class="user-gravatar32">
+            <a href="/users/12911/kristian"><div class=""><img src="https://www.gravatar.com/avatar/6a0aab429d8f7c7508ce3b82534aa533?s=32&d=identicon&r=PG" alt="" width="32" height="32"></div></a>
+        </div>
+        <div class="user-details">
+            <a href="/users/12911/kristian">Kristian</a><br>
+            <span class="reputation-score" title="reputation score" dir="ltr">61</span><span title="2 bronze badges"><span class="badge3"></span><span class="badgecount">2</span></span>
+        </div>
+    </div>
+
+    </td>
+    </tr>
+    </table>
+</td>
+        </tr>
+
+
+
+<tr>
+<td class="votecell"></td>
+<td>
+    <div id="comments-75445" class="comments dno">
+        <table>
+        <tbody>
+        
+            <tr><td></td><td></td></tr>
+        
+        </tbody>
+    
+        </table>
+    </div>
+    
+</td>
+</tr>
+    </table>
+</div>
+
+  
+<a name="75864"></a>
+<div id="answer-75864" class="answer" data-answerid="75864" >
+    <table>
+        <tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+    <input type="hidden" value="75864">
+    <a class="vote-up-off" title="This answer is useful">up vote</a>
+    <span class="vote-count-post ">0</span>
+    <a class="vote-down-off" title="This answer is not useful">down vote</a>
+    
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text"><p>While learning 'make' is loads of fun, recently I've been tinkering with <a href="http://www.scons.org/" rel="nofollow">Scons</a> and it truly makes using make a thing of the past (no pun intended, too many uses of make). Much easier, cross-platform, able to do just about anything Make can do and more. Depends on Python.</p>
+
+<p>Example: Compile all files in a directory into a final binary (SConstruct file)</p>
+
+<pre><code># Will correctly use g++
+Program('binaryname', Glob('*.cpp'))
+</code></pre>
+
+<p>Example: Build a shared library</p>
+
+<pre><code># Build a new shared library, libtest.so from all .c files
+# If you were windows you'd get test.dll
+SharedLibrary('test', Glob('*.c'))
+</code></pre>
+
+<p>Magic!</p>
+</div>
+    <table class="fw">
+    <tr>
+    <td class="vt">
+
+
+
+
+
+
+
+
+
+
+<div class="post-menu"><a href="/a/75864" title="short permalink to this answer" class="short-link" id="link-post-75864">share</a><span class="lsep">|</span><a href="/posts/75864/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    
+
+    <div class="user-info ">
+        <div class="user-action-time">
+                                        answered <span title="2008-09-16 19:11:45Z" class="relativetime">Sep 16 '08 at 19:11</span>
+        </div>
+        <div class="user-gravatar32">
+            <a href="/users/287/basszero"><div class=""><img src="https://www.gravatar.com/avatar/10cd52bbca0fc861564f702069e34569?s=32&d=identicon&r=PG" alt="" width="32" height="32"></div></a>
+        </div>
+        <div class="user-details">
+            <a href="/users/287/basszero">basszero</a><br>
+            <span class="reputation-score" title="reputation score 12050" dir="ltr">12.1k</span><span title="5 gold badges"><span class="badge1"></span><span class="badgecount">5</span></span><span title="26 silver badges"><span class="badge2"></span><span class="badgecount">26</span></span><span title="46 bronze badges"><span class="badge3"></span><span class="badgecount">46</span></span>
+        </div>
+    </div>
+
+    </td>
+    </tr>
+    </table>
+</td>
+        </tr>
+
+
+
+<tr>
+<td class="votecell"></td>
+<td>
+    <div id="comments-75864" class="comments dno">
+        <table>
+        <tbody>
+        
+            <tr><td></td><td></td></tr>
+        
+        </tbody>
+    
+        </table>
+    </div>
+    
+</td>
+</tr>
+    </table>
+</div>
+
+  
+<a name="87521"></a>
+<div id="answer-87521" class="answer downvoted-answer" data-answerid="87521" >
+    <table>
+        <tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+    <input type="hidden" value="87521">
+    <a class="vote-up-off" title="This answer is useful">up vote</a>
+    <span class="vote-count-post ">-3</span>
+    <a class="vote-down-off" title="This answer is not useful">down vote</a>
+    
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text"><p>man pages.</p>
+</div>
+    <table class="fw">
+    <tr>
+    <td class="vt">
+
+
+
+
+
+
+
+
+
+
+<div class="post-menu"><a href="/a/87521" title="short permalink to this answer" class="short-link" id="link-post-87521">share</a><span class="lsep">|</span><a href="/posts/87521/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    
+
+    <div class="user-info user-hover">
+        <div class="user-action-time">
+                                        answered <span title="2008-09-17 20:48:23Z" class="relativetime">Sep 17 '08 at 20:48</span>
+        </div>
+        <div class="user-gravatar32">
+            <a href="/users/1638/mmattax"><div class=""><img src="https://www.gravatar.com/avatar/851713f6d857813d6a288e6778852619?s=32&d=identicon&r=PG" alt="" width="32" height="32"></div></a>
+        </div>
+        <div class="user-details">
+            <a href="/users/1638/mmattax">mmattax</a><br>
+            <span class="reputation-score" title="reputation score" dir="ltr">9,330</span><span title="19 gold badges"><span class="badge1"></span><span class="badgecount">19</span></span><span title="75 silver badges"><span class="badge2"></span><span class="badgecount">75</span></span><span title="117 bronze badges"><span class="badge3"></span><span class="badgecount">117</span></span>
+        </div>
+    </div>
+
+    </td>
+    </tr>
+    </table>
+</td>
+        </tr>
+
+
+
+<tr>
+<td class="votecell"></td>
+<td>
+    <div id="comments-87521" class="comments dno">
+        <table>
+        <tbody>
+        
+            <tr><td></td><td></td></tr>
+        
+        </tbody>
+    
+        </table>
+    </div>
+    
+</td>
+</tr>
+    </table>
+</div>
+    <div class="question-status">
+        <h2><strong>protected</strong> by <a href="/users/10936/dori">Dori</a> <span title="2011-09-23 08:12:28Z" class="relativetime">Sep 23 '11 at 8:12</span></h2>
+        <p>This question is protected to prevent "thanks!", "me too!", or spam answers by new users. 
+To answer it, you must have earned at least 10 <a href="/help/whats-reputation">reputation</a> on this site.</p>
+    </div>
+
+
+
+        <h2 class="bottom-notice">
+                Not the answer you're looking for? 
+            Browse other questions tagged <a href="/questions/tagged/compiler" class="post-tag" title="show questions tagged 'compiler'" rel="tag">compiler</a> <a href="/questions/tagged/build" class="post-tag" title="show questions tagged 'build'" rel="tag">build</a> <a href="/questions/tagged/make" class="post-tag" title="show questions tagged 'make'" rel="tag">make</a> <a href="/questions/tagged/gnu" class="post-tag" title="show questions tagged 'gnu'" rel="tag">gnu</a> 
+                or <a href="/questions/ask">ask your own question</a>.
+        </h2>
+</div>
+</div>
+<div id="sidebar" class="show-votes">
+        <div class="module question-stats">
+        <p class="label-key">tagged</p>
+        <div class="tagged"><a href="/questions/tagged/compiler" class="post-tag" title="show questions tagged 'compiler'" rel="tag">compiler</a>&nbsp;<span class="item-multiplier"><span class="item-multiplier-x">&times;</span>&nbsp;<span class="item-multiplier-count">6916</span></span><br>
+<a href="/questions/tagged/build" class="post-tag" title="show questions tagged 'build'" rel="tag">build</a>&nbsp;<span class="item-multiplier"><span class="item-multiplier-x">&times;</span>&nbsp;<span class="item-multiplier-count">5943</span></span><br>
+<a href="/questions/tagged/make" class="post-tag" title="show questions tagged 'make'" rel="tag">make</a>&nbsp;<span class="item-multiplier"><span class="item-multiplier-x">&times;</span>&nbsp;<span class="item-multiplier-count">3158</span></span><br>
+<a href="/questions/tagged/gnu" class="post-tag" title="show questions tagged 'gnu'" rel="tag">gnu</a>&nbsp;<span class="item-multiplier"><span class="item-multiplier-x">&times;</span>&nbsp;<span class="item-multiplier-count">911</span></span><br>
+</div>
+        <table id="qinfo">
+            <tr>
+                <td><p class="label-key">asked</p></td>
+                <td style="padding-left:10px"><p class="label-key" title="2008-09-16 15:48:33Z"><b>4 years ago</b></p></td>
+            </tr>
+            <tr>
+                <td><p class="label-key">viewed</p></td>
+
+                <td style="padding-left:10px">
+                    <p class="label-key">
+                        <b>3224 times</b>
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td><p class="label-key">active</p></td>
+                <td style="padding-left:10px"><p class="label-key"><b><a href="?lastactivity" class="lastactivity-link" title="2013-03-25 05:42:54Z">3 months ago</a></b></p></td>
+            </tr>
+        </table>
+    </div>
+        
+            <div class="everyonelovesstackoverflow" id="careers2">
+        </div>
+    <div id="hireme">
+        <script type="text/javascript">
+window.careers_adurl="http://careers.stackoverflow.com/ad/companyjs",window.careers_cssurl="//cdn-careers.sstatic.net/careers/gethired/company.min.css?v=ec3c2143b0e3",window.careers_cssurl2="//cdn-careers.sstatic.net/careers/gethired/sidebar.min.css?v=17be6ca0db4b",window.careers_adselector="#hireme",StackExchange.ready(function(){$.ajax({url:"//cdn-careers.sstatic.net/careers/gethired/company-loader.min.js?v=e1da9303f450",dataType:"script",cache:!1})})        </script>
+    </div>
+
+
+
+      
+    
+    <div class="module sidebar-linked">
+        <h4 id="h-linked">Linked</h4>
+        <div class="linked" data-tracker="lq=1">
+            <div class="spacer">
+<a href="/q/1039001" title="Vote score (upvotes - downvotes)">
+        <div class="answer-votes default">1</div>
+</a>
+<a href="/questions/1039001/make-like-scheduling-sequences-of-tasks" class="question-hyperlink">&ldquo;make&rdquo; like scheduling sequences of tasks</a>
+</div>
+<div class="spacer">
+<a href="/q/14918057" title="Vote score (upvotes - downvotes)">
+        <div class="answer-votes default">0</div>
+</a>
+<a href="/questions/14918057/c-dissasembler" class="question-hyperlink">C++ dissasembler?</a>
+</div>
+
+        </div>
+    </div>
+    <div class="module sidebar-related">
+        <h4 id="h-related">Related</h4>
+        <div class="related" data-tracker="rq=1">
+            <div class="spacer">
+<a href="/q/3083437" title="Vote score (upvotes - downvotes)">
+        <div class="answer-votes answered-accepted default">1</div>
+</a>
+<a href="/questions/3083437/gnu-make-how-to-concat-two-strings" class="question-hyperlink">gnu make: How to concat two strings</a>
+</div>
+<div class="spacer">
+<a href="/q/3083889" title="Vote score (upvotes - downvotes)">
+        <div class="answer-votes answered-accepted default">0</div>
+</a>
+<a href="/questions/3083889/forcing-gnu-make-to-execute-specific-target" class="question-hyperlink">Forcing GNU make to execute specific target</a>
+</div>
+<div class="spacer">
+<a href="/q/3257670" title="Vote score (upvotes - downvotes)">
+        <div class="answer-votes answered-accepted default">0</div>
+</a>
+<a href="/questions/3257670/how-do-i-get-gnu-make-to-output-the-commands-it-executes-to-builds-its-targets" class="question-hyperlink">How do I get GNU make to output the commands it executes to builds its targets</a>
+</div>
+<div class="spacer">
+<a href="/q/7983011" title="Vote score (upvotes - downvotes)">
+        <div class="answer-votes answered-accepted default">0</div>
+</a>
+<a href="/questions/7983011/what-is-the-escape-character-for-symbol-in-gnu-make" class="question-hyperlink">What is the escape character for &#39;=&#39; symbol in GNU make?</a>
+</div>
+<div class="spacer">
+<a href="/q/9399769" title="Vote score (upvotes - downvotes)">
+        <div class="answer-votes default">3</div>
+</a>
+<a href="/questions/9399769/gnu-make-to-build-files-that-are-outdated-and-newer-than-a-certain-timestamp" class="question-hyperlink">GNU Make to build files that are outdated AND newer than a certain timestamp</a>
+</div>
+<div class="spacer">
+<a href="/q/10337866" title="Vote score (upvotes - downvotes)">
+        <div class="answer-votes answered-accepted default">4</div>
+</a>
+<a href="/questions/10337866/parallel-gnu-make-runs-command-multiple-times-for-antlr-parser-generation-files" class="question-hyperlink">Parallel GNU Make runs command multiple times for Antlr parser generation files</a>
+</div>
+<div class="spacer">
+<a href="/q/11884033" title="Vote score (upvotes - downvotes)">
+        <div class="answer-votes answered-accepted default">0</div>
+</a>
+<a href="/questions/11884033/gnu-make-pattern-rule-on-macos-x" class="question-hyperlink">GNU Make Pattern Rule on MacOS X</a>
+</div>
+<div class="spacer">
+<a href="/q/12974021" title="Vote score (upvotes - downvotes)">
+        <div class="answer-votes default">0</div>
+</a>
+<a href="/questions/12974021/using-gnu-make-to-duplicate-source-files" class="question-hyperlink">Using GNU make to duplicate source files</a>
+</div>
+<div class="spacer">
+<a href="/q/13334922" title="Vote score (upvotes - downvotes)">
+        <div class="answer-votes default">3</div>
+</a>
+<a href="/questions/13334922/do-you-know-any-build-tool-that-manges-the-build-using-non-recursive-make-approa" class="question-hyperlink">Do you know any build tool that manges the build using non-recursive make approach?</a>
+</div>
+<div class="spacer">
+<a href="/q/15650288" title="Vote score (upvotes - downvotes)">
+        <div class="answer-votes default">0</div>
+</a>
+<a href="/questions/15650288/doesnt-gnu-make-treat-lines-with-tabs-differently" class="question-hyperlink">Doesn&#39;t Gnu Make treat lines with tabs differently?</a>
+</div>
+
+        </div>
+    </div>
+</div>
+
+<div id="feed-link">
+    <div id="feed-link-text"><a href="/feeds/question/73799" title="feed of this question and its answers"><span class="feed-icon"></span>question feed</a></div>
+</div>
+<script type="text/javascript">
+StackExchange.ready(function(){$.get('/posts/73799/ivc/ef13');});
+</script>
+<noscript>
+    <div><img src="/posts/73799/ivc/ef13" class="dno" alt="" width="0" height="0"></div>
+</noscript><div style="display:none" id="prettify-lang"></div></div>
+
+
+        </div>
+    </div>
+    <div id="footer" class="categories">
+        <div class="footerwrap">
+            <div id="footer-menu">
+                <div class="top-footer-links">
+                        <a href="/about">about</a>
+                    <a href="/help">help</a>
+                        <a href="/help/badges">badges</a>
+                    <a href="http://blog.stackexchange.com?blb=1">blog</a>
+                        <a href="http://chat.stackoverflow.com">chat</a>
+                    <a href="http://data.stackexchange.com">data</a>
+                    <a href="http://stackexchange.com/legal">legal</a>
+                    <a href="http://stackexchange.com/legal/privacy-policy">privacy policy</a>
+                    <a href="http://stackexchange.com/about/hiring">jobs</a>
+                    <a href="http://engine.adzerk.net/redirect/0/2776/2751/0/4de3c60f719c4dfcb1a57531c7050090/0">advertising info</a>
+
+                    <a onclick='StackExchange.switchMobile("on", "/questions/73799/how-did-you-learn-the-gnu-make-tools")'>mobile</a>
+                    <b><a href="/contact">contact us</a></b>
+                        <b><a href="http://meta.stackoverflow.com">feedback</a></b>
+                </div>
+                <div id="footer-sites">
+                <table>
+    <tr>
+            <th colspan=3>
+                Technology
+            </th>
+            <th >
+                Life / Arts
+            </th>
+            <th >
+                Culture / Recreation
+            </th>
+            <th >
+                Science
+            </th>
+            <th >
+                Other
+            </th>
+    </tr>
+    <tr>
+            <td>
+                <ol>
+                        <li><a href="http://stackoverflow.com" title="professional and enthusiast programmers">Stack Overflow</a></li>
+                        <li><a href="http://serverfault.com" title="professional system and network administrators">Server Fault</a></li>
+                        <li><a href="http://superuser.com" title="computer enthusiasts and power users">Super User</a></li>
+                        <li><a href="http://webapps.stackexchange.com" title="power users of web applications">Web Applications</a></li>
+                        <li><a href="http://askubuntu.com" title="Ubuntu users and developers">Ask Ubuntu</a></li>
+                        <li><a href="http://webmasters.stackexchange.com" title="pro webmasters">Webmasters</a></li>
+                        <li><a href="http://gamedev.stackexchange.com" title="professional and independent game developers">Game Development</a></li>
+                        <li><a href="http://tex.stackexchange.com" title="users of TeX, LaTeX, ConTeXt, and related typesetting systems">TeX - LaTeX</a></li>
+                            </ol></td><td><ol>
+                        <li><a href="http://programmers.stackexchange.com" title="professional programmers interested in conceptual questions about software development">Programmers</a></li>
+                        <li><a href="http://unix.stackexchange.com" title="users of Linux, FreeBSD and other Un*x-like operating systems.">Unix &amp; Linux</a></li>
+                        <li><a href="http://apple.stackexchange.com" title="power users of Apple hardware and software">Ask Different (Apple)</a></li>
+                        <li><a href="http://wordpress.stackexchange.com" title="WordPress developers and administrators">WordPress Answers</a></li>
+                        <li><a href="http://gis.stackexchange.com" title="cartographers, geographers and GIS professionals">Geographic Information Systems</a></li>
+                        <li><a href="http://electronics.stackexchange.com" title="electronics and electrical engineering professionals, students, and enthusiasts">Electrical Engineering</a></li>
+                        <li><a href="http://android.stackexchange.com" title="enthusiasts and power users of the Android operating system">Android Enthusiasts</a></li>
+                        <li><a href="http://security.stackexchange.com" title="IT security professionals">IT Security</a></li>
+                            </ol></td><td><ol>
+                        <li><a href="http://dba.stackexchange.com" title="database professionals who wish to improve their database skills and learn from others in the community">Database Administrators</a></li>
+                        <li><a href="http://drupal.stackexchange.com" title="Drupal developers and administrators">Drupal Answers</a></li>
+                        <li><a href="http://sharepoint.stackexchange.com" title="SharePoint enthusiasts">SharePoint</a></li>
+                        <li><a href="http://ux.stackexchange.com" title="user experience researchers and experts">User Experience</a></li>
+                        <li><a href="http://mathematica.stackexchange.com" title="users of Mathematica">Mathematica</a></li>
+                    
+                        <li>
+                            <a href="http://stackexchange.com/sites#technology" class="more">
+                                more (13)
+                            </a>
+                        </li>
+                </ol>
+            </td>
+            <td>
+                <ol>
+                        <li><a href="http://photo.stackexchange.com" title="professional, enthusiast and amateur photographers">Photography</a></li>
+                        <li><a href="http://scifi.stackexchange.com" title="science fiction and fantasy enthusiasts">Science Fiction &amp; Fantasy</a></li>
+                        <li><a href="http://cooking.stackexchange.com" title="professional and amateur chefs">Seasoned Advice (cooking)</a></li>
+                        <li><a href="http://diy.stackexchange.com" title="contractors and serious DIYers">Home Improvement</a></li>
+                    
+                        <li>
+                            <a href="http://stackexchange.com/sites#lifearts" class="more">
+                                more (13)
+                            </a>
+                        </li>
+                </ol>
+            </td>
+            <td>
+                <ol>
+                        <li><a href="http://english.stackexchange.com" title="linguists, etymologists, and serious English language enthusiasts">English Language &amp; Usage</a></li>
+                        <li><a href="http://skeptics.stackexchange.com" title="scientific skepticism">Skeptics</a></li>
+                        <li><a href="http://judaism.stackexchange.com" title="those who base their lives on Jewish law and tradition and anyone interested in learning more">Mi Yodeya (Judaism)</a></li>
+                        <li><a href="http://travel.stackexchange.com" title="road warriors and seasoned travelers">Travel</a></li>
+                        <li><a href="http://christianity.stackexchange.com" title="committed Christians, experts in Christianity and those interested in learning more">Christianity</a></li>
+                        <li><a href="http://gaming.stackexchange.com" title="passionate videogamers on all platforms">Arqade (gaming)</a></li>
+                        <li><a href="http://bicycles.stackexchange.com" title="people who build and repair bicycles, people who train cycling, or commute on bicycles">Bicycles</a></li>
+                        <li><a href="http://rpg.stackexchange.com" title="gamemasters and players of tabletop, paper-and-pencil role-playing games">Role-playing Games</a></li>
+                    
+                        <li>
+                            <a href="http://stackexchange.com/sites#culturerecreation" class="more">
+                                more (21)
+                            </a>
+                        </li>
+                </ol>
+            </td>
+            <td>
+                <ol>
+                        <li><a href="http://mathoverflow.net" title="mathematicians">MathOverflow</a></li>
+                        <li><a href="http://math.stackexchange.com" title="people studying math at any level and professionals in related fields">Mathematics</a></li>
+                        <li><a href="http://stats.stackexchange.com" title="statisticians, data analysts, data miners and data visualization experts">Cross Validated (stats)</a></li>
+                        <li><a href="http://cstheory.stackexchange.com" title="theoretical computer scientists and researchers in related fields">Theoretical Computer Science</a></li>
+                        <li><a href="http://physics.stackexchange.com" title="active researchers, academics and students of physics">Physics</a></li>
+                    
+                        <li>
+                            <a href="http://stackexchange.com/sites#science" class="more">
+                                more (7)
+                            </a>
+                        </li>
+                </ol>
+            </td>
+            <td>
+                <ol>
+                        <li><a href="http://stackapps.com" title="apps, scripts, and development with the Stack Exchange API">Stack Apps</a></li>
+                        <li><a href="http://meta.stackoverflow.com" title="meta-discussion of the Stack Exchange family of Q&amp;A websites">Meta Stack Overflow</a></li>
+                        <li><a href="http://area51.stackexchange.com" title="proposing new sites in the Stack Exchange network">Area 51</a></li>
+                        <li><a href="http://careers.stackoverflow.com">Stack Overflow Careers</a></li>
+                    
+                </ol>
+            </td>
+    </tr>
+</table>
+                </div>
+            </div>
+
+            <div id="copyright">
+                site design / logo &copy; 2013 stack exchange inc; 
+                user contributions licensed under <a href="http://creativecommons.org/licenses/by-sa/3.0/" rel="license">cc-wiki</a> 
+                with <a href="http://blog.stackoverflow.com/2009/06/attribution-required/" rel="license">attribution required</a>
+            </div>
+            <div id="footer-flair">
+                <a href="http://creativecommons.org/licenses/by-sa/3.0/" class="cc-wiki-link"></a>
+            </div>
+            <div id="svnrev">
+                rev 2013.6.28.789
+            </div>
+            
+        </div>
+    </div>
+    <noscript>
+        <div id="noscript-warning">Stack Overflow works best with JavaScript enabled<img src="http://pixel.quantserve.com/pixel/p-c1rF4kxgLUzNc.gif" alt="" class="dno"></div>
+    </noscript>
+    <script type="text/javascript">var _gaq=_gaq||[];_gaq.push(['_setAccount','UA-5620270-1']);
+        _gaq.push(['_setCustomVar', 1, 'tags', '|compiler|build|make|gnu|']); 
+_gaq.push(['_trackPageview']);
+    var _qevents = _qevents || [];
+    (function(){
+        var s=document.getElementsByTagName('script')[0];
+        var ga=document.createElement('script');
+        ga.type='text/javascript';
+        ga.async=true;
+        ga.src='http://www.google-analytics.com/ga.js';
+        s.parentNode.insertBefore(ga,s);
+        var sc=document.createElement('script');
+        sc.type='text/javascript';
+        sc.async=true;
+        sc.src='http://edge.quantserve.com/quant.js'; 
+        s.parentNode.insertBefore(sc,s);
+    })();
+    </script>
+    <script type="text/javascript">
+        _qevents.push({ qacct: "p-c1rF4kxgLUzNc" });
+    </script>        
+    
+</body>
+</html>

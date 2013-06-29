@@ -1,0 +1,289 @@
+ <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+            "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="google-site-verification" content="uaoyYnlfiNzDxSA9LzuWkMHEJfcZYg_66JqKHDvkExs" /> 
+  
+  <title>
+    5 Reasons You Should Use ri To Read Ruby Documentation
+  </title>
+
+  <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    
+  <link href="http://cdn.shopify.com/s/files/1/0110/8792/t/27/assets/bootstrap.css?1900" rel="stylesheet" type="text/css"  media="all"  />
+  <link href="http://cdn.shopify.com/s/files/1/0110/8792/t/27/assets/elusive-webfont.css?1900" rel="stylesheet" type="text/css"  media="all"  />
+  <link href="http://cdn.shopify.com/s/files/1/0110/8792/t/27/assets/mine.css?1900" rel="stylesheet" type="text/css"  media="all"  />
+  <link href="http://cdn.shopify.com/s/files/1/0110/8792/t/27/assets/syntax.css?1900" rel="stylesheet" type="text/css"  media="all"  />
+  <link href='//fonts.googleapis.com/css?family=Lora:400,700' rel='stylesheet' type='text/css'>
+  
+  <link href="http://feedproxy.google.com/jstorimer" title="Feed" rel="alternate" type="application/atom+xml" />
+<script type="text/javascript">      var Shopify = Shopify || {};
+      Shopify.shop = "unixprogfun.myshopify.com";
+      Shopify.theme = {"name":"Copy of jstorimer.com","id":4492985};
+</script>
+
+<script type="text/javascript">    //<![CDATA[
+    (function() {
+      function asyncLoad() {
+        var urls = ["//secure.apps.shappify.com/apps/quantity/quantity_breaks.php?shop=unixprogfun.myshopify.com"];
+        for (var i = 0; i < urls.length; i++) {
+          var s = document.createElement('script');
+          s.type = 'text/javascript';
+          s.async = true;
+          s.src = urls[i];
+          var x = document.getElementsByTagName('script')[0];
+          x.parentNode.insertBefore(s, x);
+        }
+      }
+      window.attachEvent ? window.attachEvent('onload', asyncLoad) : window.addEventListener('load', asyncLoad, false);
+    })();
+    //]]>
+</script>
+<script type="text/javascript">var __st={"a":1108792,"offset":-14400,"u":"a7eec8a1b5b2","s":"articles-7766081"};</script>
+<script type="text/javascript">    //<![CDATA[
+    (function() {
+      function asyncLoad() {
+        var urls = ["//stats.shopify.com/javascripts/shopify_stats.js?v=3"];
+        for (var i = 0; i < urls.length; i++) {
+          var s = document.createElement('script');
+          s.type = 'text/javascript';
+          s.async = true;
+          s.src = urls[i];
+          var x = document.getElementsByTagName('script')[0];
+          x.parentNode.insertBefore(s, x);
+        }
+      }
+      window.attachEvent ? window.attachEvent('onload', asyncLoad) : window.addEventListener('load', asyncLoad, false);
+    })();
+    //]]>
+</script>
+<script type="text/javascript">var _gaq = _gaq || [];_gaq.push(['_setAccount', 'UA-6840274-7']);_gaq.push(['_addDevId', 'o5cUG']);_gaq.push(['_setAllowLinker', true]);_gaq.push(['_setDomainName', 'none']);_gaq.push(['_trackPageview']);
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = 'http://stats.g.doubleclick.net/dc.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script><script type="text/javascript" src="http://cdn.shopify.com/s/global/ga.js?3922183f42ddab72ab07b41affce6d635e5002db"></script>
+<link rel="stylesheet" href="/global/theme-controls.css" type="text/css" />
+<link rel="canonical" href="http://www.jstorimer.com/blogs/workingwithcode/7766081-5-reasons-you-should-use-ri-to-read-ruby-documentation" />
+</head>
+
+<body class="article" id="5-reasons-you-should-use-ri-to-read-ruby-documentation">
+
+    <div class='header'>
+      <div class='container'>
+        <ul class="nav nav-pills">
+          
+            <li><a href="/">Home</a></li>
+          
+            <li><a href="/pages/about">About</a></li>
+          
+            <li><a href="/pages/books">Books</a></li>
+          
+            <li><a class="active" href="/blogs/workingwithcode">Archives</a></li>
+          
+            <li><a href="/pages/newsletter">Newsletter</a></li>
+          
+        </ul>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class='content'>
+        <div class='row'>
+          <div class="post">
+    <h1 class='title'><a href='/blogs/workingwithcode/7766081-5-reasons-you-should-use-ri-to-read-ruby-documentation'>5 Reasons You Should Use ri To Read Ruby Documentation</a></h1>
+    <h3 style='margin-top: 0; margin-bottom: 20px'><small>Published on September 13, 2012 by Jesse Storimer</small></h3>
+    
+    <p><code>ri</code> is a tool that ships with Ruby. It's a companion to rdoc, allowing you to 'display information about Ruby classes, modules, and methods' from your console. Despite its usefulness it's often overlooked in favour of searching Google.</p>
+<div class="highlight">
+<pre><code class="console"><span class="gp">$</span> ri File
+<span class="gp">$</span> ri Fil
+<span class="gp">$</span> ri File.directory?
+<span class="gp">$</span> ri Socket#accept
+<span class="gp">$</span> ri ActiveRecord::Base.touch
+</code></pre>
+</div>
+<p>Over the last few months I've started using <code>ri</code> more and more. Once it became part of my workflow I really couldn't believe that I wasn't using it before. And I can't believe you're not using it now!</p>
+<p>Here's why:</p>
+<h2>1. ri Actually Understands Ruby</h2>
+<p>Something interesting happens when you look for the <code>ActiveRecord::Base#save</code> docs:</p>
+<div class="highlight">
+<pre><code class="console"><span class="gp">$</span> ri ActiveRecord::Base#save
+<span class="go">(from gem activerecord-3.2.8)</span>
+<span class="go">Implementation from ActiveRecord::Persistence</span>
+
+<span class="go">[...]</span>
+
+<span class="go">(from gem activerecord-3.2.8)</span>
+<span class="go">Implementation from ActiveRecord::Validations</span>
+
+<span class="go">[...]</span>
+</code></pre>
+</div>
+<p>(I trimmed the output for brevity.)</p>
+<p>Notice that it returned documentation from two different modules, neither of which is technically <code>ActiveRecord::Base</code>. That's because <code>ri</code> understands that those modules are included into <code>ActiveRecord::Base</code> so their docs are relevant.</p>
+<p>Searching Google for the <a href="http://lmgtfy.com/?q=ActiveRecord%3A%3ABase%23save">same thing</a> will not return results that precise.</p>
+<h2>2. It's Faster Than The Web</h2>
+<p>Prior to using <code>ri</code> I would just search Google. This works but adds overhead to what, otherwise, could be a simple lookup on the local filesystem. Going to the web will require at least two network requests (one for the Google Search, one for displaying the documentation site).</p>
+<p>Not to mention that I don't have to leave the comfort of my terminal to open a web browser.</p>
+<h2>3. It's Consistent</h2>
+<p>There are many different web sites that display Ruby docs. They all display documentation slightly differently, show examples slightly differently, have different sidebars, etc.</p>
+<p>When using <code>ri</code> you get a minimal, consistent interface for reading docs.</p>
+<h2>4. Interactive Mode</h2>
+<p>Try starting <code>ri</code> with the <code>-i</code> option. This drops you into an interactive documentation repl. Start typing the classes and methods you're looking for and <em>use &lt;tab&gt; for autocompletion</em>. After reading one set of docs you're returned to the console for more searching.</p>
+<h2>5. You Already Have It</h2>
+<p><code>ri</code> ships with your Ruby install, so you don't need to install anything. The rdoc for core Ruby methods is installed for you when you install Ruby.</p>
+<p>So you can start using <code>ri</code> right away!</p>
+<h2>Getting ri For All of Your Gems</h2>
+<p>There's a good chance that, up until now, you've had the following in your <code>~/.gemrc</code>:</p>
+<div class="highlight">
+<pre><code class="console"><span class="go">gem: --no-ri --no-rdoc</span>
+</code></pre>
+</div>
+<p>If you want to use <code>ri</code> then delete that first option. You can leave <code>--no-rdoc</code> there, that specifically generates HTML docs. Now any new gems you install will have their <code>ri</code> docs installed as well.</p>
+<p>If you want to generate the missing <code>ri</code> docs for all your installed gems you can:</p>
+<div class="highlight">
+<pre><code class="console"><span class="gp">$</span> gem rdoc --all --ri --no-rdoc
+</code></pre>
+</div>
+<h2>Closing</h2>
+<p>I'm happier using <code>ri</code> for my Ruby documentation needs. Give it a try!</p>
+<p>If you know any other tricks leave them in the comments!</p>
+<p><img alt="" src="http://feeds.feedburner.com/~r/jstorimer/~4/uWQkfolydpw" height="1" width="1" /></p> 
+
+    
+  
+  <hr />
+    <p style="font-size: 13px; color: #666;">
+      <img class="bordered profile" alt="" src="https://secure.gravatar.com/avatar/83a9c9496491ad52f6d6b0be9ae4fb3e?s=210" style="width: 50px;">
+      Jesse Storimer is a programmer and author. Employed as a Senior Developer at Shopify, Inc., he also stays up late at night to self-publish <a href='/books'>books</a> about system programming for Ruby developers.
+
+      <a href="https://twitter.com/jstorimer" class="twitter-follow-button" data-show-count="true" data-lang="en">Follow @jstorimer</a>
+      <a href="https://twitter.com/share" class="twitter-share-button" data-via="jstorimer" data-count="horizontal" data-dnt="true">Tweet</a>
+    </p>
+
+  
+
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script> 
+    <a href="https://plus.google.com/108128184971989734010?rel=author"></a>
+ 
+    <hr />
+                                                 
+    <div name='comments' id='comments'>
+      <div id="disqus_thread"></div>
+      <script type="text/javascript">
+          /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+          var disqus_shortname = 'jstorimer'; // required: replace example with your forum shortname
+
+          /* * * DON'T EDIT BELOW THIS LINE * * */
+          (function() {
+              var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+              dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+              (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+          })();
+      </script>
+      <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+      <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+            </div>
+</div>
+
+        </div>
+      </div>
+    </div>
+  
+  <div class="footer" style="background-color: black;">
+    <div class="container">
+      <ul class='columns'>
+        <li>
+          <h4>Topics</h4>
+          <ul>
+            
+              <li><a href='/blogs/workingwithcode/tagged/code-review'>Code Review</a>
+            
+              <li><a href='/blogs/workingwithcode/tagged/implementing-a-shell'>Implementing a Shell</a>
+            
+              <li><a href='/blogs/workingwithcode/tagged/interviews'>Interviews</a>
+            
+              <li><a href='/blogs/workingwithcode/tagged/multi-threading'>Multi-threading</a>
+            
+              <li><a href='/blogs/workingwithcode/tagged/ruby'>Ruby</a>
+            
+              <li><a href='/blogs/workingwithcode/tagged/self-publishing'>Self Publishing</a>
+            
+              <li><a href='/blogs/workingwithcode/tagged/sockets'>Sockets</a>
+            
+              <li><a href='/blogs/workingwithcode/tagged/unix'>Unix</a>
+            
+          </ul>
+        </li>
+                
+        <li style='width: 35%'>
+          <h4>Subscribe</h4>
+          
+          <div class="icons">
+            <a href="http://jstorimer.com/blogs/workingwithcode.atom"><i class="icon-rss"></i></a>
+        	<a href="http://twitter.com/jstorimer"><i class="icon-twitter"></i></a>
+		    <a href="https://github.com/jstorimer"><i class="icon-github"></i></a>
+		    <a href="http://www.youtube.com/user/jstorimer/videos?view=0"><i class="icon-youtube"></i></a>
+		    <a href="mailto:jesse@jstorimer.com" onclick="window.open('https://mail.google.com/mail/?view=cm&amp;tf=1&amp;to=jesse@jstorimer.com&amp;cc=&amp;bcc=&amp;su=&amp;body=','_blank');return false;"><i class="icon-envelope"></i></a>
+		  </div>
+          
+          <p style='padding: 15px 0 0 0; line-height: 1.2'><strong>Dive deeper</strong>: get exclusive articles about system programming with Ruby delivered to your inbox every week.</p>
+
+          <div><form id="mc-embedded-subscribe-form" class="validate" action="http://workingwithunixprocesses.us2.list-manage1.com/subscribe/post?u=542a01cc849b6e2f33b5ada6f&amp;id=dec740207f" method="post" name="mc-embedded-subscribe-form" target="_blank">
+<input id="mce-EMAIL" class="email" type="email" placeholder="Email" required="" value="" name="EMAIL" />
+<div class="clear"><input id="mc-embedded-subscribe" class="btn btn-success call button" type="submit" value="Subscribe" name="subscriberibe" /></div>
+</form></div>
+        </li>
+        
+        <li>
+          <h4>Products</h4>
+          <ul>
+            
+              <li><a href='/products/working-with-unix-processes'>Working With Unix Processes</a></li>
+            
+              <li><a href='/products/working-with-tcp-sockets'>Working With TCP Sockets</a></li>
+            
+              <li><a href='/products/working-with-ruby-threads'>Working With Ruby Threads</a></li>
+            
+              <li><a href='/products/unix-fu-workshop'>Unix Fu Workshop</a></li>
+            
+          </ul>
+        </li>
+
+        
+	  </ul>
+      <p class='copyright'>
+        	© 2009-2013 Jesse Storimer
+      </p>
+
+    </div>
+  </div>
+
+    <script type="text/javascript" src="//www.hellobar.com/hellobar.js"></script>
+    <script type="text/javascript">
+      new HelloBar(62950,91950);
+    </script>
+  
+    
+
+    <script type="text/javascript">
+      var _gauges = _gauges || [];
+      (function() {
+        var t   = document.createElement('script');
+        t.type  = 'text/javascript';
+        t.async = true;
+        t.id    = 'gauges-tracker';
+        t.setAttribute('data-site-id', '515ddd5e108d7b5af40001a3');
+        t.src = '//secure.gaug.es/track.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(t, s);
+      })();
+    </script>
+  </body>
+</html>
