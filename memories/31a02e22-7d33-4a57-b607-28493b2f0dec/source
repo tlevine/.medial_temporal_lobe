@@ -1,0 +1,228 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  
+  
+
+
+  <head>
+    <title>
+      MuttGuide/Folders – Mutt
+    </title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <link rel="search" href="/trac/search" />
+        <link rel="help" href="/trac/wiki/TracGuide" />
+        <link rel="alternate" href="/trac/wiki/MuttGuide/Folders?format=txt" type="text/x-trac-wiki" title="Plain Text" />
+        <link rel="up" href="/trac/wiki/MuttGuide" title="View parent page" />
+        <link rel="start" href="/trac/wiki" />
+        <link rel="stylesheet" href="/trac/chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="/trac/chrome/common/css/wiki.css" type="text/css" />
+        <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+        <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="/trac/search/opensearch" title="Search Mutt" />
+    <script type="text/javascript" src="/trac/chrome/common/js/jquery.js"></script><script type="text/javascript" src="/trac/chrome/common/js/babel.js"></script><script type="text/javascript" src="/trac/chrome/common/js/trac.js"></script><script type="text/javascript" src="/trac/chrome/common/js/search.js"></script><script type="text/javascript" src="/trac/chrome/common/js/folding.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/trac/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+      jQuery(document).ready(function($) {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor(_("Link to this section"));
+        $("#content").find(".wikianchor").each(function() {
+          $(this).addAnchor(babel.format(_("Link to #%(id)s"), {id: $(this).attr('id')}));
+        });
+        $(".foldable").enableFolding(true, true);
+      });
+    </script>
+  </head>
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="https://dev.mutt.org/trac/"><img src="/images/muttlogo.png" alt="The mutt mail user agent" height="48" width="62" /></a>
+      </div>
+      <form id="search" action="/trac/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="/trac/login">Login</a></li><li><a href="/trac/prefs">Preferences</a></li><li><a href="/trac/wiki/TracGuide">Help/Guide</a></li><li><a href="/trac/about">About Trac</a></li><li><a href="/trac/register">Register</a></li><li class="last"><a href="/trac/reset_password">Forgot your password?</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first active"><a href="/trac/wiki">Wiki</a></li><li><a href="/trac/timeline">Timeline</a></li><li><a href="/trac/roadmap">Roadmap</a></li><li><a href="/trac/browser">Browse Source</a></li><li><a href="/trac/report">View Tickets</a></li><li class="last"><a href="/trac/search">Search</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="pagepath" class="noprint">
+  <a class="pathentry first" title="View WikiStart" href="/trac/wiki">wiki:</a><a class="pathentry" href="/trac/wiki/MuttGuide" title="View MuttGuide">MuttGuide</a><span class="pathentry sep">/</span><a class="pathentry" href="/trac/wiki/MuttGuide/Folders" title="View MuttGuide/Folders">Folders</a>
+</div>
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="first"><a href="/trac/wiki/MuttGuide">Up</a></li><li><a href="/trac/wiki/WikiStart">Start Page</a></li><li><a href="/trac/wiki/TitleIndex">Index</a></li><li class="last"><a href="/trac/wiki/MuttGuide/Folders?action=history">History</a></li>
+          </ul>
+        <hr />
+      </div>
+    <div id="content" class="wiki">
+      <div class="wikipage searchable">
+        
+          
+          <div class="trac-modifiedby"><a href="/trac/wiki/MuttGuide/Folders?action=diff&amp;version=2" title="Version 2 by rado">Last modified</a> <a class="timeline" href="/trac/timeline?from=2012-07-15T11%3A30%3A25-07%3A00&amp;precision=second" title="2012-07-15T11:30:25-07:00 in Timeline">12 months</a> ago</div>
+          <div id="wikipage"><p>
+<strong>Knowing where everything is, is a good start for finding the right things.</strong>
+</p>
+<h2 id="Organizingmanagingemails">Organizing / managing emails</h2>
+<p>
+Mutt keeps emails in <em>folders</em> (collections of individual emails),
+which you can use to "change" to (for viewing) or to "save / move / copy" to in the UI,
+or specify in configuration files as targets of operations.
+For a typical use you need some standard folders:
+</p>
+<table class="wiki">
+<tr><td> folder "callsign" </td><td> location configuration in muttrc </td><td> use feature or not </td><td> purpose 
+</td></tr><tr><td style="text-align: right"> "inbox"</td><td> <strong>$spoolfile</strong> </td><td> <em>always</em> </td><td style="text-align: right"> This is the <strong>startup folder</strong> assumed to contain all new email that arrives for you.
+</td></tr><tr><td>"mbox" or "received"</td><td> <strong>$mbox</strong> </td><td> <strong>$move</strong> </td><td>If you want to save (move) mails out of the inbox which you've read instead of deleting them right on (or cluttering up your inbox).
+</td></tr><tr><td style="text-align: left">"sent" </td><td> <strong>$record</strong> </td><td> <strong>$copy</strong> </td><td>Sometimes it's good to keep a copy of sent out messages in case you need to resend them or verify discussions.
+</td></tr><tr><td> "postponed" </td><td> <strong>$postponed</strong> </td><td> <strong>$postpone</strong> </td><td>Start new email but then pause to continue later.
+</td></tr><tr><td> "personal folders" </td><td> -- </td><td> -- </td><td style="text-align: right"> have several folders to keep messages separate for different uses (by topic, sender, recipient, subject).
+</td></tr></table>
+<p>
+The "inbox" is provided by the system at a specific place. Default location is the $MAIL shell variable.
+Unless mutt is compiled to assume "inbox" in your $HOME dir, it will probably be something like "/var/spool/mail/USER".
+"personal folders" have no shortcuts, you use them by specifying the pathname each time, there is no mutt-internal management for those.
+Make up your mind about a folder structure before they get overloaded (bad overview &amp; performance for too big folders).
+</p>
+<p>
+All other folders can be located anywhere you can write to.
+However, the recommended default for them is to reside in a <strong>common subdir</strong> in your <tt>$HOME (like "!~/Mail")</tt>.
+</p>
+<h3 id="Easyaccessforconvenience:foldercollections">Easy access for convenience: folder collections</h3>
+<p>
+Depending on your directory structure, pathnames for the folders can get quite lengthy and/or cumbersome to type each time.
+Mutt provides shortcuts to save some typing, especially in the UI dialog prompts.
+If you have a <strong>common subdir</strong> for all folders, then you can specify it in &lt;tt&gt;"$folder"&lt;/tt&gt;,
+and replace all path references to this common subdir with "=" or "+". Example:
+</p>
+<pre class="wiki"> in muttrc:
+ set record="$HOME/Mail/sent"; set mbox="$HOME/Mail/mbox"; set postponed="$HOME/Mail/postponed"
+ =&gt;
+ set folder="$HOME/Mail"; set record="+sent"; set mbox="+mbox"; set postponed="+postponed"
+</pre><p>
+<strong>Note:</strong> do not end "folder" path with a "/", because mutt automatically inserts one when you use "=" or "+".
+An extra one would break some functionality because of "<em>".
+</em></p>
+<p>
+This easy access works for your personal folders in "$folder", too (like "+girlfriend" or "+sexmail").
+It pays off when you use it in many more places in the config and interactively, like when you have <em>many</em> personal folders.
+</p>
+<p>
+<strong>IMPORTANT Note:</strong> "+" &amp; "=" are replaced with the <strong>expanded value</strong> of &lt;tt&gt;$folder&lt;/tt&gt; at the time used with "set" (or hook).
+There is <strong>no dynamic link</strong> between them, so if you change &lt;tt&gt;$folder&lt;/tt&gt; afterwards,
+then the "set" defined var (or hook-pattern) keeps its static value as defined before.
+Typically you set "$folder" first and all its dependencies after that, this means: the order matters.
+For advanced setups where you work with several different "$folder" values it can be useful to change it after you used it for some relative assignments.
+But there should always be <em>some desired</em> value before you use it the first time.
+</p>
+<h3 id="Shortcutsoverviewformuttinternalfolders">Shortcuts overview for mutt internal folders</h3>
+<p>
+Here are some more:
+</p>
+<table class="wiki">
+<tr><td style="text-align: left">refers to    </td><td> <strong>typical</strong> place       </td><td> mutt-var   </td><td> shortcut 
+</td></tr><tr><td> "inbox"     </td><td> /var/spool/mail/USER      </td><td> $spoolfile </td><td> "!" 
+</td></tr><tr><td> $HOME dir   </td><td> /home/user                </td><td style="text-align: right"> no-mutt var</td><td> "~" or "$HOME" 
+</td></tr><tr><td> folders dir </td><td> /home/user/mail           </td><td> $folder    </td><td> "+" or "=" 
+</td></tr><tr><td> "mbox"      </td><td> /home/user/mail/received  </td><td> $mbox      </td><td> "&gt;" 
+</td></tr><tr><td> "sent"      </td><td> /home/user/mail/sent      </td><td> $record    </td><td> "&lt;" 
+</td></tr><tr><td> unfinished  </td><td> /home/user/mail/postponed </td><td> $postponed </td><td> "+postponed" 
+</td></tr><tr><td> personal    </td><td> /home/user/mail/personal  </td><td style="text-align: center">            </td><td> "+personal" 
+</td></tr><tr><td colspan="4"> repeat the last for all your personal folders 
+</td></tr><tr><td style="text-align: right"> last visited</td><td> varies </td><td> </td><td>"-" or "!!"
+</td></tr><tr><td style="text-align: right"> <em>default folder</em> for alias</td><td>varies</td><td> </td><td>"@alias"
+</td></tr><tr><td style="text-align: right"> currently open folder (*)</td><td style="text-align: left">varies </td><td> </td><td>"<sup>"
+</td></tr></table>
+<p>
+(* Note: you need the "current_folder" patch from <a class="wiki" href="/trac/wiki/PatchList">PatchList</a>, or mutt 1.5.10+ for this)
+</sup></p>
+<p>
+Note: not all those vars are set by default, or maybe point to "untypical" places. Make sure you set them all as you want them!
+</p>
+<h3 id="Remotefolders">Remote folders</h3>
+<p>
+Wherever you have to specify a folder, you are not limited to folders located on your local filesystem.
+You may use IMAP and POP folders on remote servers, too.
+Beware however, don't use it for folders that get used automatically by mutt (like "inbox" or "sent"),
+because if you have a slow network connection to the remote server, it can slow down performance significantly.
+</p>
+<p>
+The syntax for paths to remote folders is:
+</p>
+<ul><li>imap[s]:<em>[user[:pw]@]imapserver[:port]/path
+</em></li><li>pop[s]:<em>[user[:pw]@]popserver[:port]/   (no path, POP can handle only 1 mailbox)
+</em></li></ul><p>
+Note: the "user", "password" and "port" parts are optional. imaps
+and pops are SSL-encrypted variants of imap and pop. More about
+IMAP &amp; POP access configuration later.
+</p>
+<p>
+"$folder" works for IMAP, too:
+</p>
+<blockquote>
+<p>
+in muttrc: &lt;nowiki&gt;set folder="imaps://user@server.dom"&lt;/nowiki&gt;
+</p>
+</blockquote>
+<p>
+to be used in UI for "change folder" cmd:
+</p>
+<blockquote>
+<p>
+in mutt UI: c+sent&lt;enter&gt;
+</p>
+</blockquote>
+<p>
+See also /Actions about Macros + TAB-completion.
+</p>
+<h3 id="Storageformat">Storage format</h3>
+<p>
+How a folder is organized technically (filesystem internally) has some impact on performance.
+Like in many other cases, you have to decide between security, stability, performance, ease of use.
+There exist 4 formats that mutt understands: MBOX, MAILDIR, MH, MMDF (the order doesn't correlate with the previous qualities!).
+For an in depth discussion have a look at <a class="wiki" href="/trac/wiki/FolderFormat">FolderFormat</a> &amp; <a class="wiki" href="/trac/wiki/MuttFaq/Maildir">MuttFaq/Maildir</a>. If you are not much into technicalities, leave that for later.
+</p>
+<p>
+It's recommended (although not required) to use the same format as the <a class="wiki" href="/trac/wiki/MailConcept">MDA</a>, which places the new incoming emails into your "inbox".
+If you can't change the MDA-format but prefer to use some other with mutt, just do so: mutt autodetects the mailbox formats when reading them.
+When you create new folders, mutt will use the format specified in &lt;tt&gt;$mbox_type&lt;/tt&gt;
+(you have to create them all yourself, except "inbox", which should be provided by the system).
+&lt;br&gt;
+For now without further reasons, let's stick with MBOX format, the simple "classic".
+Please be aware of confusion by <a class="wiki" href="/trac/wiki/OverloadedNames">OverloadedNames</a>!
+</p>
+</div>
+        
+        
+      </div>
+      
+
+    </div>
+    <div id="altlinks">
+      <h3>Download in other formats:</h3>
+      <ul>
+        <li class="last first">
+          <a rel="nofollow" href="/trac/wiki/MuttGuide/Folders?format=txt">Plain Text</a>
+        </li>
+      </ul>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="/trac/chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">Powered by <a href="/trac/about"><strong>Trac 0.12.2</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.</p>
+      <p class="right">Visit the Trac open source project at<br /><a href="http://trac.edgewall.org/">http://trac.edgewall.org/</a></p>
+    </div>
+  </body>
+</html>
