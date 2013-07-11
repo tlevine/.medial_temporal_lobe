@@ -1,0 +1,640 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN" "http://www.w3.org/MarkUp/DTD/xhtml-rdfa-1.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" dir="ltr" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:dc="http://purl.org/dc/terms/" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:rss="http://purl.org/rss/1.0/" xmlns:sioc="http://rdfs.org/sioc/ns#" xmlns:sioct="http://rdfs.org/sioc/types#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:xsd="http://www.w3.org/2001/XMLSchema#" version="XHTML+RDFa 1.0" xmlns:og="http://opengraphprotocol.org/schema/" xmlns:fb="http://www.facebook.com/2008/fbml">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <title>Wget Proxy: How to run Wget behind a Proxy server | Linuxers</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+<link rel="shortcut icon" href="http://linuxers.org/sites/default/files/linux_favicon.gif.pagespeed.ce.RWFcHC2IMz.gif" type="image/x-icon"/>
+<meta name="keywords" content="Linux,Linuxers,distros,iArt,artwork"/>
+  <link type="text/css" rel="stylesheet" media="all" href="http://linuxers.org/sites/A.all,,_modules,,_codefilter,,_codefilter.css,,qs+default,,_files,,_css,,_css_40fa389817e70688c4a415d3d6581a12.css,Mcc.UWvZq0DRQw.css.pagespeed.cf.hYZCeH-nSM.css"/>
+
+<link type="text/css" rel="stylesheet" media="print" href="http://linuxers.org/sites/default/files/css/A.css_5bd767e084ac7f4766f35dd9fba70a22.css.pagespeed.cf.k-jF0FidGv.css"/>
+<!--[if IE]>
+<link type="text/css" rel="stylesheet" media="all" href="/sites/all/themes/zen/zen/ie.css?s" />
+<![endif]-->
+  <script type="text/javascript" src="http://linuxers.org/sites/default/files/js/js_a0b42a5bc23264bf6ee315cca2580261.js.pagespeed.jm.vqlMLfdIUj.js"></script>
+<script type="text/javascript">//<![CDATA[
+jQuery.extend(Drupal.settings,{"basePath":"\/","googleanalytics":{"trackOutgoing":1,"trackMailto":1,"trackDownload":1,"trackDownloadExtensions":"7z|aac|arc|arj|asf|asx|avi|bin|csv|doc|exe|flv|gif|gz|gzip|hqx|jar|jpe?g|js|mp(2|3|4|e?g)|mov(ie)?|msi|msp|pdf|phps|png|ppt|qtm?|ra(m|r)?|sea|sit|tar|tgz|torrent|txt|wav|wma|wmv|wpd|xls|xml|z|zip"},"lightbox2":{"rtl":0,"file_path":"\/(\\w\\w\/)sites\/default\/files","default_image":"\/sites\/all\/modules\/lightbox2\/images\/brokenimage.jpg","border_size":10,"font_color":"000","box_color":"fff","top_position":"","overlay_opacity":"0.8","overlay_color":"000","disable_close_click":1,"resize_sequence":0,"resize_speed":400,"fade_in_speed":400,"slide_down_speed":600,"use_alt_layout":0,"disable_resize":1,"disable_zoom":0,"force_show_nav":0,"show_caption":true,"loop_items":0,"node_link_text":"","node_link_target":0,"image_count":"Image !current of !total","video_count":"Video !current of !total","page_count":"Page !current of !total","lite_press_x_close":"press \u003ca href=\"#\" onclick=\"hideLightbox(); return FALSE;\"\u003e\u003ckbd\u003ex\u003c\/kbd\u003e\u003c\/a\u003e to close","download_link_text":"","enable_login":false,"enable_contact":false,"keys_close":"c x 27","keys_previous":"p 37","keys_next":"n 39","keys_zoom":"z","keys_play_pause":"32","display_image_size":"original","image_node_sizes":"()","trigger_lightbox_classes":"","trigger_lightbox_group_classes":"","trigger_slideshow_classes":"","trigger_lightframe_classes":"","trigger_lightframe_group_classes":"","custom_class_handler":0,"custom_trigger_classes":"","disable_for_gallery_lists":true,"disable_for_acidfree_gallery_lists":true,"enable_acidfree_videos":true,"slideshow_interval":5000,"slideshow_automatic_start":true,"slideshow_automatic_exit":true,"show_play_pause":true,"pause_on_next_click":false,"pause_on_previous_click":true,"loop_slides":false,"iframe_width":600,"iframe_height":400,"iframe_border":1,"enable_video":0}});
+//]]></script>
+</head>
+<body class="not-front not-logged-in node-type-book one-sidebar sidebar-right page-tutorial-wget-proxy-how-run-wget-behind-proxy-server section-tutorial">
+  <div id="page"><div id="page-inner">
+
+    <div id="header"><div id="header-inner" class="clear-block">
+    <div id="topbar">
+    <div id="top-menu">
+        <a href="/user/login?destination=node%2F1017">login</a> / <a href="/user/register?destination=node%2F1017 ">register</a> 
+    
+    <span class="link-seprator"> | </span>
+    <a href="/about">about us</a>
+    <span class="link-seprator"> | </span>
+    <a href="/contact">contact</a>
+    <span class="link-seprator"> | </span>
+    <a href="/advertise">advertise</a>
+    <span class="link-seprator"> | </span>
+    </div>
+        <div id="search-box">
+    <form action="/tutorial/wget-proxy-how-run-wget-behind-proxy-server" accept-charset="UTF-8" method="post" id="search-theme-form">
+<div><div id="search" class="container-inline">
+  <div class="form-item" id="edit-search-theme-form-1-wrapper">
+ <label for="edit-search-theme-form-1">Search this site: </label>
+ <input type="text" maxlength="128" name="search_theme_form" id="edit-search-theme-form-1" size="15" value="" title="Enter the terms you wish to search for." class="form-text"/>
+</div>
+  <input type="hidden" name="form_build_id" id="form-c9f88521d1dffce348a7e9ff0cc7a48b" value="form-c9f88521d1dffce348a7e9ff0cc7a48b"/>
+<input type="hidden" name="form_id" id="edit-search-theme-form" value="search_theme_form"/>
+</div>
+
+</div></form>
+  
+      </div> <!--Search-top-->
+        </div>
+
+     <div id="header-center">
+              <div id="logo-title">
+
+                      <div id="logo"><a href="/" title="Home" rel="home"><img src="http://linuxers.org/sites/default/files/xfedora_linuxers.png.pagespeed.ic.h6jZcYFh2T.png" alt="Home" id="logo-image" pagespeed_url_hash="156958965"/></a></div>
+          
+          
+          
+        </div> <!-- /#logo-title -->
+            <div id="header-right">
+                </div>
+        </div> <!-- /#header-center -->
+      
+    </div></div> <!-- /#header-inner, /#header -->
+              <div id="navbar"><div id="navbar-inner" class="clear-block region region-navbar">
+  
+
+          <a id="navigation"></a>
+
+
+                      <div id="primary">
+              <ul><li class="menu-369 first"><a href="/" title="">Home</a></li>
+<li class="menu-372"><a href="/article" title="">Articles</a></li>
+<li class="menu-373"><a href="/howto" title="">Howto&#039;s</a></li>
+<li class="menu-721"><a href="/~art" title="">iArt</a></li>
+<li class="menu-479"><a href="/quick-tips" title="">Quick Tips</a></li>
+<li class="menu-451"><a href="/ubuntu" title="">Ubuntu</a></li>
+<li class="menu-452"><a href="/fedora" title="">Fedora</a></li>
+<li class="menu-374"><a href="/category/firefox" title="">Firefox</a></li>
+<li class="menu-2190 last"><a href="/category/gnome" title="">Gnome</a></li>
+</ul>            </div> <!-- /#primary -->
+                    
+        </div></div> <!-- /#navbar-inner, /#navbar -->
+      
+    <div id="main"><div id="main-inner" class="clear-block with-navbar">
+
+      <div id="content"><div id="content-inner">
+
+        
+        
+                  <div id="content-header">
+                                      <h1 class="title">Wget Proxy: How to run Wget behind a Proxy server</h1>
+                                                          </div> <!-- /#content-header -->
+        
+        <div id="content-area">
+          <div id="node-1017" class="node node-type-book" typeof="sioc:Item foaf:Document" about="/tutorial/wget-proxy-how-run-wget-behind-proxy-server"><div class="node-inner">
+
+  
+  
+  
+      <div class="meta">
+              <div class="submitted">
+          Written on <span datatype="xsd:dateTime" content="Mon, 10/18/2010 - 15:22" property="dc:date dc:created">October 18th, 2010 at 15:22 pm</span> by <span rel="sioc:has_creator"><a property="foaf:name" typeof="sioc:UserAccount" about="/profile/shredder12" href="/profile/shredder12" title="View user profile.">shredder12</a></span>        </div>
+      
+              <div class="terms terms-inline"><ul class="links inline"><li class="taxonomy_term_188 first last"><a href="/tag/wget" rel="tag" title="">wget</a></li>
+</ul></div>
+          </div>
+  
+  <div class="content" property="content:encoded">
+    <!-- google_ad_section_start --><div class="field field-type-filefield field-field-article-logo">
+    <div class="field-items">
+            <div class="field-item odd">
+                    <img src="http://linuxers.org/sites/default/files/imagecache/Logo/article-logo/100x100x1287394180_local_network.png.pagespeed.ic.PXOI7uI5wz.png" alt="wget logo" title="" width="100" height="100" class="imagecache imagecache-Logo imagecache-default imagecache-Logo_default" pagespeed_url_hash="133225964"/>        </div>
+        </div>
+</div>
+<p>Since, proxy servers are very common today - in companies, universities etc. almost all of the applications today have proxy support. As far as wget is concerned, there are two ways of doing so, either set the appropriate environment variables and wget will act according to them or configure the wget configuration file - wgetrc.</p>
+
+<h2>Wget Proxy: Set the environment variable</h2>
+<p>Before setting the environment variables, lets first see if there are any preset proxy variables present. We can get that information using the following command.</p>
+<blockquote>
+<p><span class='root'>[shredder12]$</span> env | grep proxy</p>
+<p>http_proxy=http://foo.bar:3128<br/>
+no_proxy=localhost,127.0.0.1</p>
+</blockquote>
+<p>If no proxy environment variable is set, it will go for direct connections. Lets take an example of my college. We use a HTTP proxy server. Running wget without setting the http_proxy environment variable just fails. So, lets set this env. variable first</p>
+<blockquote>
+<p><span class='root'>[shredder12]$</span> export http_proxy=&quot;http://foo.bar:8080&quot;</p>
+</blockquote>
+<p>Now, run Wget and it should work like a charm. If your proxy also requires authentication i.e username &amp; password then use this format</p>
+<blockquote>
+<p><span class='root'>[shredder12]$</span> export http_proxy=&quot;http://username:password@foo.bar:8080&quot;</p>
+</blockquote>
+<p>Similarly, for other type of proxies - ftp_proxy, https_proxy etc. All we need to do is set the appropriate environment variable.</p>
+<p>Please note that, the above commands will be in effect only till the user session expires, i.e. by running the above commands we are just setting the proxy env. for a session, not permanently. And usually we wouldn't want to run the command everytime we login. So, to make it permanent, we can either set the value in wget's configuration - wgetrc file or set the environment in ~/.bashrc file.</p>
+<blockquote>
+<p><span class='root'>[shredder12]$</span> echo &quot;export http_proxy=http://foo.bar:8080/&quot; | tee -a ~/.bashrc</p>
+</blockquote>
+<p>It should be noted that, this way we might be affecting the user's proxy settings. A better way is to set the settings permanently in wget's configuration file, this way no other app. is affected.</p>
+<h2>Wget Proxy: Configuring the wgetrc file</h2>
+<p>Like most of the applications wget has a configuration file too - wgetrc:</p>
+<ul>
+    <li>/etc/wgetrc,</li>
+    <li>~/.wgetrc.</li>
+</ul>
+<p>The former is for global changes and the latter one is for local settings(user specific). We will go into the details later, lets just see how to apply the proxy settings. Its similar to setting the proxy environment variable, just exclude the export command. Open the file ~/.wgetrc file. If one doesn't exist, then create it.</p>
+<blockquote>
+<p><span class='root'>[shredder12]$</span> vim ~/.wgetrc</p>
+</blockquote>
+<p>Now, add the following statement in the file</p>
+<blockquote>
+<p>http_proxy=http://foo.bar:8080</p>
+</blockquote>
+<h2>Wget Proxy: How to disable/turn-off the proxy settings</h2>
+<p>Once you have configured the proxy settings in the wgetrc file, everytime you run wget, it will automatically connect to the proxy server. Sometimes for local/LAN based downloads, you may not need the proxy server. In such cases we can turn off the proxy settings using --no-proxy argument in the command</p>
+<blockquote>
+<p><span class='root'>[shredder12]$</span> wget --no-proxy <a href="http://10.0.0.1/file.tgz" title="http://10.0.0.1/file.tgz">http://10.0.0.1/file.tgz</a></p>
+</blockquote>
+<h2>Wget Proxy: If the proxy requries authentication - Username &amp; Password</h2>
+<p>We already know the format for setting the environment variable with username and password. Wget provides you two methods to mention the username and password for proxy server.</p>
+<ul>
+    <li>Mention it in the command in the form of arguments.</li>
+    <li>Set the values in the configuration file, /etc/wgetrc or ~/.wgetrc</li>
+</ul>
+<p>If the authentication you are using is static, then its better t set it in the configuration file. If its just one time thing or if you want to overwrite the settings in configuration file then you can use the --proxy-user &amp; --proxy-password options.</p>
+<blockquote>
+<p><span class='root'>[shredder12]$</span> wget --proxy-user=username --proxy-password=password <a href="http://foo.bar/file.tgz" title="http://foo.bar/file.tgz">http://foo.bar/file.tgz</a></p>
+</blockquote>
+<p>For permanent changes, its always advised to change the configuration file.</p>
+<p>Once again, for global changes modify the /etc/wgetrc file otherwise go for ~/.wgetrc file. Open any of the file and append/add the following lines in it.</p>
+<blockquote>
+<p>proxy_user=username<br/>
+proxy_password=password</p>
+</blockquote>
+<p>In a similar way, you can set the ftp proxy along with the authencation credentials.</p>
+<h2>How to ovewrite a preset proxy in Wget</h2>
+<p>If you see the first proxy example, we are actually overwriting the pre-defined environment variable(if any). But since, we are executing the export command, rather than editing any configuration file, the proxy setting will be removed as soon as we close the terminal ( in case of GUI, gnome-terminal etc.)&nbsp;or logout of the session.</p>
+<p>And, if for some reason we are interested in using separate proxy for wget, then instead of overwriting the variable we can just edit the ~/.wgetrc or /etc/wgetrc file. Please note that, a local wgetrc file (~/.wgetrc) will overwrite the settings on /etc/wgetrc. Once again, remember that ~/.wgetrc is a local/user-specific setting where as /etc/wgetrc is a global one.</p>
+<p>Finally, the high command in this hierarchy are the variables provided at command execution time. (--proxy-password, --no-proxy etc.), i.e.</p>
+<h2>(Exec. time command options) &gt;&nbsp;~/.wgetrc &gt; /etc/wgetrc &gt; environment</h2>
+<p>This is just a big picture, only for proxy settings. It might not be the same in all the cases.</p><!-- google_ad_section_end -->  </div>
+
+  <ul class="links inline"><li class="tweetbutton first last"><span><div class="tweetbutton"><a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="linuxers" data-related="chiax:" data-text="" data-url="http://linuxers.org/tutorial/wget-proxy-how-run-wget-behind-proxy-server" data-lang="en">Tweet</a></div></span></li>
+</ul>
+</div></div> <!-- /node-inner, /node -->
+  <div id="comments">
+          <h2 id="comments-title">1 Comment</h2>
+        <a id="comment-1819"></a>
+<div class="comment comment-published odd first last comment-by-anon"><div class="comment-inner clear-block">
+<div class="comment-meta"><div class="comment_author">
+            <div class='picture'><img src='http://www.gravatar.com/avatar/46c7b5c7332a1bf7f493aecf42f38bb6?s=80&d=mm&r=g' pagespeed_url_hash="2850253937"/></div>
+      
+Zaid Abdulla (not verified)</div>
+<div class="comment_time">
+October 18th, 2010 07:20 pm</div>
+</div>
+<div class="comment-content">
+  
+
+  <div class="content">
+    Or you could just use proxychains.      </div>
+
+      <div class="links">
+      <ul><li class="comment_reply first last"><a href="/comment/reply/1017/1819">reply</a></li>
+</ul>    </div>
+  </div> <!--comment-content -->
+</div></div> <!-- /comment-inner, /comment -->
+<div class="box"><div class="box-inner">
+
+      <h2 class="title">Post new comment</h2>
+  
+  <div class="content">
+    <form action="/comment/reply/1017" accept-charset="UTF-8" method="post" id="comment-form">
+<div><div class="form-item container-inline wp-comments-element" id="edit-name-wrapper">
+ <input type="text" maxlength="60" name="name" id="edit-name" size="40" value="Anon Linuxer" class="form-text required"/>
+ <label for="edit-name">Your name <span class="form-required" title="This field is required.">(required)</span></label>
+</div>
+<div class="form-item container-inline wp-comments-element" id="edit-mail-wrapper">
+ <input type="text" maxlength="64" name="mail" id="edit-mail" size="40" value="" class="form-text required"/>
+ <label for="edit-mail">E-mail <span class="form-required" title="This field is required.">(required)</span></label>
+</div>
+<div class="form-item container-inline wp-comments-element" id="edit-homepage-wrapper">
+ <input type="text" maxlength="255" name="homepage" id="edit-homepage" size="40" value="" class="form-text"/>
+ <label for="edit-homepage">Homepage </label>
+</div>
+<div class="form-item" id="edit-comment-wrapper">
+ <textarea cols="60" rows="10" name="comment" id="edit-comment" class="form-textarea resizable required"></textarea>
+</div>
+<ul class="tips"><li>Web page addresses and e-mail addresses turn into links automatically.</li><li>Allowed HTML tags: &lt;img&gt; &lt;a&gt; &lt;em&gt; &lt;strong&gt; &lt;cite&gt; &lt;code&gt; &lt;ul&gt; &lt;ol&gt; &lt;li&gt; &lt;dl&gt; &lt;dt&gt; &lt;dd&gt; &lt;blockquote&gt; &lt;h1&gt; &lt;h2&gt; &lt;h3&gt; &lt;h4&gt; &lt;h5&gt; &lt;h6&gt; &lt;p&gt; &lt;br&gt;</li><li>You may post code using &lt;code&gt;...&lt;/code&gt; (generic) or &lt;?php ... ?&gt; (highlighted PHP) tags.</li><li>Image links with 'rel="lightbox"' in the &lt;a&gt; tag will appear in a Lightbox when clicked on.</li></ul><p><a href="/filter/tips">More information about formatting options</a></p><input type="hidden" name="form_build_id" id="form-c27fe50c24494d35741aee68b6cab570" value="form-c27fe50c24494d35741aee68b6cab570"/>
+<input type="hidden" name="form_id" id="edit-comment-form" value="comment_form"/>
+<div class="clear-block"><div class="form-item" id="edit-notify-wrapper">
+ <label class="option" for="edit-notify"><input type="checkbox" name="notify" id="edit-notify" value="1" checked="checked" class="form-checkbox"/> Notify me when new comments are posted</label>
+</div>
+<input type="hidden" name="notify_type" id="edit-notify-type" value="1"/>
+</div><input type="hidden" name="mollom[session_id]" id="edit-mollom-session-id" value="1373130892-130706894c4a5442e8" class="mollom-session-id"/>
+<div class="form-item" id="edit-mollom-captcha-wrapper">
+ <label for="edit-mollom-captcha">Word verification: <span class="form-required" title="This field is required.">*</span></label>
+ <span class="field-prefix"><span class="mollom-captcha-content mollom-image-captcha"><img src="http://173.193.242.188:80/v1/captcha/130706894c4a5442e8.png" alt="Type the characters you see in this picture." title="" pagespeed_url_hash="3699940898"/></span> (<a href="#" class="mollom-switch-captcha mollom-audio-captcha">verify using audio</a>)</span> <input type="text" maxlength="128" name="mollom[captcha]" id="edit-mollom-captcha" size="10" value="" autocomplete="off" class="form-text required"/>
+ <div class="description">Type the characters you see in the picture above; if you can't read them, submit the form and a new image will be generated. Not case sensitive.</div>
+</div>
+<div style="display: none;"><div class="form-item" id="edit-mollom-homepage-wrapper">
+ <input type="text" maxlength="128" name="mollom[homepage]" id="edit-mollom-homepage" size="60" value="" title="Homepage" autocomplete="off" class="form-text"/>
+</div>
+</div><input type="submit" name="op" id="edit-submit" value="Save" class="form-submit"/>
+<input type="submit" name="op" id="edit-preview" value="Preview" class="form-submit"/>
+
+</div></form>
+  </div>
+
+</div></div> <!-- /box-inner, /box -->
+  </div>
+        </div>
+
+        
+                  <div id="content-bottom" class="region region-content_bottom">
+              <div id="block-adsense_managed-1" class="block block-adsense_managed region-odd odd region-count-1 count-7"><div class="block-inner">
+
+  
+  <div class="content">
+    <div style='text-align:center; display: block;'><div class='adsense adsense_managed'>
+<script type="text/javascript">google_ad_client="ca-pub-2412943652958469";google_ad_slot="2845458188";google_ad_width=728;google_ad_height=90;</script>
+<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script>
+</div></div>  </div>
+
+  
+</div></div> <!-- /block-inner, /block -->
+          </div> <!-- /#content-bottom -->
+        
+      </div></div> <!-- /#content-inner, /#content -->
+
+
+              <div id="sidebar-right"><div id="sidebar-right-inner" class="region region-right">
+            <div id="block-block-5" class="block block-block region-odd odd region-count-1 count-1"><div class="block-inner">
+
+      <h2 class="title block-title">Follow Us</h2>
+  
+  <div class="content">
+    <p><a href="http://www.facebook.com/linuxers.org"><img alt="Follow us on Facebook" src="http://linuxers.org/sites/default/files/content/xfb.png.pagespeed.ic.OrJFg4clnj.png" pagespeed_url_hash="640946391"/></a><a href="http://twitter.com/linuxers"><img alt="Follow us on Twitter" src="http://linuxers.org/sites/default/files/content/xtwtr.png.pagespeed.ic.I4sdPD1_Vi.png" pagespeed_url_hash="858480972"/></a><a href="http://feeds.feedburner.com/linuxers"><img alt="Feeds" src="http://linuxers.org/sites/default/files/content/xrss.png.pagespeed.ic.U6DV-dgVTu.png" pagespeed_url_hash="1797757633"/></a></p>
+  </div>
+
+  
+</div></div> <!-- /block-inner, /block -->
+  <div id="block-adsense_managed-0" class="block block-adsense_managed region-even even region-count-2 count-2"><div class="block-inner">
+
+  
+  <div class="content">
+    <div style='text-align:center; display: block;'><div class='adsense adsense_managed'>
+<script type="text/javascript">google_ad_client="ca-pub-2412943652958469";google_ad_slot="3061709107";google_ad_width=200;google_ad_height=200;</script>
+<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script>
+</div></div>  </div>
+
+  
+</div></div> <!-- /block-inner, /block -->
+  <div id="block-views-share_tip-block_1" class="block block-views region-odd odd region-count-3 count-3"><div class="block-inner">
+
+      <h2 class="title block-title">Quick Tips</h2>
+  
+  <div class="content">
+    <div class="view view-share-tip view-id-share_tip view-display-id-block_1 view-dom-id-1">
+    
+  
+  
+      <div class="view-content">
+        <div class="views-row views-row-1 views-row-odd views-row-first views-row-last">
+    
+<h2 id="tip" class="title"><a href="/quick-tips/geyes-funny-way-track-your-mouse-pointer" title="Geyes, a funny way to track your mouse pointer">Geyes, a funny way to track your mouse pointer</a></h2>
+<!-- google_ad_section_start --><div class="field field-type-filefield field-field-tip-logo">
+    <div class="field-items">
+            <div class="field-item odd">
+                    <a href="/quick-tips/geyes-funny-way-track-your-mouse-pointer" class="imagecache imagecache-Logo imagecache-linked imagecache-Logo_linked"><img src="http://linuxers.org/sites/default/files/imagecache/Logo/tip-logo/1275766733_eye_110.png" alt="" title="" width="100" height="100" class="imagecache imagecache-Logo" pagespeed_url_hash="533779101"/></a>        </div>
+        </div>
+</div>
+<p>Has any of you ever noticed the eyes launcher in the &quot;add to panel&quot; option. I just came across it and its pretty funny. Really, the application is nothing more than one or a pair or even three eyeballs staring at the mouse pointer all the time. Although there is a preference option to choose the kind of eye you want staring at the pointer <img src="http://linuxers.org/sites/all/modules/fckeditor/fckeditor/editor/images/smiley/msn/wink_smile.gif" alt="" pagespeed_url_hash="534783876"/>.</p>
+<!-- google_ad_section_end --><div style='float:left'><a href="/quick-tips/geyes-funny-way-track-your-mouse-pointer">Read the full tip →</a></div><div style='text-align:right'> By <a href="/profile/shredder12" title="View user profile.">shredder12</a></div></div>
+  </div>
+    </div>
+  
+  
+  
+      
+<div class="more-link">
+  <a href="/quick-tips">
+    View More Tips  </a>
+</div>
+  
+  
+  
+</div>   </div>
+
+  
+</div></div> <!-- /block-inner, /block -->
+  <div id="block-block-16" class="block block-block region-even even region-count-4 count-4"><div class="block-inner">
+
+      <h2 class="title block-title">Weekly tutorial</h2>
+  
+  <div class="content">
+    <p><a href="http://linuxers.org/tutorial/ffmpeg-tutorial-beginners"> <img alt="FFmpeg Tutorial" src="http://linuxers.org/sites/default/files/content/ffmpeg/xffmpeg_tutorial.png.pagespeed.ic.5XeDRSCvVo.png" pagespeed_url_hash="439539909"/></a></p>
+  </div>
+
+  
+</div></div> <!-- /block-inner, /block -->
+  <div id="block-block-13" class="block block-block region-odd odd region-count-5 count-5"><div class="block-inner">
+
+  
+  <div class="content">
+    <script type="text/javascript" src="http://static.ak.connect.facebook.com/js/api_lib/v0.4/FeatureLoader.js.php/en_US"></script><script type="text/javascript">FB.init("52b6a33fc98dc8c2f18bc30dc151ba35");</script><p><fb:fan width="300" logobar="0" connections="10" stream="0" profile_id="192912576144"></fb:fan></p>
+  </div>
+
+  
+</div></div> <!-- /block-inner, /block -->
+  <div id="block-views-artwork-block_2" class="block block-views region-even even region-count-6 count-6"><div class="block-inner">
+
+      <h2 class="title block-title">Featured Gallery</h2>
+  
+  <div class="content">
+    <div class="view view-artwork view-id-artwork view-display-id-block_2 view-dom-id-2">
+    
+  
+  
+      <div class="view-content">
+      <table class="views-view-grid col-3">
+  <tbody>
+                <tr class="row-1 row-first">
+                  <td class="col-1 col-first">
+              
+  <div class="views-field-field-wallpaper-fid">
+                <span class="field-content"><a href="/~iart/fedora-wallpapers/fedora-red" class="imagecache imagecache-iart_grid_featured imagecache-linked imagecache-iart_grid_featured_linked"><img src="http://linuxers.org/sites/default/files/imagecache/iart_grid_featured/themes/screenshot/4/2011/70x70xlinuxers-red-fedora.jpg.pagespeed.ic.Xv2_eG9yYQ.jpg" alt="" title="" width="70" height="70" class="imagecache imagecache-iart_grid_featured" pagespeed_url_hash="1757803260"/></a></span>
+  </div>
+          </td>
+                  <td class="col-2">
+              
+  <div class="views-field-field-wallpaper-fid">
+                <span class="field-content"><a href="/~iart/linux-girls/pink-ubuntu-girl" class="imagecache imagecache-iart_grid_featured imagecache-linked imagecache-iart_grid_featured_linked"><img src="http://linuxers.org/sites/default/files/imagecache/iart_grid_featured/themes/screenshot/4/2011/70x70xpink-ubuntu-hot.jpg.pagespeed.ic.3iYQCusxwz.jpg" alt="" title="" width="70" height="70" class="imagecache imagecache-iart_grid_featured" pagespeed_url_hash="1825022282"/></a></span>
+  </div>
+          </td>
+                  <td class="col-3 col-last">
+              
+  <div class="views-field-field-wallpaper-fid">
+                <span class="field-content"><a href="/~iart/linux-wallpapers/linux-black-red" class="imagecache imagecache-iart_grid_featured imagecache-linked imagecache-iart_grid_featured_linked"><img src="http://linuxers.org/sites/default/files/imagecache/iart_grid_featured/themes/screenshot/4/2011/70x70xlinux-red.jpg.pagespeed.ic.arz4gSj-YV.jpg" alt="" title="" width="70" height="70" class="imagecache imagecache-iart_grid_featured" pagespeed_url_hash="606703108"/></a></span>
+  </div>
+          </td>
+              </tr>
+                <tr class="row-2">
+                  <td class="col-1 col-first">
+              
+  <div class="views-field-field-wallpaper-fid">
+                <span class="field-content"><a href="/~iart/gnome-wallpapers/gnome-logo" class="imagecache imagecache-iart_grid_featured imagecache-linked imagecache-iart_grid_featured_linked"><img src="http://linuxers.org/sites/default/files/imagecache/iart_grid_featured/themes/screenshot/4/2011/70x70xlinuxers-gnome.jpg.pagespeed.ic.bqF4zlFWnf.jpg" alt="" title="" width="70" height="70" class="imagecache imagecache-iart_grid_featured" pagespeed_url_hash="1742376091"/></a></span>
+  </div>
+          </td>
+                  <td class="col-2">
+              
+  <div class="views-field-field-wallpaper-fid">
+                <span class="field-content"><a href="/~iart/ubuntu-wallpapers/gray-ubuntu" class="imagecache imagecache-iart_grid_featured imagecache-linked imagecache-iart_grid_featured_linked"><img src="http://linuxers.org/sites/default/files/imagecache/iart_grid_featured/themes/screenshot/4/2011/70x70xlinuxers-ubuntu-gray.jpg.pagespeed.ic.5HeNwuXs14.jpg" alt="" title="" width="70" height="70" class="imagecache imagecache-iart_grid_featured" pagespeed_url_hash="3497709140"/></a></span>
+  </div>
+          </td>
+                  <td class="col-3 col-last">
+              
+  <div class="views-field-field-wallpaper-fid">
+                <span class="field-content"><a href="/~iart/tux-wallpapers/tux-family" class="imagecache imagecache-iart_grid_featured imagecache-linked imagecache-iart_grid_featured_linked"><img src="http://linuxers.org/sites/default/files/imagecache/iart_grid_featured/themes/screenshot/4/2011/70x70x132811-tux.jpg.pagespeed.ic.ctiKwinP2Z.jpg" alt="" title="" width="70" height="70" class="imagecache imagecache-iart_grid_featured" pagespeed_url_hash="1260698448"/></a></span>
+  </div>
+          </td>
+              </tr>
+                <tr class="row-3">
+                  <td class="col-1 col-first">
+              
+  <div class="views-field-field-wallpaper-fid">
+                <span class="field-content"><a href="/~iart/linux-wallpapers/gnulinux-black" class="imagecache imagecache-iart_grid_featured imagecache-linked imagecache-iart_grid_featured_linked"><img src="http://linuxers.org/sites/default/files/imagecache/iart_grid_featured/themes/screenshot/4/2011/70x70xgnu-linux-black-wallpaper.png.pagespeed.ic.xBJd-zt3tl.png" alt="" title="" width="70" height="70" class="imagecache imagecache-iart_grid_featured" pagespeed_url_hash="384143844"/></a></span>
+  </div>
+          </td>
+                  <td class="col-2">
+              
+  <div class="views-field-field-wallpaper-fid">
+                <span class="field-content"><a href="/~iart/linux-wallpapers/linux-mist" class="imagecache imagecache-iart_grid_featured imagecache-linked imagecache-iart_grid_featured_linked"><img src="http://linuxers.org/sites/default/files/imagecache/iart_grid_featured/themes/screenshot/4/2011/70x70xlinuxers-linux-mist.jpg.pagespeed.ic.b42CNjAZr7.jpg" alt="" title="" width="70" height="70" class="imagecache imagecache-iart_grid_featured" pagespeed_url_hash="3131717029"/></a></span>
+  </div>
+          </td>
+                  <td class="col-3 col-last">
+              
+  <div class="views-field-field-wallpaper-fid">
+                <span class="field-content"><a href="/~iart/firefox-wallpapers/fox-fire" class="imagecache imagecache-iart_grid_featured imagecache-linked imagecache-iart_grid_featured_linked"><img src="http://linuxers.org/sites/default/files/imagecache/iart_grid_featured/themes/screenshot/4/2010/70x70xfirefox_by_myza_lioness-d325hs2.jpg.pagespeed.ic.29lHdZTPE5.jpg" alt="" title="" width="70" height="70" class="imagecache imagecache-iart_grid_featured" pagespeed_url_hash="3412803646"/></a></span>
+  </div>
+          </td>
+              </tr>
+                <tr class="row-4">
+                  <td class="col-1 col-first">
+              
+  <div class="views-field-field-wallpaper-fid">
+                <span class="field-content"><a href="/~iart/miscellaneous/linux-media-player-mockup" class="imagecache imagecache-iart_grid_featured imagecache-linked imagecache-iart_grid_featured_linked"><img src="http://linuxers.org/sites/default/files/imagecache/iart_grid_featured/themes/screenshot/4/2010/70x70xLinux_Media_Player_Mockup_by_willwill100_0.png.pagespeed.ic.4Gg6S1tpEL.png" alt="" title="" width="70" height="70" class="imagecache imagecache-iart_grid_featured" pagespeed_url_hash="3771102031"/></a></span>
+  </div>
+          </td>
+                  <td class="col-2">
+              
+  <div class="views-field-field-wallpaper-fid">
+                <span class="field-content"><a href="/~iart/debian-wallpapers/debian-ray" class="imagecache imagecache-iart_grid_featured imagecache-linked imagecache-iart_grid_featured_linked"><img src="http://linuxers.org/sites/default/files/imagecache/iart_grid_featured/themes/screenshot/4/2010/70x70xDebian_wallpaper_by_bulwiarz.jpg.pagespeed.ic.wqi3vngxJi.jpg" alt="" title="" width="70" height="70" class="imagecache imagecache-iart_grid_featured" pagespeed_url_hash="4464106"/></a></span>
+  </div>
+          </td>
+                  <td class="col-3 col-last">
+              
+  <div class="views-field-field-wallpaper-fid">
+                <span class="field-content"><a href="/~iart/vlc-skins/debian-red-coast" class="imagecache imagecache-iart_grid_featured imagecache-linked imagecache-iart_grid_featured_linked"><img src="http://linuxers.org/sites/default/files/imagecache/iart_grid_featured/themes/screenshot/4/2010/70x70xredcoast.png.pagespeed.ic.tCGKCzFZ6M.png" alt="" title="" width="70" height="70" class="imagecache imagecache-iart_grid_featured" pagespeed_url_hash="1379856800"/></a></span>
+  </div>
+          </td>
+              </tr>
+                <tr class="row-5">
+                  <td class="col-1 col-first">
+              
+  <div class="views-field-field-wallpaper-fid">
+                <span class="field-content"><a href="/~iart/linux-wallpapers/linux-tipi" class="imagecache imagecache-iart_grid_featured imagecache-linked imagecache-iart_grid_featured_linked"><img src="http://linuxers.org/sites/default/files/imagecache/iart_grid_featured/themes/screenshot/4/2010/70x70xlinux_tipi.png.pagespeed.ic.sjNnED0TGo.png" alt="" title="" width="70" height="70" class="imagecache imagecache-iart_grid_featured" pagespeed_url_hash="2660227268"/></a></span>
+  </div>
+          </td>
+                  <td class="col-2">
+              
+  <div class="views-field-field-wallpaper-fid">
+                <span class="field-content"><a href="/~iart/linux-girls/arch-linux-simple-lightweight-distro" class="imagecache imagecache-iart_grid_featured imagecache-linked imagecache-iart_grid_featured_linked"><img src="http://linuxers.org/sites/default/files/imagecache/iart_grid_featured/themes/screenshot/1/2010/70x70x75464-Olivia_Wilde.jpg.pagespeed.ic.FIZjC7QsgZ.jpg" alt="" title="" width="70" height="70" class="imagecache imagecache-iart_grid_featured" pagespeed_url_hash="2492496087"/></a></span>
+  </div>
+          </td>
+                  <td class="col-3 col-last">
+              
+  <div class="views-field-field-wallpaper-fid">
+                <span class="field-content"><a href="/~iart/tux-wallpapers/brinjal-tux" class="imagecache imagecache-iart_grid_featured imagecache-linked imagecache-iart_grid_featured_linked"><img src="http://linuxers.org/sites/default/files/imagecache/iart_grid_featured/themes/screenshot/4/2010/70x70x173224913.jpg.pagespeed.ic.rPqJ0suIdc.jpg" alt="" title="" width="70" height="70" class="imagecache imagecache-iart_grid_featured" pagespeed_url_hash="2121622583"/></a></span>
+  </div>
+          </td>
+              </tr>
+                <tr class="row-6">
+                  <td class="col-1 col-first">
+              
+  <div class="views-field-field-wallpaper-fid">
+                <span class="field-content"><a href="/~iart/tux-wallpapers/usb-house" class="imagecache imagecache-iart_grid_featured imagecache-linked imagecache-iart_grid_featured_linked"><img src="http://linuxers.org/sites/default/files/imagecache/iart_grid_featured/themes/screenshot/4/2010/70x70xpendriver_linux_wallpaper-1024x768.jpg.pagespeed.ic.PA_3heFism.jpg" alt="" title="" width="70" height="70" class="imagecache imagecache-iart_grid_featured" pagespeed_url_hash="2368689145"/></a></span>
+  </div>
+          </td>
+                  <td class="col-2">
+              
+  <div class="views-field-field-wallpaper-fid">
+                <span class="field-content"><a href="/~iart/anti-windows/dont-panic-its-not-windows" class="imagecache imagecache-iart_grid_featured imagecache-linked imagecache-iart_grid_featured_linked"><img src="http://linuxers.org/sites/default/files/imagecache/iart_grid_featured/themes/screenshot/4/2010/70x70xdont_panic__its_not_windows_wallpaper-1280x1024.jpg.pagespeed.ic.rSpOl_5Oj-.jpg" alt="" title="" width="70" height="70" class="imagecache imagecache-iart_grid_featured" pagespeed_url_hash="3724864144"/></a></span>
+  </div>
+          </td>
+                  <td class="col-3 col-last">
+              
+  <div class="views-field-field-wallpaper-fid">
+                <span class="field-content"><a href="/~iart/ubuntu-wallpapers/ubuntu-waves-lucid" class="imagecache imagecache-iart_grid_featured imagecache-linked imagecache-iart_grid_featured_linked"><img src="http://linuxers.org/sites/default/files/imagecache/iart_grid_featured/themes/screenshot/4/2010/70x70xdevos-ubuntu-waves-03.png.pagespeed.ic.wa8gM9v6qz.png" alt="" title="" width="70" height="70" class="imagecache imagecache-iart_grid_featured" pagespeed_url_hash="2737237995"/></a></span>
+  </div>
+          </td>
+              </tr>
+                <tr class="row-7 row-last">
+                  <td class="col-1 col-first">
+              
+  <div class="views-field-field-wallpaper-fid">
+                <span class="field-content"><a href="/~iart/anti-windows/ubuntu-breakthrough" class="imagecache imagecache-iart_grid_featured imagecache-linked imagecache-iart_grid_featured_linked"><img src="http://linuxers.org/sites/default/files/imagecache/iart_grid_featured/themes/screenshot/1/2010/70x70x86769-Breakthrough01.jpg.pagespeed.ic.WeEURB9TCs.jpg" alt="" title="" width="70" height="70" class="imagecache imagecache-iart_grid_featured" pagespeed_url_hash="1373973096"/></a></span>
+  </div>
+          </td>
+                  <td class="col-2">
+              
+  <div class="views-field-field-wallpaper-fid">
+                <span class="field-content"><a href="/~iart/miscellaneous/bee-hive" class="imagecache imagecache-iart_grid_featured imagecache-linked imagecache-iart_grid_featured_linked"><img src="http://linuxers.org/sites/default/files/imagecache/iart_grid_featured/themes/screenshot/4/2010/70x70xbee_hive.jpg.pagespeed.ic._KtbRTIDig.jpg" alt="" title="" width="70" height="70" class="imagecache imagecache-iart_grid_featured" pagespeed_url_hash="575759796"/></a></span>
+  </div>
+          </td>
+                  <td class="col-3 col-last">
+              
+  <div class="views-field-field-wallpaper-fid">
+                <span class="field-content"><a href="/~iart/miscellaneous/landscape" class="imagecache imagecache-iart_grid_featured imagecache-linked imagecache-iart_grid_featured_linked"><img src="http://linuxers.org/sites/default/files/imagecache/iart_grid_featured/themes/screenshot/4/2010/70x70xlandscape_1920.jpg.pagespeed.ic.oAExw_9mCr.jpg" alt="" title="" width="70" height="70" class="imagecache imagecache-iart_grid_featured" pagespeed_url_hash="2813974397"/></a></span>
+  </div>
+          </td>
+              </tr>
+      </tbody>
+</table>
+    </div>
+  
+  
+  
+      
+<div class="more-link">
+  <a href="/~art">
+    View more  </a>
+</div>
+  
+  
+  
+</div>   </div>
+
+  
+</div></div> <!-- /block-inner, /block -->
+        </div></div> <!-- /#sidebar-right-inner, /#sidebar-right -->
+      
+    </div></div> <!-- /#main-inner, /#main -->
+
+          <div id="footer"><div id="footer-inner" class="region region-footer">
+
+        
+          <div id="block-tagadelic-2" class="block block-tagadelic region-odd even region-count-1 count-8"><div class="block-inner">
+
+      <h2 class="title block-title">Category</h2>
+  
+  <div class="content">
+    <a href="/category/dior-eyewear-%E2%80%93-masterpieces-sun-don" class="tagadelic level1 tagadelic-Dior Eyewear – The Masterpieces of Sun Don" rel="tag">Dior Eyewear – The Masterpieces of Sun Don</a> 
+<a href="/category/x11" class="tagadelic level1 tagadelic-X11" rel="tag">X11</a> 
+<a href="/category/foxit" class="tagadelic level1 tagadelic-Foxit" rel="tag">Foxit</a> 
+<a href="/category/google" class="tagadelic level3 tagadelic-Google" rel="tag">Google</a> 
+<a href="/category/opera" class="tagadelic level2 tagadelic-Opera" rel="tag">Opera</a> 
+<a href="/category/mysql" class="tagadelic level3 tagadelic-Mysql" rel="tag">Mysql</a> 
+<a href="/category/youtube" class="tagadelic level1 tagadelic-youtube" rel="tag">youtube</a> 
+<a href="/category/dpkg" class="tagadelic level1 tagadelic-dpkg" rel="tag">dpkg</a> 
+<a href="/category/nvidia" class="tagadelic level2 tagadelic-Nvidia" rel="tag">Nvidia</a> 
+<a href="/category/totem" class="tagadelic level1 tagadelic-totem" rel="tag">totem</a> 
+<a href="/category/apt" class="tagadelic level1 tagadelic-apt" rel="tag">apt</a> 
+<a href="/category/synergy" class="tagadelic level1 tagadelic-synergy" rel="tag">synergy</a> 
+<a href="/category/gimp" class="tagadelic level2 tagadelic-GIMP" rel="tag">GIMP</a> 
+<a href="/category/html5" class="tagadelic level3 tagadelic-HTML5" rel="tag">HTML5</a> 
+<a href="/category/android" class="tagadelic level3 tagadelic-Android" rel="tag">Android</a> 
+<a href="/category/vlc" class="tagadelic level4 tagadelic-VLC" rel="tag">VLC</a> 
+<a href="/category/smtp" class="tagadelic level2 tagadelic-SMTP" rel="tag">SMTP</a> 
+<a href="/category/meego" class="tagadelic level2 tagadelic-MeeGo" rel="tag">MeeGo</a> 
+<a href="/category/how-you-can-determine-prada-real-bags" class="tagadelic level1 tagadelic-How you can Determine Prada Real Bags" rel="tag">How you can Determine Prada Real Bags</a> 
+<a href="/category/bug" class="tagadelic level1 tagadelic-Bug" rel="tag">Bug</a> 
+<a href="/category/gnome" class="tagadelic level4 tagadelic-Gnome" rel="tag">Gnome</a> 
+<a href="/category/thunderbird" class="tagadelic level1 tagadelic-Thunderbird" rel="tag">Thunderbird</a> 
+<a href="/category/bluetooth" class="tagadelic level1 tagadelic-Bluetooth" rel="tag">Bluetooth</a> 
+<a href="/category/webtops" class="tagadelic level1 tagadelic-webtops" rel="tag">webtops</a> 
+<a href="/category/apple" class="tagadelic level2 tagadelic-Apple" rel="tag">Apple</a> 
+<a href="/category/git" class="tagadelic level1 tagadelic-GIT" rel="tag">GIT</a> 
+<a href="/category/robots" class="tagadelic level2 tagadelic-Robots" rel="tag">Robots</a> 
+<a href="/category/nmap" class="tagadelic level1 tagadelic-Nmap" rel="tag">Nmap</a> 
+<a href="/category/yum" class="tagadelic level1 tagadelic-Yum" rel="tag">Yum</a> 
+<a href="/category/cron" class="tagadelic level1 tagadelic-Cron" rel="tag">Cron</a> 
+<a href="/category/beginner" class="tagadelic level4 tagadelic-Beginner" rel="tag">Beginner</a> 
+<a href="/category/ftp" class="tagadelic level1 tagadelic-FTP" rel="tag">FTP</a> 
+<a href="/category/imagemagick" class="tagadelic level1 tagadelic-ImageMagick" rel="tag">ImageMagick</a> 
+<a href="/category/events" class="tagadelic level2 tagadelic-Events" rel="tag">Events</a> 
+<a href="/category/jordan-4-black-cement" class="tagadelic level1 tagadelic-jordan 4 black cement" rel="tag">jordan 4 black cement</a> 
+<a href="/category/firefox" class="tagadelic level4 tagadelic-Firefox" rel="tag">Firefox</a> 
+<a href="/category/goddard" class="tagadelic level2 tagadelic-Goddard" rel="tag">Goddard</a> 
+<a href="/category/multimedia" class="tagadelic level3 tagadelic-Multimedia" rel="tag">Multimedia</a> 
+<a href="/category/proxy" class="tagadelic level1 tagadelic-Proxy" rel="tag">Proxy</a> 
+<a href="/category/pranks" class="tagadelic level1 tagadelic-Pranks" rel="tag">Pranks</a> 
+<a href="/category/google-labs" class="tagadelic level2 tagadelic-Google Labs" rel="tag">Google Labs</a> 
+<a href="/category/sharing" class="tagadelic level1 tagadelic-Sharing" rel="tag">Sharing</a> 
+<a href="/category/mail" class="tagadelic level1 tagadelic-Mail" rel="tag">Mail</a> 
+<a href="/category/drupal" class="tagadelic level2 tagadelic-Drupal" rel="tag">Drupal</a> 
+<a href="/category/chromium" class="tagadelic level2 tagadelic-Chromium" rel="tag">Chromium</a> 
+<a href="/category/eyeos" class="tagadelic level1 tagadelic-eyeOS" rel="tag">eyeOS</a> 
+<a href="/category/theora" class="tagadelic level3 tagadelic-Theora" rel="tag">Theora</a> 
+<a href="/category/forensics" class="tagadelic level1 tagadelic-Forensics" rel="tag">Forensics</a> 
+<a href="/category/chrome" class="tagadelic level2 tagadelic-Chrome" rel="tag">Chrome</a> 
+<a href="/category/xorg" class="tagadelic level1 tagadelic-X.Org" rel="tag">X.Org</a> 
+<a href="/category/sysadmin" class="tagadelic level4 tagadelic-Sysadmin" rel="tag">Sysadmin</a> 
+<a href="/category/software" class="tagadelic level4 tagadelic-software" rel="tag">software</a> 
+<a href="/category/maemo" class="tagadelic level3 tagadelic-Maemo" rel="tag">Maemo</a> 
+<a href="/category/wireless" class="tagadelic level1 tagadelic-Wireless" rel="tag">Wireless</a> 
+<a href="/category/amarok" class="tagadelic level1 tagadelic-Amarok" rel="tag">Amarok</a> 
+<a href="/category/networking" class="tagadelic level3 tagadelic-Networking" rel="tag">Networking</a> 
+<a href="/category/gstreamer" class="tagadelic level1 tagadelic-GStreamer" rel="tag">GStreamer</a> 
+<a href="/category/ssh" class="tagadelic level2 tagadelic-SSH" rel="tag">SSH</a> 
+<a href="/category/internet-explorer" class="tagadelic level2 tagadelic-Internet Explorer" rel="tag">Internet Explorer</a> 
+<a href="/category/lucid" class="tagadelic level2 tagadelic-Lucid" rel="tag">Lucid</a> 
+<a href="/category/twitter" class="tagadelic level1 tagadelic-Twitter" rel="tag">Twitter</a> 
+<a href="/category/security" class="tagadelic level3 tagadelic-Security" rel="tag">Security</a> 
+<a href="/category/im" class="tagadelic level1 tagadelic-IM" rel="tag">IM</a> 
+<a href="/category/fennec" class="tagadelic level2 tagadelic-fennec" rel="tag">fennec</a> 
+<a href="/category/pidgin" class="tagadelic level3 tagadelic-Pidgin" rel="tag">Pidgin</a> 
+<a href="/category/karmic" class="tagadelic level1 tagadelic-Karmic" rel="tag">Karmic</a> 
+<a href="/category/910" class="tagadelic level1 tagadelic-9.10" rel="tag">9.10</a> 
+<a href="/category/features" class="tagadelic level2 tagadelic-Features" rel="tag">Features</a> 
+<a href="/category/rsync" class="tagadelic level1 tagadelic-Rsync" rel="tag">Rsync</a> 
+<a href="/category/cherokee" class="tagadelic level1 tagadelic-Cherokee" rel="tag">Cherokee</a> 
+<a href="/category/data-recovery" class="tagadelic level2 tagadelic-Data Recovery" rel="tag">Data Recovery</a> 
+<a href="/category/dc" class="tagadelic level1 tagadelic-DC" rel="tag">DC</a> 
+<a href="/category/maverick" class="tagadelic level3 tagadelic-Maverick" rel="tag">Maverick</a> 
+<a href="/category/clou-nufactured-selle-miscroscopic-seamaid-realm-hermes" class="tagadelic level1 tagadelic-Clou nufactured Selle, the miscroscopic Seamaid in the realm of Hermes" rel="tag">Clou nufactured Selle, the miscroscopic Seamaid in the realm of Hermes</a> 
+<a href="/category/mplayer" class="tagadelic level1 tagadelic-Mplayer" rel="tag">Mplayer</a> 
+<a href="/category/tunneling" class="tagadelic level1 tagadelic-Tunneling" rel="tag">Tunneling</a> 
+<a href="/category/network-manager" class="tagadelic level1 tagadelic-Network Manager" rel="tag">Network Manager</a> 
+<a href="/category/foss" class="tagadelic level2 tagadelic-FOSS" rel="tag">FOSS</a> 
+<a href="/category/cups" class="tagadelic level1 tagadelic-CUPS" rel="tag">CUPS</a> 
+<a href="/category/grub2" class="tagadelic level2 tagadelic-Grub2" rel="tag">Grub2</a> 
+<a href="/category/festival" class="tagadelic level1 tagadelic-festival" rel="tag">festival</a> 
+<a href="/category/constantine" class="tagadelic level2 tagadelic-Constantine" rel="tag">Constantine</a> 
+<a href="/category/debian" class="tagadelic level1 tagadelic-Debian" rel="tag">Debian</a> 
+<a href="/category/h264" class="tagadelic level3 tagadelic-H.264" rel="tag">H.264</a> 
+<a href="/category/apache" class="tagadelic level1 tagadelic-Apache" rel="tag">Apache</a> 
+<a href="/category/ksplice" class="tagadelic level1 tagadelic-ksplice" rel="tag">ksplice</a> 
+<a href="/category/speech-synthesis" class="tagadelic level1 tagadelic-speech synthesis" rel="tag">speech synthesis</a> 
+<a href="/category/bash" class="tagadelic level2 tagadelic-bash" rel="tag">bash</a> 
+  </div>
+
+  
+</div></div> <!-- /block-inner, /block -->
+
+      </div></div> <!-- /#footer-inner, /#footer -->
+    
+  </div></div> <!-- /#page-inner, /#page -->
+
+  
+  <script type="text/javascript">//<![CDATA[
+var _gaq=_gaq||[];_gaq.push(["_setAccount","UA-9018417-5"]);_gaq.push(["_trackPageview"]);(function(){var ga=document.createElement("script");ga.type="text/javascript";ga.async=true;ga.src=("https:"==document.location.protocol?"https://ssl":"http://www")+".google-analytics.com/ga.js";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(ga,s);})();
+//]]></script>
+
+<script type="text/javascript">//<![CDATA[
+(function(){var e=encodeURIComponent,f=window,g=document,h="documentElement",k="length",l="prototype",n="body",p="&ci=",q="&oh=",r=",",s="Content-Type",t="Microsoft.XMLHTTP",u="Msxml2.XMLHTTP",v="POST",w="application/x-www-form-urlencoded",x="img",y="input",z="load",A="on",B="pagespeed_url_hash",C="url=";f.pagespeed=f.pagespeed||{};var D=f.pagespeed,E=function(a,b,c){this.e=a;this.c=b;this.d=c;this.b=this.f();this.a={}};E[l].f=function(){return{height:f.innerHeight||g[h].clientHeight||g[n].clientHeight,width:f.innerWidth||g[h].clientWidth||g[n].clientWidth}};E[l].i=function(a){a=a.getBoundingClientRect();return{top:a.top+(void 0!==f.pageYOffset?f.pageYOffset:(g[h]||g[n].parentNode||g[n]).scrollTop),left:a.left+(void 0!==f.pageXOffset?f.pageXOffset:(g[h]||g[n].parentNode||g[n]).scrollLeft)}};E[l].g=function(a){if(0>=a.offsetWidth&&0>=a.offsetHeight)return!1;a=this.i(a);var b=JSON.stringify(a);if(this.a.hasOwnProperty(b))return!1;this.a[b]=!0;return a.top<=this.b.height&&a.left<=this.b.width};E[l].h=function(a){var b;if(f.XMLHttpRequest)b=new XMLHttpRequest;else if(f.ActiveXObject)try{b=new ActiveXObject(u)}catch(c){try{b=new ActiveXObject(t)}catch(d){}}if(!b)return!1;b.open(v,this.e);b.setRequestHeader(s,w);b.send(a);return!0};E[l].k=function(){for(var a=[x,y],b={},c=0;c<a[k];++c)for(var d=g.getElementsByTagName(a[c]),m=0;m<d[k];++m)d[m].hasAttribute(B)&&(d[m].getBoundingClientRect&&this.g(d[m]))&&(b[d[m].getAttribute(B)]=!0);b=Object.keys(b);if(0!=b[k]){a=C+e(this.c);a+=q+this.d;a+=p+e(b[0]);for(c=1;c<b[k];++c){d=r+e(b[c]);if(131072<a[k]+d[k])break;a+=d}D.criticalImagesBeaconData=a;this.h(a)}};D.j=function(a,b,c){if(a.addEventListener)a.addEventListener(b,c,!1);else if(a.attachEvent)a.attachEvent(A+b,c);else{var d=a[A+b];a[A+b]=function(){c.call(this);d&&d.call(this)}}};D.l=function(a,b,c){var d=new E(a,b,c);D.j(f,z,function(){f.setTimeout(function(){d.k()},0)})};D.criticalImagesBeaconInit=D.l;})();pagespeed.criticalImagesBeaconInit('/mod_pagespeed_beacon','http://linuxers.org/tutorial/wget-proxy-how-run-wget-behind-proxy-server','djXhA43tBd');
+//]]></script></body>
+</html>

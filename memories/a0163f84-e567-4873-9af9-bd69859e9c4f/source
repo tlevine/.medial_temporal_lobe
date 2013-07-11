@@ -1,0 +1,336 @@
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Akasa Thermal Solution</title>
+  <meta name="description" content="Akasa branded products including cables, cases, card readers, coolers, external enclosures, fans in many colours, hubs, and power supplies" />
+  <meta name="keywords" content="cables, cases, card readers, coolers, enclosures, fans, hubs, power supplies" />
+  <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon" />
+  <script src="./js/jquery-min.js" type="text/javascript"></script>
+  <script src="./js/jquery-ui-min.js" type="text/javascript"></script>
+  <link rel="stylesheet" type="text/css" media="screen" href="./css/theme/jquery-ui.css" />
+  <link rel="stylesheet" type="text/css" href="./css/SpryMenuBarHorizontal.css" />
+  <link rel="stylesheet" type="text/css" href="./css/default.css"  />
+  <link rel="stylesheet" type="text/css" href="./css/company.css"  />
+  <link rel="stylesheet" type="text/css" href="./css/where_to_buy.css"  />
+  <link rel="stylesheet" type="text/css" href="./css/product.css" />
+  <link rel="stylesheet" type="text/css" href="./css/list.css" />
+  <link rel="stylesheet" type="text/css" href="./css/list_cn.css" />
+  <link rel="stylesheet" type="text/css" href="./css/banner.css" />
+  <link rel="stylesheet" type="text/css" href="./css/product_cpu.css" />
+  <link rel="stylesheet" type="text/css" href="./css/SpryTabbedPanels.css" />
+  <script src="./js/AC_RunActiveContent.js" type="text/javascript"></script>
+  <script src="./js/dynajax_gzip.js" type="text/javascript"></script>
+  <script src="./js/dynclient.js" type="text/javascript"></script>
+  <script src="./js/SpryMenuBar.js" type="text/javascript"></script>
+  <script src="./js/effect.js" type="text/javascript"></script>
+  <!--slider-->
+  <link rel="stylesheet" href="./css/slider_theme/default.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="./css/slider_theme/nivo-slider.css" type="text/css" media="screen" />
+    <script type="text/javascript" src="./js/slider/jquery.nivo.slider.pack.js"></script>
+  <!--drop-down-menu-->  
+    <link rel="stylesheet" type="text/css" href="./css/dcmegamenu.css" />
+    <link rel="stylesheet" type="text/css" href="./css/skins/white.css" />
+    <script src="./js/dcmegamenu/jquery.hoverIntent.minified.js" type="text/javascript"></script>
+    <script src="./js/dcmegamenu/jquery.dcmegamenu.1.3.3.js" type="text/javascript"></script>
+  
+  
+
+<!--slider-->
+<script type="text/javascript">
+    $(window).load(function() {
+        $('#slider').nivoSlider();
+    });
+    </script>
+    <!--slider END-->
+	
+<!--drop-down-menu-->
+<script type="text/javascript">
+   $(document).ready(function($){
+        $('#mega-menu-9').dcMegaMenu({
+                rowItems: '3',
+                speed: 'fast',
+                effect: 'fade'
+        });
+});    
+</script>
+<!--drop-down-menu END-->
+
+<script type="text/javascript">
+$(document).ready(function() {
+  $("#searchkey").autocomplete({
+    source: "getsearchlist.php",
+    select: function(event, ui){
+    var searchkey = ui.item.value;
+    var url = "search.php?seed="+searchkey;
+    window.open(url, '_self', false);
+    },
+  });  
+});
+</script>
+
+
+</head><body bgcolor="#ffffff">
+  <center>
+    
+
+
+
+<table width="920" border="0" cellpadding="0" cellspacing="0">
+  <tr>
+    <td height="90" colspan="3" align="left" valign="bottom">
+	  <div style="float:left;width:920px;height:80px" class="footer">
+        <div style="float:left;margin-top:-5px;width:320px">
+          <!--logo-->
+          <a href="index.php?lang=en"><img src="./img/site/logo.png" width="171" height="53" border="0" /></a>
+          <!--slogan-->
+          <div style="float:left;margin-top:-1px"><img src="./img/site/en/slogan.gif" ></div>
+        </div>
+        <!--language-->
+	    <div style="float:right;width:500px;padding-top:25px;">
+        <!--search-->
+<div style="margin-left:285px; position: relative; z-index:9;">
+<div style="float:left;margin-right:5px;width:20px;">
+<img src="./img/site/search_button.jpg">
+</div>
+<input type="text" style="float:left;font:12px Verdana; width:180px;" id="searchkey" name="searchkey" >
+</div>
+                    
+          <div style="float:right;padding-top:10px;padding-left:50px;padding-right:5px;" class="footer">
+            <a href="index.php?lang=en">Home</a> <b>|</b> 
+            <a href="update.php?tpl=company.tpl">Company</a> <b>|</b> 
+            <a href="update.php?tpl=wheretobuy.tpl">Where to buy</a> <b>|</b>            
+            <a href="update.php?tpl=contactus.tpl">Contact Us</a> <b>|</b></div> 
+         <!--search           
+          <div style="float:right;background-image:url(./img/site/search.jpg);width:166px;height:29px;background-repeat:no-repeat; display:none">
+            <form name="search" method="post" action="#" style="padding-top:4px;padding-left:8px;margin:0px;" class="footer" >
+              <span style="margin-top: -10px;">Search</span>
+              <input type="text" name="q" value="" size="9" style="height:15px; border:1px #666666 solid;margin-top:4px;"/>
+              <input type="image" value="" alt="Submit" src="./img/site/search_button.png" align="center" style="*margin-top:5px; margin-bottom:10px"/>
+            </form>
+          </div>-->
+		</div>
+    </div>    </td>
+  </tr>
+</table>
+<table width="920" border="0" align="center" cellpadding="0" cellspacing="0" >
+  <tr>
+    <td >
+    <div class="wrap">
+    <div class="demo-container">
+    <div class="white">  
+    
+
+<ul id="mega-menu-9" class="mega-menu">
+	<li><a href="#">Cooling<br>Solutions</a>
+    <ul>
+			<li><a href="#">CPU Cooler</a>
+				<ul>
+					<li><a href="update.php?tpl=product/retail.cpu.list.tpl&type=CPU coolers&type_sub=Retail cooler">Retail</a></li>
+					<li><a href="update.php?tpl=product/cpu.list.tpl&type=CPU coolers&type_sub=Standard Intel">Standard Intel</a></li>
+					<li><a href="update.php?tpl=product/cpu.list.tpl&type=CPU coolers&type_sub=Standard AMD">Standard AMD</a></li>
+                    <li><a href="update.php?tpl=product/cpu.list.tpl&type=CPU coolers&type_sub=Low Profile">Low Profile</a></li>
+				</ul>
+			</li>
+            <li><a href="#">System Cooling</a>
+			    <ul>
+					<li><a href="update.php?tpl=product/product.list.tpl&type=Cooling solutions&type_sub=System Cooling">System Cooling</a></li>
+					<li><a href="update.php?tpl=product/product.list.tpl&type=Cooling solutions&type_sub=VGA Cooler">VGA Cooler</a></li>
+					<li><a href="update.php?tpl=product/product.list.tpl&type=Cooling solutions&type_sub=HDD Cooler">HDD Cooler</a></li>
+					<li><a href="update.php?tpl=product/product.list.tpl&type=Cooling solutions&type_sub=Thermal Interface">Thermal Interface</a></li>
+				</ul>
+			</li>
+		</ul>
+	</li>
+<li><a href="#">Fans&nbsp;</a>
+		<ul>
+                    <li><a href="update.php?tpl=product/product.list.tpl&type=Fans&type_sub=Ultra Quiet Fan">Ultra Quiet</a></li>
+                    <li><a href="update.php?tpl=product/product.list.tpl&type=Fans&type_sub=LED">LED</a></li>
+                    <li><a href="update.php?tpl=product/product.list.tpl&type=Fans&type_sub=UV">UV</a></li>
+                    <li><a href="update.php?tpl=product/product.list.tpl&type=Fans&type_sub=Classic Black">Classic Black</a></li>
+                    <li><a href="update.php?tpl=product/product.list.tpl&type=Fans&type_sub=Auto thermal">Auto Thermal</a></li>
+                    <li><a href="update.php?tpl=product/product.list.tpl&type=Fans&type_sub=PWM Control">PWM Control</a></li>
+                    <li><a href="update.php?tpl=product/product.list.tpl&type=Fans&type_sub=Fan Controller">Fan Controller</a></li>
+                    <li><a href="update.php?tpl=product/product.list.tpl&type=Fans&type_sub=Fan Accessories">Fan Accessories</a></li>
+        </ul>
+    </li>
+<li><a href="update.php?tpl=product/product.list.tpl&type=Notebook coolers&type_sub=NB Coolers">Notebook<br>Cooler</a></li>
+<li><a href="#">Card Reader<br>& Hub</a>
+		<ul>
+                    <li><a href="update.php?tpl=product/product.list.tpl&type=Card Reader/Hub&type_sub=Card Reader">Card Reader</a></li>
+                    <li><a href="update.php?tpl=product/product.list.tpl&type=Card Reader/Hub&type_sub=USB Hub">USB Hub</a></li>
+                    <li><a href="update.php?tpl=product/product.list.tpl&type=Card Reader&type_sub=Power Adapters">Power Adapters</a></li>
+        </ul>
+    </li>
+<li><a href="#">Enclosures</a>
+		<ul>
+                    <li><a href="update.php?tpl=product/product.list.tpl&type=Enclosures&type_sub=3.5 Enclosure">3.5" Enclosures</a></li>
+                    <li><a href="update.php?tpl=product/product.list.tpl&type=Enclosures&type_sub=2.5 Enclosure">2.5" Enclosures</a></li>
+                    <li><a href="update.php?tpl=product/product.list.tpl&type=Enclosures&type_sub=Media Enclosures">Media Enclosures</a></li>
+                    <li><a href="update.php?tpl=product/product.list.tpl&type=Enclosures&type_sub=Mobile Rack">Mobile Rack</a></li>
+                    <li><a href="update.php?tpl=product/product.list.tpl&type=Enclosures&type_sub=Power Adapters">Power Adapters</a></li>
+        </ul>
+    </li>
+<li><a href="#">Chassis</a>
+<ul>
+<li><a href="update.php?tpl=product/product.list.tpl&type=Chassis&type_sub=Full ATX">Full ATX</a></li>
+                    <li><a href="update.php?tpl=product/product.list.tpl&type=Chassis&type_sub=Mid ATX">Mid ATX</a></li>
+                    <li><a href="update.php?tpl=product/product.list.tpl&type=Chassis&type_sub=Mini ITX">Mini ITX</a></li>
+                    <li><a href="update.php?tpl=product/product.list.tpl&type=Chassis&type_sub=Case Accessories">Case Accessories</a></li>
+        </ul>
+    </li>
+    <li><a href="#">Power<br>Supplies</a>
+<ul>
+                    <li><a href="update.php?tpl=product/product.list.tpl&type=Power supplies&type_sub=Performance">Performance</a></li>
+                    <li><a href="update.php?tpl=product/product.list.tpl&type=Power supplies&type_sub=Main Stream">Modular</a></li>
+                    <li><a href="update.php?tpl=product/product.list.tpl&type=Power supplies&type_sub=Standard">Standard</a></li>
+                    <li><a href="update.php?tpl=product/product.list.tpl&type=Power supplies&type_sub=Power Adapters">Power Adapters</a></li>
+                    <li><a href="update.php?tpl=product/product.list.tpl&type=Power supplies&type_sub=Power Cable Adapters">Power Cable Adapters</a></li>
+        </ul>
+    </li>
+	<li><a href="#">Tablet<br>Accessories</a>
+		<ul>
+                    <li><a href="update.php?tpl=product/product.list.tpl&type=Tablet Accessories&type_sub=Stylus Pens">Stylus Pens</a></li>
+                    <li><a href="update.php?tpl=product/product.list.tpl&type=Tablet Accessories&type_sub=iPad Cases">iPad Cases</a></li>
+                    <li><a href="update.php?tpl=product/product.list.tpl&type=Tablet Accessories&type_sub=Tablet Stands">Tablet Stands</a></li>
+                </ul>
+        </li>
+    <li><a href="#">Cables</a>
+<ul>
+                    <li><a href="update.php?tpl=product/product.list.tpl&type=Cables&type_sub=SATA Cables">SATA Cables</a></li>
+                    <li><a href="update.php?tpl=product/product.list.tpl&type=Cables&type_sub=SATA Cable Adapters">SATA Cable Adapters</a></li>
+                    <li><a href="update.php?tpl=product/product.list.tpl&type=Cables&type_sub=Fan Cable Adapters">Fan Cable Adapters</a></li>
+                    <li><a href="update.php?tpl=product/product.list.tpl&type=Cables&type_sub=Power Cable Adapters">Power Cable Adapters</a></li>
+                    <li><a href="update.php?tpl=product/product.list.tpl&type=Cables&type_sub=USB Cables">USB, IEEE 1394 & Audio</a></li>
+                    <li><a href="update.php?tpl=product/product.list.tpl&type=Cables&type_sub=IDE Cables">IDE Cables</a></li>
+                    <li><a href="update.php?tpl=product/product.list.tpl&type=Cables&type_sub=Floppy Cables">Floppy Cables</a></li>
+                    <li><a href="update.php?tpl=product/product.list.tpl&type=Cables&type_sub=HDMI Cables">HDMI Cables</a></li>
+                    <li><a href="update.php?tpl=product/product.list.tpl&type=Cables&type_sub=Network Cables">Network Cables</a></li>
+        </ul>
+    </li>
+<li><a href="#">Accessories</a>
+<ul>
+			<li>
+				<ul>
+					<li><a href="update.php?tpl=product/product.list.tpl&type=Accessories&type_sub=Acoustic Silence Kits">Acoustic Silence Kits</a></li>
+					<li><a href="update.php?tpl=product/product.list.tpl&type=Accessories&type_sub=Thermal Interface">Thermal Interface</a></li>
+					<li><a href="update.php?tpl=product/product.list.tpl&type=Accessories&type_sub=Function panel">Fan Controller</a></li>
+					<li><a href="update.php?tpl=product/product.list.tpl&type=Accessories&type_sub=Fan Guards Filters">Fan Guards Filters</a></li>
+					<li><a href="update.php?tpl=product/product.list.tpl&type=Accessories&type_sub=Case Lighting">Case Lighting</a></li>
+					<li><a href="update.php?tpl=product/product.list.tpl&type=Accessories&type_sub=Case Screws">Case Screws</a></li>
+					<li><a href="update.php?tpl=product/product.list.tpl&type=Accessories&type_sub=Cable Tidy Kits">Cable Tidy Kits</a></li>
+                    <li><a href="update.php?tpl=product/product.list.tpl&type=Accessories&type_sub=Power Adapters">Power Adapters</a></li>
+                    <li><a href="update.php?tpl=product/product.list.tpl&type=Accessories&type_sub=Gaming Panel">Gaming Panel</a></li>
+                    </ul>
+			</li>
+		</ul>
+        </li>
+        </ul>
+</div>
+</div>
+</div>
+    </td>
+  </tr>
+</table>    <table width="920" border="0" align="center" cellpadding="0" cellspacing="0">
+      <tr valign="top">
+        <td height="379">
+          <div id="sitectx">
+            
+
+<br />
+<b>Warning</b>:  Smarty error: unable to read resource: "product/en/.conf" in <b>/home/akasacou/public_html/common/lib/Smarty/Smarty.class.php</b> on line <b>1092</b><br />
+
+<table width="920" align="center" cellpadding="0" cellspacing="0" style="border:0px solid #CCCCCC; margin-top:5px; background-color:#DCDEE5;">
+  <tr>  
+    <td width="920" colspan="2" style="padding:15px 20px 10px 20px;">
+      <div>
+
+  <br />
+<b>Warning</b>:  Smarty error: unable to read resource: "" in <b>/home/akasacou/public_html/common/lib/Smarty/Smarty.class.php</b> on line <b>1092</b><br />
+</div>
+        <div style="text-align:left;float:left;padding:3px 0px 3px 10px;width:800px;" class="footer">
+		  <a href="index.php?lang=en">Home</a> > 
+		  <a href="#">Products</a> > 
+		  <a href="#"></a> > 
+          <a href="update.php?tpl=product/product.list.tpl&type=&type_sub="></a> >
+          <a href="#"></a>
+        </div>
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <td style="padding:0 10px 0 20px" valign="top">
+      <div id="TabbedPanels1" class="TabbedPanels" style="line-height:150%; letter-spacing:1px; font-family:'Courier New', Courier, monospace;">
+        <ul class="TabbedPanelsTabGroup">
+          <li class="TabbedPanelsTabSelected" tabindex="0" onclick="toggleTab(this);dynUpdater('updater.php', 'product/cpu.feature.tpl&type=&type_sub=&model=', 'TabbedPanelsContent');" onmouseover="hoverTab(this);" onmouseout="unhoverTab(this);" style="padding-top:2px;">Features</li>
+          <li class="TabbedPanelsTab" tabindex="1" onclick="toggleTab(this);dynUpdater('updater.php', 'product/cpu.specification.tpl&type=&type_sub=&model=', 'TabbedPanelsContent');" onmouseover="hoverTab(this);" onmouseout="unhoverTab(this);" style="padding-top:2px;">Specification</li>
+          <li class="TabbedPanelsTab" tabindex="2" onclick="toggleTab(this);dynUpdater('updater.php', 'product/cpu.content.tpl&type=&type_sub=&model=', 'TabbedPanelsContent');" onmouseover="hoverTab(this);" onmouseout="unhoverTab(this);" style="padding-top:2px;">Contents</li>
+          <li class="TabbedPanelsTab" tabindex="3" onclick="toggleTab(this);dynUpdater('updater.php', 'product/cpu.gallery.tpl&type=&type_sub=&model=', 'TabbedPanelsContent');" onmouseover="hoverTab(this);" onmouseout="unhoverTab(this);" style="padding-top:2px;">Gallery</li>
+          <li class="TabbedPanelsTab" tabindex="4" onclick="toggleTab(this);dynUpdater('updater.php', 'product/review.tpl&type=&type_sub=&model=', 'TabbedPanelsContent');" onmouseover="hoverTab(this);" onmouseout="unhoverTab(this);" style="padding-top:2px;">Reviews</li>
+          <li class="TabbedPanelsTab" tabindex="5" onclick="toggleTab(this);dynUpdater('updater.php', 'product/support.tpl&type=&type_sub=&model=', 'TabbedPanelsContent');" onmouseover="hoverTab(this);" onmouseout="unhoverTab(this);" style="padding-top:2px;">Support</li>
+        </ul>
+        <div id="TabbedPanelsContent" class="TabbedPanelsContentGroup">
+                      <br />
+<b>Warning</b>:  Smarty error: unable to read resource: "product/en/.conf" in <b>/home/akasacou/public_html/common/lib/Smarty/Smarty.class.php</b> on line <b>1092</b><br />
+
+<div class="TabbedPanelsContentGroup">
+  <table width="99%" border="0" cellspacing="0" cellpadding="0" style="padding-top:10px;">
+    <tr valign="top">
+         
+      <td style="text-align:left;padding-right:10px;" class="product_text">
+     
+        
+      </td>
+      <td align="right">
+        <table border="0" cellspacing="0" cellpadding="0">
+                        </table>
+      </td>
+    </tr>
+  </table>
+</div>                  </div>
+      </div>
+    </td>
+    <td width="130" align="center" valign="top" class="side_banner_short_text" style="border-left:1px dotted #666;padding-right:10px;">
+      
+
+<span class="side_banner_short_text">
+<a href="update.php?tpl=contactus.tpl">
+  <img src="./img/banner/en/banner_side_sales_enquiry.jpg" width="95" height="83" border="0"><br>
+  Talk to us for your thermal solution and modding advice 
+</a>
+</span>
+    </td>
+  </tr>
+  <tr>
+    <td height="20" colspan="2" valign="top">&nbsp;</td>
+  </tr>
+</table>          </div>
+        </td>
+      </tr>
+    </table>
+    
+
+<table width="920" border="0" align="center" cellpadding="0" cellspacing="0" >
+  <tr>
+    <td height="10">&nbsp;</td>
+  </tr>
+  <tr>
+
+    <td class="footer"> 
+      <div style="float:left;padding-left:5px;">
+        <a href="#" style="display:none">Sitemap <b>|</b> </a>
+        <a href="update.php?tpl=legal.tpl">Legal Notice</a> <b>|</b> 
+        <a href="#" style="display:none">Privacy Policy <b>|</b> </a>
+        <a href="update.php?tpl=contactus.tpl">Contact Us</a>        
+      </div>
+      <div style="float:right; text-align:right;padding-right:5px;">
+        &#0169;2013 Akasa All Right Reserved<br/>
+        Akasa&#0174; is trading style of Akasa group of companies.
+      </div>
+   	</td>
+  </tr>
+</table>  </center>
+</body>
+</html>
