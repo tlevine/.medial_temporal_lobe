@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta name="description" content="
+	This is chapter 37 of the first edition of&amp;nbsp;Intuitive Biostatistics&amp;nbsp;by Harvey Motulsky. Copyright &amp;copy; 1995 by Oxford University Press Inc. Chapter 45 of the &lt;a href=&quot;http://" />
+	<meta name="keywords" content="" />
+	
+	<meta name="generator" content="Mura CMS 6.0" />
+	
+	<title>GraphPad - FAQ 1790 - Choosing a statistical test</title>
+
+	<link rel="icon" href="/www/graphpad/images/favicon.ico" type="image/x-icon" />
+	<link rel="shortcut icon" href="/www/graphpad/images/favicon.ico" type="image/x-icon" />
+
+	<link rel="stylesheet" href="/www/default/css/mura.css" type="text/css" />
+
+	
+	<link rel="stylesheet" href="/www/graphpad/includes/themes/graphpad/css/print.css" type="text/css" media="print" />
+	<link rel="stylesheet" type="text/css" href="/www/graphpad/includes/themes/graphpad/css/style.css" />
+	<script src="/www/graphpad/includes/themes/graphpad/js/tabs.js" type="text/javascript"></script>
+	
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script type="text/javascript" src="/www/graphpad/includes/themes/graphpad/js/fancybox/jquery.fancybox.pack.js?v=2.1.4"></script>
+	<script type="text/javascript" src="/www/graphpad/includes/themes/graphpad/js/fancybox/jquery.mousewheel-3.0.6.pack.js"></script>
+
+	<link rel="stylesheet" href="/www/graphpad/includes/themes/graphpad/js/fancybox/jquery.fancybox.css?v=2.1.4" type="text/css" media="screen" />
+	<link rel="stylesheet" href="/www/graphpad/includes/themes/graphpad/js/jquerytools/scrollable.css" type="text/css" media="screen" />
+	
+	
+	<!--[if lte IE 7]>
+		<link rel="stylesheet" href="/www/graphpad/includes/themes/graphpad/css/ie.css" type="text/css" media="all" />
+		<script src="/www/graphpad/includes/themes/graphpad/js/DD_roundies.js"></script>
+		<script>
+		  DD_roundies.addRule('.submit, .buttons input, dd.textField .submit', '10px');
+		  /* string argument can be any CSS selector */
+		</script>
+	<![endif]-->
+	<!--[if lte IE 6]>
+		<script src="/www/graphpad/js/DD_belatedPNG.js"></script>
+		<script>
+		  /* EXAMPLE */
+		  DD_belatedPNG.fix('dd.rating, dd.comments');
+		  /* string argument can be any CSS selector */
+		</script>
+	<![endif]-->
+
+	<link rel="alternate" type="application/rss+xml" title="graphpad.com - Frontpage - DARC Blog 2 Posts" href="http://www.graphpad.com/www/tasks/feed/?feedID=E0F02C6B-1231-3F00-554408CC2F24477C" />
+	
+	<link rel="alternate" type="application/rss+xml" title="graphpad.com - GraphPad Software" href="http://www.graphpad.com/www/tasks/feed/?feedID=F424429A-0327-46BB-A897DB3D56A464AC" />
+	<script type="text/javascript">
+	
+	  var _gaq = _gaq || [];
+	  _gaq.push(['_setAccount', 'UA-11323465-1']);
+	  _gaq.push(['_trackPageview']);
+	
+	  (function() {
+	    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+	    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	  })();
+
+</script> <script type="application/javascript">var _prum={id:"5166f048e6e53d6d40000001"};var PRUM_EPISODES=PRUM_EPISODES||{};PRUM_EPISODES.q=[];PRUM_EPISODES.mark=function(b,a){PRUM_EPISODES.q.push(["mark",b,a||new Date().getTime()])};PRUM_EPISODES.measure=function(b,a,b){PRUM_EPISODES.q.push(["measure",b,a,b||new Date().getTime()])};PRUM_EPISODES.done=function(a){PRUM_EPISODES.q.push(["done",a])};PRUM_EPISODES.mark("firstbyte");(function(){var b=document.getElementsByTagName("script")[0];var a=document.createElement("script");a.type="text/javascript";a.async=true;a.charset="UTF-8";a.src="//rum-static.pingdom.net/prum.min.js";b.parentNode.insertBefore(a,b)})();</script>
+	
+ <script type="text/javascript"> 
+<!--
+!window.jQuery && document.write(unescape('%3Cscript type="text/javascript" src="/www/graphpad/jquery/jquery.js"%3E%3C/script%3E'))
+//-->
+</script> <script type="text/javascript">
+	var dtExample="11/10/2018";
+	var dtCh="/";
+	var dtFormat =[0,1,2];
+	var dtLocale="en-US";
+	</script> 	
+<script type="text/javascript" src="/www/graphpad/js/global.min.js"></script>
+<script type="text/javascript">
+var loginURL="?display=login";
+var siteid="graphpad"; 
+var siteID="graphpad"; 
+var context="/www"; 
+var jslib="jquery";
+var assetpath="/www/graphpad";
+var themepath="/www/graphpad/includes/themes/graphpad";
+var htmlEditorType="";
+var rb="en";
+</script></head>
+
+
+<body id="support" class="twoColSL depth3">
+
+<div id="topbar"><div class="wrap">
+	<div style="padding: 0 0 0 680px;">
+		<div><a href="/ecommerce/" class="cart">Cart</a>
+		<form id="search" action="/search/" method="get">
+			<div>
+				<input name="searchquery" id="searchquery" type="text" value="SEARCH" onblur="if(this.value == '') this.value = 'SEARCH'" onfocus="if(this.value == 'SEARCH') this.value = ''"  class="PicoSearchAutoComplete" /><input name="psel" type="hidden" value="all" /><input name="opt" type="hidden" value="all" />
+				<input id="search_button" type="image" value="submit" src="/www/graphpad/includes/themes/graphpad/images/bg_search_submit.png" alt="Search" />
+			</div>
+		</form>
+		</div>
+	</div> 
+</div></div> <!-- wrap, topbar -->
+<div class="wrap">
+	<div id="header">
+		<a href="/"><img id="logo" src="/www/graphpad/includes/themes/graphpad/images/img_graphpadLogo.png" alt="Graphpad Logo" /></a>
+		
+		
+			<div style="float:right;margin: 5px 0 0 0"><a class="login" href="/myaccount">Sign In</a>
+				
+		</div>
+		<div class="menu-header">
+			<!--PICOSEARCH_SKIPTEXTSTART-->
+			
+			<ul id="menu-main"> 
+				<li class="first" id="navScientificSoftware"><a href="/scientific-software/">Scientific Software</a>
+			<ul> 
+				<li class="first" id="navGraphpadPrism"><a href="/scientific-software/prism/">GraphPad Prism</a></li>				
+				<li id="navInstat"><a href="/scientific-software/instat/">InStat</a></li>				
+				<li id="navStatmate"><a href="/scientific-software/statmate/">StatMate</a></li>				
+				<li class="last" id="navQuickcalcs"><a href="/quickcalcs">QuickCalcs</a></li>				
+			</ul></li>				
+				<li class="" id="navDataAnalysisResourceCenter"><a href="/data-analysis-resource-center/">Data Analysis Resource Center</a></li>				
+				<li class="" id="navCompany"><a href="/company/">Company</a></li>				
+				<li class=" current" id="navSupport"><a href="/support/">Support</a></li>				
+				<li class="last" id="navHowToBuy"><a href="/how-to-buy/">How to Buy</a>
+					<ul>
+				<li class="first" id="navUpgrade"><a href="/how-to-buy/">Upgrade</a></li>				
+				<li id="navAcademic"><a href="/how-to-buy/academic">Academic</a></li>				
+				<li id="navStudent"><a href="/how-to-buy/student">Student</a></li>				
+				<li id="navcorporate"><a href="/how-to-buy/corporate">Corporate</a></li>				
+				<li class="last" id="navgovernment"><a href="/how-to-buy/government">Government</a></li>	
+			</ul></li>				
+			
+			</ul>
+			<!--PICOSEARCH_SKIPTEXTEND-->
+		</div> <!-- menu-header -->
+	</div> <!-- header -->
+
+	<div id="main">
+		<!-- Begin of Left Column -->
+		<div class="width700" id="content">
+	
+			<ul id="crumbList">	
+				<li class="first"><a href="/">Home</a></li>
+				<li class=""> &#187; <a href="/support/">Support</a></li>				
+			</ul>
+		<h2 style="font-size:26px">Frequently Asked Questions</h2>
+		<br>	
+  	<br/>
+<!-- Begin PicoSearch Query Box -->
+				<form action="/search" method="get" style="margin:0;"><input name="index" type="hidden" value="520255">
+					<table border="0" cellpadding="0" cellspacing="0" style="background-color:ffffff;margin:0px;padding:0px;">
+						<tbody>
+							<tr>
+								<td><input class="PicoSearchAutoComplete" id="searchquery" name="searchquery" type="text"  value="SEARCH FOR FAQ" onblur="if(this.value == '') this.value = 'SEARCH FOR FAQ'" onfocus="if(this.value == 'SEARCH FOR FAQ') this.value = ''" style="color:#918F8F; width:172px !important;"></td>
+								<td><span style="white-space: nowrap;">
+									<select name="psel">
+										<option value="all">All of Graphpad.com</option>
+										<option value="faqs" SELECTED >FAQs</option>
+									</select>
+									<select name="opt">
+										<option value="any" >Find ANY word</option>
+										<option value="all" selected="selected" >Find ALL words</option>
+										<option value="exact" >Find EXACT phrase</option>
+									</select>
+									<input name="search" type="submit" value="Search"></span>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</form>
+<!-- End PicoSearch Query Box -->
+				
+<br/>		
+	
+	<!-- PICODATESET mmddyyyy=03232012 -->
+	<div class="question">
+		<h1 style="font-size:20px !important; color:#00928F !important;">Choosing a statistical test</h1>
+		<p class="pMeta">FAQ# 1790 &nbsp;&nbsp; <span style="text-transform:none;">Last Modified 23-March-2012</span>
+		<span style="text-transform:none;"></span>
+		</p>
+	</div>
+	<div class="answer">
+		<p>
+	This is chapter 37 of the first edition of&nbsp;<em>Intuitive Biostatistics</em>&nbsp;by Harvey Motulsky. Copyright &copy; 1995 by Oxford University Press Inc. Chapter 45 of the <a href="http://www.intuitivebiostatistics.com">second edition of Intuitive Biostatistics</a>&nbsp;is an expanded version of this material.&nbsp;</p>
+<p>
+	<span class="sublft" style="color: rgb(102, 51, 204); font-weight: 800; ">REVIEW OF AVAILABLE STATISTICAL TESTS</span></p>
+<p>
+	This book has discussed many different statistical tests. To select the right test, ask yourself two questions: What kind of data have you collected? What is your goal? Then refer to Table 37.1.</p>
+<p>
+	&nbsp;</p>
+<table border="2" cellpadding="3" cellspacing="0" width="580">
+	<tbody>
+		<tr>
+			<td align="left" style="vertical-align: top; " valign="top">
+				&nbsp;</td>
+			<td colspan="4" style="vertical-align: top; text-align: center; " valign="top">
+				<span class="sublft" style="color: rgb(102, 51, 204); font-weight: 800; ">Type of Data</span></td>
+		</tr>
+		<tr>
+			<td align="left" style="vertical-align: top; " valign="top">
+				<span class="sublft" style="color: rgb(102, 51, 204); font-weight: 800; ">Goal</span></td>
+			<td align="left" style="vertical-align: top; " valign="top">
+				<b>Measurement (from Gaussian Population)</b></td>
+			<td align="left" style="vertical-align: top; " valign="top">
+				<b>Rank, Score, or Measurement (from Non- Gaussian Population)</b></td>
+			<td align="left" style="vertical-align: top; " valign="top">
+				<b>Binomial<br />
+				(Two Possible Outcomes)</b></td>
+			<td align="left" style="vertical-align: top; " valign="top">
+				<b>Survival Time</b></td>
+		</tr>
+		<tr>
+			<td align="left" style="vertical-align: top; " valign="top">
+				<b>Describe one group</b></td>
+			<td align="left" style="vertical-align: top; " valign="top">
+				Mean, SD</td>
+			<td align="left" style="vertical-align: top; " valign="top">
+				Median, interquartile range</td>
+			<td align="left" style="vertical-align: top; " valign="top">
+				Proportion</td>
+			<td align="left" style="vertical-align: top; " valign="top">
+				Kaplan Meier survival curve</td>
+		</tr>
+		<tr>
+			<td align="left" style="vertical-align: top; " valign="top">
+				<b>Compare one group to a hypothetical value</b></td>
+			<td align="left" style="vertical-align: top; " valign="top">
+				One-sample&nbsp;<i>t</i>test</td>
+			<td align="left" style="vertical-align: top; " valign="top">
+				Wilcoxon test</td>
+			<td align="left" style="vertical-align: top; " valign="top">
+				Chi-square<br />
+				or<br />
+				Binomial test **</td>
+			<td align="left" style="vertical-align: top; " valign="top">
+				&nbsp;</td>
+		</tr>
+		<tr>
+			<td align="left" style="vertical-align: top; " valign="top">
+				<b>Compare two unpaired<i>&nbsp;</i>groups</b></td>
+			<td align="left" style="vertical-align: top; " valign="top">
+				Unpaired&nbsp;<i>t</i>&nbsp;test</td>
+			<td align="left" style="vertical-align: top; " valign="top">
+				Mann-Whitney test</td>
+			<td align="left" style="vertical-align: top; " valign="top">
+				Fisher&#39;s test<br />
+				(chi-square for large samples)</td>
+			<td align="left" style="vertical-align: top; " valign="top">
+				Log-rank test or Mantel-Haenszel*</td>
+		</tr>
+		<tr>
+			<td align="left" style="vertical-align: top; " valign="top">
+				<b>Compare two paired groups</b></td>
+			<td align="left" style="vertical-align: top; " valign="top">
+				Paired&nbsp;<i>t</i>&nbsp;test</td>
+			<td align="left" style="vertical-align: top; " valign="top">
+				Wilcoxon test</td>
+			<td align="left" style="vertical-align: top; " valign="top">
+				McNemar&#39;s test</td>
+			<td align="left" style="vertical-align: top; " valign="top">
+				Conditional proportional hazards regression*</td>
+		</tr>
+		<tr>
+			<td align="left" style="vertical-align: top; " valign="top">
+				<b>Compare three or more unmatched groups</b></td>
+			<td align="left" style="vertical-align: top; " valign="top">
+				One-way ANOVA</td>
+			<td align="left" style="vertical-align: top; " valign="top">
+				Kruskal-Wallis test</td>
+			<td align="left" style="vertical-align: top; " valign="top">
+				Chi-square test</td>
+			<td align="left" style="vertical-align: top; " valign="top">
+				Cox proportional hazard regression**</td>
+		</tr>
+		<tr>
+			<td align="left" style="vertical-align: top; " valign="top">
+				<b>Compare three or more matched groups</b></td>
+			<td align="left" style="vertical-align: top; " valign="top">
+				Repeated-measures ANOVA</td>
+			<td align="left" style="vertical-align: top; " valign="top">
+				Friedman test</td>
+			<td align="left" style="vertical-align: top; " valign="top">
+				Cochrane Q**</td>
+			<td align="left" style="vertical-align: top; " valign="top">
+				Conditional proportional hazards regression**</td>
+		</tr>
+		<tr>
+			<td align="left" style="vertical-align: top; " valign="top">
+				<b>Quantify association between two variables</b></td>
+			<td align="left" style="vertical-align: top; " valign="top">
+				Pearson correlation</td>
+			<td align="left" style="vertical-align: top; " valign="top">
+				Spearman correlation</td>
+			<td align="left" style="vertical-align: top; " valign="top">
+				Contingency coefficients**</td>
+			<td align="left" style="vertical-align: top; " valign="top">
+				&nbsp;</td>
+		</tr>
+		<tr>
+			<td align="left" style="vertical-align: top; " valign="top">
+				<b>Predict value from another measured variable</b></td>
+			<td align="left" style="vertical-align: top; " valign="top">
+				Simple linear regression<br />
+				or<br />
+				Nonlinear regression</td>
+			<td align="left" style="vertical-align: top; " valign="top">
+				Nonparametric regression**</td>
+			<td align="left" style="vertical-align: top; " valign="top">
+				Simple logistic regression*</td>
+			<td align="left" style="vertical-align: top; " valign="top">
+				Cox proportional hazard regression*</td>
+		</tr>
+		<tr>
+			<td align="left" style="vertical-align: top; " valign="top">
+				<b>Predict value from several measured or binomial variables</b></td>
+			<td align="left" style="vertical-align: top; " valign="top">
+				Multiple linear regression*<br />
+				or<br />
+				Multiple nonlinear regression**</td>
+			<td align="left" style="vertical-align: top; " valign="top">
+				&nbsp;</td>
+			<td align="left" style="vertical-align: top; " valign="top">
+				Multiple logistic regression*</td>
+			<td align="left" style="vertical-align: top; " valign="top">
+				Cox proportional hazard regression*</td>
+		</tr>
+	</tbody>
+</table>
+<p>
+	&nbsp;</p>
+<p>
+	<span class="sublft" style="color: rgb(102, 51, 204); font-weight: 800; ">REVIEW OF NONPARAMETRIC TESTS</span></p>
+<p>
+	Choosing the right test to compare measurements is a bit tricky, as you must choose between two families of tests: parametric and nonparametric. Many -statistical test are based upon the assumption that the data are sampled from a Gaussian distribution. These tests are referred to as parametric tests. Commonly used parametric tests are listed in the first column of the table and include the t test and analysis of variance.</p>
+<p>
+	Tests that do not make assumptions about the population distribution are referred to as nonparametric- tests. You&#39;ve already learned a bit about nonparametric tests in previous chapters. All commonly used nonparametric tests rank the outcome variable from low to high and then analyze the ranks. These tests are listed in the second column of the table and include the Wilcoxon, Mann-Whitney test, and Kruskal-Wallis tests. These tests are also called distribution-free tests.</p>
+<p>
+	<span class="sublft" style="color: rgb(102, 51, 204); font-weight: 800; ">CHOOSING BETWEEN PARAMETRIC AND NONPARAMETRIC TESTS: THE EASY CASES</span></p>
+<p>
+	Choosing between parametric and nonparametric tests is sometimes easy. You should definitely choose a parametric test if you are sure that your data are sampled from a population that follows a Gaussian distribution (at least approximately). You should definitely select a nonparametric test in three situations:</p>
+<ul>
+	<li>
+		The outcome is a rank or a score and the population is clearly not Gaussian. Examples include class ranking of students, the Apgar score for the health of newborn babies (measured on a scale of 0 to IO and where all scores are integers), the visual analogue score for pain (measured on a continuous scale where 0 is no pain and 10 is unbearable pain), and the star scale commonly used by movie and restaurant critics (* is OK, ***** is fantastic).</li>
+	<li>
+		Some values are &quot;off the scale,&quot; that is, too high or too low to measure. Even if the population is Gaussian, it is impossible to analyze such data with a parametric test since you don&#39;t know all of the values. Using a nonparametric test with these data is simple. Assign values too low to measure an arbitrary very low value and assign values too high to measure an arbitrary very high value. Then perform a nonparametric test. Since the nonparametric test only knows about the relative ranks of the values, it won&#39;t matter that you didn&#39;t know all the values exactly.</li>
+	<li>
+		The data ire measurements, and you are sure that the population is not distributed in a Gaussian manner. If the data are not sampled from a Gaussian distribution, consider whether you can transformed the values to make the distribution become Gaussian. For example, you might take the logarithm or reciprocal of all values. There are often biological or chemical reasons (as well as statistical ones) for performing a particular transform.</li>
+</ul>
+<p>
+	<span class="sublft" style="color: rgb(102, 51, 204); font-weight: 800; ">CHOOSING BETWEEN PARAMETRIC AND NONPARAMETRIC TESTS: THE HARD CASES</span></p>
+<p>
+	It is not always easy to decide whether a sample comes from a Gaussian population. Consider these points:</p>
+<ul>
+	<li>
+		If you collect many data points (over a hundred or so), you can look at the distribution of data and it will be fairly obvious whether the distribution is approximately bell shaped. A formal statistical test (Kolmogorov-Smirnoff test, not explained in this book) can be used to test whether the distribution of the data differs significantly from a Gaussian distribution. With few data points, it is difficult to tell whether the data are Gaussian by inspection, and the formal test has little power to discriminate between Gaussian and non-Gaussian distributions.</li>
+	<li>
+		You should look at previous data as well. Remember, what matters is the distribution of the overall population, not the distribution of your sample. In deciding whether a population is Gaussian, look at all available data, not just data in the current experiment.</li>
+	<li>
+		Consider the source of scatter. When the scatter comes from the sum of numerous sources (with no one source contributing most of the scatter), you expect to find a roughly Gaussian distribution.</li>
+	<li>
+		When in doubt, some people choose a parametric test (because they aren&#39;t sure the Gaussian assumption is violated), and others choose a nonparametric test (because they aren&#39;t sure the Gaussian assumption is met).</li>
+</ul>
+<p>
+	<span class="sublft" style="color: rgb(102, 51, 204); font-weight: 800; ">CHOOSING BETWEEN PARAMETRIC AND NONPARAMETRIC TESTS: DOES IT MATTER?</span></p>
+<p>
+	Does it matter whether you choose a parametric or nonparametric test? The answer depends on sample size. There are four cases to think about:</p>
+<ul>
+	<li>
+		Large sample. What happens when you use a parametric test with data from a nongaussian population? The central limit theorem (discussed in Chapter 5) ensures that parametric tests work well with large samples even if the population is non-Gaussian. In other words, parametric tests are robust to deviations from Gaussian distributions, so long as the samples are large. The snag is that it is impossible to say how large is large enough, as it depends on the nature of the particular non-Gaussian distribution. Unless the population distribution is really weird, you are probably safe choosing a parametric test when there are at least two dozen data points in each group.</li>
+	<li>
+		Large sample. What happens when you use a nonparametric test with data from a Gaussian population? Nonparametric tests work well with large samples from Gaussian populations. The P values tend to be a bit too large, but the discrepancy is small. In other words, nonparametric tests are only slightly less powerful than parametric tests with large samples.</li>
+	<li>
+		Small samples. What happens when you use a parametric test with data from nongaussian populations? You can&#39;t rely on the central limit theorem, so the P value may be inaccurate.</li>
+	<li>
+		Small samples. When you use a nonparametric test with data from a Gaussian population, the P values tend to be too high. The nonparametric tests lack statistical power with small samples.</li>
+</ul>
+<p>
+	Thus, large data sets present no problems. It is usually easy to tell if the data come from a Gaussian population, but it doesn&#39;t really matter because the nonparametric tests are so powerful and the parametric tests are so robust. Small data sets present a dilemma. It is difficult to tell if the data come from a Gaussian population, but it matters a lot. The nonparametric tests are not powerful and the parametric tests are not robust.</p>
+<p>
+	<span class="sublft" style="color: rgb(102, 51, 204); font-weight: 800; ">ONE- OR TWO-SIDED P VALUE?</span></p>
+<p>
+	With many tests, you must choose whether you wish to calculate a one- or two-sided P value (same as one- or two-tailed P value). The difference between one- and two-sided P values was discussed in Chapter 10. Let&#39;s review the difference in the context of a t test. The P value is calculated for the null hypothesis that the two population means are equal, and any discrepancy between the two sample means is due to chance. If this null hypothesis is true, the one-sided P value is the probability that two sample means would differ as much as was observed (or further) in the direction specified by the hypothesis just by chance, even though the means of the overall populations are actually equal. The two-sided P value also includes the probability that the sample means would differ that much in the opposite direction (i.e., the other group has the larger mean). The two-sided P value is twice the one-sided P value.</p>
+<p>
+	A one-sided P value is appropriate when you can state with certainty (and before collecting any data) that there either will be no difference between the means or that the difference will go in a direction you can specify in advance (i.e., you have specified which group will have the larger mean). If you cannot specify the direction of any difference before collecting data, then a two-sided P value is more appropriate. If in doubt, select a two-sided P value.</p>
+<p>
+	If you select a one-sided test, you should do so before collecting any data and you need to state the direction of your experimental hypothesis. If the data go the other way, you must be willing to attribute that difference (or association or correlation) to chance, no matter how striking the data. If you would be intrigued, even a little, by data that goes in the &quot;wrong&quot; direction, then you should use a two-sided P value. For reasons discussed in Chapter 10, I recommend that you always calculate a two-sided P value.</p>
+<p>
+	<span class="sublft" style="color: rgb(102, 51, 204); font-weight: 800; ">PAIRED OR UNPAIRED TEST?</span></p>
+<p>
+	When comparing two groups, you need to decide whether to use a paired test. When comparing three or more groups, the term paired is not apt and the term repeated measures is used instead.</p>
+<p>
+	Use an unpaired test to compare groups when the individual values are not paired or matched with one another. Select a paired or repeated-measures test when values represent repeated measurements on one subject (before and after an intervention) or measurements on matched subjects. The paired or repeated-measures tests are also appropriate for repeated laboratory experiments run at different times, each with its own control.</p>
+<p>
+	You should select a paired test when values in one group are more closely correlated with a specific value in the other group than with random values in the other group. It is only appropriate to select a paired test when the subjects were matched or paired before the data were collected. You cannot base the pairing on the data you are analyzing.</p>
+<p>
+	<span class="sublft" style="color: rgb(102, 51, 204); font-weight: 800; ">FISHER&#39;S TEST OR THE CHI-SQUARE TEST?</span></p>
+<p>
+	When analyzing contingency tables with two rows and two columns, you can use either Fisher&#39;s exact test or the chi-square test. The Fisher&#39;s test is the best choice as it always gives the exact P value. The chi-square test is simpler to calculate but yields only an approximate P value. If a computer is doing the calculations, you should choose Fisher&#39;s test unless you prefer the familiarity of the chi-square test. You should definitely avoid the chi-square test when the numbers in the contingency table are very small (any number less than about six). When the numbers are larger, the P values reported by the chi-square and Fisher&#39;s test will he very similar.</p>
+<p>
+	The chi-square test calculates approximate P values, and the Yates&#39; continuity correction is designed to make the approximation better. Without the Yates&#39; correction, the P values are too low. However, the correction goes too far, and the resulting P value is too high. Statisticians give different recommendations regarding Yates&#39; correction. With large sample sizes, the Yates&#39; correction makes little difference. If you select Fisher&#39;s test, the P value is exact and Yates&#39; correction is not needed and is not available.</p>
+<p>
+	<span class="sublft" style="color: rgb(102, 51, 204); font-weight: 800; ">REGRESSION OR CORRELATION?</span></p>
+<p>
+	Linear regression and correlation are similar and easily confused. In some situations it makes sense to perform both calculations. Calculate linear correlation if you measured both X and Y in each subject and wish to quantity how well they are associated. Select the Pearson (parametric) correlation coefficient if you can assume that both X and Y are sampled from Gaussian populations. Otherwise choose the Spearman nonparametric correlation coefficient. Don&#39;t calculate the correlation coefficient (or its confidence interval) if you manipulated the X variable.</p>
+<p>
+	Calculate linear regressions only if one of the variables (X) is likely to precede or cause the other variable (Y). Definitely choose linear regression if you manipulated the X variable. It makes a big difference which variable is called X and which is called Y, as linear regression calculations are not symmetrical with respect to X and Y. If you swap the two variables, you will obtain a different regression line. In contrast, linear correlation calculations are symmetrical with respect to X and Y. If you swap the labels X and Y, you will still get the same correlation coefficient.</p>
+
+		<br /><br />
+		
+	</div>
+	<br/>
+
+	
+	
+	
+	<br/><br/><br/> 
+		</div><!-- End of Left Column -->
+		
+		<div id="sidebar" class="width228">
+			<div class="supsbItem top"><a href="#"><img alt="Prism" class="fLeft" src="/www/graphpad/assets/Image/img_prism.png"></a>
+	<h3>Need to learn<br>
+		Prism 6?</h3>
+	<p>These guided examples of common analyses will get you off to a great start! <a class="morelink" href="/scientific-software/prism/?tab=5">CLICK HERE &gt;</a></p>
+</div>
+<p>&nbsp;</p><!-- supsbItem -->
+<div class="supsbItem" style="border-bottom: 0px !important;"><a href="/data-analysis-resource-center/"><img alt="" class="prof" src="/www/graphpad/assets/Image/img_profquestions.png"></a></div>
+<!-- supsbItem --><div class="supsbItem quicklinks">
+</div><div class="supsbItem quicklinks">
+<p>On-site training<br>
+	<a class="morelink" href="/support/on-site-training">LEARN MORE &gt;</a></p></div>
+		</div> <!-- sidebar -->
+	</div>
+</div> <!-- wrap -->
+			
+	
+<div id="footer"><div class="wrap">
+	<p class="fLeft">&copy;2013 GraphPad Software, Inc. All rights reserved.</p>
+	<p class="fRight fLinks">
+		<a href="/company/#contactus">Contact Us</a> |
+		<a href="/company/privacy-policy">Privacy</a> |
+		<a href="https://twitter.com/#!/graphpad"><img src="/www/graphpad/assets/image/icn_twitter_gray.png" align="center" /></a>
+	</p>
+</div></div> <!-- wrap, footer -->
+
+
+<script type="text/javascript">
+<![CDATA[	
+function getQueryString() {
+  var result = {}, queryString = location.search.substring(1),
+      re = /([^&=]+)=([^&]*)/g, m;
+
+  while (m = re.exec(queryString)) {
+    result[decodeURIComponent(m[1])] = decodeURIComponent(m[2]);
+  }
+
+  return result;
+}
+
+var url = window.location.hash;
+var myParam = url.substring(url.indexOf("#")+1);
+
+if(myParam){
+	switch_tabs(myParam.toLowerCase());
+	//document.getElementById(myParam).focus();
+
+}
+]]>
+</script>
+
+
+
+
+
+</body>
+</html> 

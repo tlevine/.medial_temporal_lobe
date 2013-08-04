@@ -1,0 +1,1030 @@
+
+
+
+<!DOCTYPE html>
+<html>
+  <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# githubog: http://ogp.me/ns/fb/githubog#">
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>List of languages that compile to JS · jashkenas/coffee-script Wiki · GitHub</title>
+    <link rel="search" type="application/opensearchdescription+xml" href="/opensearch.xml" title="GitHub" />
+    <link rel="fluid-icon" href="https://github.com/fluidicon.png" title="GitHub" />
+    <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-114.png" />
+    <link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114.png" />
+    <link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-144.png" />
+    <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144.png" />
+    <link rel="logo" type="image/svg" href="https://github-media-downloads.s3.amazonaws.com/github-logo.svg" />
+    <meta property="og:image" content="https://github.global.ssl.fastly.net/images/modules/logos_page/Octocat.png">
+    <meta name="hostname" content="fe16.rs.github.com">
+    <link rel="assets" href="https://github.global.ssl.fastly.net/">
+    <link rel="xhr-socket" href="/_sockets" />
+    
+    
+
+
+    <meta name="msapplication-TileImage" content="/windows-tile.png" />
+    <meta name="msapplication-TileColor" content="#ffffff" />
+    <meta name="selected-link" value="repo_wiki" data-pjax-transient />
+    <meta content="collector.githubapp.com" name="octolytics-host" /><meta content="github" name="octolytics-app-id" />
+
+    
+    
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+
+    <meta content="authenticity_token" name="csrf-param" />
+<meta content="t82LUWVHEJ2OJvcI34mH0w0dGT9SYAp0sZi5SusLWaM=" name="csrf-token" />
+
+    <link href="https://github.global.ssl.fastly.net/assets/github-8921d913c104b05dbca482140b50a4899d808da0.css" media="all" rel="stylesheet" type="text/css" />
+    <link href="https://github.global.ssl.fastly.net/assets/github2-3d41bb4cf621d85b14f818b30d303826fdcc6556.css" media="all" rel="stylesheet" type="text/css" />
+    
+
+
+      <script src="https://github.global.ssl.fastly.net/assets/frameworks-e8054ad804a1cf9e9849130fee5a4a5487b663ed.js" type="text/javascript"></script>
+      <script src="https://github.global.ssl.fastly.net/assets/github-1b7840e1ec2954c0675f2263b9e3789a0fee0808.js" type="text/javascript"></script>
+      
+      <meta http-equiv="x-pjax-version" content="937fa06ecc5e3385af78bf5912d4a166">
+
+        <script src="https://github.global.ssl.fastly.net/assets/wiki-5f94f237a61cfac742b656f8a10702b3b86e9b37.js" type="text/javascript"></script>
+  <meta property="og:title" content="coffee-script"/>
+  <meta property="og:type" content="githubog:gitrepository"/>
+  <meta property="og:url" content="https://github.com/jashkenas/coffee-script"/>
+  <meta property="og:image" content="https://github.global.ssl.fastly.net/images/gravatars/gravatar-user-420.png"/>
+  <meta property="og:site_name" content="GitHub"/>
+  <meta property="og:description" content="coffee-script - Unfancy JavaScript"/>
+
+  <meta name="description" content="coffee-script - Unfancy JavaScript" />
+
+  <meta content="4732" name="octolytics-dimension-user_id" /><meta content="jashkenas" name="octolytics-dimension-user_login" /><meta content="441269" name="octolytics-dimension-repository_id" /><meta content="jashkenas/coffee-script" name="octolytics-dimension-repository_nwo" /><meta content="true" name="octolytics-dimension-repository_public" /><meta content="false" name="octolytics-dimension-repository_is_fork" /><meta content="441269" name="octolytics-dimension-repository_network_root_id" /><meta content="jashkenas/coffee-script" name="octolytics-dimension-repository_network_root_nwo" />
+  <link href="https://github.com/jashkenas/coffee-script/commits/master.atom" rel="alternate" title="Recent Commits to coffee-script:master" type="application/atom+xml" />
+
+  </head>
+
+
+  <body class="logged_out  linux vis-public env-production ">
+
+    <div class="wrapper">
+      
+      
+      
+
+
+      
+      <div class="header header-logged-out">
+  <div class="container clearfix">
+
+    <a class="header-logo-wordmark" href="https://github.com/">
+      <span class="mega-octicon octicon-logo-github"></span>
+    </a>
+
+    <div class="header-actions">
+        <a class="button primary" href="/signup">Sign up</a>
+      <a class="button" href="/login?return_to=%2Fjashkenas%2Fcoffee-script%2Fwiki%2FList-of-languages-that-compile-to-JS">Sign in</a>
+    </div>
+
+    <div class="command-bar js-command-bar  in-repository">
+
+
+      <ul class="top-nav">
+          <li class="explore"><a href="/explore">Explore</a></li>
+        <li class="features"><a href="/features">Features</a></li>
+          <li class="enterprise"><a href="https://enterprise.github.com/">Enterprise</a></li>
+          <li class="blog"><a href="/blog">Blog</a></li>
+      </ul>
+        <form accept-charset="UTF-8" action="/search" class="command-bar-form" id="top_search_form" method="get">
+
+<input type="text" data-hotkey=" s" name="q" id="js-command-bar-field" placeholder="Search or type a command" tabindex="1" autocapitalize="off"
+    
+    
+      data-repo="jashkenas/coffee-script"
+      data-branch="master"
+      data-sha="c46db3a1736b69b518e8a65f7a36827bc264523c"
+  >
+
+    <input type="hidden" name="nwo" value="jashkenas/coffee-script" />
+
+    <div class="select-menu js-menu-container js-select-menu search-context-select-menu">
+      <span class="minibutton select-menu-button js-menu-target">
+        <span class="js-select-button">This repository</span>
+      </span>
+
+      <div class="select-menu-modal-holder js-menu-content js-navigation-container">
+        <div class="select-menu-modal">
+
+          <div class="select-menu-item js-navigation-item js-this-repository-navigation-item selected">
+            <span class="select-menu-item-icon octicon octicon-check"></span>
+            <input type="radio" class="js-search-this-repository" name="search_target" value="repository" checked="checked" />
+            <div class="select-menu-item-text js-select-button-text">This repository</div>
+          </div> <!-- /.select-menu-item -->
+
+          <div class="select-menu-item js-navigation-item js-all-repositories-navigation-item">
+            <span class="select-menu-item-icon octicon octicon-check"></span>
+            <input type="radio" name="search_target" value="global" />
+            <div class="select-menu-item-text js-select-button-text">All repositories</div>
+          </div> <!-- /.select-menu-item -->
+
+        </div>
+      </div>
+    </div>
+
+  <span class="octicon help tooltipped downwards" title="Show command bar help">
+    <span class="octicon octicon-question"></span>
+  </span>
+
+
+  <input type="hidden" name="ref" value="cmdform">
+
+</form>
+    </div>
+
+  </div>
+</div>
+
+
+      
+
+
+          <div class="site" itemscope itemtype="http://schema.org/WebPage">
+    
+    <div class="pagehead repohead instapaper_ignore readability-menu">
+      <div class="container">
+        
+
+<ul class="pagehead-actions">
+
+
+  <li>
+  <a href="/login?return_to=%2Fjashkenas%2Fcoffee-script"
+  class="minibutton with-count js-toggler-target star-button entice tooltipped upwards "
+  title="You must be signed in to use this feature" rel="nofollow">
+  <span class="octicon octicon-star"></span>Star
+</a>
+<a class="social-count js-social-count" href="/jashkenas/coffee-script/stargazers">
+  7,825
+</a>
+
+  </li>
+
+    <li>
+      <a href="/login?return_to=%2Fjashkenas%2Fcoffee-script"
+        class="minibutton with-count js-toggler-target fork-button entice tooltipped upwards"
+        title="You must be signed in to fork a repository" rel="nofollow">
+        <span class="octicon octicon-git-branch"></span>Fork
+      </a>
+      <a href="/jashkenas/coffee-script/network" class="social-count">
+        914
+      </a>
+    </li>
+</ul>
+
+        <h1 itemscope itemtype="http://data-vocabulary.org/Breadcrumb" class="entry-title public">
+          <span class="repo-label"><span>public</span></span>
+          <span class="mega-octicon octicon-repo"></span>
+          <span class="author">
+            <a href="/jashkenas" class="url fn" itemprop="url" rel="author"><span itemprop="title">jashkenas</span></a></span
+          ><span class="repohead-name-divider">/</span><strong
+          ><a href="/jashkenas/coffee-script" class="js-current-repository js-repo-home-link">coffee-script</a></strong>
+
+          <span class="page-context-loader">
+            <img alt="Octocat-spinner-32" height="16" src="https://github.global.ssl.fastly.net/images/spinners/octocat-spinner-32.gif" width="16" />
+          </span>
+
+        </h1>
+      </div><!-- /.container -->
+    </div><!-- /.repohead -->
+
+    <div class="container">
+
+      <div class="repository-with-sidebar repo-container ">
+
+        <div class="repository-sidebar">
+            
+
+<div class="repo-nav repo-nav-full js-repository-container-pjax js-octicon-loaders">
+  <div class="repo-nav-contents">
+    <ul class="repo-menu">
+      <li class="tooltipped leftwards" title="Code">
+        <a href="/jashkenas/coffee-script" aria-label="Code" class="js-selected-navigation-item " data-gotokey="c" data-pjax="true" data-selected-links="repo_source repo_downloads repo_commits repo_tags repo_branches /jashkenas/coffee-script">
+          <span class="octicon octicon-code"></span> <span class="full-word">Code</span>
+          <img alt="Octocat-spinner-32" class="mini-loader" height="16" src="https://github.global.ssl.fastly.net/images/spinners/octocat-spinner-32.gif" width="16" />
+</a>      </li>
+
+        <li class="tooltipped leftwards" title="Issues">
+          <a href="/jashkenas/coffee-script/issues" aria-label="Issues" class="js-selected-navigation-item js-disable-pjax" data-gotokey="i" data-selected-links="repo_issues /jashkenas/coffee-script/issues">
+            <span class="octicon octicon-issue-opened"></span> <span class="full-word">Issues</span>
+            <span class='counter'>217</span>
+            <img alt="Octocat-spinner-32" class="mini-loader" height="16" src="https://github.global.ssl.fastly.net/images/spinners/octocat-spinner-32.gif" width="16" />
+</a>        </li>
+
+      <li class="tooltipped leftwards" title="Pull Requests"><a href="/jashkenas/coffee-script/pulls" aria-label="Pull Requests" class="js-selected-navigation-item js-disable-pjax" data-gotokey="p" data-selected-links="repo_pulls /jashkenas/coffee-script/pulls">
+            <span class="octicon octicon-git-pull-request"></span> <span class="full-word">Pull Requests</span>
+            <span class='counter'>16</span>
+            <img alt="Octocat-spinner-32" class="mini-loader" height="16" src="https://github.global.ssl.fastly.net/images/spinners/octocat-spinner-32.gif" width="16" />
+</a>      </li>
+
+
+        <li class="tooltipped leftwards" title="Wiki">
+          <a href="/jashkenas/coffee-script/wiki" aria-label="Wiki" class="js-selected-navigation-item selected" data-pjax="true" data-selected-links="repo_wiki /jashkenas/coffee-script/wiki">
+            <span class="octicon octicon-book"></span> <span class="full-word">Wiki</span>
+            <img alt="Octocat-spinner-32" class="mini-loader" height="16" src="https://github.global.ssl.fastly.net/images/spinners/octocat-spinner-32.gif" width="16" />
+</a>        </li>
+
+
+    </ul>
+    <div class="repo-menu-separator"></div>
+    <ul class="repo-menu">
+
+      <li class="tooltipped leftwards" title="Pulse">
+        <a href="/jashkenas/coffee-script/pulse" aria-label="Pulse" class="js-selected-navigation-item " data-pjax="true" data-selected-links="pulse /jashkenas/coffee-script/pulse">
+          <span class="octicon octicon-pulse"></span> <span class="full-word">Pulse</span>
+          <img alt="Octocat-spinner-32" class="mini-loader" height="16" src="https://github.global.ssl.fastly.net/images/spinners/octocat-spinner-32.gif" width="16" />
+</a>      </li>
+
+      <li class="tooltipped leftwards" title="Graphs">
+        <a href="/jashkenas/coffee-script/graphs" aria-label="Graphs" class="js-selected-navigation-item " data-pjax="true" data-selected-links="repo_graphs repo_contributors /jashkenas/coffee-script/graphs">
+          <span class="octicon octicon-graph"></span> <span class="full-word">Graphs</span>
+          <img alt="Octocat-spinner-32" class="mini-loader" height="16" src="https://github.global.ssl.fastly.net/images/spinners/octocat-spinner-32.gif" width="16" />
+</a>      </li>
+
+      <li class="tooltipped leftwards" title="Network">
+        <a href="/jashkenas/coffee-script/network" aria-label="Network" class="js-selected-navigation-item js-disable-pjax" data-selected-links="repo_network /jashkenas/coffee-script/network">
+          <span class="octicon octicon-git-branch"></span> <span class="full-word">Network</span>
+          <img alt="Octocat-spinner-32" class="mini-loader" height="16" src="https://github.global.ssl.fastly.net/images/spinners/octocat-spinner-32.gif" width="16" />
+</a>      </li>
+
+    </ul>
+
+  </div>
+</div>
+
+            <div class="only-with-full-nav">
+              
+
+  
+
+<div class="clone-url open"
+  data-protocol-type="http"
+  data-url="/users/set_protocol?protocol_selector=http&amp;protocol_type=clone">
+  <h3><strong>HTTPS</strong> clone URL</h3>
+
+  <input type="text" class="clone js-url-field"
+         value="https://github.com/jashkenas/coffee-script.git" readonly="readonly">
+
+  <span class="js-zeroclipboard url-box-clippy minibutton zeroclipboard-button" data-clipboard-text="https://github.com/jashkenas/coffee-script.git" data-copied-hint="copied!" title="copy to clipboard"><span class="octicon octicon-clippy"></span></span>
+</div>
+
+  
+
+<div class="clone-url "
+  data-protocol-type="subversion"
+  data-url="/users/set_protocol?protocol_selector=subversion&amp;protocol_type=clone">
+  <h3><strong>Subversion</strong> checkout URL</h3>
+
+  <input type="text" class="clone js-url-field"
+         value="https://github.com/jashkenas/coffee-script" readonly="readonly">
+
+  <span class="js-zeroclipboard url-box-clippy minibutton zeroclipboard-button" data-clipboard-text="https://github.com/jashkenas/coffee-script" data-copied-hint="copied!" title="copy to clipboard"><span class="octicon octicon-clippy"></span></span>
+</div>
+
+
+
+<p class="clone-options">You can clone with
+    <a href="#" class="js-clone-selector" data-protocol="http">HTTPS</a>,
+    <a href="#" class="js-clone-selector" data-protocol="subversion">Subversion</a>,
+  and <a href="https://help.github.com/articles/which-remote-url-should-i-use">other methods.</a>
+</p>
+
+
+
+                <a href="/jashkenas/coffee-script/archive/master.zip"
+                   class="minibutton sidebar-button"
+                   title="Download this repository as a zip file"
+                   rel="nofollow">
+                  <span class="octicon octicon-cloud-download"></span>
+                  Download ZIP
+                </a>
+            </div>
+        </div><!-- /.repository-sidebar -->
+
+        <div id="js-repo-pjax-container" class="repository-content context-loader-container" data-pjax-container>
+          
+
+<div class="tabnav">
+  <ul class="tabnav-tabs">
+    <li><a href="/jashkenas/coffee-script/wiki" class="js-selected-navigation-item tabnav-tab" data-selected-links=" /jashkenas/coffee-script/wiki">Home</a></li>
+    <li><a href="/jashkenas/coffee-script/wiki/_pages" class="js-selected-navigation-item tabnav-tab" data-selected-links=" /jashkenas/coffee-script/wiki/_pages">Pages</a></li>
+    <li><a href="/jashkenas/coffee-script/wiki/_history" class="js-selected-navigation-item tabnav-tab" data-selected-links=" /jashkenas/coffee-script/wiki/_history">History</a></li>
+  </ul>
+  <div class="tabnav-right">
+    <div class="tabnav-widget">
+      <a href="/jashkenas/coffee-script/wiki/_new" class="button minibutton primary js-new-wiki-page">New Page</a>
+    </div>
+  </div>
+</div>
+
+
+
+<div id="wiki-wrapper" class="page">
+<div id="head">
+  <ul class="wiki-actions readability-extra">
+    <li class="gollum-minibutton"><a href="/jashkenas/coffee-script/wiki/List-of-languages-that-compile-to-JS/_history"
+       class="minibutton bigger action-page-history">
+       Page History
+     </a></li>
+    <li class="gollum-minibutton"><span class="js-zeroclipboard minibutton" data-clipboard-text="https://github.com/jashkenas/coffee-script.wiki.git" data-copied-hint="copied!" title="Click to copy url to clipboard">Clone URL</span></li>
+  </ul>
+  <h1 class="instapaper_title">List of languages that compile to JS</h1>
+</div>
+<div id="wiki-content">
+  <div class="wrap">
+  <div id="wiki-body" class="gollum-markdown-content instapaper_body">
+    <div class="markdown-body">
+      <h4>
+<a name="coffeescript-family--friends" class="anchor" href="#coffeescript-family--friends"><span class="octicon octicon-link"></span></a>CoffeeScript Family (&amp; Friends)</h4>
+
+<ul>
+<li>
+<a href="http://jashkenas.github.com/coffee-script/">CoffeeScript</a> Unfancy JavaScript</li>
+<li>
+<a href="https://github.com/michaelficarra/CoffeeScriptRedux">CoffeeScript II: The Wrath of Khan</a> Rewrite of the CS compiler</li>
+</ul><h6>
+<a name="family-share-genes-with-coffeescript" class="anchor" href="#family-share-genes-with-coffeescript"><span class="octicon octicon-link"></span></a>Family (share genes with CoffeeScript)</h6>
+
+<ul>
+<li>
+<a href="https://github.com/satyr/coco">Coco</a> A CoffeeScript dialect that aims to be more radical and practical, also acts as a test bed for features that get imported in CoffeeScript.
+
+<ul>
+<li>
+<a href="http://livescript.net">LiveScript</a> is a fork of Coco that is much more compatible with CoffeeScript, more functional, and with more features.</li>
+</ul>
+</li>
+<li>
+<a href="http://maxtaco.github.com/coffee-script/">IcedCoffeeScript</a> A CoffeeScript dialect that adds support for <code>await</code> and <code>defer</code> keywords which simplify async control flow.</li>
+<li>
+<a href="https://github.com/fab13n/parsec-coffee-script">Parsec CoffeeScript</a> CS based on parser combinators. The project's aim is to add static metaprogramming (i.e. macros + syntax extensibility) to Coffee Script (CS), similar to how Metalua adds such features to Lua. The resulting compiler, once merged with the official compiler, should be usable as a drop-in replacement for it.</li>
+<li>
+<a href="https://github.com/disnet/contracts.coffee">Contracts.coffee</a> A dialect of CoffeeScript that adds built-in support for contracts.</li>
+<li>
+<a href="https://github.com/jstrachan/coffee-script/blob/master/TypeAnnotations.md">Uberscript</a>, a CoffeeScript fork that adds type annotations which are compiled to Google closure compiler type annotation comments.</li>
+<li>
+<a href="https://github.com/jiangmiao/toffee-script">ToffeeScript</a> A dialect of CoffeeScript that support Asynchronous Syntax and Regexp operator =~</li>
+<li>
+<a href="https://github.com/ich/caffeine">Caffeine</a> A dialect of CoffeeScript that support packages and classes import, useful for browser applications</li>
+<li>
+<a href="https://github.com/syg/heap.coffee">heap.coffee</a> A dialect of CoffeeScript that offers a C-like type system with manual memory management</li>
+</ul><h6>
+<a name="friends-philosophically-related" class="anchor" href="#friends-philosophically-related"><span class="octicon octicon-link"></span></a>Friends (philosophically related)</h6>
+
+<ul>
+<li>
+<a href="http://js11.org/">JS11</a> JavaScript with augmented semicolon insertion, reduced punctuation, and limited sugar. Debugs line-for-line.</li>
+<li>
+<a href="https://github.com/weepy/kaffeine">Kaffeine</a> Enhanced Syntax for JavaScript.</li>
+<li>
+<a href="https://github.com/creationix/jack">Jack</a> Making programming playful.</li>
+<li>
+<a href="https://github.com/rsms/move">move</a> A simpler and cleaner programming language.</li>
+<li>
+<a href="https://github.com/be5invis/moe">Moescript</a> Indent-based language</li>
+<li>
+<a href="http://pogoscript.org/">pogoscript</a> language that emphasises readability, handles async control flow nicely, is friendly to domain specific languages and compiles to regular JavaScript</li>
+<li>
+<a href="http://lispyscript.com/">LispyScript</a> A JavaScript with Lispy syntax and Macros.</li>
+<li>
+<a href="http://github.com/Gozala/wisp">Wisp</a> Wisp is a homoiconic JavaScript dialect with clojure syntax, s-expressions and macros.</li>
+<li>
+<a href="https://github.com/olleicua/hcl">Hot Cocoa Lisp</a> A Lisp-like language that compiles to JavaScript.</li>
+<li>
+<a href="http://sibilantjs.info">Sibilant</a> JavaScript with a lisp.</li>
+<li>
+<a href="https://github.com/jameskeane/ham-script">Ham</a> looks very similar to Javascript at first, but offers (hopefully) many useful features</li>
+<li>
+<a href="http://ckknight.github.com/gorillascript/">GorillaScript</a>  Compile-to-JavaScript language designed to empower the user while attempting to prevent some common errors, offers Macros and optional Typing</li>
+<li>
+<a href="https://github.com/AdamBrodzinski/RedScript">RedScript</a> Ruby flavored JavaScript.</li>
+</ul><h4>
+<a name="javascript-extensions" class="anchor" href="#javascript-extensions"><span class="octicon octicon-link"></span></a>JavaScript Extensions</h4>
+
+<h6>
+<a name="security-enforcing-javascript" class="anchor" href="#security-enforcing-javascript"><span class="octicon octicon-link"></span></a>Security enforcing JavaScript</h6>
+
+<ul>
+<li>
+<a href="http://code.google.com/p/google-caja/">Caja</a> Compiles ES5/strict to ES3 and supports object-capabilities</li>
+<li>
+<a href="http://www.adsafe.org/">ADsafe</a> Client-side static verifier and API, making third party scripts safe.</li>
+<li>
+<a href="http://developers.facebook.com/docs/fbjs">FBJS</a> Facebook JavaScript, used for scripting FBML (Facebook Markup Language) gadgets.</li>
+<li>
+<a href="http://jacaranda.org/">Jacaranda</a> Static verifier supporting object-capabilities.</li>
+<li>
+<a href="http://websandbox.livelabs.com/">Microsoft Web Sandbox</a> Technology preview of securing web content through isolation.</li>
+<li>
+<a href="http://research.microsoft.com/en-us/projects/gatekeeper/">Gatekeeper</a> Microsoft Research project.</li>
+<li>
+<a href="http://www.sitepen.com/blog/2008/08/01/secure-mashups-with-dojoxsecure/">Dojo Secure</a> Framework for building secure mashups.</li>
+<li>
+<a href="http://grimwire.com/local/">Local.js</a> uses Web Workers to sandbox applications and a RESTful messaging protocol called HTTPL (HTTP Local) to communicate between them</li>
+</ul><h6>
+<a name="static-typing" class="anchor" href="#static-typing"><span class="octicon octicon-link"></span></a>Static typing</h6>
+
+<ul>
+<li>Some of the ones listed below are also statically typed, such as mobl, GWT, JSIL, NS Basic, and Haxe.</li>
+<li>
+<a href="http://www.dartlang.org/">Dart</a> by Google. C/Java-like syntax with optional typing.</li>
+<li>
+<a href="http://www.typescriptlang.org/">TypeScript</a> by Microsoft. Typed superset of JavaScript.</li>
+<li>
+<a href="http://asmjs.org/">asm.js</a> - subset of JavaScript that can be used as a low-level, efficient target language for compilers.  Now included in Firefox.</li>
+<li>
+<a href="http://jspp.javascript.am/">JavaScript++</a> adds pluggable type system and type inference, among other features</li>
+<li>
+<a href="http://milescript.org/">MileScript</a> [commercial] A strongly-typed language similar to C# and Java, but which compiles to JS. free for non-profit, educational use.</li>
+<li>
+<a href="http://www.mascaraengine.com/">Mascara</a> [commercial] Enhances JavaScript with powerful features like classes, namespaces and type-checking.</li>
+<li>
+<a href="http://roy.brianmckenna.org/">Roy</a> tries to meld JavaScript semantics with some features common in static functional languages</li>
+<li>
+<a href="http://elm-lang.org/">Elm</a> type-safe functional language that compiles to HTML, CSS, and JavaScript.</li>
+<li>
+<a href="http://jsx.github.com/">JSX</a> a faster, safer, easier alternative to JavaScript</li>
+<li>
+<a href="https://github.com/Steida/este/">Este.js</a> Google Closure written in CoffeeScript statically compiled to JavaScript (and much more).</li>
+<li>
+<a href="http://cheersgames.com/swym/wiki/index.php?title=Main_Page">Swym</a> - statically typed, with type inference and generics</li>
+<li>
+<a href="http://typecastjs.org">Typecast.js</a> - Javascript platform for statically typed variables without a custom compiler.</li>
+</ul><h6>
+<a name="synchronous-to-asynchronous-javascript-compilers-cps" class="anchor" href="#synchronous-to-asynchronous-javascript-compilers-cps"><span class="octicon octicon-link"></span></a>Synchronous to Asynchronous JavaScript Compilers (CPS)</h6>
+
+<ul>
+<li>
+<a href="https://github.com/Sage/streamlinejs">Streamline.js</a> Uses underscore (_) to stand for callbacks. This <a href="https://github.com/willconant/streamlinejs">fork</a> preserves line numbers for debugging.</li>
+<li>
+<a href="http://www.mobl-lang.org">mobl</a> The new language for programming the mobile web.</li>
+<li>
+<a href="http://onilabs.com/stratifiedjs/">StratifiedJS</a> JavaScript + structured concurrency.  See also apollo on that site.</li>
+<li>
+<a href="http://www.neilmix.com/narrativejs/doc/">NarrativeJS</a> JavaScript extension with asynchronous futures and promises.</li>
+<li>
+<a href="http://chumsley.org/jwacs/">jwacs</a> JavaScript With Advanced Continuation Support.</li>
+<li>
+<a href="https://github.com/JeffreyZhao/wind">Wind.js</a> Wind.js is an advanced library which enable us to control flow with plain JavaScript for asynchronous programming (and more) without additional pre-compiling steps.</li>
+<li>
+<a href="http://tamejs.org/">TameJS</a> adds new keywords 'await' and 'defer'</li>
+<li>
+<a href="https://github.com/caolan/async">async.js</a> Async utilities for node and the browser</li>
+<li>
+<a href="https://github.com/BYVoid/continuation">Continuation.js</a> A lightweight JIT compiler for simplifying asynchronous JavaScript programming with no runtime dependences. It supports both Node.js and browser-side JavaScript and is compatible with CoffeeScript (also TypeScript, and any other scripts compile to js).</li>
+</ul><h6>
+<a name="javascript-language-extensions" class="anchor" href="#javascript-language-extensions"><span class="octicon octicon-link"></span></a>JavaScript Language Extensions</h6>
+
+<ul>
+<li>
+<a href="https://www.hpi.uni-potsdam.de/hirschfeld/trac/Cop/wiki/ContextJS">ContextJS</a> is an implementation of <a href="http://www.hpi.uni-potsdam.de/hirschfeld/cop/">Context-oriented Programming</a> for JavaScript.</li>
+<li>
+<a href="http://en.wikipedia.org/wiki/Objective-J">Objective-J</a> Shares with JavaScript the same relationship that Objective-C has with the C programming language: that of being a strict, but small, superset.</li>
+<li>
+<a href="https://github.com/jeffsu/mochiscript">Mochiscript</a> Object-oriented JavaScript with syntactic sugar. Released as a Ruby gem.</li>
+<li>
+<a href="http://www.jangaroo.net/home/">jangaroo</a> AS3 (ActionScript) to JavaScript.</li>
+<li>
+<a href="http://flapjax-lang.org/">Flapjax</a> Event-driven, reactive evaluation.</li>
+<li>
+<a href="http://jlang.org/">jLang</a> adds object oriented syntax, namespaces, operators overriding</li>
+<li><a href="http://restrictmode.org/">Restrict Mode</a></li>
+<li>
+<a href="http://www.codeproject.com/KB/recipes/TIScript.aspx">TIScript</a> gentle extension of JavaScript</li>
+<li>
+<a href="https://github.com/matthewrobb/six">Six</a> Six is a language super-set of JavaScript that enables new syntactic features from the 6th edition of ECMAScript to be used, through a transpiler, in your scripts today.</li>
+</ul><h4>
+<a name="ruby" class="anchor" href="#ruby"><span class="octicon octicon-link"></span></a>Ruby</h4>
+
+<ul>
+<li>
+<a href="http://opalrb.org">Opal</a> Ruby to Javascript compiler.</li>
+<li>
+<a href="http://hotruby.yukoba.jp/">HotRuby</a> Runs opcode, compiled by YARV on Ruby inside a web browser or in Flash.</li>
+<li>
+<a href="https://github.com/whitequark/coldruby">ColdRuby</a> Compiler of Ruby 1.9 MRI bytecode, and a runtime written in JavaScript to aid in execution of Ruby code.</li>
+<li>
+<a href="http://rb2js.rubyforge.org/">rb2js</a> Converts Ruby to JavaScript.</li>
+<li>
+<a href="http://www.ntecs.de/blog/articles/2007/01/08/rubyjs-javascript-no-thank-you/">RubyJS</a> A successor to rb2js</li>
+<li>
+<a href="https://github.com/jessesielaff/red">Red</a> Writes like Ruby and runs like JavaScript</li>
+<li>
+<a href="http://www.playmycode.com/docs/quby">Quby</a> Used for game coding site, <a href="https://github.com/PlayMyCode/Quby">open source</a>.</li>
+<li>
+<a href="https://github.com/mattknox/8ball">8ball</a> ruby-to-javascript source-to-source transformer</li>
+</ul><h4>
+<a name="python" class="anchor" href="#python"><span class="octicon octicon-link"></span></a>Python</h4>
+
+<ul>
+<li>
+<a href="http://pyxc.org/">PYXC-PJ</a> [CS friend] Python to JS. Can generate a (line/col)-number mappings file.</li>
+<li>
+<a href="http://pyjs.org/">Pyjamas</a> Python to JS.</li>
+<li>
+<a href="http://pyjaco.org/demo">Pyjaco</a> Python to JavaScript compiler with module support.</li>
+<li>
+<a href="https://github.com/anandology/pyjs">Pyjs</a> Python to (readable) JS.</li>
+<li>
+<a href="http://www.skulpt.org/">Skulpt</a> Python. Client side.</li>
+<li>
+<a href="https://github.com/p2k/PyCow">PyCow</a> Python to MooTools JS.</li>
+<li>
+<a href="http://www.allbuttonspressed.com/blog/django/2010/07/PyvaScript-Pythonic-syntax-for-your-browser">PyvaScript</a> Python-like syntax to JavaScript.</li>
+<li>
+<a href="https://bitbucket.org/pyjeon/rapydscript">RapydScript</a> Improved PyvaScript</li>
+<li>
+<a href="http://brython.info/">Brython</a> browser python</li>
+<li>
+<a href="http://apppyjs.appspot.com/">PythonScript</a> Python-like compiled to Javascript</li>
+<li>
+<a href="https://github.com/DenerosArmy/pythonscript">pythonscript</a> Python compiled to readable Javascript using  the AST. (proof of concept) </li>
+</ul><h4>
+<a name="perl" class="anchor" href="#perl"><span class="octicon octicon-link"></span></a>Perl</h4>
+
+<ul>
+<li>
+<a href="https://github.com/fglock/Perlito">Perlito</a> Project to compile Perl 5/6 to JavaScript, Ruby, SBCL, and Go.</li>
+</ul><h4>
+<a name="javajvm" class="anchor" href="#javajvm"><span class="octicon octicon-link"></span></a>Java/JVM</h4>
+
+<ul>
+<li>
+<a href="http://code.google.com/webtoolkit/">GWT</a> Google Web Toolkit, compiles Java to JavaScript.</li>
+<li>
+<a href="http://j2s.sourceforge.net/">Java2Script</a> Eclipse Java to JavaScript compiler plugin and JavaScript version of SWT.</li>
+<li>
+<a href="http://www.j2js.com/">j2js</a> Java bytecode to JavaScript.</li>
+<li>
+<a href="http://st-js.sourceforge.net/">Strongly-Typed JavaScript (STJS)</a> - JavaScript code generator from Java source. It is built as a Maven plugin.</li>
+<li>
+<a href="https://github.com/nurv/BicaVM">BicaJVM</a> JavaScript implementation of JVM.</li>
+<li>
+<a href="http://int3.github.com/doppio/about.html">Doppio</a> JVM interpreter on Coffeescript.</li>
+<li>
+<a href="http://processingjs.org/">Processing</a>, a Java-based visualization language that interprets to JavaScript.</li>
+<li>
+<a href="http://confluence.jetbrains.net/display/Kotlin/Welcome">Kotlin</a> has a nascent JavaScript backend.</li>
+<li>
+<a href="http://ceylon-lang.org/">Ceylon</a> a modular static-typed JVM language compilable to JavaScript.</li>
+<li>
+<a href="http://grooscript.org/">GrooScript</a> a framework to convert Groovy code to Javascript.</li>
+</ul><h4>
+<a name="scala" class="anchor" href="#scala"><span class="octicon octicon-link"></span></a>Scala</h4>
+
+<ul>
+<li>
+<a href="http://lampwww.epfl.ch/~doeraene/scala-js/">Scala.js</a> A Scala to JavaScript compiler</li>
+<li>
+<a href="https://github.com/js-scala/js-scala">js-scala</a> JavaScript as an embedded DSL in Scala </li>
+<li>
+<a href="http://code.google.com/p/scalagwt/">scalagwt</a> enhanced GWT (accepts jribble as well as Java) plus Scala to jribble.</li>
+</ul><h4>
+<a name="c-f-net-related-languages" class="anchor" href="#c-f-net-related-languages"><span class="octicon octicon-link"></span></a>C#, F#, .NET related languages</h4>
+
+<ul>
+<li>
+<a href="http://jsc.sourceforge.net/">jsc</a> [experimental] Recompile your .NET assembly to JavaScript, ActionScript, PHP or Java.</li>
+<li>
+<a href="https://github.com/kevingadd/JSIL">JSIL</a> MSIL (.NET bytecode) to Javascript</li>
+<li>
+<a href="http://projects.nikhilk.net/ScriptSharp">Script#</a> Compiles C# to JS.</li>
+<li>
+<a href="http://www.toptensoftware.com/prefix/">Prefix</a> in development</li>
+<li>
+<a href="https://github.com/vannatech/blade">Blade</a> Visual Studio add-on for converting C# to JavaScript</li>
+<li>
+<a href="http://sharpkit.net/">SharpKit</a> [commercial] C# to JavaScript Cross-Compiler</li>
+<li>
+<a href="http://www.saltarelle-compiler.com/">Saltarelle</a> C# to JavaScript Compiler</li>
+<li>
+<a href="https://github.com/ZachBray/FunScript/">FunScript</a> F# to JavaScript compiler with JQuery etc. mappings through a TypeScript type provider</li>
+<li>
+<a href="http://pitfw.posterous.com/">Pit</a> F# to Javascript compiler</li>
+<li>
+<a href="http://www.websharper.com/">WebSharper</a> Lets you compile F# to JS.</li>
+<li>
+<a href="https://github.com/NemerleWeb/NemerleWeb/">NemerleWeb</a> Nemerle language compiled to JS.</li>
+<li>
+<a href="http://www.bluestormproject.org/">Blue Storm</a> F# to JavaScript (and some other languages).</li>
+<li>
+<a href="http://jscriptsuite.com/">JScriptSuite</a> .NET to JavaScript compiler (cross browser API, client site controls and components).</li>
+</ul><h4>
+<a name="lisp-scheme" class="anchor" href="#lisp-scheme"><span class="octicon octicon-link"></span></a>Lisp, Scheme</h4>
+
+<ul>
+<li>
+<a href="http://www.biwascheme.org/">BiwaScheme</a> Scheme(R6RS) in JavaScript</li>
+<li>
+<a href="https://github.com/clojure/clojurescript">ClojureScript</a> Clojure to JS, the official version. Supports the majority of Clojure including persistent datastructures.</li>
+<li>
+<a href="https://github.com/kriyative/clojurejs">clojurejs</a> Subset of Clojure to JS.</li>
+<li>
+<a href="https://github.com/chlorinejs/chlorine">Chlorinejs</a> A fork of ClojureJs with a port of clojure.core library.</li>
+<li>
+<a href="https://github.com/Gozala/wisp">wisp</a> Homoiconic JS with clojure syntax, s-expressions &amp; macros.</li>
+<li>
+<a href="https://github.com/manuel/edgelisp">EdgeLisp</a> A Lisp in the tradition of Common Lisp</li>
+<li>
+<a href="https://github.com/jcoglan/fargo">Fargo</a> Scheme in JavaScript<br>
+</li>
+<li>
+<a href="https://github.com/dyoo/moby-scheme">Moby Scheme</a> A Scheme running in JS.</li>
+<li>
+<a href="https://github.com/patrickdlogan/nconc">nconc</a> scheme interpreter in javascript with stack-friendly tail calls and full call/cc</li>
+<li>
+<a href="http://common-lisp.net/project/parenscript/">Parenscript</a> Subset of Common Lisp to JS.</li>
+<li>
+<a href="https://github.com/turbolent/ralph">Ralph</a> Lisp-1 dialect that compiles to JavaScript, inspired by Dylan</li>
+<li>
+<a href="http://www-sop.inria.fr/indes/scheme2js/">scheme2js</a> Scheme to JavaScript.</li>
+<li>
+<a href="https://github.com/arohner/scriptjure">Scriptjure</a> Library for generating JavaScript from Clojure forms.</li>
+<li>
+<a href="http://wiki.call-cc.org/eggref/4/spock">Spock</a> A Scheme to JavaScript compiler that uses Henry Baker's Cheney-on-the-MTA compilation strategy<br>
+</li>
+<li>
+<a href="http://hashcollision.org/whalesong/">Whalesong</a> Racket to JS compiler</li>
+<li>
+<a href="https://github.com/benekastah/oppo">Oppo</a> A javascripter's lisp. Inspired by javascript, clojure and coffeescript. Compiler built using <a href="http://zaach.github.com/jison/docs/">Jison</a>.</li>
+<li>
+<a href="https://github.com/jlongster/outlet">Outlet</a> A simple Lisp that supports CPS and in-browser stepping debugging, and other things. In development.</li>
+</ul><h4>
+<a name="ocaml" class="anchor" href="#ocaml"><span class="octicon octicon-link"></span></a>OCaml</h4>
+
+<ul>
+<li>
+<a href="https://github.com/jaked/ocamljs">Ocamljs</a> OCaml to JS.</li>
+<li>
+<a href="http://www.pps.jussieu.fr/~canou/obrowser/tutorial/">O'Browser</a> OCaml bytecode interpreter in JS.</li>
+<li>
+<a href="http://ocsigen.org/js_of_ocaml/">Js_of_ocaml</a> OCaml bytecode to JS compiler.</li>
+</ul><h4>
+<a name="haskell" class="anchor" href="#haskell"><span class="octicon octicon-link"></span></a>Haskell</h4>
+
+<ul>
+<li>
+<a href="http://www.cs.uu.nl/wiki/bin/view/Ehc/UhcUserDocumentation#5_7_3_jscript_Core_based_JavaScr">UHC</a> (Utrecht Haskell Compiler) backend converts UHC core to JavaScript, allowing the compiling of Haskell code to JS.</li>
+<li>
+<a href="https://github.com/ghcjs/ghcjs">ghcjs</a> Compile normal Haskell into JS</li>
+<li>
+<a href="http://hackage.haskell.org/package/jmacro">jmacro</a> Quasi-Quoted JS that you can insert Haskell values into (there is also <a href="http://hackage.haskell.org/package/shakespeare-js">shakespeare-js</a> for that purpose), but also supports a more haskellish syntactic version of javascript.</li>
+<li>
+<a href="https://github.com/aculich/lambdascript">https://github.com/aculich/lambdascript</a> Compile a subset of Haskell into JS</li>
+<li>
+<a href="http://www.haskell.org/haskellwiki/Yhc/Javascript">YHC</a> (York Haskell Compiler) backend, as above but with YHC core language.</li>
+<li><a href="http://code.google.com/p/jshaskell/">jshaskell</a></li>
+<li><a href="https://github.com/valderman/haste-compiler">haste</a></li>
+<li>
+<a href="http://fay-lang.org/">fay</a> A proper subset of Haskell that compiles to JavaScript</li>
+<li>
+<a href="http://texodus.github.io/forml/index.html">forml</a> A contemporary programming language intended to approximate the safety of Haskell and the expressiveness of Ruby.</li>
+</ul><h4>
+<a name="smalltalk" class="anchor" href="#smalltalk"><span class="octicon octicon-link"></span></a>Smalltalk</h4>
+
+<ul>
+<li>
+<a href="http://amber-lang.net/">Amber</a> - formerly known as Jtalk</li>
+<li>
+<a href="http://clamato.net/">Clamato</a> a Smalltalk dialect that is designed to operate within the JavaScript runtime.</li>
+<li>
+<a href="http://silversmalltalk.wordpress.com/">Silver Smalltalk</a> [commercial?] Smalltalk in the browser. (Still active?)</li>
+<li>
+<a href="http://www.lively-kernel.org/">Lively Kernel</a> - smalltalk/squeak-like development environment in the browser.  See also <a href="http://avocadojs.com/">Avocado</a>, built on top of it.</li>
+<li>
+<a href="https://github.com/ympbyc/LittleSmallscript">Little Smallscript</a> Little Smalltalk to Javascript translator.</li>
+</ul><h4>
+<a name="cc" class="anchor" href="#cc"><span class="octicon octicon-link"></span></a>C/C++</h4>
+
+<ul>
+<li>
+<a href="http://emscripten.org/">Emscripten</a> LLVM to JavaScript compiler.  LLVM is "an aggressive open-source compiler for C and C++," as well as other languages.</li>
+<li>
+<a href="http://leaningtech.com/duetto/">Duetto</a> LLVM to JavaScript compiler. "compiles C++ applications to binary code and Javascript"</li>
+<li>
+<a href="http://lethalman.hostei.com/maja/index.html">maja</a> vala (gobject) to javascript</li>
+<li>
+<a href="http://cluecc.sourceforge.net/">Clue</a> C language compiler to different runtimes (Lua, JS, Perl 5, C, Java, CL).</li>
+<li>
+<a href="http://lljs.org/">LLJS</a> typed dialect of JavaScript that offers a C-like type system with manual memory management</li>
+<li>
+<a href="http://mandreel.com/">Mandreel</a>  Can convert C++ and Objective-C applications based on OpenGL ES to JavaScript or Action Script 3 web application. </li>
+</ul><h4>
+<a name="basic" class="anchor" href="#basic"><span class="octicon octicon-link"></span></a>Basic</h4>
+
+<ul>
+<li>
+<a href="http://www.nsbasic.com/app/">NS Basic/App Studio</a> [commercial] Visual Basic-style BASIC to JavaScript compiler. Includes IDE. Targets iOS and Android</li>
+<li>
+<a href="http://stevehanov.ca/blog/index.php?id=92/">qb.js</a> An implementation of QBASIC in Javascript</li>
+</ul><h4>
+<a name="pascal" class="anchor" href="#pascal"><span class="octicon octicon-link"></span></a>Pascal</h4>
+
+<ul>
+<li>
+<a href="http://op4js.optimalesystemer.no/">Smart Mobile Studio</a> [commercial] Object Pascal to JavaScript compiler and Delphi like IDE that brings classes, inheritance, interfaces and more to JavaScript</li>
+<li>
+<a href="http://www.elevatesoft.com/products?category=ewb">Elevate Web Builder</a> [commercial]  Visual development tool for web applications that compiles standard Object Pascal source code into JavaScript</li>
+</ul><h4>
+<a name="go" class="anchor" href="#go"><span class="octicon octicon-link"></span></a>Go</h4>
+
+<ul>
+<li>
+<a href="https://github.com/kless/go2js">Go2js</a> Line-to-line translator from Go to JavaScript.</li>
+</ul><h4>
+<a name="multitarget" class="anchor" href="#multitarget"><span class="octicon octicon-link"></span></a>Multitarget</h4>
+
+<ul>
+<li>
+<a href="http://haxe.org/">Haxe</a> compiles to several platforms (C++, Flash, JS, Neko, PHP).</li>
+<li>
+<a href="http://fantom.org/">Fantom</a> Evolutionary object-oriented language emphasizing succinct and effective APIs (JVM, CLR, JS).</li>
+<li>
+<a href="http://labs.openlaszlo.org/trunk-nightly/laszlo-explorer/index.html?lzr=swf10#_lzbookmark=Laszlo%20in%2010%20Minutes">LZX (Laszlo XML)</a> LZX is <a href="http://www.openlaszlo.org">OpenLaszlo's</a> declarative user interface language, which is compiled into JavaScript 2 as an intermediary format, and further compiled into either JavaScript 1.5 or ActionScript 3.</li>
+<li>Clue and jsc above target multiple runtimes in addition to javascript</li>
+<li>
+<a href="http://hence-lang.org/">Hence</a> stack-oriented programming language with an English-like syntax</li>
+<li>
+<a href="http://nimrod-code.org">Nimrod</a> compiles to C and JavaScript</li>
+</ul><h4>
+<a name="tierless-languages-produce-both-client--server" class="anchor" href="#tierless-languages-produce-both-client--server"><span class="octicon octicon-link"></span></a>Tierless languages (produce both client &amp; server)</h4>
+
+<ul>
+<li>
+<a href="https://github.com/marcuswestin/fun">Fun</a> A programming language for realtime webapps - compiles to client-side and server-side JS.</li>
+<li>
+<a href="http://impredicative.com/ur/">Ur</a> In the tradition of ML and Haskell.</li>
+<li>
+<a href="http://www.mobl-lang.org">mobl</a> The new language for programming the mobile web.</li>
+<li>
+<a href="http://wiki.erights.org/wiki/E-on-JS">E</a> Compiles E to JS. E is a secure distributed persistent pure object language.</li>
+<li>
+<a href="https://github.com/sebastien/sugar">Sugar</a> new programming language designed to replace JavaScript
+for client-side (and server-side) web development</li>
+<li>
+<a href="http://www.opalang.org/">Opa</a> write your complete application in just one language, and the compiler will transform it into a self-sufficient executable</li>
+</ul><h4>
+<a name="visual-programming-tools" class="anchor" href="#visual-programming-tools"><span class="octicon octicon-link"></span></a>Visual programming tools</h4>
+
+<ul>
+<li><a href="http://waterbearlang.com/">Waterbear</a></li>
+<li>
+<a href="http://snap.berkeley.edu/snapsource/snap.html">Snap</a> - Javascript of BYOB, which is a fork of <a href="http://alpha.scratch.mit.edu/">Scratch</a>
+</li>
+<li><a href="http://code.google.com/p/scriptblocks/">ScriptBlocks</a></li>
+<li>
+<a href="http://radicalbreeze.com/">Illumination</a> [Commercial] Visual, cross-platform tool creates apps for Android, iPhone, iPad, Desktops and HTML5 or Flash websites.  <a href="http://blog.radicalbreeze.com/?p=213">The I language</a> underlies the tool.</li>
+<li>
+<a href="http://jsmaker.com/jsmaker/">JsMaker</a> visual JavaScript programming</li>
+<li>
+<a href="http://meemoo.org/">Meemoo</a> flow-based visual programming framework for hackable web apps</li>
+<li>
+<a href="http://noflojs.org/">NoFlo</a> JavaScript implementation of Flow-Based Programming. Programs (network graphs) can be visually created with <a href="http://www.jpaulmorrison.com/cgi-bin/wiki.pl?DrawFBP">DrawFBP</a>
+</li>
+<li>
+<a href="http://code.google.com/p/google-blockly/">Blockly</a> web-based, graphical programming language. Users can drag blocks together to build an application</li>
+<li>
+<a href="http://maedablock.com/">Maeda Block</a> - visual game programming language powered by enchant.js and Google Blockly.  See also the <a href="http://maedablock.jp/">Japanese version</a>.</li>
+</ul><h4>
+<a name="sql" class="anchor" href="#sql"><span class="octicon octicon-link"></span></a>SQL</h4>
+
+<ul>
+<li><a href="https://github.com/forward/sql-parser">sql-parser</a></li>
+<li><a href="https://github.com/steveyen/sqld3">sqld3</a></li>
+</ul><h4>
+<a name="others" class="anchor" href="#others"><span class="octicon octicon-link"></span></a>Others</h4>
+
+<ul>
+<li>
+<a href="https://github.com/stevedekorte/oia">Oia</a> A port of Io to JavaScript.</li>
+<li>
+<a href="http://www.plaid-lang.org">Plaid</a> A gradually-typed, typestate-oriented language designed as a better Java.</li>
+<li>
+<a href="https://github.com/erkyrath/quixe">Quixe</a> a Glulx VM interpreter written in Javascript</li>
+<li>
+<a href="https://github.com/curiousdannii/gnusto">Gnusto</a> a Z-Machine VM interpreter written in Javascript</li>
+<li><a href="http://www.calormen.com/logo/">Logo Interpreter</a></li>
+<li>
+<a href="https://github.com/urandom/p2js">p2js</a> perl to javascript converter</li>
+<li>
+<a href="https://github.com/jankom/RebToStatic">Reb2Static</a> Rebol to Javascript</li>
+<li>
+<a href="https://github.com/adrusi/rpn">RPN</a> Interpreter for a language with a Reverse Polish Notation syntax.</li>
+<li>
+<a href="http://code.google.com/p/phype/">phype</a> run PHP code directly in your browser</li>
+<li><a href="http://forthfreak.net/jsforth80x25.html">jsForth</a></li>
+<li><a href="http://solidcoding.blogspot.com/2008/12/wforth-javascript-forth-interpreter.html">wForth</a></li>
+<li>
+<a href="http://wiki.portal.chalmers.se/agda/pmwiki.php">Agda</a> a dependently typed functional programming language and mechanized proof assistant</li>
+<li>
+<a href="https://github.com/baxtree/xlcc">XLCC</a> Interpret LCC into Javascript on node</li>
+<li>
+<a href="http://www.smlserver.org/smltojs/">SMLtoJs</a> SML to Javascript compiler</li>
+<li>
+<a href="https://github.com/mherkender/lua.js">lua.js</a> Lua parser</li>
+<li>
+<a href="https://github.com/creationix/brozula">Brozula</a> Lua bytecode interpreter</li>
+<li>
+<a href="http://peterolson.github.com/Pygmy/Docs/index.html">Pygmy</a> a dynamic language that compiles to Javascript designed to be readable but concise enough to be competitive in code golf.</li>
+<li>
+<a href="http://svahne.github.com/browserl/">browserl</a> An Erlang Emulator written in javascript</li>
+<li>
+<a href="https://github.com/hassy/erlyjs">ErlyJS</a> (abandoned) Javascript to Erlang compiler</li>
+<li>
+<a href="https://github.com/giesse/Project-SnowBall">Topaz</a> Rebol inspired language on top of Javascript</li>
+<li>
+<a href="https://github.com/ngn/apl">NGN APL</a> an APL-to-JavaScript compiler written in CoffeeScript</li>
+<li>
+<a href="https://github.com/ajlopez/CobolScript">CobolScript</a> COBOL language compiler to Javascript.</li>
+<li>
+<a href="https://github.com/edwinb/Idris-dev">Idris</a> Dependently typed functional language with a JavaScript backend.</li>
+</ul><h4>
+<a name="tools-for-compiler-writers" class="anchor" href="#tools-for-compiler-writers"><span class="octicon octicon-link"></span></a>Tools for Compiler Writers</h4>
+
+<h4>
+<a name="javascript-parsers-and-extensions" class="anchor" href="#javascript-parsers-and-extensions"><span class="octicon octicon-link"></span></a>JavaScript Parsers and Extensions</h4>
+
+<ul>
+<li>
+<a href="https://github.com/mozilla/narcissus/">Narcissus</a> Mozilla's experimental JavaScript compiler in JavaScript by Brendan Eich and others.<br><ul>
+<li><a href="https://github.com/mozilla/doctorjs/tree/master/lib/jsctags/narcissus">CommonJS version in DoctorJS</a></li>
+<li><a href="https://github.com/wpbasti/jasy/tree/master/lib/jasy/parser">Jasy: Python port of Narcissus with some enhancements</a></li>
+<li>
+<a href="http://code.google.com/p/pynarcissus/">PyNarcissus</a> Narcissus's parser ported to Python (used in <a href="http://code.google.com/p/pyjon/">pyjon</a>)</li>
+<li>
+<a href="http://code.google.com/p/rbnarcissus/">rbnarcissus</a> Narcissus' parser ported to Ruby.</li>
+</ul>
+</li>
+<li>
+<a href="http://code.google.com/p/traceur-compiler/">Traceur</a> Google's vehicle for Javascript Language Design Experimentation</li>
+<li><a href="http://es-lab.googlecode.com/svn/trunk/site/esparser/index.html">EcmaScript 5 Parser (es-lab)</a></li>
+<li><a href="http://esparser.qfox.nl/">EcmaScript 5 Parser (qfox)</a></li>
+<li>
+<a href="https://github.com/zaach/reflect.js">reflect.js</a> Implementation of Mozilla's (SpiderMonkey) <a href="https://developer.mozilla.org/en/SpiderMonkey/Parser_API">Parser API</a> in JavaScript</li>
+<li>
+<a href="https://github.com/altoviso/bdParse">bdParse</a> a JavaScript LL(1) parser in JavaScript</li>
+<li>
+<a href="http://marijnhaverbeke.nl/parse-js/">parse-js</a> common lisp javascript parser</li>
+<li><a href="https://github.com/qfox/ZeParser">ZeParser</a></li>
+<li>
+<a href="http://esprima.org">Esprima</a> Educational (but fast) ECMAScript parser with output compatible to <a href="https://developer.mozilla.org/en/SpiderMonkey/Parser_API">Mozilla Parser API</a>
+</li>
+<li>
+<a href="https://github.com/jterrace/js.js">js.js</a> A JavaScript JavaScript interpreter. Instead of trying to create an interpreter from scratch, SpiderMonkey is compiled into LLVM and then emscripten translates the output into JavaScript.</li>
+</ul><h6>
+<a name="javascript-optimizers" class="anchor" href="#javascript-optimizers"><span class="octicon octicon-link"></span></a>Javascript Optimizers</h6>
+
+<ul>
+<li>
+<a href="http://code.google.com/closure/compiler/">Closure Compiler</a> An optimizing compiler. Can generate a (line/col)-number mappings file.</li>
+<li><a href="https://github.com/mishoo/UglifyJS">UglifyJS</a></li>
+</ul><h6>
+<a name="javascript-parser-generators" class="anchor" href="#javascript-parser-generators"><span class="octicon octicon-link"></span></a>Javascript Parser Generators</h6>
+
+<ul>
+<li>
+<a href="https://github.com/zaach/jison">jison</a> Bison in javascript, used by Coffeescript</li>
+<li>
+<a href="http://tinlizzie.org/ometa-js/#Sample_Project">OMeta/JS</a> (<a href="https://github.com/veged/ometa-js">source</a>) metacompiler for many languages to many targets, including js.</li>
+<li>
+<a href="http://pegjs.majda.cz/">PEG.js</a> parser generator for JavaScript based on the parsing expression grammar formalism</li>
+<li>
+<a href="https://github.com/tolmasky/language">languagejs</a> - PEG parser written in JavaScript with first class errors</li>
+<li>
+<a href="https://github.com/jcoglan/canopy">Canopy</a> Self-hosting PEG parser compiler for JavaScript, influenced by Ruby parser generators such as Treetop and Citrus</li>
+<li>
+<a href="http://jscc.jmksf.com/">JS/CC</a> LALR(1) parser generator</li>
+<li>
+<a href="https://github.com/doublec/jsparse">jsparse</a> PEG by Grandmaster Chris Double</li>
+<li>
+<a href="https://github.com/weaver/ReParse">ReParse</a> parser combinator library for Javascript like Haskell's Parsec</li>
+<li>
+<a href="https://github.com/asmyczek/p4js">p4js</a> Monadic parser library for JavaScript</li>
+<li>
+<a href="http://blog.kalleberg.org/post/1256702765/prototype-of-a-scannerless-generalized-left-to-right">JSGLR</a> Scannerless, Generalized Left-to-right Rightmost (SGLR) derivation parser for JavaScript</li>
+<li>
+<a href="https://github.com/antlr/examples-v3">antlr</a> has a javascript target</li>
+<li>
+<a href="http://code.google.com/p/cruiser/wiki/Parse">Cruiser.Parse</a> LL(k) parser</li>
+</ul><h6>
+<a name="javascript-ast-semantics" class="anchor" href="#javascript-ast-semantics"><span class="octicon octicon-link"></span></a>Javascript AST, Semantics</h6>
+
+<ul>
+<li><a href="https://docs.google.com/viewer?url=http%3A%2F%2Fclosure-compiler.googlecode.com%2Ffiles%2Fclosure-compiler-ast.pdf">Closure Compiler AST Documentation</a></li>
+<li>
+<a href="https://developer.mozilla.org/en/SpiderMonkey/Parser_API">Spidermonkey Parser API</a> - see also reflect.js above</li>
+<li>
+<a href="http://code.google.com/p/es-lab/wiki/JsonMLASTFormat">JsonML AST</a> format used by the es5 parser </li>
+<li>
+<a href="https://github.com/zefhemel/treehugger">treehugger</a> Javascript AST transformation tools</li>
+<li>
+<a href="http://jsshaper.org/">JavaScript Shaper</a> JavaScript syntax tree shaping</li>
+<li>
+<a href="https://github.com/substack/node-burrito">burrito</a> &amp; <a href="https://github.com/substack/js-traverse">js-traverse</a> - see <a href="http://substack.net/posts/eed898">this post</a> for more info, as well as <a href="https://github.com/substack/node-stackedy">node-stackedy</a> for an example and <a href="https://github.com/substack/node-browserify">node-browserify</a> for running it in a browser instead of node</li>
+<li>
+<a href="http://cs.brown.edu/~joe/public/types/types.html">javascript types</a> - lambdajs, flow typing</li>
+<li>
+<a href="https://github.com/mozilla/source-map">SourceMap</a> map javascript debugger output to original source </li>
+<li>
+<a href="https://github.com/qfox/Zeon">Zeon</a> A static visual JavaScript analyzer / editor.  See also <a href="https://github.com/qfox/ZeParser">ZeParser</a>.</li>
+<li>
+<a href="https://github.com/Constellation/escodegen">escodegen</a> - Javascript code generator</li>
+<li>
+<a href="https://github.com/Constellation/esmangle">esmangler</a> mangler / minifier for Mozilla Parser API AST</li>
+</ul><h4>
+<a name="see-also" class="anchor" href="#see-also"><span class="octicon octicon-link"></span></a>See Also</h4>
+
+<ul>
+<li>
+<a href="http://altjs.org/">altJS</a> a <a href="http://groups.google.com/group/altjs">Google group</a> and #altjs IRC channel for those interested in alternative languages for javascript  ('transpilers').  There is a <a href="http://altjs.org/try/">Try altJS</a> feature, too, to test out various compilers in the browser.</li>
+<li>
+<a href="https://github.com/bebraw/jswiki/wiki">jswiki</a> another github wiki with listings of various javascript libraries</li>
+</ul>
+    </div>
+  </div>
+  </div>
+
+</div>
+<div id="gollum-footer">
+  <p id="last-edit">
+    Last edited by Sébastien Doeraene, <time class="js-relative-date" datetime="2013-07-20T12:48:23-07:00" title="2013-07-20 12:48:23">July 20, 2013</time>
+  </p>
+</div>
+</div>
+
+
+        </div>
+
+      </div><!-- /.repo-container -->
+      <div class="modal-backdrop"></div>
+    </div><!-- /.container -->
+  </div><!-- /.site -->
+
+
+    </div><!-- /.wrapper -->
+
+      <div class="container">
+  <div class="site-footer">
+    <ul class="site-footer-links right">
+      <li><a href="https://status.github.com/">Status</a></li>
+      <li><a href="http://developer.github.com">API</a></li>
+      <li><a href="http://training.github.com">Training</a></li>
+      <li><a href="http://shop.github.com">Shop</a></li>
+      <li><a href="/blog">Blog</a></li>
+      <li><a href="/about">About</a></li>
+
+    </ul>
+
+    <a href="/">
+      <span class="mega-octicon octicon-mark-github"></span>
+    </a>
+
+    <ul class="site-footer-links">
+      <li>&copy; 2013 <span title="0.07512s from fe16.rs.github.com">GitHub</span>, Inc.</li>
+        <li><a href="/site/terms">Terms</a></li>
+        <li><a href="/site/privacy">Privacy</a></li>
+        <li><a href="/security">Security</a></li>
+        <li><a href="/contact">Contact</a></li>
+    </ul>
+  </div><!-- /.site-footer -->
+</div><!-- /.container -->
+
+
+    <div class="fullscreen-overlay js-fullscreen-overlay" id="fullscreen_overlay">
+  <div class="fullscreen-container js-fullscreen-container">
+    <div class="textarea-wrap">
+      <textarea name="fullscreen-contents" id="fullscreen-contents" class="js-fullscreen-contents" placeholder="" data-suggester="fullscreen_suggester"></textarea>
+          <div class="suggester-container">
+              <div class="suggester fullscreen-suggester js-navigation-container" id="fullscreen_suggester"
+                 data-url="/jashkenas/coffee-script/suggestions/commit">
+              </div>
+          </div>
+    </div>
+  </div>
+  <div class="fullscreen-sidebar">
+    <a href="#" class="exit-fullscreen js-exit-fullscreen tooltipped leftwards" title="Exit Zen Mode">
+      <span class="mega-octicon octicon-screen-normal"></span>
+    </a>
+    <a href="#" class="theme-switcher js-theme-switcher tooltipped leftwards"
+      title="Switch themes">
+      <span class="octicon octicon-color-mode"></span>
+    </a>
+  </div>
+</div>
+
+
+
+    <div id="ajax-error-message" class="flash flash-error">
+      <span class="octicon octicon-alert"></span>
+      <a href="#" class="octicon octicon-remove-close close ajax-error-dismiss"></a>
+      Something went wrong with that request. Please try again.
+    </div>
+
+    
+  </body>
+</html>
+
