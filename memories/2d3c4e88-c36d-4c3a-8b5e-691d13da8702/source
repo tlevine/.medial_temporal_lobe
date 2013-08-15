@@ -1,0 +1,746 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<meta name="author" content="archiveorange.com" />
+<meta name="copyright" content="&copy; respective authors" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<!--[if IE 8]><meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8" /><![endif]--> <!-- Blargh Microsoft, you stink (disables IE8's "compatibility mode") -->
+<title>Re: not writable - OfflineIMAP help and discussion - ArchiveOrange</title>
+<link rel="icon" type="image/ico" href="http://m3.archiveorange.com/m/im/favicon.ico" />
+
+<link rel="stylesheet" type="text/css" href="http://m3.archiveorange.com/m/css/ao.1930.css" />
+<!--[if IE 6]><link rel="stylesheet" type="text/css" href="http://m3.archiveorange.com/m/css/ie6.1930.css" /><![endif]-->
+<!--[if IE 7]><link rel="stylesheet" type="text/css" href="http://m3.archiveorange.com/m/css/ie7.1930.css" /><![endif]-->
+<!--[if IE 8]><link rel="stylesheet" type="text/css" href="http://m3.archiveorange.com/m/css/ie8.1930.css" /><![endif]-->
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
+
+<script type="text/javascript" src="http://m3.archiveorange.com/m/js/ao.1930.js"></script>
+
+
+<meta name="description" content="01 Nov 2011 (10 replies) - I&#39;ve noticed this happen frequently on the INBOX directory of Gmail accounts. The following debug snippet seems to show it switches between ..." />
+
+<link rel="alternate" type="application/rss+xml" title="Atom" href="/atom/list/cXBGj/" />
+<link rel="alternate" type="application/atom+xml" title="RSS" href="/rss/list/cXBGj/" />
+
+<script type="text/javascript">var StaticServer = "http://m3.archiveorange.com/m/";</script>
+
+
+<script type="text/javascript" src="http://m3.archiveorange.com/m/js/view.1930.js"></script>
+
+<script type="text/javascript">var viewarg = "cXBGjG2wXK1ynzckCHfj";</script>
+
+</head>
+<body>
+
+<div class="yui-d0">
+<div id="hd"><a href="/"><img width="186" height="19" src="http://m3.archiveorange.com/m/im/archiveorange.png" alt="ArchiveOrange" /></a><span class="aotitletext">mail archive</span> <span class="headerlink"></span></div>
+<div class="yui-main"><div class="yui-b"><div class="yui-gc">
+
+
+<!-- google_ad_section_start(weight=ignore) -->
+
+
+<div id="sr" class="yui-u">
+
+<div id="src1">
+<div><div class="orangebox">
+<h3 class="orangeheading">OfflineIMAP help and discussion</h3><br />
+<i>offlineimap-project.lists.alioth.debian.org</i><br /> 
+(<a class="aonav" href="/archive/listinfo/cXBGj">List home</a>) (<a class="aonav" href="/archive/list/cXBGj">Recent threads</a>) (<a class="aonav" href="/archive/project/lists.alioth.debian.org/">829 other Debian Alioth lists</a>)
+<div class="orangecontents">
+<div class="aolistdetail">
+<div class="showhide"><a class="sh"></a></div>
+<div class="quoted">
+<h4>Subscription Options</h4>
+<ul>
+<li><a title="RSS" href="/rss/list/cXBGj"><b>RSS</b></a> or <a title="Atom" href="/atom/list/cXBGj"><b>Atom</b></a>: Read-only subscription using a browser or aggregator.  This is the recommended way if you don&#39;t need to send messages to the list.  You can learn more about feed syndication and clients <a href="http://en.wikipedia.org/wiki/Web_feed"><b>here</b></a>.</li>
+<li><b>Conventional</b>: All messages are delivered to your mail address, and you can reply.  To subscribe, send an email to the list&#39;s <a class="nml" href="http://mailhide.recaptcha.net/d?k=01Vgu1OPoq87OnAPuqo0xFMg==&amp;c=n-gczjiI3-MFlwRo_HzcjFiZRDFe02dLNqxcZbQEJnbl_l8grsLa0qyA8NRhlTWo9gv0CDPBQxSP2aV67LCTlRek_C9edhqm0fXgeNOfjhQ=" onclick="window.open('http://mailhide.recaptcha.net/d?k=01Vgu1OPoq87OnAPuqo0xFMg==&amp;c=n-gczjiI3-MFlwRo_HzcjFiZRDFe02dLNqxcZbQEJnbl_l8grsLa0qyA8NRhlTWo9gv0CDPBQxSP2aV67LCTlRek_C9edhqm0fXgeNOfjhQ=', '', 'toolbar=0,scrollbars=0,location=0,statusbar=0,menubar=0,resizable=0,width=500,height=300'); return false;" title="Reveal this e-mail address"><b>subscribe</b></a> address with &quot;subscribe&quot; in the subject line, or visit the list&#39;s homepage <a href="http://lists.alioth.debian.org/cgi-bin/mailman/listinfo/offlineimap-project"><b>here</b></a>.</li>
+</ul>
+</div></div>
+<ul>
+<li>Low traffic list: less than 3 messages per day</li>
+<li>This list contains about 3,444 messages, beginning Feb 2011</li>
+<li>0 messages added yesterday</li>
+</ul>
+</div></div></div>
+</div>
+
+
+<div id="src2">
+	<div id="reportsection">
+		<div id="reportsectiontitle">Report the Spam</div>
+		<div id="reportsectiondesc">This button sends a spam report to the moderator.  Please use it sparingly.  For other removal requests, <a class="aonav" href="/articles/about.html#removal">read this</a>.</div>
+		<button id="reportspambutton" class="ao_button" type="submit">Report Spam</button>
+		<div id="reportsectionconfirm">Are you sure? <span class="confirmtext" id="confirm-yes">yes</span> <span class="confirmtext" id="confirm-no">no</span></div>
+		<div id="reportsectionresults"></div>
+	</div>
+</div>
+
+
+
+
+</div>
+
+
+
+<!-- google_ad_section_end -->
+
+
+<div class="h1container"><h1>
+<!-- google_ad_section_start -->
+Re: not writable
+<!-- google_ad_section_end -->
+</h1> <span class="aosubtitle"></span></div>
+
+
+
+<div class="adframe adframetop">
+	<script type="text/javascript">
+	window.google_analytics_uacct = "UA-3601455-4";
+	</script>
+	<script type="text/javascript"><!--
+google_ad_client = "pub-3417341829819905";
+/* AOAd_300x250_combined */
+google_ad_slot = "4559678717";
+google_ad_width = 300;
+google_ad_height = 250;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
+
+	
+	
+	<script type="text/javascript"><!--
+google_ad_client = "pub-3417341829819905";
+/* AOAd_300x250_combined */
+google_ad_slot = "4559678717";
+google_ad_width = 300;
+google_ad_height = 250;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
+
+	
+	
+	
+	<div class="adframelabel">Ad</div>
+</div>
+<div class="clearleft"></div>
+
+
+
+
+
+
+<div class="ao_msgframe" style="margin-left: 0%;">
+	<div class="ao_msghead">
+		<!-- Buttons -->
+		<div class="ao_msgbtn"><a rel="nofollow" href="/archive/print/cXBGjG2wXK1ynzckCHfj" title="Print view"><img width="16" height="16" src="http://m3.archiveorange.com/m/im/print.png" /></a></div>
+		<div class="ao_msgbtn"><a href="#G2wXK1ynzckCHfj" title="Link to this message"><img width="16" height="16" src="http://m3.archiveorange.com/m/im/link.png" /></a></div>
+		
+		<div>
+			<a name="G2wXK1ynzckCHfj"></a>
+				<span class="ao_from">Tom Vincent </span> &mdash; <span class="datetimecontainer"><span class="unixdate">1320165864</span><span class="readabledate">Tue, 01 Nov 2011 16:44:24  +0000 (UTC)</span></span>
+				
+				
+		</div>
+		
+		
+	</div>
+	
+	<div class="ao_msgbody">
+		<!-- google_ad_section_start -->
+		<pre>I&#39;ve noticed this happen frequently on the INBOX directory of Gmail
+accounts.
+
+The following debug snippet seems to show it switches between
+&quot;READ-WRITE&quot; and &quot;READ&quot; statuses:
+
+---
+
+Folder INBOX [acc: gmail]:
+ DEBUG[imap]:   38:47.91 Folder INBOX [acc: gmail] [sync] SELECT (&#39;INBOX&#39;,)
+ DEBUG[imap]:   38:47.91 Folder INBOX [acc: gmail] state_change_pending.acquire
+ DEBUG[imap]:   38:47.91 Folder INBOX [acc: gmail] _request_push(MDBI52, SELECT, {}) = MDBI52
+ DEBUG[imap]:   38:47.91 Folder INBOX [acc: gmail] data=MDBI52 SELECT INBOX
+ DEBUG[imap]:   38:47.91 Folder INBOX [acc: gmail] SELECT:MDBI52.ready.wait
+ DEBUG[imap]:   38:47.91 imap.gmail.com writer &gt; MDBI52 SELECT INBOX\r\n
+ DEBUG[imap]:   38:48.32 imap.gmail.com reader &lt; MDBI52 OK [READ-WRITE] INBOX selected. (Success)\r\n
+ DEBUG[imap]:   38:48.32 imap.gmail.com handler _request_pop(MDBI52, (&#39;OK&#39;, [&#39;[READ-WRITE] INBOX selected. (Success)&#39;])) = MDBI52
+Folder INBOX [acc: gmail]:
+ DEBUG[imap]:   38:48.32 Folder INBOX [acc: gmail] state =&gt; SELECTED
+ DEBUG[imap]:   38:48.32 Folder INBOX [acc: gmail] state_change_pending.release
+ DEBUG[imap]:   38:48.32 Folder INBOX [acc: gmail] _get_untagged_response(READ-ONLY) =&gt; [&#39;&#39;]
+ DEBUG[imap]:   38:48.32 Folder INBOX [acc: gmail] untagged responses dump:
+ ERROR: Server &#39;imap.gmail.com&#39; closed connection, error on SELECT &#39;INBOX&#39;. Server said: INBOX is not writable
+ DEBUG[thread]: Unregister thread &#39;Folder INBOX [acc: gmail]&#39;
+ ERROR: Server &#39;imap.gmail.com&#39; closed connection, error on SELECT &#39;INBOX&#39;. Server said: INBOX is not writable<!-- AOStartFooter --><span class="aofooter"><span class="showhide"><a class="sh"></a></span><span class="footer">---
+
+$ offlineimap --version                     
+6.4.0</span></span><!-- AOEndFooter --></pre>
+		<!-- google_ad_section_end -->
+	</div>
+</div>
+
+
+
+<div class="ao_msgframe" style="margin-left: 2%;">
+	<div class="ao_msghead">
+		<!-- Buttons -->
+		<div class="ao_msgbtn"><a rel="nofollow" href="/archive/print/cXBGjak6hRy6quWWJfGO" title="Print view"><img width="16" height="16" src="http://m3.archiveorange.com/m/im/print.png" /></a></div>
+		<div class="ao_msgbtn"><a href="#ak6hRy6quWWJfGO" title="Link to this message"><img width="16" height="16" src="http://m3.archiveorange.com/m/im/link.png" /></a></div>
+		
+		<div>
+			<a name="ak6hRy6quWWJfGO"></a>
+				<span class="ao_from">Sebastian Spaeth </span> &mdash; <span class="datetimecontainer"><span class="unixdate">1320224452</span><span class="readabledate">Wed, 02 Nov 2011 09:00:52  +0000 (UTC)</span></span>
+				
+				
+		</div>
+		
+		
+	</div>
+	
+	<div class="ao_msgbody">
+		<!-- google_ad_section_start -->
+		<pre><!-- AOStartQuote --><span class="aoquote"><span class="showhide"><a class="sh"></a></span><span class="quoted">On Tue, 1 Nov 2011 16:44:02 +0000, Tom Vincent  wrote:
+&gt; I&#39;ve noticed this happen frequently on the INBOX directory of Gmail
+&gt; accounts.
+&gt; 
+&gt; The following debug snippet seems to show it switches between
+&gt; &quot;READ-WRITE&quot; and &quot;READ&quot; statuses:</span></span><!-- AOEndQuote -->Hi there, it is OK for us to sometimes select a folder as RO (we do that
+e.g. when we cache messages status.) and sometimes as RW. However, what
+seems to be happening here, is that we are trying to select the inbox,
+and the server responds with OK. I don&#39;t know where the error &quot;ERROR:
+Server &#39;imap.gmail.com&#39; closed connection, error on SELECT
+&#39;INBOX&#39;. Server said: INBOX is not writable&quot; is coming from.
+
+I have never seen that error myself.
+
+I have now pushed the following commit to both my next and master
+branch, which might help fix things, at least it makes things more
+correct in any case. Does current master on my git repository
+(git://github.com/spaetz/offlineimap.git) make things work?
+
+commit 8b3ed8b00451e5f1145c93e6171cb8613903ac1c
+Author: Sebastian Spaeth 
+Date:   Wed Nov 2 08:40:03 2011 +0100
+
+    Fix mbox.select(foldername) readonly parameter comparison
+    
+    The default parameter value was &quot;None&quot;, and we were comparing that
+    directly to the imaplib2 value of is_readonly which is False or True, so
+    the comparison always returned &quot;False&quot;.
+    
+    Fix this by setting the default parameter to &quot;False&quot; and not
+    &quot;None&quot;. Also convert all users of that function to use False/True.
+
+
+Sebastian
+<!-- AOVeryBadlyEncodedMessage --></pre>
+		<!-- google_ad_section_end -->
+	</div>
+</div>
+
+
+
+<div class="ao_msgframe" style="margin-left: 4%;">
+	<div class="ao_msghead">
+		<!-- Buttons -->
+		<div class="ao_msgbtn"><a rel="nofollow" href="/archive/print/cXBGjfzmlUKpfXdNnjVi" title="Print view"><img width="16" height="16" src="http://m3.archiveorange.com/m/im/print.png" /></a></div>
+		<div class="ao_msgbtn"><a href="#fzmlUKpfXdNnjVi" title="Link to this message"><img width="16" height="16" src="http://m3.archiveorange.com/m/im/link.png" /></a></div>
+		
+		<div>
+			<a name="fzmlUKpfXdNnjVi"></a>
+				<span class="ao_from">Frank Doepper </span> &mdash; <span class="datetimecontainer"><span class="unixdate">1320263949</span><span class="readabledate">Wed, 02 Nov 2011 19:59:09  +0000 (UTC)</span></span>
+				
+				
+		</div>
+		
+		
+	</div>
+	
+	<div class="ao_msgbody">
+		<!-- google_ad_section_start -->
+		<pre><!-- AOStartQuote --><span class="aoquote"><span class="showhide"><a class="sh"></a></span><span class="quoted">Am 02.11.11 um 10:00 schrieb Sebastian Spaeth:
+
+&gt; I have never seen that error myself.</span></span><!-- AOEndQuote -->Only occurs if there are a bunch of mails to sync in direction from local 
+maildir to remote imap.<!-- AOStartQuote --><span class="aoquote"><span class="showhide"><a class="sh"></a></span><span class="quoted">&gt; I have now pushed the following commit to both my next and master 
+&gt; branch, which might help fix things, at least it makes things more 
+&gt; correct in any case. Does current master on my git repository 
+&gt; (git://github.com/spaetz/offlineimap.git) make things work?
+&gt;
+&gt; commit 8b3ed8b00451e5f1145c93e6171cb8613903ac1c</span></span><!-- AOEndQuote -->I have run dd02c307 now, and there are no false read-only messages 
+anymore. But I notice that changes in local maildir are only checked at 
+start and ongoing changes in local maildir folders are not recognized by 
+offlineimap for subsequent syncs (with autorefresh). This had worked in 
+v6.3.5-rc1.<!-- AOStartQuote --><span class="aoquote"><span class="showhide"><a class="sh"></a></span><span class="quoted">&gt;    Fix mbox.select(foldername) readonly parameter comparison
+&gt;
+&gt;    The default parameter value was &quot;None&quot;, and we were comparing that
+&gt;    directly to the imaplib2 value of is_readonly which is False or True, so
+&gt;    the comparison always returned &quot;False&quot;.
+&gt;
+&gt;    Fix this by setting the default parameter to &quot;False&quot; and not
+&gt;    &quot;None&quot;. Also convert all users of that function to use False/True.</span></span><!-- AOEndQuote -->Thank you!
+F.</pre>
+		<!-- google_ad_section_end -->
+	</div>
+</div>
+
+
+
+<div class="ao_msgframe" style="margin-left: 6%;">
+	<div class="ao_msghead">
+		<!-- Buttons -->
+		<div class="ao_msgbtn"><a rel="nofollow" href="/archive/print/cXBGjfyH5Q3PpUPpO1bu" title="Print view"><img width="16" height="16" src="http://m3.archiveorange.com/m/im/print.png" /></a></div>
+		<div class="ao_msgbtn"><a href="#fyH5Q3PpUPpO1bu" title="Link to this message"><img width="16" height="16" src="http://m3.archiveorange.com/m/im/link.png" /></a></div>
+		
+		<div>
+			<a name="fyH5Q3PpUPpO1bu"></a>
+				<span class="ao_from">Frank Doepper </span> &mdash; <span class="datetimecontainer"><span class="unixdate">1320671666</span><span class="readabledate">Mon, 07 Nov 2011 13:14:26  +0000 (UTC)</span></span>
+				
+				
+		</div>
+		
+		
+	</div>
+	
+	<div class="ao_msgbody">
+		<!-- google_ad_section_start -->
+		<pre><!-- AOStartQuote --><span class="aoquote"><span class="showhide"><a class="sh"></a></span><span class="quoted">Am 02.11.11 um 20:58 schrieb Frank Doepper:
+
+&gt; Am 02.11.11 um 10:00 schrieb Sebastian Spaeth:
+&gt;
+&gt;&gt; I have now pushed the following commit to both my next and master 
+&gt;&gt; branch, which might help fix things, at least it makes things more 
+&gt;&gt; correct in any case. Does current master on my git repository 
+&gt;&gt; (git://github.com/spaetz/offlineimap.git) make things work?
+&gt;&gt; 
+&gt;&gt; commit 8b3ed8b00451e5f1145c93e6171cb8613903ac1c
+&gt;
+&gt; I have run dd02c307 now, and there are no false read-only messages 
+&gt; anymore. But I notice that changes in local maildir are only checked 
+&gt; at start and ongoing changes in local maildir folders are not 
+&gt; recognized by offlineimap for subsequent syncs (with autorefresh). 
+&gt; This had worked in v6.3.5-rc1.</span></span><!-- AOEndQuote -->Checking the commit before 8b3ed8b it seems that the 
+local-maildir-changes-not-checked-with-autorefresh bug was already 
+introduced somewhere before, but I have no idea when.
+
+But 8b3ed8b definitely fixed the not-writable bug.
+
+F.</pre>
+		<!-- google_ad_section_end -->
+	</div>
+</div>
+
+
+
+<div class="ao_msgframe" style="margin-left: 8%;">
+	<div class="ao_msghead">
+		<!-- Buttons -->
+		<div class="ao_msgbtn"><a rel="nofollow" href="/archive/print/cXBGjVDfHuARx9W7k9Y8" title="Print view"><img width="16" height="16" src="http://m3.archiveorange.com/m/im/print.png" /></a></div>
+		<div class="ao_msgbtn"><a href="#VDfHuARx9W7k9Y8" title="Link to this message"><img width="16" height="16" src="http://m3.archiveorange.com/m/im/link.png" /></a></div>
+		
+		<div>
+			<a name="VDfHuARx9W7k9Y8"></a>
+				<span class="ao_from">Frank Doepper </span> &mdash; <span class="datetimecontainer"><span class="unixdate">1320679665</span><span class="readabledate">Mon, 07 Nov 2011 15:27:45  +0000 (UTC)</span></span>
+				
+				
+		</div>
+		
+		
+	</div>
+	
+	<div class="ao_msgbody">
+		<!-- google_ad_section_start -->
+		<pre><!-- AOStartQuote --><span class="aoquote"><span class="showhide"><a class="sh"></a></span><span class="quoted">Am 07.11.11 um 14:13 schrieb Frank Doepper:
+
+&gt; Am 02.11.11 um 20:58 schrieb Frank Doepper:
+&gt;
+&gt;&gt; Am 02.11.11 um 10:00 schrieb Sebastian Spaeth:
+&gt;&gt; 
+&gt;&gt;&gt; I have now pushed the following commit to both my next and master branch, 
+&gt;&gt;&gt; which might help fix things, at least it makes things more correct in any 
+&gt;&gt;&gt; case. Does current master on my git repository 
+&gt;&gt;&gt; (git://github.com/spaetz/offlineimap.git) make things work?
+&gt;&gt;&gt; 
+&gt;&gt;&gt; commit 8b3ed8b00451e5f1145c93e6171cb8613903ac1c
+&gt;&gt; 
+&gt;&gt; I have run dd02c307 now, and there are no false read-only messages anymore. 
+&gt;&gt; But I notice that changes in local maildir are only checked at start and 
+&gt;&gt; ongoing changes in local maildir folders are not recognized by offlineimap 
+&gt;&gt; for subsequent syncs (with autorefresh). This had worked in v6.3.5-rc1.
+&gt;
+&gt; Checking the commit before 8b3ed8b it seems that the 
+&gt; local-maildir-changes-not-checked-with-autorefresh bug was already introduced 
+&gt; somewhere before, but I have no idea when.
+&gt;
+&gt; But 8b3ed8b definitely fixed the not-writable bug.</span></span><!-- AOEndQuote -->Very confused now:
+
+I returned to dd02c30 (spaetz/master) after testing and I get again &quot;not 
+writable&quot; and even &quot;mailbox changes status to read-only&quot;. I double-checked 
+that I use the right version.
+
+F.</pre>
+		<!-- google_ad_section_end -->
+	</div>
+</div>
+
+
+
+<div class="ao_msgframe" style="margin-left: 10%;">
+	<div class="ao_msghead">
+		<!-- Buttons -->
+		<div class="ao_msgbtn"><a rel="nofollow" href="/archive/print/cXBGjEJ8xzyOvGXsY20H" title="Print view"><img width="16" height="16" src="http://m3.archiveorange.com/m/im/print.png" /></a></div>
+		<div class="ao_msgbtn"><a href="#EJ8xzyOvGXsY20H" title="Link to this message"><img width="16" height="16" src="http://m3.archiveorange.com/m/im/link.png" /></a></div>
+		
+		<div>
+			<a name="EJ8xzyOvGXsY20H"></a>
+				<span class="ao_from">Sebastian Spaeth </span> &mdash; <span class="datetimecontainer"><span class="unixdate">1320747321</span><span class="readabledate">Tue, 08 Nov 2011 10:15:21  +0000 (UTC)</span></span>
+				
+				
+		</div>
+		
+		
+	</div>
+	
+	<div class="ao_msgbody">
+		<!-- google_ad_section_start -->
+		<pre><!-- AOStartQuote --><span class="aoquote"><span class="showhide"><a class="sh"></a></span><span class="quoted">On Mon, 7 Nov 2011 16:27:11 +0100, Frank Doepper  wrote:
+&gt; I returned to dd02c30 (spaetz/master) after testing and I get again &quot;not 
+&gt; writable&quot; and even &quot;mailbox changes status to read-only&quot;. I double-checked 
+&gt; that I use the right version.</span></span><!-- AOEndQuote -->That is weird, so you are saying it worked on my next branch and does
+not on master? 
+
+Sebastian
+<!-- AOVeryBadlyEncodedMessage --></pre>
+		<!-- google_ad_section_end -->
+	</div>
+</div>
+
+
+
+<div class="ao_msgframe" style="margin-left: 12%;">
+	<div class="ao_msghead">
+		<!-- Buttons -->
+		<div class="ao_msgbtn"><a rel="nofollow" href="/archive/print/cXBGjVnl251kWgB3hyou" title="Print view"><img width="16" height="16" src="http://m3.archiveorange.com/m/im/print.png" /></a></div>
+		<div class="ao_msgbtn"><a href="#Vnl251kWgB3hyou" title="Link to this message"><img width="16" height="16" src="http://m3.archiveorange.com/m/im/link.png" /></a></div>
+		
+		<div>
+			<a name="Vnl251kWgB3hyou"></a>
+				<span class="ao_from">Frank Doepper </span> &mdash; <span class="datetimecontainer"><span class="unixdate">1321001561</span><span class="readabledate">Fri, 11 Nov 2011 08:52:41  +0000 (UTC)</span></span>
+				
+				
+		</div>
+		
+		
+	</div>
+	
+	<div class="ao_msgbody">
+		<!-- google_ad_section_start -->
+		<pre><!-- AOStartQuote --><span class="aoquote"><span class="showhide"><a class="sh"></a></span><span class="quoted">Am 08.11.11 um 11:14 schrieb Sebastian Spaeth:
+
+&gt; On Mon, 7 Nov 2011 16:27:11 +0100, Frank Doepper  wrote:
+&gt;&gt; I returned to dd02c30 (spaetz/master) after testing and I get again &quot;not
+&gt;&gt; writable&quot; and even &quot;mailbox changes status to read-only&quot;. I double-checked
+&gt;&gt; that I use the right version.
+&gt;
+&gt; That is weird, so you are saying it worked on my next branch and does
+&gt; not on master?</span></span><!-- AOEndQuote -->I can tell you more when I will have managed to set up a test environment 
+which makes the error reproducible. Until then its all confusing because 
+the error only occurs in special circumstances (some messages to exchange 
+in both directions?) which I have to find out.
+
+Frank.</pre>
+		<!-- google_ad_section_end -->
+	</div>
+</div>
+
+
+
+<div class="ao_msgframe" style="margin-left: 14%;">
+	<div class="ao_msghead">
+		<!-- Buttons -->
+		<div class="ao_msgbtn"><a rel="nofollow" href="/archive/print/cXBGj12aA6eSHGTg01hL" title="Print view"><img width="16" height="16" src="http://m3.archiveorange.com/m/im/print.png" /></a></div>
+		<div class="ao_msgbtn"><a href="#12aA6eSHGTg01hL" title="Link to this message"><img width="16" height="16" src="http://m3.archiveorange.com/m/im/link.png" /></a></div>
+		
+		<div>
+			<a name="12aA6eSHGTg01hL"></a>
+				<span class="ao_from">Frank Doepper </span> &mdash; <span class="datetimecontainer"><span class="unixdate">1321003417</span><span class="readabledate">Fri, 11 Nov 2011 09:23:37  +0000 (UTC)</span></span>
+				
+				
+		</div>
+		
+		
+	</div>
+	
+	<div class="ao_msgbody">
+		<!-- google_ad_section_start -->
+		<pre><!-- AOStartQuote --><span class="aoquote"><span class="showhide"><a class="sh"></a></span><span class="quoted">Am 11.11.11 um 09:50 schrieb Frank Doepper:
+
+&gt; Am 08.11.11 um 11:14 schrieb Sebastian Spaeth:
+&gt;
+&gt;&gt; That is weird, so you are saying it worked on my next branch and does 
+&gt;&gt; not on master?
+&gt;
+&gt; I can tell you more when I will have managed to set up a test 
+&gt; environment which makes the error reproducible.</span></span><!-- AOEndQuote -->I haven&#39;t a test environment yet, but I checked out your next branch and 
+had a &quot;is not writable&quot; again, doing a single quick (-oq) sync.
+
+Frank.</pre>
+		<!-- google_ad_section_end -->
+	</div>
+</div>
+
+
+
+<div class="ao_msgframe" style="margin-left: 16%;">
+	<div class="ao_msghead">
+		<!-- Buttons -->
+		<div class="ao_msgbtn"><a rel="nofollow" href="/archive/print/cXBGje7b4M9gcltehuHC" title="Print view"><img width="16" height="16" src="http://m3.archiveorange.com/m/im/print.png" /></a></div>
+		<div class="ao_msgbtn"><a href="#e7b4M9gcltehuHC" title="Link to this message"><img width="16" height="16" src="http://m3.archiveorange.com/m/im/link.png" /></a></div>
+		
+		<div>
+			<a name="e7b4M9gcltehuHC"></a>
+				<span class="ao_from">Chris Dennis </span> &mdash; <span class="datetimecontainer"><span class="unixdate">1321005341</span><span class="readabledate">Fri, 11 Nov 2011 09:55:41  +0000 (UTC)</span></span>
+				
+				
+		</div>
+		
+		
+	</div>
+	
+	<div class="ao_msgbody">
+		<!-- google_ad_section_start -->
+		<pre>Hello folks
+
+I&#39;m not sure if this will help regarding the &#39;not writable&#39; issue, but 
+it&#39;s worth a try.
+
+I&#39;m running a version of offlineimap that I got from Sebastian&#39;s &#39;next&#39; 
+branch a couple of weeks ago:
+
+   commit d981d66305d3e8342e74cf5a130339aab1eb5396
+   Author: Sebastian Spaeth 
+   Date:   Fri Oct 28 09:35:23 2011 +0200
+
+Having found that offlineimap occasionally hangs and needs to be 
+restarted, I have a cron job that kills (-15) it at 6am every day and 
+then restarts it.  That has been fine, but I see that the log always 
+ends up with &#39;not writable&#39; errors at the point where it was killed. 
+For example:
+
+---------------------------------------------------------------
+...
+2011-11-11 05:56:41 INFO: Next refresh in 1.0 minutes
+2011-11-11 05:57:41 INFO: *** Processing account 1and1
+2011-11-11 05:57:41 INFO: Establishing connection to localhost:143
+2011-11-11 05:57:41 INFO: Skipping Drafts (not changed)
+2011-11-11 05:57:41 INFO: Skipping INBOX (not changed)
+2011-11-11 05:57:41 INFO: Skipping Junk (not changed)
+2011-11-11 05:57:41 INFO: Skipping Junk E-mail (not changed)
+2011-11-11 05:57:41 INFO: Skipping Sent (not changed)
+2011-11-11 05:57:41 INFO: Skipping Spam (not changed)
+2011-11-11 05:57:41 INFO: Skipping Trash (not changed)
+2011-11-11 05:57:41 INFO: Calling hook: /usr/local/bin/isbg.py 
+--noninteractive --spaminbox &#39;Junk E-mail&#39; --delete --spamc
+2011-11-11 05:57:41 INFO: Hook stdout: 0 spams found in 0 messages
+0/0 was automatically deleted
+
+Hook stderr:
+
+2011-11-11 05:57:41 INFO: Hook return code: 0
+2011-11-11 05:57:41 INFO: *** Finished account &#39;1and1&#39; in 0:00
+2011-11-11 05:57:41 INFO: Next refresh in 5.0 minutes
+2011-11-11 05:58:41 INFO: Next refresh in 4.0 minutes
+2011-11-11 05:59:01 WARNING: ERROR: Exceptions occurred during the run!
+2011-11-11 05:59:01 WARNING: ERROR: Aborting sync, folder &#39;Spam&#39; [acc: 
+&#39;1and1&#39;]
+   Server &#39;localhost&#39; closed connection, error on SELECT &#39;Spam&#39;. Server 
+said: Spam is not writable
+2011-11-11 05:59:01 WARNING: ERROR: Aborting sync, folder &#39;INBOX&#39; [acc: 
+&#39;1and1&#39;]
+   Server &#39;localhost&#39; closed connection, error on SELECT &#39;INBOX&#39;. Server 
+said: INBOX is not writable
+2011-11-11 05:59:01 WARNING: ERROR: Aborting sync, folder &#39;INBOX&#39; [acc: 
+&#39;1and1&#39;]
+   Server &#39;localhost&#39; closed connection, error on SELECT &#39;INBOX&#39;. Server 
+said: INBOX is not writable
+2011-11-11 05:59:01 WARNING: terminating...
+
+2011-11-11 06:00:01 INFO: OfflineImap 6.4.0 starting...
+   Python: 2.6.6 Platform: linux2
+   Args: /usr/local/bin/offlineimap -l /home/joe/.offlineimap.log
+2011-11-11 06:00:01 INFO: *** Processing account 1and1
+2011-11-11 06:00:01 INFO: Establishing connection to imap.1and1.co.uk:993
+2011-11-11 06:00:01 INFO: Establishing connection to localhost:143
+2011-11-11 06:00:01 INFO: Syncing Drafts: IMAP -&gt; MappedIMAP
+2011-11-11 06:00:01 INFO: Syncing INBOX: IMAP -&gt; MappedIMAP
+2011-11-11 06:00:01 INFO: Establishing connection to imap.1and1.co.uk:993
+2011-11-11 06:00:01 INFO: Syncing Junk: IMAP -&gt; MappedIMAP
+2011-11-11 06:00:02 INFO: Syncing Junk E-mail: IMAP -&gt; MappedIMAP
+2011-11-11 06:00:02 INFO: Syncing Sent: IMAP -&gt; MappedIMAP
+2011-11-11 06:00:02 INFO: Syncing Spam: IMAP -&gt; MappedIMAP
+2011-11-11 06:00:02 INFO: Syncing Trash: IMAP -&gt; MappedIMAP
+2011-11-11 06:00:02 INFO: Calling hook: /usr/local/bin/isbg.py 
+--noninteractive --spaminbox &#39;Junk E-mail&#39; --delete --spamc
+2011-11-11 06:00:02 INFO: Hook stdout: 0 spams found in 0 messages
+...
+-------------------------------------------------------------------
+
+cheers
+
+Chris<!-- AOStartFooter --><span class="aofooter"><span class="showhide"><a class="sh"></a></span><span class="footer">-- 
+Chris Dennis                                  
+Fordingbridge, Hampshire, UK</span></span><!-- AOEndFooter --></pre>
+		<!-- google_ad_section_end -->
+	</div>
+</div>
+
+
+
+<div class="ao_msgframe" style="margin-left: 16%;">
+	<div class="ao_msghead">
+		<!-- Buttons -->
+		<div class="ao_msgbtn"><a rel="nofollow" href="/archive/print/cXBGj8JvgX05J2xQf5YZ" title="Print view"><img width="16" height="16" src="http://m3.archiveorange.com/m/im/print.png" /></a></div>
+		<div class="ao_msgbtn"><a href="#8JvgX05J2xQf5YZ" title="Link to this message"><img width="16" height="16" src="http://m3.archiveorange.com/m/im/link.png" /></a></div>
+		
+		<div>
+			<a name="8JvgX05J2xQf5YZ"></a>
+				<span class="ao_from">Frank Doepper </span> &mdash; <span class="datetimecontainer"><span class="unixdate">1330467196</span><span class="readabledate">Tue, 28 Feb 2012 22:13:16  +0000 (UTC)</span></span>
+				
+				
+		</div>
+		
+		
+	</div>
+	
+	<div class="ao_msgbody">
+		<!-- google_ad_section_start -->
+		<pre><!-- AOStartQuote --><span class="aoquote"><span class="showhide"><a class="sh"></a></span><span class="quoted">Am 11.11.11 um 10:22 schrieb Frank Doepper:
+
+&gt; I haven&#39;t a test environment yet</span></span><!-- AOEndQuote -->After months I have now managed to create a test scenario which makes the
+error reproducible. The test set consists of a dovecot imap server account
+and some offlineimap operations with some mail movement.
+
+Sebastian, I would like to send you that bundle via PM (because of
+included imap server account credentials). Ok?
+
+Part of my daily work consists of sorting and deleting e-mail messages, so
+this &quot;error on SELECT &#39;INBOX&#39;. Server said: INBOX is not writable&quot; bug
+breaks offlineimap for me. So I&#39;m very interested in a fix. :-)
+
+regards,
+Frank.</pre>
+		<!-- google_ad_section_end -->
+	</div>
+</div>
+
+
+
+<div class="ao_msgframe" style="margin-left: 16%;">
+	<div class="ao_msghead">
+		<!-- Buttons -->
+		<div class="ao_msgbtn"><a rel="nofollow" href="/archive/print/cXBGjAM1hPrWCCB0MycT" title="Print view"><img width="16" height="16" src="http://m3.archiveorange.com/m/im/print.png" /></a></div>
+		<div class="ao_msgbtn"><a href="#AM1hPrWCCB0MycT" title="Link to this message"><img width="16" height="16" src="http://m3.archiveorange.com/m/im/link.png" /></a></div>
+		
+		<div>
+			<a name="AM1hPrWCCB0MycT"></a>
+				<span class="ao_from">Sebastian Spaeth </span> &mdash; <span class="datetimecontainer"><span class="unixdate">1334851884</span><span class="readabledate">Thu, 19 Apr 2012 16:11:24  +0000 (UTC)</span></span>
+				
+				
+		</div>
+		
+		
+	</div>
+	
+	<div class="ao_msgbody">
+		<!-- google_ad_section_start -->
+		<pre><!-- AOStartQuote --><span class="aoquote"><span class="showhide"><a class="sh"></a></span><span class="quoted">Frank Doepper  writes:
+&gt; After months I have now managed to create a test scenario which makes the
+&gt; error reproducible. The test set consists of a dovecot imap server account
+&gt; and some offlineimap operations with some mail movement.</span></span><!-- AOEndQuote -->FYI: Frank sent me a great package for reproducing the scenario,
+however, I was not able to see the error when repeatedly running the
+script.
+
+This was using the current &#39;next&#39; branch. (It also worked using the
+current &#39;master&#39;).
+
+I would be interested if someone still sees this.
+
+Sebastian
+<!-- AOVeryBadlyEncodedMessage --></pre>
+		<!-- google_ad_section_end -->
+	</div>
+</div>
+
+
+
+
+<div class="adframe adframetop adframebottom">
+	<script type="text/javascript">
+	window.google_analytics_uacct = "UA-3601455-4";
+	</script>
+	<script type="text/javascript"><!--
+google_ad_client = "ca-pub-3417341829819905";
+/* AOAd_728x90_combined */
+google_ad_slot = "7359211599";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
+
+	<div class="adframelabel">Ad</div>
+</div>
+<div class="clearleft"></div>
+
+
+
+</div></div></div>
+
+<div id="ft"><a class="aonav" href="/">Home</a> | <a class="aonav" href="/articles/about.html">About</a> | <a class="aonav" href="/articles/privacy.html">Privacy</a></div>
+</div>
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-3601455-4']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script');
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 
+        'http://www') + '.google-analytics.com/ga.js';
+    ga.setAttribute('async', 'true');
+    document.documentElement.firstChild.appendChild(ga);
+  })();
+</script>
+
+
+
+
+<!-- Some analytical data that will help us improve the service. -->
+<!-- Which list, how old are the threads, etc. -->
+<script type="text/javascript">
+_gaq.push(['_trackEvent', 'list_lang', 'en']);
+_gaq.push(['_trackEvent', 'org', 'lists.alioth.debian.org']);
+_gaq.push(['_trackEvent', 'list_view', 'cXBGj']);
+_gaq.push(['_trackEvent', 'list_data', 'cXBGj', 'thread_age', 55641792]);
+_gaq.push(['_trackEvent', 'list_ref', 'cXBGj', refcls()]);
+</script>
+
+
+</body></html>
+

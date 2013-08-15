@@ -1,0 +1,1443 @@
+<!DOCTYPE html>
+<script>var __pbpa = true;</script><script>var translated_warning_string = 'Warning: Never enter your Tumblr password unless \u201chttps://www.tumblr.com/login\u201d\x0ais the address in your web browser.\x0a\x0aYou should also see a green \u201cTumblr, Inc.\u201d identification in the address bar.\x0a\x0aSpammers and other bad guys use fake forms to steal passwords.\x0a\x0aTumblr will never ask you to log in from a user\u2019s blog.\x0a\x0aAre you absolutely sure you want to continue?';</script><script type="text/javascript" language="javascript" src="http://assets.tumblr.com/assets/scripts/pre_tumblelog.js?_v=a7ad868764c409a2a9a1315900d72888"></script>
+<!DOCTYPE html>
+<html lang="en">
+    <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# blog: http://ogp.me/ns/blog#">
+        <meta charset="UTF-8">
+    	<title>Sharding &amp; IDs at Instagram - Instagram Engineering</title>
+		<meta name="viewport" content="initial-scale=1.0; maximum-scale=1.0;" />
+
+        <link rel="alternate" type="application/rss+xml" href="http://instagram-engineering.tumblr.com/rss" />
+		<script src="http://instagram-static.s3.amazonaws.com/bluebar/shared/scripts/html5.js"></script>
+
+		<link rel="stylesheet" href="http://instagram-static.s3.amazonaws.com/bluebar/blog/styles/blog/blog-main.css" type="text/css">
+	
+<!-- BEGIN TUMBLR FACEBOOK OPENGRAPH TAGS -->
+<!-- If you'd like to specify your own Open Graph tags, define the og:url and og:title tags in your theme's HTML. -->
+<!-- Read more: http://ogp.me/ -->
+<meta property="fb:app_id" content="48119224995" />
+<meta property="og:site_name" content="Instagram Engineering" />
+<meta property="og:title" content="Sharding &amp; IDs at Instagram" />
+<meta property="og:url" content="http://instagram-engineering.tumblr.com/post/10853187575/sharding-ids-at-instagram" />
+<meta property="og:description" content="With more than 25 photos &amp; 90 likes every second, we store a lot of data here at Instagram. To make sure all of our important data fits into memory and is available quickly for our users, we&rsquo;ve begun..." />
+<meta property="og:determiner" content="a" />
+<meta property="og:type" content="tumblr-feed:entry" />
+<meta property="og:image" content="http://assets.tumblr.com/images/og/text_200.png" />
+<!-- END TUMBLR FACEBOOK OPENGRAPH TAGS -->
+
+
+<!-- TWITTER TAGS -->
+<meta charset="utf-8">
+            <meta name="twitter:card" content="summary" />
+            <meta name="twitter:description" content="With more than 25 photos &amp;amp; 90 likes every second, we store a lot of data here at Instagram. To make sure all of our important data fits into memory and is available quickly for our users, we&rsquo;ve begun to shard our data&mdash;in other words, place the data in many smaller buckets, each holding a part of the data.
+
+
+
+ Our application servers run Django with PostgreSQL&nbsp;as our back-end database. Our first question after deciding to shard out our data was whether PostgreSQL should remain our primary data-store, or whether we should switch to something else. We evaluated a few different NoSQL solutions, but ultimately decided that the solution that best suited our needs would be to shard our data across a set of PostgreSQL servers.
+
+
+
+ Before writing data into this set of servers, however, we had to solve the issue of how to assign unique identifiers to each piece of data in the database (for example, each photo posted in our system). The typical solution that works for a single database&mdash;just using a database&rsquo;s natural auto-incrementing primary key feature&mdash;no longer works when data is being inserted into many databases at the same time. The rest of this blog post addresses how we tackled this issue.
+
+
+
+ Before starting out, we listed out what features were essential in our system:
+
+
+
+ Generated IDs should be sortable by time (so a list of photo IDs, for example, could be sorted without fetching more information about the photos)
+ IDs should ideally be 64 bits (for smaller indexes, and better storage in systems like Redis)
+ The system should introduce as few new &lsquo;moving parts&rsquo; as possible&mdash;a large part of how we&rsquo;ve been able to scale Instagram with very few engineers is by choosing simple, easy-to-understand solutions that we trust. 
+Existing solutions
+
+ 
+
+ Many existing solutions to the ID generation problem exist; here are a few we considered:
+
+
+
+Generate IDs in web application
+
+ 
+
+ This approach leaves ID generation entirely up to your application, and not up to the database at all. For example, MongoDB&rsquo;s ObjectId, which is 12 bytes long and encodes the timestamp as the first component. Another popular approach is to use UUIDs.
+
+
+
+ Pros:
+
+
+
+ Each application thread generates IDs independently, minimizing points of failure and contention for ID generation
+ If you use a timestamp as the first component of the ID, the IDs remain time-sortable
+ Cons:
+
+
+
+ Generally requires more storage space (96 bits or higher) to make reasonable uniqueness guarantees
+ Some UUID types are completely random and have no natural sort
+Generate IDs through dedicated service
+
+ 
+
+ Ex: Twitter&rsquo;s Snowflake, a Thrift service that uses Apache ZooKeeper to coordinate nodes and then generates 64-bit unique IDs
+
+
+
+ Pros:
+
+
+
+ Snowflake IDs are 64-bits, half the size of a UUID
+ Can use time as first component and remain sortable
+ Distributed system that can survive nodes dying
+ Cons:
+
+
+
+ Would introduce additional complexity and more &lsquo;moving parts&rsquo; (ZooKeeper, Snowflake servers) into our architecture 
+DB Ticket Servers
+
+ 
+
+ Uses the database&rsquo;s auto-incrementing abilities to enforce uniqueness. Flickr uses this approach, but with two ticket DBs (one on odd numbers, the other on even) to avoid a single point of failure.
+
+
+
+ Pros:
+
+
+
+ DBs are well understood and have pretty predictable scaling factors
+ Cons:
+
+
+
+ Can eventually become a write bottleneck (though Flickr reports that, even at huge scale, it&amp;#8217;s not an issue).
+ An additional couple of machines (or EC2 instances) to admin
+ If using a single DB, becomes single point of failure. If using multiple DBs, can no longer guarantee that they are sortable over time.
+ Of all the approaches above, Twitter&rsquo;s Snowflake came the closest, but the additional complexity required to run an ID service was a point against it. Instead, we took a conceptually similar approach, but brought it inside PostgreSQL.
+
+
+
+Our solution
+
+ 
+
+ Our sharded system consists of several thousand &lsquo;logical&rsquo; shards that are mapped in code to far fewer physical shards. Using this approach, we can start with just a few database servers, and eventually move to many more, simply by moving a set of logical shards from one database to another, without having to re-bucket any of our data. We used Postgres&rsquo; schemas feature to make this easy to script and administrate.
+
+
+
+ Schemas (not to be confused with the SQL schema of an individual table) are a logical grouping feature in Postgres. Each Postgres DB can h2have several schemas, each of which can contain one or more tables. Table names must only be unique per-schema, not per-DB, and by default Postgres places everything in a schema named &lsquo;public&rsquo;.
+
+
+
+ Each &lsquo;logical&rsquo; shard is a Postgres schema in our system, and each sharded table (for example, likes on our photos) exists inside each schema.
+
+
+
+ We&rsquo;ve delegated ID creation to each table inside each shard, by using PL/PGSQL, Postgres&rsquo; internal programming language, and Postgres&rsquo; existing auto-increment functionality.
+
+
+
+ Each of our IDs consists of:
+
+
+
+ 41 bits for time in milliseconds (gives us 41 years of IDs with a custom epoch)
+ 13 bits that represent the logical shard ID
+ 10 bits that represent an auto-incrementing sequence, modulus 1024. This means we can generate 1024 IDs, per shard, per millisecond
+ Let&rsquo;s walk through an example: let&rsquo;s say it&rsquo;s September 9th, 2011, at 5:00pm and our &lsquo;epoch&rsquo; begins on January 1st, 2011. There have been 1387263000 milliseconds since the beginning of our epoch, so to start our ID, we fill the left-most 41 bits with this value with a left-shift:
+
+
+
+ id = 1387263000 &amp;lt;&amp;lt; (64-41)
+
+
+
+ Next, we take the shard ID for this particular piece of data we&rsquo;re trying to insert. Let&rsquo;s say we&rsquo;re sharding by user ID, and there are 2000 logical shards; if our user ID is 31341, then the shard ID is 31341 % 2000 -&amp;gt; 1341. We fill the next 13 bits with this value:
+
+
+
+ id |= 1341 &amp;lt;&amp;lt; (64-41-13)
+
+
+
+ Finally, we take whatever the next value of our auto-increment sequence (this sequence is unique to each table in each schema) and fill out the remaining bits. Let&rsquo;s say we&rsquo;d generated 5,000 IDs for this table already; our next value is 5,001, which we take and mod by 1024 (so it fits in 10 bits) and include it too:
+
+
+
+ id |= (5001 % 1024)
+
+
+
+ We now have our ID, which we can return to the application server using the RETURNING keyword as part of the INSERT.
+
+
+
+ Here&rsquo;s the PL/PGSQL that accomplishes all this (for an example schema insta5):
+
+
+
+CREATE OR REPLACE FUNCTION insta5.next_id(OUT result bigint) AS &#36;&#36;
+DECLARE
+    our_epoch bigint := 1314220021721;
+    seq_id bigint;
+    now_millis bigint;
+    shard_id int := 5;
+BEGIN
+    SELECT nextval(&#039;insta5.table_id_seq&#039;) %% 1024 INTO seq_id;
+
+    SELECT FLOOR(EXTRACT(EPOCH FROM clock_timestamp()) * 1000) INTO now_millis;
+    result := (now_millis - our_epoch) &amp;lt;&amp;lt; 23;
+    result := result | (shard_id &amp;lt;&amp;lt; 10);
+    result := result | (seq_id);
+END;
+&#36;&#36; LANGUAGE PLPGSQL;
+
+
+ 
+
+ And when creating the table, we do:
+
+
+
+CREATE TABLE insta5.our_table (
+    &quot;id&quot; bigint NOT NULL DEFAULT insta5.next_id(),
+    ...rest of table schema...
+)
+
+ 
+
+ And that&amp;#8217;s it! Primary keys that are unique across our application (and as a bonus, contain the shard ID in them for easier mapping). We&amp;#8217;ve been rolling this approach into production and are happy with the results so far. Interested in helping us figure out these problems at scale? We&amp;#8217;re hiring!
+
+
+
+ Mike Krieger, co-founder
+
+
+
+ &amp;#8212;
+
+
+
+ Discuss this post on&nbsp;Hacker News." />
+            <meta name="twitter:title" content="Sharding &amp; IDs at Instagram" />
+            <meta name="twitter:url" content="http://instagram-engineering.tumblr.com/post/10853187575/sharding-ids-at-instagram" />
+            <meta name="twitter:site" content="tumblr" />
+            <meta name="twitter:app:name:iphone" content="Tumblr" />
+            <meta name="twitter:app:name:ipad" content="Tumblr" />
+            <meta name="twitter:app:name:googleplay" content="Tumblr" />
+            <meta name="twitter:app:id:iphone" content="305343404" />
+            <meta name="twitter:app:id:ipad" content="305343404" />
+            <meta name="twitter:app:id:googleplay" content="com.tumblr" />
+            <meta name="twitter:app:url:iphone" content="tumblr://x-callback-url/blog?blogName=instagram-engineering&amp;postID=10853187575&amp;referrer=twitter-cards" />
+            <meta name="twitter:app:url:ipad" content="tumblr://x-callback-url/blog?blogName=instagram-engineering&amp;postID=10853187575&amp;referrer=twitter-cards" />
+            <meta name="twitter:app:url:googleplay" content="tumblr://x-callback-url/blog?blogName=instagram-engineering&amp;postID=10853187575&amp;referrer=twitter-cards" />
+    
+
+<script type="text/javascript" src="http://assets.tumblr.com/assets/scripts/tumblelog.js?_v=22f288fa31e052a08a91be5ae6b755ee"></script><meta http-equiv="x-dns-prefetch-control" content="off"/></head>
+	<body>
+		<header class="top-bar" role="masthead">
+            <div class="wrapper">
+                <hgroup>
+                    <h1 class="logo"><a href="/">Instagram</a></h1>
+                </hgroup>
+                
+				<p><strong>Instagram Engineering</strong></p>
+            <div>
+		</header>
+		<section class="blog-header" role="header">
+
+			<p>Welcome to the <a href="http://instagr.am">Instagram</a> Engineering Blog, where we share insights on building and scaling our service.</p>
+
+		</section>
+		<div class="main" role="content">
+			
+			<article class="post-text">
+
+			
+				
+				<header>
+					<ul class="meta">
+						<li class="meta-url"><a href="http://tmblr.co/ZElL-wA6vd-t">1 year ago</a></li>
+						<li class="meta-notes"><a href="http://instagram-engineering.tumblr.com/post/10853187575/sharding-ids-at-instagram#notes">3,295 notes</a></li>
+					</ul>
+					<h1 class="post-title"><a href="http://instagram-engineering.tumblr.com/post/10853187575/sharding-ids-at-instagram">Sharding &amp; IDs at Instagram</a></h1>
+					
+				</header>
+				
+				<section class="article-body" role="acontent">
+					<p>With more than 25 photos &amp; 90 likes every second, we store a lot of data here at Instagram. To make sure all of our important data fits into memory and is available quickly for our users, we’ve begun to <a href="http://en.wikipedia.org/wiki/Shard_(database)">shard</a> our data—in other words, place the data in many smaller buckets, each holding a part of the data.</p>
+
+
+
+<p>Our application servers run <a href="http://djangoproject.com">Django</a> with <a href="http://postgresql.org/">PostgreSQL</a> as our back-end database. Our first question after deciding to shard out our data was whether PostgreSQL should remain our primary data-store, or whether we should switch to something else. We evaluated a few different NoSQL solutions, but ultimately decided that the solution that best suited our needs would be to shard our data across a set of PostgreSQL servers.</p>
+
+
+
+<p>Before writing data into this set of servers, however, we had to solve the issue of how to assign unique identifiers to each piece of data in the database (for example, each photo posted in our system). The typical solution that works for a single database—just using a database’s natural auto-incrementing primary key feature—no longer works when data is being inserted into many databases at the same time. The rest of this blog post addresses how we tackled this issue.</p>
+
+
+
+<p>Before starting out, we listed out what features were essential in our system:</p>
+
+
+
+<ol><li>Generated IDs should be sortable by time (so a list of photo IDs, for example, could be sorted without fetching more information about the photos)</li>
+<li>IDs should ideally be 64 bits (for smaller indexes, and better storage in systems like Redis)</li>
+<li>The system should introduce as few new ‘moving parts’ as possible—a large part of how we’ve been able to scale Instagram with very few engineers is by choosing simple, easy-to-understand solutions that we trust. </li>
+</ol><h2 id="existing_solutions">Existing solutions</h2>
+
+<p></p>
+
+<p>Many existing solutions to the ID generation problem exist; here are a few we considered:</p>
+
+
+
+<h3 id="generate_ids_in_web_application">Generate IDs in web application</h3>
+
+<p></p>
+
+<p>This approach leaves ID generation entirely up to your application, and not up to the database at all. For example, <a href="http://www.mongodb.org/display/DOCS/Object+IDs">MongoDB’s ObjectId</a>, which is 12 bytes long and encodes the timestamp as the first component. Another popular approach is to use <a href="http://en.wikipedia.org/wiki/Universally_unique_identifier">UUID</a>s.</p>
+
+
+
+<p>Pros:</p>
+
+
+
+<ol><li>Each application thread generates IDs independently, minimizing points of failure and contention for ID generation</li>
+<li>If you use a timestamp as the first component of the ID, the IDs remain time-sortable</li>
+</ol><p>Cons:</p>
+
+
+
+<ol><li>Generally requires more storage space (96 bits or higher) to make reasonable uniqueness guarantees</li>
+<li>Some UUID types are completely random and have no natural sort</li>
+</ol><h3 id="generate_ids_through_dedicated_service">Generate IDs through dedicated service</h3>
+
+<p></p>
+
+<p>Ex: Twitter’s <a href="http://github.com/twitter/snowflake/">Snowflake</a>, a Thrift service that uses Apache ZooKeeper to coordinate nodes and then generates 64-bit unique IDs</p>
+
+
+
+<p>Pros:</p>
+
+
+
+<ol><li>Snowflake IDs are 64-bits, half the size of a UUID</li>
+<li>Can use time as first component and remain sortable</li>
+<li>Distributed system that can survive nodes dying</li>
+</ol><p>Cons:</p>
+
+
+
+<ol><li>Would introduce additional complexity and more ‘moving parts’ (ZooKeeper, Snowflake servers) into our architecture </li>
+</ol><h3 id="db_ticket_servers">DB Ticket Servers</h3>
+
+<p></p>
+
+<p>Uses the database’s auto-incrementing abilities to enforce uniqueness. <a href="http://code.flickr.com/blog/2010/02/08/ticket-servers-distributed-unique-primary-keys-on-the-cheap/">Flickr uses this approach</a>, but with two ticket DBs (one on odd numbers, the other on even) to avoid a single point of failure.</p>
+
+
+
+<p>Pros:</p>
+
+
+
+<ol><li>DBs are well understood and have pretty predictable scaling factors</li>
+</ol><p>Cons:</p>
+
+
+
+<ol><li>Can eventually become a write bottleneck (though Flickr reports that, even at huge scale, it&#8217;s not an issue).</li>
+<li>An additional couple of machines (or EC2 instances) to admin</li>
+<li>If using a single DB, becomes single point of failure. If using multiple DBs, can no longer guarantee that they are sortable over time.</li>
+</ol><p>Of all the approaches above, Twitter’s Snowflake came the closest, but the additional complexity required to run an ID service was a point against it. Instead, we took a conceptually similar approach, but brought it inside PostgreSQL.</p>
+
+
+
+<h3 id="our_solution">Our solution</h3>
+
+<p></p>
+
+<p>Our sharded system consists of several thousand ‘logical’ shards that are mapped in code to far fewer physical shards. Using this approach, we can start with just a few database servers, and eventually move to many more, simply by moving a set of logical shards from one database to another, without having to re-bucket any of our data. We used Postgres’ schemas feature to make this easy to script and administrate.</p>
+
+
+
+<p>Schemas (not to be confused with the SQL schema of an individual table) are a logical grouping feature in Postgres. Each Postgres DB can h2have several schemas, each of which can contain one or more tables. Table names must only be unique per-schema, not per-DB, and by default Postgres places everything in a schema named ‘public’.</p>
+
+
+
+<p>Each ‘logical’ shard is a Postgres schema in our system, and each sharded table (for example, likes on our photos) exists inside each schema.</p>
+
+
+
+<p>We’ve delegated ID creation to each table inside each shard, by using PL/PGSQL, Postgres’ internal programming language, and Postgres’ existing auto-increment functionality.</p>
+
+
+
+<p>Each of our IDs consists of:</p>
+
+
+
+<ul><li>41 bits for time in milliseconds (gives us 41 years of IDs with a custom epoch)</li>
+<li>13 bits that represent the logical shard ID</li>
+<li>10 bits that represent an auto-incrementing sequence, modulus 1024. This means we can generate 1024 IDs, per shard, per millisecond</li>
+</ul><p>Let’s walk through an example: let’s say it’s September 9th, 2011, at 5:00pm and our ‘epoch’ begins on January 1st, 2011. There have been 1387263000 milliseconds since the beginning of our epoch, so to start our ID, we fill the left-most 41 bits with this value with a left-shift:</p>
+
+
+
+<p><code>id = 1387263000 &lt;&lt; (64-41)</code></p>
+
+
+
+<p>Next, we take the shard ID for this particular piece of data we’re trying to insert. Let’s say we’re sharding by user ID, and there are 2000 logical shards; if our user ID is 31341, then the shard ID is <code>31341 % 2000 -&gt; 1341</code>. We fill the next 13 bits with this value:</p>
+
+
+
+<p><code>id |= 1341 &lt;&lt; (64-41-13)</code></p>
+
+
+
+<p>Finally, we take whatever the next value of our auto-increment sequence (this sequence is unique to each table in each schema) and fill out the remaining bits. Let’s say we’d generated 5,000 IDs for this table already; our next value is 5,001, which we take and mod by 1024 (so it fits in 10 bits) and include it too:</p>
+
+
+
+<p><code>id |= (5001 % 1024)</code></p>
+
+
+
+<p>We now have our ID, which we can return to the application server using the <code>RETURNING</code> keyword as part of the <code>INSERT</code>.</p>
+
+
+
+<p>Here’s the PL/PGSQL that accomplishes all this (for an example schema insta5):</p>
+
+
+
+<pre><code>CREATE OR REPLACE FUNCTION insta5.next_id(OUT result bigint) AS $$
+DECLARE
+    our_epoch bigint := 1314220021721;
+    seq_id bigint;
+    now_millis bigint;
+    shard_id int := 5;
+BEGIN
+    SELECT nextval('insta5.table_id_seq') %% 1024 INTO seq_id;
+
+    SELECT FLOOR(EXTRACT(EPOCH FROM clock_timestamp()) * 1000) INTO now_millis;
+    result := (now_millis - our_epoch) &lt;&lt; 23;
+    result := result | (shard_id &lt;&lt; 10);
+    result := result | (seq_id);
+END;
+$$ LANGUAGE PLPGSQL;
+</code></pre>
+
+<p></p>
+
+<p>And when creating the table, we do:</p>
+
+
+
+<pre><code>CREATE TABLE insta5.our_table (
+    "id" bigint NOT NULL DEFAULT insta5.next_id(),
+    ...rest of table schema...
+)</code></pre>
+
+<p></p>
+
+<p>And that&#8217;s it! Primary keys that are unique across our application (and as a bonus, contain the shard ID in them for easier mapping). We&#8217;ve been rolling this approach into production and are happy with the results so far. Interested in helping us figure out these problems at scale? <a href="http://instagram.com/about/jobs/">We&#8217;re hiring!</a></p>
+
+
+
+<p><em>Mike Krieger, co-founder</em></p>
+
+
+
+<p>&#8212;</p>
+
+
+
+<p>Discuss this post on <a title="Hacker News" href="http://news.ycombinator.com/item?id=3058327">Hacker News</a>.</p>
+				</section>
+			
+
+			
+
+
+			
+
+            
+
+			
+				<footer id="notes">
+					<h2>3,295 notes</h2>
+					
+    
+<ol class="notes">
+
+    <!-- START NOTES -->
+                            
+        
+                                                                
+        
+        
+        <li class="note reblog tumblelog_daftonshady without_commentary">
+
+                        
+                
+                                                                                        <a rel="nofollow" class="avatar_frame" target="_blank" href="http://daftonshady.tumblr.com/" title="Drop the bass!!!!"><img src="http://assets.tumblr.com/images/default_avatar/cone_open_16.png" class="avatar " alt="" /></a>
+                    
+                    <span class="action" data-post-url="http://daftonshady.tumblr.com/post/58122394413">
+                                                    
+                                                                                                                                                                                    <a rel="nofollow" href="http://daftonshady.tumblr.com/" class="tumblelog" title="Drop the bass!!!!">daftonshady</a> reblogged this from <a rel="nofollow" href="http://instagram-engineering.tumblr.com/" class="source_tumblelog" title="Instagram Engineering">instagram-engineering</a>                                                                                                                                                                                    </span>
+                    <div class="clear"></div>
+
+                                    
+                        
+        </li>
+                            
+        
+                                                                
+        
+        
+        <li class="note like tumblelog_euroette-euroette without_commentary">
+
+                                                                                <a rel="nofollow" class="avatar_frame" target="_blank" href="http://euroette-euroette.tumblr.com/" title="Euroette " rel="nofollow"><img src="http://assets.tumblr.com/images/default_avatar/octahedron_closed_16.png" class="avatar " alt="" /></a>
+                
+                <span class="action">
+                    
+                                            <a rel="nofollow" href="http://euroette-euroette.tumblr.com/" title="Euroette" rel="nofollow">euroette-euroette</a> likes this                                    </span>
+
+                <div class="clear"></div>
+
+                        
+        </li>
+                            
+        
+                                                                
+        
+        
+        <li class="note like tumblelog_vidbina without_commentary">
+
+                                                                                <a rel="nofollow" class="avatar_frame" target="_blank" href="http://vid.bina.me/" title="Blurt! " rel="nofollow"><img src="http://31.media.tumblr.com/avatar_bf3a931683d7_16.png" class="avatar " alt="" /></a>
+                
+                <span class="action">
+                    
+                                            <a rel="nofollow" href="http://vid.bina.me/" title="Blurt!" rel="nofollow">vidbina</a> likes this                                    </span>
+
+                <div class="clear"></div>
+
+                        
+        </li>
+                            
+        
+                                                                
+        
+        
+        <li class="note like tumblelog_santikumar without_commentary">
+
+                                                                                <a rel="nofollow" class="avatar_frame" target="_blank" href="http://santikumar.tumblr.com/" title="Untitled " rel="nofollow"><img src="http://assets.tumblr.com/images/default_avatar/octahedron_closed_16.png" class="avatar " alt="" /></a>
+                
+                <span class="action">
+                    
+                                            <a rel="nofollow" href="http://santikumar.tumblr.com/" title="Untitled" rel="nofollow">santikumar</a> likes this                                    </span>
+
+                <div class="clear"></div>
+
+                        
+        </li>
+                            
+        
+                                                                
+        
+        
+        <li class="note like tumblelog_mybestcollections without_commentary">
+
+                                                                                <a rel="nofollow" class="avatar_frame" target="_blank" href="http://www.netixpress.net/" title="My Best Collection... " rel="nofollow"><img src="http://24.media.tumblr.com/avatar_d28ae6aaec36_16.png" class="avatar " alt="" /></a>
+                
+                <span class="action">
+                    
+                                            <a rel="nofollow" href="http://www.netixpress.net/" title="My Best Collection..." rel="nofollow">mybestcollections</a> likes this                                    </span>
+
+                <div class="clear"></div>
+
+                        
+        </li>
+                            
+        
+                                                                
+        
+        
+        <li class="note like tumblelog_kangjoonsoo without_commentary">
+
+                                                                                <a rel="nofollow" class="avatar_frame" target="_blank" href="http://kangjoonsoo.tumblr.com/" title="강준수의 Imagine " rel="nofollow"><img src="http://24.media.tumblr.com/avatar_ce1d0956510b_16.png" class="avatar " alt="" /></a>
+                
+                <span class="action">
+                    
+                                            <a rel="nofollow" href="http://kangjoonsoo.tumblr.com/" title="강준수의 Imagine" rel="nofollow">kangjoonsoo</a> likes this                                    </span>
+
+                <div class="clear"></div>
+
+                        
+        </li>
+                            
+        
+                                                                
+        
+        
+        <li class="note like tumblelog_mkuznetsov without_commentary">
+
+                                                                                <a rel="nofollow" class="avatar_frame" target="_blank" href="http://lonely-developer.me/" title="Thoughts Of A Lonely Developer " rel="nofollow"><img src="http://31.media.tumblr.com/avatar_a268dc7becd1_16.png" class="avatar " alt="" /></a>
+                
+                <span class="action">
+                    
+                                            <a rel="nofollow" href="http://lonely-developer.me/" title="Thoughts Of A Lonely Developer" rel="nofollow">mkuznetsov</a> likes this                                    </span>
+
+                <div class="clear"></div>
+
+                        
+        </li>
+                            
+        
+                                                                
+        
+        
+        <li class="note like tumblelog_santa-fe-auto-insurance without_commentary">
+
+                                                                                <a rel="nofollow" class="avatar_frame" target="_blank" href="http://santa-fe-auto-insurance.tumblr.com/" title="Santa Fe Auto Insurance " rel="nofollow"><img src="http://assets.tumblr.com/images/default_avatar/pyramid_closed_16.png" class="avatar " alt="" /></a>
+                
+                <span class="action">
+                    
+                                            <a rel="nofollow" href="http://santa-fe-auto-insurance.tumblr.com/" title="Santa Fe Auto Insurance" rel="nofollow">santa-fe-auto-insurance</a> likes this                                    </span>
+
+                <div class="clear"></div>
+
+                        
+        </li>
+                            
+        
+                                                                
+        
+        
+        <li class="note like tumblelog_tonedandshredded without_commentary">
+
+                                                                                <a rel="nofollow" class="avatar_frame" target="_blank" href="http://tonedandshredded.tumblr.com/" title="Toned and Shredded " rel="nofollow"><img src="http://31.media.tumblr.com/avatar_9143cd31ff5f_16.png" class="avatar " alt="" /></a>
+                
+                <span class="action">
+                    
+                                            <a rel="nofollow" href="http://tonedandshredded.tumblr.com/" title="Toned and Shredded" rel="nofollow">tonedandshredded</a> likes this                                    </span>
+
+                <div class="clear"></div>
+
+                        
+        </li>
+                            
+        
+                                                                
+        
+        
+        <li class="note like tumblelog_treasurecharms without_commentary">
+
+                                                                                <a rel="nofollow" class="avatar_frame" target="_blank" href="http://treasurecharms.tumblr.com/" title="Treasure Charms " rel="nofollow"><img src="http://assets.tumblr.com/images/default_avatar/sphere_open_16.png" class="avatar " alt="" /></a>
+                
+                <span class="action">
+                    
+                                            <a rel="nofollow" href="http://treasurecharms.tumblr.com/" title="Treasure Charms" rel="nofollow">treasurecharms</a> likes this                                    </span>
+
+                <div class="clear"></div>
+
+                        
+        </li>
+                            
+        
+                                                                
+        
+        
+        <li class="note like tumblelog_1vimax without_commentary">
+
+                                                                                <a rel="nofollow" class="avatar_frame" target="_blank" href="http://1vimax.tumblr.com/" title="Vimax " rel="nofollow"><img src="http://assets.tumblr.com/images/default_avatar/cube_closed_16.png" class="avatar " alt="" /></a>
+                
+                <span class="action">
+                    
+                                            <a rel="nofollow" href="http://1vimax.tumblr.com/" title="Vimax" rel="nofollow">1vimax</a> likes this                                    </span>
+
+                <div class="clear"></div>
+
+                        
+        </li>
+                            
+        
+                                                                
+        
+        
+        <li class="note like tumblelog_jeromecarty without_commentary">
+
+                                                                                <a rel="nofollow" class="avatar_frame" target="_blank" href="http://jeromecarty.tumblr.com/" title="I see... what you don&#039;t see... " rel="nofollow"><img src="http://24.media.tumblr.com/avatar_af4718ba51d5_16.png" class="avatar " alt="" /></a>
+                
+                <span class="action">
+                    
+                                            <a rel="nofollow" href="http://jeromecarty.tumblr.com/" title="I see... what you don&#039;t see..." rel="nofollow">jeromecarty</a> likes this                                    </span>
+
+                <div class="clear"></div>
+
+                        
+        </li>
+                            
+        
+                                                                
+        
+        
+        <li class="note reblog tumblelog_yysy without_commentary">
+
+                        
+                
+                                                                                        <a rel="nofollow" class="avatar_frame" target="_blank" href="http://yysy.tumblr.com/" title="YYSY&#039;s tumblr"><img src="http://24.media.tumblr.com/avatar_c0b637b99fdb_16.png" class="avatar " alt="" /></a>
+                    
+                    <span class="action" data-post-url="http://yysy.tumblr.com/post/52041782430">
+                                                    
+                                                                                                                                                                                    <a rel="nofollow" href="http://yysy.tumblr.com/" class="tumblelog" title="YYSY&#039;s tumblr">yysy</a> reblogged this from <a rel="nofollow" href="http://instagram-engineering.tumblr.com/" class="source_tumblelog" title="Instagram Engineering">instagram-engineering</a>                                                                                                                                                                                    </span>
+                    <div class="clear"></div>
+
+                                    
+                        
+        </li>
+                            
+        
+                                                                
+        
+        
+        <li class="note like tumblelog_leshkin without_commentary">
+
+                                                                                <a rel="nofollow" class="avatar_frame" target="_blank" href="http://leshkin.tumblr.com/" title="Мур. Мяу. Мурмяу! " rel="nofollow"><img src="http://24.media.tumblr.com/avatar_c4dfe190d4a6_16.png" class="avatar " alt="" /></a>
+                
+                <span class="action">
+                    
+                                            <a rel="nofollow" href="http://leshkin.tumblr.com/" title="Мур. Мяу. Мурмяу!" rel="nofollow">leshkin</a> likes this                                    </span>
+
+                <div class="clear"></div>
+
+                        
+        </li>
+                            
+        
+                                                                
+        
+        
+        <li class="note like tumblelog_governance-group without_commentary">
+
+                                                                                <a rel="nofollow" class="avatar_frame" target="_blank" href="http://governance-group.tumblr.com/" title="Legal " rel="nofollow"><img src="http://assets.tumblr.com/images/default_avatar/cube_open_16.png" class="avatar " alt="" /></a>
+                
+                <span class="action">
+                    
+                                            <a rel="nofollow" href="http://governance-group.tumblr.com/" title="Legal" rel="nofollow">governance-group</a> likes this                                    </span>
+
+                <div class="clear"></div>
+
+                        
+        </li>
+                            
+        
+                                                                
+        
+        
+        <li class="note like tumblelog_rexsohw without_commentary">
+
+                                                                                <a rel="nofollow" class="avatar_frame" target="_blank" href="http://rexsohw.tumblr.com/" title="Untitled " rel="nofollow"><img src="http://assets.tumblr.com/images/default_avatar/sphere_open_16.png" class="avatar " alt="" /></a>
+                
+                <span class="action">
+                    
+                                            <a rel="nofollow" href="http://rexsohw.tumblr.com/" title="Untitled" rel="nofollow">rexsohw</a> likes this                                    </span>
+
+                <div class="clear"></div>
+
+                        
+        </li>
+                            
+        
+                                                                
+        
+        
+        <li class="note reblog tumblelog_zhongdajun with_commentary">
+
+                        
+                
+                                                                                        <a rel="nofollow" class="avatar_frame" target="_blank" href="http://zhongdajun.tumblr.com/" title="江南文書苑"><img src="http://24.media.tumblr.com/avatar_a394918026ab_16.png" class="avatar " alt="" /></a>
+                    
+                    <span class="action" data-post-url="http://zhongdajun.tumblr.com/post/51053676131">
+                                                    
+                                                                                                                                                                                    <a rel="nofollow" href="http://zhongdajun.tumblr.com/" class="tumblelog" title="江南文書苑">zhongdajun</a> reblogged this from <a rel="nofollow" href="http://instagram-engineering.tumblr.com/" class="source_tumblelog" title="Instagram Engineering">instagram-engineering</a> and added:                                                                                                                                                                                    </span>
+                    <div class="clear"></div>
+
+                                            <blockquote>
+                            <a rel="nofollow" href="http://zhongdajun.tumblr.com/post/51053676131" title="View post">
+                                id generation                            </a>
+                        </blockquote>
+                                    
+                        
+        </li>
+                            
+        
+                                                                
+        
+        
+        <li class="note reblog tumblelog_sumory without_commentary">
+
+                        
+                
+                                                                                        <a rel="nofollow" class="avatar_frame" target="_blank" href="http://sumory.tumblr.com/" title="Untitled"><img src="http://31.media.tumblr.com/avatar_a74f4f06951f_16.png" class="avatar " alt="" /></a>
+                    
+                    <span class="action" data-post-url="http://sumory.tumblr.com/post/50987246618">
+                                                    
+                                                                                                                                                                                    <a rel="nofollow" href="http://sumory.tumblr.com/" class="tumblelog" title="Untitled">sumory</a> reblogged this from <a rel="nofollow" href="http://instagram-engineering.tumblr.com/" class="source_tumblelog" title="Instagram Engineering">instagram-engineering</a>                                                                                                                                                                                    </span>
+                    <div class="clear"></div>
+
+                                    
+                        
+        </li>
+                            
+        
+                                                                
+        
+        
+        <li class="note like tumblelog_hanuriz without_commentary">
+
+                                                                                <a rel="nofollow" class="avatar_frame" target="_blank" href="http://hanuriz.tumblr.com/" title="하느리노트 " rel="nofollow"><img src="http://assets.tumblr.com/images/default_avatar_16.png" class="avatar " alt="" /></a>
+                
+                <span class="action">
+                    
+                                            <a rel="nofollow" href="http://hanuriz.tumblr.com/" title="하느리노트" rel="nofollow">hanuriz</a> likes this                                    </span>
+
+                <div class="clear"></div>
+
+                        
+        </li>
+                            
+        
+                                                                
+        
+        
+        <li class="note like tumblelog_line-defenders without_commentary">
+
+                                                                                <a rel="nofollow" class="avatar_frame" target="_blank" href="http://line-defenders.tumblr.com/" title="Defenders " rel="nofollow"><img src="http://assets.tumblr.com/images/default_avatar/pyramid_closed_16.png" class="avatar " alt="" /></a>
+                
+                <span class="action">
+                    
+                                            <a rel="nofollow" href="http://line-defenders.tumblr.com/" title="Defenders" rel="nofollow">line-defenders</a> likes this                                    </span>
+
+                <div class="clear"></div>
+
+                        
+        </li>
+                            
+        
+                                                                
+        
+        
+        <li class="note like tumblelog_cell-group without_commentary">
+
+                                                                                <a rel="nofollow" class="avatar_frame" target="_blank" href="http://cell-group.tumblr.com/" title="Cell " rel="nofollow"><img src="http://assets.tumblr.com/images/default_avatar/sphere_closed_16.png" class="avatar " alt="" /></a>
+                
+                <span class="action">
+                    
+                                            <a rel="nofollow" href="http://cell-group.tumblr.com/" title="Cell" rel="nofollow">cell-group</a> likes this                                    </span>
+
+                <div class="clear"></div>
+
+                        
+        </li>
+                            
+        
+                                                                
+        
+        
+        <li class="note like tumblelog_slim-docker-49 without_commentary">
+
+                                                                                <a rel="nofollow" class="avatar_frame" target="_blank" href="http://slim-docker-49.tumblr.com/" title="Dockworker " rel="nofollow"><img src="http://31.media.tumblr.com/avatar_cd28f0f74904_16.png" class="avatar " alt="" /></a>
+                
+                <span class="action">
+                    
+                                            <a rel="nofollow" href="http://slim-docker-49.tumblr.com/" title="Dockworker" rel="nofollow">slim-docker-49</a> likes this                                    </span>
+
+                <div class="clear"></div>
+
+                        
+        </li>
+                            
+        
+                                                                
+        
+        
+        <li class="note like tumblelog_rohitallotrop without_commentary">
+
+                                                                                <a rel="nofollow" class="avatar_frame" target="_blank" href="http://tumblr.rohitmishra.me/" title="Rohit&#039;s Tumblr " rel="nofollow"><img src="http://assets.tumblr.com/images/default_avatar_16.png" class="avatar " alt="" /></a>
+                
+                <span class="action">
+                    
+                                            <a rel="nofollow" href="http://tumblr.rohitmishra.me/" title="Rohit&#039;s Tumblr" rel="nofollow">rohitallotrop</a> likes this                                    </span>
+
+                <div class="clear"></div>
+
+                        
+        </li>
+                            
+        
+                                                                
+        
+        
+        <li class="note like tumblelog_organic-bamford without_commentary">
+
+                                                                                <a rel="nofollow" class="avatar_frame" target="_blank" href="http://organic-bamford.tumblr.com/" title="Organic " rel="nofollow"><img src="http://assets.tumblr.com/images/default_avatar/pyramid_open_16.png" class="avatar " alt="" /></a>
+                
+                <span class="action">
+                    
+                                            <a rel="nofollow" href="http://organic-bamford.tumblr.com/" title="Organic" rel="nofollow">organic-bamford</a> likes this                                    </span>
+
+                <div class="clear"></div>
+
+                        
+        </li>
+                            
+        
+                                                                
+        
+        
+        <li class="note like tumblelog_glennspiro-taichi without_commentary">
+
+                                                                                <a rel="nofollow" class="avatar_frame" target="_blank" href="http://glennspiro-taichi.tumblr.com/" title="Tai Chi Routine " rel="nofollow"><img src="http://assets.tumblr.com/images/default_avatar/cube_open_16.png" class="avatar " alt="" /></a>
+                
+                <span class="action">
+                    
+                                            <a rel="nofollow" href="http://glennspiro-taichi.tumblr.com/" title="Tai Chi Routine" rel="nofollow">glennspiro-taichi</a> likes this                                    </span>
+
+                <div class="clear"></div>
+
+                        
+        </li>
+                            
+        
+                                                                
+        
+        
+        <li class="note like tumblelog_personalview-comment without_commentary">
+
+                                                                                <a rel="nofollow" class="avatar_frame" target="_blank" href="http://personalview-comment.tumblr.com/" title="Personal View " rel="nofollow"><img src="http://assets.tumblr.com/images/default_avatar/pyramid_closed_16.png" class="avatar " alt="" /></a>
+                
+                <span class="action">
+                    
+                                            <a rel="nofollow" href="http://personalview-comment.tumblr.com/" title="Personal View" rel="nofollow">personalview-comment</a> likes this                                    </span>
+
+                <div class="clear"></div>
+
+                        
+        </li>
+                            
+        
+                                                                
+        
+        
+        <li class="note like tumblelog_charitable-giving without_commentary">
+
+                                                                                <a rel="nofollow" class="avatar_frame" target="_blank" href="http://charitable-giving.tumblr.com/" title="Charity " rel="nofollow"><img src="http://assets.tumblr.com/images/default_avatar/cone_open_16.png" class="avatar " alt="" /></a>
+                
+                <span class="action">
+                    
+                                            <a rel="nofollow" href="http://charitable-giving.tumblr.com/" title="Charity" rel="nofollow">charitable-giving</a> likes this                                    </span>
+
+                <div class="clear"></div>
+
+                        
+        </li>
+                            
+        
+                                                                
+        
+        
+        <li class="note like tumblelog_hedgefunds-eim without_commentary">
+
+                                                                                <a rel="nofollow" class="avatar_frame" target="_blank" href="http://hedgefunds-eim.tumblr.com/" title="Hedging Your Money " rel="nofollow"><img src="http://assets.tumblr.com/images/default_avatar_16.png" class="avatar " alt="" /></a>
+                
+                <span class="action">
+                    
+                                            <a rel="nofollow" href="http://hedgefunds-eim.tumblr.com/" title="Hedging Your Money" rel="nofollow">hedgefunds-eim</a> likes this                                    </span>
+
+                <div class="clear"></div>
+
+                        
+        </li>
+                            
+        
+                                                                
+        
+        
+        <li class="note like tumblelog_markholyoake-photography without_commentary">
+
+                                                                                <a rel="nofollow" class="avatar_frame" target="_blank" href="http://markholyoake-photography.tumblr.com/" title="Photography " rel="nofollow"><img src="http://assets.tumblr.com/images/default_avatar/sphere_closed_16.png" class="avatar " alt="" /></a>
+                
+                <span class="action">
+                    
+                                            <a rel="nofollow" href="http://markholyoake-photography.tumblr.com/" title="Photography" rel="nofollow">markholyoake-photography</a> likes this                                    </span>
+
+                <div class="clear"></div>
+
+                        
+        </li>
+                            
+        
+                                                                
+        
+        
+        <li class="note like tumblelog_xtof2012 without_commentary">
+
+                                                                                <a rel="nofollow" class="avatar_frame" target="_blank" href="http://xtof2012.tumblr.com/" title="Sans titre " rel="nofollow"><img src="http://assets.tumblr.com/images/default_avatar_16.png" class="avatar " alt="" /></a>
+                
+                <span class="action">
+                    
+                                            <a rel="nofollow" href="http://xtof2012.tumblr.com/" title="Sans titre" rel="nofollow">xtof2012</a> likes this                                    </span>
+
+                <div class="clear"></div>
+
+                        
+        </li>
+                            
+        
+                                                                
+        
+        
+        <li class="note like tumblelog_alex-the-jewellery without_commentary">
+
+                                                                                <a rel="nofollow" class="avatar_frame" target="_blank" href="http://alex-the-jewellery.tumblr.com/" title="The Jewels " rel="nofollow"><img src="http://assets.tumblr.com/images/default_avatar/cone_open_16.png" class="avatar " alt="" /></a>
+                
+                <span class="action">
+                    
+                                            <a rel="nofollow" href="http://alex-the-jewellery.tumblr.com/" title="The Jewels" rel="nofollow">alex-the-jewellery</a> likes this                                    </span>
+
+                <div class="clear"></div>
+
+                        
+        </li>
+                            
+        
+                                                                
+        
+        
+        <li class="note like tumblelog_nr404 without_commentary">
+
+                                                                                <a rel="nofollow" class="avatar_frame" target="_blank" href="http://nr404.tumblr.com/" title="Unbetitelt " rel="nofollow"><img src="http://assets.tumblr.com/images/default_avatar_16.png" class="avatar " alt="" /></a>
+                
+                <span class="action">
+                    
+                                            <a rel="nofollow" href="http://nr404.tumblr.com/" title="Unbetitelt" rel="nofollow">nr404</a> likes this                                    </span>
+
+                <div class="clear"></div>
+
+                        
+        </li>
+                            
+        
+                                                                
+        
+        
+        <li class="note like tumblelog_creation-de-site--web without_commentary">
+
+                                                                                <a rel="nofollow" class="avatar_frame" target="_blank" href="http://creation-de-site--web.tumblr.com/" title="Cr&eacute;ation De Site Web " rel="nofollow"><img src="http://assets.tumblr.com/images/default_avatar/cone_open_16.png" class="avatar " alt="" /></a>
+                
+                <span class="action">
+                    
+                                            <a rel="nofollow" href="http://creation-de-site--web.tumblr.com/" title="Cr&eacute;ation De Site Web" rel="nofollow">creation-de-site--web</a> likes this                                    </span>
+
+                <div class="clear"></div>
+
+                        
+        </li>
+                            
+        
+                                                                
+        
+        
+        <li class="note like tumblelog_tigmi without_commentary">
+
+                                                                                <a rel="nofollow" class="avatar_frame" target="_blank" href="http://tigmi.tumblr.com/" title="Untitled " rel="nofollow"><img src="http://assets.tumblr.com/images/default_avatar/sphere_open_16.png" class="avatar " alt="" /></a>
+                
+                <span class="action">
+                    
+                                            <a rel="nofollow" href="http://tigmi.tumblr.com/" title="Untitled" rel="nofollow">tigmi</a> likes this                                    </span>
+
+                <div class="clear"></div>
+
+                        
+        </li>
+                            
+        
+                                                                
+        
+        
+        <li class="note like tumblelog_jatinkhosla without_commentary">
+
+                                                                                <a rel="nofollow" class="avatar_frame" target="_blank" href="http://jatinkhosla.tumblr.com/" title="jatin.khosla " rel="nofollow"><img src="http://assets.tumblr.com/images/default_avatar/cube_open_16.png" class="avatar " alt="" /></a>
+                
+                <span class="action">
+                    
+                                            <a rel="nofollow" href="http://jatinkhosla.tumblr.com/" title="jatin.khosla" rel="nofollow">jatinkhosla</a> likes this                                    </span>
+
+                <div class="clear"></div>
+
+                        
+        </li>
+                            
+        
+                                                                
+        
+        
+        <li class="note reblog tumblelog_lab4109 without_commentary">
+
+                        
+                
+                                                                                        <a rel="nofollow" class="avatar_frame" target="_blank" href="http://lab4109.tumblr.com/" title="lab4109"><img src="http://24.media.tumblr.com/avatar_c69684d1ddc7_16.png" class="avatar " alt="" /></a>
+                    
+                    <span class="action" data-post-url="http://lab4109.tumblr.com/post/47287364640">
+                                                    
+                                                                                                                                                                                    <a rel="nofollow" href="http://lab4109.tumblr.com/" class="tumblelog" title="lab4109">lab4109</a> reblogged this from <a rel="nofollow" href="http://instagram-engineering.tumblr.com/" class="source_tumblelog" title="Instagram Engineering">instagram-engineering</a>                                                                                                                                                                                    </span>
+                    <div class="clear"></div>
+
+                                    
+                        
+        </li>
+                            
+        
+                                                                
+        
+        
+        <li class="note like tumblelog_rktm without_commentary">
+
+                                                                                <a rel="nofollow" class="avatar_frame" target="_blank" href="http://rktm.tumblr.com/" title="rktm&#039;s tumblr blog " rel="nofollow"><img src="http://31.media.tumblr.com/avatar_cbc92ecd863d_16.png" class="avatar " alt="" /></a>
+                
+                <span class="action">
+                    
+                                            <a rel="nofollow" href="http://rktm.tumblr.com/" title="rktm&#039;s tumblr blog" rel="nofollow">rktm</a> likes this                                    </span>
+
+                <div class="clear"></div>
+
+                        
+        </li>
+                            
+        
+                                                                
+        
+        
+        <li class="note like tumblelog_cdkeyshouse without_commentary">
+
+                                                                                <a rel="nofollow" class="avatar_frame" target="_blank" href="http://cdkeyshouse.tumblr.com/" title="CD Key House " rel="nofollow"><img src="http://assets.tumblr.com/images/default_avatar_16.png" class="avatar " alt="" /></a>
+                
+                <span class="action">
+                    
+                                            <a rel="nofollow" href="http://cdkeyshouse.tumblr.com/" title="CD Key House" rel="nofollow">cdkeyshouse</a> likes this                                    </span>
+
+                <div class="clear"></div>
+
+                        
+        </li>
+                            
+        
+                                                                
+        
+        
+        <li class="note like tumblelog_pnkjr without_commentary">
+
+                                                                                <a rel="nofollow" class="avatar_frame" target="_blank" href="http://pnkjr.tumblr.com/" title="My Brain-dump " rel="nofollow"><img src="http://assets.tumblr.com/images/default_avatar_16.png" class="avatar " alt="" /></a>
+                
+                <span class="action">
+                    
+                                            <a rel="nofollow" href="http://pnkjr.tumblr.com/" title="My Brain-dump" rel="nofollow">pnkjr</a> likes this                                    </span>
+
+                <div class="clear"></div>
+
+                        
+        </li>
+                            
+        
+                                                                
+        
+        
+        <li class="note like tumblelog_dangoldin without_commentary">
+
+                                                                                <a rel="nofollow" class="avatar_frame" target="_blank" href="http://tumblr.dangoldin.com/" title="Dan&#039;s Blog " rel="nofollow"><img src="http://31.media.tumblr.com/avatar_7a72424b9cab_16.png" class="avatar " alt="" /></a>
+                
+                <span class="action">
+                    
+                                            <a rel="nofollow" href="http://tumblr.dangoldin.com/" title="Dan&#039;s Blog" rel="nofollow">dangoldin</a> likes this                                    </span>
+
+                <div class="clear"></div>
+
+                        
+        </li>
+                            
+        
+                                                                
+        
+        
+        <li class="note reblog tumblelog_dgk-su without_commentary">
+
+                        
+                
+                                                                                        <a rel="nofollow" class="avatar_frame" target="_blank" href="http://tumblr.dgk.su/" title="&tau;έ&chi;&nu;&eta;&omicron;&gamma;&omega;&gamma;&iota;&kappa;ή"><img src="http://assets.tumblr.com/images/default_avatar_16.png" class="avatar " alt="" /></a>
+                    
+                    <span class="action" data-post-url="http://tumblr.dgk.su/post/44699803066">
+                                                    
+                                                                                                                                                                                    <a rel="nofollow" href="http://tumblr.dgk.su/" class="tumblelog" title="&tau;έ&chi;&nu;&eta;&omicron;&gamma;&omega;&gamma;&iota;&kappa;ή">dgk-su</a> reblogged this from <a rel="nofollow" href="http://instagram-engineering.tumblr.com/" class="source_tumblelog" title="Instagram Engineering">instagram-engineering</a>                                                                                                                                                                                    </span>
+                    <div class="clear"></div>
+
+                                    
+                        
+        </li>
+                            
+        
+                                                                
+        
+        
+        <li class="note like tumblelog_fallenhitokiri without_commentary">
+
+                                                                                <a rel="nofollow" class="avatar_frame" target="_blank" href="http://notes.screamingatmyscreen.com/" title="@fallenhitokiri " rel="nofollow"><img src="http://31.media.tumblr.com/avatar_068636b68dc8_16.png" class="avatar " alt="" /></a>
+                
+                <span class="action">
+                    
+                                            <a rel="nofollow" href="http://notes.screamingatmyscreen.com/" title="@fallenhitokiri" rel="nofollow">fallenhitokiri</a> likes this                                    </span>
+
+                <div class="clear"></div>
+
+                        
+        </li>
+                            
+        
+                                                                
+        
+        
+        <li class="note like tumblelog_matveev without_commentary">
+
+                                                                                <a rel="nofollow" class="avatar_frame" target="_blank" href="http://matveev.tumblr.com/" title="Hey there " rel="nofollow"><img src="http://24.media.tumblr.com/avatar_388593746eae_16.png" class="avatar " alt="" /></a>
+                
+                <span class="action">
+                    
+                                            <a rel="nofollow" href="http://matveev.tumblr.com/" title="Hey there" rel="nofollow">matveev</a> likes this                                    </span>
+
+                <div class="clear"></div>
+
+                        
+        </li>
+                            
+        
+                                                                
+        
+        
+        <li class="note like tumblelog_bankruptcy-helpline without_commentary">
+
+                                                                                <a rel="nofollow" class="avatar_frame" target="_blank" href="http://bankruptcy-helpline.tumblr.com/" title="Bankruptcy Helpline " rel="nofollow"><img src="http://assets.tumblr.com/images/default_avatar_16.png" class="avatar " alt="" /></a>
+                
+                <span class="action">
+                    
+                                            <a rel="nofollow" href="http://bankruptcy-helpline.tumblr.com/" title="Bankruptcy Helpline" rel="nofollow">bankruptcy-helpline</a> likes this                                    </span>
+
+                <div class="clear"></div>
+
+                        
+        </li>
+                            
+        
+                                                                
+        
+        
+        <li class="note like tumblelog_jaredmessenger without_commentary">
+
+                                                                                <a rel="nofollow" class="avatar_frame" target="_blank" href="http://jaredmessenger.tumblr.com/" title="Jared Messenger " rel="nofollow"><img src="http://31.media.tumblr.com/avatar_8fd0e04f1509_16.png" class="avatar " alt="" /></a>
+                
+                <span class="action">
+                    
+                                            <a rel="nofollow" href="http://jaredmessenger.tumblr.com/" title="Jared Messenger" rel="nofollow">jaredmessenger</a> likes this                                    </span>
+
+                <div class="clear"></div>
+
+                        
+        </li>
+                            
+        
+                                                                
+        
+        
+        <li class="note like tumblelog_jackbrown1122 without_commentary">
+
+                                                                                <a rel="nofollow" class="avatar_frame" target="_blank" href="http://jackbrown1122.tumblr.com/" title="What To Do When Bored " rel="nofollow"><img src="http://assets.tumblr.com/images/default_avatar_16.png" class="avatar " alt="" /></a>
+                
+                <span class="action">
+                    
+                                            <a rel="nofollow" href="http://jackbrown1122.tumblr.com/" title="What To Do When Bored" rel="nofollow">jackbrown1122</a> likes this                                    </span>
+
+                <div class="clear"></div>
+
+                        
+        </li>
+                            
+        
+                                                                
+        
+        
+        <li class="note like tumblelog_insurance--charlottesville without_commentary">
+
+                                                                                <a rel="nofollow" class="avatar_frame" target="_blank" href="http://insurance--charlottesville.tumblr.com/" title="insurance Charlottesville " rel="nofollow"><img src="http://assets.tumblr.com/images/default_avatar_16.png" class="avatar " alt="" /></a>
+                
+                <span class="action">
+                    
+                                            <a rel="nofollow" href="http://insurance--charlottesville.tumblr.com/" title="insurance Charlottesville" rel="nofollow">insurance--charlottesville</a> likes this                                    </span>
+
+                <div class="clear"></div>
+
+                        
+        </li>
+                            
+        
+                                                                
+        
+        
+        <li class="note like tumblelog_casino--en-ligne without_commentary">
+
+                                                                                <a rel="nofollow" class="avatar_frame" target="_blank" href="http://casino--en-ligne.tumblr.com/" title="Casino En Ligne " rel="nofollow"><img src="http://assets.tumblr.com/images/default_avatar_16.png" class="avatar " alt="" /></a>
+                
+                <span class="action">
+                    
+                                            <a rel="nofollow" href="http://casino--en-ligne.tumblr.com/" title="Casino En Ligne" rel="nofollow">casino--en-ligne</a> likes this                                    </span>
+
+                <div class="clear"></div>
+
+                        
+        </li>
+                            
+        
+                                                                
+        
+        
+        <li class="note like tumblelog_mkulin without_commentary">
+
+                                                                                <a rel="nofollow" class="avatar_frame" target="_blank" href="http://mkulin.tumblr.com/" title="Cali-fornication " rel="nofollow"><img src="http://24.media.tumblr.com/avatar_3500f3b05ab9_16.png" class="avatar " alt="" /></a>
+                
+                <span class="action">
+                    
+                                            <a rel="nofollow" href="http://mkulin.tumblr.com/" title="Cali-fornication" rel="nofollow">mkulin</a> likes this                                    </span>
+
+                <div class="clear"></div>
+
+                        
+        </li>
+                            
+        
+                                                                
+        
+        
+        <li class="note like tumblelog_badrhari22 without_commentary">
+
+                                                                                <a rel="nofollow" class="avatar_frame" target="_blank" href="http://badrhari22.tumblr.com/" title="Untitled " rel="nofollow"><img src="http://24.media.tumblr.com/avatar_2e118c49561d_16.png" class="avatar " alt="" /></a>
+                
+                <span class="action">
+                    
+                                            <a rel="nofollow" href="http://badrhari22.tumblr.com/" title="Untitled" rel="nofollow">badrhari22</a> likes this                                    </span>
+
+                <div class="clear"></div>
+
+                        
+        </li>
+    
+            <li class="note more_notes_link_container" style="text-align:center;" id="more_notes_10853187575">
+            <a class="more_notes_link" rel="nofollow" href="#" onclick="this.style.display='none';document.getElementById('notes_loading_10853187575').style.display = 'block';if(window.ActiveXObject)var tumblrReq=new ActiveXObject('Microsoft.XMLHTTP');else if(window.XMLHttpRequest)var tumblrReq=new XMLHttpRequest();else return false;tumblrReq.onreadystatechange=function(){if(tumblrReq.readyState==4){var notes_html=tumblrReq.responseText.split('<!-- START '+'NOTES -->')[1].split('<!-- END '+'NOTES -->')[0];
+if(window.tumblrNotesLoaded)if(tumblrNotesLoaded(notes_html)==false)return;var more_notes_link=document.getElementById('more_notes_10853187575');var notes=more_notes_link.parentNode;notes.removeChild(more_notes_link);notes.innerHTML+=notes_html;if(window.tumblrNotesInserted)tumblrNotesInserted(notes_html);}};tumblrReq.open('GET','/notes/10853187575/gTENb3roD?from_c=1359813391',true);tumblrReq.send();return false;">Show more notes</a><span class="notes_loading" id="notes_loading_10853187575" style="display:none;">Loading...</span>
+        </li>
+    
+    <!-- END NOTES -->
+</ol>
+
+
+				</footer>
+			
+			</article>
+			
+
+			
+		</div>
+		<footer class="blog-footer" role="footer">
+			<ul class="blog-links">
+				<li><a href="http://blog.instagram.com/archive">Blog Archive</a></li>
+    			<li><a href="http://instagram-engineering.tumblr.com/rss">RSS Feed</a></li>
+				<li><a href="http://blog.instagram.com/engineering">Engineering Blog</a></li>
+				<li><a href="http://blog.instagram.com/instameets">Instameets</a></li>
+			</ul>
+			<ul class="social-links">
+				<li><a href="http://www.facebook.com/instagram">Facebook</a></li>
+				<li><a href="http://www.twitter.com/instagram">Twitter</a></li>
+			</ul>
+			<ul class="ig-links">
+				<li><a href="http://instagr.am/about/us/">About Us</a></li>
+				<li><a href="http://help.instagram.com/">Support</a></li>
+				<li><a href="http://instagr.am/developer/">API</a></li>
+				<li><a href="http://instagr.am/about/jobs/">Jobs</a></li>
+				<li><a href="http://instagr.am/about/legal/privacy/">Privacy</a></li>
+				<li><a href="http://instagr.am/about/legal/terms/">Terms</a></li>
+			</ul>
+			<p>&copy; 2012 Instagram, Inc.</p>
+		</footer>
+
+		<script src="http://instagram-static.s3.amazonaws.com/bluebar/shared/scripts/jquery.js"></script>
+		<script src="http://instagram-static.s3.amazonaws.com/bluebar/blog/scripts/blog.js"></script>
+
+        <script type="text/javascript">
+	    	var _gaq=[["_setAccount","UA-27622421-1"],["_trackPageview"]];
+			(function(d,t){
+				var g=d.createElement(t), s=d.getElementsByTagName(t)[0];
+				g.async=1;
+		    	g.src=("https:"==location.protocol?"//ssl":"//www")+".google-analytics.com/ga.js";
+		    	s.parentNode.insertBefore(g,s)
+		    }(document,"script"));
+		</script>
+	<!-- BEGIN TUMBLR CODE -->
+        
+    
+        <iframe id="tumblr_controls" width="1" height="1" frameborder="0" scrolling="no" style="position:absolute; z-index:2147483647; top:0; right:0; border:0; background-color:transparent; overflow:hidden; " src="http://assets.tumblr.com/assets/html/iframe/o.html?_v=223c951f26c1855a8df924a2da143356#src=http%3A%2F%2Finstagram-engineering.tumblr.com%2Fpost%2F10853187575%2Fsharding-ids-at-instagram&amp;pid=10853187575&amp;rk=B0wz8xbu&amp;lang=en_US&amp;name=instagram-engineering&amp;avatar=http%3A%2F%2F24.media.tumblr.com%2Favatar_85f70a0e0ae0_64.png&amp;title=Instagram+Engineering&amp;url=http%3A%2F%2Finstagram-engineering.tumblr.com%2F&amp;page_slide=slide"></iframe>    <div id="teaser_iframe_container" style="display:none;"><iframe scrolling="no" frameborder="0" src="http://www.tumblr.com/assets/html/iframe/teaser.html#src=http%3A%2F%2Finstagram-engineering.tumblr.com%2Fpost%2F10853187575%2Fsharding-ids-at-instagram&amp;pid=10853187575&amp;rk=B0wz8xbu&amp;lang=en_US&amp;name=instagram-engineering&amp;avatar=http%3A%2F%2F24.media.tumblr.com%2Favatar_85f70a0e0ae0_64.png&amp;title=Instagram+Engineering&amp;url=http%3A%2F%2Finstagram-engineering.tumblr.com%2F&amp;page_slide=slide" id="teaser_iframe" width="1" height="1"></iframe></div>
+
+    
+    <!--[if IE]><script type="text/javascript">document.getElementById('tumblr_controls').allowTransparency=true;</script><![endif]-->
+    
+        
+<iframe src="http://assets.tumblr.com/analytics.html?534c4eb2103d2a35437dc893e2c37b1e" scrolling="no" width="1" height="1" frameborder="0" style="background-color:transparent; overflow:hidden; position:absolute; top:0; left:0 z-index:9999;" id="ga_target"></iframe>
+
+    <script>
+        var COMSCORE = true;
+        window.setTimeout(function() {
+            var analytics_frame = document.getElementById('ga_target');
+            analytics_frame.contentWindow.postMessage('enable_comscore;' + window.location, analytics_frame.src.split('/analytics.html')[0]);
+        }, 1000);
+    </script>
+
+
+
+    <script type="text/javascript">
+      var _qevents = _qevents || [];
+
+      (function() {
+       var elem = document.createElement('script');
+
+       elem.src = (document.location.protocol == "https:" ? "https://secure" : "http://edge") + ".quantserve.com/quant.js";
+       elem.async = true;
+       elem.type = "text/javascript";
+       var scpt = document.getElementsByTagName('script')[0];
+       scpt.parentNode.insertBefore(elem, scpt);
+      })();
+    </script>
+    <script type="text/javascript">
+        _qevents.push( { qacct: 'p-19UtqE8ngoZbM' } );
+    </script>
+    <noscript>
+        <div style="display: none;"><img src="//pixel.quantserve.com/pixel/'p-19UtqE8ngoZbM'.gif" height="1" width="1" alt="Quantcast"/></div>
+    </noscript>
+
+
+    <script type="text/javascript">!function(s){s.src='http://www.tumblr.com/impixu?T=1376536797&J=eyJ0eXBlIjoidXJsIiwidXJsIjoiaHR0cDpcL1wvaW5zdGFncmFtLWVuZ2luZWVyaW5nLnR1bWJsci5jb21cL3Bvc3RcLzEwODUzMTg3NTc1XC9zaGFyZGluZy1pZHMtYXQtaW5zdGFncmFtIiwicmVxdHlwZSI6MH0=&U=GPDOODEMLP&K=64d73680f5c5e0b7b65b2019aef2c7d7c650968b3fdbd54d1708246281d3fc0c&R='.replace(/&R=[^&$]*/,'').concat('&R='+escape(document.referrer)).slice(0,2000).replace(/%.?.?$/,'');}(new Image());</script><noscript><img style="position:absolute;z-index:-3334;top:0px;left:0px;visibility:hidden;" src="http://www.tumblr.com/impixu?T=1376536797&J=eyJ0eXBlIjoidXJsIiwidXJsIjoiaHR0cDpcL1wvaW5zdGFncmFtLWVuZ2luZWVyaW5nLnR1bWJsci5jb21cL3Bvc3RcLzEwODUzMTg3NTc1XC9zaGFyZGluZy1pZHMtYXQtaW5zdGFncmFtIiwicmVxdHlwZSI6MCwibm9zY3JpcHQiOjF9&U=GPDOODEMLP&K=edcc2748dfb18ce4c7190be547365e317b4b04e36057cf833dabc0ab72ccc809&R="></noscript><script type="text/javascript">!function(s){s.src='http://www.tumblr.com/impixu?T=1376536797&J=eyJ0eXBlIjoicG9zdCIsInVybCI6Imh0dHA6XC9cL2luc3RhZ3JhbS1lbmdpbmVlcmluZy50dW1ibHIuY29tXC9wb3N0XC8xMDg1MzE4NzU3NVwvc2hhcmRpbmctaWRzLWF0LWluc3RhZ3JhbSIsInJlcXR5cGUiOjAsInBvc3RzIjpbeyJwb3N0aWQiOiIxMDg1MzE4NzU3NSIsImJsb2dpZCI6IjI2ODk1NzI2Iiwic291cmNlIjozM31dfQ==&U=IMDNOIGAEM&K=77d66802f0a5e2dacb98c4668f1d7d3aded4960590962bf6cef3fd8e655b3d75&R='.replace(/&R=[^&$]*/,'').concat('&R='+escape(document.referrer)).slice(0,2000).replace(/%.?.?$/,'');}(new Image());</script><noscript><img style="position:absolute;z-index:-3334;top:0px;left:0px;visibility:hidden;" src="http://www.tumblr.com/impixu?T=1376536797&J=eyJ0eXBlIjoicG9zdCIsInVybCI6Imh0dHA6XC9cL2luc3RhZ3JhbS1lbmdpbmVlcmluZy50dW1ibHIuY29tXC9wb3N0XC8xMDg1MzE4NzU3NVwvc2hhcmRpbmctaWRzLWF0LWluc3RhZ3JhbSIsInJlcXR5cGUiOjAsInBvc3RzIjpbeyJwb3N0aWQiOiIxMDg1MzE4NzU3NSIsImJsb2dpZCI6IjI2ODk1NzI2Iiwic291cmNlIjozM31dLCJub3NjcmlwdCI6MX0=&U=IMDNOIGAEM&K=881c01420ce6f2afbeb3726fa0c092018f0cb3fbd6ffc9f041977b72bd769598&R="></noscript><!-- END TUMBLR CODE -->
+</body>
+</html>

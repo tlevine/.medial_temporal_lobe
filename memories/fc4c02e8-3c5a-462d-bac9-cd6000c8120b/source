@@ -1,0 +1,803 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+
+    <title>Metaprogramming &mdash; Julia Language 0.2-dev documentation</title>
+<!-- RTD <head> -->
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+<script type="text/javascript" src="//media.readthedocs.org/javascript/underscore.js"></script>
+<script type="text/javascript" src="//media.readthedocs.org/javascript/doctools.js"></script>
+
+<script type="text/javascript">
+  // This is included here for Javascript that doesn't have access to the templates.
+  var doc_version = "latest";
+  var doc_slug = "julia";
+  var page_name = "manual/metaprogramming";
+</script>
+
+<script type="text/javascript" src="//media.readthedocs.org/javascript/rtd.js"></script>
+<!-- end RTD <head> -->
+
+    
+    <link rel="stylesheet" href="../../_static/julia.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '0.2-dev',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="Julia Language 0.2-dev documentation" href="../../" />
+    <link rel="up" title="The Julia Manual" href="../" />
+    <link rel="next" title="Multi-dimensional Arrays" href="../arrays/" />
+    <link rel="prev" title="Modules" href="../modules/" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex/" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../arrays/" title="Multi-dimensional Arrays"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../modules/" title="Modules"
+             accesskey="P">previous</a> |</li>
+<li><a href="http://julialang.org/">Julia</a>&nbsp;/&nbsp;</li>
+<li><a href="../../">Documentation</a>&nbsp;/&nbsp;</li>
+
+          <li><a href="../" accesskey="U">The Julia Manual</a>&nbsp;/&nbsp;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="metaprogramming">
+<span id="man-metaprogramming"></span><h1>Metaprogramming<a class="headerlink" href="#metaprogramming" title="Permalink to this headline">¶</a></h1>
+<p>The strongest legacy of Lisp in the Julia language is its
+metaprogramming support. Like Lisp, Julia is
+<a class="reference external" href="http://en.wikipedia.org/wiki/Homoiconicity">homoiconic</a>: it
+represents its own code as a data structure of the language itself.
+Since code is represented by objects that can be created and manipulated
+from within the language, it is possible for a program to transform and
+generate its own code. This allows sophisticated code generation without
+extra build steps, and also allows true Lisp-style macros, as compared
+to preprocessor &#8220;macro&#8221; systems, like that of C and C++, that perform
+superficial textual manipulation as a separate pass before any real
+parsing or interpretation occurs. Another aspect of metaprogramming is
+reflection: the ability of a running program to dynamically discover
+properties of itself. Reflection emerges naturally from the fact that
+all data types and code are represented by normal Julia data structures,
+so the structure of the program and its types can be explored
+programmatically just like any other data.</p>
+<div class="section" id="expressions-and-eval">
+<h2>Expressions and Eval<a class="headerlink" href="#expressions-and-eval" title="Permalink to this headline">¶</a></h2>
+<p>Julia code is represented as a syntax tree built out of Julia data
+structures of type <tt class="docutils literal"><span class="pre">Expr</span></tt>. This makes it easy to construct and
+manipulate Julia code from within Julia, without generating or parsing
+source text. Here is the definition of the <tt class="docutils literal"><span class="pre">Expr</span></tt> type:</p>
+<div class="highlight-julia"><div class="highlight"><pre><span class="k">type</span><span class="nc"> Expr</span>
+  <span class="n">head</span><span class="p">::</span><span class="n">Symbol</span>
+  <span class="n">args</span><span class="p">::</span><span class="n">Array</span><span class="p">{</span><span class="kt">Any</span><span class="p">,</span><span class="mi">1</span><span class="p">}</span>
+  <span class="n">typ</span>
+<span class="k">end</span>
+</pre></div>
+</div>
+<p>The <tt class="docutils literal"><span class="pre">head</span></tt> is a symbol identifying the kind of expression, and
+<tt class="docutils literal"><span class="pre">args</span></tt> is an array of subexpressions, which may be symbols referencing
+the values of variables at evaluation time, may be nested <tt class="docutils literal"><span class="pre">Expr</span></tt>
+objects, or may be actual values of objects. The <tt class="docutils literal"><span class="pre">typ</span></tt> field is used
+by type inference to store type annotations, and can generally be
+ignored.</p>
+<p>There is special syntax for &#8220;quoting&#8221; code (analogous to quoting
+strings) that makes it easy to create expression objects without
+explicitly constructing <tt class="docutils literal"><span class="pre">Expr</span></tt> objects. There are two forms: a short
+form for inline expressions using <tt class="docutils literal"><span class="pre">:</span></tt> followed by a single expression,
+and a long form for blocks of code, enclosed in <tt class="docutils literal"><span class="pre">quote</span> <span class="pre">...</span> <span class="pre">end</span></tt>. Here
+is an example of the short form used to quote an arithmetic expression:</p>
+<div class="highlight-julia"><div class="highlight"><pre><span class="n">julia</span><span class="o">&gt;</span> <span class="n">ex</span> <span class="o">=</span> <span class="p">:(</span><span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="o">*</span><span class="n">c</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+<span class="o">+</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="o">*</span><span class="p">(</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">julia</span><span class="o">&gt;</span> <span class="nb">typeof</span><span class="p">(</span><span class="n">ex</span><span class="p">)</span>
+<span class="n">Expr</span>
+
+<span class="n">julia</span><span class="o">&gt;</span> <span class="n">ex</span><span class="o">.</span><span class="n">head</span>
+<span class="n">call</span>
+
+<span class="n">julia</span><span class="o">&gt;</span> <span class="nb">typeof</span><span class="p">(</span><span class="n">ans</span><span class="p">)</span>
+<span class="n">Symbol</span>
+
+<span class="n">julia</span><span class="o">&gt;</span> <span class="n">ex</span><span class="o">.</span><span class="n">args</span>
+<span class="mi">4</span><span class="o">-</span><span class="n">element</span> <span class="kt">Any</span> <span class="n">Array</span><span class="p">:</span>
+  <span class="o">+</span>
+  <span class="n">a</span>
+  <span class="p">:(</span><span class="o">*</span><span class="p">(</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="p">))</span>
+ <span class="mi">1</span>
+
+<span class="n">julia</span><span class="o">&gt;</span> <span class="nb">typeof</span><span class="p">(</span><span class="n">ex</span><span class="o">.</span><span class="n">args</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">Symbol</span>
+
+<span class="n">julia</span><span class="o">&gt;</span> <span class="nb">typeof</span><span class="p">(</span><span class="n">ex</span><span class="o">.</span><span class="n">args</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+<span class="n">Symbol</span>
+
+<span class="n">julia</span><span class="o">&gt;</span> <span class="nb">typeof</span><span class="p">(</span><span class="n">ex</span><span class="o">.</span><span class="n">args</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+<span class="n">Expr</span>
+
+<span class="n">julia</span><span class="o">&gt;</span> <span class="nb">typeof</span><span class="p">(</span><span class="n">ex</span><span class="o">.</span><span class="n">args</span><span class="p">[</span><span class="mi">4</span><span class="p">])</span>
+<span class="kt">Int64</span>
+</pre></div>
+</div>
+<p>Expressions provided by the parser generally only have symbols, other
+expressions, and literal values as their args, whereas expressions
+constructed by Julia code can easily have arbitrary run-time values
+without literal forms as args. In this specific example, <tt class="docutils literal"><span class="pre">+</span></tt> and <tt class="docutils literal"><span class="pre">a</span></tt>
+are symbols, <tt class="docutils literal"><span class="pre">*(b,c)</span></tt> is a subexpression, and <tt class="docutils literal"><span class="pre">1</span></tt> is a literal
+64-bit signed integer. Here&#8217;s an example of the longer expression
+quoting form:</p>
+<div class="highlight-julia"><div class="highlight"><pre><span class="n">julia</span><span class="o">&gt;</span> <span class="k">quote</span>
+     <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
+     <span class="n">y</span> <span class="o">=</span> <span class="mi">2</span>
+     <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
+   <span class="k">end</span>
+
+<span class="k">begin</span>
+  <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
+  <span class="n">y</span> <span class="o">=</span> <span class="mi">2</span>
+  <span class="o">+</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+<span class="k">end</span>
+</pre></div>
+</div>
+<div class="section" id="symbols">
+<h3>Symbols<a class="headerlink" href="#symbols" title="Permalink to this headline">¶</a></h3>
+<p>When the argument to <tt class="docutils literal"><span class="pre">:</span></tt> is just a symbol, a <tt class="docutils literal"><span class="pre">Symbol</span></tt> object results
+instead of an <tt class="docutils literal"><span class="pre">Expr</span></tt>:</p>
+<div class="highlight-julia"><div class="highlight"><pre><span class="n">julia</span><span class="o">&gt;</span> <span class="p">:</span><span class="n">foo</span>
+<span class="n">foo</span>
+
+<span class="n">julia</span><span class="o">&gt;</span> <span class="nb">typeof</span><span class="p">(</span><span class="n">ans</span><span class="p">)</span>
+<span class="n">Symbol</span>
+</pre></div>
+</div>
+<p>In the context of an expression, symbols are used to indicate access to
+variables, and when an expression is evaluated, a symbol evaluates to
+the value bound to that symbol in the appropriate <a class="reference internal" href="../variables-and-scoping/#man-variables-and-scoping"><em>scope</em></a>.</p>
+<p>Sometimes extra parentheses around the argument to <tt class="docutils literal"><span class="pre">:</span></tt> are needed to avoid
+ambiguity in parsing.:</p>
+<div class="highlight-julia"><div class="highlight"><pre><span class="n">julia</span><span class="o">&gt;</span> <span class="p">:(:)</span>
+<span class="p">:(:)</span>
+
+<span class="n">julia</span><span class="o">&gt;</span> <span class="p">:(::)</span>
+<span class="p">:(::)</span>
+</pre></div>
+</div>
+<p><tt class="docutils literal"><span class="pre">Symbol</span></tt>s can also be created using the <tt class="docutils literal"><span class="pre">symbol</span></tt> function, which takes
+a character or string as its argument:</p>
+<div class="highlight-julia"><pre>julia&gt; symbol('\'')
+:'
+
+julia&gt; symbol("'")
+:'</pre>
+</div>
+</div>
+<div class="section" id="eval-and-interpolation">
+<h3><tt class="docutils literal"><span class="pre">eval</span></tt> and Interpolation<a class="headerlink" href="#eval-and-interpolation" title="Permalink to this headline">¶</a></h3>
+<p>Given an expression object, one can cause Julia to evaluate (execute) it
+at the <em>top level</em> scope — i.e. in effect like loading from a file or
+typing at the interactive prompt — using the <tt class="docutils literal"><span class="pre">eval</span></tt> function:</p>
+<div class="highlight-julia"><div class="highlight"><pre><span class="n">julia</span><span class="o">&gt;</span> <span class="p">:(</span><span class="mi">1</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)</span>
+<span class="o">+</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="n">julia</span><span class="o">&gt;</span> <span class="n">eval</span><span class="p">(</span><span class="n">ans</span><span class="p">)</span>
+<span class="mi">3</span>
+
+<span class="n">julia</span><span class="o">&gt;</span> <span class="n">ex</span> <span class="o">=</span> <span class="p">:(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span>
+<span class="o">+</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span>
+
+<span class="n">julia</span><span class="o">&gt;</span> <span class="n">eval</span><span class="p">(</span><span class="n">ex</span><span class="p">)</span>
+<span class="n">a</span> <span class="n">not</span> <span class="n">defined</span>
+
+<span class="n">julia</span><span class="o">&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+
+<span class="n">julia</span><span class="o">&gt;</span> <span class="n">eval</span><span class="p">(</span><span class="n">ex</span><span class="p">)</span>
+<span class="mi">3</span>
+</pre></div>
+</div>
+<p>Expressions passed to <tt class="docutils literal"><span class="pre">eval</span></tt> are not limited to returning values
+—&nbsp;they can also have side-effects that alter the state of the top-level
+evaluation environment:</p>
+<div class="highlight-julia"><div class="highlight"><pre><span class="n">julia</span><span class="o">&gt;</span> <span class="n">ex</span> <span class="o">=</span> <span class="p">:(</span><span class="n">x</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="n">julia</span><span class="o">&gt;</span> <span class="n">x</span>
+<span class="n">x</span> <span class="n">not</span> <span class="n">defined</span>
+
+<span class="n">julia</span><span class="o">&gt;</span> <span class="n">eval</span><span class="p">(</span><span class="n">ex</span><span class="p">)</span>
+<span class="mi">1</span>
+
+<span class="n">julia</span><span class="o">&gt;</span> <span class="n">x</span>
+<span class="mi">1</span>
+</pre></div>
+</div>
+<p>Here, the evaluation of an expression object causes a value to be
+assigned to the top-level variable <tt class="docutils literal"><span class="pre">x</span></tt>.</p>
+<p>Since expressions are just <tt class="docutils literal"><span class="pre">Expr</span></tt> objects which can be constructed
+programmatically and then evaluated, one can, from within Julia code,
+dynamically generate arbitrary code which can then be run using
+<tt class="docutils literal"><span class="pre">eval</span></tt>. Here is a simple example:</p>
+<div class="highlight-julia"><div class="highlight"><pre><span class="n">julia</span><span class="o">&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+
+<span class="n">julia</span><span class="o">&gt;</span> <span class="n">ex</span> <span class="o">=</span> <span class="n">Expr</span><span class="p">(:</span><span class="n">call</span><span class="p">,</span> <span class="p">:</span><span class="o">+</span><span class="p">,</span><span class="n">a</span><span class="p">,:</span><span class="n">b</span><span class="p">)</span>
+<span class="p">:(</span><span class="o">+</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">b</span><span class="p">))</span>
+
+<span class="n">julia</span><span class="o">&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+
+<span class="n">julia</span><span class="o">&gt;</span> <span class="n">eval</span><span class="p">(</span><span class="n">ex</span><span class="p">)</span>
+<span class="mi">3</span>
+</pre></div>
+</div>
+<p>The value of <tt class="docutils literal"><span class="pre">a</span></tt> is used to construct the expression <tt class="docutils literal"><span class="pre">ex</span></tt> which
+applies the <tt class="docutils literal"><span class="pre">+</span></tt> function to the value 1 and the variable <tt class="docutils literal"><span class="pre">b</span></tt>. Note
+the important distinction between the way <tt class="docutils literal"><span class="pre">a</span></tt> and <tt class="docutils literal"><span class="pre">b</span></tt> are used:</p>
+<ul class="simple">
+<li>The value of the <em>variable</em> <tt class="docutils literal"><span class="pre">a</span></tt> at expression construction time is
+used as an immediate value in the expression. Thus, the value of
+<tt class="docutils literal"><span class="pre">a</span></tt> when the expression is evaluated no longer matters: the value
+in the expression is already <tt class="docutils literal"><span class="pre">1</span></tt>, independent of whatever the value
+of <tt class="docutils literal"><span class="pre">a</span></tt> might be.</li>
+<li>On the other hand, the <em>symbol</em> <tt class="docutils literal"><span class="pre">:b</span></tt> is used in the expression
+construction, so the value of the variable <tt class="docutils literal"><span class="pre">b</span></tt> at that time is
+irrelevant — <tt class="docutils literal"><span class="pre">:b</span></tt> is just a symbol and the variable <tt class="docutils literal"><span class="pre">b</span></tt> need not
+even be defined. At expression evaluation time, however, the value of
+the symbol <tt class="docutils literal"><span class="pre">:b</span></tt> is resolved by looking up the value of the variable
+<tt class="docutils literal"><span class="pre">b</span></tt>.</li>
+</ul>
+<p>Constructing <tt class="docutils literal"><span class="pre">Expr</span></tt> objects like this is powerful, but somewhat
+tedious and ugly. Since the Julia parser is already excellent at
+producing expression objects, Julia allows &#8220;splicing&#8221; or interpolation
+of expression objects, prefixed with <tt class="docutils literal"><span class="pre">$</span></tt>, into quoted expressions,
+written using normal syntax. The above example can be written more
+clearly and concisely using interpolation:</p>
+<div class="highlight-julia"><div class="highlight"><pre><span class="n">julia</span><span class="o">&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="mi">1</span>
+
+<span class="n">julia</span><span class="o">&gt;</span> <span class="n">ex</span> <span class="o">=</span> <span class="p">:(</span><span class="o">$</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span>
+<span class="p">:(</span><span class="o">+</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">b</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>This syntax is automatically rewritten to the form above where we
+explicitly called <tt class="docutils literal"><span class="pre">Expr</span></tt>. The use of <tt class="docutils literal"><span class="pre">$</span></tt> for expression
+interpolation is intentionally reminiscent of
+<a class="reference internal" href="../strings/#man-string-interpolation"><em>string interpolation</em></a> and
+<a class="reference internal" href="../running-external-programs/#man-command-interpolation"><em>command interpolation</em></a>.
+Expression interpolation allows convenient, readable programmatic construction
+of complex Julia expressions.</p>
+</div>
+<div class="section" id="code-generation">
+<h3>Code Generation<a class="headerlink" href="#code-generation" title="Permalink to this headline">¶</a></h3>
+<p>When a significant amount of repetitive boilerplate code is required, it
+is common to generate it programmatically to avoid redundancy. In most
+languages, this requires an extra build step, and a separate program to
+generate the repetitive code. In Julia, expression interpolation and
+eval allow such code generation to take place in the normal course of
+program execution. For example, the following code defines a series of
+operators on three arguments in terms of their 2-argument forms:</p>
+<div class="highlight-julia"><div class="highlight"><pre><span class="k">for</span> <span class="n">op</span> <span class="o">=</span> <span class="p">(:</span><span class="o">+</span><span class="p">,</span> <span class="p">:</span><span class="o">*</span><span class="p">,</span> <span class="p">:</span><span class="o">&amp;</span><span class="p">,</span> <span class="p">:</span><span class="o">|</span><span class="p">,</span> <span class="p">:</span><span class="o">$</span><span class="p">)</span>
+  <span class="n">eval</span><span class="p">(</span><span class="k">quote</span>
+    <span class="p">(</span><span class="o">$</span><span class="n">op</span><span class="p">)(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="p">)</span> <span class="o">=</span> <span class="p">(</span><span class="o">$</span><span class="n">op</span><span class="p">)((</span><span class="o">$</span><span class="n">op</span><span class="p">)(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">),</span><span class="n">c</span><span class="p">)</span>
+  <span class="k">end</span><span class="p">)</span>
+<span class="k">end</span>
+</pre></div>
+</div>
+<p>In this manner, Julia acts as its own preprocessor, and allows code
+generation from inside the language. The above code could be written
+slightly more tersely using the <tt class="docutils literal"><span class="pre">:</span></tt> prefix quoting form:</p>
+<div class="highlight-julia"><div class="highlight"><pre><span class="k">for</span> <span class="n">op</span> <span class="o">=</span> <span class="p">(:</span><span class="o">+</span><span class="p">,</span> <span class="p">:</span><span class="o">*</span><span class="p">,</span> <span class="p">:</span><span class="o">&amp;</span><span class="p">,</span> <span class="p">:</span><span class="o">|</span><span class="p">,</span> <span class="p">:</span><span class="o">$</span><span class="p">)</span>
+  <span class="n">eval</span><span class="p">(:((</span><span class="o">$</span><span class="n">op</span><span class="p">)(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="p">)</span> <span class="o">=</span> <span class="p">(</span><span class="o">$</span><span class="n">op</span><span class="p">)((</span><span class="o">$</span><span class="n">op</span><span class="p">)(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">),</span><span class="n">c</span><span class="p">)))</span>
+<span class="k">end</span>
+</pre></div>
+</div>
+<p>This sort of in-language code generation, however, using the
+<tt class="docutils literal"><span class="pre">eval(quote(...))</span></tt> pattern, is common enough that Julia comes with a
+macro to abbreviate this pattern:</p>
+<div class="highlight-julia"><div class="highlight"><pre><span class="k">for</span> <span class="n">op</span> <span class="o">=</span> <span class="p">(:</span><span class="o">+</span><span class="p">,</span> <span class="p">:</span><span class="o">*</span><span class="p">,</span> <span class="p">:</span><span class="o">&amp;</span><span class="p">,</span> <span class="p">:</span><span class="o">|</span><span class="p">,</span> <span class="p">:</span><span class="o">$</span><span class="p">)</span>
+  <span class="p">@</span><span class="n">eval</span> <span class="p">(</span><span class="o">$</span><span class="n">op</span><span class="p">)(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="p">)</span> <span class="o">=</span> <span class="p">(</span><span class="o">$</span><span class="n">op</span><span class="p">)((</span><span class="o">$</span><span class="n">op</span><span class="p">)(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">),</span><span class="n">c</span><span class="p">)</span>
+<span class="k">end</span>
+</pre></div>
+</div>
+<p>The <tt class="docutils literal"><span class="pre">&#64;eval</span></tt> macro rewrites this call to be precisely equivalent to the
+above longer versions. For longer blocks of generated code, the
+expression argument given to <tt class="docutils literal"><span class="pre">&#64;eval</span></tt> can be a block:</p>
+<div class="highlight-julia"><div class="highlight"><pre><span class="p">@</span><span class="n">eval</span> <span class="k">begin</span>
+  <span class="c"># multiple lines</span>
+<span class="k">end</span>
+</pre></div>
+</div>
+<p>Interpolating into an unquoted expression is not supported and will
+cause a compile-time error:</p>
+<div class="highlight-julia"><div class="highlight"><pre><span class="n">julia</span><span class="o">&gt;</span> <span class="o">$</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+<span class="n">unsupported</span> <span class="n">or</span> <span class="n">misplaced</span> <span class="n">expression</span> <span class="o">$</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="macros">
+<span id="man-macros"></span><h2>Macros<a class="headerlink" href="#macros" title="Permalink to this headline">¶</a></h2>
+<p>Macros are the analogue of functions for expression generation at
+compile time: they allow the programmer to automatically generate
+expressions by transforming zero or more argument expressions into a
+single result expression, which then takes the place of the macro call
+in the final syntax tree. Macros are invoked with the following general
+syntax:</p>
+<div class="highlight-julia"><div class="highlight"><pre><span class="p">@</span><span class="n">name</span> <span class="n">expr1</span> <span class="n">expr2</span> <span class="o">...</span>
+<span class="p">@</span><span class="n">name</span><span class="p">(</span><span class="n">expr1</span><span class="p">,</span> <span class="n">expr2</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Note the distinguishing <tt class="docutils literal"><span class="pre">&#64;</span></tt> before the macro name and the lack of
+commas between the argument expressions in the first form, and the
+lack of whitespace after <tt class="docutils literal"><span class="pre">&#64;name</span></tt> in the second form. The two styles
+should not be mixed. For example, the following syntax is different
+from the examples above; it passes the tuple <tt class="docutils literal"><span class="pre">(expr1,</span> <span class="pre">expr2,</span> <span class="pre">...)</span></tt> as
+one argument to the macro:</p>
+<div class="highlight-julia"><div class="highlight"><pre><span class="p">@</span><span class="n">name</span> <span class="p">(</span><span class="n">expr1</span><span class="p">,</span> <span class="n">expr2</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Before the program runs, this statement will be replaced with the
+result of calling an expander function for <tt class="docutils literal"><span class="pre">name</span></tt> on the expression
+arguments. Expanders are defined with the <tt class="docutils literal"><span class="pre">macro</span></tt> keyword:</p>
+<div class="highlight-julia"><div class="highlight"><pre><span class="k">macro</span> <span class="n">name</span><span class="p">(</span><span class="n">expr1</span><span class="p">,</span> <span class="n">expr2</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
+    <span class="o">...</span>
+<span class="k">end</span>
+</pre></div>
+</div>
+<p>Here, for example, is the definition of Julia&#8217;s <tt class="docutils literal"><span class="pre">&#64;assert</span></tt>
+macro (see
+<a class="reference external" href="https://github.com/JuliaLang/julia/blob/master/base/error.jl">error.jl</a>):</p>
+<div class="highlight-julia"><div class="highlight"><pre><span class="k">macro</span> <span class="nb">assert</span><span class="p">(</span><span class="n">ex</span><span class="p">)</span>
+    <span class="p">:(</span><span class="o">$</span><span class="n">ex</span> <span class="o">?</span> <span class="n">nothing</span> <span class="p">:</span> <span class="nb">error</span><span class="p">(</span><span class="s">&quot;Assertion failed: &quot;</span><span class="p">,</span> <span class="o">$</span><span class="p">(</span><span class="n">string</span><span class="p">(</span><span class="n">ex</span><span class="p">))))</span>
+<span class="k">end</span>
+</pre></div>
+</div>
+<p>This macro can be used like this:</p>
+<div class="highlight-julia"><div class="highlight"><pre><span class="n">julia</span><span class="o">&gt;</span> <span class="p">@</span><span class="nb">assert</span> <span class="mi">1</span><span class="o">==</span><span class="mf">1.0</span>
+
+<span class="n">julia</span><span class="o">&gt;</span> <span class="p">@</span><span class="nb">assert</span> <span class="mi">1</span><span class="o">==</span><span class="mi">0</span>
+<span class="n">Assertion</span> <span class="n">failed</span><span class="p">:</span> <span class="mi">1</span><span class="o">==</span><span class="mi">0</span>
+</pre></div>
+</div>
+<p>Macro calls are expanded so that the above calls are precisely
+equivalent to writing:</p>
+<div class="highlight-julia"><div class="highlight"><pre><span class="mi">1</span><span class="o">==</span><span class="mf">1.0</span> <span class="o">?</span> <span class="n">nothing</span> <span class="p">:</span> <span class="nb">error</span><span class="p">(</span><span class="s">&quot;Assertion failed: &quot;</span><span class="p">,</span> <span class="s">&quot;1==1.0&quot;</span><span class="p">)</span>
+<span class="mi">1</span><span class="o">==</span><span class="mi">0</span> <span class="o">?</span> <span class="n">nothing</span> <span class="p">:</span> <span class="nb">error</span><span class="p">(</span><span class="s">&quot;Assertion failed: &quot;</span><span class="p">,</span> <span class="s">&quot;1==0&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>That is, in the first call, the expression <tt class="docutils literal"><span class="pre">:(1==1.0)</span></tt> is spliced into
+the test condition slot, while the value of <tt class="docutils literal"><span class="pre">string(:(1==1.0))</span></tt> is
+spliced into the assertion message slot. The entire expression, thus
+constructed, is placed into the syntax tree where the <tt class="docutils literal"><span class="pre">&#64;assert</span></tt> macro
+call occurs. Therefore, if the test expression is true when evaluated,
+the entire expression evaluates to nothing, whereas if the test
+expression is false, an error is raised indicating the asserted
+expression that was false. Notice that it would not be possible to write
+this as a function, since only the <em>value</em> of the condition and not the
+expression that computed it would be available.</p>
+<p>The <tt class="docutils literal"><span class="pre">&#64;assert</span></tt> example also shows how macros can include a <tt class="docutils literal"><span class="pre">quote</span></tt>
+block, which allows for convenient manipulation of expressions inside
+the macro body.</p>
+<div class="section" id="hygiene">
+<h3>Hygiene<a class="headerlink" href="#hygiene" title="Permalink to this headline">¶</a></h3>
+<p>An issue that arises in more complex macros is that of
+<a class="reference external" href="http://en.wikipedia.org/wiki/Hygienic_macro">hygiene</a>. In short, Julia
+must ensure that variables introduced and used by macros do not
+accidentally clash with the variables used in code interpolated into
+those macros. Another concern arises from the fact that a macro may be called
+in a different module from where it was defined. In this case we need to
+ensure that all global variables are resolved to the correct module.</p>
+<p>To demonstrate these issues,
+let us consider writing a <tt class="docutils literal"><span class="pre">&#64;time</span></tt> macro that takes an expression as
+its argument, records the time, evaluates the expression, records the
+time again, prints the difference between the before and after times,
+and then has the value of the expression as its final value.
+The macro might look like this:</p>
+<div class="highlight-julia"><div class="highlight"><pre><span class="k">macro</span> <span class="n">time</span><span class="p">(</span><span class="n">ex</span><span class="p">)</span>
+  <span class="k">quote</span>
+    <span class="kd">local</span> <span class="n">t0</span> <span class="o">=</span> <span class="n">time</span><span class="p">()</span>
+    <span class="kd">local</span> <span class="n">val</span> <span class="o">=</span> <span class="o">$</span><span class="n">ex</span>
+    <span class="kd">local</span> <span class="n">t1</span> <span class="o">=</span> <span class="n">time</span><span class="p">()</span>
+    <span class="n">println</span><span class="p">(</span><span class="s">&quot;elapsed time: &quot;</span><span class="p">,</span> <span class="n">t1</span><span class="o">-</span><span class="n">t0</span><span class="p">,</span> <span class="s">&quot; seconds&quot;</span><span class="p">)</span>
+    <span class="n">val</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</pre></div>
+</div>
+<p>Here, we want <tt class="docutils literal"><span class="pre">t0</span></tt>, <tt class="docutils literal"><span class="pre">t1</span></tt>, and <tt class="docutils literal"><span class="pre">val</span></tt> to be private temporary variables,
+and we want <tt class="docutils literal"><span class="pre">time</span></tt> to refer to the <tt class="docutils literal"><span class="pre">time</span></tt> function in the standard library,
+not to any <tt class="docutils literal"><span class="pre">time</span></tt> variable the user might have (the same applies to
+<tt class="docutils literal"><span class="pre">println</span></tt>). Imagine the problems that could occur if the user expression
+<tt class="docutils literal"><span class="pre">ex</span></tt> also contained assignments to a variable called <tt class="docutils literal"><span class="pre">t0</span></tt>, or defined
+its own <tt class="docutils literal"><span class="pre">time</span></tt> variable. We might get errors, or mysteriously incorrect
+behavior.</p>
+<p>Julia&#8217;s macro expander solves these problems in the following way. First,
+variables within a macro result are classified as either local or global.
+A variable is considered local if it is assigned to (and not declared
+global), declared local, or used as a function argument name. Otherwise,
+it is considered global. Local variables are then renamed to be unique
+(using the <tt class="docutils literal"><span class="pre">gensym</span></tt> function, which generates new symbols), and global
+variables are resolved within the macro definition environment. Therefore
+both of the above concerns are handled; the macro&#8217;s locals will not conflict
+with any user variables, and <tt class="docutils literal"><span class="pre">time</span></tt> and <tt class="docutils literal"><span class="pre">println</span></tt> will refer to the
+standard library definitions.</p>
+<p>One problem remains however. Consider the following use of this macro:</p>
+<div class="highlight-julia"><div class="highlight"><pre><span class="k">module</span> <span class="n">MyModule</span>
+<span class="k">import</span> <span class="n">Base</span><span class="o">.</span><span class="p">@</span><span class="n">time</span>
+
+<span class="n">time</span><span class="p">()</span> <span class="o">=</span> <span class="o">...</span> <span class="c"># compute something</span>
+
+<span class="p">@</span><span class="n">time</span> <span class="n">time</span><span class="p">()</span>
+<span class="k">end</span>
+</pre></div>
+</div>
+<p>Here the user expression <tt class="docutils literal"><span class="pre">ex</span></tt> is a call to <tt class="docutils literal"><span class="pre">time</span></tt>, but not the same
+<tt class="docutils literal"><span class="pre">time</span></tt> function that the macro uses. It clearly refers to <tt class="docutils literal"><span class="pre">MyModule.time</span></tt>.
+Therefore we must arrange for the code in <tt class="docutils literal"><span class="pre">ex</span></tt> to be resolved in the
+macro call environment. This is done by &#8220;escaping&#8221; the expression with
+the <tt class="docutils literal"><span class="pre">esc</span></tt> function:</p>
+<div class="highlight-julia"><div class="highlight"><pre><span class="k">macro</span> <span class="n">time</span><span class="p">(</span><span class="n">ex</span><span class="p">)</span>
+    <span class="o">...</span>
+    <span class="kd">local</span> <span class="n">val</span> <span class="o">=</span> <span class="o">$</span><span class="p">(</span><span class="n">esc</span><span class="p">(</span><span class="n">ex</span><span class="p">))</span>
+    <span class="o">...</span>
+<span class="k">end</span>
+</pre></div>
+</div>
+<p>An expression wrapped in this manner is left alone by the macro expander
+and simply pasted into the output verbatim. Therefore it will be
+resolved in the macro call environment.</p>
+<p>This escaping mechanism can be used to &#8220;violate&#8221; hygiene when necessary,
+in order to introduce or manipulate user variables. For example, the
+following macro sets <tt class="docutils literal"><span class="pre">x</span></tt> to zero in the call environment:</p>
+<div class="highlight-julia"><div class="highlight"><pre><span class="k">macro</span> <span class="n">zerox</span><span class="p">()</span>
+  <span class="n">esc</span><span class="p">(:(</span><span class="n">x</span> <span class="o">=</span> <span class="mi">0</span><span class="p">))</span>
+<span class="k">end</span>
+
+<span class="k">function</span><span class="nf"> foo</span><span class="p">()</span>
+  <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
+  <span class="p">@</span><span class="n">zerox</span>
+  <span class="n">x</span>  <span class="c"># is zero</span>
+<span class="k">end</span>
+</pre></div>
+</div>
+<p>This kind of manipulation of variables should be used judiciously, but
+is occasionally quite handy.</p>
+</div>
+<div class="section" id="non-standard-string-literals">
+<span id="man-non-standard-string-literals2"></span><h3>Non-Standard String Literals<a class="headerlink" href="#non-standard-string-literals" title="Permalink to this headline">¶</a></h3>
+<p>Recall from <a class="reference internal" href="../strings/#man-non-standard-string-literals"><em>Strings</em></a> that
+string literals prefixed by an identifier are called non-standard string
+literals, and can have different semantics than un-prefixed string
+literals. For example:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">r&quot;^\s*(?:#|$)&quot;</span></tt> produces a regular expression object rather than a
+string</li>
+<li><tt class="docutils literal"><span class="pre">b&quot;DATA\xff\u2200&quot;</span></tt> is a byte array literal for
+<tt class="docutils literal"><span class="pre">[68,65,84,65,255,226,136,128]</span></tt>.</li>
+</ul>
+<p>Perhaps surprisingly, these behaviors are not hard-coded into the Julia
+parser or compiler. Instead, they are custom behaviors provided by a
+general mechanism that anyone can use: prefixed string literals are
+parsed as calls to specially-named macros. For example, the regular
+expression macros is just the following:</p>
+<div class="highlight-julia"><div class="highlight"><pre><span class="k">macro</span> <span class="n">r_str</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+  <span class="n">Regex</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+<span class="k">end</span>
+</pre></div>
+</div>
+<p>That&#8217;s all. This macro says that the literal contents of the string
+literal <tt class="docutils literal"><span class="pre">r&quot;^\s*(?:#|$)&quot;</span></tt> should be passed to the <tt class="docutils literal"><span class="pre">&#64;r_str</span></tt> macro and
+the result of that expansion should be placed in the syntax tree where
+the string literal occurs. In other words, the expression
+<tt class="docutils literal"><span class="pre">r&quot;^\s*(?:#|$)&quot;</span></tt> is equivalent to placing the following object
+directly into the syntax tree:</p>
+<div class="highlight-julia"><div class="highlight"><pre><span class="n">Regex</span><span class="p">(</span><span class="s">&quot;^</span><span class="se">\\</span><span class="s">s*(?:#|\</span><span class="si">$</span><span class="s">)&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Not only is the string literal form shorter and far more convenient, but
+it is also more efficient: since the regular expression is compiled and
+the <tt class="docutils literal"><span class="pre">Regex</span></tt> object is actually created <em>when the code is compiled</em>,
+the compilation occurs only once, rather than every time the code is
+executed. Consider if the regular expression occurs in a loop:</p>
+<div class="highlight-julia"><div class="highlight"><pre><span class="k">for</span> <span class="n">line</span> <span class="o">=</span> <span class="n">lines</span>
+  <span class="n">m</span> <span class="o">=</span> <span class="n">match</span><span class="p">(</span><span class="n">r</span><span class="s">&quot;^\s*(?:#|</span><span class="si">$</span><span class="s">)&quot;</span><span class="p">,</span> <span class="n">line</span><span class="p">)</span>
+  <span class="k">if</span> <span class="n">m</span><span class="o">.</span><span class="n">match</span> <span class="o">==</span> <span class="n">nothing</span>
+    <span class="c"># non-comment</span>
+  <span class="k">else</span>
+    <span class="c"># comment</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</pre></div>
+</div>
+<p>Since the regular expression <tt class="docutils literal"><span class="pre">r&quot;^\s*(?:#|$)&quot;</span></tt> is compiled and inserted
+into the syntax tree when this code is parsed, the expression is only
+compiled once instead of each time the loop is executed. In order to
+accomplish this without macros, one would have to write this loop like
+this:</p>
+<div class="highlight-julia"><div class="highlight"><pre><span class="n">re</span> <span class="o">=</span> <span class="n">Regex</span><span class="p">(</span><span class="s">&quot;^</span><span class="se">\\</span><span class="s">s*(?:#|\</span><span class="si">$</span><span class="s">)&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">line</span> <span class="o">=</span> <span class="n">lines</span>
+  <span class="n">m</span> <span class="o">=</span> <span class="n">match</span><span class="p">(</span><span class="n">re</span><span class="p">,</span> <span class="n">line</span><span class="p">)</span>
+  <span class="k">if</span> <span class="n">m</span><span class="o">.</span><span class="n">match</span> <span class="o">==</span> <span class="n">nothing</span>
+    <span class="c"># non-comment</span>
+  <span class="k">else</span>
+    <span class="c"># comment</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</pre></div>
+</div>
+<p>Moreover, if the compiler could not determine that the regex object was
+constant over all loops, certain optimizations might not be possible,
+making this version still less efficient than the more convenient
+literal form above. Of course, there are still situations where the
+non-literal form is more convenient: if one needs to interpolate a
+variable into the regular expression, has to take this more verbose
+approach; in cases where the regular expression pattern itself is
+dynamic, potentially changing upon each loop iteration, a new regular
+expression object must be constructed on each iteration. The vast
+majority of use cases, however, one does not construct regular
+expressions dynamically, depending on run-time data. In this majority of
+cases, the ability to write regular expressions as compile-time values
+is, well, invaluable.</p>
+<p>The mechanism for user-defined string literals is deeply, profoundly
+powerful. Not only are Julia&#8217;s non-standard literals implemented using
+it, but also the command literal syntax (<tt class="docutils literal"><span class="pre">`echo</span> <span class="pre">&quot;Hello,</span> <span class="pre">$person&quot;`</span></tt>)
+is implemented with the following innocuous-looking macro:</p>
+<div class="highlight-julia"><div class="highlight"><pre><span class="k">macro</span> <span class="n">cmd</span><span class="p">(</span><span class="n">str</span><span class="p">)</span>
+  <span class="p">:(</span><span class="n">cmd_gen</span><span class="p">(</span><span class="o">$</span><span class="n">shell_parse</span><span class="p">(</span><span class="n">str</span><span class="p">)))</span>
+<span class="k">end</span>
+</pre></div>
+</div>
+<p>Of course, a large amount of complexity is hidden in the functions used
+in this macro definition, but they are just functions, written
+entirely in Julia. You can read their source and see precisely what they
+do —&nbsp;and all they do is construct expression objects to be inserted into
+your program&#8217;s syntax tree.</p>
+</div>
+</div>
+<div class="section" id="reflection">
+<h2>Reflection<a class="headerlink" href="#reflection" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+
+
+
+<p class="logo">
+<img alt="Julia" src="//d1qchgnwtps1zh.cloudfront.net/julia_logo.png">
+</p>
+  <h3><a href="../../">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Metaprogramming</a><ul>
+<li><a class="reference internal" href="#expressions-and-eval">Expressions and Eval</a><ul>
+<li><a class="reference internal" href="#symbols">Symbols</a></li>
+<li><a class="reference internal" href="#eval-and-interpolation"><tt class="docutils literal"><span class="pre">eval</span></tt> and Interpolation</a></li>
+<li><a class="reference internal" href="#code-generation">Code Generation</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#macros">Macros</a><ul>
+<li><a class="reference internal" href="#hygiene">Hygiene</a></li>
+<li><a class="reference internal" href="#non-standard-string-literals">Non-Standard String Literals</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#reflection">Reflection</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="../modules/"
+                        title="previous chapter">Modules</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../arrays/"
+                        title="next chapter">Multi-dimensional Arrays</a></p>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search/" method="get">
+      <table><tr><td>
+      <input type="text" name="q" /><input type="submit" value="Go" />
+      <!--<input type="hidden" name="check_keywords" value="yes" />-->
+      <!--<input type="hidden" name="area" value="default" />-->
+      </td></tr></table>
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+
+<div class="footerwrapper">
+  <div class="footer">
+    
+    <div class="prevlink">
+      <a href="../modules/">&laquo; Modules</a>
+    </div>
+    
+    
+    <div class="nextlink">
+      <a href="../arrays/">Multi-dimensional Arrays &raquo;</a>
+    </div>
+    
+  </div>
+</div>
+
+ <!-- End original user content -->
+
+
+<br/>
+<br/>
+<br/>
+
+
+<style type="text/css">
+  #version_menu, .rtd-badge.rtd {
+    -webkit-transition: all 0.25s 0.75s;
+    transition: all 0.25s 0.75s;
+  }
+  .footer_popout:hover #version_menu, .footer_popout:hover .rtd-badge.rtd {
+    -webkit-transition: all 0.25s 0s;
+    transition: all 0.25s 0s;
+  }
+  .rtd-badge {
+    position: fixed;
+    display: block;
+    bottom: 5px;
+    height: 40px;
+    text-indent: -9999em;
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2), 0 1px 0 rgba(255, 255, 255, 0.2) inset;
+    -moz-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2), 0 1px 0 rgba(255, 255, 255, 0.2) inset;
+    -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2), 0 1px 0 rgba(255, 255, 255, 0.2) inset;
+  }
+  #version_menu {
+    position: fixed;
+    visibility: hidden;
+    opacity: 0;
+    bottom: 11px;
+    right: 47px;
+    list-style-type: none;
+    margin: 0;
+  }
+  .footer_popout:hover #version_menu {
+    visibility: visible;
+    opacity: 1;
+    right: 166px;
+  }
+  #version_menu li {
+    display: block;
+    float: right;
+  }
+  #version_menu li a {
+    display: block;
+    padding: 6px 10px 4px 10px;
+    margin: 7px 7px 0 0;
+    font-weight: bold;
+    font-size: 14px;
+    height: 20px;
+    line-height: 17px;
+    text-decoration: none;
+    color: #fff;
+    background: #8ca1af url(../images/gradient-light.png) bottom left repeat-x;
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    box-shadow: 0 1px 1px #465158;
+    -moz-box-shadow: 0 1px 1px #465158;
+    -webkit-box-shadow: 0 1px 1px #465158;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
+  }
+  #version_menu li a:hover {
+    text-decoration: none;
+    background-color: #697983;
+    box-shadow: 0 1px 0px #465158;
+    -moz-box-shadow: 0 1px 0px #465158;
+    -webkit-box-shadow: 0 1px 0px #465158;
+  }
+  .rtd-badge.rtd {
+    background: #3b4449 url(//media.readthedocs.org//images/badge-rtd.png) scroll top left no-repeat;
+    border: 1px solid #282E32;
+    width: 41px;
+    right: 5px;
+  }
+  .footer_popout:hover .rtd-badge.rtd {
+    width: 160px;
+  }
+  .rtd-badge.revsys { background: #465158 url(//media.readthedocs.org//images/badge-revsys.png) top left no-repeat;
+    border: 1px solid #1C5871;
+    width: 290px;
+    right: 173px;
+  }
+  .rtd-badge.revsys-inline-sponsored {
+    position: inherit;
+    margin-left: auto;
+    margin-right: 175px;
+    margin-bottom: 5px;
+    background: #465158 url(//media.readthedocs.org//images/badge-revsys.png) top left no-repeat;
+    border: 1px solid #1C5871;
+    width: 290px;
+    right: 173px;
+  }
+  .rtd-badge.revsys-inline {
+    position: inherit;
+    margin-left: auto;
+    margin-right: 175px;
+    margin-bottom: 5px;
+    background: #465158 url(//media.readthedocs.org//images/badge-revsys-sm.png) top left no-repeat;
+    border: 1px solid #1C5871;
+    width: 205px;
+    right: 173px;
+  }
+
+</style>
+<div class="rtd_doc_footer">
+  <div class="footer_popout">
+    <a href="//readthedocs.org/projects/julia/?fromdocs=julia" class="rtd-badge rtd"> Brought to you by Read the Docs</a>
+    <ul id="version_menu">
+      
+        <li><a href="/en/release-0.1-0/">release-0.1-0</a></li>
+      
+        <li><a href="/en/latest/">latest</a></li>
+      
+    </ul>
+  </div>
+</div>
+<!-- RTD Analytics Code -->
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-17997319-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+
+<!-- User Analytics Code -->
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-28835595-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+
+
+  </body>
+</html>

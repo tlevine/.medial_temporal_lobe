@@ -1,0 +1,587 @@
+﻿
+
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+
+<head>
+    <meta name="globalsign-domain-verification" content="Ibf-3ix6XihwPwwwtrdQHS9aOBqJLDhwvl12iSDsKr" />
+    <meta charset="utf-8">
+    <!-- [if it IE]> <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> <![endif]-->
+    <link rel="shortcut icon" href="/static/favicon.png" />
+    <link rel="canonical" href="https://www.docker.io/">
+    <title>
+        Homepage - Docker, The linux container engine
+    </title>
+    <meta name="description" content="Docker: An open source project to pack, ship and run any application as a lightweight container" />
+    <meta name="keywords" content="Docker, linux containers, lxc, PaaS, dotCloud" />
+    
+    
+    
+    <link rel="stylesheet" type="text/css" href="/static/css/bootstrap-custom.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/main.css"> 
+    <link href='//fonts.googleapis.com/css?family=Cabin:400,700,400italic' rel='stylesheet' type='text/css'>
+    
+    
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" ></script>
+    <script src="/static/js/vendor/bootstrap.min.js"></script>
+    <script src="/static/js/vendor/jquery.scrollTo-min.js"></script>
+     
+
+<script type="text/javascript">
+
+    function moveRight() {
+        $('#tweets-container').scrollTo( '+=620px', 300 );
+    }
+    function moveLeft() {
+        $('#tweets-container').scrollTo( '-=620px', 300 );
+    }
+    function showLeftShadow() {
+        $('.tweet-navigator-left').addClass('shadow').show();
+
+
+    }
+
+    $('document').ready(function() {
+        $('.tweet-navigator-right').click(moveRight);
+        $('.tweet-navigator-left').click(moveLeft);
+
+        $('#tweets-container').scroll(showLeftShadow);
+    })
+
+</script>
+
+
+    
+    <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-6096819-11']);
+      _gaq.push(['_trackPageview']);
+      _gaq.push(['_trackPageLoadTime']);
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+
+    </script>
+
+</head>
+
+<body>
+
+
+<!-- navigation -->
+<div class="navbar navbar-static-top">
+    <div class="navbar-inner navbar-fixed-top ">
+        <div class="container" >
+            <div class="brand logo"><img src="/static/img/docker-top-logo.png"> </div>
+
+            <ul class="nav pull-right">
+                <li class="active"><a href="/" title="Homepage">Home</a></li>
+                <li class=""><a href="/about/" title="About Docker">About</a></li>
+                <li class=""><a href="/gettingstarted/" title="Get Started">Getting started</a></li>
+                <li class=""><a href="/community/" title="The Docker Community">Community</a></li>
+                <li><a href="https://docs.docker.io" title="Documentation">Documentation</a></li>
+                <li><a href="http://blog.docker.io" title="Blog">Blog</a></li>
+                <li><a href="https://index.docker.io" title="Docker Image Index, find images here">INDEX <img class="inline-icon" src="/static/img/external-link-icon.png" title="external link"> </a></li>
+            </ul>
+        </div>
+
+
+    </div>
+</div>
+
+<!-- end of navigation -->
+
+
+
+
+<a href="https://github.com/dotcloud/docker/"><img style="position: absolute; top: 70; right: 0; border: 0; z-index: 22" src="/static/img/fork-us-on-github.png" alt="Fork us on GitHub"></a>
+
+<div class="">
+    <div id="top"  class="main-banner" >
+        <div class="text-center ">
+            <div class="copy-headline">
+
+                <h1>an open source project to pack, ship and run any application as a lightweight container</h1>
+
+
+                <img id="main-image" src="/static/img/homepage-docker-logo.png" alt="Docker Logo" >
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row " >
+        <div class="span12 text-center copy-introduction">
+
+            <p>Docker is an open-source project to easily create lightweight, portable, self-sufficient containers from any application.
+    The same container that a developer builds and tests on a laptop can run at scale, in production, on VMs, bare metal,
+    OpenStack clusters, public clouds and more. <span class="read-more"><a href="/about/" title="About Docker">Read more -></a></span></p>
+
+
+        </div>
+    </div>
+
+    <div class="row" >
+        <div class="span12 text-center action-button">
+            <a href="/about/" class="btn btn-large btn-primary secondary-action-button" title="getting started">Learn more</a>
+            <a href="/gettingstarted/" class="btn btn-large btn-primary primary-action-button" title="getting started">Get started!</a>
+        </div>
+    </div>
+
+    <div class="row" >
+
+        <h3>What people are saying about us:</h3>
+
+        <div id="tweets-block" class="span12 tweets-block">
+            <div id="" class="tweet-navigator tweet-navigator-left" ><img src="/static/img/arrow%20left.svg" class="vertical-middle"></div>
+            <div id="" class="tweet-navigator tweet-navigator-right" ><img src="/static/img/arrow%20right.svg" class="vertical-middle"> </div>
+            <div id="tweets-container" class="tweets-container">
+                <div id="tweet-surface" class="tweet-surface">
+                    
+
+            <div class="tweet" onClick="window.open('http://twitter.com/svammel/status/365541565243990017/')" >
+                <img src="https://si0.twimg.com/profile_images/1311081720/profile_normal.png">
+                <span class="username">Emil Stenqvist</span>
+                <span class="handle" ><a onClick="window.open('http://twitter.com/svammel'); event.preventDefault();" href="https://twitter.com/svammel/" title="users twitter page">@svammel</a></span>
+                <p><span class="text">Roadmap for #docker 1.0—IMO one of the most exciting open source projects at the moment. The # of tools will explode. http://t.co/z1jMLxtY7L</span></p>
+            </div>
+
+            
+            <div class="tweet" onClick="window.open('http://twitter.com/rstacruz/status/365561874907004929/')" >
+                <img src="https://si0.twimg.com/profile_images/1323129495/n552531093_7333_normal.jpg">
+                <span class="username">Rico Sta. Cruz</span>
+                <span class="handle" ><a onClick="window.open('http://twitter.com/rstacruz'); event.preventDefault();" href="https://twitter.com/rstacruz/" title="users twitter page">@rstacruz</a></span>
+                <p><span class="text">Oh snap, I get it now. Indeed, Docker is pretty damn amazeballs. http://t.co/zhu7MdRJ2J</span></p>
+            </div>
+
+            
+            <div class="tweet" onClick="window.open('http://twitter.com/joelmoss/status/365516662306381824/')" >
+                <img src="https://si0.twimg.com/profile_images/1208340303/pocoyo_avatar_normal.png">
+                <span class="username">Joel Moss</span>
+                <span class="handle" ><a onClick="window.open('http://twitter.com/joelmoss'); event.preventDefault();" href="https://twitter.com/joelmoss/" title="users twitter page">@joelmoss</a></span>
+                <p><span class="text">Seems @docker has inspired several people. Seeing a lot of open source PaaS libraries popping up that either use Docker or Linux Containers</span></p>
+            </div>
+
+            
+            <div class="tweet" onClick="window.open('http://twitter.com/deepinsand/status/365494583657902080/')" >
+                <img src="https://si0.twimg.com/profile_images/3316435869/a1b23483ec39d1c168ca648fdc76e074_normal.jpeg">
+                <span class="username">Sandeep Jain</span>
+                <span class="handle" ><a onClick="window.open('http://twitter.com/deepinsand'); event.preventDefault();" href="https://twitter.com/deepinsand/" title="users twitter page">@deepinsand</a></span>
+                <p><span class="text">Docker.io could be the disruptive tech that gives aging enterprise co's (SAP, HP, Oracle) a wedge into the cloud arena</span></p>
+            </div>
+
+            
+            <div class="tweet" onClick="window.open('http://twitter.com/jmorgan/status/362628082345050114/')" >
+                <img src="https://si0.twimg.com/profile_images/2453198500/gq4zjslxz0hiowmfrcy0_normal.jpeg">
+                <span class="username">Jeffrey Morgan</span>
+                <span class="handle" ><a onClick="window.open('http://twitter.com/jmorgan'); event.preventDefault();" href="https://twitter.com/jmorgan/" title="users twitter page">@jmorgan</a></span>
+                <p><span class="text">@getdocker Awesome talks last night.  My highlights: http://t.co/R4vqENNU6M</span></p>
+            </div>
+
+            
+            <div class="tweet" onClick="window.open('http://twitter.com/d3bnath/status/362465372949069824/')" >
+                <img src="https://si0.twimg.com/profile_images/1149974349/41713_2258931_4293835_q_normal.jpg">
+                <span class="username">Debnath Sinha</span>
+                <span class="handle" ><a onClick="window.open('http://twitter.com/d3bnath'); event.preventDefault();" href="https://twitter.com/d3bnath/" title="users twitter page">@d3bnath</a></span>
+                <p><span class="text">u learn so much @getdocker hackdays that u wish there were weekly office hrs! :) was much fun, looking fwd to the next one!</span></p>
+            </div>
+
+            
+            <div class="tweet" onClick="window.open('http://twitter.com/dozba/status/362414011612008448/')" >
+                <img src="https://si0.twimg.com/profile_images/378800000270711682/aab9b8010bf1b0a0b2617ee87d3a942c_normal.jpeg">
+                <span class="username">Ted Dziuba</span>
+                <span class="handle" ><a onClick="window.open('http://twitter.com/dozba'); event.preventDefault();" href="https://twitter.com/dozba/" title="users twitter page">@dozba</a></span>
+                <p><span class="text">Within a year, #dockerhackday will be a conference.</span></p>
+            </div>
+
+            
+            <div class="tweet" onClick="window.open('http://twitter.com/CloudAve/status/362579117482323968/')" >
+                <img src="https://si0.twimg.com/profile_images/1577037238/cloudave_twitter_logo_normal.png">
+                <span class="username">CloudAve</span>
+                <span class="handle" ><a onClick="window.open('http://twitter.com/CloudAve'); event.preventDefault();" href="https://twitter.com/CloudAve/" title="users twitter page">@CloudAve</a></span>
+                <p><span class="text">OSCON : Conversations, Deployments, Architecture, Docker and the Future? http://t.co/9tTWD1HEpi</span></p>
+            </div>
+
+            
+            <div class="tweet" onClick="window.open('http://twitter.com/sdouche/status/362350303997210625/')" >
+                <img src="https://si0.twimg.com/profile_images/64962323/sdouche_normal.jpg">
+                <span class="username">Sébastien Douche</span>
+                <span class="handle" ><a onClick="window.open('http://twitter.com/sdouche'); event.preventDefault();" href="https://twitter.com/sdouche/" title="users twitter page">@sdouche</a></span>
+                <p><span class="text">Meet other developers and ops engineers using Docker in Paris #docker #virt #event - http://t.co/NaJw8eea6q</span></p>
+            </div>
+
+            
+            <div class="tweet" onClick="window.open('http://twitter.com/jagregory/status/362432830657150976/')" >
+                <img src="https://si0.twimg.com/profile_images/2203982915/161854_1506096717_936348513_n_normal.jpg">
+                <span class="username">James Gregory</span>
+                <span class="handle" ><a onClick="window.open('http://twitter.com/jagregory'); event.preventDefault();" href="https://twitter.com/jagregory/" title="users twitter page">@jagregory</a></span>
+                <p><span class="text">There is a building excitement in me about Docker (and now CoreOS), but I'm yet to articulate it. I can just feel it.</span></p>
+            </div>
+
+            
+            <div class="tweet" onClick="window.open('http://twitter.com/bortels/status/362426814708203520/')" >
+                <img src="https://si0.twimg.com/profile_images/62961153/woot_normal.jpg">
+                <span class="username">bortels</span>
+                <span class="handle" ><a onClick="window.open('http://twitter.com/bortels'); event.preventDefault();" href="https://twitter.com/bortels/" title="users twitter page">@bortels</a></span>
+                <p><span class="text">The amount of awesome new utilities and projects stemming from docker.io is simply stunning. Having a hard time just keeping track of it...</span></p>
+            </div>
+
+            
+            <div class="tweet" onClick="window.open('http://twitter.com/gosukenator/status/362397723242135553/')" >
+                <img src="https://si0.twimg.com/profile_images/2905670600/ef85a86e6e5cea0118fc5202b13e2ab1_normal.png">
+                <span class="username">Gosuke Miyashita</span>
+                <span class="handle" ><a onClick="window.open('http://twitter.com/gosukenator'); event.preventDefault();" href="https://twitter.com/gosukenator/" title="users twitter page">@gosukenator</a></span>
+                <p><span class="text">Docker マジ便利だ。「まっさらな状態から puppet apply する」というサイクルが今までより格段に早く回せる。</span></p>
+            </div>
+
+            
+            <div class="tweet" onClick="window.open('http://twitter.com/DShankar/status/362366694259294208/')" >
+                <img src="https://si0.twimg.com/profile_images/2618216020/mh52xpuarmqu3zvb0s9o_normal.jpeg">
+                <span class="username">Darshan Shankar</span>
+                <span class="handle" ><a onClick="window.open('http://twitter.com/DShankar'); event.preventDefault();" href="https://twitter.com/DShankar/" title="users twitter page">@DShankar</a></span>
+                <p><span class="text">“@michaelgorsuch: wish: @heroku to adopt docker as its standard container." &lt;-- yes FFS please. Deploys would be significantly faster too</span></p>
+            </div>
+
+            
+            <div class="tweet" onClick="window.open('http://twitter.com/slantview/status/362319091178029056/')" >
+                <img src="https://si0.twimg.com/profile_images/2409755818/0kqc4wzsi036jr69kig4_normal.png">
+                <span class="username">Steve Rude</span>
+                <span class="handle" ><a onClick="window.open('http://twitter.com/slantview'); event.preventDefault();" href="https://twitter.com/slantview/" title="users twitter page">@slantview</a></span>
+                <p><span class="text">I'm pretty convinced Docker is the future of distributed production services.  Simply awesome and well done.  Great work @getdocker</span></p>
+            </div>
+
+            
+            <div class="tweet" onClick="window.open('http://twitter.com/hmans/status/362277568092704769/')" >
+                <img src="https://si0.twimg.com/profile_images/378800000274147846/bf78aa855c5438b0efc0c5b2c6994c7e_normal.png">
+                <span class="username">Hendrik Mans</span>
+                <span class="handle" ><a onClick="window.open('http://twitter.com/hmans'); event.preventDefault();" href="https://twitter.com/hmans/" title="users twitter page">@hmans</a></span>
+                <p><span class="text">Mit Docker und ähnlichen Container-Implementierungen kommen spannende Dinge auf uns zu.</span></p>
+            </div>
+
+            
+            <div class="tweet" onClick="window.open('http://twitter.com/DockerParis/status/362238819577245697/')" >
+                <img src="https://si0.twimg.com/profile_images/378800000214987053/6003bbd6f3c381f4a37f79ceafda2459_normal.png">
+                <span class="username">Docker Paris</span>
+                <span class="handle" ><a onClick="window.open('http://twitter.com/DockerParis'); event.preventDefault();" href="https://twitter.com/DockerParis/" title="users twitter page">@DockerParis</a></span>
+                <p><span class="text">Bonjour tout le monde, follow me if you love Docker and live around Paris! http://t.co/yzma973aIg</span></p>
+            </div>
+
+            
+            <div class="tweet" onClick="window.open('http://twitter.com/timburks/status/362083256922935297/')" >
+                <img src="https://si0.twimg.com/profile_images/1156313248/southpark-avatar_normal.png">
+                <span class="username">Tim Burks</span>
+                <span class="handle" ><a onClick="window.open('http://twitter.com/timburks'); event.preventDefault();" href="https://twitter.com/timburks/" title="users twitter page">@timburks</a></span>
+                <p><span class="text">I gave my son my pass to Casual Connect so that I could go to Docker Hack Day tomorrow http://t.co/FWJPHYbdnz #dynasty</span></p>
+            </div>
+
+            
+            <div class="tweet" onClick="window.open('http://twitter.com/lucperkins/status/359360716584665088/')" >
+                <img src="https://si0.twimg.com/profile_images/378800000233900104/d2091e77e1358d52c3f304861a849aa8_normal.jpeg">
+                <span class="username">Luc Perkins</span>
+                <span class="handle" ><a onClick="window.open('http://twitter.com/lucperkins'); event.preventDefault();" href="https://twitter.com/lucperkins/" title="users twitter page">@lucperkins</a></span>
+                <p><span class="text">So I guess pretty much everything is "powered by Docker" these days. Unbelievable growth.</span></p>
+            </div>
+
+            
+            <div class="tweet" onClick="window.open('http://twitter.com/cartazio/status/357948061202386946/')" >
+                <img src="https://si0.twimg.com/profile_images/3240285995/72dc61583c3c76b4f529759fa611e17c_normal.jpeg">
+                <span class="username">Carter T Schonwald</span>
+                <span class="handle" ><a onClick="window.open('http://twitter.com/cartazio'); event.preventDefault();" href="https://twitter.com/cartazio/" title="users twitter page">@cartazio</a></span>
+                <p><span class="text">@getdocker I really hope my pending tech release is even as 0.5% as successful as docker. Props on having a whole ecosystem now.</span></p>
+            </div>
+
+            
+            <div class="tweet" onClick="window.open('http://twitter.com/didip/status/347003250299531264/')" >
+                <img src="https://si0.twimg.com/profile_images/1196816707/black-turtleneck_normal.jpg">
+                <span class="username">Didip Kerabat</span>
+                <span class="handle" ><a onClick="window.open('http://twitter.com/didip'); event.preventDefault();" href="https://twitter.com/didip/" title="users twitter page">@didip</a></span>
+                <p><span class="text">Whoa, how come I never heard of docker.io before? http://t.co/qmVO4btC0q . Wow, linux container made damn easy. Looks like it's in Go.</span></p>
+            </div>
+
+            
+            <div class="tweet" onClick="window.open('http://twitter.com/brynary/status/347559367652032513/')" >
+                <img src="https://si0.twimg.com/profile_images/53078115/me_normal.jpg">
+                <span class="username">Bryan Helmkamp</span>
+                <span class="handle" ><a onClick="window.open('http://twitter.com/brynary'); event.preventDefault();" href="https://twitter.com/brynary/" title="users twitter page">@brynary</a></span>
+                <p><span class="text">More excited about Docker than I have been about any other OSS project since Rails. This will be huge. https://t.co/ligClXoS6c</span></p>
+            </div>
+
+            
+            <div class="tweet" onClick="window.open('http://twitter.com/fennb/status/347915284977418241/')" >
+                <img src="https://si0.twimg.com/profile_images/457128262/lagos_normal.jpg">
+                <span class="username">Fenn</span>
+                <span class="handle" ><a onClick="window.open('http://twitter.com/fennb'); event.preventDefault();" href="https://twitter.com/fennb/" title="users twitter page">@fennb</a></span>
+                <p><span class="text">Docker (&amp; LXC in general) could be the most important step in virtualization since hypervisors. Impressive stuff: http://t.co/rEgxb0vfze</span></p>
+            </div>
+
+            
+            <div class="tweet" onClick="window.open('http://twitter.com/pplante/status/348249053332647936/')" >
+                <img src="https://si0.twimg.com/profile_images/3482358571/9c905f19639ce5abeac9c83b1cce37fc_normal.png">
+                <span class="username">Phil Plante</span>
+                <span class="handle" ><a onClick="window.open('http://twitter.com/pplante'); event.preventDefault();" href="https://twitter.com/pplante/" title="users twitter page">@pplante</a></span>
+                <p><span class="text">woot! our new @getdocker cluster is performing way better than expected, and is 5x faster than our cloud setup.</span></p>
+            </div>
+
+            
+            <div class="tweet" onClick="window.open('http://twitter.com/machbio/status/348281405974925313/')" >
+                <img src="https://si0.twimg.com/profile_images/1488412643/yo27_normal.png">
+                <span class="username">Sandeep</span>
+                <span class="handle" ><a onClick="window.open('http://twitter.com/machbio'); event.preventDefault();" href="https://twitter.com/machbio/" title="users twitter page">@machbio</a></span>
+                <p><span class="text">One of the most Kick-ass Project at this Moment.. credits to @progrium and #docker.io</span></p>
+            </div>
+
+            
+            <div class="tweet" onClick="window.open('http://twitter.com/jakedahn/status/354368422328541187/')" >
+                <img src="https://si0.twimg.com/profile_images/1422513360/19b6120fb1f9442ea26a643083c575d1_7_normal.jpg">
+                <span class="username">Jake Dahn</span>
+                <span class="handle" ><a onClick="window.open('http://twitter.com/jakedahn'); event.preventDefault();" href="https://twitter.com/jakedahn/" title="users twitter page">@jakedahn</a></span>
+                <p><span class="text">every time i use @getdocker it just gets more mind-glowingly amazing</span></p>
+            </div>
+
+            
+            <div class="tweet" onClick="window.open('http://twitter.com/capotribu/status/354954990277758978/')" >
+                <img src="https://si0.twimg.com/profile_images/3087825911/2aecbdb4cdfd0d49fafce33be91539aa_normal.png">
+                <span class="username">Marco Abis</span>
+                <span class="handle" ><a onClick="window.open('http://twitter.com/capotribu'); event.preventDefault();" href="https://twitter.com/capotribu/" title="users twitter page">@capotribu</a></span>
+                <p><span class="text">the more I look into @getdocker the more I like it (and I've only skimmed the surface)</span></p>
+            </div>
+
+            
+            <div class="tweet" onClick="window.open('http://twitter.com/gstatton/status/355172662873567233/')" >
+                <img src="https://si0.twimg.com/profile_images/58579906/66614450_N00_normal.jpg">
+                <span class="username">Greg</span>
+                <span class="handle" ><a onClick="window.open('http://twitter.com/gstatton'); event.preventDefault();" href="https://twitter.com/gstatton/" title="users twitter page">@gstatton</a></span>
+                <p><span class="text">@avemii 'bout sums it up. If you want your noodle cooked check out docker (http://t.co/WqUU3NHlFn)</span></p>
+            </div>
+
+            
+            <div class="tweet" onClick="window.open('http://twitter.com/adr/status/355705492087119875/')" >
+                <img src="https://si0.twimg.com/profile_images/2631673528/b5b244e4ec282b7fd50f01432a421dc9_normal.png">
+                <span class="username">John Fink</span>
+                <span class="handle" ><a onClick="window.open('http://twitter.com/adr'); event.preventDefault();" href="https://twitter.com/adr/" title="users twitter page">@adr</a></span>
+                <p><span class="text">there are probably a million of these, but this one is mine:  generic LAMP stack for @getdocker. https://t.co/jSUfsdy5pm</span></p>
+            </div>
+
+            
+            <div class="tweet" onClick="window.open('http://twitter.com/dgryski/status/355623162551083008/')" >
+                <img src="https://si0.twimg.com/profile_images/59859794/dmg-simpsons-head_normal.png">
+                <span class="username">Damian Gryski</span>
+                <span class="handle" ><a onClick="window.open('http://twitter.com/dgryski'); event.preventDefault();" href="https://twitter.com/dgryski/" title="users twitter page">@dgryski</a></span>
+                <p><span class="text">. @i_x_s All the cool kids are moving towards @getdocker .</span></p>
+            </div>
+
+            
+            <div class="tweet" onClick="window.open('http://twitter.com/ptone/status/355404525793841153/')" >
+                <img src="https://si0.twimg.com/profile_images/53688744/flickrID_normal.jpg">
+                <span class="username">Preston Holmes</span>
+                <span class="handle" ><a onClick="window.open('http://twitter.com/ptone'); event.preventDefault();" href="https://twitter.com/ptone/" title="users twitter page">@ptone</a></span>
+                <p><span class="text">cool - my jiffylab project got lead mention on the @getdocker blog: http://t.co/6SBIjkcZUU</span></p>
+            </div>
+
+            
+            <div class="tweet" onClick="window.open('http://twitter.com/izqui9/status/355955060607430656/')" >
+                <img src="https://si0.twimg.com/profile_images/378800000010606962/79ce2f250033813c56e6e03adace088c_normal.jpeg">
+                <span class="username">Jorge Izquierdo</span>
+                <span class="handle" ><a onClick="window.open('http://twitter.com/izqui9'); event.preventDefault();" href="https://twitter.com/izqui9/" title="users twitter page">@izqui9</a></span>
+                <p><span class="text">Blown away by docker.io (@getdocker). Thanks @licuende</span></p>
+            </div>
+
+            
+            <div class="tweet" onClick="window.open('http://twitter.com/bleything/status/354829574980378624/')" >
+                <img src="https://si0.twimg.com/profile_images/1260090298/foo_normal.png">
+                <span class="username">Ben Bleything</span>
+                <span class="handle" ><a onClick="window.open('http://twitter.com/bleything'); event.preventDefault();" href="https://twitter.com/bleything/" title="users twitter page">@bleything</a></span>
+                <p><span class="text">you guys, @getdocker. holy shit.</span></p>
+            </div>
+
+            
+            <div class="tweet" onClick="window.open('http://twitter.com/omo2009/status/354411184524500992/')" >
+                <img src="https://si0.twimg.com/profile_images/596959186/3836410452_a73e116404_s_normal.jpg">
+                <span class="username">omo</span>
+                <span class="handle" ><a onClick="window.open('http://twitter.com/omo2009'); event.preventDefault();" href="https://twitter.com/omo2009/" title="users twitter page">@omo2009</a></span>
+                <p><span class="text">http://t.co/hstD4FF04v Docker のなかで X を動かす話。コンテナ作ってから apt-get とか無茶しやがって・・・。</span></p>
+            </div>
+
+            
+            <div class="tweet" onClick="window.open('http://twitter.com/adr/status/355705492087119875/')" >
+                <img src="https://si0.twimg.com/profile_images/2631673528/b5b244e4ec282b7fd50f01432a421dc9_normal.png">
+                <span class="username">John Fink</span>
+                <span class="handle" ><a onClick="window.open('http://twitter.com/adr'); event.preventDefault();" href="https://twitter.com/adr/" title="users twitter page">@adr</a></span>
+                <p><span class="text">there are probably a million of these, but this one is mine:  generic LAMP stack for @getdocker. https://t.co/jSUfsdy5pm</span></p>
+            </div>
+
+            
+            <div class="tweet" onClick="window.open('http://twitter.com/niallohiggins/status/357972314660405249/')" >
+                <img src="https://si0.twimg.com/profile_images/2563126777/518BADAD-0666-4F4A-90C6-6E0DBC5AE88F_normal">
+                <span class="username">Niall O'Higgins</span>
+                <span class="handle" ><a onClick="window.open('http://twitter.com/niallohiggins'); event.preventDefault();" href="https://twitter.com/niallohiggins/" title="users twitter page">@niallohiggins</a></span>
+                <p><span class="text">Sweet! “@getdocker: Docker 0.5 release: external volumes, advanced networking, self hosted registry http://t.co/MGS6ebA4QF”</span></p>
+            </div>
+
+            
+            <div class="tweet" onClick="window.open('http://twitter.com/cmuratfatih/status/356280542892802050/')" >
+                <img src="https://si0.twimg.com/profile_images/3518180040/3c1164f3f62cfc8ec8525b1c106bb1da_normal.png">
+                <span class="username">Fatih Cetinkaya</span>
+                <span class="handle" ><a onClick="window.open('http://twitter.com/cmuratfatih'); event.preventDefault();" href="https://twitter.com/cmuratfatih/" title="users twitter page">@cmuratfatih</a></span>
+                <p><span class="text">The DUN stack: Docker, Ubuntu, Node.js - https://t.co/pEHG3fg6HB - @getdocker @ubuntu @nodejs #dockerized</span></p>
+            </div>
+
+            
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row" >
+        <div class="span6 block_updates copy_news">
+            <h3>Latest updates</h3>
+
+<h4>Aug 6 • now @docker on Twitter</h4>
+
+<p>This morning we changed our Twitter handle from getdocker to docker on twitter. So please tweet @docker now!</p>
+
+<h4>Jul 23 • Ben Golub Joins as CEO</h4>
+
+<p>Open source veteran Ben Golub joins as CEO to drive the Docker vision forward. Read more:</p>
+
+<p><a href="http://gigaom.com/2013/07/23/paas-pioneer-dotcloud-gets-new-ceo-in-industry-vet-ben-golub/"><img src="/static/img/homepage/gigaom.png" alt="gigaom"></a>
+<a href="http://www.reuters.com/article/2013/07/23/ca-dotcloud-idUSnBw235523a+100+BSW20130723"><img src="/static/img/homepage/reuters.png" alt="reuters"></a>
+<a href="http://finance.yahoo.com/news/dotcloud-appoints-ben-golub-chief-133000939.html"><img src="/static/img/homepage/yahoo.png" alt="yahoo finance"></a></p>
+
+<h4>Jul 18 • Docker 0.5 Released</h4>
+
+<p>We've released version 0.5. Amongst other things, this release containes External Volumes, Advanced Networking and
+    support for an Self Hosted Registry,
+    <span class="read-more"><a href="http://blog.docker.io/2013/07/docker-0-5-0-external-volumes-advanced-networking-self-hosted-registry/">read more -></a></span></p>
+
+<h4>Jul 11 • Featuring awesome projects</h4>
+
+<p>Everyday the Docker community is building awesome tools and projects with and for Docker. We want to share some of these with you.
+    <span class="read-more"><a href="http://blog.docker.io/2013/07/docker-projects-from-the-docker-community/">read more -></a></span></p>
+
+<h4>Jun 25 • dotCloud and Docker join the Linux Foundation</h4>
+
+<p>By joining the foundation, we are excited to support the amazing open source contributions that have come before us, and support those yet to come!
+    <span class="read-more"><a href="http://blog.docker.io/2013/06/dotcloud-and-docker-join-the-linux-foundation/">read more -></a></span></p>
+
+<h4>Jun 6 • Docker in Openstack</h4>
+
+<p>Sam Alba presents an article about the integration of Docker in OpenStack's cloud computing platform: NOVA. This integration
+    allows users of OpenStack to seamlessly create Docker containers from the interface they are already using.
+    <span class="read-more"><a href="http://blog.docker.io/2013/06/openstack-docker-manage-linux-containers-with-nova/">read more -></a></span></p>
+
+<h3>Docker in the news</h3>
+
+<h4>Jul 31 • Docker on Linux.com</h4>
+
+<p><a href="http://www.linux.com/news/enterprise/cloud-computing/731454-docker-a-shipping-container-for-linux-code/"><img width="80px" style="float:left;margin-right:10px;" src="/static/img/homepage/linux.com.jpg" alt="Linux.com"></a> Docker: A 'Shipping Container' for Linux Code <span class="read-more"><a href="http://www.linux.com/news/enterprise/cloud-computing/731454-docker-a-shipping-container-for-linux-code/" target="_blank">read more -></a></span></p>
+
+<h4>Jul 28 • Techcrunch on Docker and "The Matrix of Hell"</h4>
+
+<p><a href="http://techcrunch.com/2013/07/28/the-matrix-of-hell-and-two-open-source-projects-for-the-emerging-agnostic-cloud/"><img width="80px" style="float:left;margin-right:10px;" src="/static/img/homepage/techcrunch.png" alt="techcrunch"></a> The Matrix Of Hell And Two Open-Source Projects For The Emerging Agnostic Cloud
+<span class="read-more"><a href="http://techcrunch.com/2013/07/28/the-matrix-of-hell-and-two-open-source-projects-for-the-emerging-agnostic-cloud/" target="_blank">read more -></a></span></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+        <div class="span6 block_updates copy_community">
+            <h3>Community events</h3>
+
+<h3>Upcoming events</h3>
+
+<h4>Boston OpenStack Meetup • Aug 14</h4>
+
+<p><a href="https://twitter.com/golubbe" target="_blank">Ben Golub</a>, <a href="https://twitter.com/solomonstre" target="_blank">Solomon Hykes</a> and <a href="https://twitter.com/KenCochrane" target="_blank">Ken Cochrane</a> will be attending the next Boston OpenStack Meetup to talk about <strong>Application Deployment on Openstack Using Containers and Docker</strong> <a href="http://www.meetup.com/Openstack-Boston/events/131949152/" target="_blank">read more -></a></p>
+
+<h4>CoderCamp13 in Hamilton, Canada • Aug 14</h4>
+
+<p><a href="https://twitter.com/adr" target="_blank">John Fink</a> will talk about <strong><a href="http://docker.io">docker</a>, a lightweight virtual machine system implemented as a wrapper around Linux containers</strong> <a href="http://codercamp.eventbrite.com/" target="_blank">read more -></a></p>
+
+<h4>New York Docker Meetup • Aug 21</h4>
+
+<p>Join us for the first Docker Meetup in NYC <a href="http://www.meetup.com/Docker-meetups/events/131005192/" target="_blank">read more -></a></p>
+
+<h4>Our previous Hack Day • Jul 30 (past):</h4>
+
+<p>Our hackday #6 was a success, with over 60 participants and, amongst others, great talks about how how people are using
+    it in <strong>EBay</strong>, <strong>Mailgun (Rackspace)</strong> and <strong>CloudFlare</strong>.
+    <span class="read-more disabled"><a href="/live/">watch sessions -></a></span></p>
+
+<p><img src="/static/img/homepage/ebay.png" title="logo's of EBay, Mailgun and CloudFlare">
+<img src="/static/img/homepage/mailgun.png" title="logo's of EBay, Mailgun and CloudFlare">
+<img src="/static/img/homepage/cloudflare.png" title="logo's of EBay, Mailgun and CloudFlare"></p>
+
+<p><a href="/live"><img src="http://farm4.staticflickr.com/3763/9409768665_966d0c08d9.jpg" width="500" height="375" alt="Docker Hck Day #6"></a></p>
+
+
+
+        </div>
+    </div>
+
+
+</div> <!-- end container -->
+
+
+
+
+
+
+<div class="footer-landscape"  >
+    <div class="footer-landscape-image" >
+
+        <!-- footer -->
+        <div class="container">
+            <div class="row" >
+                <div class="span12 footer">
+                    <div class="span8 tbox">
+                        Docker is an open source project, sponsored by  <a href="https://dotcloud.com">dotCloud</a>, under the <a href="https://github.com/dotcloud/docker/blob/master/LICENSE" title="Docker licence, hosted in the Github repository">apache 2.0 licence</a>
+                    </div>
+
+                    <div class="span4 tbox textright social links">
+                        <a class="twitter" href="http://twitter.com/docker">Twitter</a>
+                        <a class="github" href="https://github.com/dotcloud/docker/">GitHub</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end of footer -->
+    </div>
+
+</div>
+
+
+<script type="text/javascript">
+
+    // Function to make the sticky header possible
+    var shiftWindow = function() {
+        scrollBy(0, -80);
+    };
+
+    window.addEventListener("hashchange", shiftWindow);
+
+    $(window).load(function() {
+        if (window.location.hash) {
+            shiftWindow();
+        }
+    });
+
+</script>
+</body>

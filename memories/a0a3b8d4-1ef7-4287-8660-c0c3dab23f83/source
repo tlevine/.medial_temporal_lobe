@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+	<meta charset="utf-8" />
+
+	<title>Types of data — Scott Murray — alignedleft</title>
+	
+	<meta name="description" content="Data visualization, generative art, and tutorials by Scott Murray, code artist." />
+	<meta name="keywords" content="code, art, design, data, visualization, generative, algorithmic, processing, d3, d3.js, book, maps" />
+	<meta name="robots" content="index, follow" />
+
+	<link rel="alternate" type="application/rss+xml" href="http://alignedleft.com/tutorials/d3/feed" />
+	
+	<link rel="stylesheet" type="text/css" media="screen" href="http://alignedleft.com/assets/css/screen.css" />
+		<link rel="stylesheet" type="text/css" media="screen" href="http://alignedleft.com/assets/css/tutorial.css" />
+	<link rel="stylesheet" type="text/css" media="screen and (max-device-width: 480px)" href="http://alignedleft.com/assets/css/narrow.css" />
+	<meta name="viewport" content="initial-scale=1.0" />
+
+	
+	
+</head>
+
+<body class="tutorial">
+
+	
+	<header>
+		<h1><a href="http://alignedleft.com/">Scott Murray</a><span class="prof">, code artist</span></h1>
+		<nav>
+  <ul>
+        <li><a href="http://alignedleft.com/about">About</a></li>
+        <li><a href="http://alignedleft.com/work">Work</a></li>
+        <li><a class="active" href="http://alignedleft.com/tutorials">Tutorials</a></li>
+        <li><a href="http://alignedleft.com/talks">Talks</a></li>
+        <li><a href="http://alignedleft.com/contact">Contact</a></li>
+      </ul>
+</nav>	</header>
+
+	<!--[if lte IE 8]>
+		<div id="ie_warning"><strong>You&rsquo;re using an old version of Internet Explorer.</strong> Consider upgrading your browser to <a href="http://www.apple.com/safari/">Safari</a>, <a href="http://www.mozilla.org/en-US/firefox/new/">Firefox</a>, or <a href="http://www.google.com/chrome">Chrome</a>, and experience a more beautiful web!</div>
+	<![endif]-->
+
+	<noscript>
+		<div id="js_warning"><strong>JavaScript is turned off, so this page won&rsquo;t be very interactive.</strong> Switch JavaScript back on in your web browser for the full experience.</div>
+	</noscript>
+
+<h3>
+	<a href="http://alignedleft.com/tutorials">Tutorials</a> &gt;
+	<a href="http://alignedleft.com/tutorials/d3">D3</a> &gt;
+	Types of data</h3>
+
+<h2>Types of data</h2>
+
+<div id="text">
+
+	<p class="timestamp">Last updated 2012 December 30</p>
+
+	<p>D3 is extremely flexible about its input data. This topic introduces data structures commonly used with JavaScript and D3.</p>
+
+<h2>Variables</h2>
+
+<p>A variable is a datum, the smallest building block of data. The variable is the foundation of all other data structures, which are simply different configurations of variables.</p>
+
+<p>If you’re new to JavaScript, know that it is a <em>loosely typed</em> language, meaning you don’t have to specify what <em>type</em> of information will be stored in a variable in advance.  Many other languages, like Java (which is completely different from Java<em>Script</em>!), require you to declare a variable’s type, such as <code>int</code>, <code>float</code>, <code>boolean</code>, or <code>String</code>.</p>
+
+<pre><code>//Declaring variables in Java
+int number = 5;
+float value = 12.3467;
+boolean active = true;
+String text = "Crystal clear";
+</code></pre>
+
+<p>JavaScript, however, automatically <em>types</em> a variable based on what kind of information you assign to it. (Note that <code>''</code> or <code>""</code> indicate string values. I prefer double quotation marks <code>""</code>, but some people like singles <code>''</code>.)</p>
+
+<pre><code>//Declaring variables in JavaScript
+var number = 5;
+var value = 12.3467;
+var active = true;
+var text = "Crystal clear";
+</code></pre>
+
+<p>How boring — <code>var</code>, <code>var</code>, <code>var</code>, <code>var</code>! — yet handy, as we can declare and name variables before we even know what type of data will go into them. You can even change a variable’s type on-the-fly without JavaScript freaking out on you.</p>
+
+<pre><code>var value = 100;
+value = 99.9999;
+value = false;
+value = "This can't possibly work.";
+value = "Argh, it does work! No errorzzzz!";
+</code></pre>
+
+<h2>Arrays</h2>
+
+<p>An array is a sequence of values, conveniently stored in a single variable.</p>
+
+<p>Keeping track of related values in separate variables is inefficient:</p>
+
+<pre><code>var numberA = 5;
+var numberB = 10;
+var numberC = 15;
+var numberD = 20;
+var numberE = 25;
+</code></pre>
+
+<p>Rewritten as an array, those values are much simpler. Hard brackets <code>[]</code> indicate an array, while each value is separated by a comma:</p>
+
+<pre><code>var numbers = [ 5, 10, 15, 20, 25 ];
+</code></pre>
+
+<p>Arrays are ubiquitous in data visualization, so you should become very comfortable with them. You can access (retrieve) a value in an array by using bracket notation:</p>
+
+<pre><code>numbers[2]  //Returns 15
+</code></pre>
+
+<p>The numeral in the bracket refers to a corresponding position in the array. Remember, array positions begin counting at zero, so the first position is <code>0</code>, the second position is <code>1</code>, and so on.</p>
+
+<pre><code>numbers[0]  //Returns 5
+numbers[1]  //Returns 10
+numbers[2]  //Returns 15
+numbers[3]  //Returns 20
+numbers[4]  //Returns 25
+</code></pre>
+
+<p>Some people find it helpful to think of arrays in spatial terms, as though they have rows and columns, like in a spreadsheet:</p>
+
+<pre><code> ID | Value
+------------
+ 0  |  5
+ 1  |  10
+ 2  |  15
+ 3  |  20
+ 4  |  25
+</code></pre>
+
+<p>Arrays can contain any type of data, not just integers.</p>
+
+<pre><code>var percentages = [ 0.55, 0.32, 0.91 ];
+var names = [ "Ernie", "Bert", "Oscar" ];
+
+percentages[1]  //Returns 0.32
+names[1]        //Returns "Bert"
+</code></pre>
+
+<h2>What Arrays Are Made for()</h2>
+
+<p>Code-based data visualization would not be possible without arrays and the mighty <code>for()</code> loop. Together, they form a data geek’s dynamic duo. (If you do not consider yourself a “data geek,” then may I remind you that you are reading a document titled “Types of data.”)</p>
+
+<p>An array organizes lots of data values in one convenient place. Then <code>for()</code> can quickly “loop” through every value in an array and perform some action with it — such as, express the value as a visual form. D3 often manages this looping for us, with its magical <code>data()</code> method, but it’s important to be able to write your own loops.</p>
+
+<p>I won’t go into the mechanics of <code>for()</code> loops here; that’s a whole separate tutorial. But note this example, which loops through the <code>numbers</code> values from above.</p>
+
+<pre><code>for (var i = 0; i &lt; numbers.length; i++) {
+    console.log(numbers[i]);  //Print value to console
+}
+</code></pre>
+
+<p>See that <code>numbers.length</code>? That’s the beautiful part. If <code>numbers</code> is ten positions long, the loop will run ten times. If it’s ten million positions long… yeah, you get it. This is what computers are good at: taking a set of instructions and executing them over and over. And this is at the heart of why data visualization can be so rewarding — you design and code the visualization system, and the system will respond appropriately, even as you feed it different data. The system’s mapping rules are consistent, even when the data are not.</p>
+
+<h2>Objects</h2>
+
+<p>Arrays are great for simple lists of values, but with more complex data sets, you’ll want to put your data into an object. For our purposes, think of a JavaScript object as a custom data structure. We use curly brackets <code>{}</code> to indicate an object. In between the brackets, we include <em>indices</em> and <em>values</em>. A colon <code>:</code> separates each index and its value, and a comma separates each index/value pair.</p>
+
+<pre><code>var fruit = {
+    kind: "grape",
+    color: "red",
+    quantity: 12,
+    tasty: true
+};
+</code></pre>
+
+<p>To reference each value, we use <em>dot notation</em>, specifying the name of the index:</p>
+
+<pre><code>fruit.kind      //Returns "grape"
+fruit.color     //Returns "red"
+fruit.quantity  //Returns 12
+fruit.tasty     //Returns true
+</code></pre>
+
+<p>Think of the value as “belonging” to the object. Oh, look, some fruit. “What kind of fruit is that?” you might ask. As it turns out, <code>fruit.kind</code> is <code>"grape"</code>. “Are they tasty?” Oh, definitely, because <code>fruit.tasty</code> is <code>true</code>.</p>
+
+<h2>Objects + Arrays</h2>
+
+<p>You can combine these two structures to create arrays of objects, or objects of arrays, or objects of objects or, well, basically whatever structure makes sense for your data set.</p>
+
+<p>Let’s say we have acquired a couple more pieces of fruit, and we want to expand our catalogue accordingly. We use hard brackets <code>[]</code> on the outside, to indicate an array, followed by curly brackets <code>{}</code> and object notation on the inside, with each object separated by a comma.</p>
+
+<pre><code>var fruits = [
+    {
+        kind: "grape",
+        color: "red",
+        quantity: 12,
+        tasty: true
+    },
+    {
+        kind: "kiwi",
+        color: "brown",
+        quantity: 98,
+        tasty: true
+    },
+    {
+        kind: "banana",
+        color: "yellow",
+        quantity: 0,
+        tasty: true
+    }
+];
+</code></pre>
+
+<p>To access this data, we just follow the trail of indices down to the values we want. Remember, <code>[]</code> means array, and <code>{}</code> means object. <code>fruits</code> is an array, so first we use bracket notation to specify an array index:</p>
+
+<pre><code>fruit[1]
+</code></pre>
+
+<p>Next, each array element is an object, so just tack on a dot and an index:</p>
+
+<pre><code>fruit[1].quantity   //Returns 98
+</code></pre>
+
+<p>Here’s a map of how to access every value in the <code>fruits</code> array of objects:</p>
+
+<pre><code>fruits[0].kind      ==  "grape"
+fruits[0].color     ==  "red"
+fruits[0].quantity  ==  12
+fruits[0].tasty     ==  true
+
+fruits[1].kind      ==  "kiwi"
+fruits[1].color     ==  "brown"
+fruits[1].quantity  ==  98
+fruits[1].tasty     ==  true
+
+fruits[2].kind      ==  "banana"
+fruits[2].color     ==  "yellow"
+fruits[2].quantity  ==  0
+fruits[2].tasty     ==  true
+</code></pre>
+
+<p>Yes, that’s right, we have <code>fruits[2].quantity</code> bananas.</p>
+
+<h2>JSON</h2>
+
+<p>At some point in your D3 career, you will encounter JavaScript Object Notation. You can <a href="http://en.wikipedia.org/wiki/Json">read up on the details</a>, but JSON is basically a specific syntax for organizing data as JavaScript objects. The syntax is optimized for use with JavaScript (obviously) and AJAX requests, which is why you’ll see a lot of web-based APIs that spit out data as JSON. It’s faster and easier to parse with JavaScript than XML, and of course D3 works well with it.</p>
+
+<p>All that, and it doesn’t look much weirder than what we’ve already seen:</p>
+
+<pre><code>var jsonFruit = {
+    "kind": "grape",
+    "color": "red",
+    "quantity": 12,
+    "tasty": true
+};
+</code></pre>
+
+<p>The only difference here is that our indices are now surrounded by double quotation marks <code>""</code>, making them string values.</p>
+
+<h2>GeoJSON</h2>
+
+<p>Just as JSON is just a formalization of existing JavaScript object syntax, GeoJSON is a formalized syntax of JSON objects, optimized for storing geodata. All GeoJSON object are JSON objects, and all JSON objects are JavaScript objects.</p>
+
+<p><a href="http://geojson.org/geojson-spec.html">GeoJSON</a> can store points in geographical space (typically as longitude/latitude coordinates), but also shapes (like lines and polygons) and other spatial features. If you have a lot of geodata, it’s worth it to parse it into GeoJSON format for best use with D3.</p>
+
+<p>We’ll get into the details of GeoJSON when we talk about geomaps, but for now, just know that this is what  simple GeoJSON data could look like:</p>
+
+<pre><code>var geodata = {
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [ 150.1282427, -24.471803 ]
+            },
+            "properties": {
+                "type": "town"
+            }
+        }
+    ]
+};
+</code></pre>
+
+<p>(Confusingly, longitude is always listed before latitude. Get used to thinking in terms of lon/lat instead of lat/lon.)</p>
+
+			<p class="next_up">Next up: <a href="http://alignedleft.com/tutorials/d3/making-a-bar-chart">Making a bar chart</a> &rarr;</p>
+	
+	<p class="feedback">
+
+	<a href="http://www.jdoqocy.com/click-6754088-11260198?url=http%3A%2F%2Fshop.oreilly.com%2Fproduct%2F0636920026938.do&cjsku=0636920026938" target="_top"><img src="http://akamaicovers.oreilly.com/images/0636920026938/cat.gif" border="0" alt="Interactive Data Visualization for the Web" style="float: left; padding: 0 15px 0 0; margin: 0;"/></a><img src="http://www.ftjcfx.com/image-6754088-11260198" width="1" height="1" border="0"/> These tutorials have been expanded into a book, <em>Interactive Data Visualization for the Web</em>, published by O’Reilly in March 2013.  <a href="http://www.kqzyfj.com/click-6754088-11260198?url=http%3A%2F%2Fshop.oreilly.com%2Fproduct%2F0636920026938.do&cjsku=0636920026938" target="_top">Purchase the ebook and print editions</a><img src="http://www.ftjcfx.com/image-6754088-11260198" width="1" height="1" border="0"/> from O&rsquo;Reilly. <a href="http://chimera.labs.oreilly.com/books/1230000000345/">A free, online version</a> includes interactive examples.  Download <a href="https://github.com/alignedleft/d3-book/">the sample code files</a> and <a href="https://tinyletter.com/alignedleft">sign up to receive updates by email</a>.<br/>
+<br/>
+<a href="http://twitter.com/alignedleft">Follow me on Twitter</a> or <a href="http://alignedleft.com/tutorials/d3/feed">watch this RSS feed</a> for other updates.<br/>
+<br/>
+These tutorials have been <a href="http://ja.d3js.info/alignedleft/tutorials/d3/">translated to Japanese</a> by <a href="http://blog.node.ws">Hideharu Sakai</a>.</p>
+
+<div style="clear: both;"></div>
+</div>
+
+  <footer>
+    <p>Copyright © 2006–2013 Scott Murray</p>
+  </footer>
+
+<!-- Piwik -->
+<script type="text/javascript">
+  var _paq = _paq || [];
+  _paq.push(["setDocumentTitle", document.domain + "/" + document.title]);
+  _paq.push(["trackPageView"]);
+  _paq.push(["enableLinkTracking"]);
+
+  (function() {
+    var u=(("https:" == document.location.protocol) ? "https" : "http") + "://track.alignedleft.com/";
+    _paq.push(["setTrackerUrl", u+"piwik.php"]);
+    _paq.push(["setSiteId", "1"]);
+    var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+    g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<!-- End Piwik -->
+
+</body>
+</html>
