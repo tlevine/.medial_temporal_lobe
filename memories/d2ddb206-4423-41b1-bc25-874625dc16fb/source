@@ -1,0 +1,3677 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <title>Famous Sed One-Liners Explained, Part I: File Spacing, Numbering and Text Conversion and Substitution - good coders code, great reuse</title>
+
+    <meta name="description" content="Inspired by the success of my &#34;Awk One-Liners Explained&#34; article (30,000 views in first three days), I decided to explain the famous sed one-liners as well. These one-liners, just like the Awk one-liners, are compiled by Eric Pement. You may download them here: sed one-liners (link to .txt file). Most ...">
+
+    <link rel="stylesheet" type="text/css" href="/static/css/reset.css?v=1" media="screen, projection">
+    <link rel="stylesheet" type="text/css" href="/static/css/catonmat.css?v=20" media="screen, projection">
+    <!--[if lte IE 7]>
+    <style type="text/css">
+      #wrapper { margin-top: -1px; }
+    </style>
+    <![endif]-->
+
+    <script type="text/javascript" src="/static/js/jquery-1.3.2.js"></script>
+    <script type="text/javascript" src="/static/js/catonmat.js?v=3"></script>
+
+    <link rel="alternate" type="application/atom+xml" title="catonmat feed" href="http://www.catonmat.net/feed/">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" /> 
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" /> 
+
+    <meta name="google-site-verification" content="aXAUFOiWFF_OiqrmlUrhZN1sqJf5tnuYdMDpuXc1w8w" />
+  </head>
+  <body>
+    <div id="container">
+      <div id="header">
+        
+  <div id="tabs">
+  <ul>
+    <li><a href="/" title="Return to homepage/blog">Home</a></li>
+    <li><a href="/books/" title="Books that Peteris krumins has written">Books</a></li>
+    <li><a href="/projects/" title="Projects that Peteris Krumins has done">Projects</a></li>
+    <li><a href="/sitemap/" title="Catonmat sitemap">Sitemap</a></li>
+    <li><a href="/feedback/" title="Contact Peteris Krumins/Leave feedback">Feedback</a></li>
+    <li><a href="/about/" title="About Peteris Krumins">About Me</a></li>
+    <li><a class="advertise" href="/advertise/" title="Advertise on catonmat.net">Advertise</a></li>
+  </ul>
+  <div id="tab-ad">
+  </div>
+</div>
+<div class="clear"></div>
+<div id="hspace">
+  <div id="first">
+    <a href="/" class="wide" title="Return to good coders code, great reuse">
+    <img src="/static/img/good-coders-code-great-reuse.gif" alt="good coders code, great reuse">
+    </a>
+    <div id="first-real">
+      <table width="100%" height="145" valign="middle">
+        <tr>
+          <td>
+            <p class="quote">There are two ways of constructing a software design. One way is to make it so simple that there are obviously no deficiencies. And the other way is to make it so complicated that there are no obvious deficiencies.</p>
+            <!-- <span class="quotes"><a href="/quotes/" title="more programming related quotes">more quotes</a></span>-->
+            <p class="author">C.A.R. Hoare</p>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div id="second">
+    <div id="second-real">
+      <div id="announcements">
+        <div id="browserling">
+          <p class="title"><a href="http://www.catonmat.net/blog/launching-browserling/" title="I am doing a startup!">I am doing a startup!</a></p>
+          <p class="browserling-logo"><a href="http://www.browserling.com" title="Browserling"><img src="/static/img/browserling-logo-180px.png" alt="Browserling"></a></p>
+          <p>Cross-browser testing from your browser</p>
+        </div>
+        <div id="books">
+          <p class="title"><a href="http://www.catonmat.net/blog/perl-book/">I have written my third book!</a>
+          <p class="awk-logo"><a href="http://www.catonmat.net/blog/perl-book/" title="Perl One-Liners Explained"><img src="/static/img/sed-book-logo-180x61.gif" alt="Perl Book"></a></p>
+          <p>Perl one-liners explained</p>
+        </div>
+        <div class="clear"></div>
+      </div>
+    </div>
+  </div>
+  <div class="clear"></div>
+</div>
+
+
+
+      </div>
+      <div id="wrapper">
+        <div id="content">
+          
+
+
+
+
+
+
+
+
+<div class="welcome">
+  <div class="twitter">
+    <p><a href="http://twitter.com/pkrumins" title="Peteris Krumins on Twitter"><img src="/static/img/twitter-16x16.gif">Follow me on Twitter</a> for my latest adventures!</p>
+  </div>
+</div>
+
+
+
+<div class="page">
+  <div class="header">
+    <span class="category next"><a href="/category/unix-shell" title="See all posts in category &quot;Unix Shell&quot;">Unix Shell</a></span>
+
+    <span class="commentsc">
+        <a href="/blog/sed-one-liners-explained-part-one/#comments" title="67 people have commented on &quot;Famous Sed One-Liners Explained, Part I: File Spacing, Numbering and Text Conversion and Substitution&quot;"><strong>67</strong> Comments</a>
+    </span>
+
+    <span class="date right">October 08, 2008</span>
+
+    <div class="clear"></div>
+    <div class="hrb"></div>
+    <h1><a href="/blog/sed-one-liners-explained-part-one/" title="Famous Sed One-Liners Explained, Part I: File Spacing, Numbering and Text Conversion and Substitution">Famous Sed One-Liners Explained, Part I: File Spacing, Numbering and Text Conversion and Substitution</a></h1>
+    <!--
+    <div class="hr lighter"></div>
+    -->
+  </div>
+
+    
+
+<div class="series">
+<form action="/series" method="POST">
+  <div class="snote">
+    This article is part of the article series "<a href="/series/sed-one-liners-explained" title="Article series &quot;Sed One-Liners Explained&quot;">Sed One-Liners Explained</a>."
+  </div>
+  <div class="snav">
+      <span class="sprev" title="This is the first part in the series (there is no previous article)">&lt;- previous article</span>
+    <span class="toc">
+      <select name="navigate">
+           <option value="/blog/sed-one-liners-explained-part-one" selected>1. Famous Sed One-Liners Explained, Part I: File Spacing, Numbering and Text Conversion and Substitution</option>
+           <option value="/blog/sed-one-liners-explained-part-two">2. Famous Sed One-Liners Explained, Part II: Selective Printing of Certain Lines</option>
+           <option value="/blog/sed-one-liners-explained-part-three">3. Famous Sed One-Liners Explained, Part III: Selective Deletion of Certain Lines and Special Applications</option>
+           <option value="/blog/sed-book">4. Announcing my second e-book &#34;Sed One-Liners Explained&#34;</option>
+      </select>
+      <input type="submit" value="Go" name="go">
+    </span>
+      
+      <span class="snext"><a href="/blog/sed-one-liners-explained-part-two/" title="Famous Sed One-Liners Explained, Part II: Selective Printing of Certain Lines">next article -></a></span>
+  </div>
+</form>
+</div>
+
+
+  <div class="content">
+    
+
+    
+
+    
+
+    
+      <div style="margin-bottom: 10px"><img src='http://www.catonmat.net/blog/wp-content/uploads/2007/07/post-icon-sed.jpg' alt='sed -- the superman of unix stream editing' class='post-icon' align='left' /><div style="float: right; margin-right:20px">
+<script type="text/javascript"><!--
+  google_ad_client = "pub-0433925538517663";
+  /* catonmat before article (blue) 336x280, created 1/23/10 */
+  google_ad_slot = "8733420369";
+  google_ad_width = 336;
+  google_ad_height = 280;
+  //-->
+</script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+    </div>
+<div class="clear"></div>
+</div>
+<p>Inspired by the success of my "<a href="http://www.catonmat.net/blog/awk-one-liners-explained-part-one/">Awk One-Liners Explained</a>" article (30,000 views in first three days), I decided to explain the <strong>famous sed one-liners</strong> as well.</p>
+<p>These one-liners, just like the Awk one-liners, are compiled by <a href="http://www.student.northpark.edu/pemente/">Eric Pement</a>.</p>
+<p>You may download them here: <a href='http://www.catonmat.net/blog/wp-content/uploads/2008/09/sed1line.txt' title='sed one-liners'>sed one-liners</a> (link to .txt file).</p>
+<p>Most people are only familiar with one particular command of sed, namely the "s" (substitute) comand. s/comand/command/. That is unsatisfactory. Sed has at least 20 different commands for you. You can even write <a href='http://www.catonmat.net/blog/wp-content/uploads/2008/09/sedtris.sed' title='sed tetris'>tetris</a> in it (not to mention that it's Turing complete).</p>
+<p>My sed learning process was actually identical to Awk learning process. First I went through <a href="http://www.grymoire.com/Unix/Sed.html">Bruce Barnett's sed tutorial</a>; then I created a <a href="http://www.catonmat.net/blog/sed-stream-editor-cheat-sheet/">sed cheat sheet</a>; and finally went through <a href='http://www.catonmat.net/blog/wp-content/uploads/2008/09/sed1line.txt' title='sed one-liners'>sed one-liners</a>. I could not figure one of the one-liners in the file, so I ended up <a href="http://groups.google.com/group/comp.unix.shell/browse_frm/thread/b3885f5692585f64?tvc=1">asking for help in comp.unix.shell</a>.</p>
+<p>Eric's sed one-liners are divided into several sections:</p>
+<ul>	<li><strong>1. File spacing (explained in this part).</strong></li>
+	<li><strong>2. Numbering (explained in this part).</strong></li>
+	<li><strong>3. Text conversion and substitution (explained in this part).</strong></li>
+	<li>4. <a href="http://www.catonmat.net/blog/sed-one-liners-explained-part-two/">Selective printing of certain lines</a> (explained in part two).</li>
+	<li>5. <a href="http://www.catonmat.net/blog/sed-one-liners-explained-part-three/">Selective deletion of certain lines</a> (explained in part three).</li>
+	<li>6. <a href="http://www.catonmat.net/blog/sed-one-liners-explained-part-three/">Special applications</a> (explained in part three).</li>
+        <li>7. <a href="http://www.catonmat.net/blog/sed-book/">Release of Sed One-Liners Explained e-book.</a></li>
+</ul>
+<p><strong>Update</strong>: <a href="http://jinetedeldragon.wordpress.com/2009/06/22/sed-en-una-linea-sed-one-liners-parte-i/">Spanish translation of part one is available</a>!</p>
+<p>I'll divide this article in 3 parts. In the first part I will cover "File spacing", "Numbering" and "Text conversion and substitution". In the second part I will cover "Selective printing of certain lines" and in the third "Selective deletion of certain lines" and "Special applications".</p>
+<p>Before I start explaining, I want to share the key idea that changed the way I think about sed. It was the four spaces of sed -- <strong>input stream</strong>, <strong>output stream</strong>, <strong>pattern space</strong>, <strong>hold buffer</strong>. Sed operates on input stream and produces an output stream. The lines from input stream are placed into the pattern space where they are modified. The hold buffer can be used for temporary storage. These four spaces changed the way I think about sed.</p>
+<p><strong>Awesome news:</strong> I have written an e-book based on this article series. Check it out:</p>
+<div class="c"><p><a href="http://www.catonmat.net/blog/sed-book/" class="nohover" title="Sed One-Liners Explained"><img src="http://www.catonmat.net/images/sed-book/cover.png"></a><br>
+<small><a href="http://www.catonmat.net/blog/sed-book/">sed book</a></small></p>
+</div>
+<p>Grab a copy of <a href="http://www.catonmat.net/blog/sed-stream-editor-cheat-sheet/">sed cheat sheet</a>, print it and let's dive into one-liners!</p>
+<h2>1. File spacing.</h2>
+<p><strong>1. Double-space a file.</strong></p>
+<pre >sed G</pre>
+<p>This sed one-liner uses the 'G' command. If you grabbed the cheat-sheet you'd see that the command 'G' appends to the pattern space. It appends a newline followed by the contents of hold buffer. In this example the hold buffer is empty all the time (only three commands 'h', 'H' and 'x' modify hold buffer), so we end up simply appending a newline to the pattern space. Once all the commands have been processed (in this case just the 'G' command), sed puts the contents of pattern space to output stream followed by a newline. There we have it, two newlines -- one added by the 'G' command and the other by output stream. File has been double spaced.</p>
+<p><strong>2. Double-space a file which already has blank lines in it. Do it so that the output contains no more than one blank line between two lines of text.</strong></p>
+<pre >sed '/^$/d;G'</pre>
+<p>Sed allows to restrict commands only to certain lines. This one-liner operates only on lines that match a regular expression /^$/. Which are those? Those are the empty lines. Note that before doing the regular expression match sed pushes the input line to pattern space. When doing it, sed strips the trailing newline character. The empty lines contain just the newline character, so after they have been put into pattern space, this only character has been removed and pattern space stays empty. Regular expression /^$/ matches an empty pattern space and sed applies 'd' command on it, which deletes the current pattern space, reads in the next line, puts it into the pattern space and aborts the current command, and starts the execution from the beginning. The lines which do not match emptiness get a newline character appended by the 'G' command, just like in one-liner #1.</p>
+<p>In general sed allows to restrict operations to certain lines (5th, 27th, etc.), to a range of lines (lines 10-20), to lines matching a pattern (lines containing the word "catonmat"), and to lines between two patterns (lines between "catonmat" and "coders").</p>
+<p><strong>3. Triple-space a file.</strong></p>
+<pre >sed 'G;G'</pre>
+<p>Several sed commands can be combined by separating them by ';'. Such commands get executed one after another. This one-liner does twice what the one-liner #1 does -- appends two newlines (via two 'G' commands) to output.</p>
+<p><strong>4. Undo double-spacing.</strong></p>
+<pre >sed 'n;d'</pre>
+<p>This one-liner assumes that even-numbered lines are always blank. It uses two new commands - 'n' and 'd'. The 'n' command prints out the current pattern space (unless the '-n' flag has been specified), empties the current pattern space and reads in the next line of input. We assumed that even-numbered lines are always blank. This means that 'n' prints the first, third, fifth, ..., etc. line and reads in the following line. The line following the printed line is always an empty line. Now the 'd' command gets executed. The 'd' command deletes the current pattern space, reads in the next line, puts the new line into the pattern space and aborts the current command, and starts the execution from the first sed command. Now the the 'n' commands gets executed again, then 'd', then 'n', etc.</p>
+<p>To make it shorter - 'n' prints out the current line, and 'd' deletes the empty line, thus undoing the double-spacing.</p>
+<p><strong>5. Insert a blank line above every line that matches "regex".</strong></p>
+<pre >sed '/regex/{x;p;x;}'</pre>
+<p>This one liner uses the restriction operation together with two new commands - 'x' and 'p'. The 'x' command exchanges the hold buffer with the pattern buffer. The 'p' command duplicates input -- prints out the entire pattern space. This one-liner works the following way: a line is read in pattern space, then the 'x' command exchanges it with the empty hold buffer. Next the 'p' command prints out emptiness followed by a newline, so we get an empty line printed before the actual line. Then 'x' exchanges the hold buffer (which now contains the line) with pattern space again. There are no more commands so sed prints out the pattern space. We have printed a newline followed by the line, or saying it in different words, inserted a blank line above every line.</p>
+<p>Also notice the { ... }. This is command grouping. It says, execute all the commands in "..." on the line that matches the restriction operation.</p>
+<p><strong>6. Insert a blank line below every line that matches "regex".</strong></p>
+<pre >sed '/regex/G'</pre>
+<p>This one liner combines restriction operation with the 'G' command, described in one-liner #1. For every line that matches /regex/, sed appends a newline to pattern space. All the other lines that do not match /regex/ just get printed out without modification.</p>
+<p><strong>7. Insert a blank line above and below every line that matches "regex".</strong></p>
+<pre >sed '/regex/{x;p;x;G;}'</pre>
+<p>This one-liner combines one-liners #5, #6 and #1. Lines matching /regex/ get a newline appended before them and printed (x;p;x from #5). Then they are followed by another newline from the 'G' command (one-liner #6 or #1).</p>
+<h2>2. Numbering.</h2>
+<p><strong>8. Number each line of a file (named <em>filename</em>). Left align the number.</strong></p>
+<pre >sed = filename | sed 'N;s/\n/\t/'</pre>
+<p>One-liners get trickier and trickier. This one-liner is actually two separate one-liners. The first sed one-liner uses a new command called '='. This command operates directly on the output stream and prints the current line number. There is no way to capture the current line number to pattern space. That's why the second one-liner gets called. The output of first one-liner gets piped to the input of second. The second one-liner uses another new command 'N'. The 'N' command appends a newline and the next line to current pattern space. Then the famous 's///' command gets executed which replaces the newline character just appended with a tab. After these operations the line gets printed out.</p>
+<p>To make it clear what '=' does, take a look at this example file:</p>
+<pre >
+line one
+line two
+line three
+</pre>
+<p>Running the first one-liner 'sed = filename', produces output:</p>
+<pre >
+1
+line one
+2
+line two
+3
+line three
+</pre>
+<p>Now, the 'N' command of the second one-liner joins these lines with a newline character:</p>
+<pre >
+1\nline one
+2\nline two
+3\nline three
+</pre>
+<p>The 's/\n/\t/' replaces the newline chars with tabs, so we end up with:</p>
+<pre >
+1     line one
+2     line two
+3     line three
+</pre>
+<p>The example is a little inaccurate as line joining with a newline char happens line after line, not on all lines at once.</p>
+<p><strong>9. Number each line of a file (named <em>filename</em>). Right align the number.</strong></p>
+<pre >sed = filename | sed &#39;N; s/^/     /; s/ *\(.\{6,\}\)\n/\1  /&#39;</pre>
+<p>This one-liner is also actually two one-liners. The first one liner numbers the lines, just like #8. The second one-liner uses the 'N' command to join the line containing the line number with the actual line. Then it uses two substitute commands to right align the number. The first 's' command 's/^/     /' appends 5 white-spaces to the beginning of line. The second 's' command 's/ *\(.\{6,\}\)\n/\1  /' captures at least six symbols up to a newline and replaces the capture and newline with the back-reference '\1' and two more whitespace to separate line number from the contents of line.</p>
+<p>I think it's hard to understand the last part of this sed expression by just reading. Let's look at an example. For clearness I replaced the '\n' newline char with a '@' and whitespace with '&#45;'.</p>
+<pre >
+$ echo "-----12@contents" | sed 's/-*\(.\{6,\}\)@/\1--/'
+----12--contents
+</pre>
+<p>The regular expression '-*\(.\{6,\}\)@' (or just '-*(.{6,})@') tells sed to match some '-' characters followed by at least 6 other characters, followed by a '@' symbol. Sed captures them (remembers them) in \1.</p>
+<p>In this example sed matches the first '-' (the '-*' part of regex), then the following six characters "&#45;&#45;&#45;&#45;12" and '@' (the '*\(.\{6,\}\)@' part of regex). Now it replaces the matched part of the string "&#45;&#45;&#45;&#45;&#45;12@" with the contents of captured group which is "&#45;&#45;&#45;&#45;12" plus two extra whitespace. The final result is that "&#45;&#45;&#45;&#45;&#45;12@" gets replaced with "&#45;&#45;&#45;&#45;12&#45;&#45;".</p>
+<p><strong>10. Number each non-empty line of a file (called filename).</strong></p>
+<pre >sed '/./=' filename | sed '/./N; s/\n/ /'</pre>
+<p>This one-liner is again two one-liners. The output of the first one-liner gets piped to the input of second. The first one-liner filters out lines with at least one character in them. The regular expression '/./' says: match lines with at least one char in them. When the empty lines (containing just a newline) get sent to the pattern space, the newline character gets removed, so the empty lines do not get matched. The second one-liner does the same one-liner #8 did, except that only numbered lines get joined and printed out. Command '/./N' makes sure that empty lines are left as-is.</p>
+<p><strong>11. Count the number of lines in a file (emulates "wc -l").</strong></p>
+<pre >sed -n &#39;$=&#39;</pre>
+<p>This one-liner uses a command line switch "-n" to modify sed's behavior. The "-n" switch tells sed not to send the line to output after it has been processed in the pattern space. The only way to make sed output anything with the "-n" switch being on is to use a command that modifies the output stream directly (these commands are '=', 'a', 'c', 'i', 'I', 'p', 'P', 'r' and 'w'). In this one-liner what seems to be the command "$=" is actually a restriction pattern "$" together with the "=" command. The restriction pattern "$" applies the "=" command to the last line only. The "=" command outputs the current line number to standard output. As it is applied to the last line only, this one-liner outputs the number of lines in the file.</p>
+<h2>3. Text Conversion and Substitution.</h2>
+<p><strong>12. Convert DOS/Windows newlines (CRLF) to Unix newlines (LF).</strong></p>
+<pre >sed 's/.$//'</pre>
+<p>This one-one liner assumes that all lines end with CR+LF (carriage return + line feed) and we are in a Unix environment. Once the line gets read into pattern space, the newline gets thrown away, so we are left with lines ending in CR. The &#39;s/.$//&#39; command erases the last character by matching the last character of the line (regex &#39;.$&#39;) and substituting it with nothing. Now when the pattern space gets output, it gets appended the newline and we are left with lines ending with LF.</p>
+<p>The assumption about being in a Unix environment is necessary because the newline that gets appended when the pattern space gets copied to output stream is the newline of that environment.</p>
+<p><strong>13. Another way to convert DOS/Windows newlines (CRLF) to Unix newlines (LF).</strong></p>
+<pre >sed 's/^M$//'</pre>
+<p>This one-liner again assumes that we are in a Unix environment. It erases the carriage return control character ^M. You can usually enter the ^M control char literally by first pressing Ctrl-V (it's control key + v key) and then Ctrl-M.</p>
+<p><strong>14. Yet another way to convert DOS/Windows newlines to Unix newlines.</strong></p>
+<pre >sed 's/\x0D$//'</pre>
+<p>This one-liner assumes that we are on a Unix machine. It also assumes that we use a version of sed that supports hex escape codes, such as GNU sed. The hex value for CR is 0x0D (13 decimal). This one-liner erases this character.</p>
+<p><strong>15-17. Convert Unix newlines (LF) to DOS/Windows newlines (CRLF).</strong></p>
+<pre >sed "s/$/`echo -e \\\r`/"</pre>
+<p>This one-liner also assumes that we are in a Unix environment. It calls shell for help. The &#39;echo -e \\\r&#39; command inserts a literal carriage return character in the sed expression. The sed "s/$/char/" command appends a character to the end of current pattern space.</p>
+<p><strong>18. Another way to convert Unix newlines (LF) to DOS/Windows newlines (CRLF).</strong></p>
+<pre >sed 's/$/\r/'</pre>
+<p>This one-liner assumes that we use GNU sed. GNU sed is smarter than other seds and can take escape characters in the replace part of s/// command.</p>
+<p><strong>19. Convert Unix newlines (LF) to DOS/Windows newlines (CRLF) from DOS/Windows.</strong></p>
+<pre >sed "s/$//"</pre>
+<p>This one-liner works from DOS/Windows. It's basically a no-op one-liner. It replaces nothing with nothing and then sends out the line to output stream where it gets CRLF appended.</p>
+<p><strong>20. Another way to convert Unix newlines (LF) to DOS/Windows newlines (CRLF) from DOS/Windows.</strong></p>
+<pre >sed -n p</pre>
+<p>This is also a no-op one-liner, just like #19. The shortest one-liner which does the same is:</p>
+<pre >
+sed ''
+</pre>
+<p><strong>21. Convert DOS/Windows newlines (LF) to Unix format (CRLF) from DOS/Windows.</strong></p>
+<pre >sed "s/\r//"</pre>
+<p>Eric says that this one-liner works only with UnxUtils sed v4.0.7 or higher. I don't know anything about this version of sed, so let's just trust him. This one-liner strips carriage return (CR) chars from lines. Then when they get output, CRLF gets appended by magic.</p>
+<p>Eric mentions that the only way to convert LF to CRLF on a DOS machine is to use tr:</p>
+<pre >tr -d \r &lt;infile &gt;outfile</pre>
+<p><strong>22. Delete leading whitespace (tabs and spaces) from each line.</strong></p>
+<pre >sed 's/^[ \t]*//'</pre>
+<p>Pretty simple, it matches zero-or-more spaces and tabs at the beginning of the line and replaces them with nothing, i.e. erases them.</p>
+<p><strong>23. Delete trailing whitespace (tabs and spaces) from each line.</strong></p>
+<pre >sed 's/[ \t]*$//'</pre>
+<p>This one-liner is very similar to #22. It does the same substitution, just matching zero-or-more spaces and tabs at the end of the line, and then erases them.</p>
+<p><strong>24. Delete both leading and trailing whitespace from each line.</strong></p>
+<pre >sed 's/^[ \t]*//;s/[ \t]*$//'</pre>
+<p>This one liner combines #22 and #23. First it does what #22 does, erase the leading whitespace, and then it does the same as #23, erase trailing whitespace.</p>
+<p><strong>25. Insert five blank spaces at the beginning of each line.</strong></p>
+<pre >sed 's/^/     /'</pre>
+<p>It does it by matching the null-string at the beginning of line (^) and replaces it with five spaces "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;".</p>
+<p><strong>26. Align lines right on a 79-column width.</strong></p>
+<pre >sed -e :a -e 's/^.\{1,78\}$/ &/;ta'</pre>
+<p>This one-liner uses a new command line option and two new commands. The new command line option is '-e'. It allows to write a sed program in several parts. For example, a sed program with two substitution rules could be written as "sed -e 's/one/two/' -e 's/three/four'" instead of "sed 's/one/two/;s/three/four'". It makes it more readable. In this one-liner the first "-e" creates a label called "a". The ':' command followed by a name crates a named label. The second "-e" uses a new command "t". The "t" command branches to a named label if the last substitute command modified pattern space. This branching technique can be used to create loops in sed. In this one-liner the substitute command left-pads the string (right aligns it) a single whitespace at a time, until the total length of the string exceeds 78 chars. The "&" in substitution command means the matched string.</p>
+<p>Translating it in modern language, it would look like this:</p>
+<pre >
+while (str.length() &lt;= 78) {
+ str = " " + str
+}
+</pre>
+<p><strong>27. Center all text in the middle of 79-column width.</strong></p>
+<pre >sed  -e :a -e 's/^.\{1,77\}$/ & /;ta'</pre>
+<p>This one-liner is very similar to #26, but instead of left padding the line one whitespace character at a time it pads it on both sides until it has reached length of at least 77 chars. Then another two whitespaces get added at the last iteration and it has grown to 79 chars.</p>
+<p>Another way to do the same is</p>
+<pre >sed  -e :a -e 's/^.\{1,77\}$/ &/;ta' -e 's/\( *\)\1/\1/'</pre>
+<p>This one-liner left pads the string one whitespace char at a time until it has reached length of 78 characters. Then the additional "s/\( *\)\1/\1/" command gets executed which divides the leading whitespace "in half". This effectively centers the string. Unlike the previous one-liner this one-liner does not add trailing whitespace. It just adds enough leading whitespace to center the string.</p>
+<p><strong>28. Substitute (find and replace) the first occurrence of "foo" with "bar" on each line.</strong></p>
+<pre >sed 's/foo/bar/'</pre>
+<p>This is the simplest sed one-liner possible. It uses the substitute command and applies it once on each line. It substitutes string "foo" with "bar".</p>
+<p><strong>29. Substitute (find and replace) the fourth occurrence of "foo" with "bar" on each line.</strong></p>
+<pre >sed 's/foo/bar/4'</pre>
+<p>This one-liner uses a flag for the substitute command. With no flags the first occurrence of pattern is changed. With a numeric flag like "/1", "/2", etc. only that occurrence is substituted. This one-liner uses numeric flag "/4" which makes it change fourth occurrence on each line.</p>
+<p><strong>30. Substitute (find and replace) all occurrence of "foo" with "bar" on each line.</strong></p>
+<pre >sed 's/foo/bar/g'</pre>
+<p>This one-liner uses another flag. The "/g" flag which stands for global. With global flag set, substitute command does as many substitutions as possible, i.e., all.</p>
+<p><strong>31. Substitute (find and replace) the first occurrence of a repeated occurrence of "foo" with "bar".</strong></p>
+<pre >sed 's/\(.*\)foo\(.*foo\)/\1bar\2/'</pre>
+<p>Let's understand this one-liner with an example:</p>
+<pre >
+$ echo "this is foo and another foo quux" | sed 's/\(.*\)foo\(.*foo\)/\1bar\2/'
+this is bar and another foo quux
+</pre>
+<p>As you can see, this one liner replaced the first "foo" with "bar".</p>
+<p>It did it by using two capturing groups. The first capturing group caught everything before the first "foo". In this example it was text "this is ". The second group caught everything after the first "foo", including the second "foo". In this example " and another foo". The matched text was then replaced with contents of first group "this is " followed by "bar" and contents of second group " and another foo". Since " quux" was not part of the match it was left unchanged. Joining these parts the resulting string is "this is bar and another foo quux", which is exactly what we got from running the one-liner.</p>
+<p><strong>32. Substitute (find and replace) only the last occurrence of "foo" with "bar".</strong></p>
+<pre >sed 's/\(.*\)foo/\1bar/'</pre>
+<p>This one-liner uses a capturing group that captures everything up to "foo". It replaces the captured group and "foo" with captured group itself (the \1 back-reference) and "bar". It results in the last occurrence of "foo" getting replaced with "bar".</p>
+<p><strong>33. Substitute all occurrences of "foo" with "bar" on all lines that contain "baz".</strong></p>
+<pre >sed '/baz/s/foo/bar/g'</pre>
+<p>This one-liner uses a regular expression to restrict the substitution to lines matching "baz". The lines that do not match "baz" get simply printed out, but those that do match "baz" get the substitution applied.</p>
+<p><strong>34. Substitute all occurrences of "foo" with "bar" on all lines that DO NOT contain "baz".</strong></p>
+<pre >sed '/baz/!s/foo/bar/g'</pre>
+<p>Sed commands can be inverted and applied on lines that DO NOT match a certain pattern. The exclamation "!" before a sed commands does it. In this one-liner the substitution command is applied to the lines that DO NOT match "baz".</p>
+<p><strong>35. Change text "scarlet", "ruby" or "puce" to "red".</strong></p>
+<pre >sed 's/scarlet/red/g;s/ruby/red/g;s/puce/red/g'</pre>
+<p>This one-liner just uses three consecutive substitution commands. The first replaces "scarlet" with "red", the second replaced "ruby" with "red" and the last one replaces "puce" with "red".</p>
+<p>If you are using GNU sed, then you can do it simpler:</p>
+<pre >gsed 's/scarlet\|ruby\|puce/red/g'</pre>
+<p>GNU sed provides more advanced regular expressions which support alternation. This one-liner uses alternation and the substitute command reads "replace 'scarlet' OR 'ruby' OR 'puce' with 'red'".</p>
+<p><strong>36. Reverse order of lines (emulate "tac" Unix command).</strong></p>
+<pre >sed '1!G;h;$!d'</pre>
+<p>This one-liner acts as the "tac" Unix utility. It's tricky to explain. The easiest way to explain it is by using an example.</p>
+<p>Let's use a file with just 3 lines:</p>
+<pre >
+$ cat file
+foo
+bar
+baz
+</pre>
+<p>Running this one-liner on this file produces the file in reverse order:</p>
+<pre >
+$ sed '1!G;h;$!d' file
+baz
+bar
+foo
+</pre>
+<p>The first one-liner's command "1!G" gets applied to all the lines which are not the first line. The second command "h" gets applied to all lines. The third command "$!d" gets applied to all lines except the last one.</p>
+<p>Let's go through the execution line by line.</p>
+<p>Line 1: Only the "h" command gets applied for the first line "foo". It copies this line to hold buffer. Hold buffer now contains "foo". Nothing gets output as the "d" command gets applied.<br>
+Line 2: The "G" command gets applied. It appends the contents of hold buffer to pattern space. The pattern space now contains.  "bar\nfoo". The "h" command gets applied, it copies "bar\nfoo" to hold buffer. It now contains "bar\nfoo". Nothing gets output.<br>
+Line 3: The "G" command gets applied. It appends hold buffer to the third line. The pattern space now contains "baz\nbar\nfoo". As this was the last line, "d" does not get applied and the contents of pattern space gets printed. It's "baz\nbar\nfoo". File got reversed.</p>
+<p>If we had had more lines, they would have simply get appended to hold buffer in reverse order.</p>
+<p>Here is another way to do the same:</p>
+<pre >sed -n '1!G;h;$p'</pre>
+<p>It silences the output with "-n" switch and forces the output with "p" command only at the last line.</p>
+<p>These two one-liners actually use a lot of memory because they keep the whole file in hold buffer in reverse order before printing it out. Avoid these one-liners for large files.</p>
+<p><strong>37. Reverse a line (emulates "rev" Unix command).</strong></p>
+<pre >sed '/\n/!G;s/\(.\)\(.*\n\)/&\2\1/;//D;s/.//'</pre>
+<p>This is a very complicated one-liner. I had trouble understanding it the first time I saw it and ended up asking on <a href="http://groups.google.com/group/comp.unix.shell/browse_frm/thread/b3885f5692585f64?tvc=1">comp.unix.shell</a> for help.</p>
+<p>Let's re-format this sed one-liner:</p>
+<pre >
+ sed '
+   /\n/ !G
+   s/\(.\)\(.*\n\)/&\2\1/
+   //D
+   s/.//
+ ' 
+</pre>
+<p>The first line "/\n/ !G" appends a newline to the end of the pattern space if there was none.</p>
+<p>The second line "s/\(.\)\(.*\n\)/&\2\1/" is a simple s/// expression which groups the first character as \1 and all the others as \2. Then it replaces the whole matched string with "&\2\1", where "&" is the whole matched text ("\1\2"). For example, if the input string is "1234" then after the s/// expression, it becomes "1234\n234\n1".</p>
+<p>The third line is "//D". This statement is the key in this one-liner. An empty pattern // matches the last existing regex, so it's exactly the same as:  /\(.\)\(.*\n\)/D. The "D" command deletes from the start of the input till the first newline and then resumes editing with first command in script. It creates a loop. As long as /\(.\)\(.*\n\)/ is satisfied, sed will resume all previous operations. After several loops, the text in the pattern space becomes "\n4321". Then /\(.\)\(.*\n\)/ fails and sed goes to the next command.</p>
+<p>The fourth line "s/.//" removes the first character in the pattern space which is the newline char. The contents in pattern space becomes "4321" -- reverse of "1234".</p>
+<p>There you have it, a line has been reversed.</p>
+<p><strong>38. Join pairs of lines side-by-side (emulates "paste" Unix command).</strong></p>
+<pre >sed '$!N;s/\n/ /'</pre>
+<p>This one-liner joins two consecutive lines with the "N" command. They get joined with a "\n" character between them. The substitute command replaces this newline with a space, thus joining every pair of lines with a whitespace.</p>
+<p><strong>39. Append a line to the next if it ends with a backslash "\".</strong></p>
+<pre >sed -e :a -e '/\\$/N; s/\\\n//; ta'</pre>
+<p>The first expression ':a' creates a named label "a". The second expression looks to see if the current line ends with a backslash "\". If it does, it joins it with the line following it using the "N" command. Then the slash and the newline between joined lines get erased with "s/\\\n//" command. If the substitution was successful we branch to the beginning of expression and do the same again, in hope that we might have another backslash. If the substitution was not successful, the line did not end with a backslash and we print it out.</p>
+<p>Here is an example of running this one-liner:</p>
+<pre >
+$ cat filename
+line one \
+line two
+line three
+$ sed -e :a -e '/\\$/N; s/\\\n//; ta' filename
+line one line two
+line three
+</pre>
+<p>Lines one and two got joined because the first line ended with backslash.</p>
+<p><strong>40. Append a line to the previous if it starts with an equal sign "=".</strong></p>
+<pre >sed -e :a -e '$!N;s/\n=/ /;ta' -e 'P;D'</pre>
+<p>This one-liner also starts with creating a named label "a". Then it tests to see if it is not the last line and appends the next line to the current one with "N" command. If the just appended line starts with a "=", one-liner branches the label "a" to see if there are more lines starting with "=". During this process a substitution gets executed which throws away the newline character which came from joining with "N" and the "=". If the substitution fails, one-liner prints out the pattern space up to the newline character with the "P" command, and deletes the contents of pattern space up to the newline character with "D" command, and repeats the process.</p>
+<p>Here is an example of running it:</p>
+<pre >
+$ cat filename
+line one
+=line two
+=line three
+line four
+$ sed -e :a -e '$!N;s/\n=/ /;ta' -e 'P;D' filename
+line one line two line three
+line four
+</pre>
+<p>Lines one, two and three got joined, because lines two and three started with '='. Line four got printed as-is.</p>
+<p><strong>41. Digit group (commify) a numeric string.</strong></p>
+<pre >sed -e :a -e 's/\(.*[0-9]\)\([0-9]\{3\}\)/\1,\2/;ta'</pre>
+<p>This one-liner turns a string of digits, such as "1234567" to "1,234,567". This is called commifying or digit grouping.</p>
+<p>First the one-liner creates a named label "a". Then it captures two groups of digits. The first group is all the digits up to last three digits. The last three digits gets captures in the 2nd group. Then the two matching groups get separated by a comma. Then the same rules get applied to the line again and again until all the numbers have been grouped in groups of three.</p>
+<p>Substitution command "\1,\2" separates contents of group one with a comma from the contents of group two.</p>
+<p>Here is an example to understand the grouping happening here better. Suppose you have a numeric string "1234567". The first group captures all the numbers until the last three "1234". The second group captures last three numbers "567". They get joined by a comma. Now the string is "1234,567". The same stuff is applied to the string again. Number "1" gets captured in the first group and the numbers "234" in the second. The number string is "1,234,567". Trying to apply the same rules again fail because there is just one digit at the beginning of string, so the string gets printed out and sed moves on to the next line.</p>
+<p>If you have GNU sed, you can use a simpler one-liner:</p>
+<pre >gsed ':a;s/\B[0-9]\{3\}\>/,&/;ta'</pre>
+<p>This one-liner starts with creating a named label "a" and then loops over the string the same way as the previous one-liner did. The only difference is how groups of three digits get matched. GNU sed has some additional patterns. There are two patterns that make this one-liner work. The first is "\B", which matches anywhere except at a word boundary. It's needed so we did not go beyond word boundary. Look at this example:</p>
+<pre >
+$ echo "12345 1234 123" | sed 's/[0-9]\{3\}\&gt;/,&/g'
+12,345 1,234 ,123
+</pre>
+<p>It's clearly wrong. The last 123 got a comma added. Adding the "\B" makes sure we match the numbers only at word boundary:</p>
+<pre >
+$ echo "12345 1234 123" | sed 's/\B[0-9]\{3\}\&gt;/,&/g'
+12,345 1,234 123
+</pre>
+<p>The second is "\>". It matches the null string at the end of a word. It's necessary because we need to to match the right-most three digits. If we did not have it, the expression would match after the first digit.</p>
+<p><strong>42. Add commas to numbers with decimal points and minus signs.</strong></p>
+<pre >gsed -r ':a;s/(^|[^0-9.])([0-9]+)([0-9]{3})/\1\2,\3/g;ta'</pre>
+<p>This one-liner works in GNU sed only. It turns on extended regular expression support with the "-r" switch. Then it loops over a line matching three groups and separates the first two from the third with a comma.</p>
+<p>The first group makes sure we ignore a leading non-digit character, such as + or -. If there is no leading non-digit character, then it just anchors at the beginning of the string which always matches.</p>
+<p>The second group matches a bunch of numbers. The third group makes sure the second group does not match too many. It matches 3 consecutive numbers at the end of the string.</p>
+<p>Once the groups have been captured, the "\1\2,\3" substitution is done and the expression is looped again, until the whole string has been commified.</p>
+<p><strong>43. Add a blank line after every five lines.</strong></p>
+<pre >sed 'n;n;n;n;G;'</pre>
+<p>The "n" command is called four times in this one-liner. Each time it's called it prints out the current pattern space, empties it and reads in the next line of input. After calling it four times, the fifth line is read into the pattern space and then the "G" command gets called. The "G" command appends a newline to the fifth line. Then the next round of four "n" commands is done. Next time the first "n" command is called it prints out the newlined fifth line, thus inserting a blank line after every 5 lines.</p>
+<p>The same can be achieved with GNU sed's step extension:</p>
+<pre >gsed '0~5G'</pre>
+<p>GNU sed's step extensions can be generalized as "first~step". It matches every "step"'th line starting with line "first". In this one-liner it matches every 5th line starting with line 0.</p>
+<h2>Sed One-Liners Explained E-Book</h2>
+<p>I have written an e-book called "<a href="http://www.catonmat.net/blog/sed-book/">Sed One-Liners Explained</a>". I improved the explanations of the one-liners in this article series, added new one-liners and added three new chapters - an introduction to sed, a summary of sed addresses and ranges, and debugging sed scripts with sed-sed. Please take a look: </p>
+<div class="c"><p><a href="http://www.catonmat.net/blog/sed-book/" class="nohover" title="Sed One-Liners Explained"><img src="http://www.catonmat.net/images/sed-book/cover.png"></a><br>
+<small><a href="http://www.catonmat.net/blog/sed-book/">sed book</a></small></p>
+</div>
+<h2>Have fun!</h2>
+<p>Have fun with sed, the superman of unix stream editing. The second part of this article will be on "Selective printing of certain lines." I hope to see you on my blog again for the 2nd part of the article! :)</p>
+
+  </div>
+
+
+  <div class="social">
+    <div class="twitter">
+      <a href="https://twitter.com/share" class="twitter-share-button">Tweet</a>
+      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+    </div>
+    <div class="facebook">
+      
+      <iframe src="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fwww.catonmat.net%2Fblog%2Fsed-one-liners-explained-part-one&amp;layout=button_count&amp;show_faces=true&amp;width=110&amp;action=like&amp;colorscheme=light&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:100px; height:21px;" allowTransparency="true"></iframe>
+    </div>
+    <div class="googleplus">
+      <g:plusone size="small"></g:plusone>
+    </div>
+    <div class="clear"></div>
+  </div>
+
+  <div class="footer">
+      <div class="tags"><a href="/tags" title="All catonmat tags" class="tags_link">Tags</a>:
+        
+        <a href="/tag/bruce-barnett" title="See all pages tagged &quot;bruce barnett&quot;">bruce barnett</a>, 
+        <a href="/tag/crlf" title="See all pages tagged &quot;crlf&quot;">crlf</a>, 
+        <a href="/tag/dos" title="See all pages tagged &quot;dos&quot;">dos</a>, 
+        <a href="/tag/eric-pement" title="See all pages tagged &quot;eric pement&quot;">eric pement</a>, 
+        <a href="/tag/gnu-sed" title="See all pages tagged &quot;gnu sed&quot;">gnu sed</a>, 
+        <a href="/tag/gsed" title="See all pages tagged &quot;gsed&quot;">gsed</a>, 
+        <a href="/tag/lf" title="See all pages tagged &quot;lf&quot;">lf</a>, 
+        <a href="/tag/newline" title="See all pages tagged &quot;newline&quot;">newline</a>, 
+        <a href="/tag/newlines" title="See all pages tagged &quot;newlines&quot;">newlines</a>, 
+        <a href="/tag/one-liner" title="See all pages tagged &quot;one liner&quot;">one liner</a>, 
+        <a href="/tag/one-liners" title="See all pages tagged &quot;one liners&quot;">one liners</a>, 
+        <a href="/tag/paste" title="See all pages tagged &quot;paste&quot;">paste</a>, 
+        <a href="/tag/rev" title="See all pages tagged &quot;rev&quot;">rev</a>, 
+        <a href="/tag/sed" title="See all pages tagged &quot;sed&quot;">sed</a>, 
+        <a href="/tag/tac" title="See all pages tagged &quot;tac&quot;">tac</a>, 
+        <a href="/tag/unix" title="See all pages tagged &quot;unix&quot;">unix</a>, 
+        <a href="/tag/wc" title="See all pages tagged &quot;wc&quot;">wc</a>, 
+        <a href="/tag/windows" title="See all pages tagged &quot;windows&quot;">windows</a>
+      </div>
+
+    <span class="comment_url">
+        <a href="/blog/sed-one-liners-explained-part-one/#comments" title="Comment on &quot;Famous Sed One-Liners Explained, Part I: File Spacing, Numbering and Text Conversion and Substitution&quot;"><strong>67</strong> Comments</a>
+    </span>
+
+    <span class="views">
+       <strong>528,028</strong> Views
+    </span>
+
+    <span class="short_url">
+      Short URL <input type="text" size="25" value="http://catonmat.net/p/95" onclick="this.select()" readonly>
+    </span>
+  </div>
+
+    
+
+<div class="series">
+<form action="/series" method="POST">
+  <div class="snote">
+    This article is part of the article series "<a href="/series/sed-one-liners-explained" title="Article series &quot;Sed One-Liners Explained&quot;">Sed One-Liners Explained</a>."
+  </div>
+  <div class="snav">
+      <span class="sprev" title="This is the first part in the series (there is no previous article)">&lt;- previous article</span>
+    <span class="toc">
+      <select name="navigate">
+           <option value="/blog/sed-one-liners-explained-part-one" selected>1. Famous Sed One-Liners Explained, Part I: File Spacing, Numbering and Text Conversion and Substitution</option>
+           <option value="/blog/sed-one-liners-explained-part-two">2. Famous Sed One-Liners Explained, Part II: Selective Printing of Certain Lines</option>
+           <option value="/blog/sed-one-liners-explained-part-three">3. Famous Sed One-Liners Explained, Part III: Selective Deletion of Certain Lines and Special Applications</option>
+           <option value="/blog/sed-book">4. Announcing my second e-book &#34;Sed One-Liners Explained&#34;</option>
+      </select>
+      <input type="submit" value="Go" name="go">
+    </span>
+      
+      <span class="snext"><a href="/blog/sed-one-liners-explained-part-two/" title="Famous Sed One-Liners Explained, Part II: Selective Printing of Certain Lines">next article -></a></span>
+  </div>
+</form>
+</div>
+
+
+  <div class="related-posts">
+    <h3>Related Posts</h3>
+    <ul>
+      <li><a href="/blog/sed-one-liners-explained-part-two/" title="Famous Sed One-Liners Explained, Part II: Selective Printing of Certain Lines">Famous Sed One-Liners Explained, Part II: Selective Printing of Certain Lines</a></li>
+      <li><a href="/blog/awk-one-liners-explained-part-two/" title="Famous Awk One-Liners Explained, Part II: Text Conversion and Substitution">Famous Awk One-Liners Explained, Part II: Text Conversion and Substitution</a></li>
+      <li><a href="/blog/awk-one-liners-explained-part-one/" title="Famous Awk One-Liners Explained, Part I: File Spacing, Numbering and Calculations">Famous Awk One-Liners Explained, Part I: File Spacing, Numbering and Calculations</a></li>
+      <li><a href="/blog/sed-one-liners-explained-part-three/" title="Famous Sed One-Liners Explained, Part III: Selective Deletion of Certain Lines and Special Applications">Famous Sed One-Liners Explained, Part III: Selective Deletion of Certain Lines and Special Applications</a></li>
+      <li><a href="/blog/perl-one-liners-explained-part-five/" title="Famous Perl One-Liners Explained, Part V: Text conversion and substitution">Famous Perl One-Liners Explained, Part V: Text conversion and substitution</a></li>
+      <li><a href="/blog/perl-one-liners-explained-part-one/" title="Famous Perl One-Liners Explained, Part I: File Spacing">Famous Perl One-Liners Explained, Part I: File Spacing</a></li>
+      <li><a href="/blog/sed-book/" title="Announcing my second e-book &#34;Sed One-Liners Explained&#34;">Announcing my second e-book &#34;Sed One-Liners Explained&#34;</a></li>
+      <li><a href="/blog/awk-book/" title="Announcing my first e-book &#34;Awk One-Liners Explained&#34;">Announcing my first e-book &#34;Awk One-Liners Explained&#34;</a></li>
+      <li><a href="/blog/perl-book/" title="Announcing my third e-book &#34;Perl One-Liners Explained&#34;">Announcing my third e-book &#34;Perl One-Liners Explained&#34;</a></li>
+      <li><a href="/blog/sed-stream-editor-cheat-sheet/" title="Sed - UNIX Stream Editor - Cheat Sheet">Sed - UNIX Stream Editor - Cheat Sheet</a></li>
+      <li>
+    </ul>
+  </div>
+
+  <a name="comments"></a>
+  <div class="comments">
+    <div id="comment_list"><!-- TODO: change id to class -->
+      <h3>Comments</h3>
+        
+
+  
+
+
+<div class="icomment" style="margin-left: 0px">
+  <div class="gravatar">
+    <img src="http://www.gravatar.com/avatar/a04e891f882ab39b6b79b9c2603c1394.jpg?s=40" width="40" height="40">
+  </div>
+  <div class="userinfo">
+    <div>
+      <span class="name">Paolo Bonzini</span>
+
+
+        <span class="permalink"><a href="/c/1337" title="Permanent link to the comment">Permalink</a></span>
+    </div>
+    <div>
+      <span class="time">October 08, 2008, 11:05</span>
+    </div>
+  </div>
+  <div class="clear"></div>
+  <div class="comment_text">
+    <p>Regarding the comment that the shortest one-liner which does a null-filter is</p>
+<p>sed ''</p>
+<p>actually if you count the number of characters to type, the shortest is</p>
+<p>sed b</p>
+<p>Also, regarding oneliner 37, it could be a little easier to understand if the //D command is changed to /^[^\n]/D.  Alternatively you can use</p>
+<p>/\n/!G;s/\(.\)\(.*\n\)/&amp;\2\1/;s/^\n//p;D</p>
+
+  </div>
+
+    <div class="comment_reply">
+      <a href="/c/1337?reply" class="reply" id="reply_a_1337" title="Reply to comment by Paolo Bonzini">Reply to this comment</a>
+    </div>
+</div>
+
+
+    
+
+  
+
+
+<div class="icomment" style="margin-left: 20px">
+  <div class="gravatar">
+    <img src="http://www.gravatar.com/avatar/65edd99f34f97bef6a716708eb331d34.jpg?s=40" width="40" height="40">
+  </div>
+  <div class="userinfo">
+    <div>
+      
+      <span class="name"><a href="http://hiphopcap.info/" title="http://hiphopcap.info/" rel="nofollow">LISA SNYDER</a></span>
+
+      
+      <span class="twitter"><a href="http://twitter.com/SNYDER" title="SNYDER on Twitter" rel="nofollow">SNYDER</a></span>
+
+        <span class="permalink"><a href="/c/45935" title="Permanent link to the comment">Permalink</a></span>
+    </div>
+    <div>
+      <span class="time">September 07, 2013, 20:25</span>
+    </div>
+  </div>
+  <div class="clear"></div>
+  <div class="comment_text">
+    <p>LOCOMO Hedgehog Extra Rivet Stud Spike Spiky Baseball Cap White FFH044WHT One Size By:</p>
+
+  </div>
+
+    <div class="comment_reply">
+      <a href="/c/45935?reply" class="reply" id="reply_a_45935" title="Reply to comment by LISA SNYDER">Reply to this comment</a>
+    </div>
+</div>
+
+
+
+
+  
+
+
+<div class="icomment" style="margin-left: 0px">
+  <div class="gravatar">
+    <img src="http://www.gravatar.com/avatar/82e1fb1ae5f0861e20be1ffc9459763b.jpg?s=40" width="40" height="40">
+  </div>
+  <div class="userinfo">
+    <div>
+      
+      <span class="name"><a href="http://anirudhsanjeev.org" title="http://anirudhsanjeev.org" rel="nofollow">Anirudh</a></span>
+
+
+        <span class="permalink"><a href="/c/1338" title="Permanent link to the comment">Permalink</a></span>
+    </div>
+    <div>
+      <span class="time">October 08, 2008, 13:48</span>
+    </div>
+  </div>
+  <div class="clear"></div>
+  <div class="comment_text">
+    <p>This is real nice.</p>
+<p>How good is sed for processing logs? I might use this to handle my debug logs.</p>
+
+  </div>
+
+    <div class="comment_reply">
+      <a href="/c/1338?reply" class="reply" id="reply_a_1338" title="Reply to comment by Anirudh">Reply to this comment</a>
+    </div>
+</div>
+
+
+  
+
+
+<div class="icomment" style="margin-left: 0px">
+  <div class="gravatar">
+    <img src="http://www.gravatar.com/avatar/b668360f53c9975bca11992742e2effe.jpg?s=40" width="40" height="40">
+  </div>
+  <div class="userinfo">
+    <div>
+      
+      <span class="name"><a href="http://eriwen.com" title="http://eriwen.com" rel="nofollow">Eric Wendelin</a></span>
+
+
+        <span class="permalink"><a href="/c/1339" title="Permanent link to the comment">Permalink</a></span>
+    </div>
+    <div>
+      <span class="time">October 08, 2008, 15:43</span>
+    </div>
+  </div>
+  <div class="clear"></div>
+  <div class="comment_text">
+    <p>Wow, Peteris what a list! Very useful, thanks!</p>
+
+  </div>
+
+    <div class="comment_reply">
+      <a href="/c/1339?reply" class="reply" id="reply_a_1339" title="Reply to comment by Eric Wendelin">Reply to this comment</a>
+    </div>
+</div>
+
+
+  
+
+
+<div class="icomment" style="margin-left: 0px">
+  <div class="gravatar">
+    <img src="http://www.gravatar.com/avatar/3dac0a4d8768dbe3acea6f240625bbc3.jpg?s=40" width="40" height="40">
+  </div>
+  <div class="userinfo">
+    <div>
+      <span class="name">Rudi</span>
+
+
+        <span class="permalink"><a href="/c/1340" title="Permanent link to the comment">Permalink</a></span>
+    </div>
+    <div>
+      <span class="time">October 08, 2008, 17:49</span>
+    </div>
+  </div>
+  <div class="clear"></div>
+  <div class="comment_text">
+    <p>nice blog .. i like it .</p>
+
+  </div>
+
+    <div class="comment_reply">
+      <a href="/c/1340?reply" class="reply" id="reply_a_1340" title="Reply to comment by Rudi">Reply to this comment</a>
+    </div>
+</div>
+
+
+    
+
+  
+
+
+<div class="icomment" style="margin-left: 20px">
+  <div class="gravatar">
+    <img src="http://www.gravatar.com/avatar/a33221528d25ce958e1d8ef5cda3a0a3.jpg?s=40" width="40" height="40">
+  </div>
+  <div class="userinfo">
+    <div>
+      
+      <span class="name"><a href="http://www.electricalstore.info/" title="http://www.electricalstore.info/" rel="nofollow">Phyllis Adams</a></span>
+
+      
+      <span class="twitter"><a href="http://twitter.com/Adams" title="Adams on Twitter" rel="nofollow">Adams</a></span>
+
+        <span class="permalink"><a href="/c/45975" title="Permanent link to the comment">Permalink</a></span>
+    </div>
+    <div>
+      <span class="time">September 12, 2013, 19:20</span>
+    </div>
+  </div>
+  <div class="clear"></div>
+  <div class="comment_text">
+    <p>Harry Potter and the Deathly Hallows, Part 1 By:<br>
+http://www.electricalstore.info/tv-video/televisions/harry-potter-and-the-deathly-hallows-part-1-by.html</p>
+
+  </div>
+
+    <div class="comment_reply">
+      <a href="/c/45975?reply" class="reply" id="reply_a_45975" title="Reply to comment by Phyllis Adams">Reply to this comment</a>
+    </div>
+</div>
+
+
+
+
+  
+
+
+<div class="icomment" style="margin-left: 0px">
+  <div class="gravatar">
+    <img src="http://www.gravatar.com/avatar/9055b6c1d07708555ec584d03c387f15.jpg?s=40" width="40" height="40">
+  </div>
+  <div class="userinfo">
+    <div>
+      
+      <span class="name"><a href="http://www.catonmat.net" title="http://www.catonmat.net">Peteris Krumins</a></span>
+
+      
+      <span class="twitter"><a href="http://twitter.com/pkrumins" title="pkrumins on Twitter">pkrumins</a></span>
+
+        <span class="permalink"><a href="/c/1341" title="Permanent link to the comment">Permalink</a></span>
+    </div>
+    <div>
+      <span class="time">October 08, 2008, 18:49</span>
+    </div>
+  </div>
+  <div class="clear"></div>
+  <div class="comment_text">
+    <p>Paolo, thanks for the comment about shortest sed null-filter and one liner #37.</p>
+<p>Anirudh, it's not good for processing logs, because you need complicated calculations, such as date/time calculations, various counters, keep lists of referrer links, etc. Not something sed can do easily.</p>
+<p>Eric, you're welcome! :)</p>
+<p>Rudi, thanks :)</p>
+
+  </div>
+
+    <div class="comment_reply">
+      <a href="/c/1341?reply" class="reply" id="reply_a_1341" title="Reply to comment by Peteris Krumins">Reply to this comment</a>
+    </div>
+</div>
+
+
+  
+
+
+<div class="icomment" style="margin-left: 0px">
+  <div class="gravatar">
+    <img src="http://www.gravatar.com/avatar/3e264efc706a6b3da76a59a94ecde674.jpg?s=40" width="40" height="40">
+  </div>
+  <div class="userinfo">
+    <div>
+      <span class="name">RenaudD</span>
+
+
+        <span class="permalink"><a href="/c/1342" title="Permanent link to the comment">Permalink</a></span>
+    </div>
+    <div>
+      <span class="time">October 08, 2008, 23:57</span>
+    </div>
+  </div>
+  <div class="clear"></div>
+  <div class="comment_text">
+    <p>I am a sed addict and your nice site won't help me to cure. I love the </p>
+<pre>sed -n '$='</pre>
+<p> :).<br>
+Maybe this will interest you :<br>
+Sometimes you have to print blocks of lines that contains a special string. For instance if <i>filename</i> contains :</p>
+<pre>
+foo
+baz
+bar
+
+bar
+foo
+
+goo
+baz
+
+</pre>
+<p>and you would like to get only the blocks that contain 'baz' that is :</p>
+<pre>
+foo
+baz
+bar
+
+goo
+baz
+</pre>
+<p>I do sthg close to it that way :</p>
+<pre>
+sed -n 'H;/^$/x;/baz.*\n/p' filename
+</pre>
+<p>I said 'close to it' because unfortunately this command prints a bit too many empty lines before the selected blocks but generally I don't mind. Anyway if you find a way to straighten it I would be delighted to know it.</p>
+<p>Note : you have to make sure the last line of <i>filename</i> is an empty line otherwise the last block won't be processed :(</p>
+<p>Thanks again for the site !</p>
+<p>PS sorry I am not very talented for HTML, I hope all this will print correctly</p>
+
+  </div>
+
+    <div class="comment_reply">
+      <a href="/c/1342?reply" class="reply" id="reply_a_1342" title="Reply to comment by RenaudD">Reply to this comment</a>
+    </div>
+</div>
+
+
+    
+
+  
+
+
+<div class="icomment" style="margin-left: 20px">
+  <div class="gravatar">
+    <img src="http://www.gravatar.com/avatar/976c063fd9910ce56c4ff74950cfe935.jpg?s=40" width="40" height="40">
+  </div>
+  <div class="userinfo">
+    <div>
+      
+      <span class="name"><a href="http://www.bestcellphonecase.com/" title="http://www.bestcellphonecase.com/" rel="nofollow">HENRY MANASSA</a></span>
+
+      
+      <span class="twitter"><a href="http://twitter.com/MANASSA" title="MANASSA on Twitter" rel="nofollow">MANASSA</a></span>
+
+        <span class="permalink"><a href="/c/45948" title="Permanent link to the comment">Permalink</a></span>
+    </div>
+    <div>
+      <span class="time">September 09, 2013, 18:48</span>
+    </div>
+  </div>
+  <div class="clear"></div>
+  <div class="comment_text">
+    <p>GreatShield iSlide Dock-Friendly Slim-Fit PolyCarbonate Hard Case for Apple iPhone 5 (Red)<br>
+http://www.bestcellphonecase.com/other-accessories/greatshield-islide-dock-friendly-slim-fit-polycarbonate-hard-case-for-apple-iphone-5-red.html</p>
+
+  </div>
+
+    <div class="comment_reply">
+      <a href="/c/45948?reply" class="reply" id="reply_a_45948" title="Reply to comment by HENRY MANASSA">Reply to this comment</a>
+    </div>
+</div>
+
+
+
+
+  
+
+
+<div class="icomment" style="margin-left: 0px">
+  <div class="gravatar">
+    <img src="http://www.gravatar.com/avatar/36db0756da44f54c57e623dd991a1da7.jpg?s=40" width="40" height="40">
+  </div>
+  <div class="userinfo">
+    <div>
+      
+      <span class="name"><a href="http://www.freewebs.com/ankushag" title="http://www.freewebs.com/ankushag" rel="nofollow">ankush</a></span>
+
+
+        <span class="permalink"><a href="/c/1343" title="Permanent link to the comment">Permalink</a></span>
+    </div>
+    <div>
+      <span class="time">October 09, 2008, 23:32</span>
+    </div>
+  </div>
+  <div class="clear"></div>
+  <div class="comment_text">
+    <p>Thanks once again. I was thinking of learning sed since a long time. Your post now gives me a motivation and a very good way to start it.</p>
+<p>One question: PERL doesn't allow multi-line comments. How to emulate it using sed.<br>
+Ex:<br>
+If I give the following at some part of my code:<br>
+/*<br>
+  line 1 of code to be commented<br>
+  line 2<br>
+  .<br>
+  . <br>
+  .<br>
+*/<br>
+actual code<br>
+.<br>
+.<br>
+/*<br>
+ another commented section<br>
+*/</p>
+<p>How to perl-comment these lines using sed?</p>
+
+  </div>
+
+    <div class="comment_reply">
+      <a href="/c/1343?reply" class="reply" id="reply_a_1343" title="Reply to comment by ankush">Reply to this comment</a>
+    </div>
+</div>
+
+
+    
+
+  
+
+
+<div class="icomment" style="margin-left: 20px">
+  <div class="gravatar">
+    <img src="http://www.gravatar.com/avatar/57689a2544703a2a2a67a05a65a317dc.jpg?s=40" width="40" height="40">
+  </div>
+  <div class="userinfo">
+    <div>
+      
+      <span class="name"><a href="http://www.hiphopcap.info/" title="http://www.hiphopcap.info/" rel="nofollow">Jennifer Rude</a></span>
+
+      
+      <span class="twitter"><a href="http://twitter.com/Rude" title="Rude on Twitter" rel="nofollow">Rude</a></span>
+
+        <span class="permalink"><a href="/c/45837" title="Permanent link to the comment">Permalink</a></span>
+    </div>
+    <div>
+      <span class="time">August 28, 2013, 11:25</span>
+    </div>
+  </div>
+  <div class="clear"></div>
+  <div class="comment_text">
+    <p>Ellison Bay Silk Scarves Preferential:33% By:</p>
+
+  </div>
+
+    <div class="comment_reply">
+      <a href="/c/45837?reply" class="reply" id="reply_a_45837" title="Reply to comment by Jennifer Rude">Reply to this comment</a>
+    </div>
+</div>
+
+
+  
+
+
+<div class="icomment" style="margin-left: 20px">
+  <div class="gravatar">
+    <img src="http://www.gravatar.com/avatar/9e8c277ee0716cc85bd619228682bf41.jpg?s=40" width="40" height="40">
+  </div>
+  <div class="userinfo">
+    <div>
+      
+      <span class="name"><a href="http://www.hiphopcap.info/" title="http://www.hiphopcap.info/" rel="nofollow">lavonne onsum</a></span>
+
+      
+      <span class="twitter"><a href="http://twitter.com/onsum" title="onsum on Twitter" rel="nofollow">onsum</a></span>
+
+        <span class="permalink"><a href="/c/46125" title="Permanent link to the comment">Permalink</a></span>
+    </div>
+    <div>
+      <span class="time">September 29, 2013, 19:32</span>
+    </div>
+  </div>
+  <div class="clear"></div>
+  <div class="comment_text">
+    <p>John Deere Mesh Cap Treebark By:</p>
+
+  </div>
+
+    <div class="comment_reply">
+      <a href="/c/46125?reply" class="reply" id="reply_a_46125" title="Reply to comment by lavonne onsum">Reply to this comment</a>
+    </div>
+</div>
+
+
+
+
+  
+
+
+<div class="icomment" style="margin-left: 0px">
+  <div class="gravatar">
+    <img src="http://www.gravatar.com/avatar/8b0457db8ddce1b0bff1d1963b57b3d7.jpg?s=40" width="40" height="40">
+  </div>
+  <div class="userinfo">
+    <div>
+      <span class="name">anonymous</span>
+
+
+        <span class="permalink"><a href="/c/1344" title="Permanent link to the comment">Permalink</a></span>
+    </div>
+    <div>
+      <span class="time">October 10, 2008, 16:02</span>
+    </div>
+  </div>
+  <div class="clear"></div>
+  <div class="comment_text">
+    <p>To ankush:</p>
+<p>Note that perl DOES allow multiline comments, using POD syntax.</p>
+<p>with sed, you can do this:</p>
+<p>sed '\|/\*|,\|\*/|s/^/#/'</p>
+<p>that assumes your comments always span more than one line (ie, the opening /* and the closing */ are on different lines). Otherwise, you can do this:</p>
+<p>sed '\|/\*|{:a;s/^/#/;\|\*/|!{n;ba;}}'</p>
+<p>(good luck reading that!)</p>
+<p>Note that both solutions are VERY fragile, and will break under a number of conditions.</p>
+
+  </div>
+
+    <div class="comment_reply">
+      <a href="/c/1344?reply" class="reply" id="reply_a_1344" title="Reply to comment by anonymous">Reply to this comment</a>
+    </div>
+</div>
+
+
+  
+
+
+<div class="icomment" style="margin-left: 0px">
+  <div class="gravatar">
+    <img src="http://www.gravatar.com/avatar/17002274e73fb6e8ca4dea135785f3c6.jpg?s=40" width="40" height="40">
+  </div>
+  <div class="userinfo">
+    <div>
+      <span class="name">Roman</span>
+
+
+        <span class="permalink"><a href="/c/1345" title="Permanent link to the comment">Permalink</a></span>
+    </div>
+    <div>
+      <span class="time">October 10, 2008, 23:53</span>
+    </div>
+  </div>
+  <div class="clear"></div>
+  <div class="comment_text">
+    <p>Peteris:</p>
+<p>In #9, there is a regex pattern: " *\(.\{6,\}\)\n". However, after being understandablificated, it becomes "\(.\{6,\}\)@/" (the space-star at the beginning is lost). It is wrong, since it doesn't remove extraneous space at the beginning of the line, and hence doesn't right-align.</p>
+<p>Also, it looks like 4 dashes in the explanation were accidentally merged into an über-dash. 8=]</p>
+
+  </div>
+
+    <div class="comment_reply">
+      <a href="/c/1345?reply" class="reply" id="reply_a_1345" title="Reply to comment by Roman">Reply to this comment</a>
+    </div>
+</div>
+
+
+  
+
+
+<div class="icomment" style="margin-left: 0px">
+  <div class="gravatar">
+    <img src="http://www.gravatar.com/avatar/62c9a73849b19c39899eceb63f71b4ec.jpg?s=40" width="40" height="40">
+  </div>
+  <div class="userinfo">
+    <div>
+      
+      <span class="name"><a href="http://none" title="http://none" rel="nofollow">goofy_barney</a></span>
+
+
+        <span class="permalink"><a href="/c/1346" title="Permanent link to the comment">Permalink</a></span>
+    </div>
+    <div>
+      <span class="time">October 13, 2008, 06:03</span>
+    </div>
+  </div>
+  <div class="clear"></div>
+  <div class="comment_text">
+    <p>Peter,</p>
+<p>Thanks so much for this and your previous article on AWK.  Thanks especially for explaining how you achieved your understanding of these two useful tools.  I was afraid it involved digging into the sources or some such daunting task.  Although I am not a geek, I find these two tools very useful in everyday business tasks.</p>
+<p>Thanks for your clear explanations of the "magic" of Sed and AWK.</p>
+<p>Goofy Barney</p>
+
+  </div>
+
+    <div class="comment_reply">
+      <a href="/c/1346?reply" class="reply" id="reply_a_1346" title="Reply to comment by goofy_barney">Reply to this comment</a>
+    </div>
+</div>
+
+
+  
+
+
+<div class="icomment" style="margin-left: 0px">
+  <div class="gravatar">
+    <img src="http://www.gravatar.com/avatar/62e2529164be84b6651043856d9c8712.jpg?s=40" width="40" height="40">
+  </div>
+  <div class="userinfo">
+    <div>
+      <span class="name">Raj</span>
+
+
+        <span class="permalink"><a href="/c/1347" title="Permanent link to the comment">Permalink</a></span>
+    </div>
+    <div>
+      <span class="time">November 20, 2008, 10:52</span>
+    </div>
+  </div>
+  <div class="clear"></div>
+  <div class="comment_text">
+    <p>HI,</p>
+<p>I want to remove all occurence of quotes (") but not if it occures at first and last of a lines.</p>
+<p>How can I achieve this?</p>
+<p>Regards,<br>
+Raj</p>
+
+  </div>
+
+    <div class="comment_reply">
+      <a href="/c/1347?reply" class="reply" id="reply_a_1347" title="Reply to comment by Raj">Reply to this comment</a>
+    </div>
+</div>
+
+
+  
+
+
+<div class="icomment" style="margin-left: 0px">
+  <div class="gravatar">
+    <img src="http://www.gravatar.com/avatar/9055b6c1d07708555ec584d03c387f15.jpg?s=40" width="40" height="40">
+  </div>
+  <div class="userinfo">
+    <div>
+      
+      <span class="name"><a href="http://www.catonmat.net" title="http://www.catonmat.net">Peteris Krumins</a></span>
+
+      
+      <span class="twitter"><a href="http://twitter.com/pkrumins" title="pkrumins on Twitter">pkrumins</a></span>
+
+        <span class="permalink"><a href="/c/1348" title="Permanent link to the comment">Permalink</a></span>
+    </div>
+    <div>
+      <span class="time">December 21, 2008, 04:10</span>
+    </div>
+  </div>
+  <div class="clear"></div>
+  <div class="comment_text">
+    <p>Raj, you can do it this way:</p>
+<pre>
+sed '1b;$b;s/"//g'
+</pre>
+<p>(Remove all occurence of quotes (") but not if it occures at first and last of a lines).</p>
+
+  </div>
+
+    <div class="comment_reply">
+      <a href="/c/1348?reply" class="reply" id="reply_a_1348" title="Reply to comment by Peteris Krumins">Reply to this comment</a>
+    </div>
+</div>
+
+
+  
+
+
+<div class="icomment" style="margin-left: 0px">
+  <div class="gravatar">
+    <img src="http://www.gravatar.com/avatar/1073f1d10d0fb22e2438e467aca23bc1.jpg?s=40" width="40" height="40">
+  </div>
+  <div class="userinfo">
+    <div>
+      <span class="name">manish</span>
+
+
+        <span class="permalink"><a href="/c/1349" title="Permanent link to the comment">Permalink</a></span>
+    </div>
+    <div>
+      <span class="time">January 05, 2009, 12:04</span>
+    </div>
+  </div>
+  <div class="clear"></div>
+  <div class="comment_text">
+    <p>Hi All, i have a query....i want to search a refrence number in a given file (say ref num ABC123) and then copy the next 20 line after the reference number and exit....please help me how to do the same....thnx in advance</p>
+
+  </div>
+
+    <div class="comment_reply">
+      <a href="/c/1349?reply" class="reply" id="reply_a_1349" title="Reply to comment by manish">Reply to this comment</a>
+    </div>
+</div>
+
+
+  
+
+
+<div class="icomment" style="margin-left: 0px">
+  <div class="gravatar">
+    <img src="http://www.gravatar.com/avatar/8f41b7f812c6fd632a849f285e282691.jpg?s=40" width="40" height="40">
+  </div>
+  <div class="userinfo">
+    <div>
+      
+      <span class="name"><a href="http://www.mdakia.com" title="http://www.mdakia.com" rel="nofollow">Yogesh</a></span>
+
+
+        <span class="permalink"><a href="/c/1350" title="Permanent link to the comment">Permalink</a></span>
+    </div>
+    <div>
+      <span class="time">February 13, 2009, 12:34</span>
+    </div>
+  </div>
+  <div class="clear"></div>
+  <div class="comment_text">
+    <p>In #31, if the pattern (foo) comes more than two times in the line then it replaces the second last one. As an example</p>
+<p>echo "this is first foo, this is second foo another foo quux" | sed 's/\(.*\)foo\(.*foo\)/\1bar\2/'</p>
+<p>then output will be:<br>
+this is first foo, this is second bar another foo quux</p>
+<p>Which doesn't fulfill our requirements.</p>
+<p>Regards,<br>
+Yogesh</p>
+
+  </div>
+
+    <div class="comment_reply">
+      <a href="/c/1350?reply" class="reply" id="reply_a_1350" title="Reply to comment by Yogesh">Reply to this comment</a>
+    </div>
+</div>
+
+
+  
+
+
+<div class="icomment" style="margin-left: 0px">
+  <div class="gravatar">
+    <img src="http://www.gravatar.com/avatar/b3f06f2e38ce53afb6dc58674a4cbb00.jpg?s=40" width="40" height="40">
+  </div>
+  <div class="userinfo">
+    <div>
+      <span class="name">Jeremy</span>
+
+
+        <span class="permalink"><a href="/c/1351" title="Permanent link to the comment">Permalink</a></span>
+    </div>
+    <div>
+      <span class="time">February 20, 2009, 20:28</span>
+    </div>
+  </div>
+  <div class="clear"></div>
+  <div class="comment_text">
+    <p>Rather then pipe sed to sed:<br>
+sed command1 | sed command2<br>
+you can simply use the -e option:<br>
+sed command1 -e command2</p>
+
+  </div>
+
+    <div class="comment_reply">
+      <a href="/c/1351?reply" class="reply" id="reply_a_1351" title="Reply to comment by Jeremy">Reply to this comment</a>
+    </div>
+</div>
+
+
+  
+
+
+<div class="icomment" style="margin-left: 0px">
+  <div class="gravatar">
+    <img src="http://www.gravatar.com/avatar/9055b6c1d07708555ec584d03c387f15.jpg?s=40" width="40" height="40">
+  </div>
+  <div class="userinfo">
+    <div>
+      
+      <span class="name"><a href="http://www.catonmat.net" title="http://www.catonmat.net">Peteris Krumins</a></span>
+
+      
+      <span class="twitter"><a href="http://twitter.com/pkrumins" title="pkrumins on Twitter">pkrumins</a></span>
+
+        <span class="permalink"><a href="/c/1352" title="Permanent link to the comment">Permalink</a></span>
+    </div>
+    <div>
+      <span class="time">February 21, 2009, 00:03</span>
+    </div>
+  </div>
+  <div class="clear"></div>
+  <div class="comment_text">
+    <p>Jeremy,</p>
+<p>Generally yes, but not if the first command modifies output buffer directly. The '=' command for example modifies output stream directly and the following -e command is not able to modify the same line anymore because it has already been output.</p>
+
+  </div>
+
+    <div class="comment_reply">
+      <a href="/c/1352?reply" class="reply" id="reply_a_1352" title="Reply to comment by Peteris Krumins">Reply to this comment</a>
+    </div>
+</div>
+
+
+  
+
+
+<div class="icomment" style="margin-left: 0px">
+  <div class="gravatar">
+    <img src="http://www.gravatar.com/avatar/f9b0aacc6b19cec7cbcc49dca2a8e269.jpg?s=40" width="40" height="40">
+  </div>
+  <div class="userinfo">
+    <div>
+      <span class="name">Vijay Manohar</span>
+
+
+        <span class="permalink"><a href="/c/1353" title="Permanent link to the comment">Permalink</a></span>
+    </div>
+    <div>
+      <span class="time">March 20, 2009, 06:14</span>
+    </div>
+  </div>
+  <div class="clear"></div>
+  <div class="comment_text">
+    <p>Sir, I immensely benefited out your sed 1 liners descriptions. </p>
+<p>Thanks and regards,<br>
+Vijay Manohar</p>
+
+  </div>
+
+    <div class="comment_reply">
+      <a href="/c/1353?reply" class="reply" id="reply_a_1353" title="Reply to comment by Vijay Manohar">Reply to this comment</a>
+    </div>
+</div>
+
+
+  
+
+
+<div class="icomment" style="margin-left: 0px">
+  <div class="gravatar">
+    <img src="http://www.gravatar.com/avatar/d859dea1c3f7aef3c05e026db0aa33f6.jpg?s=40" width="40" height="40">
+  </div>
+  <div class="userinfo">
+    <div>
+      <span class="name">Nicasio</span>
+
+
+        <span class="permalink"><a href="/c/1354" title="Permanent link to the comment">Permalink</a></span>
+    </div>
+    <div>
+      <span class="time">April 14, 2009, 08:00</span>
+    </div>
+  </div>
+  <div class="clear"></div>
+  <div class="comment_text">
+    <p>Hey,<br>
+I have a big file (bigger than 10MG) and this have one line only.<br>
+I want separate in different lines always shows the literal "A01".<br>
+Help.</p>
+
+  </div>
+
+    <div class="comment_reply">
+      <a href="/c/1354?reply" class="reply" id="reply_a_1354" title="Reply to comment by Nicasio">Reply to this comment</a>
+    </div>
+</div>
+
+
+  
+
+
+<div class="icomment" style="margin-left: 0px">
+  <div class="gravatar">
+    <img src="http://www.gravatar.com/avatar/a2cd69acf3210592ec2ddf82a077cba5.jpg?s=40" width="40" height="40">
+  </div>
+  <div class="userinfo">
+    <div>
+      
+      <span class="name"><a href="http://manojk.livejournal.com/" title="http://manojk.livejournal.com/" rel="nofollow">Manoj</a></span>
+
+
+        <span class="permalink"><a href="/c/1355" title="Permanent link to the comment">Permalink</a></span>
+    </div>
+    <div>
+      <span class="time">June 24, 2009, 07:07</span>
+    </div>
+  </div>
+  <div class="clear"></div>
+  <div class="comment_text">
+    <p>Hi Peter,<br>
+       just to say Thanks for the one-liners!! I am a beginner in scripting, [coming from Windows world, trying to migrate to linux/OpenSource] finding it difficult to grasp the "quickies" using scripts; but your site helped me a lot to have quick solutions to my problems.. and learn from your description. [esp. using sed/awk] And I liked the google interview you have put as well.. </p>
+<p>-Manoj</p>
+
+  </div>
+
+    <div class="comment_reply">
+      <a href="/c/1355?reply" class="reply" id="reply_a_1355" title="Reply to comment by Manoj">Reply to this comment</a>
+    </div>
+</div>
+
+
+  
+
+
+<div class="icomment" style="margin-left: 0px">
+  <div class="gravatar">
+    <img src="http://www.gravatar.com/avatar/b6fc1967ebe46519dacf25b01de59505.jpg?s=40" width="40" height="40">
+  </div>
+  <div class="userinfo">
+    <div>
+      <span class="name">Erik</span>
+
+
+        <span class="permalink"><a href="/c/1356" title="Permanent link to the comment">Permalink</a></span>
+    </div>
+    <div>
+      <span class="time">July 29, 2009, 17:15</span>
+    </div>
+  </div>
+  <div class="clear"></div>
+  <div class="comment_text">
+    <p>This is one that was driving me crazy - couldn't find it anywhere on the net:</p>
+<p>DELETE ALL LINES BETWEEN TWO MARKER PATTERNS (but not the markers themselves):</p>
+<p>e.g. in a hosts file</p>
+<p>== /etc/hosts ==</p>
+<p>192.168.1.2 host1<br>
+192.168.1.3 host2</p>
+<p>### START ###<br>
+                     #delete<br>
+192.168.1.4 host3    #delete<br>
+192.168.1.5 host4    #delete<br>
+                     #delete<br>
+### END ###</p>
+<p>192.168.1.6 host5</p>
+<p>=============================</p>
+<p>The money: </p>
+<p>sed -i -e '1,/^### START ###/!{ /^### END ###/,/^### START ###/!d; }' /etc/hosts</p>
+<p>I have no idea how it works, but it does. Now your markers are preserved for you to insert other stuff with your funky automation scripts.</p>
+
+  </div>
+
+    <div class="comment_reply">
+      <a href="/c/1356?reply" class="reply" id="reply_a_1356" title="Reply to comment by Erik">Reply to this comment</a>
+    </div>
+</div>
+
+
+  
+
+
+<div class="icomment" style="margin-left: 0px">
+  <div class="gravatar">
+    <img src="http://www.gravatar.com/avatar/b6fc1967ebe46519dacf25b01de59505.jpg?s=40" width="40" height="40">
+  </div>
+  <div class="userinfo">
+    <div>
+      <span class="name">Erik</span>
+
+
+        <span class="permalink"><a href="/c/1357" title="Permanent link to the comment">Permalink</a></span>
+    </div>
+    <div>
+      <span class="time">July 29, 2009, 17:19</span>
+    </div>
+  </div>
+  <div class="clear"></div>
+  <div class="comment_text">
+    <p>by the way, it doesn't work if the marker is on the first line. ho hum!</p>
+
+  </div>
+
+    <div class="comment_reply">
+      <a href="/c/1357?reply" class="reply" id="reply_a_1357" title="Reply to comment by Erik">Reply to this comment</a>
+    </div>
+</div>
+
+
+  
+
+
+<div class="icomment" style="margin-left: 0px">
+  <div class="gravatar">
+    <img src="http://www.gravatar.com/avatar/84d90dff84379cf47ab35e2edd943413.jpg?s=40" width="40" height="40">
+  </div>
+  <div class="userinfo">
+    <div>
+      <span class="name">Paul</span>
+
+
+        <span class="permalink"><a href="/c/1358" title="Permanent link to the comment">Permalink</a></span>
+    </div>
+    <div>
+      <span class="time">July 29, 2009, 17:56</span>
+    </div>
+  </div>
+  <div class="clear"></div>
+  <div class="comment_text">
+    <p>More understandable in awk. Use a BEGIN case to initialise marker patterns e.g. reB = "^### START ###" and similarly reE. Then fast-forward over the section you want to delete.</p>
+<p>awk '{ print; if ($0 ~ reB) while (getline &gt; 0) if ($0 ~ reE) { print; break; }'</p>
+
+  </div>
+
+    <div class="comment_reply">
+      <a href="/c/1358?reply" class="reply" id="reply_a_1358" title="Reply to comment by Paul">Reply to this comment</a>
+    </div>
+</div>
+
+
+  
+
+
+<div class="icomment" style="margin-left: 0px">
+  <div class="gravatar">
+    <img src="http://www.gravatar.com/avatar/9055b6c1d07708555ec584d03c387f15.jpg?s=40" width="40" height="40">
+  </div>
+  <div class="userinfo">
+    <div>
+      
+      <span class="name"><a href="http://www.catonmat.net" title="http://www.catonmat.net">Peteris Krumins</a></span>
+
+      
+      <span class="twitter"><a href="http://twitter.com/pkrumins" title="pkrumins on Twitter">pkrumins</a></span>
+
+        <span class="permalink"><a href="/c/1359" title="Permanent link to the comment">Permalink</a></span>
+    </div>
+    <div>
+      <span class="time">July 31, 2009, 03:50</span>
+    </div>
+  </div>
+  <div class="clear"></div>
+  <div class="comment_text">
+    <p>Paul, thanks for your wonderful comments! I will use them to improve my articles!</p>
+
+  </div>
+
+    <div class="comment_reply">
+      <a href="/c/1359?reply" class="reply" id="reply_a_1359" title="Reply to comment by Peteris Krumins">Reply to this comment</a>
+    </div>
+</div>
+
+
+  
+
+
+<div class="icomment" style="margin-left: 0px">
+  <div class="gravatar">
+    <img src="http://www.gravatar.com/avatar/e2df39f8c96dd9c6ce1f4fce5435558c.jpg?s=40" width="40" height="40">
+  </div>
+  <div class="userinfo">
+    <div>
+      <span class="name">JA</span>
+
+
+        <span class="permalink"><a href="/c/1360" title="Permanent link to the comment">Permalink</a></span>
+    </div>
+    <div>
+      <span class="time">January 22, 2010, 19:45</span>
+    </div>
+  </div>
+  <div class="clear"></div>
+  <div class="comment_text">
+    <p>Hi,<br>
+I'm trying to extract stacktraces from log files, looking for the pattern "Exception". If a line contains "Exception", a stack trace will follow in multiple lines. If the next line begins with a timestamp entry in the format "[1/13/10 23:17:00:444 CST]", the stack trace has ended in the previous line. Additionally, I want to grab the nearest line containing a timestamp entry above the line containing the pattern "Exception". Sometimes it's on the same line and other times it's a few lines above it. How can I do write a sed command for this? Example:</p>
+<pre>
+[1/13/10 23:01:16:623 CST] 00000059 SystemOut     O 2010-01-13 23:01:16,623 [ORB.thread.pool : 0] INFO  
+ - Exiting isAlertUpdateTimerRunning()
+SystemOut     O 2010-01-13 23:01:16,623 [ORB.thread.pool : 0] INFO  com.dd.dddd.ddddddddr.ddddddr.dddddddddTriggerManager
+org.hibernate.SessionException: Session is closed!
+        at org.hibernate.impl.AbstractSessionImpl.errorIfClosed(AbstractSessionImpl.java:72)
+        at org.hibernate.impl.SessionImpl.reconnect(SessionImpl.java:407)
+        at com.ibm.ws.Transaction.JTA.RegisteredSyncs.distributeAfter(RegisteredSyncs.java:424)
+        at com.ibm.ws.Transaction.JTA.TransactionImpl.distributeAfter(TransactionImpl.java:3885)
+        at com.ibm.ws.Transaction.JTA.TransactionImpl.postCompletion(TransactionImpl.java:3864)
+        at com.ibm.ws.Transaction.JTA.TransactionImpl.commitXAResources(TransactionImpl.java:2521)
+        at com.ibm.ws.Transaction.JTA.TransactionImpl.stage1CommitProcessing(TransactionImpl.java:1647)
+        at com.ibm.ws.Transaction.JTA.TransactionImpl.processCommit(TransactionImpl.java:1607)
+        at com.ibm.ws.Transaction.JTA.TransactionImpl.commit(TransactionImpl.java:1542)
+        at com.ibm.ws.Transaction.JTA.TranManagerImpl.commit(TranManagerImpl.java:240)
+        at com.ibm.ws.Transaction.JTA.TranManagerSet.commit(TranManagerSet.java:164)
+        at com.ibm.ejs.csi.TranStrategy.commit(TranStrategy.java:756)
+        at com.ibm.ejs.csi.TranStrategy.postInvoke(TranStrategy.java:181)
+        at com.ibm.ejs.csi.TransactionControlImpl.postInvoke(TransactionControlImpl.java:581)
+        at com.ibm.ejs.container.EJSContainer.postInvoke(EJSContainer.java:3910)
+        at com.ibm.ejs.container.EJSContainer.postInvoke(EJSContainer.java:3732)
+[1/13/10 23:01:16:725 CST] 0000006e SystemOut     O 2010-01-13 23:01:16,725 [MessageListenerThreadPool : 12] INFO  com.ddconnector.cccccc.ccccccSession - Th
+read[MessageListenerThreadPool : 12,5,main]
+</pre>
+<p>Here, I want to grab the first line, followed by the stack trace line starting "org.hibernate.SessionException" all the way until the last line of the stack trace.<br>
+Thanks.</p>
+
+  </div>
+
+    <div class="comment_reply">
+      <a href="/c/1360?reply" class="reply" id="reply_a_1360" title="Reply to comment by JA">Reply to this comment</a>
+    </div>
+</div>
+
+
+    
+
+  
+
+
+<div class="icomment" style="margin-left: 20px">
+  <div class="gravatar">
+    <img src="http://www.gravatar.com/avatar/447654acc408d39ee3b50c573b99b37b.jpg?s=40" width="40" height="40">
+  </div>
+  <div class="userinfo">
+    <div>
+      <span class="name">Robby</span>
+
+
+        <span class="permalink"><a href="/c/4323" title="Permanent link to the comment">Permalink</a></span>
+    </div>
+    <div>
+      <span class="time">September 28, 2010, 00:06</span>
+    </div>
+  </div>
+  <div class="clear"></div>
+  <div class="comment_text">
+    <p>This comment is a little older, but I found it as a challenge none-the-less and decided to take a crack at it & post my results in case somebody later had the same question. As a bonus (& to make it more useful for myself), it prints the line number above each exception.  Here is my result:</p>
+<pre>
+sed -e :b -e '/Exception/!d;=;n;:a' -e '/^\[/bb' -e 'n;ba'
+</pre>
+<p>Brief explanation in steps:<br>
+1. <b>:b</b> set a label to go back to the beginning. i had to use a label, b/c i wanted to be able to go back to the beginning w/o reloading the pattern space.<br>
+2. <b>/Exception/!d</b> start over w/ the next line unless we find the word <i>Exception</i>.<br>
+3. <b>=</b> print out the line number<br>
+4. <b>n</b> print out the current line and load the next line<br>
+5. <b>:a</b> set another label for looping over the body of the exception<br>
+6. <b>/^\[/bb</b> go back to the beginning if we find a line starting with a bracket. i didn't see a need to expand the regex to match the full timestamp.<br>
+7. <b>n;ba</b> print out the current line and loop back to label a</p>
+
+  </div>
+
+    <div class="comment_reply">
+      <a href="/c/4323?reply" class="reply" id="reply_a_4323" title="Reply to comment by Robby">Reply to this comment</a>
+    </div>
+</div>
+
+
+
+
+  
+
+
+<div class="icomment" style="margin-left: 0px">
+  <div class="gravatar">
+    <img src="http://www.gravatar.com/avatar/2f565486ce094fa300ac17e899bd1d73.jpg?s=40" width="40" height="40">
+  </div>
+  <div class="userinfo">
+    <div>
+      <span class="name">Les</span>
+
+
+        <span class="permalink"><a href="/c/1361" title="Permanent link to the comment">Permalink</a></span>
+    </div>
+    <div>
+      <span class="time">March 09, 2010, 21:49</span>
+    </div>
+  </div>
+  <div class="clear"></div>
+  <div class="comment_text">
+    <p>I really benefited from and enjoyed this great compilation and explanation. Thank you.</p>
+
+  </div>
+
+    <div class="comment_reply">
+      <a href="/c/1361?reply" class="reply" id="reply_a_1361" title="Reply to comment by Les">Reply to this comment</a>
+    </div>
+</div>
+
+
+  
+
+
+<div class="icomment" style="margin-left: 0px">
+  <div class="gravatar">
+    <img src="http://www.gravatar.com/avatar/a8178c63a74c4973fc86536876bc0d11.jpg?s=40" width="40" height="40">
+  </div>
+  <div class="userinfo">
+    <div>
+      <span class="name">Eszter</span>
+
+
+        <span class="permalink"><a href="/c/3880" title="Permanent link to the comment">Permalink</a></span>
+    </div>
+    <div>
+      <span class="time">August 12, 2010, 09:30</span>
+    </div>
+  </div>
+  <div class="clear"></div>
+  <div class="comment_text">
+    <p>Hi!<br>
+Nice intro, thanks a lot!</p>
+<p>But I still got a question:<br>
+How can I replace every "-"-s at the beginning and the end of a line with the same number of "N"-s?</p>
+<p>for example:<br>
+in:<br>
+>taxon_1<br>
+----tgattagcat---<br>
+>taxon_2<br>
+tgattag---tga-tag-</p>
+<p>out:<br>
+>taxon_1<br>
+NNNNtgattagcatNNN<br>
+>taxon_2<br>
+tgattag---tga-tagN</p>
+
+  </div>
+
+    <div class="comment_reply">
+      <a href="/c/3880?reply" class="reply" id="reply_a_3880" title="Reply to comment by Eszter">Reply to this comment</a>
+    </div>
+</div>
+
+
+    
+
+  
+
+
+<div class="icomment" style="margin-left: 20px">
+  <div class="gravatar">
+    <img src="/static/img/nogravatar.gif" width="40" height="40">
+  </div>
+  <div class="userinfo">
+    <div>
+      <span class="name">Robby</span>
+
+
+        <span class="permalink"><a href="/c/4322" title="Permanent link to the comment">Permalink</a></span>
+    </div>
+    <div>
+      <span class="time">September 27, 2010, 23:05</span>
+    </div>
+  </div>
+  <div class="clear"></div>
+  <div class="comment_text">
+    <p>Great article!</p>
+<p>@Eszter<br>
+Nice challenge. There could be a shorter way to do this, but I used the branch technique with labels described above and came up with:</p>
+<pre>sed -e :a -e 's/^\(-*\)-/\1N/;ta' -e :b -e 's/-\(-*\)$/N\1/;tb'</pre>
+<p>The first two expressions set a label then loop substituting the dashes inside out.  Then I basically mirrored the process for the backside.</p>
+<pre>$ cat taxon
+----tgattagcat---
+tgattag---tga-tag-
+---tafasf--fasdf--
+
+$ cat taxon | sed -e :a -e 's/^\(-*\)-/\1N/;ta' -e :b -e 's/-\(-*\)$/N\1/;tb'
+NNNNtgattagcatNNN
+tgattag---tga-tagN
+NNNtafasf--fasdfNN
+</pre>
+
+  </div>
+
+    <div class="comment_reply">
+      <a href="/c/4322?reply" class="reply" id="reply_a_4322" title="Reply to comment by Robby">Reply to this comment</a>
+    </div>
+</div>
+
+
+
+
+  
+
+
+<div class="icomment" style="margin-left: 0px">
+  <div class="gravatar">
+    <img src="http://www.gravatar.com/avatar/cee2441ba1a36804b932b265c8511281.jpg?s=40" width="40" height="40">
+  </div>
+  <div class="userinfo">
+    <div>
+      <span class="name">dj</span>
+
+
+        <span class="permalink"><a href="/c/8229" title="Permanent link to the comment">Permalink</a></span>
+    </div>
+    <div>
+      <span class="time">December 14, 2010, 05:00</span>
+    </div>
+  </div>
+  <div class="clear"></div>
+  <div class="comment_text">
+    <p>This really was an excellent way to learn sed commands. Thank you.  </p>
+<p>I like the braces vs -e. Any problems with that, std wise. </p>
+<p>This:<br>
+-- sed -e :a -e 's/^.\{1,78\}$/ &/;ta'<br>
+verses:<br>
+-- sed '{:a; s/^.\{1,78\}$/ &/; ta}' </p>
+<p>If it's something I'm keeping I put the commands on separate lines and use # comments at the end of the line for each command, as necessary. The opengroup doc says, "Ignore the '#' and the remainder of the line", so I think modern sed is okay. I'm using gnu sed, and no errors, but s2p didn't like them.</p>
+<p>Over at grymoire.com sed tutorial, his examples showed a space between the address/range and the command, and for some reason, visually that helped.</p>
+<p>This:<br>
+-- sed '/start/,/stop/ s/#.*//'<br>
+verses:<br>
+-- sed '/start/,/stop/s/#.*//'</p>
+
+  </div>
+
+    <div class="comment_reply">
+      <a href="/c/8229?reply" class="reply" id="reply_a_8229" title="Reply to comment by dj">Reply to this comment</a>
+    </div>
+</div>
+
+
+  
+
+
+<div class="icomment" style="margin-left: 0px">
+  <div class="gravatar">
+    <img src="http://www.gravatar.com/avatar/0370248344fea9e1933eb6949ec62171.jpg?s=40" width="40" height="40">
+  </div>
+  <div class="userinfo">
+    <div>
+      <span class="name">MrDuke</span>
+
+
+        <span class="permalink"><a href="/c/33794" title="Permanent link to the comment">Permalink</a></span>
+    </div>
+    <div>
+      <span class="time">September 21, 2011, 10:46</span>
+    </div>
+  </div>
+  <div class="clear"></div>
+  <div class="comment_text">
+    <p>I want to remove lines which having number of commas char greater than N. <br>
+counld anyone help me :( ?</p>
+
+  </div>
+
+    <div class="comment_reply">
+      <a href="/c/33794?reply" class="reply" id="reply_a_33794" title="Reply to comment by MrDuke">Reply to this comment</a>
+    </div>
+</div>
+
+
+    
+
+  
+
+
+<div class="icomment" style="margin-left: 20px">
+  <div class="gravatar">
+    <img src="http://www.gravatar.com/avatar/9055b6c1d07708555ec584d03c387f15.jpg?s=40" width="40" height="40">
+  </div>
+  <div class="userinfo">
+    <div>
+      
+      <span class="name"><a href="http://www.catonmat.net" title="http://www.catonmat.net">Peteris Krumins</a></span>
+
+      
+      <span class="twitter"><a href="http://twitter.com/pkrumins" title="pkrumins on Twitter">pkrumins</a></span>
+
+        <span class="permalink"><a href="/c/33811" title="Permanent link to the comment">Permalink</a></span>
+    </div>
+    <div>
+      <span class="time">September 21, 2011, 20:25</span>
+    </div>
+  </div>
+  <div class="clear"></div>
+  <div class="comment_text">
+    <p>Here is a trick to do it. Suppose N=5, then this one-liner will delete all lines with 5 commas:</p>
+<pre>
+sed -n '/.*,.*,.*,.*,.*,/d
+</pre>
+
+  </div>
+
+    <div class="comment_reply">
+      <a href="/c/33811?reply" class="reply" id="reply_a_33811" title="Reply to comment by Peteris Krumins">Reply to this comment</a>
+    </div>
+</div>
+
+
+
+
+  
+
+
+<div class="icomment" style="margin-left: 0px">
+  <div class="gravatar">
+    <img src="http://www.gravatar.com/avatar/27f3e00204fab2b4ef3b14103918df13.jpg?s=40" width="40" height="40">
+  </div>
+  <div class="userinfo">
+    <div>
+      <span class="name">Shoilen</span>
+
+
+        <span class="permalink"><a href="/c/35289" title="Permanent link to the comment">Permalink</a></span>
+    </div>
+    <div>
+      <span class="time">October 21, 2011, 11:35</span>
+    </div>
+  </div>
+  <div class="clear"></div>
+  <div class="comment_text">
+    <p>I want to get the line count of a file, excluding the first line. How can I achieve it using sed? File content:</p>
+<p>EMP_ID | DEPT_NAME<br>
+6965828|Physics One<br>
+7510197|Physics One<br>
+4789042|Physics One<br>
+7991528|Physics One</p>
+<p>I tried <br>
+#sed -(n-1) '$=' Myfile<br>
+the result is 5 however I should be 4.</p>
+
+  </div>
+
+    <div class="comment_reply">
+      <a href="/c/35289?reply" class="reply" id="reply_a_35289" title="Reply to comment by Shoilen">Reply to this comment</a>
+    </div>
+</div>
+
+
+    
+
+  
+
+
+<div class="icomment" style="margin-left: 20px">
+  <div class="gravatar">
+    <img src="http://www.gravatar.com/avatar/793179baf6a625ed4f332cba68459676.jpg?s=40" width="40" height="40">
+  </div>
+  <div class="userinfo">
+    <div>
+      <span class="name">pandeeswaran</span>
+
+      
+      <span class="twitter"><a href="http://twitter.com/pandeesh" title="pandeesh on Twitter" rel="nofollow">pandeesh</a></span>
+
+        <span class="permalink"><a href="/c/37465" title="Permanent link to the comment">Permalink</a></span>
+    </div>
+    <div>
+      <span class="time">February 05, 2012, 14:50</span>
+    </div>
+  </div>
+  <div class="clear"></div>
+  <div class="comment_text">
+    <p>This is the way you want i guess:<br>
+pandeeswaran@ubuntu:~/training$ cat Myfile<br>
+EMP_ID | DEPT_NAME<br>
+6965828|Physics One<br>
+7510197|Physics One<br>
+4789042|Physics One<br>
+7991528|Physics One<br>
+pandeeswaran@ubuntu:~/training$ sed -e '1d' Myfile|sed -n '$='<br>
+4</p>
+
+  </div>
+
+    <div class="comment_reply">
+      <a href="/c/37465?reply" class="reply" id="reply_a_37465" title="Reply to comment by pandeeswaran">Reply to this comment</a>
+    </div>
+</div>
+
+
+
+
+  
+
+
+<div class="icomment" style="margin-left: 0px">
+  <div class="gravatar">
+    <img src="http://www.gravatar.com/avatar/27f3e00204fab2b4ef3b14103918df13.jpg?s=40" width="40" height="40">
+  </div>
+  <div class="userinfo">
+    <div>
+      <span class="name">Shoilen</span>
+
+
+        <span class="permalink"><a href="/c/35290" title="Permanent link to the comment">Permalink</a></span>
+    </div>
+    <div>
+      <span class="time">October 21, 2011, 11:40</span>
+    </div>
+  </div>
+  <div class="clear"></div>
+  <div class="comment_text">
+    <p>Please read as</p>
+<p>sed -n '$=' Myfile</p>
+<p>the result is 5 however it should be 4.</p>
+
+  </div>
+
+    <div class="comment_reply">
+      <a href="/c/35290?reply" class="reply" id="reply_a_35290" title="Reply to comment by Shoilen">Reply to this comment</a>
+    </div>
+</div>
+
+
+  
+
+
+<div class="icomment" style="margin-left: 0px">
+  <div class="gravatar">
+    <img src="http://www.gravatar.com/avatar/20749c268f5d3e4d2c785499eb6a17c0.jpg?s=40" width="40" height="40">
+  </div>
+  <div class="userinfo">
+    <div>
+      
+      <span class="name"><a href="http://www.computerandyou.net" title="http://www.computerandyou.net" rel="nofollow">Abhishek</a></span>
+
+
+        <span class="permalink"><a href="/c/36900" title="Permanent link to the comment">Permalink</a></span>
+    </div>
+    <div>
+      <span class="time">January 03, 2012, 15:54</span>
+    </div>
+  </div>
+  <div class="clear"></div>
+  <div class="comment_text">
+    <p>Thats really nice of you to explaing these one liners...Thanks</p>
+
+  </div>
+
+    <div class="comment_reply">
+      <a href="/c/36900?reply" class="reply" id="reply_a_36900" title="Reply to comment by Abhishek">Reply to this comment</a>
+    </div>
+</div>
+
+
+  
+
+
+<div class="icomment" style="margin-left: 0px">
+  <div class="gravatar">
+    <img src="http://www.gravatar.com/avatar/98bb8d01cc8a057d816bf5a6dd95b168.jpg?s=40" width="40" height="40">
+  </div>
+  <div class="userinfo">
+    <div>
+      <span class="name">Duane Meyers</span>
+
+
+        <span class="permalink"><a href="/c/37422" title="Permanent link to the comment">Permalink</a></span>
+    </div>
+    <div>
+      <span class="time">February 01, 2012, 15:15</span>
+    </div>
+  </div>
+  <div class="clear"></div>
+  <div class="comment_text">
+    <p>I'm having no luck after many hours of either missing it or just not finding it in doing the google thing. I would greatly appreciate if someone could assist me in printing a line above the line that matches a regular expression and the line above also has the regular expression. I need to do this to find duplicate records in the database (library). File has been split based on 1st field so any lines that are exactly the same matching on the 1st field will be together. Anything not matching exactly will be by itself, thus not a duplicate and there is a blank line between each single and double lines. If the line has the regular expression SERSOL-EBOOK, print the line above it. Since there is blank line between non duplicate entries those single lines are ignored.</p>
+<p>1992 Justin Beaver baby baby|SERSOL-EBOOK  </p>
+<p>1997 Justin Beaver baby baby baby|SERSOL-EBK<br>
+1997 Justin Beaver baby baby baby|SERSOL-EBK</p>
+
+  </div>
+
+    <div class="comment_reply">
+      <a href="/c/37422?reply" class="reply" id="reply_a_37422" title="Reply to comment by Duane Meyers">Reply to this comment</a>
+    </div>
+</div>
+
+
+  
+
+
+<div class="icomment" style="margin-left: 0px">
+  <div class="gravatar">
+    <img src="http://www.gravatar.com/avatar/793179baf6a625ed4f332cba68459676.jpg?s=40" width="40" height="40">
+  </div>
+  <div class="userinfo">
+    <div>
+      <span class="name">pandeeswaran</span>
+
+      
+      <span class="twitter"><a href="http://twitter.com/pandeesh" title="pandeesh on Twitter" rel="nofollow">pandeesh</a></span>
+
+        <span class="permalink"><a href="/c/37464" title="Permanent link to the comment">Permalink</a></span>
+    </div>
+    <div>
+      <span class="time">February 05, 2012, 14:21</span>
+    </div>
+  </div>
+  <div class="clear"></div>
+  <div class="comment_text">
+    <p>sed -n '$=' emulates wc -l only for non empty files.<br>
+[code]<br>
+pandeeswaran@ubuntu:~/training$ wc -l mail.sh<br>
+0 mail.sh<br>
+pandeeswaran@ubuntu:~/training$ sed -n '$=' mail.sh<br>
+pandeeswaran@ubuntu:~/training$ <br>
+[/code]</p>
+
+  </div>
+
+    <div class="comment_reply">
+      <a href="/c/37464?reply" class="reply" id="reply_a_37464" title="Reply to comment by pandeeswaran">Reply to this comment</a>
+    </div>
+</div>
+
+
+  
+
+
+<div class="icomment" style="margin-left: 0px">
+  <div class="gravatar">
+    <img src="http://www.gravatar.com/avatar/edfa5d83fcfa1428c69a3ff1c85a0844.jpg?s=40" width="40" height="40">
+  </div>
+  <div class="userinfo">
+    <div>
+      <span class="name">Gajendran V.R.</span>
+
+
+        <span class="permalink"><a href="/c/38046" title="Permanent link to the comment">Permalink</a></span>
+    </div>
+    <div>
+      <span class="time">March 18, 2012, 08:12</span>
+    </div>
+  </div>
+  <div class="clear"></div>
+  <div class="comment_text">
+    <p>i want to grep the word "nfs" in /etc/fstab then comment the line using #. can any one ping the one liner please :)</p>
+
+  </div>
+
+    <div class="comment_reply">
+      <a href="/c/38046?reply" class="reply" id="reply_a_38046" title="Reply to comment by Gajendran V.R.">Reply to this comment</a>
+    </div>
+</div>
+
+
+    
+
+  
+
+
+<div class="icomment" style="margin-left: 20px">
+  <div class="gravatar">
+    <img src="http://www.gravatar.com/avatar/9055b6c1d07708555ec584d03c387f15.jpg?s=40" width="40" height="40">
+  </div>
+  <div class="userinfo">
+    <div>
+      
+      <span class="name"><a href="http://www.catonmat.net" title="http://www.catonmat.net">Peteris Krumins</a></span>
+
+      
+      <span class="twitter"><a href="http://twitter.com/pkrumins" title="pkrumins on Twitter">pkrumins</a></span>
+
+        <span class="permalink"><a href="/c/38804" title="Permanent link to the comment">Permalink</a></span>
+    </div>
+    <div>
+      <span class="time">May 14, 2012, 13:25</span>
+    </div>
+  </div>
+  <div class="clear"></div>
+  <div class="comment_text">
+    <p>Here you go (in awk):</p>
+<pre>
+awk '/nfs/ { print "#" $0; next } { print $0 }'
+</pre>
+<p>Or in sed:</p>
+<pre>
+sed '/nfs/s/^/#/'
+</pre>
+
+  </div>
+
+    <div class="comment_reply">
+      <a href="/c/38804?reply" class="reply" id="reply_a_38804" title="Reply to comment by Peteris Krumins">Reply to this comment</a>
+    </div>
+</div>
+
+
+
+
+  
+
+
+<div class="icomment" style="margin-left: 0px">
+  <div class="gravatar">
+    <img src="http://www.gravatar.com/avatar/214171d93433ee07cc0c567efeec90df.jpg?s=40" width="40" height="40">
+  </div>
+  <div class="userinfo">
+    <div>
+      <span class="name">Gaurav</span>
+
+
+        <span class="permalink"><a href="/c/38777" title="Permanent link to the comment">Permalink</a></span>
+    </div>
+    <div>
+      <span class="time">May 11, 2012, 14:06</span>
+    </div>
+  </div>
+  <div class="clear"></div>
+  <div class="comment_text">
+    <p>Hi,</p>
+<p>I just want to replace 50 variable in just one line for example i want to replace 1,2,3.....upto 50 by aa,ab,ac.... upto bx <br>
+kindly suggest...</p>
+
+  </div>
+
+    <div class="comment_reply">
+      <a href="/c/38777?reply" class="reply" id="reply_a_38777" title="Reply to comment by Gaurav">Reply to this comment</a>
+    </div>
+</div>
+
+
+    
+
+  
+
+
+<div class="icomment" style="margin-left: 20px">
+  <div class="gravatar">
+    <img src="http://www.gravatar.com/avatar/9055b6c1d07708555ec584d03c387f15.jpg?s=40" width="40" height="40">
+  </div>
+  <div class="userinfo">
+    <div>
+      
+      <span class="name"><a href="http://www.catonmat.net" title="http://www.catonmat.net">Peteris Krumins</a></span>
+
+      
+      <span class="twitter"><a href="http://twitter.com/pkrumins" title="pkrumins on Twitter">pkrumins</a></span>
+
+        <span class="permalink"><a href="/c/38803" title="Permanent link to the comment">Permalink</a></span>
+    </div>
+    <div>
+      <span class="time">May 14, 2012, 13:22</span>
+    </div>
+  </div>
+  <div class="clear"></div>
+  <div class="comment_text">
+    <p>You can do it easily with a Perl one-liner:</p>
+<pre>
+perl -pe '@a = aa..bx; s/(\d+)/$a[$1-1]/ge'
+</pre>
+<p>Example:</p>
+<pre>
+$ perl -pe '@a = aa..bx; s/(\d+)/$a[$1-1]/ge'
+1
+aa
+2
+ab
+3
+ac
+26
+az
+27
+ba
+50
+bx
+^C
+</pre>
+
+  </div>
+
+    <div class="comment_reply">
+      <a href="/c/38803?reply" class="reply" id="reply_a_38803" title="Reply to comment by Peteris Krumins">Reply to this comment</a>
+    </div>
+</div>
+
+
+
+
+  
+
+
+<div class="icomment" style="margin-left: 0px">
+  <div class="gravatar">
+    <img src="http://www.gravatar.com/avatar/214171d93433ee07cc0c567efeec90df.jpg?s=40" width="40" height="40">
+  </div>
+  <div class="userinfo">
+    <div>
+      <span class="name">Gaurav</span>
+
+
+        <span class="permalink"><a href="/c/38806" title="Permanent link to the comment">Permalink</a></span>
+    </div>
+    <div>
+      <span class="time">May 14, 2012, 16:52</span>
+    </div>
+  </div>
+  <div class="clear"></div>
+  <div class="comment_text">
+    <p>thnx very much peteris ..... can u please explain it at the point "/$a[$1-1]/" ..... and one more thing can we do the same thing by sed ?</p>
+
+  </div>
+
+    <div class="comment_reply">
+      <a href="/c/38806?reply" class="reply" id="reply_a_38806" title="Reply to comment by Gaurav">Reply to this comment</a>
+    </div>
+</div>
+
+
+    
+
+  
+
+
+<div class="icomment" style="margin-left: 20px">
+  <div class="gravatar">
+    <img src="http://www.gravatar.com/avatar/9055b6c1d07708555ec584d03c387f15.jpg?s=40" width="40" height="40">
+  </div>
+  <div class="userinfo">
+    <div>
+      
+      <span class="name"><a href="http://www.catonmat.net" title="http://www.catonmat.net">Peteris Krumins</a></span>
+
+      
+      <span class="twitter"><a href="http://twitter.com/pkrumins" title="pkrumins on Twitter">pkrumins</a></span>
+
+        <span class="permalink"><a href="/c/38845" title="Permanent link to the comment">Permalink</a></span>
+    </div>
+    <div>
+      <span class="time">May 16, 2012, 13:40</span>
+    </div>
+  </div>
+  <div class="clear"></div>
+  <div class="comment_text">
+    <p>It's hard to do it in sed.</p>
+<p>Here is what $a[$1-1] does. First (\d+) captures the number in the group $1, then $a[$1-1] just accesses the $1-1 element in the @a array.</p>
+<p>For example, if the number is 2, then (\d+) captures 2 in $1, and $a[$1-1] is $a[1], which is string "bb", because array @a is ("aa", "bb", "cc", ..., "bx").</p>
+
+  </div>
+
+    <div class="comment_reply">
+      <a href="/c/38845?reply" class="reply" id="reply_a_38845" title="Reply to comment by Peteris Krumins">Reply to this comment</a>
+    </div>
+</div>
+
+
+
+
+  
+
+
+<div class="icomment" style="margin-left: 0px">
+  <div class="gravatar">
+    <img src="http://www.gravatar.com/avatar/214171d93433ee07cc0c567efeec90df.jpg?s=40" width="40" height="40">
+  </div>
+  <div class="userinfo">
+    <div>
+      <span class="name">Gaurav</span>
+
+
+        <span class="permalink"><a href="/c/38877" title="Permanent link to the comment">Permalink</a></span>
+    </div>
+    <div>
+      <span class="time">May 18, 2012, 09:23</span>
+    </div>
+  </div>
+  <div class="clear"></div>
+  <div class="comment_text">
+    <p>thnx peteris for the explanation..... one more thing i would like to ask suppose i have 2 files in the first file i have these variables like aa, ab, ac and so on upto bx and in the second file i am having lines like<br>
+this is first line<br>
+this is second line.<br>
+now i want to combine these files and wanna get output like this<br>
+aa=this is first line<br>
+ab=this is second line<br>
+..... and so on upto <br>
+bx=this is 50th line.</p>
+<p>many thanx in advance .....</p>
+
+  </div>
+
+    <div class="comment_reply">
+      <a href="/c/38877?reply" class="reply" id="reply_a_38877" title="Reply to comment by Gaurav">Reply to this comment</a>
+    </div>
+</div>
+
+
+    
+
+  
+
+
+<div class="icomment" style="margin-left: 20px">
+  <div class="gravatar">
+    <img src="http://www.gravatar.com/avatar/9055b6c1d07708555ec584d03c387f15.jpg?s=40" width="40" height="40">
+  </div>
+  <div class="userinfo">
+    <div>
+      
+      <span class="name"><a href="http://www.catonmat.net" title="http://www.catonmat.net">Peteris Krumins</a></span>
+
+      
+      <span class="twitter"><a href="http://twitter.com/pkrumins" title="pkrumins on Twitter">pkrumins</a></span>
+
+        <span class="permalink"><a href="/c/38883" title="Permanent link to the comment">Permalink</a></span>
+    </div>
+    <div>
+      <span class="time">May 18, 2012, 13:01</span>
+    </div>
+  </div>
+  <div class="clear"></div>
+  <div class="comment_text">
+    <p>Very easy mate, use the <code>paste</code> unix command. Like this:</p>
+<pre>
+paste -d= file1 file2
+</pre>
+<p>Here is my example. I have this in file1:</p>
+<pre>
+a
+b
+c
+d
+e
+f
+</pre>
+<p>And I have this in file2:</p>
+<pre>
+1
+2
+3
+4
+5
+6
+</pre>
+<p>Now when I run <code>paste -d= file1 file2</code>, I get:</p>
+<pre>
+a=1
+b=2
+c=3
+d=4
+e=5
+f=6
+</pre>
+
+  </div>
+
+    <div class="comment_reply">
+      <a href="/c/38883?reply" class="reply" id="reply_a_38883" title="Reply to comment by Peteris Krumins">Reply to this comment</a>
+    </div>
+</div>
+
+
+    
+
+  
+
+
+<div class="icomment" style="margin-left: 40px">
+  <div class="gravatar">
+    <img src="http://www.gravatar.com/avatar/214171d93433ee07cc0c567efeec90df.jpg?s=40" width="40" height="40">
+  </div>
+  <div class="userinfo">
+    <div>
+      <span class="name">Gaurav</span>
+
+
+        <span class="permalink"><a href="/c/38886" title="Permanent link to the comment">Permalink</a></span>
+    </div>
+    <div>
+      <span class="time">May 18, 2012, 15:12</span>
+    </div>
+  </div>
+  <div class="clear"></div>
+  <div class="comment_text">
+    <p>thnx peteris :)</p>
+
+  </div>
+
+    <div class="comment_reply">
+      <a href="/c/38886?reply" class="reply" id="reply_a_38886" title="Reply to comment by Gaurav">Reply to this comment</a>
+    </div>
+</div>
+
+
+
+
+
+
+  
+
+
+<div class="icomment" style="margin-left: 0px">
+  <div class="gravatar">
+    <img src="http://www.gravatar.com/avatar/214171d93433ee07cc0c567efeec90df.jpg?s=40" width="40" height="40">
+  </div>
+  <div class="userinfo">
+    <div>
+      <span class="name">Gaurav</span>
+
+
+        <span class="permalink"><a href="/c/38997" title="Permanent link to the comment">Permalink</a></span>
+    </div>
+    <div>
+      <span class="time">May 25, 2012, 15:07</span>
+    </div>
+  </div>
+  <div class="clear"></div>
+  <div class="comment_text">
+    <p>hi, Peteris wanna ask u one thing can i create a GUI with help of shell scripting suppose i want to create a GUI of currency converter... can u please help me .....</p>
+
+  </div>
+
+    <div class="comment_reply">
+      <a href="/c/38997?reply" class="reply" id="reply_a_38997" title="Reply to comment by Gaurav">Reply to this comment</a>
+    </div>
+</div>
+
+
+  
+
+
+<div class="icomment" style="margin-left: 0px">
+  <div class="gravatar">
+    <img src="/static/img/nogravatar.gif" width="40" height="40">
+  </div>
+  <div class="userinfo">
+    <div>
+      <span class="name">romainc</span>
+
+
+        <span class="permalink"><a href="/c/39037" title="Permanent link to the comment">Permalink</a></span>
+    </div>
+    <div>
+      <span class="time">May 29, 2012, 18:29</span>
+    </div>
+  </div>
+  <div class="clear"></div>
+  <div class="comment_text">
+    <p>Oneliner 31 is not quite right, it doesn't replace the first occurence of foo but rather the previous one to last.<br>
+This is because * is greedy (not stopping on the first possible match).</p>
+<pre>
+$ echo "this is foo and foo another foo quux" | sed 's/\(.*\)foo\(.*foo\)/\1bar\2/'
+this is foo and bar another foo quux
+</pre>
+<p>One way to do actually replace the first match :</p>
+<pre>$ echo "this is foo and foo  another foo quux" | sed 's/foo\(.*foo\)/bar\1/'
+this is bar and foo  another foo quux
+</pre>
+<p>A non greedy operator does not seems to exist in GNU sed (but it exists in software with extended regex engine like vi, perl, ... )</p>
+
+  </div>
+
+    <div class="comment_reply">
+      <a href="/c/39037?reply" class="reply" id="reply_a_39037" title="Reply to comment by romainc">Reply to this comment</a>
+    </div>
+</div>
+
+
+  
+
+
+<div class="icomment" style="margin-left: 0px">
+  <div class="gravatar">
+    <img src="http://www.gravatar.com/avatar/214171d93433ee07cc0c567efeec90df.jpg?s=40" width="40" height="40">
+  </div>
+  <div class="userinfo">
+    <div>
+      <span class="name">Gaurav</span>
+
+
+        <span class="permalink"><a href="/c/39088" title="Permanent link to the comment">Permalink</a></span>
+    </div>
+    <div>
+      <span class="time">June 02, 2012, 08:27</span>
+    </div>
+  </div>
+  <div class="clear"></div>
+  <div class="comment_text">
+    <p>one liner 41 will not work correct on number like 12345.6789<br>
+kindly fix this bug....</p>
+
+  </div>
+
+    <div class="comment_reply">
+      <a href="/c/39088?reply" class="reply" id="reply_a_39088" title="Reply to comment by Gaurav">Reply to this comment</a>
+    </div>
+</div>
+
+
+  
+
+
+<div class="icomment" style="margin-left: 0px">
+  <div class="gravatar">
+    <img src="http://www.gravatar.com/avatar/25f8688b67d601ee6d8aeb0482c59845.jpg?s=40" width="40" height="40">
+  </div>
+  <div class="userinfo">
+    <div>
+      <span class="name">Human</span>
+
+
+        <span class="permalink"><a href="/c/39363" title="Permanent link to the comment">Permalink</a></span>
+    </div>
+    <div>
+      <span class="time">June 22, 2012, 13:13</span>
+    </div>
+  </div>
+  <div class="clear"></div>
+  <div class="comment_text">
+    <p>Got an interesting requirement. <br>
+You have listed sed commands for printing paragraphs containing AAA or BBB or CCC & AAA and BBB and CCC. </p>
+<p>I got an interesting requirement. How do I print a paragraph which contains (AAA or BBB) and CCC?</p>
+
+  </div>
+
+    <div class="comment_reply">
+      <a href="/c/39363?reply" class="reply" id="reply_a_39363" title="Reply to comment by Human">Reply to this comment</a>
+    </div>
+</div>
+
+
+    
+
+  
+
+
+<div class="icomment" style="margin-left: 20px">
+  <div class="gravatar">
+    <img src="http://www.gravatar.com/avatar/9055b6c1d07708555ec584d03c387f15.jpg?s=40" width="40" height="40">
+  </div>
+  <div class="userinfo">
+    <div>
+      
+      <span class="name"><a href="http://www.catonmat.net" title="http://www.catonmat.net">Peteris Krumins</a></span>
+
+      
+      <span class="twitter"><a href="http://twitter.com/pkrumins" title="pkrumins on Twitter">pkrumins</a></span>
+
+        <span class="permalink"><a href="/c/39396" title="Permanent link to the comment">Permalink</a></span>
+    </div>
+    <div>
+      <span class="time">June 24, 2012, 23:09</span>
+    </div>
+  </div>
+  <div class="clear"></div>
+  <div class="comment_text">
+    <p>Here is how:</p>
+<pre>
+sed -n '/AAA/{/CCC/p};/BBB/{/CCC/p}'
+</pre>
+
+  </div>
+
+    <div class="comment_reply">
+      <a href="/c/39396?reply" class="reply" id="reply_a_39396" title="Reply to comment by Peteris Krumins">Reply to this comment</a>
+    </div>
+</div>
+
+
+    
+
+  
+
+
+<div class="icomment" style="margin-left: 40px">
+  <div class="gravatar">
+    <img src="http://www.gravatar.com/avatar/133809d207d9d90681704c1643133c3a.jpg?s=40" width="40" height="40">
+  </div>
+  <div class="userinfo">
+    <div>
+      <span class="name">Human</span>
+
+
+        <span class="permalink"><a href="/c/39404" title="Permanent link to the comment">Permalink</a></span>
+    </div>
+    <div>
+      <span class="time">June 25, 2012, 08:30</span>
+    </div>
+  </div>
+  <div class="clear"></div>
+  <div class="comment_text">
+    <p>Thankyou. It worked like a charm. <br>
+I have been trying more on the lines of </p>
+<p> <code>sed -e '/AAA|BBB/!d;/CCC/!d' </code></p>
+<p>but couldnt get it work. My reasoning says the above command should work (I assume I could use a regex as AAA|BBB in my first search). Am I missing something here?</p>
+
+  </div>
+
+    <div class="comment_reply">
+      <a href="/c/39404?reply" class="reply" id="reply_a_39404" title="Reply to comment by Human">Reply to this comment</a>
+    </div>
+</div>
+
+
+    
+
+  
+
+
+<div class="icomment" style="margin-left: 60px">
+  <div class="gravatar">
+    <img src="http://www.gravatar.com/avatar/9055b6c1d07708555ec584d03c387f15.jpg?s=40" width="40" height="40">
+  </div>
+  <div class="userinfo">
+    <div>
+      
+      <span class="name"><a href="http://www.catonmat.net" title="http://www.catonmat.net">Peteris Krumins</a></span>
+
+      
+      <span class="twitter"><a href="http://twitter.com/pkrumins" title="pkrumins on Twitter">pkrumins</a></span>
+
+        <span class="permalink"><a href="/c/39432" title="Permanent link to the comment">Permalink</a></span>
+    </div>
+    <div>
+      <span class="time">June 27, 2012, 19:27</span>
+    </div>
+  </div>
+  <div class="clear"></div>
+  <div class="comment_text">
+    <p>Your reasoning is correct, and your program is actually correct.</p>
+<p>The only problem is with the type of regular expressions sed uses. It uses so called "basic" regexes where <code>|</code> is an ordinary character.</p>
+<p>You've to escape it to make it work like an alternation operator:</p>
+<pre>
+sed -e '/AAA\|BBB/!d;/CCC/!d'
+</pre>
+<p>Try this and it will work.</p>
+<p>Also check out the <code>-r</code> argument to sed. It enables extended regular expressions, and your program will work:</p>
+<pre>
+sed -re '/AAA|BBB/!d;/CCC/!d'
+</pre>
+
+  </div>
+
+    <div class="comment_reply">
+      <a href="/c/39432?reply" class="reply" id="reply_a_39432" title="Reply to comment by Peteris Krumins">Reply to this comment</a>
+    </div>
+</div>
+
+
+    
+
+  
+
+
+<div class="icomment" style="margin-left: 80px">
+  <div class="gravatar">
+    <img src="http://www.gravatar.com/avatar/c2596124de8d3ba501186b800787e3c9.jpg?s=40" width="40" height="40">
+  </div>
+  <div class="userinfo">
+    <div>
+      <span class="name">Human</span>
+
+
+        <span class="permalink"><a href="/c/39819" title="Permanent link to the comment">Permalink</a></span>
+    </div>
+    <div>
+      <span class="time">July 25, 2012, 09:09</span>
+    </div>
+  </div>
+  <div class="clear"></div>
+  <div class="comment_text">
+    <p>Thankyou Peter. Both your suggestions worked.</p>
+
+  </div>
+
+    <div class="comment_reply">
+      <a href="/c/39819?reply" class="reply" id="reply_a_39819" title="Reply to comment by Human">Reply to this comment</a>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<div class="icomment" style="margin-left: 0px">
+  <div class="gravatar">
+    <img src="http://www.gravatar.com/avatar/82d81ecdeeeb452d51e41da45aef7e70.jpg?s=40" width="40" height="40">
+  </div>
+  <div class="userinfo">
+    <div>
+      <span class="name">mark</span>
+
+
+        <span class="permalink"><a href="/c/39700" title="Permanent link to the comment">Permalink</a></span>
+    </div>
+    <div>
+      <span class="time">July 13, 2012, 15:13</span>
+    </div>
+  </div>
+  <div class="clear"></div>
+  <div class="comment_text">
+    <p>Hi<br>
+I am doing something like example 35:<br>
+sed 's/scarlet/red/g;s/ruby/red/g;s/puce/red/g'</p>
+<p>The above example replaces 3 words, but I want to replace 214 words in my source file.<br>
+Sadly, I get the error:<br>
+"unterminated substitute pattern"</p>
+<p>But, strangely, if I divide this sed command into smaller blocks (of roughly 40 words), then it works for some reason.<br>
+I am really hoping there is a fix since I have to do many of these and need to process at least 214 find/replace tasks at once in the 1 file without errors.<br>
+Any help very much appreciated.</p>
+
+  </div>
+
+    <div class="comment_reply">
+      <a href="/c/39700?reply" class="reply" id="reply_a_39700" title="Reply to comment by mark">Reply to this comment</a>
+    </div>
+</div>
+
+
+  
+
+
+<div class="icomment" style="margin-left: 0px">
+  <div class="gravatar">
+    <img src="http://www.gravatar.com/avatar/7389372bb838e1a31185dfd3479b2d2e.jpg?s=40" width="40" height="40">
+  </div>
+  <div class="userinfo">
+    <div>
+      <span class="name">Nirmal Arri</span>
+
+
+        <span class="permalink"><a href="/c/40800" title="Permanent link to the comment">Permalink</a></span>
+    </div>
+    <div>
+      <span class="time">October 08, 2012, 14:58</span>
+    </div>
+  </div>
+  <div class="clear"></div>
+  <div class="comment_text">
+    <p>Hi Peteris,<br>
+          I highly appreciate this article, and all the effort you have put in. Here is my question.</p>
+<p>I need to replace a line which starts with a word "update" and ends with "where", I have the following that works fine it there is only one "where" in the line, but doesn't work if there are more than one "where".</p>
+<p>sed -e 's/^Update.*where//ig' and I pipe to replace that string with something I want it to be.</p>
+<p>Any help would be highly appreciate..</p>
+<p>Thanks</p>
+<p>Nirmal</p>
+
+  </div>
+
+    <div class="comment_reply">
+      <a href="/c/40800?reply" class="reply" id="reply_a_40800" title="Reply to comment by Nirmal Arri">Reply to this comment</a>
+    </div>
+</div>
+
+
+    
+
+  
+
+
+<div class="icomment" style="margin-left: 20px">
+  <div class="gravatar">
+    <img src="http://www.gravatar.com/avatar/9055b6c1d07708555ec584d03c387f15.jpg?s=40" width="40" height="40">
+  </div>
+  <div class="userinfo">
+    <div>
+      
+      <span class="name"><a href="http://www.catonmat.net" title="http://www.catonmat.net">Peteris Krumins</a></span>
+
+      
+      <span class="twitter"><a href="http://twitter.com/pkrumins" title="pkrumins on Twitter">pkrumins</a></span>
+
+        <span class="permalink"><a href="/c/40818" title="Permanent link to the comment">Permalink</a></span>
+    </div>
+    <div>
+      <span class="time">October 10, 2012, 01:47</span>
+    </div>
+  </div>
+  <div class="clear"></div>
+  <div class="comment_text">
+    <p>Use sed pattern matching and nesting:</p>
+<p>sed -e '/^Update/{/where$/{s/.../.../ig}}'</p>
+
+  </div>
+
+    <div class="comment_reply">
+      <a href="/c/40818?reply" class="reply" id="reply_a_40818" title="Reply to comment by Peteris Krumins">Reply to this comment</a>
+    </div>
+</div>
+
+
+
+
+  
+
+
+<div class="icomment" style="margin-left: 0px">
+  <div class="gravatar">
+    <img src="http://www.gravatar.com/avatar/c265829cdaee567d42cccbafa633ea0f.jpg?s=40" width="40" height="40">
+  </div>
+  <div class="userinfo">
+    <div>
+      <span class="name">priyoma basu</span>
+
+
+        <span class="permalink"><a href="/c/41505" title="Permanent link to the comment">Permalink</a></span>
+    </div>
+    <div>
+      <span class="time">November 30, 2012, 11:10</span>
+    </div>
+  </div>
+  <div class="clear"></div>
+  <div class="comment_text">
+    <p>Hello, please help me with this question - <br>
+Write a sed command that will go through a file and eliminate any .5 at the end of a record. If .5 is anywhere else in the record, leave it alone. Have the sed command only display those records which are modified. (sample input & output as follows)</p>
+<p>   <br>
+Input:</p>
+<p>1:2:3:4<br>
+1:3:5:7.5<br>
+1.5:2.5:3.5:7.5<br>
+1.5:2:3:4<br>
+1:2.5:3:4</p>
+<p>Output:</p>
+<p>1:3:5:7<br>
+1.5:2.5:3.5:7</p>
+
+  </div>
+
+    <div class="comment_reply">
+      <a href="/c/41505?reply" class="reply" id="reply_a_41505" title="Reply to comment by priyoma basu">Reply to this comment</a>
+    </div>
+</div>
+
+
+  
+
+
+<div class="icomment" style="margin-left: 0px">
+  <div class="gravatar">
+    <img src="http://www.gravatar.com/avatar/b1c67b7578fc7e4ba4e82337829526c9.jpg?s=40" width="40" height="40">
+  </div>
+  <div class="userinfo">
+    <div>
+      <span class="name">JESS</span>
+
+
+        <span class="permalink"><a href="/c/42528" title="Permanent link to the comment">Permalink</a></span>
+    </div>
+    <div>
+      <span class="time">February 09, 2013, 00:06</span>
+    </div>
+  </div>
+  <div class="clear"></div>
+  <div class="comment_text">
+    <p>Hi, Can you please help me with the following question.</p>
+<p>I'm using sed to add HELLO at the end of the each DATE* word. </p>
+<p>$ echo $TAB_COLS<br>
+ID,TITLE,DATE_PROG1,DATE_PROG2</p>
+<p>I get the following.<br>
+$ echo $TAB_COLS | sed -e 's/\(,DATE.*\),*/\1 \"HELLO\"/g'<br>
+ID,TITLE,DATE_PROG1,DATE_PROG2 "HELLO"</p>
+<p>But, I expact the output as copied below.</p>
+<p>ID,TITLE,DATE_PROG1 "HELLO",DATE_PROG2 "HELLO"</p>
+<p>How can I achive this? Does this have to do anything with sed grediness?</p>
+<p>Thanks for your help.</p>
+
+  </div>
+
+    <div class="comment_reply">
+      <a href="/c/42528?reply" class="reply" id="reply_a_42528" title="Reply to comment by JESS">Reply to this comment</a>
+    </div>
+</div>
+
+
+    
+
+  
+
+
+<div class="icomment" style="margin-left: 20px">
+  <div class="gravatar">
+    <img src="http://www.gravatar.com/avatar/9055b6c1d07708555ec584d03c387f15.jpg?s=40" width="40" height="40">
+  </div>
+  <div class="userinfo">
+    <div>
+      
+      <span class="name"><a href="http://www.catonmat.net" title="http://www.catonmat.net">Peteris Krumins</a></span>
+
+      
+      <span class="twitter"><a href="http://twitter.com/pkrumins" title="pkrumins on Twitter">pkrumins</a></span>
+
+        <span class="permalink"><a href="/c/42570" title="Permanent link to the comment">Permalink</a></span>
+    </div>
+    <div>
+      <span class="time">February 14, 2013, 00:39</span>
+    </div>
+  </div>
+  <div class="clear"></div>
+  <div class="comment_text">
+    <p>Yes, that's because <code>.*</code> is greedy.</p>
+<p>This <code>\(,DATE.*\),*</code> matches <code>,DATE_PROG1,DATE_PROG2</code>, and replaces it with <code>,DATE_PROG1,DATE_PROG2 "HELLO"</code>.</p>
+<p>There is no way to make <code>.*</code> non-greedy in sed. You've to use <code>[...]*</code> trick:</p>
+<pre>
+$ echo $TAB_COLS | sed -e 's/\(DATE[^,]*\)/\1 \"HELLO\"/g'
+ID,TITLE,DATE_PROG1 "HELLO",DATE_PROG2 "HELLO"
+</pre>
+
+  </div>
+
+    <div class="comment_reply">
+      <a href="/c/42570?reply" class="reply" id="reply_a_42570" title="Reply to comment by Peteris Krumins">Reply to this comment</a>
+    </div>
+</div>
+
+
+
+
+  
+
+
+<div class="icomment" style="margin-left: 0px">
+  <div class="gravatar">
+    <img src="http://www.gravatar.com/avatar/e9089b42b416a6de6322981501b1528f.jpg?s=40" width="40" height="40">
+  </div>
+  <div class="userinfo">
+    <div>
+      <span class="name">Indu</span>
+
+
+        <span class="permalink"><a href="/c/45244" title="Permanent link to the comment">Permalink</a></span>
+    </div>
+    <div>
+      <span class="time">July 03, 2013, 07:00</span>
+    </div>
+  </div>
+  <div class="clear"></div>
+  <div class="comment_text">
+    <p>Hi Peteris,<br>
+Could you please explain the command?<br>
+echo "1234"|sed '/\n/!G;s/\(.\)\(.*\n\)/&\2\1/;//D;s/.//'</p>
+<p>I didnt understand how these many iterations are applied in just one input line without any t/b loop.</p>
+<p>Appreciate your help! </p>
+<p>Thanks,<br>
+Indu</p>
+
+  </div>
+
+    <div class="comment_reply">
+      <a href="/c/45244?reply" class="reply" id="reply_a_45244" title="Reply to comment by Indu">Reply to this comment</a>
+    </div>
+</div>
+
+
+
+
+        <script>
+          catonmat.init_comments('page', '');
+        </script>
+    </div>
+
+    <div class="add">
+      <h3>Leave a new comment</h3>
+      
+
+<div id="comment_form">
+    <div id="comment_error" class="hidden"></div>
+
+    <div id="comment_preview" class="hidden"></div>
+
+  <form action="/blog/sed-one-liners-explained-part-one" method="POST">
+    <input type="hidden" name="page_id" id="page_id" value="95">
+    <input type="hidden" name="parent_id" id="parent_id" value="">
+
+    <p>
+      <label for="name" class="name">Name:</label>
+      <input tabindex="1" type="text" name="name" id="name" maxlength="64" size="30">
+    </p>
+    <div class="clear"></div>
+
+    <p>
+      <label for="email" class="email">E-mail:</label>
+      <input tabindex="2" type="text" name="email" id="email" maxlength="128" size="30">
+      <span class="small">(<a href="#" id="why_email_a" title="Why do I need your email?">why do I need your e-mail?</a>)</span>
+    </p>
+    <div class="clear"></div>
+
+    <div id="why_email_explain" class="hidden">
+      <p>
+        It would be nice if you left your e-mail address. Sometimes I want to send a private message, or just thank for the great comment. Having your e-mail really helps.
+      </p>
+      <p><b>I will never ever spam you.</b></p>
+    </div>
+
+    <p>
+      <label for="twitter" class="twitter">Twitter:</label>
+      <input tabindex="3" type="text" name="twitter" id="twitter" maxlength="128" size="30">
+      <span class="small">(Your twitter name, if you have one. (I'm <a href="http://twitter.com/pkrumins">@pkrumins</a>, btw.))</span>
+    </p>
+    <div class="clear"></div>
+
+    <p class="website">
+      <label for="website" class="website">Website:</label>
+      <input tabindex="4" type="text" name="website" id="website" maxlength="256" size="50">
+    </p>
+    <div class="clear"></div>
+
+    <div class="c">
+      <label for="comment" class="comment">Comment:</label>
+      <div class="a">
+        </p>
+        <textarea tabindex="5" name="comment" rows="8" cols="50" id="comment"></textarea>
+        <script>
+          if ($.browser.safari) {
+            /* i can't solve the 2px offset bug in chrome via css manipulations */
+            $('#comment_form .a').css('margin-left', '94px');
+
+            /* i also can't solve a problem of labels being offset by 3px in vertical direction */
+            $('#comment_form label').css('margin-top','3px')
+          }
+        </script>
+        <div class="comment-help-link"><a href="#" id="ch">Comment Help</a></div>
+        <div class="clear"></div>
+        <div id="comment_help" class="hidden">
+          <p>* use <code>&lt;pre>...&lt;/pre></code> to insert a plain code snippet.</p>
+          <p>
+            * use <code>&lt;pre lang="<strong>lang</strong>">...&lt;/pre></code> to insert a syntax highlighted code snippet.<br>
+            For example, <code>&lt;pre lang="<strong>python</strong>">...&lt;/pre></code> will insert Python highlighted code.
+          </p>
+          <p>* use <code>&lt;code>...&lt;/code></code> to highlight a variable or a single shell command.</p>
+          <p>* use <code>&lt;a href="url">title&lt/a></code> to insert links.</p>
+          <p>* use other HTML tags, such as, <code>&lt;b></code>, <code>&lt;i></code>, <code>&lt;blockquote></code>, <code>&lt;sup></code>, <code>&lt;sub></code> for text formatting.</p>
+        </div>
+      </div>
+    </div>
+    <div class="clear"></div>
+
+    <div class="e">
+      <p>
+        Type the first letter of your name: <input tabindex="6" type="text" name="commentc" size="10"> (just to make sure you're a human)
+      </p>
+
+      <p>
+        <input tabindex="6" id="preview" type="submit" name="preview" value="Preview comment">
+        <input tabindex="7" id="submit" type="submit" name="submit" value="Submit comment">
+      </p>
+
+      <p>
+        <span id="comment_please">Please <b>preview</b> the comment before submitting to make sure it's OK.<br></span>
+      </p>
+    </div>
+
+  </form>
+</div>
+
+
+      <script>
+        catonmat.init_why_email();
+        catonmat.init_comment_help();
+        catonmat.init_preview_comment();
+        catonmat.init_submit_comment('');
+      </script>
+    </div>
+  </div>
+
+  <div class="after_comments_ads">
+    <h3>Advertisements</h3>
+    <div class="after_comments_ad300">
+      <div class="lqm_ad" lqm_publisher="lqm.goodcoderscode.site" lqm_zone="RON" lqm_format="300x250" lqm_tags="HTML5%2CHTML%205%2CHTML5%20or%20HTML%205%2CCSS%2CWeb%2CJavaScript%2CSQL%2CVirtualization%2CCloud%2CHosting%2CVisual%20Studio%20or%20visualstudio%20or%20vs%20or%20vs2010%2CVisual%20Studio%2Cvisualstudio%2Cvs%2Cvs2010%2CWPF%2CXML%2CSilverlight%2CParallelism%2CTesting%2CjQuery%2CMVC%2CAJAX"></div>
+    </div>
+    <div class="after_comments_ad300_last">
+      <div class="lqm_ad" lqm_publisher="lqm.goodcoderscode.site" lqm_zone="RON" lqm_format="300x250" lqm_tags="HTML5%2CHTML%205%2CHTML5%20or%20HTML%205%2CCSS%2CWeb%2CJavaScript%2CSQL%2CVirtualization%2CCloud%2CHosting%2CVisual%20Studio%20or%20visualstudio%20or%20vs%20or%20vs2010%2CVisual%20Studio%2Cvisualstudio%2Cvs%2Cvs2010%2CWPF%2CXML%2CSilverlight%2CParallelism%2CTesting%2CjQuery%2CMVC%2CAJAX"></div>
+    </div>
+    <div class="clear"></div>
+    <div class="after_comments_ad">
+      <div class="lqm_ad" lqm_publisher="lqm.goodcoderscode.site" lqm_zone="RON" lqm_format="1x2" lqm_tags="HTML5%2CHTML%205%2CHTML5%20or%20HTML%205%2CCSS%2CWeb%2CJavaScript%2CSQL%2CVirtualization%2CCloud%2CHosting%2CVisual%20Studio%20or%20visualstudio%20or%20vs%20or%20vs2010%2CVisual%20Studio%2Cvisualstudio%2Cvs%2Cvs2010%2CWPF%2CXML%2CSilverlight%2CParallelism%2CTesting%2CjQuery%2CMVC%2CAJAX"></div>
+      <div style="lqm_ad" lqm_publisher="lqm.goodcoderscode.site" lqm_zone="RON" lqm_format="1x2" lqm_tags="HTML5%2CHTML%205%2CHTML5%20or%20HTML%205%2CCSS%2CWeb%2CJavaScript%2CSQL%2CVirtualization%2CCloud%2CHosting%2CVisual%20Studio%20or%20visualstudio%20or%20vs%20or%20vs2010%2CVisual%20Studio%2Cvisualstudio%2Cvs%2Cvs2010%2CWPF%2CXML%2CSilverlight%2CParallelism%2CTesting%2CjQuery%2CMVC%2CAJAX"></div>
+    </div>
+  </div>
+</div>
+
+
+
+
+        </div>
+        <div id="sidebar">
+          
+  <!-- begin sidebar.tmpl.html -->
+
+<div class="item search">
+  <form name="search" action="/search" method="GET">
+    <input name="q" type="text">
+    <input name="submit" type="submit" value="Search">
+  </form>
+</div>
+
+<!-- About the site -->
+<div class="item aboutsite">
+  <div class="title">About the site:</div>
+  <div class="content">
+    <p>
+      <a href="/about/" title="About Peteris Krumins">
+        <img src="/static/img/peteris-krumins-small.jpg" alt="Peteris Krumins" class="peter">
+      </a>
+      Peteris Krumins' blog about programming, hacking, software reuse, software ideas, computer security, google and technology.
+    </p>
+    <div class="hr"></div>
+    <p class="contact smallmargin">Reach me at:</p>
+    <img src="/static/img/peter-catonmat-net.gif" class="eml">
+    <p class="contact">Or meet me on:</p>
+    <div class="social">
+      <ul>
+        <li class="twitter"><a href="http://www.twitter.com/pkrumins" title="Peteris Krumins on Twitter"><img src="/static/img/twitter-16x16.gif">Twitter</a></li>
+        <li class="facebook"><a href="http://www.facebook.com/pkrumins" title="Peteris Krumins on Facebook"><img src="/static/img/facebook-16x16.gif">Facebook</a></li>
+        <!-- TODO: exchange plurk with github -->
+        <li class="plurk almost-last"><a href="http://www.plurk.com/pkrumins" title="Peteris Krumins on Plurk"><img src="/static/img/plurk-16x16.gif">Plurk</a></li>
+        <li class="more"><a href="#" id="a-more-contacts" class="more" title="More ways to contact Peteris Krumins"><img src="/static/img/more-10x10.gif" class="more">more</a></li>
+      </ul>
+      <div class="clear"></div>
+      <script>
+        catonmat.init_toggle_contacts();
+      </script>
+    </div>
+    <div class="social hidden" id="div-more-contacts">
+      <ul>
+        <li class="github"><a href="http://www.github.com/pkrumins" title="Peteris Krumins programming projects on GitHub"><img src="/static/img/github-16x16.gif">GitHub</a></li>
+        <li class="linkedin"><a href="http://www.linkedin.com/in/pkrumins" title="Peteris Krumins CV on LinkedIn"><img src="/static/img/linkedin-16x16.gif">LinkedIn</a></li>
+        <li class="friendfeed"><a href="http://www.friendfeed.com/pkrumins" title="Peteris Krumins on FriendFeed"><img src="/static/img/friendfeed-16x16.gif">FriendFeed</a></li>
+      </ul>
+      <div class="clear"></div>
+      <div style="padding-bottom: 5px"></div>
+      <ul>
+        <li><a href="http://google.com/profiles/peteris.krumins" title="Peteris Krumins on Google Plus"><img src="/static/img/google-plus-16x16.png">Google Plus</a></li>
+      </ul>
+      <div class="clear"></div>
+    </div>
+  </div>
+</div>
+
+<!-- Subscribe to my posts -->
+<div class="item subscribe">
+  <div class="title">Subscribe to my posts:</div>
+  <div class="content">
+    <p>Subscribe through an RSS feed:</p>
+    <p class="feed">
+      <a href="http://feeds2.feedburner.com/catonmat" rel="alternate" type="application/rss+xml" class="rss" title="Catonmat RSS Feed">
+        <img src="/static/img/rss-feed-16x16.png" class="rss">
+        <img src="http://feeds2.feedburner.com/~fc/catonmat?bg=99CCFF&amp;fg=444444&amp;anim=0" height="26" width="88" class="counter">
+      </a>
+      <span class="rss">(<a href="/what-is-rss/" title="What is an RSS feed?">what is rss?</a>)</span>
+    </p>
+    <div class="hr"></div>
+    <p>Subscribe through email:</p>
+    <!-- begin generated by feedburner.com -->
+    <p>
+      <form style="border:1px solid #ccc;padding:3px;text-align:center;" action="http://feedburner.google.com/fb/a/mailverify" method="post" target="popupwindow" onsubmit="window.open('http://feedburner.google.com/fb/a/mailverify?uri=catonmat', 'popupwindow', 'scrollbars=yes,width=550,height=520');return true">
+        <p>Enter your email address:</p>
+        <p>
+          <input type="text" style="width:140px" name="email"/>
+        </p>
+        <input type="hidden" value="catonmat" name="uri"/>
+        <input type="hidden" name="loc" value="en_US"/>
+        <p>
+          <input type="submit" value="Subscribe" />
+        </p>
+        <p>
+          Delivered by <a href="http://feedburner.google.com" target="_blank">FeedBurner</a>
+        </p>
+      </form>
+    </p>
+    <!-- end generated by feedburner.com -->
+  </div>
+</div>
+
+<div class="item">
+  <div class="title">Server Sponsors</div>
+  <div class="content">
+    <p>I am being sponsored by <a href="http://www.syntress.com">Syntress</a> since 2007! They bought me an amazing dedicated server to run catonmat on. If you're looking web services in Chicago area, I highly recommend the <a href="http://www.syntress.com">Syntress guys</a>!</p>
+  </div>
+</div>
+
+<div class="item">
+  <div class="title">My Amazon Wish List</div>
+  <div class="content">
+    <p>I love to read science books. They make my day and I get ideas for awesome blog posts, such as <a href="http://www.catonmat.net/blog/busy-beaver/">Busy Beaver</a>, <a href="http://www.catonmat.net/blog/on-functors/">On Functors</a>, <a href="http://www.catonmat.net/blog/recursive-regular-expressions/">Recursive Regular Expressions</a> and <a href="http://www.catonmat.net/archive">many others</a>.</p>
+
+    <p>Take a look at my <a href="http://www.amazon.com/registry/wishlist/QDKYO6OQUU4O?reveal=unpurchased&filter=all&sort=priority&layout=standard" title="Peteris Krumins Amazon Wish List"><img src="/static/img/amazon-16x16.gif" style="position: relative; top: 5px; padding-right: 5px">Amazon wish list</a>, if you're curious about what I have planned reading next, and want to surprise me. :)</p>
+  </div>
+</div>
+
+<div class="item list">
+  <div class="title">My Books</div>
+  <div class="content">
+    <ul>
+      <li><a href="http://www.catonmat.net/blog/awk-book/" title="Awk Programming Book">Awk Programming Book</a></li>
+      <li><a href="http://www.catonmat.net/blog/sed-book/" title="Sed Programming Book">Sed Programming Book</a></li>
+      <li><a href="http://www.catonmat.net/blog/perl-book/" title="Perl Programming Book">Perl Programming Book</a></li>
+    </ul>
+  </div>
+</div>
+
+<div class="item list">
+  <div class="title">My Other Websites</div>
+  <div class="content">
+    <ul>
+      <li><a href="http://freescienceonline.blogspot.com">Free Science Online</a></li>
+      <li><a href="http://www.freesciencelectures.com">Free Science Videos</a></li>
+    </ul>
+  </div>
+</div>
+
+<div class="item list">
+  <div class="title">Top Ten Articles:</div>
+  <div class="content">
+    <ul>
+     <li><a href="/blog/top-ten-one-liners-from-commandlinefu-explained/" title="Read &quot;Top Ten One-Liners from CommandLineFu Explained&quot; (has been read 1,057,964 times)">Top Ten One-Liners from CommandLineFu Explained</a></li>
+     <li><a href="/blog/my-job-interview-at-google/" title="Read &quot;My Job Interview at Google&quot; (has been read 831,748 times)">My Job Interview at Google</a></li>
+     <li><a href="/blog/mit-introduction-to-algorithms-part-one/" title="Read &quot;MIT's Introduction to Algorithms, Lectures 1 and 2: Analysis of Algorithms&quot; (has been read 791,260 times)">MIT&#39;s Introduction to Algorithms, Lectures 1 and 2: Analysis of Algorithms</a></li>
+     <li><a href="/blog/awk-one-liners-explained-part-one/" title="Read &quot;Famous Awk One-Liners Explained, Part I: File Spacing, Numbering and Calculations&quot; (has been read 626,959 times)">Famous Awk One-Liners Explained, Part I: File Spacing, Numbering and Calculations</a></li>
+     <li><a href="/blog/the-definitive-guide-to-bash-command-line-history/" title="Read &quot;The Definitive Guide to Bash Command Line History&quot; (has been read 611,249 times)">The Definitive Guide to Bash Command Line History</a></li>
+     <li><a href="/blog/sed-one-liners-explained-part-one/" title="Read &quot;Famous Sed One-Liners Explained, Part I: File Spacing, Numbering and Text Conversion and Substitution&quot; (has been read 528,028 times)">Famous Sed One-Liners Explained, Part I: File Spacing, Numbering and Text Conversion and Substitution</a></li>
+     <li><a href="/blog/bash-vi-editing-mode-cheat-sheet/" title="Read &quot;Working Productively in Bash's Vi Command Line Editing Mode (with Cheat Sheet)&quot; (has been read 492,057 times)">Working Productively in Bash&#39;s Vi Command Line Editing Mode (with Cheat Sheet)</a></li>
+     <li><a href="/blog/low-level-bit-hacks-you-absolutely-must-know/" title="Read &quot;Low Level Bit Hacks You Absolutely Must Know&quot; (has been read 442,689 times)">Low Level Bit Hacks You Absolutely Must Know</a></li>
+     <li><a href="/blog/vim-plugins-surround-vim/" title="Read &quot;Vim Plugins You Should Know About, Part I: surround.vim&quot; (has been read 411,605 times)">Vim Plugins You Should Know About, Part I: surround.vim</a></li>
+     <li><a href="/blog/vim-plugins-nerdtree-vim/" title="Read &quot;Vim Plugins You Should Know About, Part VI: nerd_tree.vim&quot; (has been read 406,245 times)">Vim Plugins You Should Know About, Part VI: nerd_tree.vim</a></li>
+    </ul>
+    <p class="moreinfo">
+      <a href="/archive?sorted_by=views" title="Top catonmat articles">See all top articles</a>
+    </p>
+  </div>
+</div>
+
+<div class="item list">
+  <div class="title">Top Ten Downloads:</div>
+  <div class="content">
+    <ul>
+    <li><a href="/download/bash-history-cheat-sheet.pdf" title="Download &quot;bash history cheat sheet (.pdf)&quot;">bash history cheat sheet (.pdf)</a> (<span title="Total 169,626 downloads">169,626</span>)</li>
+    <li><a href="/download/awk.cheat.sheet.pdf" title="Download &quot;awk cheat sheet (.pdf)&quot;">awk cheat sheet (.pdf)</a> (<span title="Total 163,134 downloads">163,134</span>)</li>
+    <li><a href="/download/sed.stream.editor.cheat.sheet.pdf" title="Download &quot;sed stream editor cheat sheet (.pdf)&quot;">sed stream editor cheat sheet (.pdf)</a> (<span title="Total 122,333 downloads">122,333</span>)</li>
+    <li><a href="/download/perl.pack.unpack.printf.cheat.sheet.pdf" title="Download &quot;perl&#39;s pack/unpack and printf cheat sheet (.pdf)&quot;">perl&#39;s pack/unpack and printf cheat sheet (.pdf)</a> (<span title="Total 120,059 downloads">120,059</span>)</li>
+    <li><a href="/download/perl1line.txt" title="Download &quot;perl1line.txt&quot;">perl1line.txt</a> (<span title="Total 119,358 downloads">119,358</span>)</li>
+    <li><a href="/download/screen.cheat.sheet.pdf" title="Download &quot;screen cheat sheet (.pdf)&quot;">screen cheat sheet (.pdf)</a> (<span title="Total 106,504 downloads">106,504</span>)</li>
+    <li><a href="/download/awk.cheat.sheet.txt" title="Download &quot;awk cheat sheet (.txt)&quot;">awk cheat sheet (.txt)</a> (<span title="Total 101,689 downloads">101,689</span>)</li>
+    <li><a href="/download/perl.predefined.variables.pdf" title="Download &quot;perl&#39;s special variable cheat sheet (.pdf)&quot;">perl&#39;s special variable cheat sheet (.pdf)</a> (<span title="Total 99,920 downloads">99,920</span>)</li>
+    <li><a href="/download/bash-vi-editing-mode-cheat-sheet.pdf" title="Download &quot;bash vi editing mode cheat sheet (.pdf)&quot;">bash vi editing mode cheat sheet (.pdf)</a> (<span title="Total 96,921 downloads">96,921</span>)</li>
+    <li><a href="/download/david_pogue-bill_gates_song.mp3" title="Download &quot;the bill gates song.mp3 (musical geek friday #8)&quot;">the bill gates song.mp3 (musical geek friday #8)</a> (<span title="Total 84,155 downloads">84,155</span>)</li>
+    </ul>
+    <p class="moreinfo">
+      <a href="/downloads" title="All catonmat downloads">See all downloads</a>
+    </p>
+  </div>
+</div>
+
+<div class="item list">
+  <div class="title">Recent Articles:</div>
+  <div class="content">
+    <ul>
+     <li><a href="/blog/codeproject-interview-with-me/" title="Read &quot;CodeProject Interview With Me&quot; (was published on September 05, 2013)">CodeProject Interview With Me</a></li>
+     <li><a href="/blog/ascii-cheat-sheet/" title="Read &quot;ASCII Cheat Sheet&quot; (was published on August 07, 2013)">ASCII Cheat Sheet</a></li>
+     <li><a href="/blog/six-years-of-blogging/" title="Read &quot;Six Years of Blogging&quot; (was published on July 24, 2013)">Six Years of Blogging</a></li>
+     <li><a href="/blog/writing-javascript-tests-with-tape/" title="Read &quot;Writing javascript tests with tape&quot; (was published on June 30, 2013)">Writing javascript tests with tape</a></li>
+     <li><a href="/blog/simple-ld-preload-tutorial-part-2/" title="Read &quot;A Simple LD_PRELOAD Tutorial, Part 2&quot; (was published on May 31, 2013)">A Simple LD_PRELOAD Tutorial, Part 2</a></li>
+     <li><a href="/blog/i-published-another-10-of-my-projects-to-github/" title="Read &quot;I published another 10 of my projects to GitHub&quot; (was published on April 11, 2013)">I published another 10 of my projects to GitHub</a></li>
+     <li><a href="/blog/simple-ld-preload-tutorial/" title="Read &quot;A Simple LD_PRELOAD Tutorial&quot; (was published on March 31, 2013)">A Simple LD_PRELOAD Tutorial</a></li>
+     <li><a href="/blog/regex-char-classes/" title="Read &quot;Visualization of Regular Expression Character Classes&quot; (was published on February 25, 2013)">Visualization of Regular Expression Character Classes</a></li>
+     <li><a href="/blog/tcp-traceroute/" title="Read &quot;TCP Traceroute&quot; (was published on February 24, 2013)">TCP Traceroute</a></li>
+     <li><a href="/blog/browserling-now-has-ie10/" title="Read &quot;Browserling now has Internet Explorer 10!&quot; (was published on January 22, 2013)">Browserling now has Internet Explorer 10!</a></li>
+    </ul>
+    <p class="moreinfo">
+      <a href="/archive" title="All catonmat articles">See more detailed list of recent articles</a>
+    </p>
+  </div>
+</div>
+
+<div class="item list">
+  <div class="title">Article Categories:</div>
+  <div class="content">
+    <ul>
+      
+      <li><a href="/category/awk-programming" title="Awk Programming: AWK is a very important UNIX programming language for manipulating text very quickly. I have mastered it and now I am teaching others.">Awk Programming</a> (<span title="There are 8 articles in &quot;Awk Programming&quot; category">8</span>)</li>
+      
+      <li><a href="/category/stackvm-startup" title="Browserling Startup: Articles about my and James Halliday startup - Browserling (earlier called StackVM) - which brings virtual machines to the web!">Browserling Startup</a> (<span title="There are 18 articles in &quot;Browserling Startup&quot; category">18</span>)</li>
+      
+      <li><a href="/category/cheat-sheets" title="Cheat Sheets: All kinds of programming and computer science cheat sheets - vt100/ansi cheat sheet, shell emacs editing mode cheat sheet, iptables cheat sheets and many many others.">Cheat Sheets</a> (<span title="There are 13 articles in &quot;Cheat Sheets&quot; category">13</span>)</li>
+      
+      <li><a href="/category/computer-science" title="Computer Science: I love computer science.">Computer Science</a> (<span title="There are 9 articles in &quot;Computer Science&quot; category">9</span>)</li>
+      
+      <li><a href="/category/hackers-approach" title="Hacker&#39;s Approach: Using the hacker&#39;s approach one can develop cool software in a matter of hours without really going into details how it all works but using the right pieces and putting them together. Also a real hacker would be able to do the right things with the wrong tools.">Hacker&#39;s Approach</a> (<span title="There are 5 articles in &quot;Hacker&#39;s Approach&quot; category">5</span>)</li>
+      
+      <li><a href="/category/howto" title="Howto: Howto guides - howto download youtube videos, how to upload them, how to be a real hacker, how to become immortal, etc ;)">Howto</a> (<span title="There are 10 articles in &quot;Howto&quot; category">10</span>)</li>
+      
+      <li><a href="/category/idea-for-later" title="Idea for Later: Ideas that I want to build at some time later.">Idea for Later</a> (<span title="There are 1 articles in &quot;Idea for Later&quot; category">1</span>)</li>
+      
+      <li><a href="/category/interviews" title="Interviews: Interviews with me, Peteris Krumins.">Interviews</a> (<span title="There are 4 articles in &quot;Interviews&quot; category">4</span>)</li>
+      
+      <li><a href="/category/introduction-to-algorithms" title="Introduction to Algorithms: Analysis of MIT&#39;s &#34;Introduction to Algorithms&#34; video lectures. Contains embedded videos with timestamped list of topics and scanned lecture notes.">Introduction to Algorithms</a> (<span title="There are 15 articles in &quot;Introduction to Algorithms&quot; category">15</span>)</li>
+      
+      <li><a href="/category/linear-algebra" title="Linear Algebra: Analysis of MIT&#39;s &#34;Linear Algebra&#34; course. Contains embedded videos with timestamped list of topics and scanned lecture notes.">Linear Algebra</a> (<span title="There are 6 articles in &quot;Linear Algebra&quot; category">6</span>)</li>
+      
+      <li><a href="/category/mathematics" title="Mathematics: A good computer scientist has to know mathematics.">Mathematics</a> (<span title="There are 1 articles in &quot;Mathematics&quot; category">1</span>)</li>
+      
+      <li><a href="/category/misc" title="Misc: Articles that don&#39;t fit in other categories. They include interviews and blogging related stuff.">Misc</a> (<span title="There are 13 articles in &quot;Misc&quot; category">13</span>)</li>
+      
+      <li><a href="/category/musical-geek-friday" title="Musical Geek Friday: Really funny and geeky songs I found in my mp3 collection.">Musical Geek Friday</a> (<span title="There are 17 articles in &quot;Musical Geek Friday&quot; category">17</span>)</li>
+      
+      <li><a href="/category/nodejs-modules" title="Node.js Modules: Article series &#34;node.js modules you should know about.&#34;">Node.js Modules</a> (<span title="There are 15 articles in &quot;Node.js Modules&quot; category">15</span>)</li>
+      
+      <li><a href="/category/perl-programming" title="Perl Programming: Perl is one of the best languages ever invented. I have mastered it and now I am teaching others.">Perl Programming</a> (<span title="There are 14 articles in &quot;Perl Programming&quot; category">14</span>)</li>
+      
+      <li><a href="/category/programming" title="Programming: I love programming. Language I know are python, perl, haskell, scheme, awk, c++  and others.">Programming</a> (<span title="There are 36 articles in &quot;Programming&quot; category">36</span>)</li>
+      
+      <li><a href="/category/projects" title="Projects: All the various projects that I have done, they include digpicz, reddit media, reddit river, and others.">Projects</a> (<span title="There are 13 articles in &quot;Projects&quot; category">13</span>)</li>
+      
+      <li><a href="/category/security" title="Security: Computer security is a field close to my heart.">Security</a> (<span title="There are 1 articles in &quot;Security&quot; category">1</span>)</li>
+      
+      <li><a href="/category/the-new-catonmat" title="The New Catonmat: Everything about the new catonmat website.">The New Catonmat</a> (<span title="There are 1 articles in &quot;The New Catonmat&quot; category">1</span>)</li>
+      
+      <li><a href="/category/tools" title="Tools: Tools - small programs that do great things. Actually this category is not very useful, I am going to merge it with some other category soon.">Tools</a> (<span title="There are 1 articles in &quot;Tools&quot; category">1</span>)</li>
+      
+      <li><a href="/category/unix-shell" title="Unix Shell: This category contains various articles on how to work in Unix shell.">Unix Shell</a> (<span title="There are 26 articles in &quot;Unix Shell&quot; category">26</span>)</li>
+      
+      <li><a href="/category/video-lectures" title="Video Lectures: I love watching video lectures, they make me smarter and I love it. I also like to write about what I just saw, so here are some of the lectures I have seen.">Video Lectures</a> (<span title="There are 17 articles in &quot;Video Lectures&quot; category">17</span>)</li>
+      
+      <li><a href="/category/visual-math-friday" title="Visual Math Friday: I have collected hundreds of visual math proofs. In these articles I explain them and prove their correctness.">Visual Math Friday</a> (<span title="There are 1 articles in &quot;Visual Math Friday&quot; category">1</span>)</li>
+    </ul>
+    <p class="moreinfo">
+      <a href="/categories" title="Detailed catonmat category information">See more detailed category information</a>
+    </p>
+  </div>
+</div>
+
+<div class="item list">
+  <div class="title">Article Archive:</div>
+  <div class="content">
+    <ul>
+     <li><a href="/archive/2013/09" title="All articles written in September, 2013">September, 2013</a> (<span title="1 articles were published in September, 2013">1</span>)</li>
+     <li><a href="/archive/2013/08" title="All articles written in August, 2013">August, 2013</a> (<span title="1 articles were published in August, 2013">1</span>)</li>
+     <li><a href="/archive/2013/07" title="All articles written in July, 2013">July, 2013</a> (<span title="1 articles were published in July, 2013">1</span>)</li>
+     <li><a href="/archive/2013/06" title="All articles written in June, 2013">June, 2013</a> (<span title="1 articles were published in June, 2013">1</span>)</li>
+     <li><a href="/archive/2013/05" title="All articles written in May, 2013">May, 2013</a> (<span title="1 articles were published in May, 2013">1</span>)</li>
+     <li><a href="/archive/2013/04" title="All articles written in April, 2013">April, 2013</a> (<span title="1 articles were published in April, 2013">1</span>)</li>
+     <li><a href="/archive/2013/03" title="All articles written in March, 2013">March, 2013</a> (<span title="1 articles were published in March, 2013">1</span>)</li>
+     <li><a href="/archive/2013/02" title="All articles written in February, 2013">February, 2013</a> (<span title="2 articles were published in February, 2013">2</span>)</li>
+     <li><a href="/archive/2013/01" title="All articles written in January, 2013">January, 2013</a> (<span title="4 articles were published in January, 2013">4</span>)</li>
+     <li><a href="/archive/2012/12" title="All articles written in December, 2012">December, 2012</a> (<span title="1 articles were published in December, 2012">1</span>)</li>
+     <li><a href="/archive/2012/11" title="All articles written in November, 2012">November, 2012</a> (<span title="3 articles were published in November, 2012">3</span>)</li>
+     <li><a href="/archive/2012/10" title="All articles written in October, 2012">October, 2012</a> (<span title="4 articles were published in October, 2012">4</span>)</li>
+     <li><a href="/archive/2012/09" title="All articles written in September, 2012">September, 2012</a> (<span title="3 articles were published in September, 2012">3</span>)</li>
+     <li><a href="/archive/2012/08" title="All articles written in August, 2012">August, 2012</a> (<span title="2 articles were published in August, 2012">2</span>)</li>
+     <li><a href="/archive/2012/07" title="All articles written in July, 2012">July, 2012</a> (<span title="2 articles were published in July, 2012">2</span>)</li>
+     <li><a href="/archive/2012/06" title="All articles written in June, 2012">June, 2012</a> (<span title="1 articles were published in June, 2012">1</span>)</li>
+     <li><a href="/archive/2012/05" title="All articles written in May, 2012">May, 2012</a> (<span title="4 articles were published in May, 2012">4</span>)</li>
+     <li><a href="/archive/2012/04" title="All articles written in April, 2012">April, 2012</a> (<span title="4 articles were published in April, 2012">4</span>)</li>
+     <li><a href="/archive/2012/03" title="All articles written in March, 2012">March, 2012</a> (<span title="2 articles were published in March, 2012">2</span>)</li>
+     <li><a href="/archive/2012/02" title="All articles written in February, 2012">February, 2012</a> (<span title="1 articles were published in February, 2012">1</span>)</li>
+     <li><a href="/archive/2012/01" title="All articles written in January, 2012">January, 2012</a> (<span title="4 articles were published in January, 2012">4</span>)</li>
+     <li><a href="/archive/2011/12" title="All articles written in December, 2011">December, 2011</a> (<span title="15 articles were published in December, 2011">15</span>)</li>
+     <li><a href="/archive/2011/11" title="All articles written in November, 2011">November, 2011</a> (<span title="3 articles were published in November, 2011">3</span>)</li>
+     <li><a href="/archive/2011/10" title="All articles written in October, 2011">October, 2011</a> (<span title="2 articles were published in October, 2011">2</span>)</li>
+     <li><a href="/archive/2011/09" title="All articles written in September, 2011">September, 2011</a> (<span title="2 articles were published in September, 2011">2</span>)</li>
+     <li><a href="/archive/2011/08" title="All articles written in August, 2011">August, 2011</a> (<span title="3 articles were published in August, 2011">3</span>)</li>
+     <li><a href="/archive/2011/07" title="All articles written in July, 2011">July, 2011</a> (<span title="1 articles were published in July, 2011">1</span>)</li>
+     <li><a href="/archive/2011/06" title="All articles written in June, 2011">June, 2011</a> (<span title="2 articles were published in June, 2011">2</span>)</li>
+     <li><a href="/archive/2011/05" title="All articles written in May, 2011">May, 2011</a> (<span title="1 articles were published in May, 2011">1</span>)</li>
+     <li><a href="/archive/2011/04" title="All articles written in April, 2011">April, 2011</a> (<span title="1 articles were published in April, 2011">1</span>)</li>
+     <li><a href="/archive/2011/03" title="All articles written in March, 2011">March, 2011</a> (<span title="2 articles were published in March, 2011">2</span>)</li>
+     <li><a href="/archive/2011/02" title="All articles written in February, 2011">February, 2011</a> (<span title="1 articles were published in February, 2011">1</span>)</li>
+     <li><a href="/archive/2011/01" title="All articles written in January, 2011">January, 2011</a> (<span title="1 articles were published in January, 2011">1</span>)</li>
+     <li><a href="/archive/2010/12" title="All articles written in December, 2010">December, 2010</a> (<span title="2 articles were published in December, 2010">2</span>)</li>
+     <li><a href="/archive/2010/11" title="All articles written in November, 2010">November, 2010</a> (<span title="1 articles were published in November, 2010">1</span>)</li>
+     <li><a href="/archive/2010/10" title="All articles written in October, 2010">October, 2010</a> (<span title="2 articles were published in October, 2010">2</span>)</li>
+     <li><a href="/archive/2010/09" title="All articles written in September, 2010">September, 2010</a> (<span title="1 articles were published in September, 2010">1</span>)</li>
+     <li><a href="/archive/2010/08" title="All articles written in August, 2010">August, 2010</a> (<span title="2 articles were published in August, 2010">2</span>)</li>
+     <li><a href="/archive/2010/07" title="All articles written in July, 2010">July, 2010</a> (<span title="2 articles were published in July, 2010">2</span>)</li>
+     <li><a href="/archive/2010/06" title="All articles written in June, 2010">June, 2010</a> (<span title="2 articles were published in June, 2010">2</span>)</li>
+     <li><a href="/archive/2010/05" title="All articles written in May, 2010">May, 2010</a> (<span title="2 articles were published in May, 2010">2</span>)</li>
+     <li><a href="/archive/2010/04" title="All articles written in April, 2010">April, 2010</a> (<span title="2 articles were published in April, 2010">2</span>)</li>
+     <li><a href="/archive/2010/03" title="All articles written in March, 2010">March, 2010</a> (<span title="5 articles were published in March, 2010">5</span>)</li>
+     <li><a href="/archive/2010/02" title="All articles written in February, 2010">February, 2010</a> (<span title="5 articles were published in February, 2010">5</span>)</li>
+     <li><a href="/archive/2010/01" title="All articles written in January, 2010">January, 2010</a> (<span title="7 articles were published in January, 2010">7</span>)</li>
+     <li><a href="/archive/2009/12" title="All articles written in December, 2009">December, 2009</a> (<span title="6 articles were published in December, 2009">6</span>)</li>
+     <li><a href="/archive/2009/11" title="All articles written in November, 2009">November, 2009</a> (<span title="6 articles were published in November, 2009">6</span>)</li>
+     <li><a href="/archive/2009/10" title="All articles written in October, 2009">October, 2009</a> (<span title="2 articles were published in October, 2009">2</span>)</li>
+     <li><a href="/archive/2009/09" title="All articles written in September, 2009">September, 2009</a> (<span title="3 articles were published in September, 2009">3</span>)</li>
+     <li><a href="/archive/2009/08" title="All articles written in August, 2009">August, 2009</a> (<span title="2 articles were published in August, 2009">2</span>)</li>
+     <li><a href="/archive/2009/07" title="All articles written in July, 2009">July, 2009</a> (<span title="4 articles were published in July, 2009">4</span>)</li>
+     <li><a href="/archive/2009/06" title="All articles written in June, 2009">June, 2009</a> (<span title="1 articles were published in June, 2009">1</span>)</li>
+     <li><a href="/archive/2009/04" title="All articles written in April, 2009">April, 2009</a> (<span title="1 articles were published in April, 2009">1</span>)</li>
+     <li><a href="/archive/2009/03" title="All articles written in March, 2009">March, 2009</a> (<span title="2 articles were published in March, 2009">2</span>)</li>
+     <li><a href="/archive/2009/02" title="All articles written in February, 2009">February, 2009</a> (<span title="7 articles were published in February, 2009">7</span>)</li>
+     <li><a href="/archive/2009/01" title="All articles written in January, 2009">January, 2009</a> (<span title="4 articles were published in January, 2009">4</span>)</li>
+     <li><a href="/archive/2008/12" title="All articles written in December, 2008">December, 2008</a> (<span title="8 articles were published in December, 2008">8</span>)</li>
+     <li><a href="/archive/2008/11" title="All articles written in November, 2008">November, 2008</a> (<span title="7 articles were published in November, 2008">7</span>)</li>
+     <li><a href="/archive/2008/10" title="All articles written in October, 2008">October, 2008</a> (<span title="4 articles were published in October, 2008">4</span>)</li>
+     <li><a href="/archive/2008/09" title="All articles written in September, 2008">September, 2008</a> (<span title="5 articles were published in September, 2008">5</span>)</li>
+     <li><a href="/archive/2008/08" title="All articles written in August, 2008">August, 2008</a> (<span title="9 articles were published in August, 2008">9</span>)</li>
+     <li><a href="/archive/2008/07" title="All articles written in July, 2008">July, 2008</a> (<span title="14 articles were published in July, 2008">14</span>)</li>
+     <li><a href="/archive/2008/06" title="All articles written in June, 2008">June, 2008</a> (<span title="4 articles were published in June, 2008">4</span>)</li>
+     <li><a href="/archive/2008/05" title="All articles written in May, 2008">May, 2008</a> (<span title="5 articles were published in May, 2008">5</span>)</li>
+     <li><a href="/archive/2008/04" title="All articles written in April, 2008">April, 2008</a> (<span title="8 articles were published in April, 2008">8</span>)</li>
+     <li><a href="/archive/2008/03" title="All articles written in March, 2008">March, 2008</a> (<span title="3 articles were published in March, 2008">3</span>)</li>
+     <li><a href="/archive/2008/02" title="All articles written in February, 2008">February, 2008</a> (<span title="1 articles were published in February, 2008">1</span>)</li>
+     <li><a href="/archive/2008/01" title="All articles written in January, 2008">January, 2008</a> (<span title="1 articles were published in January, 2008">1</span>)</li>
+     <li><a href="/archive/2007/11" title="All articles written in November, 2007">November, 2007</a> (<span title="1 articles were published in November, 2007">1</span>)</li>
+     <li><a href="/archive/2007/10" title="All articles written in October, 2007">October, 2007</a> (<span title="3 articles were published in October, 2007">3</span>)</li>
+     <li><a href="/archive/2007/09" title="All articles written in September, 2007">September, 2007</a> (<span title="5 articles were published in September, 2007">5</span>)</li>
+     <li><a href="/archive/2007/08" title="All articles written in August, 2007">August, 2007</a> (<span title="10 articles were published in August, 2007">10</span>)</li>
+     <li><a href="/archive/2007/07" title="All articles written in July, 2007">July, 2007</a> (<span title="9 articles were published in July, 2007">9</span>)</li>
+    </ul>
+    <p class="moreinfo">
+      <a href="/archive" title="All catonmat articles">See more detailed list of all articles</a>
+    </p>
+  </div>
+</div>
+
+<div class="item list">
+  <div class="title">Superior Papers</div>
+  <div class="content">
+    <!-- Jul 10, 2013 -->
+    <ul>
+      <li>Our <a href="http://uk.superiorpapers.com/">essay writing service</a> is the top provider of quality essays to students from the UK. Get your essays written by <a href="http://uk.superiorpapers.com/">superior papers</a> and be free!</li>
+    </ul>
+  </div>
+</div>
+
+<div class="item">
+  <div class="title">Advertisements</div>
+  <div class="content">
+    <script type="text/javascript"><!--
+    google_ad_client = "pub-0433925538517663";
+    /* 160x600, catonmat sidebar, created 2/15/09 */
+    google_ad_slot = "2288848838";
+    google_ad_width = 160;
+    google_ad_height = 600;
+    //-->
+    </script>
+    <script type="text/javascript"
+    src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+    </script>
+  </div>
+</div>
+
+
+
+<div class="item">
+  <div class="title">Advertisements</div>
+  <div class="content">
+    <SCRIPT TYPE="text/javascript" SRC="http://adserving.cpxadroit.com/tags2/5-1005894.js"></SCRIPT>
+  </div>
+</div>
+
+<div class="item">
+  <div class="title">Advertisements</div>
+  <div class="content">
+    <div class="lqm_ad" lqm_publisher="lqm.goodcoderscode.site" lqm_zone="RON" lqm_format="160x600" lqm_tags="HTML5%2CHTML%205%2CHTML5%20or%20HTML%205%2CCSS%2CWeb%2CJavaScript%2CSQL%2CVirtualization%2CCloud%2CHosting%2CVisual%20Studio%20or%20visualstudio%20or%20vs%20or%20vs2010%2CVisual%20Studio%2Cvisualstudio%2Cvs%2Cvs2010%2CWPF%2CXML%2CSilverlight%2CParallelism%2CTesting%2CjQuery%2CMVC%2CAJAX"></div>
+  </div>
+</div>
+
+<div class="item">
+  <div class="title">Alexa stats</div>
+  <div class="content">
+    <a href="http://www.alexa.com/siteinfo/www.catonmat.net"><script type='text/javascript' src='http://xslt.alexa.com/site_stats/js/t/a?url=www.catonmat.net'></script></a>
+  </div>
+</div>
+
+<!-- end sidebar.tmpl.html -->
+
+
+
+        </div>
+        <div class="clear"></div>
+      </div>
+      <div id="footer">
+        
+  <div class="friends">
+  <h4>Friends</h4>
+  <ul>
+    <li><a href="http://www.podcats.in">Alastair McGowan-Douglas</a></li>
+    <li><a href="http://www.substack.net">James Halliday</a></li>
+    <li><a href="http://madars.org/">Madars Virza</a></li>
+    <li><a href="http://simcop2387.info/">simcop2387</a></li>
+    <li><a href="http://backreference.org/">Mr. Waldner</a></li>
+    <li><a href="http://symkat.com/">SymKat</a></li>
+    <li><a href="http://f00li5h.pin21.com/">f00li5h</a></li>
+    <li><a href="http://amix.dk">amix</a></li>
+  </ul> 
+</div>
+<div class="info">
+  <h4>Info</h4>
+  <p><a href="http://github.com/pkrumins/catonmat.net" title="catonmat at github">catonmat's source code.</a></p> 
+  <p><a href="/privacy-policy">Privacy Policy</a></p>
+</div>
+<div class="advertise">
+  <h4>Advertise on catonmat</h4>
+  <p>If you are interested in advertising on catonmat.net, <a href="/feedback/">contact me</a>.</p>
+  <!-- oct 1, 2013 -->
+  <p><a href="http://www.dhgate.com/wholesale+computers.html">wholesale computers</a>.</p>
+</div>
+<div class="clear"></div>
+
+<div style="margin-top: 10px">
+<SCRIPT TYPE="text/javascript" SRC="http://adserving.cpxadroit.com/tags2/4-1005894.js"></SCRIPT>
+</div>
+<div style="margin-top: 10px">
+<SCRIPT TYPE="text/javascript" SRC="http://adserving.cpxadroit.com/tags2/3-1005894.js"></SCRIPT>
+</div>
+<div style="margin-top: 10px">
+<SCRIPT TYPE="text/javascript" SRC="http://adserving.cpxadroit.com/tags2/6-1005894.js"></SCRIPT>
+</div>
+
+
+
+      </div>
+    </div>
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-273333-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
+
+<!-- Start of StatCounter Code -->
+<script type="text/javascript">
+var sc_project=3189873;
+var sc_invisible=1;
+var sc_security="dc7255a7";
+</script>
+
+<script type="text/javascript" src="http://www.statcounter.com/counter/counter_xhtml.js"></script><noscript><div class="statcounter"><a title="tumblr tracker" class="statcounter" href="http://statcounter.com/tumblr/"><img class="statcounter" src="http://c.statcounter.com/3189873/0/dc7255a7/1/" alt="tumblr tracker" /></a></div></noscript>
+<!-- End of StatCounter Code -->
+
+<script type='text/javascript'>//<![CDATA[
+    if (typeof jQuery == 'undefined') {
+        document.write(unescape("%3Cscript src='http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.4.2.min.js' type='text/javascript' %3E%3C/script%3E"));
+    }//]]></script>
+<script type='text/javascript' language='Javascript' src='http://s1.lqcdn.com/m.min.js?dt=2.3.110104.1'></script>
+<script type='text/javascript' language='Javascript'> if(jQuery.LqmAds)jQuery.LqmAds();</script>
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,164 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>notmuch-mutt</title>
+
+<link rel="stylesheet" href="../style.css" type="text/css" />
+
+<link rel="stylesheet" href="../local.css" type="text/css" />
+
+
+<link rel="alternate" type="application/x-wiki" title="Edit this page" href="/ikiwiki.cgi?page=notmuch-mutt&amp;do=edit" />
+
+
+
+
+</head>
+<body>
+
+<div class="pageheader">
+<div class="header">
+<span>
+<span class="parentlinks">
+
+<a href="../">notmuch</a>/ 
+
+</span>
+<!--
+<span class="title">
+notmuch-mutt
+
+</span>
+-->
+</span><!--.header-->
+
+</div>
+
+<!--
+
+<div class="actions">
+<ul>
+
+<li><a href="/ikiwiki.cgi?page=notmuch-mutt&amp;do=edit" rel="nofollow">Edit</a></li>
+
+
+<li><a href="../recentchanges/">RecentChanges</a></li>
+
+
+
+
+<li><a href="/ikiwiki.cgi?do=prefs">Preferences</a></li>
+
+
+
+<li><span class="createlink"><a href="/ikiwiki.cgi?page=discussion&amp;from=notmuch-mutt&amp;do=create" rel="nofollow">?</a>Discussion</span><br /></li>
+
+
+</ul>
+</div>
+
+-->
+
+
+
+</div> <!-- .pageheader -->
+
+
+
+<div id="content">
+<p><a href="../notmuch-logo.png"><img src="../notmuch-logo.png" width="58" height="50" alt="Notmuch logo" class="left" /></a></p>
+
+<p>Notmuch is a great mail indexing tool that can also be used <em>in conjunction</em>
+with existing Mail User Agents (MUA) instead of replacing them. The advantage of
+such mixed solutions is that users can benefit from notmuch features (such as
+full-text search and thread reconstruction) without <em>having to</em> change MUA.</p>
+
+<h1>Using Notmuch with bare Mutt, the old fashioned way</h1>
+
+<h2>Using</h2>
+
+<p><a href="http://git.notmuchmail.org/git/notmuch/tree/HEAD:/contrib/notmuch-mutt">notmuch-mutt</a>,
+  which will create a "virtual" maildir folder with search results whenever a
+  search is made. The upside is that you can search all your folders
+  simultanously; the downside is that your modifications in the results listing
+  do not carry over, also having to switch folders comes with some more
+  annoyances.</p>
+
+<p>A
+  <a href="http://upsilon.cc/~zack/blog/posts/2011/01/how_to_use_Notmuch_with_Mutt/">how to use Notmuch with Mutt</a>
+  has been written by Stefano Zacchiroli.</p>
+
+<p><small>(Note by the howto author: I've linked the howto from this wiki rather
+  than splicing it in, in order to avoid duplication of information. If you
+  think it would be better to have it here, feel free to copy the text
+  here. The howto is
+  <a href="http://git.upsilon.cc/cgi-bin/gitweb.cgi?p=zack-homepage.git;a=history;f=blog/posts/2011/01/how_to_use_Notmuch_with_Mutt.mdwn">available</a>
+  in markdown syntax from the Git repository of my homepage.)</small></p>
+
+<h2>Using a simple macro that will emulate the "limit" mutt functionality</h2>
+
+<p>using notmuch.</p>
+
+<p>See the <a href="http://log.or.cz/?p=228">alternative notmuch integration</a>
+  blog post for instructions and details,
+  or simply put these two macros to your muttrc:</p>
+
+<pre><code>    # 'L' performs a notmuch query, showing only the results
+    macro index L "&lt;enter-command&gt;unset wait_key&lt;enter&gt;&lt;shell-escape&gt;read -p 'notmuch query: ' x; echo \&#036;x &gt;~/.cache/mutt_terms&lt;enter&gt;&lt;limit&gt;~i \"\`notmuch search --output=messages \&#036;(cat ~/.cache/mutt_terms) | head -n 600 | perl -le '@a=&lt;&gt;;chomp@a;s/\^id:// for@a;&#036;,=\"|\";print@a'\`\"&lt;enter&gt;" "show only messages matching a notmuch pattern"
+    # 'a' shows all messages again (supersedes default &lt;alias&gt; binding)
+    macro index a "&lt;limit&gt;all\n" "show all messages (undo limit)"
+</code></pre>
+
+<p>The upside (if you are used to working in the context of a single folder) is
+  that this really does use the limit functionality of mutt and you are still in
+  your original folder.  The downside is that this approach has scaling problems
+  and works well only for reasonably specific queries.</p>
+
+<h2>Using <a href="https://github.com/tsto/notmuchfs">notmuchfs</a></h2>
+
+<p>Notmuchfs provides virtual maildirs at the file system level, and mutt can be
+  placed on top. See <a href="https://github.com/tsto/notmuchfs/blob/master/README.MUTT.md">README.mutt</a></p>
+
+</div>
+
+
+
+<div id="footer" class="pagefooter">
+<div id="pageinfo">
+
+
+
+
+<div id="backlinks">
+Links:
+
+<a href="../frontends/">frontends</a>
+
+<a href="../howto/">howto</a>
+
+<a href="../">index</a>
+
+<a href="../mutttips/">mutttips</a>
+
+
+</div><!-- #backlinks -->
+
+
+
+
+
+
+<div class="pagedate">
+Last edited <span class="date">Thu Mar 28 12:50:25 2013</span>
+<!-- Created <span class="date">Tue Jan  8 12:46:55 2013</span> -->
+</div>
+
+</div><!-- #pageinfo -->
+
+<!-- from notmuch -->
+</div><!-- .pagefooter #footer -->
+
+</body>
+</html>
