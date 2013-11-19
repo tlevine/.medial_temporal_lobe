@@ -1,0 +1,226 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="shortcut icon" href="/sites/default/files/garland_favicon_0.png" type="image/x-icon" />
+    <title>ggplot2 Quick Reference | Software and Programmer Efficiency Research Group</title>
+    <link type="text/css" rel="stylesheet" media="all" href="/modules/node/node.css?z" />
+<link type="text/css" rel="stylesheet" media="all" href="/modules/system/defaults.css?z" />
+<link type="text/css" rel="stylesheet" media="all" href="/modules/system/system.css?z" />
+<link type="text/css" rel="stylesheet" media="all" href="/modules/system/system-menus.css?z" />
+<link type="text/css" rel="stylesheet" media="all" href="/modules/user/user.css?z" />
+<link type="text/css" rel="stylesheet" media="all" href="/sites/all/modules/cck/theme/content-module.css?z" />
+<link type="text/css" rel="stylesheet" media="all" href="/sites/all/modules/ctools/css/ctools.css?z" />
+<link type="text/css" rel="stylesheet" media="all" href="/sites/all/modules/date/date.css?z" />
+<link type="text/css" rel="stylesheet" media="all" href="/sites/all/modules/date/date_popup/themes/datepicker.css?z" />
+<link type="text/css" rel="stylesheet" media="all" href="/sites/all/modules/date/date_popup/themes/jquery.timeentry.css?z" />
+<link type="text/css" rel="stylesheet" media="all" href="/sites/all/modules/filefield/filefield.css?z" />
+<link type="text/css" rel="stylesheet" media="all" href="/sites/all/modules/geshifilter/geshifilter.css?z" />
+<link type="text/css" rel="stylesheet" media="all" href="/sites/all/modules/panels/css/panels.css?z" />
+<link type="text/css" rel="stylesheet" media="all" href="/sites/all/modules/sitedoc/sitedoc.css?z" />
+<link type="text/css" rel="stylesheet" media="all" href="/sites/all/modules/calendar/calendar.css?z" />
+<link type="text/css" rel="stylesheet" media="all" href="/misc/farbtastic/farbtastic.css?z" />
+<link type="text/css" rel="stylesheet" media="all" href="/sites/all/modules/cck/modules/fieldgroup/fieldgroup.css?z" />
+<link type="text/css" rel="stylesheet" media="all" href="/sites/all/modules/views/css/views.css?z" />
+<link type="text/css" rel="stylesheet" media="all" href="/sites/default/files/color/garland-c6dcb213/style.css?z" />
+<link type="text/css" rel="stylesheet" media="print" href="/themes/garland/print.css?z" />
+    <script type="text/javascript" src="/misc/jquery.js?z"></script>
+<script type="text/javascript" src="/misc/drupal.js?z"></script>
+<script type="text/javascript" src="/sites/all/modules/panels/js/panels.js?z"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, { "basePath": "/", "googleanalytics": { "trackOutgoing": 1, "trackMailto": 1, "trackDownload": 1, "trackDownloadExtensions": "7z|aac|avi|csv|doc|exe|flv|gif|gz|jpe?g|js|mp(3|4|e?g)|mov|pdf|phps|png|ppt|rar|sit|tar|torrent|txt|wma|wmv|xls|xml|zip|jar" } });
+//--><!]]>
+</script>
+    <!--[if lt IE 7]>
+      <link type="text/css" rel="stylesheet" media="all" href="/themes/garland/fix-ie.css" />    <![endif]-->
+  </head>
+  <body class="sidebars">
+
+<!-- Layout -->
+  <div id="header-region" class="clear-block"></div>
+
+    <div id="wrapper">
+    <div id="container" class="clear-block">
+
+      <div id="header">
+        <div id="logo-floater">
+        <h1><a href="/" title="Software and Programmer Efficiency Research Group"><img src="/sites/default/files/garland_logo.png" alt="Software and Programmer Efficiency Research Group" id="logo" /><span>Software and Programmer Efficiency Research Group</span></a></h1>        </div>
+
+                                                    
+      </div> <!-- /header -->
+
+              <div id="sidebar-left" class="sidebar">
+                    <div id="block-block-7" class="clear-block block block-block">
+
+  <h2>ggplot2 Grammar</h2>
+
+  <div class="content"><p><strong><A href="/quick-reference/ggplot2">plot</a></strong> ::= <A href="/quick-reference/ggplot2/coord">coord</a> <A href="/quick-reference/ggplot2/scale">scale</a>+ <A href="/quick-reference/ggplot2/facet">facet</a>? layer+</p>
+<p><strong>layer</strong> ::= data mapping <A href="/quick-reference/ggplot2/stat">stat</a> <A href="/quick-reference/ggplot2/geom">geom</a> <A href="/quick-reference/ggplot2/position">position</a>?</p>
+</div>
+</div>
+<div id="block-user-1" class="clear-block block block-user">
+
+  <h2>Navigation</h2>
+
+  <div class="content"><ul class="menu"><li class="leaf first"><a href="/publications" title="List of our group&#039;s publications">Publications</a></li>
+<li class="collapsed"><a href="/about" title="About Us">About Us</a></li>
+<li class="collapsed"><a href="/topics" title="Topics">Topics</a></li>
+<li class="collapsed"><a href="/tools" title="Tools">Tools</a></li>
+<li class="expanded active-trail"><a href="/service" title="Service">Service</a><ul class="menu"><li class="leaf first"><a href="/inaugural-lecture" title="Inaugural Lecture">Inaugural Lecture</a></li>
+<li class="expanded last active-trail"><a href="/quick-reference/ggplot2" title="ggplot2 Quick Reference" class="active">ggplot2 Quick Ref</a><ul class="menu"><li class="leaf first"><a href="/quick-reference/ggplot2/coord" title="ggplot2 Quick Reference: coord">coord</a></li>
+<li class="leaf"><a href="/quick-reference/ggplot2/facet" title="ggplot2 Quick Reference: facet">facet</a></li>
+<li class="collapsed"><a href="/quick-reference/ggplot2/geom" title="ggplot2 Quick Reference: geom">geom</a></li>
+<li class="leaf"><a href="/quick-reference/ggplot2/position" title="ggplot2 Quick Reference: position">position</a></li>
+<li class="collapsed"><a href="/quick-reference/ggplot2/scale" title="ggplot2 Quick Reference: scale">scale</a></li>
+<li class="leaf"><a href="/quick-reference/ggplot2/stat" title="ggplot2 Quick Reference: stat">stat</a></li>
+<li class="leaf last"><a href="/quick-reference/ggplot2/themes" title="ggplot2 Quick Reference: Themes">theme</a></li>
+</ul></li>
+</ul></li>
+<li class="leaf last"><a href="/tracker">Recent posts</a></li>
+</ul></div>
+</div>
+<div id="block-user-0" class="clear-block block block-user">
+
+  <h2>User login</h2>
+
+  <div class="content"><form action="/quick-reference/ggplot2?destination=node%2F182"  accept-charset="UTF-8" method="post" id="user-login-form">
+<div><div class="form-item" id="edit-name-wrapper">
+ <label for="edit-name">Username: <span class="form-required" title="This field is required.">*</span></label>
+ <input type="text" maxlength="60" name="name" id="edit-name" size="15" value="" class="form-text required" />
+</div>
+<div class="form-item" id="edit-pass-wrapper">
+ <label for="edit-pass">Password: <span class="form-required" title="This field is required.">*</span></label>
+ <input type="password" name="pass" id="edit-pass"  maxlength="60"  size="15"  class="form-text required" />
+</div>
+<input type="submit" name="op" id="edit-submit" value="Log in"  class="form-submit" />
+<div class="item-list"><ul><li class="first last"><a href="/user/password" title="Request new password via e-mail.">Request new password</a></li>
+</ul></div><input type="hidden" name="form_build_id" id="form-4b736f49c3b40b905af72a08eecc08fa" value="form-4b736f49c3b40b905af72a08eecc08fa"  />
+<input type="hidden" name="form_id" id="edit-user-login-block" value="user_login_block"  />
+
+</div></form>
+</div>
+</div>
+        </div>
+      
+      <div id="center"><div id="squeeze"><div class="right-corner"><div class="left-corner">
+          <div class="breadcrumb"><a href="/">Home</a> › <a href="/service" title="Service">Service</a></div>                              <h2>ggplot2 Quick Reference</h2>                                                  <div class="clear-block">
+            <div id="node-182" class="node">
+
+
+
+  
+  <div class="content clear-block">
+    <p>Our research often involves quantitative studies producing large amounts of data. To analyze and visualize that data we use various tools (and we sometimes develop our own, such as <A href="/trevis">Trevis</a> or <A href="/lagalyzer">LagAlyzer</a>). One of the most effective general information visualization tools we know is Hadley Wickham's <A href="http://had.co.nz/ggplot2/">ggplot2</a> package for R.</p>
+<p>Our pages here provide a quick reference, mostly for our own use. We made them public because we think others might benefit from them, too.</p>
+<p>This quick reference is based on ggplot2 version 0.8.8 running on R version 2.11.1.</p>
+<p align="center"><img style="border:1px solid;" title="background" src="/sites/default/files/imagecache/width180/ggplot2-anatomy-bg.png" /><span style="position:relative; top:-55px;font-size:150%;">+</span><img style="border:1px solid;" title="layer 1" src="/sites/default/files/imagecache/width180/ggplot2-anatomy-l1.png" /><span style="position:relative; top:-55px;font-size:150%;">+</span><img style="border:1px solid;" title="layer 2 (there could be many more layers)" src="/sites/default/files/imagecache/width180/ggplot2-anatomy-l2.png" /><span style="position:relative; top:-55px;font-size:150%;">=</span><img style="border:1px solid;" title="complete plot" src="/sites/default/files/imagecache/width180/ggplot2-anatomy-all.png" /></p>
+<h3>The Anatomy of a Plot</h3>
+<p>In ggplot2, you create a <strong>plot</strong> using the <span class="geshifilter"><code class="rsplus geshifilter-rsplus">ggplot<span style="color: #080;">&#40;</span><span style="color: #080;">&#41;</span></code></span> function. A plot can contain an arbitrary number of <strong>layers</strong>. You can create a layer with the general <span class="geshifilter"><code class="rsplus geshifilter-rsplus">layer<span style="color: #080;">&#40;</span><span style="color: #080;">&#41;</span></code></span> function, or you can use one of many specialized functions that invoke <span class="geshifilter"><code class="rsplus geshifilter-rsplus">layer<span style="color: #080;">&#40;</span><span style="color: #080;">&#41;</span></code></span> for you (such as <A href="/quick-reference/ggplot2/geom_point"><span class="geshifilter"><code class="rsplus geshifilter-rsplus">geom_point<span style="color: #080;">&#40;</span><span style="color: #080;">&#41;</span></code></span></a>) to produce various kinds of layers.</p>
+<p align="center"><img src="/sites/default/files/imagecache/width600/ggplot2-anatomy-all-annotated.png" /></p>
+<p>Besides a list of layers, a plot also has a <strong><A href="/quick-reference/ggplot2/coord">coordinate system</a></strong>, <strong><A href="/quick-reference/ggplot2/scale">scales</a></strong>, and a <strong><A href="/quick-reference/ggplot2/facet">faceting</a></strong> specification. These three aspects are shared among all layers in the plot. The visual properties of these aspects are specified by a <strong><A href="/quick-reference/ggplot2/themes">theme</a></strong>.</p>
+<p>Each layer uses a specific kind of <strong><A href="/quick-reference/ggplot2/stat">statistic</a></strong> to summarize data, draws a specific kind of <strong><A href="/quick-reference/ggplot2/geom">geometric object</a></strong> (geom) for each of the (statistically aggregated) data items, and uses a specific kind of <strong><A href="/quick-reference/ggplot2/position">position adjustment</a></strong> to deal with geoms that might visually obstruct each other.</p>
+<h3>The Grammar of Graphics</h3>
+<p>ggplot2 implements the idea of a "grammar of graphics". The grammar implemented by ggplot2 could be summarized as follows:</p>
+<p>plot ::= <A href="/quick-reference/ggplot2/coord">coord</a> <A href="/quick-reference/ggplot2/scale">scale</a>+ <A href="/quick-reference/ggplot2/facet">facet</a>? layer+<br />
+layer ::= data mapping <A href="/quick-reference/ggplot2/stat">stat</a> <A href="/quick-reference/ggplot2/geom">geom</a> <A href="/quick-reference/ggplot2/position">position</a>?</p>
+<p>A plot is defined by a coordinate system (<A href="/quick-reference/ggplot2/coord">coord</a>), one or more scales (<A href="/quick-reference/ggplot2/scale">scale</a>), an optional faceting specification (<A href="/quick-reference/ggplot2/facet">facet</a>), and one or more layers (layer). A layer is defined as an R data frame (data), a specification mapping columns of that frame into aesthetic properties (mapping), a statistical approach to summarize the rows of that frame (<A href="/quick-reference/ggplot2/stat">stat</a>), a geometric object to visually represent that summary (<A href="/quick-reference/ggplot2/geom">geom</a>), and an optional position adjustment to move overlapping geometric objects out of their way (<A href="/quick-reference/ggplot2/position">position</a>).</p>
+<h3>Example</h3>
+<p>Before using ggplot2, you have to install and start R, install the "ggplot2" package, and then load ggplot2 as follows:</p>
+<p><div class="geshifilter"><pre class="rsplus geshifilter-rsplus" style="font-family:monospace;"><span style="color: #0000FF; font-weight: bold;">require</span><span style="color: #080;">&#40;</span>ggplot2<span style="color: #080;">&#41;</span></pre></div></p>
+<p>The following R command produces a plot with a single layer. The plot uses a cartesian coordinate system (<span class="geshifilter"><code class="rsplus geshifilter-rsplus">coord_cartesian<span style="color: #080;">&#40;</span><span style="color: #080;">&#41;</span></code></span>). The x and y axes have a continuous scale (<span class="geshifilter"><code class="rsplus geshifilter-rsplus">scale_x_continuous<span style="color: #080;">&#40;</span><span style="color: #080;">&#41;</span> <span style="color: #080;">+</span> scale_y_continuous<span style="color: #080;">&#40;</span><span style="color: #080;">&#41;</span></code></span>). The color aesthetic is determined using a discrete hue color scale (<span class="geshifilter"><code class="rsplus geshifilter-rsplus">scale_color_hue<span style="color: #080;">&#40;</span><span style="color: #080;">&#41;</span></code></span>). The plot is faceted, with one panel per level of the "cut" data attribute (a factor) and panels being wrapped into a grid of panels (<span class="geshifilter"><code class="rsplus geshifilter-rsplus">facet_wrap<span style="color: #080;">&#40;</span>~<span style="color: #0000FF; font-weight: bold;">cut</span><span style="color: #080;">&#41;</span></code></span>).</p>
+<p>The layer represents data from the diamonds data frame (<span class="geshifilter"><code class="rsplus geshifilter-rsplus"><span style="color: #0000FF; font-weight: bold;">data</span><span style="color: #080;">=</span>diamonds</code></span>; each row of that data frame contains information about a diamond), which is a built-in example data frame of ggplot2. The layer uses the identity statistical transformation (<span class="geshifilter"><code class="rsplus geshifilter-rsplus">stat<span style="color: #080;">=</span><span style="color: #ff0000;">&quot;identity&quot;</span></code></span>; which does nothing). Thus, each individual diamond is represented using a geometric object. The object chosen is a point (<A href="/quick-reference/ggplot2/geom_point"><span class="geshifilter"><code class="rsplus geshifilter-rsplus">geom<span style="color: #080;">=</span><span style="color: #ff0000;">&quot;point&quot;</span></code></span></a>). The attributes of a diamond are mapped into the aesthetic properties of the geometric object (with <span class="geshifilter"><code class="rsplus geshifilter-rsplus">mapping<span style="color: #080;">=</span>aes<span style="color: #080;">&#40;</span>...<span style="color: #080;">&#41;</span></code></span>) as follows: the "carat" attribute is mapped to the x coordinate (<span class="geshifilter"><code class="rsplus geshifilter-rsplus">x<span style="color: #080;">=</span>carat</code></span>), the "price" attribute is mapped into the y coordinate (<span class="geshifilter"><code class="rsplus geshifilter-rsplus">y<span style="color: #080;">=</span>price</code></span>), the "color" attribute is mapped into the color of the geometric point (<span class="geshifilter"><code class="rsplus geshifilter-rsplus">color<span style="color: #080;">=</span>color</code></span>). Because the data frame contains over 53940 diamonds, there will be over 53940 geometric points. In a (rather unsuccessful) attempt to avoid over-plotting, we thus jitter the geometric points slightly (<span class="geshifilter"><code class="rsplus geshifilter-rsplus">position<span style="color: #080;">=</span>position_jitter<span style="color: #080;">&#40;</span><span style="color: #080;">&#41;</span></code></span>). </p>
+<p><div class="geshifilter"><pre class="rsplus geshifilter-rsplus" style="font-family:monospace;">ggplot<span style="color: #080;">&#40;</span><span style="color: #080;">&#41;</span> <span style="color: #080;">+</span> 
+coord_cartesian<span style="color: #080;">&#40;</span><span style="color: #080;">&#41;</span> <span style="color: #080;">+</span>
+scale_x_continuous<span style="color: #080;">&#40;</span><span style="color: #080;">&#41;</span> <span style="color: #080;">+</span>
+scale_y_continuous<span style="color: #080;">&#40;</span><span style="color: #080;">&#41;</span> <span style="color: #080;">+</span>
+scale_color_hue<span style="color: #080;">&#40;</span><span style="color: #080;">&#41;</span> <span style="color: #080;">+</span>
+facet_wrap<span style="color: #080;">&#40;</span>~<span style="color: #0000FF; font-weight: bold;">cut</span><span style="color: #080;">&#41;</span> <span style="color: #080;">+</span>
+layer<span style="color: #080;">&#40;</span>
+  <span style="color: #0000FF; font-weight: bold;">data</span><span style="color: #080;">=</span>diamonds, 
+  mapping<span style="color: #080;">=</span>aes<span style="color: #080;">&#40;</span>x<span style="color: #080;">=</span>carat, y<span style="color: #080;">=</span>price, color<span style="color: #080;">=</span>color<span style="color: #080;">&#41;</span>, 
+  stat<span style="color: #080;">=</span><span style="color: #ff0000;">&quot;identity&quot;</span>, 
+  stat_params<span style="color: #080;">=</span><span style="color: #0000FF; font-weight: bold;">list</span><span style="color: #080;">&#40;</span><span style="color: #080;">&#41;</span>, 
+  geom<span style="color: #080;">=</span><span style="color: #ff0000;">&quot;point&quot;</span>, 
+  geom_params<span style="color: #080;">=</span><span style="color: #0000FF; font-weight: bold;">list</span><span style="color: #080;">&#40;</span><span style="color: #080;">&#41;</span>, 
+  position<span style="color: #080;">=</span>position_jitter<span style="color: #080;">&#40;</span><span style="color: #080;">&#41;</span>
+<span style="color: #080;">&#41;</span></pre></div></p>
+<p>The resulting plot looks as follows:<br />
+<img src="/sites/default/files/ggplot2-example.png" /></p>
+<p>We can easily add another layer to this plot. Here, the configuration of the plot and the first layer is identical to the above example. The second layer uses the smooth statistic (<span class="geshifilter"><code class="rsplus geshifilter-rsplus">stat<span style="color: #080;">=</span><span style="color: #ff0000;">&quot;smooth&quot;</span></code></span>) and the smoother geometric object (<A href="/quick-reference/ggplot2/geom_smooth"><span class="geshifilter"><code class="rsplus geshifilter-rsplus">geom<span style="color: #080;">=</span><span style="color: #ff0000;">&quot;smooth&quot;</span></code></span></a>). It configures that statistic to fit a quadratic function through the data (<span class="geshifilter"><code class="rsplus geshifilter-rsplus">stat_params<span style="color: #080;">=</span><span style="color: #0000FF; font-weight: bold;">list</span><span style="color: #080;">&#40;</span>method<span style="color: #080;">=</span><span style="color: #ff0000;">&quot;glm&quot;</span>, <span style="color: #0000FF; font-weight: bold;">formula</span><span style="color: #080;">=</span>y~<span style="color: #0000FF; font-weight: bold;">poly</span><span style="color: #080;">&#40;</span>x,<span style="color: #ff0000;">2</span><span style="color: #080;">&#41;</span><span style="color: #080;">&#41;</span></code></span>). It configures the geometric object to use a black line color (<span class="geshifilter"><code class="rsplus geshifilter-rsplus">geom_params<span style="color: #080;">=</span><span style="color: #0000FF; font-weight: bold;">list</span><span style="color: #080;">&#40;</span>color<span style="color: #080;">=</span><span style="color: #ff0000;">&quot;black&quot;</span><span style="color: #080;">&#41;</span></code></span>; instead of the default blue). The position of the smoother is left unchanged (<span class="geshifilter"><code class="rsplus geshifilter-rsplus">position<span style="color: #080;">=</span>position_identity<span style="color: #080;">&#40;</span><span style="color: #080;">&#41;</span></code></span>).</p>
+<p><div class="geshifilter"><pre class="rsplus geshifilter-rsplus" style="font-family:monospace;">ggplot<span style="color: #080;">&#40;</span><span style="color: #080;">&#41;</span> <span style="color: #080;">+</span> 
+coord_cartesian<span style="color: #080;">&#40;</span><span style="color: #080;">&#41;</span> <span style="color: #080;">+</span>
+scale_x_continuous<span style="color: #080;">&#40;</span><span style="color: #080;">&#41;</span> <span style="color: #080;">+</span>
+scale_y_continuous<span style="color: #080;">&#40;</span><span style="color: #080;">&#41;</span> <span style="color: #080;">+</span>
+scale_color_hue<span style="color: #080;">&#40;</span><span style="color: #080;">&#41;</span> <span style="color: #080;">+</span>
+facet_wrap<span style="color: #080;">&#40;</span>~<span style="color: #0000FF; font-weight: bold;">cut</span><span style="color: #080;">&#41;</span> <span style="color: #080;">+</span>
+layer<span style="color: #080;">&#40;</span>
+  <span style="color: #0000FF; font-weight: bold;">data</span><span style="color: #080;">=</span>diamonds, 
+  mapping<span style="color: #080;">=</span>aes<span style="color: #080;">&#40;</span>x<span style="color: #080;">=</span>carat, y<span style="color: #080;">=</span>price, color<span style="color: #080;">=</span>color<span style="color: #080;">&#41;</span>, 
+  stat<span style="color: #080;">=</span><span style="color: #ff0000;">&quot;identity&quot;</span>, 
+  stat_params<span style="color: #080;">=</span><span style="color: #0000FF; font-weight: bold;">list</span><span style="color: #080;">&#40;</span><span style="color: #080;">&#41;</span>, 
+  geom<span style="color: #080;">=</span><span style="color: #ff0000;">&quot;point&quot;</span>, 
+  geom_params<span style="color: #080;">=</span><span style="color: #0000FF; font-weight: bold;">list</span><span style="color: #080;">&#40;</span><span style="color: #080;">&#41;</span>, 
+  position<span style="color: #080;">=</span>position_jitter<span style="color: #080;">&#40;</span><span style="color: #080;">&#41;</span>
+<span style="color: #080;">&#41;</span> <span style="color: #080;">+</span>
+layer<span style="color: #080;">&#40;</span>
+  <span style="color: #0000FF; font-weight: bold;">data</span><span style="color: #080;">=</span>diamonds,
+  mapping<span style="color: #080;">=</span>aes<span style="color: #080;">&#40;</span>x<span style="color: #080;">=</span>carat,y<span style="color: #080;">=</span>price<span style="color: #080;">&#41;</span>,
+  stat<span style="color: #080;">=</span><span style="color: #ff0000;">&quot;smooth&quot;</span>,
+  stat_params<span style="color: #080;">=</span><span style="color: #0000FF; font-weight: bold;">list</span><span style="color: #080;">&#40;</span>method<span style="color: #080;">=</span><span style="color: #ff0000;">&quot;glm&quot;</span>, <span style="color: #0000FF; font-weight: bold;">formula</span><span style="color: #080;">=</span>y~<span style="color: #0000FF; font-weight: bold;">poly</span><span style="color: #080;">&#40;</span>x,<span style="color: #ff0000;">2</span><span style="color: #080;">&#41;</span><span style="color: #080;">&#41;</span>,
+  geom<span style="color: #080;">=</span><span style="color: #ff0000;">&quot;smooth&quot;</span>,
+  geom_params<span style="color: #080;">=</span><span style="color: #0000FF; font-weight: bold;">list</span><span style="color: #080;">&#40;</span>color<span style="color: #080;">=</span><span style="color: #ff0000;">&quot;black&quot;</span><span style="color: #080;">&#41;</span>,
+  position<span style="color: #080;">=</span>position_identity<span style="color: #080;">&#40;</span><span style="color: #080;">&#41;</span>
+<span style="color: #080;">&#41;</span></pre></div></p>
+<p>The resulting plot looks as follows:<br />
+<img src="/sites/default/files/ggplot2-example2.png" /></p>
+<h3>Verbosity of Plot Specifications</h3>
+<p>The above code is relatively verbose. ggplot2 provides various approaches to allow for more concise specifications of plots. Those shortcuts are helpful for experts to save time in defining plots, and they can allow even a novice to create a plot without fully understanding ggplot2. However, using mostly these shortcuts in this quick reference would not be very helpful for understanding the space of possible plots that ggplot2 can create. Nevertheless, we do provide a discussion of <A href="/quick-reference/ggplot2/verbosity">how to write more concise plot specifications</a>.</p>
+  </div>
+
+  <div class="clear-block">
+    <div class="meta">
+        </div>
+
+      </div>
+
+</div>
+          </div>
+                    <div id="footer">copyright (c) 2013 - sape research group</div>
+      </div></div></div></div> <!-- /.left-corner, /.right-corner, /#squeeze, /#center -->
+
+              <div id="sidebar-right" class="sidebar">
+                    <div id="block-block-3" class="clear-block block block-block">
+
+  <h2>Publication Highlights</h2>
+
+  <div class="content"><p>PPPJ'13 - <A href="/publications/pppj13">Jikes RVM Debugger</a><br />
+PLDI'12 - <A href="/publications/pldi12">Algorithmic Profiling</a><br />
+OOPSLA'11 - <A href="/publications/oopsla11">Catch Me</a><br />
+ECOOP'11 - <A href="/publications/ecoop11">Beauty and Beast</a><br />
+PLDI'10 - <A href="/publications/pldi10">Profiler (In)Accuracy</a><br />
+ASPLOS'09 - <A href="/publications/asplos09">Measurement Bias</a><br />
+<A href="/publications">More...</a></p>
+</div>
+</div>
+        </div>
+      
+    </div> <!-- /container -->
+  </div>
+<!-- /layout -->
+
+  <script type="text/javascript" src="/sites/all/modules/google_analytics/googleanalytics.js?z"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+//--><!]]>
+</script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+try{var pageTracker = _gat._getTracker("UA-3294969-3");pageTracker._trackPageview();} catch(err) {}
+//--><!]]>
+</script>
+  </body>
+</html>

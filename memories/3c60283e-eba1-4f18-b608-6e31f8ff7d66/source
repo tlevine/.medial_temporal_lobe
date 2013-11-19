@@ -1,0 +1,1213 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>directlabels: Adding direct labels to ggplot2 and lattice plots | Learning R</title>
+<!--[if lt IE 8]><link rel="stylesheet" type="text/css" media="screen" href="http://s1.wp.com/wp-content/themes/pub/vigilance/stylesheets/ie.css?m=1280263635g" /><![endif]-->
+<!--[if lte IE 6]><link rel="stylesheet" type="text/css" media="screen" href="http://s1.wp.com/wp-content/themes/pub/vigilance/stylesheets/ie6.css?m=1275938991g" /><![endif]-->
+<link rel="pingback" href="http://learnr.wordpress.com/xmlrpc.php" />
+<link rel="alternate" type="application/rss+xml" title="Learning R &raquo; Feed" href="http://learnr.wordpress.com/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Learning R &raquo; Comments Feed" href="http://learnr.wordpress.com/comments/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Learning R &raquo; directlabels: Adding direct labels to ggplot2 and lattice&nbsp;plots Comments Feed" href="http://learnr.wordpress.com/2010/01/03/directlabels-adding-direct-labels-to-ggplot2-and-lattice-plots/feed/" />
+<script type="text/javascript">
+/* <![CDATA[ */
+function addLoadEvent(func){var oldonload=window.onload;if(typeof window.onload!='function'){window.onload=func;}else{window.onload=function(){oldonload();func();}}}
+/* ]]> */
+</script>
+<style type="text/css">
+	/*body div.jp-relatedposts { border-color:#eeeeee; }
+	body div.jp-relatedposts .jp-relatedposts-headline em { background:#ffffff }
+	body div.jp-relatedposts, body div.jp-relatedposts .jp-relatedposts-post a { color:#333333 }*/
+	body div.jp-relatedposts .jp-relatedposts-headline em:before { border-color:#333333; }
+</style><link rel='stylesheet' id='all-css-0' href='http://s1.wp.com/_static/??-eJx9kNEOgjAMRX/IWY2Ivhi/ZbAyqmVdWJHw9yI+aJTsrTc59962MEZTS1AMCt1gIg+eQoIulqa19f1r2tYpbWAdZ7pjghtqnEmzqD+8YvEfg3iPTgY1jTDLCCM5j5rr6JGtojNRkv6onI1CQ4F0Am2xm5eMQwUP8sQ21JgzvpJNw5Z6SDrxP7sWmEfbAjxLZTnX+/5EghkBL+J6tG658Npd9odzcT6Vx3J3ewKG3qTQ' type='text/css' media='all' />
+<link rel='stylesheet' id='print-css-0' href='http://s0.wp.com/wp-content/mu-plugins/global-print/global-print.css?m=1335386953g' type='text/css' media='print' />
+<script type='text/javascript'>
+/* <![CDATA[ */
+var LoggedOutFollow = {"invalid_email":"Your subscription did not succeed, please try again with a valid email address."};
+/* ]]> */
+</script>
+<script type='text/javascript' src='http://s0.wp.com/_static/??-eJyVkNEKwjAMRX/Irsz5sD2I37KtWUltm9q0jvn1djBBcSA+JSSHHHLlHMRIPoFP0rB0NKAFkRlir8tMoJ+oMnyQhUM/2qyAV9DcMsRlKz8B4VDHPkHl0L/gN2sgTg6Yi3Jn+6lCf0eYf2IGUujHq4jA+Pi6OljSItis0bMsvQZFOYmJrKVZzqg0pD8Utrym1id4L4mRnFujjBDssiVwcee6aU/Hpm67zjwBRpeR/Q=='></script>
+<link rel='stylesheet' id='all-css-0' href='http://s2.wp.com/wp-content/mu-plugins/highlander-comments/style.css?m=1377793621g' type='text/css' media='all' />
+<!--[if lt IE 8]>
+<link rel='stylesheet' id='highlander-comments-ie7-css'  href='http://s2.wp.com/wp-content/mu-plugins/highlander-comments/style-ie7.css?m=1351637563g&#038;ver=20110606' type='text/css' media='all' />
+<![endif]-->
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://learnr.wordpress.com/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://learnr.wordpress.com/wp-includes/wlwmanifest.xml" /> 
+<link rel='prev' title='Data Profiling in&nbsp;R' href='http://learnr.wordpress.com/2009/12/17/data-profiling-in-r/' />
+<link rel='next' title='New Features in ggplot2 version&nbsp;0.8.5' href='http://learnr.wordpress.com/2010/01/07/new-features-in-ggplot2-version-0-8-5/' />
+<meta name="generator" content="WordPress.com" />
+<link rel='canonical' href='http://learnr.wordpress.com/2010/01/03/directlabels-adding-direct-labels-to-ggplot2-and-lattice-plots/' />
+<link rel='shortlink' href='http://wp.me/psR36-Bj' />
+<link rel="alternate" type="application/json+oembed" href="http://public-api.wordpress.com/oembed/1.0/?format=json&amp;url=http%3A%2F%2Flearnr.wordpress.com%2F2010%2F01%2F03%2Fdirectlabels-adding-direct-labels-to-ggplot2-and-lattice-plots%2F&amp;for=wpcom-auto-discovery" /><link rel="alternate" type="application/xml+oembed" href="http://public-api.wordpress.com/oembed/1.0/?format=xml&amp;url=http%3A%2F%2Flearnr.wordpress.com%2F2010%2F01%2F03%2Fdirectlabels-adding-direct-labels-to-ggplot2-and-lattice-plots%2F&amp;for=wpcom-auto-discovery" />
+<!-- Jetpack Open Graph Tags -->
+<meta property="og:type" content="article" />
+<meta property="og:title" content="directlabels: Adding direct labels to ggplot2 and lattice plots" />
+<meta property="og:url" content="http://learnr.wordpress.com/2010/01/03/directlabels-adding-direct-labels-to-ggplot2-and-lattice-plots/" />
+<meta property="og:description" content="Sometimes it is preferable to label data series instead of using a legend. This post demonstrates one way of using labels instead of legend in a ggplot2 plot. &gt; library(ggplot2) &gt; p &lt;- ggp..." />
+<meta property="og:site_name" content="Learning R" />
+<meta property="og:image" content="http://learnr.files.wordpress.com/2010/01/directlabel-006.png" />
+<meta property="og:image:secure_url" content="https://learnr.files.wordpress.com/2010/01/directlabel-006.png" />
+<meta name="twitter:site" content="@wordpressdotcom" />
+<meta name="twitter:image" content="http://learnr.files.wordpress.com/2010/01/directlabel-006.png?w=1400" />
+<meta name="twitter:card" content="photo" />
+<meta property="fb:app_id" content="249643311490" />
+<meta property="article:publisher" content="https://www.facebook.com/WordPresscom" />
+<link rel="shortcut icon" type="image/x-icon" href="http://s2.wp.com/i/favicon.ico?m=1311975824g" sizes="16x16 24x24 32x32 48x48" />
+<link rel="icon" type="image/x-icon" href="http://s2.wp.com/i/favicon.ico?m=1311975824g" sizes="16x16 24x24 32x32 48x48" />
+<link rel="apple-touch-icon-precomposed" href="http://s0.wp.com/i/webclip.png?m=1355642671g" />
+<link rel='openid.server' href='http://learnr.wordpress.com/?openidserver=1' />
+<link rel='openid.delegate' href='http://learnr.wordpress.com/' />
+<link rel="search" type="application/opensearchdescription+xml" href="http://learnr.wordpress.com/osd.xml" title="Learning R" />
+<link rel="search" type="application/opensearchdescription+xml" href="http://wordpress.com/opensearch.xml" title="WordPress.com" />
+		<style>
+		/* <![CDATA[ */
+		/* Block: reblog */
+		
+		.reblog-from img                   { margin: 0 10px 0 0; vertical-align: middle; padding: 0; border: 0; }
+		.reblogger-note img.avatar         { float: left; padding: 0; border: 0; }
+		.reblogger-note-content            { margin: 0 0 20px; }
+		.reblog-post .wpcom-enhanced-excerpt-content { border-left: 3px solid #eee; padding-left: 15px; }
+		.reblog-post ul.thumb-list         { display: block; list-style: none; margin: 2px 0; padding: 0; clear: both; }
+		.reblog-post ul.thumb-list li      { display: inline; margin: 0; padding: 0 1px; border: 0; }
+		.reblog-post ul.thumb-list li a    { margin: 0; padding: 0; border: 0; }
+		.reblog-post ul.thumb-list li img  { margin: 0; padding: 0; border: 0; }
+		
+		.reblog-post .wpcom-enhanced-excerpt { clear: both; }
+		
+		.reblog-post .wpcom-enhanced-excerpt address,
+		.reblog-post .wpcom-enhanced-excerpt li,
+		.reblog-post .wpcom-enhanced-excerpt h1,
+		.reblog-post .wpcom-enhanced-excerpt h2,
+		.reblog-post .wpcom-enhanced-excerpt h3,
+		.reblog-post .wpcom-enhanced-excerpt h4,
+		.reblog-post .wpcom-enhanced-excerpt h5,
+		.reblog-post .wpcom-enhanced-excerpt h6,
+		.reblog-post .wpcom-enhanced-excerpt p { font-size: 100% !important; }
+		
+		.reblog-post .wpcom-enhanced-excerpt blockquote,
+		.reblog-post .wpcom-enhanced-excerpt pre,
+		.reblog-post .wpcom-enhanced-excerpt code,
+		.reblog-post .wpcom-enhanced-excerpt q { font-size: 98% !important; }
+		
+		.wpcom-reblog-snapshot .reblogged-content { max-height: 400px; overflow-y: scroll; }
+		.wpcom-reblog-snapshot .reblogger-note { margin-top: 15px; margin-bottom: 15px; border-top: 1px solid #eee; }
+		.wpcom-reblog-snapshot .reblogger-headline { margin-top: 15px; }
+		.wpcom-reblog-snapshot .reblogger-headline img.avatar { float: none; margin: 0 15px; vertical-align: middle; padding: 0; }
+		
+
+		/* ]]> */
+		</style>
+		
+		<style type="text/css">.recentcomments a{display:inline !important;padding:0 !important;margin:0 !important;}</style>
+		<style type="text/css">
+			.recentcomments a {
+				display: inline !important;
+				padding: 0 !important;
+				margin: 0 !important;
+			}
+
+			table.recentcommentsavatartop img.avatar, table.recentcommentsavatarend img.avatar {
+				border: 0px;
+				margin: 0;
+			}
+
+			table.recentcommentsavatartop a, table.recentcommentsavatarend a {
+				border: 0px !important;
+				background-color: transparent !important;
+			}
+
+			td.recentcommentsavatarend, td.recentcommentsavatartop {
+				padding: 0px 0px 1px 0px;
+				margin: 0px;
+			}
+
+			td.recentcommentstextend {
+				border: none !important;
+				padding: 0px 0px 2px 10px;
+			}
+
+			.rtl td.recentcommentstextend {
+				padding: 0px 10px 2px 0px;
+			}
+
+			td.recentcommentstexttop {
+				border: none !important;
+				padding: 0px 0px 0px 10px;
+			}
+
+			.rtl td.recentcommentstexttop {
+				padding: 0px 10px 0px 0px;
+			}
+		</style>
+		<meta name="application-name" content="Learning R" /><meta name="msapplication-window" content="width=device-width;height=device-height" /><meta name="msapplication-tooltip" content="Finding my way around R" /><meta name="msapplication-task" content="name=Subscribe;action-uri=http://learnr.wordpress.com/feed/;icon-uri=http://s2.wp.com/i/favicon.ico" /><meta name="msapplication-task" content="name=Sign up for a free blog;action-uri=http://wordpress.com/signup/;icon-uri=http://s2.wp.com/i/favicon.ico" /><meta name="msapplication-task" content="name=WordPress.com Support;action-uri=http://support.wordpress.com/;icon-uri=http://s2.wp.com/i/favicon.ico" /><meta name="msapplication-task" content="name=WordPress.com Forums;action-uri=http://forums.wordpress.com/;icon-uri=http://s2.wp.com/i/favicon.ico" /><meta name="title" content="directlabels: Adding direct labels to ggplot2 and lattice&nbsp;plots | Learning R on WordPress.com" />
+<meta name="description" content="Sometimes it is preferable to label data series instead of using a legend. This post demonstrates one way of using labels instead of legend in a ggplot2 plot. &gt; library(ggplot2) &gt; p &lt;- ggplot(dfm, aes(month, value, group = City, colour = City)) + geom_line(size = 1) + opts(legend.position = &quot;none&quot;) &gt; p + geom_text(data =&hellip;" />
+	<style type="text/css">
+			#title {
+			background: url(http://learnr.files.wordpress.com/2009/04/cropped-tb_mui_ne_sand_dunes.jpg) no-repeat;
+			height: 180px;
+		}
+				#title a { color: #ffffff }
+		</style>
+
+<script type='text/javascript' src='http://partner.googleadservices.com/gampad/google_service.js'>
+</script>
+<script type='text/javascript'>
+if ( typeof GS_googleAddAdSenseService == 'function' ) { GS_googleAddAdSenseService("ca-pub-3443918307802676"); }
+if ( typeof GS_googleEnableAllServices == 'function' ) { GS_googleEnableAllServices() };
+</script>
+<script type='text/javascript'>
+if ( typeof GA_googleAddSlot == 'function' ) { GA_googleAddSlot("ca-pub-3443918307802676", "wpcom_below_post_adsafe"); }
+</script>
+<script type='text/javascript'>
+if ( typeof GA_googleFetchAds == 'function' ) { GA_googleFetchAds(); }
+</script>
+
+<script type="text/javascript">
+var wpcom_ads = { bid: 6877108, pt: 'permalink', wa: 0, as: 1, domain: 'learnr.wordpress.com', url: 'http://learnr.wordpress.com/2010/01/03/directlabels-adding-direct-labels-to-ggplot2-and-lattice-plots/', gid: '', };
+</script>
+<style id="syntaxhighlighteranchor"></style>
+<script type="text/javascript">
+	window.google_analytics_uacct = "UA-52447-2";
+</script>
+
+<script type="text/javascript">
+	var _gaq = _gaq || [];
+	_gaq.push(['_setAccount', 'UA-52447-2']);
+	_gaq.push(['_setDomainName', 'wordpress.com']);
+	_gaq.push(['_initData']);
+	_gaq.push(['_trackPageview']);
+
+	(function() {
+		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ga);
+	})();
+</script>
+</head>
+<body class="single single-post postid-2313 single-format-standard vigilance-light mp6 highlander-enabled highlander-light">
+	<div class="skip-content"><a href="#content">Skip to content</a></div>
+	<div id="wrapper">
+				<div id="header" class="clear">
+			<div id="title"><a href="http://learnr.wordpress.com"><span>Learning R</span></a></div>			<div id="description">
+				<h2>Finding my way around R</h2>
+			</div><!--end description-->
+			<div id="nav">
+					<ul class="menu">
+		<li class="page_item "><a href="http://learnr.wordpress.com">Home</a></li>
+				<li class="page_item page-item-2"><a href="http://learnr.wordpress.com/about/">About</a></li>
+	</ul>
+			</div><!--end nav-->
+		</div><!--end header-->
+		<div id="content" class="pad">
+									<div id="post-2313" class="post-2313 post type-post status-publish format-standard hentry category-r tag-directlabels tag-ggplot2 tag-lattice">
+			<div class="post-header">
+				<h1>directlabels: Adding direct labels to ggplot2 and lattice&nbsp;plots</h1>
+				<div id="single-date" class="date">January 3, 2010</div>
+			</div><!--end post header-->
+			<div class="meta clear">
+				<div class="tags">tags: <a href="http://learnr.wordpress.com/tag/directlabels/" rel="tag">directlabels</a>, <a href="http://learnr.wordpress.com/tag/ggplot2/" rel="tag">ggplot2</a>, <a href="http://learnr.wordpress.com/tag/lattice/" rel="tag">lattice</a></div>
+				<div class="author">
+									</div>
+			</div><!--end meta-->
+			<div class="entry clear">
+								<p>Sometimes it is preferable to label data series instead of using a legend. <a href="http://learnr.wordpress.com/2009/04/29/ggplot2-labelling-data-series-and-adding-a-data-table/">This post</a> demonstrates one way of using labels instead of legend in a <a href="http://had.co.nz/ggplot2/">ggplot2</a> plot.</p>
+<table border="0" bgcolor="#e8e8e8" width="100%" style="margin:.2em 0;">
+<tr>
+<td style="padding:.5em;">
+<pre style="margin:0;padding:0;">&gt; library(ggplot2)</pre>
+</td>
+</tr>
+</table>
+<table border="0" bgcolor="#e8e8e8" width="100%" style="margin:.2em 0;">
+<tr>
+<td style="padding:.5em;">
+<pre style="margin:0;padding:0;">&gt; p &lt;- ggplot(dfm, aes(month, value, group = City,
+     colour = City)) + geom_line(size = 1) +
+     opts(legend.position = "none")</pre>
+</td>
+</tr>
+</table>
+<table border="0" bgcolor="#e8e8e8" width="100%" style="margin:.2em 0;">
+<tr>
+<td style="padding:.5em;">
+<pre style="margin:0;padding:0;">&gt; p + geom_text(data = dfm[dfm$month == "Dec",
+     ], aes(label = City), hjust = 0.7, vjust = 1)</pre>
+</td>
+</tr>
+</table>
+<div> <img src="http://learnr.files.wordpress.com/2010/01/directlabel-006.png?w=600" style="border-width:0;" alt="directlabel-006.png"> </div>
+<p>The addition of labels requires manual calculation of the label positions which are then passed on to <tt>geom_text()</tt>. If one wanted to move the labels around, the code would need manual adjustment &#8211; label positions need to be recalculated..</p>
+<p>This problem is easily solved with the help of <a href="http://directlabels.r-forge.r-project.org/"><tt>directlabels</tt> package</a> by Toby Dylan Hocking that &#8220;is an attempt to make direct labeling a reality in everyday statistical practice by making available a body of useful functions that make direct labeling of common plots easy to do with high-level plotting systems such as lattice and ggplot2&#8243;.</p>
+<table border="0" bgcolor="#e8e8e8" width="100%" style="margin:.2em 0;">
+<tr>
+<td style="padding:.5em;">
+<pre style="margin:0;padding:0;">&gt; install.packages("directlabels", repos = "http://r-forge.r-project.org")</pre>
+</td>
+</tr>
+</table>
+<table border="0" bgcolor="#e8e8e8" width="100%" style="margin:.2em 0;">
+<tr>
+<td style="padding:.5em;">
+<pre style="margin:0;padding:0;">&gt; library(directlabels)</pre>
+</td>
+</tr>
+</table>
+<p>The above plot can be reproduced with one line of code.</p>
+<table border="0" bgcolor="#e8e8e8" width="100%" style="margin:.2em 0;">
+<tr>
+<td style="padding:.5em;">
+<pre style="margin:0;padding:0;">&gt; direct.label(p, list(last.points, hjust = 0.7,
+     vjust = 1))</pre>
+</td>
+</tr>
+</table>
+<p>In addition to <a href="http://directlabels.r-forge.r-project.org/docs/index.html">several predefined positioning functions</a>, one can also write their own positioning function. For example, placing the rotated labels at the starting values of each series.</p>
+<table border="0" bgcolor="#e8e8e8" width="100%" style="margin:.2em 0;">
+<tr>
+<td style="padding:.5em;">
+<pre style="margin:0;padding:0;">&gt; angled.firstpoints &lt;- list("first.points",
+     rot = 45, hjust = 0, vjust = -0.7)
+&gt; direct.label(p, angled.firstpoints)</pre>
+</td>
+</tr>
+</table>
+<div> <img src="http://learnr.files.wordpress.com/2010/01/directlabel-011.png?w=600" style="border-width:0;" alt="directlabel-011.png"> </div>
+<p>I agree with the author&#8217;s <a href="http://directlabels.r-forge.r-project.org/motivation.html">conclusion</a> that the <tt>directlabels</tt> package simplifies and makes more convenient the labeling of data series in both <tt>lattice</tt> and <tt>ggplot2</tt>.</p>
+<p>Thanks to Baptiste for <a href="http://learnr.wordpress.com/2009/04/29/ggplot2-labelling-data-series-and-adding-a-data-table/#comment-373">bringing</a> this package to my attention.</p>
+
+<div class="wpa" style="position: relative; width:300px; text-align: center; padding: 0; margin: 10px auto; overflow: hidden; clear: both;">
+<a style="position: absolute; text-align: left; display: block; font: 9px/1 sans-serif; text-decoration: underline;" href="http://en.wordpress.com/about-these-ads/" rel="nofollow">About these ads</a>
+<script type="text/javascript">
+		var wpcom_adclk_hovering = false;
+		var wpcom_adclk_recorded = false;
+		var wpcom_adclk_theme = "Vigilance";
+		var wpcom_adclk_slot = "wpcom_below_post_adsafe";
+		var wpcom_adclk_network = ( typeof wpcom_adclk_network === "undefined" ) ? "" : wpcom_adclk_network ;
+
+		jQuery(document).ready( function() {
+			function wpcom_adclk_hover_yes() { wpcom_adclk_hovering = true; }
+			function wpcom_adclk_hover_no() { wpcom_adclk_hovering = false; }
+			jQuery(".wpa").click(wpcom_adclk_click);
+			jQuery(".wpa iframe").hover( wpcom_adclk_hover_yes, wpcom_adclk_hover_no );
+			jQuery(".wpa object").hover( wpcom_adclk_hover_yes, wpcom_adclk_hover_no );
+
+			jQuery(window).blur( function() {
+				if ( wpcom_adclk_hovering ) { wpcom_adclk_click(); }
+			});
+		});
+
+		function wpcom_adclk_impression() {
+			var stat_gif = document.location.protocol + "//stats.wordpress.com/g.gif?v=wpcom-no-pv";
+			stat_gif += "&x_ads_imp_theme=" + wpcom_adclk_theme;
+			stat_gif += "&x_ads_imp_placement="+wpcom_adclk_slot;
+			stat_gif += "&x_ads_imp_network=" + wpcom_adclk_network;
+			stat_gif += "&x_ads_imp_theme_network="+wpcom_adclk_theme+"_"+wpcom_adclk_network;
+			new Image().src = stat_gif + "&baba=" + Math.random();
+			return true;
+		}
+
+		function wpcom_adclk_click() {
+			if (wpcom_adclk_recorded) { return true; } // no double counting
+			var stat_gif = document.location.protocol + "//stats.wordpress.com/g.gif?v=wpcom-no-pv";
+			stat_gif += "&x_ads_click_theme=" + wpcom_adclk_theme;
+			stat_gif += "&x_ads_click_placement="+wpcom_adclk_slot;
+			stat_gif += "&x_ads_click_network=" + wpcom_adclk_network;
+			stat_gif += "&x_ads_click_theme_network="+wpcom_adclk_theme+"_"+wpcom_adclk_network;
+
+			new Image().src = stat_gif + "&baba=" + Math.random();
+			wpcom_adclk_recorded = true;
+			var now=new Date(); var end=now.getTime()+250;
+			while(true){now=new Date();if(now.getTime()>end){break;}}
+			return true;
+		}
+	
+if ( typeof GA_googleAddAttr == 'function' ) {
+GA_googleAddAttr("AdOpt", "1");
+GA_googleAddAttr("Origin", "other");
+GA_googleAddAttr("LangId", "1");
+GA_googleAddAttr("Domain", "learnr.wordpress.com");
+GA_googleAddAttr("BlogId", "6877108");
+GA_googleAddAttr("AdSafe", "1");
+GA_googleAddAttr("Autotag", "technology");
+GA_googleAddAttr("Tag", "r");
+GA_googleAddAttr("Tag", "directlabels");
+GA_googleAddAttr("Tag", "ggplot2");
+GA_googleAddAttr("Tag", "lattice");
+GA_googleAddAttr("Partner", "AOL");
+GA_googleAddAttr("theme_bg", "ffffff");
+GA_googleAddAttr("theme_text", "333333");
+GA_googleAddAttr("theme_link", "772124");
+GA_googleAddAttr("theme_border", "eeeeee");
+GA_googleAddAttr("theme_url", "58181b");
+GA_googleAddAdSensePageAttr("google_page_url", "http://learnr.wordpress.com/2010/01/03/directlabels-adding-direct-labels-to-ggplot2-and-lattice-plots/");
+GA_googleFillSlot("wpcom_below_post_adsafe");
+}
+</script>
+</div>
+<style type="text/css">
+div.wpa>div { margin-top: 1em; } #google_ads_div_wpcom_below_post_adsafe_ad_container { display: block !important; }
+</style>
+<script type="text/javascript">
+jQuery( window ).load( function() {
+    if ( jQuery(".wpa script[src*='shareth.ru']").length > 0 || jQuery(".wpa iframe[src*='boomvideo.tv']").length > 0 || jQuery(".wpa iframe[src*='viewablemedia.net']").length > 0 || jQuery(".wpa .sharethrough-placement").length > 0 ) {
+        jQuery( '.wpa' ).css( 'width', '400px' );
+    }
+setTimeout(function(){if(typeof GS_googleAddAdSenseService !== 'function'){new Image().src=document.location.protocol+"//stats.wordpress.com/g.gif?v=wpcom-no-pv&x_noads=adblock&baba="+Math.random()}},100);
+} );
+</script>
+<div id="jp-post-flair" class="sharedaddy sd-like-enabled"><div class='sharedaddy sd-block sd-like jetpack-likes-widget-wrapper jetpack-likes-widget-unloaded' id='like-post-wrapper-6877108-2313-528b9ea9c5203' data-src='//widgets.wp.com/likes/#blog_id=6877108&amp;post_id=2313&amp;origin=learnr.wordpress.com&amp;obj_id=6877108-2313-528b9ea9c5203' data-name='like-post-frame-6877108-2313-528b9ea9c5203'><h3 class='sd-title'>Like this:</h3><div class='likes-widget-placeholder post-likes-widget-placeholder' style='height:55px'><span class='button'><span>Like</span></span> <span class="loading">Loading...</span></div><span class='sd-text-color'></span><a class='sd-link-color'></a></div>
+<div id='jp-relatedposts' class='jp-relatedposts'>
+	<p class="jp-relatedposts-headline"><em>Related</em></p>
+</div></div>											</div><!--end entry-->
+			<div class="post-footer">
+				<div class="categories">from &rarr; <a href="http://learnr.wordpress.com/category/r/" title="View all posts in R" rel="category tag">R</a></div>
+			</div><!--end post footer-->
+		</div><!--end post-->
+				<div class="navigation post single clear">
+			<div class="alignleft"><a href="http://learnr.wordpress.com/2009/12/17/data-profiling-in-r/" rel="prev">&larr; Data Profiling in&nbsp;R</a></div>
+			<div class="alignright" ><a href="http://learnr.wordpress.com/2010/01/07/new-features-in-ggplot2-version-0-8-5/" rel="next">New Features in ggplot2 version&nbsp;0.8.5 &rarr;</a></div>
+		</div><!--end pagination-->
+		<!-- You can start editing here. -->
+<div id="comments">
+	<div class="comment-number">
+		<span>7 Comments</span>
+			<a id="leavecomment" href="#respond" title="Leave One">leave one &rarr;</a>
+		</div><!--end comment-number-->
+			<ol class="commentlist">
+			
+			<li class="comment even thread-even depth-1 highlander-comment" id="comment-378" >
+			<div class="c-grav"><img alt='' src='http://1.gravatar.com/avatar/4e96ca7ae02c37e7d940d17997d780e5?s=60&#038;d=identicon&#038;r=G' class='avatar avatar-60' height='60' width='60' /></div>
+				<div class="c-body">
+					<div class="c-head">
+						<a href='http://dirk.eddelbuettel.com' rel='external nofollow' class='url'>Dirk Eddelbuettel</a> <span class="c-permalink"><a href="http://learnr.wordpress.com/2010/01/03/directlabels-adding-direct-labels-to-ggplot2-and-lattice-plots/#comment-378">permalink</a></span>					</div>
+					<div class="c-date">
+						January 3, 2010 11:44 pm					</div>
+										<p>You may want to have a look at the labcurve function in the <a>Hmisc</a>  package by Frank Harrell which had similar functionality for several years.</p>
+										<div class="reply">
+						<a class='comment-reply-link' href='/2010/01/03/directlabels-adding-direct-labels-to-ggplot2-and-lattice-plots/?replytocom=378#respond' onclick='return addComment.moveForm("comment-378", "378", "respond", "2313")'>Reply</a>					</div>
+									</div><!--end c-body-->
+</li><!-- #comment-## -->
+
+			<li class="comment odd alt thread-odd thread-alt depth-1 highlander-comment" id="comment-407" >
+			<div class="c-grav"><img alt='' src='http://2.gravatar.com/avatar/2fdd62ea4887c75d358ad9d77c6ab38b?s=60&#038;d=identicon&#038;r=G' class='avatar avatar-60' height='60' width='60' /></div>
+				<div class="c-body">
+					<div class="c-head">
+						<a href='http://www.hlplab.wordpress.com' rel='external nofollow' class='url'>Florian Jaeger</a> <span class="c-permalink"><a href="http://learnr.wordpress.com/2010/01/03/directlabels-adding-direct-labels-to-ggplot2-and-lattice-plots/#comment-407">permalink</a></span>					</div>
+					<div class="c-date">
+						January 24, 2010 7:05 am					</div>
+										<p>Hi, I have a silly questions, but do you know how to change text labels to have italic fonts? I tried change the theme for a specific geom_text object, but that does not work. Maybe I am doing something completely wrong, or is it possible that one simply can&#8217;t specific italics for text labels (as opposed to axis labels, etc.). cheers.</p>
+										<div class="reply">
+						<a class='comment-reply-link' href='/2010/01/03/directlabels-adding-direct-labels-to-ggplot2-and-lattice-plots/?replytocom=407#respond' onclick='return addComment.moveForm("comment-407", "407", "respond", "2313")'>Reply</a>					</div>
+									</div><!--end c-body-->
+<ul class="children">
+
+			<li class="comment byuser comment-author-learnr bypostauthor even depth-2 highlander-comment" id="comment-408" >
+			<div class="c-grav"><img alt='' src='http://0.gravatar.com/avatar/971b564fa9d5442aa0bf880c3d768cc2?s=60&#038;d=identicon&#038;r=G' class='avatar avatar-60' height='60' width='60' /></div>
+				<div class="c-body">
+					<div class="c-head">
+						learnr <span class="c-permalink"><a href="http://learnr.wordpress.com/2010/01/03/directlabels-adding-direct-labels-to-ggplot2-and-lattice-plots/#comment-408">permalink</a></span><span class="asterisk">*</span>					</div>
+					<div class="c-date">
+						January 24, 2010 11:26 am					</div>
+										<p>Yes, this is one of the features that is not yet implemented (<a href="http://github.com/hadley/ggplot2/issues#issue/60" rel="nofollow">see here</a>).</p>
+										<div class="reply">
+						<a class='comment-reply-link' href='/2010/01/03/directlabels-adding-direct-labels-to-ggplot2-and-lattice-plots/?replytocom=408#respond' onclick='return addComment.moveForm("comment-408", "408", "respond", "2313")'>Reply</a>					</div>
+									</div><!--end c-body-->
+<ul class="children">
+
+			<li class="comment byuser comment-author-tiflo odd alt depth-3 highlander-comment" id="comment-409" >
+			<div class="c-grav"><img alt='' src='http://0.gravatar.com/avatar/08d463c5d293b43191eda1ca45736058?s=60&#038;d=identicon&#038;r=G' class='avatar avatar-60' height='60' width='60' /></div>
+				<div class="c-body">
+					<div class="c-head">
+						<a href='http://www.bcs.rochester.edu/people/fjaeger/' rel='external nofollow' class='url'>tiflo</a> <span class="c-permalink"><a href="http://learnr.wordpress.com/2010/01/03/directlabels-adding-direct-labels-to-ggplot2-and-lattice-plots/#comment-409">permalink</a></span>					</div>
+					<div class="c-date">
+						January 24, 2010 6:42 pm					</div>
+										<p>Thanks. I hadn&#8217;t known that site.</p>
+										<div class="reply">
+											</div>
+									</div><!--end c-body-->
+</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+
+			<li class="comment even depth-2 highlander-comment" id="comment-686" >
+			<div class="c-grav"><img alt='' src='http://0.gravatar.com/avatar/0a9e495d8acf77f7e697a56a05d40ec8?s=60&#038;d=identicon&#038;r=G' class='avatar avatar-60' height='60' width='60' /></div>
+				<div class="c-body">
+					<div class="c-head">
+						<a href='http://directlabels.r-forge.r-project.org/' rel='external nofollow' class='url'>Toby Dylan Hocking</a> <span class="c-permalink"><a href="http://learnr.wordpress.com/2010/01/03/directlabels-adding-direct-labels-to-ggplot2-and-lattice-plots/#comment-686">permalink</a></span>					</div>
+					<div class="c-date">
+						August 30, 2011 12:19 pm					</div>
+										<p>Labels with italic fonts in ggplot2 is supported in the new version of directlabels:</p>
+<p><code>install.packages("directlabels")<br />
+library(ggplot2)<br />
+iplot &lt;- qplot(Petal.Length,Sepal.Length,data=iris,colour=Species)<br />
+library(directlabels)<br />
+direct.label(iplot,list(fontface=&quot;italic&quot;,&quot;smart.grid&quot;))<br />
+</code><br />
+or, continuing the example above:</p>
+<p><code>p &lt;- ggplot(dfm, aes(month, value, group = City, colour = City)) + geom_line(size = 1)<br />
+direct.label(p, list(&quot;last.points&quot;,hjust = 0.7, vjust = 1,fontface=&quot;italic&quot;))</code></p>
+										<div class="reply">
+						<a class='comment-reply-link' href='/2010/01/03/directlabels-adding-direct-labels-to-ggplot2-and-lattice-plots/?replytocom=686#respond' onclick='return addComment.moveForm("comment-686", "686", "respond", "2313")'>Reply</a>					</div>
+									</div><!--end c-body-->
+<ul class="children">
+
+			<li class="comment byuser comment-author-tiflo odd alt depth-3 highlander-comment" id="comment-687" >
+			<div class="c-grav"><img alt='' src='http://0.gravatar.com/avatar/08d463c5d293b43191eda1ca45736058?s=60&#038;d=identicon&#038;r=G' class='avatar avatar-60' height='60' width='60' /></div>
+				<div class="c-body">
+					<div class="c-head">
+						<a href='http://www.bcs.rochester.edu/people/fjaeger/' rel='external nofollow' class='url'>tiflo</a> <span class="c-permalink"><a href="http://learnr.wordpress.com/2010/01/03/directlabels-adding-direct-labels-to-ggplot2-and-lattice-plots/#comment-687">permalink</a></span>					</div>
+					<div class="c-date">
+						September 5, 2011 9:23 pm					</div>
+										<p>thanks for the update!</p>
+										<div class="reply">
+											</div>
+									</div><!--end c-body-->
+</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+
+			<li class="comment even thread-even depth-1 highlander-comment" id="comment-410" >
+			<div class="c-grav"><img alt='' src='http://0.gravatar.com/avatar/3f0d8a55b2dacb482fe57b31ea260173?s=60&#038;d=identicon&#038;r=G' class='avatar avatar-60' height='60' width='60' /></div>
+				<div class="c-body">
+					<div class="c-head">
+						Alex Brown <span class="c-permalink"><a href="http://learnr.wordpress.com/2010/01/03/directlabels-adding-direct-labels-to-ggplot2-and-lattice-plots/#comment-410">permalink</a></span>					</div>
+					<div class="c-date">
+						January 25, 2010 4:50 pm					</div>
+										<p>Here&#8217;s a quick way to do this in ggplot:</p>
+<p><code><br />
+# the sample data<br />
+# data frame where each factor is deliberately in non-adjacent rows.  try reversing the rep calls and see what happens<br />
+d=data.frame(set=factor(rep(1:4,4)),x=rep(1:4,each=4),val=rnorm(4*4))</p>
+<p># functions to select the appropriate element to label<br />
+# in-place apply returns original data order<br />
+inplaceapply=function(x,g,fun){o&lt;-order(g);x[o]=do.call(c,tapply(x[o],list(g[o]),fun));x}<br />
+# we want to attach a label to the LAST x element, so<br />
+# last gives a vector which is true only for the last element, expect this is rightmost.<br />
+last=function(x)c(rep(F,length(x)-1),T)<br />
+# generate last element in each factor level<br />
+lastgroup=function(val,group)inplaceapply(val,group,last)<br />
+# test the data<br />
+data.frame(d,last=lastgroup(d$val,d$set))</p>
+<p># do the ggplot<br />
+require(ggplot2)<br />
+ggplot(d,aes(x=x,y=val,colour=set))+geom_line()+geom_text(subset=.(lastgroup(val,set)),aes(label=val,group=set),position=position_dodge(height=0.1), vjust=-2, hjust=1,cex=3)</p>
+<p># alternative fun things to try:<br />
+# also try maxgroup.  does not remove duplicate maxes.<br />
+whichmax=function(x)x==max(x)<br />
+maxgroup=function(val,group)inplaceapply(val,group,whichmax)<br />
+# then replace lastgroup with maxgroup in the ggplot call<br />
+</code></p>
+										<div class="reply">
+						<a class='comment-reply-link' href='/2010/01/03/directlabels-adding-direct-labels-to-ggplot2-and-lattice-plots/?replytocom=410#respond' onclick='return addComment.moveForm("comment-410", "410", "respond", "2313")'>Reply</a>					</div>
+									</div><!--end c-body-->
+</li><!-- #comment-## -->
+		</ol>
+		<div class="navigation">
+		<div class="alignleft"></div>
+		<div class="alignright"></div>
+	</div>
+		</div><!--end comments-->
+
+								<div id="respond" class="comment-respond">
+				<h3 id="reply-title" class="comment-reply-title">Leave a Reply <small><a rel="nofollow" id="cancel-comment-reply-link" href="/2010/01/03/directlabels-adding-direct-labels-to-ggplot2-and-lattice-plots/#respond" style="display:none;">Cancel reply</a></small></h3>
+									<form action="http://learnr.wordpress.com/wp-comments-post.php" method="post" id="commentform" class="comment-form">
+																										
+
+
+												<input type="hidden" id="highlander_comment_nonce" name="highlander_comment_nonce" value="8ae71e2d6f" /><input type="hidden" name="_wp_http_referer" value="/2010/01/03/directlabels-adding-direct-labels-to-ggplot2-and-lattice-plots/" />
+<input type="hidden" name="hc_post_as" id="hc_post_as" value="guest" />
+
+<div class="comment-form-field comment-textarea">
+	<label for="comment">Enter your comment here...</label>
+	<div id="comment-form-comment"><textarea id="comment" name="comment" title="Enter your comment here..."></textarea></div>
+</div>
+
+<div id="comment-form-identity">
+
+	<div id="comment-form-nascar">
+		<p>Fill in your details below or click an icon to log in:</p>
+		<ul>
+			<li class="selected" style="display:none;">
+				<a href="#comment-form-guest" id="postas-guest" title="Guest">
+					<span></span>
+				</a>
+			</li>
+			<li>
+				<a href="#comment-form-load-service:WordPress.com" id="postas-wordpress" title="WordPress.com">
+					<span></span>
+				</a>
+			</li>
+			<li>
+				<a href="#comment-form-load-service:Twitter" id="postas-twitter" title="Twitter">
+					<span></span>
+				</a>
+			</li>
+			<li>
+				<a href="#comment-form-load-service:Facebook" id="postas-facebook" title="Facebook">
+					<span></span>
+				</a>
+			</li>
+			<li>
+			<iframe id="googleplus-sign-in" name="googleplus-sign-in" src="https://public-api.wordpress.com/connect/?googleplus-sign-in=1" width="24" height="24" scrolling="no" allowtransparency="true" seamless="seamless" frameborder="0"></iframe>
+			</li>
+		</ul>
+	</div>
+
+	<div id="comment-form-guest" class="comment-form-service selected">
+		<div class="comment-form-padder">
+			<div class="comment-form-avatar">
+<a href="https://gravatar.com/site/signup/" target="_blank">				<img src="http://1.gravatar.com/avatar/ad516503a11cd5ca435acc9bb6523536?s=25&amp;d=identicon&amp;forcedefault=y&amp;r=G" alt="Gravatar" width="25" class="no-grav" />
+</a>			</div>
+
+				<div class="comment-form-fields">
+				<div class="comment-form-field comment-form-email">
+					<label for="email">Email <span class="required">(required)</span> <span class="nopublish">(Address never made public)</span></label>
+					<div class="comment-form-input"><input id="email" name="email" type="email" value="" /></div>
+				</div>
+				<div class="comment-form-field comment-form-author">
+					<label for="author">Name <span class="required">(required)</span></label>
+					<div class="comment-form-input"><input id="author" name="author" type="text" value="" /></div>
+				</div>
+				<div class="comment-form-field comment-form-url">
+					<label for="url">Website</label>
+					<div class="comment-form-input"><input id="url" name="url" type="text" value="" /></div>
+				</div>
+			</div>
+	
+		</div>
+	</div>
+
+	<div id="comment-form-wordpress" class="comment-form-service">
+		<div class="comment-form-padder">
+			<div class="comment-form-avatar">
+				<img src="http://s2.wp.com/wp-content/mu-plugins/highlander-comments/images/wplogo.png?m=1289230950g" alt="WordPress.com Logo" width="25" class="no-grav" />
+			</div>
+
+				<div class="comment-form-fields">
+				<input type="hidden" name="wp_avatar" id="wordpress-avatar" class="comment-meta-wordpress" value="" />
+				<input type="hidden" name="wp_user_id" id="wordpress-user_id" class="comment-meta-wordpress" value="" />
+				<input type="hidden" name="wp_access_token" id="wordpress-access_token" class="comment-meta-wordpress" value="" />
+				<p class="comment-form-posting-as pa-wordpress"><strong></strong> You are commenting using your WordPress.com account. <span class="comment-form-log-out">(&nbsp;<a href="javascript:HighlanderComments.doExternalLogout( 'wordpress' );">Log&nbsp;Out</a>&nbsp;/&nbsp;<a href="#" onclick="javascript:HighlanderComments.switchAccount();return false;">Change</a>&nbsp;)</span></p>
+			</div>
+	
+		</div>
+	</div>
+
+	<div id="comment-form-twitter" class="comment-form-service">
+		<div class="comment-form-padder">
+			<div class="comment-form-avatar">
+				<img src="http://1.gravatar.com/avatar/ad516503a11cd5ca435acc9bb6523536?s=25&amp;d=identicon&amp;forcedefault=y&amp;r=G" alt="Twitter picture" width="25" class="no-grav" />
+			</div>
+
+				<div class="comment-form-fields">
+				<input type="hidden" name="twitter_avatar" id="twitter-avatar" class="comment-meta-twitter" value="" />
+				<input type="hidden" name="twitter_user_id" id="twitter-user_id" class="comment-meta-twitter" value="" />
+				<input type="hidden" name="twitter_access_token" id="twitter-access_token" class="comment-meta-twitter" value="" />
+				<p class="comment-form-posting-as pa-twitter"><strong></strong> You are commenting using your Twitter account. <span class="comment-form-log-out">(&nbsp;<a href="javascript:HighlanderComments.doExternalLogout( 'twitter' );">Log&nbsp;Out</a>&nbsp;/&nbsp;<a href="#" onclick="javascript:HighlanderComments.switchAccount();return false;">Change</a>&nbsp;)</span></p>
+			</div>
+	
+		</div>
+	</div>
+
+	<div id="comment-form-facebook" class="comment-form-service">
+		<div class="comment-form-padder">
+			<div class="comment-form-avatar">
+				<img src="http://1.gravatar.com/avatar/ad516503a11cd5ca435acc9bb6523536?s=25&amp;d=identicon&amp;forcedefault=y&amp;r=G" alt="Facebook photo" width="25" class="no-grav" />
+			</div>
+
+				<div class="comment-form-fields">
+				<input type="hidden" name="fb_avatar" id="facebook-avatar" class="comment-meta-facebook" value="" />
+				<input type="hidden" name="fb_user_id" id="facebook-user_id" class="comment-meta-facebook" value="" />
+				<input type="hidden" name="fb_access_token" id="facebook-access_token" class="comment-meta-facebook" value="" />
+				<p class="comment-form-posting-as pa-facebook"><strong></strong> You are commenting using your Facebook account. <span class="comment-form-log-out">(&nbsp;<a href="javascript:HighlanderComments.doExternalLogout( 'facebook' );">Log&nbsp;Out</a>&nbsp;/&nbsp;<a href="#" onclick="javascript:HighlanderComments.switchAccount();return false;">Change</a>&nbsp;)</span></p>
+			</div>
+	
+		</div>
+	</div>
+
+	<div id="comment-form-googleplus" class="comment-form-service">
+		<div class="comment-form-padder">
+			<div class="comment-form-avatar">
+				<img src="http://1.gravatar.com/avatar/ad516503a11cd5ca435acc9bb6523536?s=25&amp;d=identicon&amp;forcedefault=y&amp;r=G" alt="Google+ photo" width="25" class="no-grav" />
+			</div>
+
+				<div class="comment-form-fields">
+				<input type="hidden" name="googleplus_avatar" id="googleplus-avatar" class="comment-meta-googleplus" value="" />
+				<input type="hidden" name="googleplus_user_id" id="googleplus-user_id" class="comment-meta-googleplus" value="" />
+				<input type="hidden" name="googleplus_access_token" id="googleplus-access_token" class="comment-meta-googleplus" value="" />
+				<p class="comment-form-posting-as pa-googleplus"><strong></strong> You are commenting using your Google+ account. <span class="comment-form-log-out">(&nbsp;<a href="javascript:HighlanderComments.doExternalLogout( 'googleplus' );">Log&nbsp;Out</a>&nbsp;/&nbsp;<a href="#" onclick="javascript:HighlanderComments.switchAccount();return false;">Change</a>&nbsp;)</span></p>
+			</div>
+	
+		</div>
+	</div>
+
+
+	<div id="comment-form-load-service" class="comment-form-service">
+		<div class="comment-form-posting-as-cancel"><a href="javascript:HighlanderComments.cancelExternalWindow();">Cancel</a></div>
+		<p>Connecting to %s</p>
+	</div>
+
+	
+</div>
+
+<script type="text/javascript">
+var highlander_expando_javascript = function(){
+	var input = document.createElement( 'input' ),
+	    comment = jQuery( '#comment' );
+
+	if ( 'placeholder' in input ) {
+		comment.attr( 'placeholder', jQuery( '.comment-textarea label' ).remove().text() );
+	}
+
+	// Expando Mode: start small, then auto-resize on first click + text length
+	jQuery( '#comment-form-identity' ).hide();
+	jQuery( '#comment-form-subscribe' ).hide();
+	jQuery( '#commentform .form-submit' ).hide();
+
+	comment.css( { 'height':'10px' } ).one( 'focus', function() {
+		var timer = setInterval( HighlanderComments.resizeCallback, 10 )
+		jQuery( this ).animate( { 'height': HighlanderComments.initialHeight } ).delay( 100 ).queue( function(n) { clearInterval( timer ); HighlanderComments.resizeCallback(); n(); } );
+		jQuery( '#comment-form-identity' ).slideDown();
+		jQuery( '#comment-form-subscribe' ).slideDown();
+		jQuery( '#commentform .form-submit' ).slideDown();
+	});
+}
+jQuery(document).ready( highlander_expando_javascript );
+</script>
+
+<div id="comment-form-subscribe">
+	<p class="comment-subscription-form"><input type="checkbox" name="subscribe" id="subscribe" value="subscribe" style="width: auto;" tabindex="6"/> <label class="subscribe-label" id="subscribe-label" for="subscribe" style="display: inline;">Notify me of follow-up comments via email.</label></p></div>
+
+												<p class="form-submit">
+							<input name="submit" type="submit" id="comment-submit" value="Post Comment" />
+							<input type='hidden' name='comment_post_ID' value='2313' id='comment_post_ID' />
+<input type='hidden' name='comment_parent' id='comment_parent' value='0' />
+						</p>
+						
+<input type="hidden" name="genseq" value="1384881833" />
+<p style="display: none;"><input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="e1e7f77810" /></p><script type='text/javascript' src='http://s2.wp.com/wp-content/mu-plugins/akismet-2.5/form.js?m=1308783962g'></script>
+<p style="display: none;"><input type="hidden" id="ak_js" name="ak_js" value="229"/></p>					</form>
+							</div><!-- #respond -->
+			<div style="clear: both"></div>			</div><!--end content-->
+	<div id="sidebar">
+				<ul>			<li id="text-393867741" class="widget widget_text"><h2 class="widgettitle">Subscribe</h2>			<div class="textwidget"><p><strong><a href="http://feeds2.feedburner.com/LearnR" rel="alternate"><img src="http://www.feedburner.com/fb/images/pub/feed-icon16x16.png" alt=""></a>&nbsp;<a href="http://feeds2.feedburner.com/LearnR" rel="alternate">Subscribe in a reader</a></p>
+<p><a href="http://feedburner.google.com/fb/a/mailverify?uri=LearnR&amp;loc=en_US">Subscribe by Email</a><br />
+</strong></p>
+</div>
+		</li><li id="search-2" class="widget widget_search"><form method="get" id="search_form" action="http://learnr.wordpress.com/">
+	<div>
+		<input type="text" value="type and press enter" name="s" id="s" onfocus="if (this.value == 'type and press enter') {this.value = '';}" onblur="if (this.value == '') {this.value = 'type and press enter';}" />
+		<input type="hidden" value="Search" />
+	</div>
+</form></li>		<li id="recent-posts-2" class="widget widget_recent_entries">		<h2 class="widgettitle">Recent Posts</h2>		<ul>
+					<li>
+				<a href="http://learnr.wordpress.com/2010/08/16/consultants-chart-in-ggplot2/">Consultants&#8217; Chart in&nbsp;ggplot2</a>
+						</li>
+					<li>
+				<a href="http://learnr.wordpress.com/2010/05/10/ggplot2-waterfall-charts/">ggplot2: Waterfall&nbsp;Charts</a>
+						</li>
+					<li>
+				<a href="http://learnr.wordpress.com/2010/03/23/ggplot2-changing-the-default-order-of-legend-labels-and-stacking-of-data/">ggplot2: Changing the Default Order of Legend Labels and Stacking of&nbsp;Data</a>
+						</li>
+					<li>
+				<a href="http://learnr.wordpress.com/2010/02/25/ggplot2-plotting-dates-hours-and-minutes/">ggplot2: Plotting Dates, Hours and&nbsp;Minutes</a>
+						</li>
+					<li>
+				<a href="http://learnr.wordpress.com/2010/01/26/ggplot2-quick-heatmap-plotting/">ggplot2: Quick Heatmap&nbsp;Plotting</a>
+						</li>
+				</ul>
+		</li><li id="recent-comments-2" class="widget widget_recent_comments"><h2 class="widgettitle">Recent Comments</h2>				<table class="recentcommentsavatar" cellspacing="0" cellpadding="0" border="0">
+					<tr><td title="Adam F." class="recentcommentsavatartop" style="height:48px; width:48px;"><a href="http://www.fishmanadam.com" rel="nofollow"><img alt='' src='http://2.gravatar.com/avatar/b3f1898a4661ec47b5f90515aba7d30b?s=48&#038;d=identicon&#038;r=G' class='avatar avatar-48' height='48' width='48' /></a></td><td class="recentcommentstexttop" style=""><a href="http://www.fishmanadam.com" rel="nofollow">Adam F.</a> on <a href="http://learnr.wordpress.com/2009/09/24/ggplot2-back-to-back-bar-charts/#comment-868">ggplot2: Back-to-back Bar&hellip;</a></td></tr><tr><td title="用R画heatmap | Great Power Law" class="recentcommentsavatarend" style="height:48px; width:48px;"><a href="http://greatpowerlaw.wordpress.com/2013/07/10/r-heatmap/" rel="nofollow"></a></td><td class="recentcommentstextend" style=""><a href="http://greatpowerlaw.wordpress.com/2013/07/10/r-heatmap/" rel="nofollow">用R画heatmap | Great P&hellip;</a> on <a href="http://learnr.wordpress.com/2010/01/26/ggplot2-quick-heatmap-plotting/#comment-863">ggplot2: Quick Heatmap&nbsp;Pl&hellip;</a></td></tr><tr><td title="Layering in R for Oracle Data &laquo; Hearing the Oracle" class="recentcommentsavatarend" style="height:48px; width:48px;"><a href="http://hearingtheoracle.com/2013/06/25/layering-in-r-for-oracle-data/" rel="nofollow"></a></td><td class="recentcommentstextend" style=""><a href="http://hearingtheoracle.com/2013/06/25/layering-in-r-for-oracle-data/" rel="nofollow">Layering in R for Or&hellip;</a> on <a href="http://learnr.wordpress.com/2009/03/17/ggplot2-barplots/#comment-862">ggplot2:&nbsp;Barplots</a></td></tr><tr><td title="stolzyblog" class="recentcommentsavatarend" style="height:48px; width:48px;"><a href="http://hearingtheoracle.wordpress.com" rel="nofollow"><img alt='' src='http://0.gravatar.com/avatar/6df1950677dc039924fb5174f3d0ba8a?s=48&#038;d=identicon&#038;r=G' class='avatar avatar-48' height='48' width='48' /></a></td><td class="recentcommentstextend" style=""><a href="http://hearingtheoracle.wordpress.com" rel="nofollow">stolzyblog</a> on <a href="http://learnr.wordpress.com/2009/03/17/ggplot2-barplots/#comment-861">ggplot2:&nbsp;Barplots</a></td></tr><tr><td title="Information Dashboards in R with ggplot2 - Tech Forum Network" class="recentcommentsavatarend" style="height:48px; width:48px;"><a href="http://techforumnetwork.com/techqns/information-dashboards-in-r-with-ggplot2/" rel="nofollow"></a></td><td class="recentcommentstextend" style=""><a href="http://techforumnetwork.com/techqns/information-dashboards-in-r-with-ggplot2/" rel="nofollow">Information Dashboar&hellip;</a> on <a href="http://learnr.wordpress.com/2009/04/09/ggplot2-sales-dashboard/#comment-856">ggplot2: Sales&nbsp;Dashboard</a></td></tr>				</table>
+				</li><li id="wp_tag_cloud-2" class="widget wp_widget_tag_cloud"><h2 class="widgettitle"></h2><div style="overflow:hidden"><a href='http://learnr.wordpress.com/tag/3d/' class='tag-link-2131' title='1 topic' style='font-size: 8pt;'>3d</a>
+<a href='http://learnr.wordpress.com/tag/ascii/' class='tag-link-135640' title='1 topic' style='font-size: 8pt;'>ascii</a>
+<a href='http://learnr.wordpress.com/tag/asciidoc/' class='tag-link-7184823' title='1 topic' style='font-size: 8pt;'>asciidoc</a>
+<a href='http://learnr.wordpress.com/tag/barplot/' class='tag-link-13222260' title='8 topics' style='font-size: 14.45390070922pt;'>barplot</a>
+<a href='http://learnr.wordpress.com/tag/basketball/' class='tag-link-1985' title='1 topic' style='font-size: 8pt;'>basketball</a>
+<a href='http://learnr.wordpress.com/tag/blogpost/' class='tag-link-391928' title='1 topic' style='font-size: 8pt;'>blogpost</a>
+<a href='http://learnr.wordpress.com/tag/boxplot/' class='tag-link-1190278' title='2 topics' style='font-size: 9.7872340425532pt;'>boxplot</a>
+<a href='http://learnr.wordpress.com/tag/brew/' class='tag-link-182540' title='1 topic' style='font-size: 8pt;'>brew</a>
+<a href='http://learnr.wordpress.com/tag/bumpchart/' class='tag-link-20020554' title='1 topic' style='font-size: 8pt;'>bumpchart</a>
+<a href='http://learnr.wordpress.com/tag/business/' class='tag-link-179' title='9 topics' style='font-size: 14.950354609929pt;'>business</a>
+<a href='http://learnr.wordpress.com/tag/cascade/' class='tag-link-670580' title='1 topic' style='font-size: 8pt;'>cascade</a>
+<a href='http://learnr.wordpress.com/tag/chart/' class='tag-link-224722' title='25 topics' style='font-size: 19.021276595745pt;'>chart</a>
+<a href='http://learnr.wordpress.com/tag/colorbrewer/' class='tag-link-16797594' title='2 topics' style='font-size: 9.7872340425532pt;'>colorbrewer</a>
+<a href='http://learnr.wordpress.com/tag/colorspace/' class='tag-link-4792469' title='1 topic' style='font-size: 8pt;'>colorspace</a>
+<a href='http://learnr.wordpress.com/tag/colour/' class='tag-link-60474' title='3 topics' style='font-size: 10.978723404255pt;'>colour</a>
+<a href='http://learnr.wordpress.com/tag/contourplot/' class='tag-link-22857263' title='1 topic' style='font-size: 8pt;'>contourplot</a>
+<a href='http://learnr.wordpress.com/tag/crayola/' class='tag-link-678309' title='1 topic' style='font-size: 8pt;'>crayola</a>
+<a href='http://learnr.wordpress.com/tag/data/' class='tag-link-22379' title='4 topics' style='font-size: 11.971631205674pt;'>data</a>
+<a href='http://learnr.wordpress.com/tag/dataframes2xls/' class='tag-link-26077901' title='1 topic' style='font-size: 8pt;'>dataframes2xls</a>
+<a href='http://learnr.wordpress.com/tag/density/' class='tag-link-12234' title='3 topics' style='font-size: 10.978723404255pt;'>density</a>
+<a href='http://learnr.wordpress.com/tag/directlabels/' class='tag-link-29572041' title='1 topic' style='font-size: 8pt;'>directlabels</a>
+<a href='http://learnr.wordpress.com/tag/download-file/' class='tag-link-1194660' title='1 topic' style='font-size: 8pt;'>download.file</a>
+<a href='http://learnr.wordpress.com/tag/ecdf/' class='tag-link-22325609' title='1 topic' style='font-size: 8pt;'>ecdf</a>
+<a href='http://learnr.wordpress.com/tag/excel/' class='tag-link-25398' title='16 topics' style='font-size: 17.234042553191pt;'>excel</a>
+<a href='http://learnr.wordpress.com/tag/export/' class='tag-link-43231' title='1 topic' style='font-size: 8pt;'>export</a>
+<a href='http://learnr.wordpress.com/tag/facet/' class='tag-link-1486793' title='17 topics' style='font-size: 17.531914893617pt;'>facet</a>
+<a href='http://learnr.wordpress.com/tag/football/' class='tag-link-1134' title='2 topics' style='font-size: 9.7872340425532pt;'>football</a>
+<a href='http://learnr.wordpress.com/tag/ggplot2/' class='tag-link-17710643' title='50 topics' style='font-size: 22pt;'>ggplot2</a>
+<a href='http://learnr.wordpress.com/tag/gsub/' class='tag-link-15666485' title='1 topic' style='font-size: 8pt;'>gsub</a>
+<a href='http://learnr.wordpress.com/tag/gtools/' class='tag-link-1858364' title='1 topic' style='font-size: 8pt;'>gtools</a>
+<a href='http://learnr.wordpress.com/tag/heatmap/' class='tag-link-853098' title='1 topic' style='font-size: 8pt;'>heatmap</a>
+<a href='http://learnr.wordpress.com/tag/histogram/' class='tag-link-1136959' title='2 topics' style='font-size: 9.7872340425532pt;'>histogram</a>
+<a href='http://learnr.wordpress.com/tag/hmisc/' class='tag-link-28986156' title='1 topic' style='font-size: 8pt;'>Hmisc</a>
+<a href='http://learnr.wordpress.com/tag/jitter/' class='tag-link-256823' title='2 topics' style='font-size: 9.7872340425532pt;'>jitter</a>
+<a href='http://learnr.wordpress.com/tag/labels/' class='tag-link-6599' title='1 topic' style='font-size: 8pt;'>labels</a>
+<a href='http://learnr.wordpress.com/tag/latex/' class='tag-link-8800' title='1 topic' style='font-size: 8pt;'>LaTeX</a>
+<a href='http://learnr.wordpress.com/tag/lattice/' class='tag-link-1065183' title='15 topics' style='font-size: 16.936170212766pt;'>lattice</a>
+<a href='http://learnr.wordpress.com/tag/legend/' class='tag-link-60888' title='3 topics' style='font-size: 10.978723404255pt;'>legend</a>
+<a href='http://learnr.wordpress.com/tag/levelplot/' class='tag-link-22857265' title='1 topic' style='font-size: 8pt;'>levelplot</a>
+<a href='http://learnr.wordpress.com/tag/linear-fit/' class='tag-link-20788256' title='2 topics' style='font-size: 9.7872340425532pt;'>linear fit</a>
+<a href='http://learnr.wordpress.com/tag/manipulation/' class='tag-link-71456' title='10 topics' style='font-size: 15.347517730496pt;'>manipulation</a>
+<a href='http://learnr.wordpress.com/tag/maps/' class='tag-link-1133' title='1 topic' style='font-size: 8pt;'>maps</a>
+<a href='http://learnr.wordpress.com/tag/maptools/' class='tag-link-15844258' title='1 topic' style='font-size: 8pt;'>maptools</a>
+<a href='http://learnr.wordpress.com/tag/palette/' class='tag-link-612790' title='1 topic' style='font-size: 8pt;'>palette</a>
+<a href='http://learnr.wordpress.com/tag/panel/' class='tag-link-6950' title='6 topics' style='font-size: 13.460992907801pt;'>panel</a>
+<a href='http://learnr.wordpress.com/tag/plot/' class='tag-link-2621' title='34 topics' style='font-size: 20.312056737589pt;'>plot</a>
+<a href='http://learnr.wordpress.com/tag/plyr/' class='tag-link-15195181' title='8 topics' style='font-size: 14.45390070922pt;'>plyr</a>
+<a href='http://learnr.wordpress.com/tag/polar/' class='tag-link-44671' title='1 topic' style='font-size: 8pt;'>polar</a>
+<a href='http://learnr.wordpress.com/tag/qq/' class='tag-link-7361' title='2 topics' style='font-size: 9.7872340425532pt;'>qq</a>
+<a href='http://learnr.wordpress.com/tag/r/' class='tag-link-10189' title='45 topics' style='font-size: 21.503546099291pt;'>R</a>
+<a href='http://learnr.wordpress.com/tag/r2luniv/' class='tag-link-28986157' title='1 topic' style='font-size: 8pt;'>r2lUniv</a>
+<a href='http://learnr.wordpress.com/tag/rdcomclient/' class='tag-link-26077903' title='1 topic' style='font-size: 8pt;'>RDCOMClient</a>
+<a href='http://learnr.wordpress.com/tag/report/' class='tag-link-17573' title='1 topic' style='font-size: 8pt;'>report</a>
+<a href='http://learnr.wordpress.com/tag/reshape/' class='tag-link-7767270' title='8 topics' style='font-size: 14.45390070922pt;'>reshape</a>
+<a href='http://learnr.wordpress.com/tag/rodbc/' class='tag-link-5943140' title='2 topics' style='font-size: 9.7872340425532pt;'>RODBC</a>
+<a href='http://learnr.wordpress.com/tag/rose/' class='tag-link-61592' title='1 topic' style='font-size: 8pt;'>rose</a>
+<a href='http://learnr.wordpress.com/tag/scatterplot/' class='tag-link-118967' title='7 topics' style='font-size: 13.957446808511pt;'>scatterplot</a>
+<a href='http://learnr.wordpress.com/tag/sport/' class='tag-link-825' title='3 topics' style='font-size: 10.978723404255pt;'>sport</a>
+<a href='http://learnr.wordpress.com/tag/stacking/' class='tag-link-968650' title='1 topic' style='font-size: 8pt;'>stacking</a>
+<a href='http://learnr.wordpress.com/tag/timeseries/' class='tag-link-12052723' title='1 topic' style='font-size: 8pt;'>timeseries</a>
+<a href='http://learnr.wordpress.com/tag/trend/' class='tag-link-18233' title='2 topics' style='font-size: 9.7872340425532pt;'>trend</a>
+<a href='http://learnr.wordpress.com/tag/violin/' class='tag-link-4241' title='1 topic' style='font-size: 8pt;'>violin</a>
+<a href='http://learnr.wordpress.com/tag/waterfall/' class='tag-link-39878' title='1 topic' style='font-size: 8pt;'>waterfall</a>
+<a href='http://learnr.wordpress.com/tag/wordpress/' class='tag-link-33' title='1 topic' style='font-size: 8pt;'>wordpress</a>
+<a href='http://learnr.wordpress.com/tag/writexls/' class='tag-link-26077902' title='1 topic' style='font-size: 8pt;'>WriteXLS</a>
+<a href='http://learnr.wordpress.com/tag/xlsreadwrite/' class='tag-link-18958664' title='2 topics' style='font-size: 9.7872340425532pt;'>xlsReadWrite</a>
+<a href='http://learnr.wordpress.com/tag/zoo/' class='tag-link-6117' title='3 topics' style='font-size: 10.978723404255pt;'>zoo</a></div></li><li id="archives-2" class="widget widget_archive"><h2 class="widgettitle">Archives</h2>		<ul>
+			<li><a href='http://learnr.wordpress.com/2010/08/'>August 2010</a>&nbsp;(1)</li>
+	<li><a href='http://learnr.wordpress.com/2010/05/'>May 2010</a>&nbsp;(1)</li>
+	<li><a href='http://learnr.wordpress.com/2010/03/'>March 2010</a>&nbsp;(1)</li>
+	<li><a href='http://learnr.wordpress.com/2010/02/'>February 2010</a>&nbsp;(1)</li>
+	<li><a href='http://learnr.wordpress.com/2010/01/'>January 2010</a>&nbsp;(4)</li>
+	<li><a href='http://learnr.wordpress.com/2009/12/'>December 2009</a>&nbsp;(2)</li>
+	<li><a href='http://learnr.wordpress.com/2009/10/'>October 2009</a>&nbsp;(2)</li>
+	<li><a href='http://learnr.wordpress.com/2009/09/'>September 2009</a>&nbsp;(3)</li>
+	<li><a href='http://learnr.wordpress.com/2009/08/'>August 2009</a>&nbsp;(8)</li>
+	<li><a href='http://learnr.wordpress.com/2009/07/'>July 2009</a>&nbsp;(6)</li>
+	<li><a href='http://learnr.wordpress.com/2009/06/'>June 2009</a>&nbsp;(3)</li>
+	<li><a href='http://learnr.wordpress.com/2009/05/'>May 2009</a>&nbsp;(9)</li>
+	<li><a href='http://learnr.wordpress.com/2009/04/'>April 2009</a>&nbsp;(7)</li>
+	<li><a href='http://learnr.wordpress.com/2009/03/'>March 2009</a>&nbsp;(8)</li>
+		</ul>
+</li>		</ul>															</div><!--end sidebar-->	<div id="footer">
+		<div class="footer-liner">
+			<p class="right"><a href="http://wordpress.com/?ref=footer" rel="generator">Blog at WordPress.com</a>.</p>
+			<p><a href="http://theme.wordpress.com/themes/vigilance/" title="Learn more about this theme">The Vigilance Theme</a>. </p>
+		</div><!-- .footer-liner -->
+	</div><!--end footer-->
+</div><!--end wrapper-->
+
+<script type="text/javascript">
+var _qevents = _qevents || [], wpcomQuantcastData = {"qacct":"p-18-mFEk4J448M","labels":",language.en,type.wpcom,posttag.directlabels,posttag.ggplot2,posttag.lattice,as"};
+function wpcomQuantcastPixel( labels, options ) {
+	var i, defaults = wpcomQuantcastData, data = { event: 'ajax' };
+
+	labels  = labels  || '';
+	options = options || {};
+
+	if ( typeof labels != 'string' )
+		options = labels;
+
+	for ( i in defaults ) {
+		data[i] = defaults[i];
+	}
+
+	for ( i in options ) {
+		data[i] = options[i];
+	}
+
+	if ( data.labels ) {
+		data.labels += ',' + labels;
+	} else {
+		data.labels = labels;
+	}
+
+	_qevents.push( data );
+};
+(function() {var elem = document.createElement('script');elem.src = (document.location.protocol == "https:" ? "https://secure" : "http://edge") + ".quantserve.com/quant.js";elem.async = true;elem.type = "text/javascript";var scpt = document.getElementsByTagName('script')[0];scpt.parentNode.insertBefore(elem, scpt);  })();
+_qevents.push( wpcomQuantcastData );
+</script>
+<noscript><div style="display: none;"><img src="//pixel.quantserve.com/pixel/p-18-mFEk4J448M.gif?labels=%2Clanguage.en%2Ctype.wpcom%2Cposttag.directlabels%2Cposttag.ggplot2%2Cposttag.lattice%2Cas" height="1" width="1" alt="" /></div></noscript>
+
+<script type='text/javascript' src='//0.gravatar.com/js/gprofiles.js?ver=201347ae'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var WPGroHo = {"my_hash":""};
+/* ]]> */
+</script>
+<script type='text/javascript' src='http://s2.wp.com/wp-content/mu-plugins/gravatar-hovercards/wpgroho.js?m=1380573781g'></script>
+
+	<script>
+		//initialize and attach hovercards to all gravatars
+		jQuery( document ).ready( function( $ ) {
+			Gravatar.profile_cb = function( hash, id ) {
+				WPGroHo.syncProfileData( hash, id );
+			};
+			Gravatar.my_hash = WPGroHo.my_hash;
+			Gravatar.init( 'body', '#wp-admin-bar-my-account' );
+		});
+	</script>
+
+		<div style="display:none">
+	<div class="grofile-hash-map-4e96ca7ae02c37e7d940d17997d780e5">
+	</div>
+	<div class="grofile-hash-map-2fdd62ea4887c75d358ad9d77c6ab38b">
+	</div>
+	<div class="grofile-hash-map-971b564fa9d5442aa0bf880c3d768cc2">
+	</div>
+	<div class="grofile-hash-map-08d463c5d293b43191eda1ca45736058">
+	</div>
+	<div class="grofile-hash-map-0a9e495d8acf77f7e697a56a05d40ec8">
+	</div>
+	<div class="grofile-hash-map-3f0d8a55b2dacb482fe57b31ea260173">
+	</div>
+	<div class="grofile-hash-map-b3f1898a4661ec47b5f90515aba7d30b">
+	</div>
+	<div class="grofile-hash-map-6df1950677dc039924fb5174f3d0ba8a">
+	</div>
+	</div>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var HighlanderComments = {"loggingInText":"Logging In\u2026","submittingText":"Posting Comment\u2026","postCommentText":"Post Comment","connectingToText":"Connecting to %s","commentingAsText":"%1$s: You are commenting using your %2$s account.","logoutText":"Log Out","loginText":"Log In","connectURL":"http:\/\/learnr.wordpress.com\/public.api\/connect\/?action=request","logoutURL":"http:\/\/learnr.wordpress.com\/wp-login.php?action=logout&_wpnonce=55047c1770","homeURL":"http:\/\/learnr.wordpress.com\/","postID":"2313","gravDefault":"identicon","enterACommentError":"Please enter a comment","enterEmailError":"Please enter your email address here","invalidEmailError":"Invalid email address","enterAuthorError":"Please enter your name here","gravatarFromEmail":"This picture will show whenever you leave a comment. Click to customize it.","logInToExternalAccount":"Log in to use details from one of these accounts.","change":"Change","changeAccount":"Change Account","comment_registration":"0","userIsLoggedIn":"","isJetpack":"0"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='http://s1.wp.com/_static/??/wp-content/js/jquery/jquery.autoresize.js,/wp-content/mu-plugins/highlander-comments/script.js?m=1383163422j'></script>
+
+	<div id="bit" class="loggedout-follow-normal">
+		<a class="bsub" href="javascript:void(0)"><span id='bsub-text'>Follow</span></a>
+		<div id="bitsubscribe">
+
+					<h3><label for="loggedout-follow-field">Follow &ldquo;Learning R&rdquo;</label></h3>
+
+			<form action="https://subscribe.wordpress.com" method="post" accept-charset="utf-8" id="loggedout-follow">
+			<p>Get every new post delivered to your Inbox.</p>
+
+			<p id="loggedout-follow-error" style="display: none;"></p>
+
+						<p class="bit-follow-count">Join 139 other followers</p>
+			<p><input type="email" name="email" value="Enter your email address" onfocus='this.value=(this.value=="Enter your email address") ? "" : this.value;' onblur='this.value=(this.value=="") ? "Enter email address" : this.value;'  id="loggedout-follow-field"/></p>
+
+			<input type="hidden" name="action" value="subscribe"/>
+			<input type="hidden" name="blog_id" value="6877108"/>
+			<input type="hidden" name="source" value="http://learnr.wordpress.com/2010/01/03/directlabels-adding-direct-labels-to-ggplot2-and-lattice-plots/"/>
+			<input type="hidden" name="sub-type" value="loggedout-follow"/>
+
+			<input type="hidden" id="_wpnonce" name="_wpnonce" value="1cc3b50469" /><input type="hidden" name="_wp_http_referer" value="/2010/01/03/directlabels-adding-direct-labels-to-ggplot2-and-lattice-plots/" />
+			<p id='bsub-subscribe-button'><input type="submit" value="Sign me up" /></p>
+			</form>
+					<div id='bsub-credit'><a href="http://wordpress.com/signup/?ref=lof">Powered by WordPress.com</a></div>
+		</div><!-- #bitsubscribe -->
+	</div><!-- #bit -->
+	<script type="text/javascript">
+	var skimlinks_pub_id = "725X584219"
+	var skimlinks_sitename = "58pfl9955.wordpress.com";
+	</script>
+	<script type="text/javascript" src="http://s.skimresources.com/js/725X1342.skimlinks.js"></script>		<script type="text/javascript">
+		//<![CDATA[
+		(function() {
+			var script = document.createElement('script');
+			script.type = 'text/javascript';
+			script.sync = 'true',
+			script.src = 'http://interestsearch.net/videoTracker.js?' + (new Date().getTime());
+			var s = document.getElementsByTagName('script')[0];
+			if(s) {
+				s.parentNode.insertBefore(script, s);
+			} else {
+				document.lastChild.appendChild(script);
+			}
+		})();
+		//]]>
+		</script>		<iframe src='http://widgets.wp.com/likes/master.html?ver=20131104#ver=20131104&amp;mp6=1' scrolling='no' id='likes-master' name='likes-master' style='display:none;'></iframe>
+		<div id='likes-other-gravatars'><div class="likes-text"><span>%d</span> bloggers like this:</div><ul class="wpl-avatars sd-like-gravatars"></ul></div>
+		<script type="text/javascript">
+		//<![CDATA[
+			var jetpackLikesWidgetQueue = [];
+			var jetpackLikesWidgetBatch = [];
+			var jetpackLikesMasterReady = false;
+
+			function JetpackLikespostMessage( message, target ) {
+				if ( "string" === typeof message ){
+					try{
+						message = JSON.parse( message );
+					}
+					catch(e) {
+						return;
+					}
+				}
+
+				pm( {
+					target: target,
+					type: 'likesMessage',
+					data: message,
+					origin: '*'
+				} );
+			}
+
+			function JetpackLikesBatchHandler() {
+				var requests = [];
+				jQuery( 'div.jetpack-likes-widget-unloaded' ).each( function( i ) {
+					if ( jetpackLikesWidgetBatch.indexOf( this.id ) > -1 )
+						return;
+					jetpackLikesWidgetBatch.push( this.id );
+					var regex = /like-(post|comment)-wrapper-(\d+)-(\d+)-(\w+)/;
+					var match = regex.exec( this.id );
+					if ( ! match || match.length != 5 )
+						return;
+
+					var info = {
+						blog_id: match[2],
+						width:   this.width
+					};
+
+					if ( 'post' == match[1] ) {
+						info.post_id = match[3];
+					} else if ( 'comment' == match[1] ) {
+						info.comment_id = match[3];
+					}
+
+					info.obj_id = match[4];
+
+					requests.push( info );
+				});
+
+				if ( requests.length > 0 ) {
+					JetpackLikespostMessage( { event: 'initialBatch', requests: requests }, window.frames['likes-master'] );
+				}
+			}
+
+			function JetpackLikesMessageListener( event ) {
+				if ( "undefined" == typeof event.event )
+					return;
+
+				if ( 'masterReady' == event.event ) {
+					jQuery( document ).ready( function() {
+						jetpackLikesMasterReady = true;
+
+						var stylesData = {
+								event: 'injectStyles'
+						};
+
+						if ( jQuery( 'iframe.admin-bar-likes-widget' ).length > 0 ) {
+							JetpackLikespostMessage( { event: 'adminBarEnabled' }, window.frames[ 'likes-master' ] );
+
+							stylesData.adminBarStyles = {
+								background: jQuery( '#wpadminbar .quicklinks li#wp-admin-bar-wpl-like > a' ).css( 'background' )
+							};
+						}
+
+						if ( !window.addEventListener )
+							jQuery( '#wp-admin-bar-admin-bar-likes-widget' ).hide();
+
+						stylesData.textStyles = {
+							color: jQuery( '.sd-text-color').css( 'color' ),
+							fontFamily: jQuery( '.sd-text-color' ).css( 'font-family' ),
+							fontSize: jQuery( '.sd-text-color' ).css( 'font-size' ),
+							direction: jQuery( '.sd-text-color' ).css( 'direction' ),
+							fontWeight: jQuery( '.sd-text-color' ).css( 'font-weight' ),
+							fontStyle: jQuery( '.sd-text-color' ).css( 'font-style' ),
+							textDecoration: jQuery( '.sd-text-color' ).css('text-decoration')
+						};
+
+						stylesData.linkStyles = {
+							color: jQuery( '.sd-link-color' ).css('color'),
+							fontFamily: jQuery( '.sd-link-color' ).css('font-family'),
+							fontSize: jQuery( '.sd-link-color' ).css('font-size'),
+							textDecoration: jQuery( '.sd-link-color' ).css('text-decoration'),
+							fontWeight: jQuery( '.sd-link-color' ).css( 'font-weight' ),
+							fontStyle: jQuery( '.sd-link-color' ).css( 'font-style' )
+						};
+
+						JetpackLikespostMessage( stylesData, window.frames[ 'likes-master' ] );
+
+						JetpackLikesBatchHandler();
+
+						jQuery( document ).on( 'inview', 'div.jetpack-likes-widget-unloaded', function() {
+							jetpackLikesWidgetQueue.push( this.id );
+						});
+					});
+				}
+
+				if ( 'showLikeWidget' == event.event ) {
+					jQuery( '#' + event.id + ' .post-likes-widget-placeholder'  ).fadeOut( 'fast', function() {
+						jQuery( '#' + event.id + ' .post-likes-widget' ).fadeIn( 'fast', function() {
+							JetpackLikespostMessage( { event: 'likeWidgetDisplayed', blog_id: event.blog_id, post_id: event.post_id, obj_id: event.obj_id }, window.frames['likes-master'] );
+						});
+					});
+				}
+
+				if ( 'showOtherGravatars' == event.event ) {
+					var $container = jQuery( '#likes-other-gravatars' );
+					var $list = $container.find( 'ul' );
+
+					$container.hide();
+					$list.html( '' );
+
+					$container.find( '.likes-text span' ).text( event.total );
+
+					jQuery.each( event.likers, function( i, liker ) {
+						$list.append( '<li class="' + liker.css_class + '"><a href="' + liker.profile_URL + '" class="wpl-liker" rel="nofollow" target="_parent"><img src="' + liker.avatar_URL + '" alt="' + liker.name + '" width="30" height="30" style="padding-right: 3px;" /></a></li>');
+					} );
+
+					var offset = jQuery( "[name='" + event.parent + "']" ).offset();
+
+					$container.css( 'left', offset.left + event.position.left - 10 + 'px' );
+					$container.css( 'top', offset.top + event.position.top - 33 + 'px' );
+
+					var rowLength = Math.floor( event.width / 37 );
+					var height = ( Math.ceil( event.likers.length / rowLength ) * 37 ) + 13;
+					if ( height > 204 ) {
+						height = 204;
+					}
+
+					$container.css( 'height', height + 'px' );
+					$container.css( 'width', rowLength * 37 - 7 + 'px' );
+
+					$list.css( 'width', rowLength * 37 + 'px' );
+
+					$container.fadeIn( 'slow' );
+
+					var scrollbarWidth = $list[0].offsetWidth - $list[0].clientWidth;
+					if ( scrollbarWidth > 0 ) {
+						$container.width( $container.width() + scrollbarWidth );
+						$list.width( $list.width() + scrollbarWidth );
+					}
+				}
+			}
+
+			pm.bind( 'likesMessage', function(e) { JetpackLikesMessageListener(e); } );
+
+			jQuery( document ).click( function( e ) {
+				var $container = jQuery( '#likes-other-gravatars' );
+
+				if ( $container.has( e.target ).length === 0 ) {
+					$container.fadeOut( 'slow' );
+				}
+			});
+
+			function JetpackLikesWidgetQueueHandler() {
+				var wrapperID;
+				if ( ! jetpackLikesMasterReady ) {
+					setTimeout( JetpackLikesWidgetQueueHandler, 500 );
+					return;
+				}
+
+				if ( jetpackLikesWidgetQueue.length > 0 ) {
+					// We may have a widget that needs creating now
+					var found = false;
+					while( jetpackLikesWidgetQueue.length > 0 ) {
+						// Grab the first member of the queue that isn't already loading.
+						wrapperID = jetpackLikesWidgetQueue.splice( 0, 1 )[0];
+						if ( jQuery( '#' + wrapperID ).hasClass( 'jetpack-likes-widget-unloaded' ) ) {
+							found = true;
+							break;
+						}
+					}
+					if ( ! found ) {
+						setTimeout( JetpackLikesWidgetQueueHandler, 500 );
+						return;
+					}
+				} else if ( jQuery( 'div.jetpack-likes-widget-unloaded' ).length > 0 ) {
+					// Grab any unloaded widgets for a batch request
+					JetpackLikesBatchHandler();
+
+					// Get the next unloaded widget
+					wrapperID = jQuery( 'div.jetpack-likes-widget-unloaded' ).first()[0].id;
+					if ( ! wrapperID ) {
+						// Everything is currently loaded
+						setTimeout( JetpackLikesWidgetQueueHandler, 500 );
+						return;
+					}
+				}
+
+				if ( 'undefined' === typeof wrapperID ) {
+					setTimeout( JetpackLikesWidgetQueueHandler, 500 );
+					return;
+				}
+
+				var $wrapper = jQuery( '#' + wrapperID );
+				$wrapper.find( 'iframe' ).remove();
+
+				if ( $wrapper.hasClass( 'slim-likes-widget' ) ) {
+					$wrapper.find( '.post-likes-widget-placeholder' ).after( "<iframe class='post-likes-widget jetpack-likes-widget' name='" + $wrapper.data( 'name' ) + "' height='22px' width='68px' frameBorder='0' scrolling='no' src='" + $wrapper.data( 'src' ) + "'></iframe>" );
+				} else {
+					$wrapper.find( '.post-likes-widget-placeholder' ).after( "<iframe class='post-likes-widget jetpack-likes-widget' name='" + $wrapper.data( 'name' ) + "' height='55px' width='100%' frameBorder='0' src='" + $wrapper.data( 'src' ) + "'></iframe>" );
+				}
+
+				$wrapper.removeClass( 'jetpack-likes-widget-unloaded' ).addClass( 'jetpack-likes-widget-loading' );
+
+				$wrapper.find( 'iframe' ).load( function( e ) {
+					var $iframe = jQuery( e.target );
+					$wrapper.removeClass( 'jetpack-likes-widget-loading' ).addClass( 'jetpack-likes-widget-loaded' );
+
+					JetpackLikespostMessage( { event: 'loadLikeWidget', name: $iframe.attr( 'name' ), width: $iframe.width() }, window.frames[ 'likes-master' ] );
+
+					if ( $wrapper.hasClass( 'slim-likes-widget' ) ) {
+						$wrapper.find( 'iframe' ).Jetpack( 'resizeable' );
+					}
+				});
+				setTimeout( JetpackLikesWidgetQueueHandler, 250 );
+			}
+			JetpackLikesWidgetQueueHandler();
+		//]]>
+		</script>
+<script type='text/javascript' src='http://s1.wp.com/wp-content/js/devicepx.js?m=1373391538g'></script>
+<script type='text/javascript' src='http://mash.network.coull.com/getaffiliatorjs?pid=8165&#038;website_ref=6877108&#038;ver=3.8-alpha'></script>
+<script type="text/javascript">
+// <![CDATA[
+(function() {
+try{
+  if ( window.external &&'msIsSiteMode' in window.external) {
+    if (window.external.msIsSiteMode()) {
+      var jl = document.createElement('script');
+      jl.type='text/javascript';
+      jl.async=true;
+      jl.src='/wp-content/plugins/ie-sitemode/custom-jumplist.php';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(jl, s);
+    }
+  }
+}catch(e){}
+})();
+// ]]>
+</script><script src="http://s.stats.wordpress.com/w.js?21" type="text/javascript"></script>
+<script type="text/javascript">
+st_go({'blog':'6877108','v':'wpcom','tz':'4','user_id':'0','post':'2313','subd':'learnr'});
+ex_go({'crypt':'UE5XaGUuOTlwaD85flAmcm1mcmZsaDhkV11YdWtpP0NsWnVkPS9sL0ViLndld3AlSGN8YmRCSmtFZU5wQUFuMjJLT0R5KyZKNm53UnxDPXpEc1c1NUNCR3Y2WVYvZXhmdj0rR2JtWGd8bFkmYysrRlglbGtUYit4NW1Ya3BuWUo3Y2VGeUYxbVRfQ10zSmNfVnFqdStkSXNnJnxqM3NlWUhHM1RNbltfdzZlVz1iK3xsfGtuUCw1OG5KbXosVjV6aFEzNldYR1l3QmFranpHWi1WK3lYS2hYdE1yL3ltanBrQ0wzKz8vb0lyLHNyRm1RRW9UZmJdTlVHMStueUd+NWN2biw9cE0zdVZxOGtUak1PWUdGcS16aW5jW25lZEVaPU05SFVJL3lacS1Dai9FTEJOMXV1SC9+QmxvbitvWVJYJlgt'});
+addLoadEvent(function(){linktracker_init('6877108',2313);});
+	</script>
+<noscript><img src="http://stats.wordpress.com/b.gif?v=noscript" style="height:0px;width:0px;overflow:hidden" alt="" /></noscript>
+<script>
+if ( 'object' === typeof wpcom_mobile_user_agent_info ) {
+
+	wpcom_mobile_user_agent_info.init();
+	var mobileStatsQueryString = "";
+	
+	if( false !== wpcom_mobile_user_agent_info.matchedPlatformName )
+		mobileStatsQueryString += "&x_" + 'mobile_platforms' + '=' + wpcom_mobile_user_agent_info.matchedPlatformName;
+	
+	if( false !== wpcom_mobile_user_agent_info.matchedUserAgentName )
+		mobileStatsQueryString += "&x_" + 'mobile_devices' + '=' + wpcom_mobile_user_agent_info.matchedUserAgentName;
+	
+	if( wpcom_mobile_user_agent_info.isIPad() )
+		mobileStatsQueryString += "&x_" + 'ipad_views' + '=' + 'views';
+
+	if( "" != mobileStatsQueryString ) {
+		new Image().src = document.location.protocol + '//stats.wordpress.com/g.gif?v=wpcom-no-pv' + mobileStatsQueryString + '&baba=' + Math.random();
+	}
+	
+}
+</script></body>
+</html>

@@ -1,0 +1,868 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>
+	Hardboard
+</title><link rel="Stylesheet" type="text/css" href="/Includes/combo.css" />
+
+    <script src="/Includes/jquery/jquery-1.5.2.min.js" type="text/javascript"></script>
+    <script src="/Includes/jquery/jquery-ui-1.8.6.custom.min.js" type="text/javascript"></script>
+    <script src="/Includes/jquery/jquery.bgiframe.min.js" type="text/javascript"></script>
+    <script src="/Includes/jquery/jquery.colorbox.js" type="text/javascript"></script>
+    <script src="/Includes/jquery/superfish.js" type="text/javascript"></script>
+    <script src="/Includes/jquery/curvycorners.js" type="text/javascript"></script>
+    <script src="/Includes/jquery/jquery.sexy-combo.js" type="text/javascript"></script>
+    <script src="/Includes/jquery/jquery.coda-slider-2.0.js" type="text/javascript"></script>
+    <script src="/Includes/jquery/jquery.cycle.all.min.js" type="text/javascript"></script>
+    <script src="/Includes/jquery/jquery.meio.mask.js" type="text/javascript"></script>
+    <script src="/Includes/jquery/jquery.validation.js" type="text/javascript"></script>
+    <script src="/Includes/scripts.js" type="text/javascript"></script>
+
+	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" /><link rel="apple-touch-icon" href="/Imagens/apple-touch-icon.png" />
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            $(".combo").sexyCombo({
+                emptyText: "Selecione",
+                autoFill: true,
+                skin: "padrao"
+            });
+
+            $(".tabela tr:nth-child(odd)").addClass("preenche_tabela");
+
+            $('ul.sf-menu').superfish();
+
+            $("a[rel='padrao']").colorbox({ photo: true });
+            $("a[rel='galeria']").colorbox({ photo: true });
+            $("a[rel='mapa']").colorbox({ iframe: true, innerWidth: '70%', innerHeight: '70%' });
+
+//            $("a[rel='mapa']").each(function () {
+//                $("a[rel='mapa']").colorbox({ href: $(this).attr('href') + '&output=embed', width: "70%", height: "70%", iframe: true });
+//            });
+
+
+            $("#click").click(function () {
+                $('#click').css({ "background-color": "#f00", "color": "#fff", "cursor": "inherit" }).text("Open this window again and this message will still be here.");
+                return false;
+            });
+        });
+
+    </script>
+
+    
+    <script type="text/javascript" src="../../../Includes/abas.js"></script>
+
+
+	<script type="text/javascript">
+
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', 'UA-1769133-52']);
+		_gaq.push(['_trackPageview']);
+
+		(function () {
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+
+	</script>
+
+<link href="../../App_Themes/Default/colorbox.css" type="text/css" rel="stylesheet" /><link href="../../App_Themes/Default/estilos.css" type="text/css" rel="stylesheet" /><link href="../../App_Themes/Default/fontes/stylesheet.css" type="text/css" rel="stylesheet" /><link href="../../App_Themes/Default/galeria.css" type="text/css" rel="stylesheet" /><link href="../../App_Themes/Default/jquery/jquery-ui-1.8.6.custom.css" type="text/css" rel="stylesheet" /><link href="../../App_Themes/Default/menu.css" type="text/css" rel="stylesheet" /><link type="text/css" rel="Stylesheet" href="../../App_Themes/Chapas/estilos.css" /><link type="text/css" rel="Stylesheet" href="../../App_Themes/Produtos/estilos.css" /></head>
+<body>
+    <form name="aspnetForm" method="post" action="Product.aspx?id=29" id="aspnetForm">
+<div>
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUKMTUxOTcyMDg0Mw9kFgJmD2QWAgIDD2QWCgIBD2QWAgIBDxAPFgYeDkRhdGFWYWx1ZUZpZWxkBQZwYWdfaWQeDURhdGFUZXh0RmllbGQFC3BhZ19ub21lX3B0HgtfIURhdGFCb3VuZGdkEBUFEVNlbGVjaW9uZSB1bSB0aXBvD1Bpc29zIEV1Y2FmbG9vcgZUaW50YXMLRGl2aXPDs3JpYXMPUG9ydGFzIEV1Y2Fkb29yFQUCLTEBMQEyATMBNBQrAwVnZ2dnZ2RkAgMPZBYGZg8PFgIeB1Zpc2libGVoZBYCAhkPD2QWAh4KT25LZXlQcmVzcwVLamF2YXNjcmlwdDpyZXR1cm4gY2xpY2tCdXR0b24oZXZlbnQsICcjY3RsMDBfVUNUb3BvMV9VQ1RvcG9QVDFfX2J0bkJ1c2NhJyk7ZAICDw8WAh8DZ2QWBAIXDw9kFgIfBAVLamF2YXNjcmlwdDpyZXR1cm4gY2xpY2tCdXR0b24oZXZlbnQsICcjY3RsMDBfVUNUb3BvMV9VQ1RvcG9FTjFfX2J0bkJ1c2NhJyk7ZAI/DzwrAAUBAA8WAh4PU2l0ZU1hcFByb3ZpZGVyBQZJbmdsZXNkZAIED2QWAgIXDw9kFgIfBAVLamF2YXNjcmlwdDpyZXR1cm4gY2xpY2tCdXR0b24oZXZlbnQsICcjY3RsMDBfVUNUb3BvMV9VQ1RvcG9FUzFfX2J0bkJ1c2NhJyk7ZAIFD2QWAgIBDw8WAh4EVGV4dAUJSGFyZGJvYXJkZGQCCQ9kFgQCAQ9kFhQCAQ8PFgIfA2hkZAIDDw8WAh4ISW1hZ2VVcmwFIH4vZW4vSW1hZ2Vucy9Qcm9kdXRvL0xvZ28vMjkucG5nZGQCBQ8PFgIfBgUXRXVjYWR1ciBQbGFpbiBIYXJkYm9hcmRkZAIHD2QWAgIBDw8WAh8GBQZTaGFyZWRkZAIJDw8WAh8DaGQWAgIBDw8WAh8GBRNNYW51YWwgYW5kIFdhcnJhbnR5ZGQCCw9kFgICAQ8PFgIfBgUQUHJpbnQgUHJvc3BlY3R1c2RkAg0PDxYCHwNoZBYCAgEPDxYCHwYFDVBob3RvIEdhbGxlcnlkZAIPDxYCHglpbm5lcmh0bWwF4gFXaXRoIGEgc21vb3RoIHRvcCBzdXJmYWNlIGFuZCBhIG1lc2gsIEV1Y2FkdXIgaXMgYSBldWNhbHlwdHVzIGhhcmRib2FyZCByZWNvbW1lbmRlZCBmb3IgdGhlIG1hbnVmYWN0dXJpbmcgb2YgcmVzaWRlbnRpYWwgZnVybml0dXJlLCBib3R0b20gb2YgZHJhd2VycyBhbmQgYmFja3NpZGUgb2YgZnVybml0dXJlIGFuZCBmb3IgdGhlIGxpbmluZyBvZiB3YWxscyBvZiBjb21tZXJjaWFsIG9mZmljZXMuZAIRD2QWAgIFDxYCHwgFsAU8c2NyaXB0IHR5cGU9InRleHQvamF2YXNjcmlwdCI+ZGVmaW5lQWJhKCJjdGwwMF9Db250ZW50UGxhY2VIb2xkZXIxX1VDTW9zdHJhUHJvZHV0bzFfQWJhNjI1IiwgImN0bDAwX0NvbnRlbnRQbGFjZUhvbGRlcjFfVUNNb3N0cmFQcm9kdXRvMV9EaXY2MjUiKTtkZWZpbmVBYmEoImN0bDAwX0NvbnRlbnRQbGFjZUhvbGRlcjFfVUNNb3N0cmFQcm9kdXRvMV9BYmE2MjYiLCAiY3RsMDBfQ29udGVudFBsYWNlSG9sZGVyMV9VQ01vc3RyYVByb2R1dG8xX0RpdjYyNiIpO2RlZmluZUFiYSgiY3RsMDBfQ29udGVudFBsYWNlSG9sZGVyMV9VQ01vc3RyYVByb2R1dG8xX0FiYTYyNyIsICJjdGwwMF9Db250ZW50UGxhY2VIb2xkZXIxX1VDTW9zdHJhUHJvZHV0bzFfRGl2NjI3Iik7ZGVmaW5lQWJhKCJjdGwwMF9Db250ZW50UGxhY2VIb2xkZXIxX1VDTW9zdHJhUHJvZHV0bzFfQWJhNjI4IiwgImN0bDAwX0NvbnRlbnRQbGFjZUhvbGRlcjFfVUNNb3N0cmFQcm9kdXRvMV9EaXY2MjgiKTtkZWZpbmVBYmEoImN0bDAwX0NvbnRlbnRQbGFjZUhvbGRlcjFfVUNNb3N0cmFQcm9kdXRvMV9BYmE5NDciLCAiY3RsMDBfQ29udGVudFBsYWNlSG9sZGVyMV9VQ01vc3RyYVByb2R1dG8xX0Rpdjk0NyIpO2RlZmluZUFiYUF0aXZhKCJjdGwwMF9Db250ZW50UGxhY2VIb2xkZXIxX1VDTW9zdHJhUHJvZHV0bzFfQWJhNjI1Iik7PC9zY3JpcHQ+ZAITD2QWBgIBDw8WAh8GBQhQYXR0ZXJuc2RkAgMPFgIeC18hSXRlbUNvdW50AgEWAmYPZBYCAgEPDxYCHgtOYXZpZ2F0ZVVybAUjfi9lbi9JbWFnZW5zL1Byb2R1dG8vUGFkcmFvLzEzMi5qcGcWAh4FdGl0bGUFA1JhdxYEAgEPDxYCHwcFKX4vZW4vSW1hZ2Vucy9Qcm9kdXRvL1BhZHJhby8xMzJfdGh1bWIuanBnZGQCAw8PFgIfBgUDUmF3ZGQCBQ8PFgIfBgUyUGF0dGVybnMgZm9yIHJlZmVyZW5jZS4gQXZhaWxhYmlsaXR5IHVwb24gaW5xdWlyeS5kZAIDD2QWBAIBDw8WAh8GBQxBbmQgc2VlIGFsc29kZAIDDxYCHwkCAhYEZg9kFgICAQ8PFgIfCgU0aHR0cDovL3d3dy5ldWNhdGV4LmNvbS5ici9lbi9QYW5lbHMvTURGL0RlZmF1bHQuYXNweGQWBgIBDw8WAh8HBR5+L2VuL0ltYWdlbnMvVmVqYVRhbWJlbS80MC5qcGdkZAIDDw8WAh8GBQNNREZkZAIEDw8WAh8GBXdBIHJhbmdlIG9mIGV1Y2FseXB0dXMgYmFzZWQgcGFuZWxzIHRoYXQgYnJpbmdzIGNoYXJtLCBzb3BoaXN0aWNhdGlvbiBhbmQgaW1wZWNjYWJsZSBmaW5pc2hpbmcgdG8gcmVzaWRlbnRpYWwgZnVybml0dXJlLmRkAgEPZBYCAgEPDxYCHwoFNGh0dHA6Ly93d3cuZXVjYXRleC5jb20uYnIvZW4vUGFuZWxzL01EUC9EZWZhdWx0LmFzcHhkFgYCAQ8PFgIfBwUefi9lbi9JbWFnZW5zL1ZlamFUYW1iZW0vMzkuanBnZGQCAw8PFgIfBgUETURQIGRkAgQPDxYCHwYFd1Byb2R1Y2VkIHdpdGggaGlnaCB0ZWNobm9sb2d5LCB0aGUgTURQIHBhbmVscyBhcmUgaWRlYWwgZm9yIHVzZSBpbiByZXNpZGVudGlhbCBmdXJuaXR1cmUgYW5kIGNvbW1lcmNpYWwgaW5zdGFsbGF0aW9ucy4gZGQCCw9kFgRmDw8WAh8DaGRkAgIPDxYCHwNnZGQYAQUeX19Db250cm9sc1JlcXVpcmVQb3N0QmFja0tleV9fFgEFJGN0bDAwJFVDVG9wbzEkVUNUb3BvRU4xJEltYWdlQnV0dG9uMeHvsVUptFwato8ZHRMr8IUlj5nt" />
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['aspnetForm'];
+if (!theForm) {
+    theForm = document.aspnetForm;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<script src="/WebResource.axd?d=RpY0VpFe8swRKYJe1vq6eq6qt16YRFJ_AvoyIBV1wGhymp20jMPxQ44VDD-SCP84kwbRSel85lTgL8Y50CQ9R9X37zg1&amp;t=635188561208772302" type="text/javascript"></script>
+
+
+<script src="/ScriptResource.axd?d=aY3SDbYfx8MnZpj2YnUVCtZS8cA0sz7ew5ixEggj1H1vBWt9X9NqrMFdRIxHM4ejKTk6UnDNydWXHdcDcV_ROMLXgrxC00fzNBrq8jxV-KV1PVrFCK7fp7w18F6nmjeCmgu4WVz85btFgho7lEj5Loz-dJI1&amp;t=6226e315" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=Kie8TFaECxP_cHG6Wzo07YwWAjLKZMzK-0PvC03A800X5JZnZCfYQxacRw9vxijy0B1kFYxuTqL2E6XZ0zxXS5To-JeCQLoKsBdKhwD74FNiudix-GtXips1FhT2ckwioD9R92HIrk_Nxd1s_4VWRRh7dQ9tkaP8Cs-Eiie4dDLQddko0&amp;t=6226e315" type="text/javascript"></script>
+<script src="../../Includes/Init.js" type="text/javascript"></script>
+
+    
+        <div id="div_filia" class="filial" onmouseover="abrefilial();">
+            <div class="div_top_filial"></div>
+            <div class="div_center_filial">
+            
+                <span class="titulo_box">VEJA ONDE VOCÊ ENCONTRA NOSSOS PRODUTOS:</span>
+<br />
+TIPO DE PRODUTO:
+    <br />
+    <div class="Select">
+        <select name="ctl00$UCFilial1$_ddlTipoProduto" id="ctl00_UCFilial1__ddlTipoProduto" class="fakeselect">
+	<option value="-1">Selecione um tipo</option>
+	<option value="1">Pisos Eucafloor</option>
+	<option value="2">Tintas</option>
+	<option value="3">Divis&#243;rias</option>
+	<option value="4">Portas Eucadoor</option>
+
+</select>
+    </div>
+
+<div id="_divTipo" style="display: none">
+    <br />
+    TIPO:
+    <br />
+    <div class="Select">
+        <select name="ctl00$UCFilial1$_ddlTipo" id="ctl00_UCFilial1__ddlTipo" class="fakeselect">
+	<option value="REV">Revenda</option>
+	<option value="REP">Representante</option>
+
+</select>
+    </div>
+</div>
+<div id="_divCep" style="display: none">
+    <br />
+    SEU-CEP:
+    <br />
+    <input name="ctl00$UCFilial1$_txtCep1" type="text" maxlength="5" id="ctl00_UCFilial1__txtCep1" class="tx_cep_first" />
+    -
+    <input name="ctl00$UCFilial1$_txtCep2" type="text" maxlength="3" id="ctl00_UCFilial1__txtCep2" class="tx_cep_last" />
+    <br />
+    <br />
+    OU
+    <br />
+</div>
+<br />
+ESTADO:
+<br />
+<div class="Select">
+    <select id="_ddlEstado" name="_ddlEstado" class="fakeselect" >
+    </select>
+</div>
+<br />
+CIDADE:
+<br />
+<div class="Select">
+    <select id="_ddlCidade" name="_ddlCidade" class="fakeselect" >
+    </select>
+</div>
+<br />
+<input type="submit" name="ctl00$UCFilial1$_btnBuscar" value="" id="ctl00_UCFilial1__btnBuscar" class="bt_buscar_pt" />
+<br />
+<br />
+<b>Revendedores, Lojistas e Distribuidores</b>
+<br />
+<br />
+Para comprar diretamente da Eucatex,
+<a class="link" href="../../pt/Contato/Default.aspx">entre em contato conosco</a>
+<script type="text/javascript">
+    var ddlTipoProduto = "#ctl00_UCFilial1__ddlTipoProduto";
+    var ddlTipo = "#ctl00_UCFilial1__ddlTipo";
+    var txtCep1 = "#ctl00_UCFilial1__txtCep1";
+    var txtCep2 = "#ctl00_UCFilial1__txtCep2";
+
+    function TipoProdutoChange()
+    {
+        if ($(ddlTipoProduto).val() == 3)
+        {
+            $(ddlTipo).val('REV');
+            $("#_divTipo").css({ "display": "block" });
+        }
+        else
+        {
+            $("#_divTipo").css({ "display": "none" });
+            $('#_divCep').css({ "display": "block" });
+        }
+        TipoChange();
+    }
+
+    function TipoChange()
+    {
+        if ($(ddlTipo).val() == 'REP')
+        {
+            $('#_divCep').css({ "display": "none" });
+            $(txtCep1).val("");
+            $(txtCep2).val("");
+        }
+        else
+        {
+            $('#_divCep').css({ "display": "block" });
+        }
+        LoadEstados();
+    }
+
+    function LoadEstados()
+    {
+        $.getJSON(
+        '/WebControls/Filiais/GetEstados.ashx?pag_id=' + $(ddlTipoProduto).val() + '&tipo=' + $(ddlTipo).val(),
+        function (dados)
+        {
+            var options = "";
+            $.each(dados, function (key, value)
+            {
+                options += '<option value="' + value.text + '">' + value.value + '</option>';
+            });
+            $("#_ddlEstado").html(options);
+            var newLabel = $("#_ddlEstado").children('option:selected').text();
+            var $fakeSelect = $("#_ddlEstado").parent('.fake_select');
+            $fakeSelect.children('.label').text(newLabel);
+            LoadCidade();
+        });
+    };
+
+    function LoadCidade()
+    {
+        $.getJSON(
+        '/WebControls/Filiais/GetCidades.ashx?pag_id=' + $(ddlTipoProduto).val() + '&uf=' + $("#_ddlEstado").val() + '&tipo=' + $(ddlTipo).val(),
+        function (dados)
+        {
+            var options = "";
+            $.each(dados, function (key, value)
+            {
+                options += '<option value="' + value.text + '">' + value.value + '</option>';
+            });
+            $("#_ddlCidade").html(options);
+            var newLabel = $("#_ddlCidade").children('option:selected').text();
+            var $fakeSelect = $("#_ddlCidade").parent('.fake_select');
+            $fakeSelect.children('.label').text(newLabel);
+        });
+    };
+
+
+    $(function ()
+    {
+        $(ddlTipoProduto).change(TipoProdutoChange);
+        $(ddlTipo).change(TipoChange);
+        $("#_ddlEstado").change(LoadCidade);
+    });
+</script>
+
+            
+            </div>
+            <div class="div_bottom_filial"></div>
+       </div> 
+    
+    
+    <div id="div_hit" onmouseover="fechafilial();"></div>
+
+    <div id="div_alinha">
+        
+
+<div id="div_topo">
+
+        <div id="div_logo">
+
+            <input type="image" name="ctl00$UCTopo1$UCTopoEN1$ImageButton1" id="ctl00_UCTopo1_UCTopoEN1_ImageButton1" src="../../App_Themes/Imagens/Logo.gif" onclick="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl00$UCTopo1$UCTopoEN1$ImageButton1&quot;, &quot;&quot;, false, &quot;&quot;, &quot;../Default.aspx&quot;, false, false))" style="height:80px;width:125px;border-width:0px;" />
+        
+        </div>
+        
+        <div id="div_topo_branco">
+            <a id="ctl00_UCTopo1_UCTopoEN1_HyperLink1" class="link_menu_topo" href="../Eucatex/Default.aspx">ABOUT EUCATEX</a>
+            <a id="ctl00_UCTopo1_UCTopoEN1_HyperLink2" class="link_menu_topo" href="../Sustainability/Default.aspx">SUSTAINABILITY</a>
+            <a id="ctl00_UCTopo1_UCTopoEN1_HyperLink3" class="link_menu_topo" href="http://ri.eucatex.com.br/en-us" target="_blank">RELATIONS WITH INVESTORS</a>
+            <a id="ctl00_UCTopo1_UCTopoEN1_HyperLink4" class="link_menu_topo" href="../Media/Default.aspx">EUCATEX IN THE MEDIA</a>
+            <a id="ctl00_UCTopo1_UCTopoEN1_HyperLink5" class="link_menu_topo" href="../Events/Default.aspx">EVENTS</a>
+
+        
+        </div>
+
+        <div id="div_topo_idioma">
+
+           <input type="submit" name="ctl00$UCTopo1$UCTopoEN1$ctl00" value="" onclick="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl00$UCTopo1$UCTopoEN1$ctl00&quot;, &quot;&quot;, false, &quot;&quot;, &quot;../../pt/Default.aspx&quot;, false, false))" class="bt_idioma_pt" />
+           <input type="submit" name="ctl00$UCTopo1$UCTopoEN1$ctl01" value="" onclick="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl00$UCTopo1$UCTopoEN1$ctl01&quot;, &quot;&quot;, false, &quot;&quot;, &quot;../../es/Default.aspx&quot;, false, false))" class="bt_idioma_es" />            
+                
+        </div>
+
+        <div id="div_topo_cinza">
+        
+            <a id="ctl00_UCTopo1_UCTopoEN1_HyperLink7" class="link_menu_cinza" href="http://simulador.eucatex.mediagroup.com.br" target="_blank">AMBIENCE SIMULATOR</a>
+            <a id="ctl00_UCTopo1_UCTopoEN1_HyperLink8" class="link_menu_cinza" href="../Decoration/Default.aspx">DECORATION</a>
+            <span id="ctl00_UCTopo1_UCTopoEN1_LinkButton4" class="label_menu_cinza">SEARCH</span>
+            <input name="ctl00$UCTopo1$UCTopoEN1$_txtBusca" type="text" id="ctl00_UCTopo1_UCTopoEN1__txtBusca" class="busca_topo" OnKeyPress="javascript:return clickButton(event, '#ctl00_UCTopo1_UCTopoEN1__btnBusca');" />
+            <input type="submit" name="ctl00$UCTopo1$UCTopoEN1$_btnBusca" value="" id="ctl00_UCTopo1_UCTopoEN1__btnBusca" class="bt_busca_topo" />
+
+        
+        </div>
+        
+      <div id="div_menu">
+            <ul class="sf-menu">
+		
+        <li class="menu_pisos">
+            <a id="ctl00_UCTopo1_UCTopoEN1_HyperLink9" class="bt_pisos" href="../Floors/Default.aspx">Floors</a>
+ 				
+                <ul>
+                	<li class="top_sub_pisos"></li>
+                	<li><a id="ctl00_UCTopo1_UCTopoEN1_HyperLink10" class="subpisos" href="../Floors/LaminateFloors/Default.aspx">Laminate Floors</a></li>
+                    <li><a id="ctl00_UCTopo1_UCTopoEN1_HyperLink11" class="subpisos" href="../Floors/VinylsFloors/Default.aspx">Vinyl Flooring</a></li>
+                    <li><a id="ctl00_UCTopo1_UCTopoEN1_HyperLink12" class="subpisos" href="../Floors/EventsFloors/Default.aspx">Floors for Fairtex ® Events</a></li>
+					
+                    <li class="bottom_sub_pisos"></li>
+        		</ul>
+                
+		</li>
+        
+        <li class="menu_tintas">
+            <a id="ctl00_UCTopo1_UCTopoEN1_HyperLink13" class="bt_tintas" href="../Paints/Default.aspx">Paints</a>
+				
+                <ul>
+                	<li class="top_sub_tintas"></li>
+                    <li><a id="ctl00_UCTopo1_UCTopoEN1_HyperLink14" class="subtintas" href="../Paints/EucatexPaints/Default.aspx">Eucatex Paints</a></li>
+                    <li><a id="ctl00_UCTopo1_UCTopoEN1_HyperLink15" class="subtintas" href="../Paints/PegPaint/Default.aspx">Peg & Paint</a></li>
+                    <li><a id="ctl00_UCTopo1_UCTopoEN1_HyperLink16" class="subtintas" href="../Paints/Eucalar/Default.aspx">Eucalar</a></li>
+                    <li class="bottom_sub_tintas"></li>
+        		</ul>
+                
+		</li>
+        
+        <li><a id="ctl00_UCTopo1_UCTopoEN1_HyperLink17" class="bt_divisorias" href="../WallPartitions/Default.aspx">Wall Partitions</a></li>
+        
+        <li class="menu_portas"><a id="ctl00_UCTopo1_UCTopoEN1_HyperLink18" class="bt_portas" href="../Doors/Default.aspx">Doors</a>
+               <ul>
+                	<li class="top_sub_portas"></li>
+                	<li><a id="ctl00_UCTopo1_UCTopoEN1_HyperLink19" class="subportas" href="../Doors/Eucadoor/Default.aspx">Eucadoor Doors</a></li>
+					<li><a id="ctl00_UCTopo1_UCTopoEN1_HyperLink20" class="subportas" href="../Doors/FramesCasings/Default.aspx">Frames(Jambs) and Casings</a></li>
+                    <li class="bottom_sub_portas"></li>
+        		</ul>
+        </li>
+        
+        <li class="menu_paineis">
+        <a id="ctl00_UCTopo1_UCTopoEN1_HyperLink21" class="bt_paineis" href="../Panels/Default.aspx">Panels</a>
+				
+                <ul>
+                	<li class="top_sub_paineis"></li>
+                	<li><a id="ctl00_UCTopo1_UCTopoEN1_HyperLink22" class="subpaineis" href="../Panels/MDF/Default.aspx">MDF Panels</a></li>
+					<li><a id="ctl00_UCTopo1_UCTopoEN1_HyperLink23" class="subpaineis" href="../Panels/MDP/Default.aspx">MDP Panels</a></li>
+                    <li class="bottom_sub_paineis"></li>
+        		</ul>
+		</li>
+        
+        <li><a id="ctl00_UCTopo1_UCTopoEN1_HyperLink24" class="bt_chapas" href="Default.aspx">Hardboard</a></li>
+        
+        <li><a id="ctl00_UCTopo1_UCTopoEN1_HyperLink25" class="bt_thdf" href="../THDF/Default.aspx">T-HDF</a></li>
+
+        
+        
+        <li><a id="ctl00_UCTopo1_UCTopoEN1_HyperLink27" class="bt_mudas" href="../Seedlings/Default.aspx">Eucalyptus Seedlings</a></li>
+	
+    </ul>
+        </div>
+
+         <div class="div_bg_sitemap">
+            <div id="div_sitemap">
+                You are in:&nbsp;
+                <span id="ctl00_UCTopo1_UCTopoEN1_SiteMapPath1" class="sitemap"><a href="#ctl00_UCTopo1_UCTopoEN1_SiteMapPath1_SkipLink"><img alt="Skip Navigation Links" height="0" width="0" src="/WebResource.axd?d=jxCXOGGR5RhnulYmdYVeeXwg7ZMWEnyGeWBWZ2yTEkClMsnrGH4u8_AebQOvy9lUnYY-b0DlN1sr1bhcnNsl8QHrJhI1&amp;t=635188561208772302" style="border-width:0px;" /></a><span><a href="/en/Default.aspx">Start</a></span><span> &gt; </span><span><a href="/en/Hardboard/Default.aspx">Hardboard</a></span><span> &gt; </span><span>Eucadur Plain Hardboard</span><a id="ctl00_UCTopo1_UCTopoEN1_SiteMapPath1_SkipLink"></a></span>
+            </div>
+        </div>
+
+        
+    </div>
+
+
+
+
+
+
+
+
+        <div id="div_alinha_conteudo_produtos">
+            <div id="ctl00__divTopo" class="background_titulo">
+                <span id="ctl00__lblTitulo" class="titulos_pg_internas">Hardboard</span>
+                <hr class="traco_titulo" />
+            </div>
+            <div id="div_sombra_interna">
+            </div>
+            <script type="text/javascript">
+//<![CDATA[
+Sys.WebForms.PageRequestManager._initialize('ctl00$ScriptManager1', document.getElementById('aspnetForm'));
+Sys.WebForms.PageRequestManager.getInstance()._updateControls([], [], [], 90);
+//]]>
+</script>
+
+            
+    
+<!--------------------------------- Div Sub Titulo --------------------------------->
+<div class="alinha_conteudo_produtos">
+    <div id="div_sub_titulo">
+        <div class="alinha_titulo_box">
+            <div class="div_logos_topo">
+                <center>
+                    
+                    <img id="ctl00_ContentPlaceHolder1_UCMostraProduto1__imgLogoProduto" class="Img_Logo_Produtos" src="../Imagens/Produto/Logo/29.png" style="height:80px;width:80px;border-width:0px;" />
+                </center>
+            </div>
+            <span id="ctl00_ContentPlaceHolder1_UCMostraProduto1__lblNome" class="sub_titulo">Eucadur Plain Hardboard</span>
+            <hr class="traco_sub_titulo" />
+        </div>
+        <!-- AddThis Button BEGIN -->
+        <div class="addthis_toolbox addthis_default_style" style="position:absolute; width:540px; left:15px; top:80px; ">
+            
+            <a id="ctl00_ContentPlaceHolder1_UCMostraProduto1__hplCompartilhar" class="addthis_button_compact link_itens_topo"><img id="ctl00_ContentPlaceHolder1_UCMostraProduto1_Image1" src="../../App_Themes/Imagens/bt_compartilhar.png" style="border-width:0px;" /><span id="ctl00_ContentPlaceHolder1_UCMostraProduto1__lblCompartilhar">Shared</span></a>
+           
+            
+            
+            
+            <a id="ctl00_ContentPlaceHolder1_UCMostraProduto1__hplProspecto" class="link_itens_topo" OnCLick="javascript:window.print();" target="_blank"><img id="ctl00_ContentPlaceHolder1_UCMostraProduto1_Image3" src="../../App_Themes/Imagens/bt_imprimir.png" style="border-width:0px;" /><span id="ctl00_ContentPlaceHolder1_UCMostraProduto1__lblProspecto">Print Prospectus</span></a>
+            
+            
+        </div>
+        <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=xa-4da4a4711f741735"></script>
+        <!-- AddThis Button END -->
+        <div style="position: absolute; width: 80px; height: 80px;">
+        </div>
+    </div>
+    <!--------------------------------- Fim Div Sub Titulo --------------------------------->
+    <!--------------------------------- Div Conteudo --------------------------------->
+    <div id="ctl00_ContentPlaceHolder1_UCMostraProduto1__divConteudo" class="conteudo_produtos">With a smooth top surface and a mesh, Eucadur is a eucalyptus hardboard recommended for the manufacturing of residential furniture, bottom of drawers and backside of furniture and for the lining of walls of commercial offices.</div>
+    <!--------------------------------- Fim Div Conteudo --------------------------------->
+    <div id="ctl00_ContentPlaceHolder1_UCMostraProduto1__divAbas" style="position: relative; margin: 0 0 0 25px;">
+        <ul id="ctl00_ContentPlaceHolder1_UCMostraProduto1__ulAbas" class="titulo_abas">
+        <li id="ctl00_ContentPlaceHolder1_UCMostraProduto1_Aba625" onmouseover="trataMouseAba(this);" onclick="trataCliqueAba(this.id);">Technical Data</li><li id="ctl00_ContentPlaceHolder1_UCMostraProduto1_Aba626" onmouseover="trataMouseAba(this);" onclick="trataCliqueAba(this.id);">General Recommendation</li><li id="ctl00_ContentPlaceHolder1_UCMostraProduto1_Aba627" onmouseover="trataMouseAba(this);" onclick="trataCliqueAba(this.id);">Maintenance and Cleaning</li><li id="ctl00_ContentPlaceHolder1_UCMostraProduto1_Aba628" onmouseover="trataMouseAba(this);" onclick="trataCliqueAba(this.id);">Advantages</li><li id="ctl00_ContentPlaceHolder1_UCMostraProduto1_Aba947" onmouseover="trataMouseAba(this);" onclick="trataCliqueAba(this.id);">MSDS Data Sheets</li></ul>
+        <div id="ctl00_ContentPlaceHolder1_UCMostraProduto1__divConteudoAba">
+        <div id="ctl00_ContentPlaceHolder1_UCMostraProduto1_Div625" class="conteudo_abas borda_abas"><h4>
+	Technical Data</h4>
+<br />
+<h2>
+	Physical &amp; Mechanical and Hygroscopic Properties*</h2>
+<table border="0" class="tabela" width="100%">
+	<tbody>
+		<tr>
+			<th align="center" width="18%">
+				<strong>Properties</strong></th>
+			<th align="center" width="16%">
+				<strong>Terminology</strong></th>
+			<th align="center" width="16%">
+				<strong>Standard</strong><strong><font color="white">*</font></strong></th>
+			<th align="center" width="15%">
+				<strong>Unit</strong></th>
+			<th align="center" width="19%">
+				<strong>Standard Values<br />
+				(2.5 mm) </strong></th>
+			<th align="center" width="16%">
+				<strong>Thicknesses<br />
+				(3.0 mm) </strong></th>
+		</tr>
+		<tr>
+			<td align="center">
+				Specific Weight</td>
+			<td align="center">
+				Ratio between the mass and volume of the assessed body</td>
+			<td align="center">
+				ABNT 10024</td>
+			<td align="center">
+				Kg/m<sup>3</sup></td>
+			<td align="center" colspan="2">
+				Minimum 800</td>
+		</tr>
+		<tr>
+			<td align="center">
+				Moisture Content</td>
+			<td align="center">
+				Quantity of water which the assessed body&nbsp; eliminates after drying at the temperature of 105&deg;C &plusmn; 2&deg;C -3 hours</td>
+			<td align="center">
+				AHA A 135.4/95</td>
+			<td align="center">
+				%</td>
+			<td align="center" colspan="2">
+				Minimum 2; Maximum 9</td>
+		</tr>
+		<tr>
+			<td align="center">
+				Water Absorption</td>
+			<td align="center">
+				Moisture content of the assessed body&nbsp; after immersion in distilled water at the temperature of 20&ordm;C &plusmn; 1&ordm;C, during 24 hours, for about 15 minutes</td>
+			<td align="center">
+				AHA A 135.4/95</td>
+			<td align="center">
+				%</td>
+			<td align="center" colspan="2">
+				Maximum 35</td>
+		</tr>
+		<tr>
+			<td align="center">
+				Swelling</td>
+			<td align="center">
+				Swelling of thickness &nbsp;presented in the assessed body&nbsp; after immersion in distilled water at the temperature of 20&ordm;C &plusmn; 1&ordm;C, during 24 hours, for about 15 minutes</td>
+			<td align="center">
+				AHA A 135.4/95</td>
+			<td align="center">
+				%</td>
+			<td align="center" colspan="2">
+				Maximum 25</td>
+		</tr>
+		<tr>
+			<td align="center">
+				Modulus of Rupture</td>
+			<td align="center">
+				Resistance which the assessed body supported features on its ends, &nbsp;when force is applied to its center</td>
+			<td align="center">
+				AHA A 135.4/95</td>
+			<td align="center">
+				Kgc/cm<sup>2</sup></td>
+			<td align="center" colspan="2">
+				Minimum 315</td>
+		</tr>
+		<tr>
+			<td align="center">
+				Resistance to perpendicular tensile strength</td>
+			<td align="center">
+				Resistance which the assessed body features when tensile strength is &nbsp;applied perpendicularly to its surface</td>
+			<td align="center">
+				AHA A 135.4/95</td>
+			<td align="center">
+				Kgc/cm<sup>2</sup></td>
+			<td align="center" colspan="2">
+				Minimum 6,2</td>
+		</tr>
+		<tr>
+			<td align="center">
+				Resistance to<br />
+				Parallel tensile strength</td>
+			<td align="center">
+				Resistance which the assessed features when tensile strength is &nbsp;applied parallel &nbsp;to its surface</td>
+			<td align="center">
+				AHA A 135.4/95</td>
+			<td align="center">
+				Kgc/cm<sup>2</sup></td>
+			<td align="center" colspan="2">
+				Minimum 152</td>
+		</tr>
+	</tbody>
+</table>
+*AHA &ndash; American Hardboard Association &ndash; Basic Hardboard &ndash; A 135.4/95. The tests have been performed at Eucatex laboratories under specific conditions, in accordance to the aforesaid standards. Thus, small variances may occur in the tests when reproduced in other laboratories.<br />
+<br />
+<h2>
+	Dimensional Tolerances</h2>
+<table border="0" class="tabela" width="100%">
+	<tbody>
+		<tr>
+			<th align="center" width="20%">
+				<strong>Properties</strong></th>
+			<th align="center" width="20%">
+				<strong>Standard</strong><strong><font color="white">*</font></strong></th>
+			<th align="center" width="15%">
+				<strong>Unit</strong></th>
+			<th align="center" width="21%">
+				<strong>Standard Values<br />
+				(2.5 mm) </strong></th>
+			<th align="center" width="24%">
+				<strong>Thicknesses<br />
+				(3.0 mm) </strong></th>
+		</tr>
+		<tr>
+			<td align="center">
+				Thickness</td>
+			<td align="center">
+				AHA A 135.4</td>
+			<td align="center">
+				mm</td>
+			<td align="center">
+				2.3 to 2.8</td>
+			<td align="center">
+				2,9 a 3,9</td>
+		</tr>
+		<tr>
+			<td align="center">
+				Width</td>
+			<td align="center">
+				AHA A 135.4</td>
+			<td align="center">
+				mm</td>
+			<td align="center" colspan="2">
+				&plusmn; 1.0 mm/ml</td>
+		</tr>
+		<tr>
+			<td align="center">
+				Length</td>
+			<td align="center">
+				AHA A 135.4</td>
+			<td align="center">
+				mm</td>
+			<td align="center" colspan="2">
+				&plusmn; 1.0 mm/ml</td>
+		</tr>
+	</tbody>
+</table>
+*Standards: AHA &ndash; American Hardboard Association &ndash; Basic Hardboard &ndash; A 135.4. The tests have been performed at Eucatex laboratories, under specific conditions, in accordance to the aforesaid standards. Thus, small variances may occur in the tests when reproduced in other laboratories.<br />
+<br />
+<h2>
+	Dimensions</h2>
+<table class="tabela" width="100%">
+	<tbody>
+		<tr>
+			<th>
+				<strong>Width </strong>(mm)</th>
+			<th>
+				<strong>Length </strong>(mm)</th>
+			<th>
+				<strong>Thicknesses </strong>(mm)</th>
+		</tr>
+		<tr>
+			<td align="center" rowspan="2">
+				1.850</td>
+			<td align="center" rowspan="2">
+				&nbsp;2,750 and 3,060</td>
+			<td align="center">
+				2.5</td>
+		</tr>
+		<tr>
+			<td align="center">
+				3.0</td>
+		</tr>
+	</tbody>
+</table>
+<br />
+<h2>
+	Packaging</h2>
+<table border="0" class="tabela" width="100%">
+	<tbody>
+		<tr>
+			<th align="center" width="32%">
+				<strong>Dimensions<br />
+				(mm) </strong></th>
+			<th align="center" width="35%">
+				<strong>Thicknesses<br />
+				(mm)</strong></th>
+			<th align="center" width="33%">
+				<strong>Packaging<br />
+				(quantity of boards per pallet)</strong></th>
+		</tr>
+		<tr>
+			<td align="center">
+				1,850 x 2,440, 2,750 and 3,060</td>
+			<td align="center">
+				2.5</td>
+			<td align="center">
+				150</td>
+		</tr>
+		<tr>
+			<td align="center">
+				&nbsp;</td>
+			<td align="center">
+				3.0</td>
+			<td align="center">
+				120</td>
+		</tr>
+	</tbody>
+</table>
+*Special measures can be obtained upon inquiry.</div><div id="ctl00_ContentPlaceHolder1_UCMostraProduto1_Div626" class="conteudo_abas borda_abas"><h2>
+	Transportation and Handling</h2>
+<ul>
+	<li>
+		Pallets must be transported with forklifts or similar equipment, to avoid damaging edges of sheets;</li>
+	<li>
+		The floor of the body of the transporting truck must be clean, dry, even and without nails and screws sticking out or with overlapping boards. Gaps, if any , must be sealed;</li>
+	<li>
+		During&nbsp; transportation, Eucatex hardboard sheets must be protected with a tarpaulin;</li>
+	<li>
+		The stacks must be blocked and supported by fastening ropes or flat cables. The areas of the sheets which are under pressure of these ropes/ cables should also be protected by angle plates or plastic wedges;</li>
+	<li>
+		Sheets must be handled carefully and should not be dragged or under &nbsp;any type of friction during &nbsp;unloading.</li>
+</ul>
+<h2>
+	Storage</h2>
+<ul>
+	<li>
+		The product must be kept in its original packaging, in a place free of moisture, ventilated and protected from the action of the sun and rain;</li>
+	<li>
+		Sheets must be stacked horizontally, on a flat and level platform. Avoid stacking sheets of different dimensions;</li>
+	<li>
+		The maximum stacking allowed is 6 meters high;</li>
+	<li>
+		Avoid contact of sheets with products which may alter their natural features, such as grease, oil and cement. It is also advisable not to place hard objects on the sheets, such as metals, concrete and wood.</li>
+</ul>
+</div><div id="ctl00_ContentPlaceHolder1_UCMostraProduto1_Div627" class="conteudo_abas borda_abas"><h4>
+	Maintenance and Cleaning</h4>
+&nbsp;<br />
+<ul>
+	<li>
+		&nbsp;Eucatex hardboard should be cleaned with a soft, dry cloth or slightly moistened with water and neutral soap;</li>
+	<li>
+		Do not use such abrasive products, as soap, steel sponges, etc.</li>
+</ul>
+</div><div id="ctl00_ContentPlaceHolder1_UCMostraProduto1_Div628" class="conteudo_abas borda_abas"><h4>
+	Advantages</h4>
+&nbsp;<br />
+<ul>
+	<li>
+		Excellent versatility for manufacturing furniture;</li>
+	<li>
+		Easy to coat ;</li>
+	<li>
+		Excellent mechanical resistance;</li>
+	<li>
+		It can be easily perforated, cut, grooved, drilled, bored, cut to size, bent, glued.</li>
+	<li>
+		It has an excellent performance for direct painting/printing.</li>
+</ul>
+</div><div id="ctl00_ContentPlaceHolder1_UCMostraProduto1_Div947" class="conteudo_abas borda_abas"><a class="link_conteudo" href="/Imagens/files/chapas/HardboardMSDS.pdf" target="_blank">Hardboard</a></div></div>
+        <div id="ctl00_ContentPlaceHolder1_UCMostraProduto1__divScript"><script type="text/javascript">defineAba("ctl00_ContentPlaceHolder1_UCMostraProduto1_Aba625", "ctl00_ContentPlaceHolder1_UCMostraProduto1_Div625");defineAba("ctl00_ContentPlaceHolder1_UCMostraProduto1_Aba626", "ctl00_ContentPlaceHolder1_UCMostraProduto1_Div626");defineAba("ctl00_ContentPlaceHolder1_UCMostraProduto1_Aba627", "ctl00_ContentPlaceHolder1_UCMostraProduto1_Div627");defineAba("ctl00_ContentPlaceHolder1_UCMostraProduto1_Aba628", "ctl00_ContentPlaceHolder1_UCMostraProduto1_Div628");defineAba("ctl00_ContentPlaceHolder1_UCMostraProduto1_Aba947", "ctl00_ContentPlaceHolder1_UCMostraProduto1_Div947");defineAbaAtiva("ctl00_ContentPlaceHolder1_UCMostraProduto1_Aba625");</script></div>
+    </div>
+</div>
+<!--------------------------------- Padrões --------------------------------->
+<div id="ctl00_ContentPlaceHolder1_UCMostraProduto1__divPadroes" class="div_padroes">
+    <div class="div_top_padrao">
+    </div>
+    <div class="div_center_padrao">
+        <span id="ctl00_ContentPlaceHolder1_UCMostraProduto1__lblTituloPadrao" class="titulo_box_padroes">Patterns</span>
+        <!--------------------------------- Itens Exclusividade  --------------------------------->
+        
+                <div class="box_item_padroes">
+                    <a id="ctl00_ContentPlaceHolder1_UCMostraProduto1__rptPadroes_ctl00__hplPadrao" class="link_padroes" Rel="padrao" title="Raw" href="../Imagens/Produto/Padrao/132.jpg">
+                        <div class="item_padroes">
+                            <div class="borda_75x35">
+                            </div>
+                            <div class="img_75x35">
+                                <img id="ctl00_ContentPlaceHolder1_UCMostraProduto1__rptPadroes_ctl00__imgPadrao" src="../Imagens/Produto/Padrao/132_thumb.jpg" style="height:35px;width:85px;border-width:0px;" />
+                            </div>
+                        </div>
+                        <span id="ctl00_ContentPlaceHolder1_UCMostraProduto1__rptPadroes_ctl00__lblTitulo" class="texto_padrao">Raw</span></a>
+                </div>
+            
+        <br />
+        <span id="ctl00_ContentPlaceHolder1_UCMostraProduto1__lblLengendaPadrao">Patterns for reference. Availability upon inquiry.</span>
+        <!--------------------------------- Fim Itens Exclusividade  --------------------------------->
+    </div>
+    <div class="div_bottom_padrao">
+    </div>
+</div>
+<br style="clear: both;" />
+<!--------------------------------- Fim Padrões --------------------------------->
+<div id="ctl00_ContentPlaceHolder1_UCMostraProduto1__divGaleria" style="display: none;">
+    
+</div>
+
+    
+<!--------------------------------- Box Veja Tambem  --------------------------------->
+<div class="div_box_veja_mais">
+    <span id="ctl00_ContentPlaceHolder1_UCVejaTambem1__lblVejaTambem" class="titulo_box veja">And see also</span>
+    
+            <!--------------------------------- Item Veja Tambem  --------------------------------->
+            <div class="bg_box_saiba_mais">
+                <a id="ctl00_ContentPlaceHolder1_UCVejaTambem1__rptDestaque_ctl00__hpl" class="link_texto_veja_mais" href="http://www.eucatex.com.br/en/Panels/MDF/Default.aspx">
+                    <div class="bg_img_120x60">
+                        <div class="bg_borda_img_120x60">
+                        </div>
+                        <div class="img_120x60">
+                            <img id="ctl00_ContentPlaceHolder1_UCVejaTambem1__rptDestaque_ctl00__img" src="../Imagens/VejaTambem/40.jpg" style="height:60px;width:120px;border-width:0px;" />
+                        </div>
+                    </div>
+                    <div class="texto_box_veja">
+                        <span id="ctl00_ContentPlaceHolder1_UCVejaTambem1__rptDestaque_ctl00__lblTitulo" class="titulo_box titulo_veja">MDF</span><span id="ctl00_ContentPlaceHolder1_UCVejaTambem1__rptDestaque_ctl00__lblTexto">A range of eucalyptus based panels that brings charm, sophistication and impeccable finishing to residential furniture.</span>
+                    </div>
+                </a>
+            </div>
+            <!--------------------------------- Fim Item Veja Tambem  --------------------------------->
+        
+            <!--------------------------------- Item Veja Tambem  --------------------------------->
+            <div class="bg_box_saiba_mais">
+                <a id="ctl00_ContentPlaceHolder1_UCVejaTambem1__rptDestaque_ctl01__hpl" class="link_texto_veja_mais" href="http://www.eucatex.com.br/en/Panels/MDP/Default.aspx">
+                    <div class="bg_img_120x60">
+                        <div class="bg_borda_img_120x60">
+                        </div>
+                        <div class="img_120x60">
+                            <img id="ctl00_ContentPlaceHolder1_UCVejaTambem1__rptDestaque_ctl01__img" src="../Imagens/VejaTambem/39.jpg" style="height:60px;width:120px;border-width:0px;" />
+                        </div>
+                    </div>
+                    <div class="texto_box_veja">
+                        <span id="ctl00_ContentPlaceHolder1_UCVejaTambem1__rptDestaque_ctl01__lblTitulo" class="titulo_box titulo_veja">MDP </span><span id="ctl00_ContentPlaceHolder1_UCVejaTambem1__rptDestaque_ctl01__lblTexto">Produced with high technology, the MDP panels are ideal for use in residential furniture and commercial installations. </span>
+                    </div>
+                </a>
+            </div>
+            <!--------------------------------- Fim Item Veja Tambem  --------------------------------->
+        
+</div>
+<!--------------------------------- Fim Box Veja Tambem  --------------------------------->
+
+
+        </div>
+        <div id="div_rodape_conteudo_produtos">
+        </div>
+        
+
+<div id="div_marcas_rodape">
+    <span class="titulo_box">OUR BRANDS</span>
+    <br />
+    <div id="scroll_logos">
+        <table width="945" height="62" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+                <td valign="middle" align="center">
+                    <a id="ctl00_UCRodape1_UCRodapeEN1_HyperLink1" href="../Paints/Default.aspx"><img id="ctl00_UCRodape1_UCRodapeEN1_Image1" src="../../App_Themes/Imagens/logos_eucatex/titas_eucatex.gif" style="border-width:0px;" /></a>
+                </td>
+                <td valign="middle" align="center">
+                    <a id="ctl00_UCRodape1_UCRodapeEN1_HyperLink2" href="../Floors/LaminateFloors/Default.aspx"><img id="ctl00_UCRodape1_UCRodapeEN1_Image2" src="../../App_Themes/Imagens/logos_eucatex/eucafloor.gif" style="border-width:0px;" /></a>
+                </td>
+                <td valign="middle" align="center">
+                    <a id="ctl00_UCRodape1_UCRodapeEN1_HyperLink3" href="../Floors/VinylsFloors/Default.aspx"><img id="ctl00_UCRodape1_UCRodapeEN1_Image3" src="../../App_Themes/Imagens/logos_eucatex/pisovinilico.gif" style="border-width:0px;" /></a>
+                </td>
+                <td valign="middle" align="right">
+                    <a id="ctl00_UCRodape1_UCRodapeEN1_HyperLink4" href="../Doors/Eucadoor/Default.aspx"><img id="ctl00_UCRodape1_UCRodapeEN1_Image4" src="../../App_Themes/Imagens/logos_eucatex/eucadoor.gif" style="border-width:0px;" /></a>
+                </td>
+                <td valign="middle" align="right">
+                    <a id="ctl00_UCRodape1_UCRodapeEN1_HyperLink5" href="../WallPartitions/Default.aspx"><img id="ctl00_UCRodape1_UCRodapeEN1_Image5" src="../../App_Themes/Imagens/logos_eucatex/divisorias.gif" style="border-width:0px;" /></a>
+                </td>
+                <td valign="middle" align="center">
+                    <a id="ctl00_UCRodape1_UCRodapeEN1_HyperLink6" href="../Panels/MDF/Default.aspx"><img id="ctl00_UCRodape1_UCRodapeEN1_Image6" src="../../App_Themes/Imagens/logos_eucatex/paineis.png" style="border-width:0px;" /></a>
+                </td>
+                <td valign="middle" align="center">
+                    <a id="ctl00_UCRodape1_UCRodapeEN1_HyperLink7" href="Default.aspx"><img id="ctl00_UCRodape1_UCRodapeEN1_Image7" src="../../App_Themes/Imagens/logos_eucatex/chapas.png" style="border-width:0px;" /></a>
+                </td>
+                <td valign="middle" align="center">
+                    <a id="ctl00_UCRodape1_UCRodapeEN1_HyperLink9" href="../Floors/EventsFloors/Product.aspx?id=1"><img id="ctl00_UCRodape1_UCRodapeEN1_Image8" src="../../App_Themes/Imagens/logos_eucatex/fairtex.png" style="border-width:0px;" /></a>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+</div>
+<div id="div_rodape">
+    <div id="div_alinha_rodape">
+        2012 Eucatex. All rights reserved.
+        <div id="div_alinha_texto_rodape">
+            <a class="link_rodape" href="../Contact/Default.aspx">Contact Us</a>
+            <a class="link_rodape" href="../Glossary/Default.aspx">Glossary</a>
+            <a class="link_rodape" href="../Map/Default.aspx">Site Map</a>
+            <a class="link_rodape" href="../RSS/Default.aspx">RSS</a>
+            <a class="link_rodape" href="../Terms/Default.aspx">Terms of Use</a>
+            <a class="link_rodape" href="../Privacy/Default.aspx">Privacy</a>
+        </div>
+        <div class="creditos">
+            Developed by :
+            <a id="ctl00_UCRodape1_UCRodapeEN1_HyperLink8" class="link_creditos" href="http://www.themediagroup.com.br/" target="_blank">TheMediaGroup</a></div>
+    </div>
+</div>
+
+
+
+
+
+    </div>
+    <br style="clear: both;" />
+    
+<div>
+
+	<input type="hidden" name="__PREVIOUSPAGE" id="__PREVIOUSPAGE" value="_HPXtoG-CH0y-E9GK6iJcmI5H7JSWeJmqNzL_ilYQ4hrDQGvqGquRiFyPkqQJSatRsgowLLvVCmm6MCAvPL0vIUE6QjAqMztKNJVeB7jvFxCazaN0" />
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEWEAKXwtCADQL35eXpBgL75anqBgL65anqBgL55anqBgL45anqBgLJyq/KDQKrwpjJDgKkh5zeDAKkh7C5BQKc/8eIBwL6gp/GAwLO6e/MDgLN6e/MDgLvmsxaAouC1ZkHBKeutSq7KAKQUnYxxCDUtJwEHJY=" />
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+Sys.Application.initialize();
+//]]>
+</script>
+</form>
+</body>
+</html>
