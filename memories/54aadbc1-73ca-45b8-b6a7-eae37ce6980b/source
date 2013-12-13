@@ -1,0 +1,868 @@
+<!doctype html>
+
+
+<html lang="en">
+	<head>
+
+		<meta charset="utf-8">
+		<meta name="google-site-verification" content="NlacukJ732mOgu29HDKLFLpfIailVIsd4YsnFMyAcd4">
+  		<meta name="readability-verification" content="9jx4vULkHqF9P2QvTEyg5HEqMEFtXSFEaGsCZ8b8">
+
+  		<!-- open graph tags -->
+  		<meta property="og:site_name" content="Sunlight Foundation">
+    	
+    <meta property="og:title" content="Open Data Policy Guidelines">
+    <meta property="og:description" content="The Sunlight Foundation created this living document to present a broad vision of the kinds of challenges that open data policies can actively address.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="http://sunlightfoundation.com/opendataguidelines/">
+    <meta property="og:image" content="http://assets.sunlightfoundation.com/external/facebook/sflogox180-2012.jpg">
+
+	    <meta property="og:locale" content="en_US">
+		<meta property="fb:admins" content="7812952">
+
+		
+
+		<title>Open Data Policy Guidelines - Sunlight Foundation</title>
+
+		<link rel="shortcut icon" href="/favicon.ico">
+    	<link rel="author" href="/humans.txt">
+    	<link rel="mission" href="http://sunlightfoundation.com/about/">
+
+    	<!-- rss feeds -->
+    	<link rel="alternate" type="application/rss+xml" title="Sunlight Foundation Network" href="http://sunlightfoundation.com/feeds/latest/">
+        <link rel="alternate" type="application/rss+xml" title="Sunlight Foundation Blog" href="http://sunlightfoundation.com/feeds/blog/">
+
+        <!-- stylesheets -->
+		<link rel="stylesheet" href="https://assets-sfcom.s3.amazonaws.com/css/bootstrap.min.css">
+		<link rel="stylesheet" href="https://assets-sfcom.s3.amazonaws.com/css/main.css?cb=201306051554">
+		
+
+		<!-- HTML5 shiv for IE versions < 9 -->
+		<!--[if lt IE 9]>
+	    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	    <![endif]-->
+
+
+	    <!-- typekit javascript -->
+	    <script type="text/javascript" src="http://use.typekit.com/blp6kvr.js"></script>
+		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+		
+	    <script src="https://assets-sfcom.s3.amazonaws.com/js/jquery-1.7.2.min.js"></script>
+
+	</head>
+	<body class="policy sidebar_left opendata">
+		<div id="container">
+			<header id="mainHeader">
+				<div class="row">
+					<div class="span8">
+	            		<h1><a href="/">Sunlight Foundation</a></h1>
+	            	</div>
+		            <div class="span4">
+	            		<div class="clearfix"></div>
+                        <div class="loginlinks">
+                            <ul>
+                                
+                                    <li><a href="/login/sunlight/">Log in</a></li>
+                                
+                            </ul>
+                        </div>
+	            		<div id="follow-buttons">
+	            			<a href="https://www.facebook.com/sunlightfoundation"><img src="https://assets-sfcom.s3.amazonaws.com/img/icons/16/facebook.png"></a>
+	            			<a href="https://twitter.com/sunfoundation"><img src="https://assets-sfcom.s3.amazonaws.com/img/icons/16/twitter.png"></a>
+	            			<a href="https://plus.google.com/113237175482409613675"><img src="https://assets-sfcom.s3.amazonaws.com/img/icons/16/google-plus.png"></a>
+	            			<a href="http://sunfoundation.tumblr.com/"><img src="https://assets-sfcom.s3.amazonaws.com/img/icons/16/tumblr.png"></a>
+	            		</div>
+	            		<form action="/search/" method="get" id="mainsearch" class="searchform">
+			                <input class="transparent" type="search" name="q" id="id_q" placeholder="search the site">
+			                <button class="textReplace" type="submit">
+			                     <span>Search</span>
+			                </button>
+			            </form>
+		            </div>
+		        </div>
+	            <div class="row">
+	            	<div class="span12">
+	            		<nav class="primary-nav clearfix">
+	            			
+				                <ul class="nav nav-pills clearfix">
+				                    <li class="about"><a href="/about/">About</a></li>
+				                    <li class="blog"><a href="/blog/">Blog</a></li>
+				                    <li class="issues"><a href="/issues/">Issues</a></li>
+				                    <li class="projects"><a href="/tools/">Tools</a></li>
+				                    <li class="participate"><a href="/participate/">Participate</a></li>
+				                    <li class="policy"><a href="/policy/">Policy</a></li>
+				                    <li class="press"><a href="/press/">Press</a></li>
+				                    <li class="reporting"><a href="http://reporting.sunlightfoundation.com">Reporting</a></li>
+				                    <li class="api"><a href="/api/">APIs</a></li>
+				                    <li class="contact"><a href="/contact/">Contact</a></li>
+				                    <li class="join"><a href="/join/">Sign up</a></li>
+				                </ul>
+			                
+			            </nav>
+	            		
+    <div class="secondary-nav">
+    <nav>
+        <ul class="nav nav-pills">
+            <li class="overview"><a href="/policy/">Overview</a></li>
+            <li class="federal"><a href="/policy/federal/">Federal</a></li>
+            <li class="local"><a href="/policy/local/">Local</a></li>
+            <li class="international"><a href="/policy/international/">International</a></li>
+            <!--
+            <li class="agenda"><a href="/policy/agenda/">Policy Agenda</a></li>
+            <li class="opendata"><a href="/policy/opendata/">Open Data Guidelines</a></li>
+            <li class="lobbying"><a href="/policy/lobbying/">Lobbying Reform</a></li>
+            <li class="disclosingmoney"><a href="/policy/disclosingmoney/">Disclosing Money</a></li>
+        	-->
+            <li class="documents"><a href="/policy/documents/">Documents</a></li>
+            <li class="success"><a href="/policy/success/">Policy Success</a></li>
+        </ul>
+    </nav>
+</div>
+
+	            	</div>
+	            </div>
+	        </header>
+	        <div class="container">
+				
+    <div class="row">
+    	
+	<div class="share-buttons in-pagetitle"
+     	data-socialite="auto"
+     	data-layout="vertical"
+     	data-services="twitter-share"
+		data-twitter-share-options="defaultText=Best%20practices%20for%20%23opendata%20polices%3A%20Check%20out%20%40sunfoundation%27s%20%23OpenData%20Policy%20Guidelines&amp;url=http%3A%2F%2Fsunlightfoundation.com%2Fopendataguidelines%2F"></div>
+	<h2>Open Data Policy Guidelines</h2>
+
+        <div class="span3 sidebar">
+            
+<div class="module framedContent">
+	<h4>Download as<br><a href="http://assets.sunlightfoundation.com/policy/Open%20Data%20Policy%20Guidelines/OpenDataPolicyGuidelines_V2.pdf">PDF</a> or <a href="http://assets.sunlightfoundation.com/policy/Open%20Data%20Policy%20Guidelines/OpenDataPolicyGuidelines_V2.odt">ODT</a></h4>
+</div>
+<div class="doc-nav module">
+	
+	<ul>
+		
+			<li class="what-data-should-be-public">
+				<a class="textReplace nav-collapse nav-toggler" href="">expand</a>
+				<h5><a href="#section-what-data-should-be-public">What Data Should Be Public</a></h5>
+				<div class="clear"></div>
+				<ol>
+					
+						<li>
+							<a href="#open-by-default">
+								<span>1.</span> Set the default to open
+							</a>
+						</li>
+					
+						<li>
+							<a href="#build-on-precedent">
+								<span>2.</span> Reference and build on existing public accountability and access policies
+							</a>
+						</li>
+					
+						<li>
+							<a href="#new-information">
+								<span>3.</span> Mandate the release of specific new information
+							</a>
+						</li>
+					
+						<li>
+							<a href="#outside-services">
+								<span>4.</span> Stipulate that provisions apply to contractors or quasi-governmental agencies
+							</a>
+						</li>
+					
+						<li>
+							<a href="#sensitive-information">
+								<span>5.</span> Appropriately safeguard sensitive information
+							</a>
+						</li>
+					
+						<li>
+							<a href="#exemptions">
+								<span>6.</span> Require exemptions to data release be balance-tested in the public interest
+							</a>
+						</li>
+					
+						<li>
+							<a href="#open-code">
+								<span>7.</span> Require code sharing or publishing open source
+							</a>
+						</li>
+					
+				</ol>
+			</li>
+		
+			<li class="how-to-make-data-public">
+				<a class="textReplace nav-collapse nav-toggler" href="">expand</a>
+				<h5><a href="#section-how-to-make-data-public">How to Make Data Public</a></h5>
+				<div class="clear"></div>
+				<ol>
+					
+						<li>
+							<a href="#open-formats">
+								<span>8.</span> Mandate open formats for government data
+							</a>
+						</li>
+					
+						<li>
+							<a href="#post-online">
+								<span>9.</span> Require public information to be posted online
+							</a>
+						</li>
+					
+						<li>
+							<a href="#open-access">
+								<span>10.</span> Remove restrictions for accessing information
+							</a>
+						</li>
+					
+						<li>
+							<a href="#open-license">
+								<span>11.</span> Remove restrictions on reuse of information
+							</a>
+						</li>
+					
+						<li>
+							<a href="#metadata">
+								<span>12.</span> Require publishing metadata or other documentation
+							</a>
+						</li>
+					
+						<li>
+							<a href="#unique-identifiers">
+								<span>13.</span> Mandate the use of unique identifiers
+							</a>
+						</li>
+					
+						<li>
+							<a href="#archival-material">
+								<span>14.</span> Require digitization and distribution of archival materials
+							</a>
+						</li>
+					
+						<li>
+							<a href="#data-portals-and-websites">
+								<span>15.</span> Create a portal or website devoted to data publication or policy
+							</a>
+						</li>
+					
+						<li>
+							<a href="#publish-bulk-data">
+								<span>16.</span> Publish bulk data
+							</a>
+						</li>
+					
+						<li>
+							<a href="#public-apis">
+								<span>17.</span> Create public APIs for accessing information
+							</a>
+						</li>
+					
+						<li>
+							<a href="#electronic-filing">
+								<span>18.</span> Mandate electronic filing
+							</a>
+						</li>
+					
+						<li>
+							<a href="#real-time-updates">
+								<span>19.</span> Mandate ongoing data publication and updates
+							</a>
+						</li>
+					
+						<li>
+							<a href="#permanent-access">
+								<span>20.</span> Create permanent, lasting access to data
+							</a>
+						</li>
+					
+						<li>
+							<a href="#goals-and-values">
+								<span>21.</span> Build on the values, goals, and mission of the community and government 
+							</a>
+						</li>
+					
+				</ol>
+			</li>
+		
+			<li class="how-to-implement-policy">
+				<a class="textReplace nav-collapse nav-toggler" href="">expand</a>
+				<h5><a href="#section-how-to-implement-policy">How to Implement Policy</a></h5>
+				<div class="clear"></div>
+				<ol>
+					
+						<li>
+							<a href="#oversight-authority">
+								<span>22.</span> Create or appoint oversight authority 
+							</a>
+						</li>
+					
+						<li>
+							<a href="#binding-regulations">
+								<span>23.</span> Create binding regulations or guidance for implementation
+							</a>
+						</li>
+					
+						<li>
+							<a href="#legal-rights">
+								<span>24.</span> Create new legal rights or other mechanisms
+							</a>
+						</li>
+					
+						<li>
+							<a href="#public-participation">
+								<span>25.</span> Incorporate public perspectives into policy implementation
+							</a>
+						</li>
+					
+						<li>
+							<a href="#timelines">
+								<span>26.</span> Set appropriately ambitious timelines for implementation
+							</a>
+						</li>
+					
+						<li>
+							<a href="#data-quality">
+								<span>27.</span> Create processes to ensure data quality
+							</a>
+						</li>
+					
+						<li>
+							<a href="#lists-of-holdings">
+								<span>28.</span> Create a public, comprehensive list of all information holdings
+							</a>
+						</li>
+					
+						<li>
+							<a href="#funding">
+								<span>29.</span> Ensure sufficient funding for implementation
+							</a>
+						</li>
+					
+						<li>
+							<a href="#contract-rewards">
+								<span>30.</span> Tie contract awards to transparency requirements for new systems
+							</a>
+						</li>
+					
+						<li>
+							<a href="#partnerships">
+								<span>31.</span> Create or explore potential public/private partnerships
+							</a>
+						</li>
+					
+						<li>
+							<a href="#future-review">
+								<span>32.</span> Mandate future review for potential changes to this policy
+							</a>
+						</li>
+					
+				</ol>
+			</li>
+		
+
+	</ul>
+</div>
+
+
+        </div>
+        <div class="span9 content">
+            
+            
+	<div class="intro">
+		<p>
+			The Sunlight Foundation created this living document to present a broad vision of the kinds of challenges that open data policies can actively address.
+		</p>
+		<p>
+			A few general notes: Although some provisions may carry more importance or heft than others, these Guidelines are not ranked in order of priority, but organized to help define What Data Should be Public, How to Make Data Public, and How to Implement Policy -- three key elements of any legislation, executive order, or other policy seeking to include language about open data. Further, it’s worth repeating that these provisions are only a guide. As such, they do not address every question one should consider in preparing a policy. Instead, these provisions attempt to answer the specific question: What can or should an open data policy do?
+		</p>
+	</div>
+	<div class="document-w-sections">
+		
+		<ul class="doc-categories">
+			
+				<li id="section-what-data-should-be-public">
+					<h3>What Data Should Be Public</h3>
+					<ol class="doc-items guidelines">
+						
+						    <li id="open-by-default">
+							    <h4><a href="#open-by-default"><span>1</span> Set the default to open</a></h4>
+							    <p>Most public records systems, including the Freedom of Information Act itself, are systems of reactive disclosure -- meaning that a question has to be asked before an answer given; public information requested, before it is disclosed.</p>
+
+<p>Proactive disclosure is the opposite. Proactive disclosure is the release of public information -- online and in open formats (see Provisions 8 and 9) -- before it is asked for. This is no simple task, but, in a way, it’s what all “open data” is aiming to accomplish. Setting the default to open means that the government and parties acting on its behalf will make public information available proactively and that they’ll put that information within reach of the public (online), with low to no barriers for its reuse and consumption. Open formats may help us maximize on the value we can extract from certain kinds of public data today, but to ensure that data publishing is sustained and, in fact, made easier over time, we need to reset the default for how data is released and disclosed. </p>
+
+<p>Setting the default to open is about living up to the potential of our information, about looking at comprehensive information management, and making determinations that fall in the public interest. It’s about purely practical government improvements, too, and taking steps that not only keep government systems up to date, but ensure that we have the foresight to survive changes in technology that we can’t predict. </p>
+
+<p>Usually, for information to be defined as public, important restrictions have already been applied. Therefore, policy language can be used to outline that “all public data and information must be considered open and accessible.” Whether listed as part of a statement of intent (as <a href="http://www.ci.austin.tx.us/edims/document.cfm?id=161941">Austin, Texas</a> does; a concept explored more in Provision 21), as direction to a new oversight authority (Provision 22), or as the underlying aim of new data guidance (Provision 20), openness by default is a critical tool in crafting open data policies that are both ambitious and sustainable.</p>
+
+							    
+							    	<h5>Sample Language</h5>
+								    <div class="contentSidebar sample-language">
+								    	<h6>Austin, Texas cites the concept of &quot;open by default&quot; in a WHEREAS clause noting that </h6>
+								    	<p>'Open Data, proactively disclosing City data, is the foundation of Open Government, is consistent with citizens' right to public information' and has benefits to government service delivery.</p>
+
+								    	
+								    		<a class="small" href="http://www.ci.austin.tx.us/edims/document.cfm?id=161941">http://www.ci.austin.tx.us/edims/document.cfm?id=161941</a>
+								    	
+								    </div>
+								
+						    </li>
+						
+						    <li id="build-on-precedent">
+							    <h4><a href="#build-on-precedent"><span>2</span> Reference and build on existing public accountability and access policies</a></h4>
+							    <p>Open data policies should be informed by provisions that are already on the books as, in most cases, they are a natural extension of existing laws, executive orders, and other policies that defend and establish public access and/or define standards for information quality, disclosure, and publishing. Pre-existing provisions in accountability policies are commonly found in open meetings acts, open records acts, ethics protections, campaign finance regulation, and lobbying disclosure laws, to name a few. Building on precedent from these policies and others, as applicable, can both help strengthen new open data requirements and inform where policy updates or revisions are necessary that an open data policy can address. Madison, Wisconsin for example, bases its definition of "public data" on both Wisconsin's state and Madison's local public records laws and ordinances in its <a href="http://madison.legistar.com/ViewReport.ashx?M=R&amp;N=Text&amp;GID=205&amp;ID=1201083&amp;GUID=2EC21911-798D-4499-BFAF-96BDACBCD8C7&amp;Title=Legislation+Text">open data policy</a>.</p>
+
+							    
+							    	<h5>Sample Language</h5>
+								    <div class="contentSidebar sample-language">
+								    	<h6>Although the provision goes on to define overreaching exemptions to data release which could have a negative impact, Madison, Wisconsin demonstrates how to use existing public records laws to help reinforce public data.</h6>
+								    	<p>"Public data set" means a comprehensive collection of interrelated data that is available for inspection by the public in accordance with any provision of the Wisconsin Public Records Laws (Wis. Stats. §§ 19.31-19.37) and the Madison Public Records Ordinance (Sec. 3.70, MGO) and is maintained on a computer system by, or on behalf of, an agency.</p>
+
+								    	
+								    		<a class="small" href="http://madison.legistar.com/ViewReport.ashx?M=R&amp;N=Text&amp;GID=205&amp;ID=1201083&amp;GUID=2EC21911-798D-4499-BFAF-96BDACBCD8C7&amp;Title=Legislation+Text">http://madison.legistar.com/ViewReport.ashx?M=R&amp;N=Text&amp;GID=205&amp;ID=1201083&amp;GUID=2EC21911-798D-4499-BFAF-96BDACBCD8C7&amp;Title=Legislation+Text</a>
+								    	
+								    </div>
+								
+						    </li>
+						
+						    <li id="new-information">
+							    <h4><a href="#new-information"><span>3</span> Mandate the release of specific new information</a></h4>
+							    <p>Open data laws provide an opportunity not just to update and improve access to information that is already open and/or public, but to specify that new data sets and records to be published. </p>
+
+<p>Specific mandates can be made about a variety of kinds of data -- information ranging from transportation data to lobbying registration databases to the video and audio of public meetings -- though careful consideration should be given to the language used to describe what information is affected. Descriptive phrases such as “high-value” or “high priority”, when used without direction or indication of how to assign value or priority, can open up loopholes that slow or prevent the release of information desired by the public. </p>
+
+<p>It is important, therefore, that the scope of this provision be clearly defined. As with other provisions listed here, the scope can be broad or narrow, but to provide not only clarity but executable strength, the provision’s scope should be explicitly defined, the limitations noted, and key agencies, committees or other relevant agents identified. Similarly, policies should be specific about what “new” data can mean: In some instances, this provision can be used to require that that new data be created, collected and released for the first time. In others (or, in addition), it could define the identification of existing data sets and (newly) mandate their release. That was Utah’s approach. In the state’s 2013 open data policy (<a href="http://le.utah.gov/~2013/bills/sbillenr/SB0283.pdf">SB283</a>), Utah required the identification of information that is not online and a process, including a timeline, for making that information available online. A <a href="http://www.scribd.com/fullscreen/26442622?access_key=key-20rfsh26eu0ob66xlbmu">2006 memorandum in Washington, DC</a> took a narrower approach, listing specific data sets (i.e. registered vacant properties and crime incidents) and timelines for release. </p>
+
+<p>Other provisions noted on this page address how to bring the public into the process of determining how data sets can be prioritized for release.</p>
+
+							    
+						    </li>
+						
+						    <li id="outside-services">
+							    <h4><a href="#outside-services"><span>4</span> Stipulate that provisions apply to contractors or quasi-governmental agencies</a></h4>
+							    <p>The government often uses third party entities or contractors to handle, research, or generate government information, and the use of outside services should not necessitate sacrificing important public protections. Chicago, for example, specifically directs its chief data officer to work with the chief procurement officer to develop contract provisions to promote open data standards in technology-related procurements in its <a href="http://www.cityofchicago.org/city/en/narr/foia/open_data_executiveorder.html">2012 open data policy</a>. </p>
+
+<p>Similarly, these public protections should generally apply to quasi-governmental agencies and other similar actors, such as multi-state agencies, government-sponsored entities, publicly-funded universities, and self-regulatory organizations (like <a href="http://reporting.sunlightfoundation.com/2012/Finra_open_data/">FINRA</a>).</p>
+
+							    
+							    	<h5>Sample Language</h5>
+								    <div class="contentSidebar sample-language">
+								    	<h6>Chicago, Illinois has a specific provision about “Technology-Related Procurements.”</h6>
+								    	<p>The chief data officer shall work with the chief procurement officer to develop contract provisions to promote open data policies in technology-related procurements.  These provisions shall promote the City’s open data policies, including, where appropriate, requirements to post data on data.cityofchicago.org or to make data available through other means.    </p>
+
+								    	
+								    		<a class="small" href="http://www.cityofchicago.org/city/en/narr/foia/open_data_executiveorder.html">http://www.cityofchicago.org/city/en/narr/foia/open_data_executiveorder.html</a>
+								    	
+								    </div>
+								
+						    </li>
+						
+						    <li id="sensitive-information">
+							    <h4><a href="#sensitive-information"><span>5</span> Appropriately safeguard sensitive information</a></h4>
+							    <p>Open data policy should be complementary to pre-existing legislation and directives about access to public information (see Provision 2 for more details), which means taking into consideration pre-existing protections for sensitive information for privacy, security, or other reasons. While these protections should be upheld, careful thought should be given to the language used to describe what (if any) additional information will be exempt from the policy, as overbroad terms can create loopholes that undermine the soundness of provisions requiring openness. For example, in a 2006 memorandum, <a href="http://www.scribd.com/fullscreen/26442622?access_key=key-20rfsh26eu0ob66xlbmu">Washington, DC</a> required the identification of information that should be designated private on account of law or other privacy reasons, but also requires agencies specify how the information can be aggregated, generalized, or otherwise de-identified so it can be made public. <a href="http://le.utah.gov/~2013/bills/sbillenr/SB0283.pdf">Utah’s 2013 open data policy</a> simply notes that disclosure of public information should appropriately safeguard "sensitive information."</p>
+
+							    
+						    </li>
+						
+						    <li id="exemptions">
+							    <h4><a href="#exemptions"><span>6</span> Require exemptions to data release be balance-tested in the public interest</a></h4>
+							    <p>Exemptions to disclosure are a necessary component of many transparency requirements. Unfortunately, these exemptions are often crafted as blanket categories for entire types of information, without consideration for competing interests. Valid privacy and security concerns should be addressed through provisions that recognize the public interest in determining whether information will be disclosed or not. For example, rather than saying “information relating to X topic is exempt from disclosure”, provisions should require that “information relating to X topic is exempt from disclosure <i>if the potential for harm outweighs the public interest their disclosure</i>.” Public interest here does not mean public attention, but instead refers to interests like democratic accountability, justice, and effective oversight. There are some examples of broad approaches to this. <a href="http://le.utah.gov/~2013/bills/sbillenr/SB0283.pdf">Utah's 2013 open data policy</a> notes that factors "in favor of excluding public information from an information website" will be balanced against the public interest in having the information available online. <a href="http://sfbos.org/ftp/uploadedfiles/bdsupvrs/committees/materials/gao_032813_121017.pdf">San Francisco, California</a> balances privacy concerns against the "benefits of open data." </p>
+
+							    
+						    </li>
+						
+						    <li id="open-code">
+							    <h4><a href="#open-code"><span>7</span> Require code sharing or publishing open source</a></h4>
+							    <p>Not only the data, but the code used to create government websites, portals, tools, and other online resources can provide further benefits, as valuable open data itself. Governments should employ open source solutions whenever possible to enable sharing and make the most out of these benefits. The Consumer Finance Protection Bureau (CFPB) began publishing open code on the social code site GitHub in 2012, citing that doing so helped them fulfill the mission of their agency and facilitated their technical work. (More information is available in the announcement blogpost on the <a href="http://www.consumerfinance.gov/blog/the-cfpbs-source-code-policy-open-and-shared/">CFPB’s website</a>.)</p>
+
+							    
+						    </li>
+						
+				    </ol>
+				</li>
+			
+				<li id="section-how-to-make-data-public">
+					<h3>How to Make Data Public</h3>
+					<ol class="doc-items guidelines">
+						
+						    <li id="open-formats">
+							    <h4><a href="#open-formats"><span>8</span> Mandate open formats for government data</a></h4>
+							    <p>The utility, quality, and permanence of information depends on the format in which it’s published. “Open” formats are considered best practice by technology and transparency communities because of their versatility: To quote <a href="http://razor.occams.info/pubdocs/opendataciviccapital.html#bestprac">Josh Tauberer</a>, open formats “tend to promote a wide range of uses, backward and forward compatibility, and an independence from short-term commercial interests”. In other words, these formats are machine-readable (structured), serve searchable, sortable data, and tend to be non-proprietary and/or implemented in open source software. When combined with appropriate methods of distribution, these traits maximize the degree of access, use, and quality of published information. This degree of access and interaction allows citizens and government alike to get the most out of the data. </p>
+
+<p>Specific open data formats include JSON, CSV, and XML (for databases), and HTML and plain text (which are only semi-structured, but can provide more flexibility for documents). The <a href="http://openstates.org/">Open States Project</a> has explored how these formats relate to legislative data in <a href="http://code.google.com/p/openstates/wiki/StateBestPractices">more detail here</a>. More details about file formats and open data best practices can be found in the Open Knowledge Foundation’s <a href="http://opendatahandbook.org/en/appendices/file-formats.html">Open Data Handbook</a>, Josh Tauberer’s <a href="http://razor.occams.info/pubdocs/opendataciviccapital.html#format">Open Data is Civic Capital</a>, the <a href="https://public.resource.org/8_principles.html">8 Open Government Data Principles</a>, the <a href="http://sunlightfoundation.com/policy/documents/ten-open-data-principles/">10 Open Government Data Principles</a>, and <a href="http://www.opsi.gov.uk/advice/poi/power-of-information-review.pdf">The Power of Information report</a>.</p>
+
+<p>Open format provisions can be broad or specific in scope. More broadly defined provisions (such as those that call for the release of “open data” with no definition) are generally hard to enforce, but can still be helpful as statements of general policy. Provisions that use more specific wording (e.g. those that define both specific data sets and the formats that they’ll be released in) are more likely to cause meaningful change but take more effort to craft.</p>
+
+<p>It should be noted that in this context, data refers broadly to information published in electronic formats. By this definition, data can include a variety of databases, analytics, documents, transcripts, and audio and video recordings. Although each of these examples represent different kinds of data, each can be published in an open format. <a href="http://www.portlandonline.com/shared/cfm/image.cfm?id=275696">Portland, Oregon's 2009 open data policy</a>, for example, directs the development of a strategy to adopt prevailing open standards for data, documents, maps, and other formats of media.</p>
+
+							    
+							    	<h5>Sample Language</h5>
+								    <div class="contentSidebar sample-language">
+								    	<h6>A simple, but strong, top-level definition of open formats could include the following two provisions.</h6>
+								    	<p>[Data shall] be published in a non-proprietary, searchable, sortable, platform-independent, machine-readable format;</p>
+
+<p>Any data reporting standards designated under this subsection shall be capable of being continually upgraded as necessary.</p>
+
+								    	
+								    </div>
+								
+						    </li>
+						
+						    <li id="post-online">
+							    <h4><a href="#post-online"><span>9</span> Require public information to be posted online</a></h4>
+							    <p>The government makes tremendous amounts of information available to the public, but only a small subset is available on the Internet, even as more and more people look online first to find these records. To close this gap, public information should be published online in a timely fashion subject only to common-sense exceptions (such as redacting personally identifiable information in certain contexts). Online publication can be enhanced by the creation of a specific webpage or data portal (see Provision 15) but to ensure sustainability of public access, it is important that the data not be tied to the existence of any one webpage or portal. Webpages and portals are good vehicles for public distribution, but the goal of this provision is to shift the foundation of public access to information more broadly so that it can be sustained even as technology and our use of online services change over time. The "Public Online Information Act" has been <a href="http://sunlightfoundation.com/policy/poia/">introduced on the federal level</a> to require public information to be available online. </p>
+
+							    
+							    	<h5>Sample Language</h5>
+								    <div class="contentSidebar sample-language">
+								    	<h6>Utah both has provisions specific to an “information website” or portal, but also makes online publishing itself a goal. </h6>
+								    	<p>[The Transparency Advisory Board shall determine ‘guidance that will make recommendations about how to make public information more readily available to the public’, including]</p>
+
+<p>the identification of public information not currently made available online and the implementation of a process, including a timeline and benchmarks, for making that public information available online</p>
+
+								    	
+								    		<a class="small" href="http://le.utah.gov/~2013/bills/sbillenr/SB0283.pdf">http://le.utah.gov/~2013/bills/sbillenr/SB0283.pdf</a>
+								    	
+								    </div>
+								
+						    </li>
+						
+						    <li id="open-access">
+							    <h4><a href="#open-access"><span>10</span> Remove restrictions for accessing information</a></h4>
+							    <p>Open data that is out of reach of the public is hardly open. To provide truly open access, you must provide both the right to reuse government information (explored in Provision 11) and remove arbitrary technical restrictions, such as registration requirements, access fees, and usage limitations, among others. Whether these technical restrictions have been specifically put in place (i.e. access fees) or are the accidental result of the choice of data format or software (i.e. usage limits or copyright restrictions), it is appropriate for an open data policy to address and remove these barriers to access. The aim should be to be to provide broad, non-discriminatory, free access to data so that any person can access information at any time without having to identify him/herself or provide any justification for doing so. More detailed exploration of these limitations can be found in Josh Tauberer’s <a href="http://razor.occams.info/pubdocs/opendataciviccapital.html#format">Open Data is Civic Capital: Best Practices for “Open Government Data</a>”.</p>
+
+							    
+						    </li>
+						
+						    <li id="open-license">
+							    <h4><a href="#open-license"><span>11</span> Remove restrictions on reuse of information</a></h4>
+							    <p>Most restrictions on the reuse of government information serve no purpose but to restrict the public value of important information. If information is to be truly public, there should be no license-related barrier to the public’s interaction with or use of that information. Outside of data legally exempted from public use or access because of privacy or security restrictions (see Provisions 5 and 6), to be completely “open,” public government information should be released completely into the public domain and clearly labeled as such. At a minimum, licenses that grant the right to use, download, and reproduce government data can be applied. The fewer restrictions the better. Opening data into the public domain (or at least explicitly into free public use) removes arbitrary barriers to information access (more explored in Provision 7), helps disseminate knowledge, aids in data preservation, promotes civic engagement and entrepreneurial activity, and extends the longevity of the technological investments used to open information in the first place. </p>
+
+<p>The state of Utah required that recommendations for data disclosure and format selection will remove restrictions on the reuse of public information in their <a href="http://le.utah.gov/~2013/bills/sbillenr/SB0283.pdf">2013 open data law</a>. In 2012, <a href="http://www.nhliberty.org/bills/view/2012/HB418">New Hampshire</a> passed a law that required its data to be made license-free, meaning "not subject to any copyright, patent, trademark, or trade secret regulation," and goes on to elaborate even further.</p>
+
+							    
+						    </li>
+						
+						    <li id="metadata">
+							    <h4><a href="#metadata"><span>12</span> Require publishing metadata or other documentation</a></h4>
+							    <p>Metadata and other documentation about the data provided by the government can be useful to the public and government alike. Notations such as these both add potentially helpful context about the data’s creation that will aid in the public’s use of that information and support archival and data quality efforts. The <a href="http://www.cabinetoffice.gov.uk/sites/default/files/resources/CM8353_acc.pdf">Open Data White Paper</a> released by the UK’s Ministers of State for the Cabinet Office and Paymaster General in June 2012 notes that the UK data portal (<a href="http://www.data.gov.uk">www.data.gov.uk</a>) already includes “basic metadata about all its data sets, including timing and geographical scope” as well as “a link to a departmentally supplied description of the data and details of a contact point within the department who data users can ask for further details” (<a href="http://www.cabinetoffice.gov.uk/sites/default/files/resources/CM8353_acc.pdf">2.46, Principle 14</a>). Madison's open data policy directs public data sets to <a href="http://madison.legistar.com/ViewReport.ashx?M=R&amp;N=Text&amp;GID=205&amp;ID=1201083&amp;GUID=2EC21911-798D-4499-BFAF-96BDACBCD8C7&amp;Title=Legislation+Text">include metadata</a> and to make it available to the public through the web portal. </p>
+
+							    
+						    </li>
+						
+						    <li id="unique-identifiers">
+							    <h4><a href="#unique-identifiers"><span>13</span> Mandate the use of unique identifiers</a></h4>
+							    <p>Unique identifiers within data sets empower analysis and reuse by allowing disparate data sets to be combined and to help data to more be more carefully mapped to real-world entities. Without unique identifiers, some analyses can become difficult or impossible, since similar names may or may not refer to the same entities. Importantly, identifiers should be non-proprietary and public.  Unique Identifiers are often required for <a href="http://sunlightfoundation.com/blog/2011/07/19/a-state-by-state-look-at-lobbyist-disclosure/">lobbying disclosures</a>, for example. See also this list of <a href="http://sunlightfoundation.com/sixdegrees/resources/">extensive resources</a> about the need for unique identifiers for corporate entities.</p>
+
+							    
+						    </li>
+						
+						    <li id="archival-material">
+							    <h4><a href="#archival-material"><span>14</span> Require digitization and distribution of archival materials</a></h4>
+							    <p>Open data policies can address not only information currently or soon to be available in an electronic format, but also undigitized archival material. See for example <a href="http://vancouver.ca/ctyclerk/cclerk/20090519/documents/motionb2.pdf">Vancouver’s Open Data motion</a>, which critically notes not only the importance of thoughtful digitization of archival information but the imperative to release this data to the public, ideally eventually in the same formats and in the same locations as modern data.</p>
+
+							    
+						    </li>
+						
+						    <li id="data-portals-and-websites">
+							    <h4><a href="#data-portals-and-websites"><span>15</span> Create a portal or website devoted to data publication or policy</a></h4>
+							    <p>Data portals and similar websites can facilitate the distribution of open data by providing an easy-to-access, searchable hub for multiple data sets. At their best, these portals or hubs promote interaction with and reuse of open data (see the note about bulk data in Provision 16) and provide documentation for the use of information (see Provision 12). Portals can be generalized (e.g. an “open data portal”, like Data.gov) or specific (e.g. a spending or ethics portal, like Colorado’s <a href="http://tracer.sos.colorado.gov/PublicSite/homepage.aspx">TRACER</a>), and can vary in terms of their sophistication. </p>
+
+<p><a href="http://www.cityofchicago.org/city/en/narr/foia/open_data_executiveorder.html">Chicago</a>, Illinois and <a href="http://www.governor.ny.gov/executiveorder/95">New York</a> state's open data policies require data to be shared on specific sites, like data.cityofchicago.org and data.ny.gov, or a successor website still maintained by or on behalf of the government.</p>
+
+<p>Portals and other related websites also provide governments with the opportunity to go into detail about issues and policies related to its commitment to openness and transparency. NASA details their open government and data activities on <a href="http://www.nasa.gov/open/">http://www.nasa.gov/open/</a> as part of their compliance with the White House’s Open Government Initiative. Austin, Texas also keeps a top-level website, <a href="http://austintexas.gov/austingo2.0">AustinGO2.0</a>, as a hub for public communication and access to the city’s ongoing open government-related activities and uses this platform to guide residents to their <a href="https://data.austintexas.gov/">data portal</a>.</p>
+
+<p>To facilitate their “findability” these websites (and others) should be allowed to be indexed and searched by third parties (such as search engines).</p>
+
+							    
+							    	<h5>Sample Language</h5>
+								    <div class="contentSidebar sample-language">
+								    	<h6>New York state’s 2013 policy created an “Open Data Website” and outlines steps to make it sustainable and comprehensive.</h6>
+								    	<p>An online Open Data Website for the collection and public dissemination of Publishable State data, and, to the extent feasible, reports is hereby established. The Open Data Website shall be maintained at data.ny.gov or such other successor website maintained by, or on behalf of, the State, as deemed appropriate by the New York State Office of Information Technology Services in consultation with the Governor’s Office and Data Working Group established below.  The Open Data Website will provide “single-stop” access to Publishable State data that is owned, controlled, collected or otherwise maintained by covered State entities as defined herein and, to the extent feasible, reports of such covered State entities. </p>
+
+								    	
+								    		<a class="small" href="http://www.governor.ny.gov/executiveorder/95">http://www.governor.ny.gov/executiveorder/95</a>
+								    	
+								    </div>
+								
+						    </li>
+						
+						    <li id="publish-bulk-data">
+							    <h4><a href="#publish-bulk-data"><span>16</span> Publish bulk data</a></h4>
+							    <p>Bulk access is a simple, but effective means of publishing data sets in full, giving the public the ability to download all of the information stored in a database at once. This is a step beyond simply making select data sets or search results available for download or export, and is critical for supporting the maximal reuse and analysis of data. Whether offered as a feature of a data portal or even as a simple “click to download” button on a government agency webpage describing or displaying information, bulk access to information is often one of the simplest and most direct steps a government entity can take to share information with the public. Many states, like Arkansas and Kentucky, allow for “authorized subscribers” to download records in bulk from different departments, but bulk data should ideally be made available to the public at large without restrictions to access (see Provision 10), as <a href="http://le.utah.gov/~2013/bills/sbillenr/SB0283.pdf">Utah</a> calls for in its 2013 open data policy. Daniel Schuman and Eric Mill explore bulk data further as it relates to legislative data and the federal THOMAS system <a href="http://sunlightfoundation.com/blog/2012/05/30/appropriators-may-undercut-legislative-transparency/">in this blog post</a>. </p>
+
+							    
+						    </li>
+						
+						    <li id="public-apis">
+							    <h4><a href="#public-apis"><span>17</span> Create public APIs for accessing information</a></h4>
+							    <p>Although bulk data (Provision 16) provides the most basic access to searching and retrieving government data, government bodies can also develop APIs, or Application Programming Interfaces, that allow third parties to automatically search, retrieve, or submit information directly from databases online (see Josh Tauberer’s <a href="http://razor.occams.info/pubdocs/opendataciviccapital.html#bestprac/">Open Data is Civic Capital</a>). Navigating requirements for bulk data and APIs should be done in consultation with people with technical expertise as well as likely users of the information. For a lengthier discussion of the benefits of APIs, see the recently developed <a href="http://www.whitehouse.gov/sites/default/files/omb/egov/digital-government/digital-government.html">Federal Web Policy</a>. For a slightly more critical take on APIs (and their relationship to bulk data), <a href="http://sunlightlabs.com/blog/2012/government-do-you-really-need-an-api/">see this post by Eric Mill of the Sunlight Foundation</a>.</p>
+
+							    
+						    </li>
+						
+						    <li id="electronic-filing">
+							    <h4><a href="#electronic-filing"><span>18</span> Mandate electronic filing</a></h4>
+							    <p>Many existing disclosure requirements were created as inefficient, paper-based requirements and should be updated to require online, electronic filing, as long as the filers can be reasonably expected to have access to the necessary technology. Electronic filing requirements save money, make real-time disclosure possible, and allow structured data to be created at the same moment information is being filed, whereas paper filings only make reuse and analysis more difficult.</p>
+
+<p>This practice is currently in place in the United States Federal government, from the <a href="http://www.fec.gov/elecfil/electron.shtml">Federal Election Commission</a>, where “electronic filing [is] the preferred method for committees to file reports and statements” and in state governments. In 2012, <a href="http://legis.delaware.gov/LIS/lis146.nsf/vwLegislation/SB+185/$file/legis.html?open">Delaware passed a bill (SB 185)</a> mandating that all lobbyist registration and disclosure be filed electronically by default.</p>
+
+<p>Electronic filing provisions can be broad or narrow, but more specific clauses can be useful to ensure the completeness of the data captured and what to do if the online e-filing service is down.</p>
+
+							    
+							    	<h5>Sample Language</h5>
+								    <div class="contentSidebar sample-language">
+								    	<h6>What follows is language for mandating electronic filing for campaign finance reports, allow the language can be used more generally.</h6>
+								    	<p>All campaign finance reports required to be filed with the Secretary of the State shall be filed electronically using the electronic filing system developed by the secretary that is consistent with the purpose of this article and in a manner that allows the public to review such information.</p>
+
+<p>A campaign finance report submitted electronically shall: (1) include the electronic signatures of the treasurer or assistant treasurer of the political committee serving at the time of the filing of the campaign finance report; (2) be published online in the Campaign Finance Online Reporting portal or another designated publicly-accessible database immediately; (3) be published in a widely accepted, non-proprietary, searchable, platform-independent, machine-readable format;</p>
+
+								    	
+								    </div>
+								
+						    </li>
+						
+						    <li id="real-time-updates">
+							    <h4><a href="#real-time-updates"><span>19</span> Mandate ongoing data publication and updates</a></h4>
+							    <p>It is not enough to mandate the one-time release of information: Data is often created on an ongoing basis and should be released the same way. A one-time release of data is in some sense incomplete the minute additional information is generated, but not included in the published set. Therefore, in order to ensure that the information published is as accurate and useful as possible, specific requirements should be put in place to make sure that government data is released as quickly as it is gathered and collected (in “real time”). <a href="http://le.utah.gov/~2013/bills/sbillenr/SB0283.pdf">Utah's Transparency Advisory Board</a>'s processes call for continuous publication of and updates to public information, for example. This kind of rapid publishing becomes less of a burden when combined with others measures for online publishing, such as electronic filing (Provision 18), data portals (Provision 15), and APIs (Provision 17). This was evident in the rational behind provisions in <a href="http://www.leg.state.co.us/clics/clics2007a/csl.nsf/fsbillcont3/6611A31F8BAF456B872572C300557B0C?open&amp;file=259_enr.pdf">Colorado legislation improving the state’s campaign finance database</a>. The bill, which passed into law in 2007, set requirements that reports submitted to the state’s online system to be “electronically filed...[and] made available immediately on the website.”</p>
+
+							    
+						    </li>
+						
+						    <li id="permanent-access">
+							    <h4><a href="#permanent-access"><span>20</span> Create permanent, lasting access to data</a></h4>
+							    <p>Information released by the government should be sticky: Once released, it must remain “findable” at a stable location or through archives in perpetuity. Although portals and websites can be vehicles for accessing this data over the long term (see Provision 13), it is critical that the data’s permanent release &amp; accessibility is defined so as to apply to the data itself, not just the means of access. Utah, for example, requires guidance to create "<a href="http://le.utah.gov/~2013/bills/sbillenr/SB0283.pdf">permanent, lasting, open access to public information</a>,” in addition to requirements about publishing on a to-be-determined website.</p>
+
+<p>Provisions relating to permanence can also be expanded to relate to updates, changes, or other alterations to the data. For best use by the public, these changes should be documented to include appropriate version-tracking and archiving over time (discussed in a little more detail in Provision 12). These provisions should build on the strengths of existing records management laws and procedures (see Provision 2).</p>
+
+							    
+						    </li>
+						
+						    <li id="goals-and-values">
+							    <h4><a href="#goals-and-values"><span>21</span> Build on the values, goals, and mission of the community and government </a></h4>
+							    <p>Publishing data proactively and in open formats has many practical and normative implications which can be noted and explored in the text of an open data policy. An explicit statement of goals, values, or intention can help highlight the importance of open data and the release of information for the particular political context in which the policy is being formed and executed, and can be an important tool in bringing together support for the policy both internal and external to government. Many policies touch on a broad range of values and goals that will be furthered by allowing public access to government data, including greater government transparency, honesty, accountability, efficiency, civic engagement, and economic growth. Other policies outline how providing open data will support and expand specific employment and commerce opportunities, internal and community innovation, and general public services provision. </p>
+
+<p>For a detailed look at statements of intent already in use, see the <a href="https://docs.google.com/a/sunlightfoundation.com/spreadsheet/ccc?key=0Ap0CEAgs-R_odFc0Qk1WNHdIUDE3bUNVd1U3WUlnblE#gid=0">Sunlight Foundation’s Open Data Policy Comparison chart</a>.</p>
+
+							    
+						    </li>
+						
+				    </ol>
+				</li>
+			
+				<li id="section-how-to-implement-policy">
+					<h3>How to Implement Policy</h3>
+					<ol class="doc-items guidelines">
+						
+						    <li id="oversight-authority">
+							    <h4><a href="#oversight-authority"><span>22</span> Create or appoint oversight authority </a></h4>
+							    <p>Some questions may defy easy treatment in the process of creating an open data policy, so it’s appropriate to define a single authority that can be empowered to resolve conflicts and ensure compliance with new open data measures. Commonly, policies direct a pre-existing officer (i.e. a chief technology or administrative officer) or a specific department to oversee execution and compliance, although new positions and authorities can also be created. Utah, for example, refurbished and completely redefined the composition of a <a href="http://le.utah.gov/~2013/bills/sbillenr/SB0283.pdf">Transparency Advisory Board</a> to serve as the oversight authority for its 2013 open data policy, and the Recovery Act created a <a href="http://www.recovery.gov/About/board/Pages/TheBoard.aspx">Recovery Accountability and Transparency Board</a> for similar oversight. Specifying an authority, review board, or similar body is an important step to making sure that an open data policy can actually be executed and provides a resource to address unforeseen hurdles in implementation. New oversight bodies should conduct their work independently and publicly, and can be bolstered by creating new regulations or guidance for implementation (Provision 23).</p>
+
+							    
+						    </li>
+						
+						    <li id="binding-regulations">
+							    <h4><a href="#binding-regulations"><span>23</span> Create binding regulations or guidance for implementation</a></h4>
+							    <p>Open data policies should be practically aspirational, meaning that they should both define a vision for why the policy is being implemented, but also be able to provide actionable steps for the government and oversight authorities to follow to see the policy through to implementation. Creating regulations or guidance can ensure a strong, reliable policy, and usually mean the difference between policy passed for show versus policy passed for substance. Regulations help make the work of oversight and implementation authorities possible. Several US cities, like <a href="http://www.cityofchicago.org/city/en/narr/foia/open_data_executiveorder.html">Chicago</a> and <a href="http://sfbos.org/ftp/uploadedfiles/bdsupvrs/committees/materials/gao_032813_121017.pdf">San Francisco</a>, use their open data policies to give their chief information officer or chief data officers not only direction to oversee the implementation of technical standards for new open data policies, but to determine compliance. Although the state of <a href="http://www.nhliberty.org/bills/view/2012/HB418">New Hampshire</a> doesn’t direct a single authority to take action in the same way, it does regulate that each state agency to adopt and review the statewide information policy. The Dodd-Frank Financial Reform bill empowers regulations to require public reporting of royalty payments made by the extractive industry (see Section <a href="http://www.govtrack.us/congress/bills/111/hr4173/text">1504</a>). A similar approach is taken in the proposed <a href="http://www.opencongress.org/bill/112-h2146/show">DATA Act</a>.</p>
+
+<p>Open data policies can also direct that guidance is created from a basic framework created in the policy. So, rather than spelling out the entirety of data standards in the original policy document, some governments, like <a href="http://le.utah.gov/~2013/bills/sbillenr/SB0283.pdf">Utah</a> and <a href="http://www6.montgomerycountymd.gov/content/council/pdf/agenda/cm/2012/121126/20121126_GO2.pdf">Montgomery County, Maryland</a>, have used their policies to direct that guidance is created to help agencies comply with online public access to non-proprietary, machine-readable data published in open formats. <a href="http://nycopendata.pediacities.com/wiki/index.php/Local_Law_11_of_2012">New York City</a>’s open data policy, Public Law 11, resulted in the creation of extensive technical guidance, which you can find here. A similar approach is outlined in the proposed <a href="http://sunlightfoundation.com/policy/poia/">Public Online Information Act</a>, which would create a central regulator empowered to create and set data standards for the US federal government.</p>
+
+							    
+						    </li>
+						
+						    <li id="legal-rights">
+							    <h4><a href="#legal-rights"><span>24</span> Create new legal rights or other mechanisms</a></h4>
+							    <p>An open data policy can create mechanisms that allow individual members of the public to play a dynamic role in policy oversight and compliance. For example, the right to sue serves as the ultimate enforcement mechanism of the Freedom of Information Act (<a href="http://www.gpo.gov/fdsys/pkg/CRPT-106hrpt50/pdf/CRPT-106hrpt50.pdf">Section 4.K, Page 33</a>), some countries (like <a href="http://www.oic-ci.gc.ca/eng/">Canada</a>) have FOI ombudsmen with special legal enforcement powers, and some countries also have special anti-corruption agencies.</p>
+
+							    
+						    </li>
+						
+						    <li id="public-participation">
+							    <h4><a href="#public-participation"><span>25</span> Incorporate public perspectives into policy implementation</a></h4>
+							    <p>Implementing the details of an open data policy will benefit from public participation. Open data policies not only have effects government-wide, which will require consideration, but also have consequences for a variety of stakeholder groups outside of the government. Allowing these groups to participate in the decision-making process (and make real contributions) can have great benefits for policy creation and execution. Stakeholders and experts can bring to the table valuable new perspectives that highlight challenges or opportunities that might not otherwise be obvious. Formal mechanisms for collaboration can include hearings, draft proposals open for public comment and contribution, and online resources like wikis and email lists. In 2012, New York City <a href="http://nycopendata.pediacities.com/wiki/index.php/NYC_Open_Data">created a wiki</a> to encourage collaborative input on the open data policies, standards, and guidelines that would be enacted as part of its then-newly passed open data law. In <a href="http://www.ottawa.ca/calendar/ottawa/citycouncil/occ/2010/05-12/csedc/08-ACS2010-COS-ITS-0005-Open%20data%20%282%29.htm">Ottawa, Canada</a>, the city’s open data policy directs staff to explore ways to consult the public and receive input on high-value data sets. Some cities go the distance to create working groups that contain members of the public, media, local businesses, as well as government staff, like the <a href="http://le.utah.gov/~2013/bills/sbillenr/SB0283.pdf">Utah Transparency Advisory Board</a> described in Provision 22. Other governments, like the cities of Chicago and San Francisco, call for less defined online forums to solicit feedback from the public on data sets and policies. </p>
+
+							    
+						    </li>
+						
+						    <li id="timelines">
+							    <h4><a href="#timelines"><span>26</span> Set appropriately ambitious timelines for implementation</a></h4>
+							    <p>Setting clear deadlines can demonstrate the strength of a commitment and will help translate commitments into results. Deadlines can also help to identify failures clearly, opening the door to public oversight. Relevant actors should be given enough time to prepare for the changes brought on by the new open data policy, but not so much time that the policy becomes inoperable. The timeline should be firm, provide motivation for action, and have actionable goals and benchmarks that can be used as a metric for compliance. These goals or checkpoints can include qualitative and quantitative measurements.</p>
+
+							    
+						    </li>
+						
+						    <li id="data-quality">
+							    <h4><a href="#data-quality"><span>27</span> Create processes to ensure data quality</a></h4>
+							    <p>Data quality will not be ensured through data release alone: efforts need to be made to keep the data up to date, clean, accurate, and accessible. In the executive memorandum that established that <a href="http://www.scribd.com/fullscreen/26442622?access_key=key-20rfsh26eu0ob66xlbmu">Washington, DC would share internal data on DC.gov</a>, the city specified not only the need to maintain data quality but also touched, broadly, on the responsibilities of the agencies involved in resolving discrepancies or inconsistent results. In a 2012 law, <a href="http://www.nhliberty.org/bills/view/2012/HB418">New Hampshire</a> required that state government data be collected at the sources, "not in aggregate or modified forms." Other approaches to ensuring data quality include assigning specific staff responsible for maintenance (as was done in the <a href="http://www.whitehouse.gov/sites/default/files/omb/assets/memoranda_2010/m10-06.pdf">Open Government Directive on financial data</a> (Section 2.a.)) and creating audit processes.</p>
+
+<p>In any case, data quality concerns should not be accepted as an excuse for exempting or restricting the release of information, but should rather be seen as a challenge that becomes clearer and easier to address as data is released. Data with serious accuracy and quality concerns should be adequately documented to avoid creating confusion or misinformation.</p>
+
+<p>Similarly, public data reporting streams that are separate from what is used within government should be avoided whenever possible, as redundant or parallel data streams can create opportunities for data quality to suffer.</p>
+
+							    
+						    </li>
+						
+						    <li id="lists-of-holdings">
+							    <h4><a href="#lists-of-holdings"><span>28</span> Create a public, comprehensive list of all information holdings</a></h4>
+							    <p>Government bodies often do not know what information they have. Open data policies should require a full public listing of government information. This comprehensive listing empowers policymakers and administrators to determine whether information is being appropriately managed, and empowers the public oversight of those determinations. Publicly accounting for agency information helps ensure that information is managed to benefit the public interest, and can create efficiencies among government departments, all while empowering journalists and policymakers. To provide up-to-date information, agencies can also be required to regularly audit their information holdings. </p>
+
+<p>In addition to noting the data sets themselves, a data listing should note the department or agency (or agencies) responsible for the collection and maintenance of the data, its public or private classification, and, when possible, information about where to access the public data. To the extent practicable, additional details can also be given about private classifications, allowing the public to understand why certain information is marked as not-public. This is a step taken by the <a href="https://www.gov.uk/government/publications/dclg-data-inventory">United Kingdom’s Department for Communities and Local Government</a>, which not only publishes a list of information assets held by the department, but which notes, whenever an entry on their listing cannot be made available to the public in its entire raw form, the rationale for not publishing the information.</p>
+
+<p>In 2010, the US Department of Transportation released (and to this day continues to maintains) <a href="http://www.dot.gov/open/data-inventory-release">an inventory</a> of its high-value data for the public as part of its <a href="http://www.dot.gov/open/data-archive">Open Government Plan</a>. <a href="http://sunlightfoundation.com/blog/2013/05/13/how-unique-is-the-new-u-s-open-data-policy/">Many more governments</a> are in the early stages of directing their agencies to create indexes. In 2013, the <a href="http://www.whitehouse.gov/sites/default/files/omb/memoranda/2013/m-13-13.pdf">memorandum accompanying a <a href="http://sunlightfoundation.com/blog/2013/05/09/open-data-executive-order-shows-path-forward/">new federal executive order for open data</a> directed all agencies to compile data inventories to <a href="http://sunlightfoundation.com/blog/2013/05/09/open-data-executive-order-shows-path-forward/">a similar rigor</a> defined by the UK’s Department of Communities and the US Department of Transportation. Several state and local governments have also used open data policies to direct departments to create listings, including San Francisco and Utah. See also this <a href="http://sunlightfoundation.com/blog/2012/03/22/the-missing-open-data-policy/">blog post</a> from Sunlight's John Wonderlich explaining the need for indexes.</p>
+
+							    
+						    </li>
+						
+						    <li id="funding">
+							    <h4><a href="#funding"><span>29</span> Ensure sufficient funding for implementation</a></h4>
+							    <p>Like any other initiative, implementing an open data policy should be done with an eye on long-term sustainability. One way to do this is to consider funding sources for the implementation of the policy as well as its future maintenance. Sufficient funding can mean the difference between successful and unsuccessful policies. </p>
+
+<p>For example, in 2011, the Electronic Government Fund, which supports Data.gov, the IT Spending Dashboard, and USASpending.gov, among other programs, was sliced from over $34 million to $12.4 million. Without the work of the advocacy community, funds would have dropped as low as $8 million. This dramatic change in funding has continued implications for federal data, some of which can be explored in <a href="http://sunlightfoundation.com/blog/taxonomy/term/savethedata/">the posts collected here from the Sunlight Foundation blog</a>. </p>
+
+<p>By contrast, in 2012, California approved a bill (SB 1001) to pay for maintenance, repair, and improvements to their Cal-Access public disclosure database by <a href="http://sd08.senate.ca.gov/news/2012-05-31-yee-s-cal-access-bill-reconsidered-approved-along-other-open-government-bills">increasing the registration fees for those engaged in lobbying and with political action committees</a>. Hawaii’s 2013 open data policy (<a href="http://www.capitol.hawaii.gov/session2013/bills/HB632_CD1_.htm">HB 632</a>) included provisions to appropriate two-years worth of funds to the department charged with executing the policy, the Office of Information Practices, to ensure that the implementation process was appropriately staffed.</p>
+
+							    
+						    </li>
+						
+						    <li id="contract-rewards">
+							    <h4><a href="#contract-rewards"><span>30</span> Tie contract awards to transparency requirements for new systems</a></h4>
+							    <p>Existing procurement, contracting, or planning processes can be used to create new defaults and requirements for IT systems and databases to ensure that open data requirements are baked into new systems as they’re being planned. See for example the White House’s <a href="http://www.whitehouse.gov/sites/default/files/omb/egov/digital-government/digital-government.html">Digital Government strategy</a>, which proposes the creation of similar new requirements and encourages agencies to share best practices in procuring these contracts and solutions with each other.</p>
+
+							    
+						    </li>
+						
+						    <li id="partnerships">
+							    <h4><a href="#partnerships"><span>31</span> Create or explore potential public/private partnerships</a></h4>
+							    <p>Partnerships can be useful in a variety of important efforts related to data release, from increasing awareness of the availability of open data to identifying constituent priorities for data release to connecting government information to that held by non-profits, think tanks, academic institutions and others. <a href="http://www.opsi.gov.uk/advice/poi/power-of-information-review.pdf">Ed Mayo and Tom Steinberg have noted</a> that such partnerships can aid civic participation, help identify the gaps in services delivery, among other benefits. Philadelphia, Pennsylvania hosts its open data portal, <a href="http://opendataphilly.org/">Open Data Philly</a>, through a public/private partnership involving local journalism, business, and non-profit organizations, rather than hosting the portal on its own, solely-governement platform.</p>
+
+<p>Poorly planned public/private partnerships run the risk of subsidizing private sector actors at the expense of the public. For example, see the Government Accountability Office’s digitization project described <a href="http://freegovinfo.info/node/1798">here</a>. </p>
+
+<p>Public/private partnerships are increasingly being explored in cities as a way to collaborate with regional governments and ensure that government data handled by third parties is also made open and available to the public (see Provision 4). To that end, <a href="http://sfbos.org/ftp/uploadedfiles/bdsupvrs/committees/materials/gao_032813_121017.pdf">San Francisco, California's 2013 open data policy</a> approaches partnerships by suggesting that data standards be established within and outside the city through collaboration with external organizations. <a href="http://www.lexingtonky.gov/Modules/ShowDocument.aspx?documentid=16343">Lexington, Kentucky</a> included aims to develop agreements with regional partners to publish and maintain public data sets.</p>
+
+							    
+						    </li>
+						
+						    <li id="future-review">
+							    <h4><a href="#future-review"><span>32</span> Mandate future review for potential changes to this policy</a></h4>
+							    <p>Just as publishing open data is an ongoing process that requires attention to its quality and upkeep (Provision 5), so too does the policy that establishes it. In order to keep up with the times, current best practices, and feedback from existing policy oversight, open data policies should be written in a way that makes them open to future revision. Open data policies should acknowledge that the context in which they operate is rapidly changing over time, and will likely need sustained attention to remain relevant.</p>
+
+							    
+						    </li>
+						
+				    </ol>
+				</li>
+			
+		</ul>
+	</div>
+
+
+        </div>
+    </div>
+
+			</div>
+		</div>
+		<div id="footerWrapper">
+	        <footer>
+	            <div id="signupRibbon">
+	                <span class="textReplace">Become a part of the open government community and stay up to date with what's going on by signing up</span>
+	                <form action="/join/" method="post" id="signup-form">
+	                	
+	                    <input type="text" name="email" placeholder="your email address">
+	                    <input type="text" name="zipcode" placeholder="your zip code">
+	                    <button type="submit" class="btn">Sign up</button>
+	                </form>
+	                <div class="signup-thanks">
+	                	Thanks! <a href="" style="color: #f4f2f0; text-decoration: underline;">Care to tell us more about you?</a>
+	                </div>
+	            </div>
+	            <div id="bottomFooter">
+	                <div id="contactInfo">
+	                    <h4>Contact Us</h4>
+	                    <address class="vcard">
+	                        <span class="adr">
+	                            <span class="street-address">1818 N Street NW</span>
+	                            <span class="extended-address">Suite 300</span>
+	                            <span class="locality">Washington</span>,
+	                            <span class="region" title="District of Columbia">DC</span>
+	                            <span class="postal-code">20036</span>
+	                        </span>
+	                        <span class="email"><a href="/contact/">contact@sunlightfoundation.com</a></span>
+	                        <span class="tel">202-742-1520</span>
+	                        <a href="callto:+12027421520" class="tel-skype textReplace">Call with Skype</a>
+	                    </address>
+	                </div>
+	                <div id="privacy">
+	                	
+	                    <p>Our <a href="/legal/privacy/">privacy policy</a> details how personally identifiable information that is collected on our web sites is handled. Read our <a href="/legal/terms/">terms of service</a>.</p>
+	                    <p>This work by Sunlight Foundation, unless otherwise noted, is licensed under a Creative Commons Attribution 3.0 United States License.</p>
+	                </div>
+	                <div class="clear"></div>
+	            </div>
+	        </footer>
+	    </div>
+
+	    <!-- primary javascript includes -->
+	    <script src="https://assets-sfcom.s3.amazonaws.com/js/jquery.simplecarousel-0.1.js"></script>
+	    <script src="https://assets-sfcom.s3.amazonaws.com/js/sfcom.js"></script>
+
+		
+	<script>
+		$(document).ready(function() {
+
+			$('a.nav-toggler').click(function(ev) {
+				var $this = $(this);
+				if ($this.hasClass('nav-collapse')) {
+					$this.siblings('ol').slideUp(200);
+				} else {
+					$this.siblings('ol').slideDown(200);
+				}
+				$this.toggleClass('nav-collapse').toggleClass('nav-expand');
+				ev.preventDefault();
+			});
+
+		});
+	</script>
+
+
+		<!-- analytics includes -->
+		<script>
+
+			/* Google Analytics */
+		    var _gaq = [
+		    	['_setAccount', 'UA-1265484-1'],
+		    	['_trackPageview']
+		    ];
+		    (function(d) {
+		    	var src = ('https:' == location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		        loadasync('googleanalytics-js', src);
+		    })(document);
+
+		    /* ChartBeat */
+		    var _sf_async_config={
+		    	uid: 980,
+		    	domain: "sunlightfoundation.com"
+		   	};
+		    $(document).ready(function() {
+				window._sf_endpt=(new Date()).getTime();
+	            var src = (("https:" == document.location.protocol) ?
+	        		"https://s3.amazonaws.com/" : "http://") +
+	                "static.chartbeat.com/js/chartbeat.js";
+	            loadasync('chartbeat-js', src);
+		    });
+
+		    /* Socialite */
+		    $(document).ready(function() {
+		    	loadasync('socialite-js', 'https://s3.amazonaws.com/assets.sunlightfoundation.com/social/scripts/simple-socialite-pack.min.js');
+		    });
+
+	        /* Quantcast */
+	        var _qoptions={qacct:"p-c0SZuTgPkvFC-"};
+	        $(document).ready(function() {
+	        	loadasync('quantcast-js', 'http://edge.quantserve.com/quant.js');
+	        });
+
+		</script>
+
+	</body>
+</html>

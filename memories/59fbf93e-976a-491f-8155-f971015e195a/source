@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<!--[if IE 7]>
+<html class="ie ie7" lang="en-US">
+<![endif]-->
+<!--[if IE 8]>
+<html class="ie ie8" lang="en-US">
+<![endif]-->
+<!--[if !(IE 7) | !(IE 8)  ]><!-->
+<html lang="en-US">
+<!--<![endif]-->
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width">
+<title>Chicago&#8217;s Hidden Open Data  | Smart Chicago</title>
+	<link rel="profile" href="http://gmpg.org/xfn/11">
+	<link rel="pingback" href="http://www.smartchicagocollaborative.org/xmlrpc.php">
+	<!--[if lt IE 9]>
+	<script src="http://www.smartchicagocollaborative.org/wp-content/themes/twentythirteen/js/html5.js"></script>
+	<![endif]-->
+	<link rel="alternate" type="application/rss+xml" title="Smart Chicago &raquo; Feed" href="http://www.smartchicagocollaborative.org/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Smart Chicago &raquo; Comments Feed" href="http://www.smartchicagocollaborative.org/comments/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Smart Chicago &raquo; Chicago&#8217;s Hidden Open Data Comments Feed" href="http://www.smartchicagocollaborative.org/chicagos-hidden-opendata/feed/" />
+<link rel='stylesheet' id='jetpack-widgets-css'  href='http://www.smartchicagocollaborative.org/wp-content/plugins/jetpack/modules/widgets/widgets.css?ver=20121003' type='text/css' media='all' />
+<link rel='stylesheet' id='twentythirteen-fonts-css'  href='//fonts.googleapis.com/css?family=Source+Sans+Pro%3A300%2C400%2C700%2C300italic%2C400italic%2C700italic%7CBitter%3A400%2C700&#038;subset=latin%2Clatin-ext' type='text/css' media='all' />
+<link rel='stylesheet' id='genericons-css'  href='http://www.smartchicagocollaborative.org/wp-content/plugins/jetpack/_inc/genericons/genericons.css?ver=3.0' type='text/css' media='all' />
+<link rel='stylesheet' id='twentythirteen-style-css'  href='http://www.smartchicagocollaborative.org/wp-content/themes/twentythirteen/style.css?ver=2013-07-18' type='text/css' media='all' />
+<!--[if lt IE 9]>
+<link rel='stylesheet' id='twentythirteen-ie-css'  href='http://www.smartchicagocollaborative.org/wp-content/themes/twentythirteen/css/ie.css?ver=2013-07-18' type='text/css' media='all' />
+<![endif]-->
+<script type='text/javascript' src='http://www.smartchicagocollaborative.org/wp-includes/js/jquery/jquery.js?ver=1.10.2'></script>
+<script type='text/javascript' src='http://www.smartchicagocollaborative.org/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.2.1'></script>
+<script type='text/javascript' src='http://www.smartchicagocollaborative.org/wp-includes/js/comment-reply.min.js?ver=3.7.1'></script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://www.smartchicagocollaborative.org/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://www.smartchicagocollaborative.org/wp-includes/wlwmanifest.xml" /> 
+<link rel='prev' title='Hack Night Live: Chicago Open Data Hidden in Plain Sight' href='http://www.smartchicagocollaborative.org/hack-night-live-chicago-open-data-hidden-in-plain-sight/' />
+<meta name="generator" content="WordPress 3.7.1" />
+<link rel='canonical' href='http://www.smartchicagocollaborative.org/chicagos-hidden-opendata/' />
+<link rel='shortlink' href='http://wp.me/p3cBFz-K9' />
+<!-- Start FaceBook Image Fix <http://www.capn3m0.org> -->
+<link rel="image_src" href="http://i1.ytimg.com/vi/TLDnNlg_Ldw" height="360" width="640" allowfullscreen="" frameborder="0"></default.jpg" />
+<!-- End FaceBook Image Fix Plugin -->
+<style type='text/css'>img#wpstats{display:none}</style>
+<!-- Jetpack Open Graph Tags -->
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Chicago&#039;s Hidden Open Data " />
+<meta property="og:url" content="http://www.smartchicagocollaborative.org/chicagos-hidden-opendata/" />
+<meta property="og:description" content="At this week&#039;s hack night, Forest Gregg of DataMade gave a talk about Chicago&#039;s hidden open data. While the civic innovation community has gotten used to going to data.cityofchicago.org for their o..." />
+<meta property="og:site_name" content="Smart Chicago" />
+<meta property="og:image" content="http://farm6.staticflickr.com/5528/11210872655_7112d745dc_z.jpg" />
+<meta name="twitter:site" content="@jetpack" />
+<meta name="twitter:image" content="http://farm6.staticflickr.com/5528/11210872655_7112d745dc_z.jpg" />
+<meta name="twitter:card" content="photo" />
+	<style type="text/css" id="twentythirteen-header-css">
+			.site-header {
+			background: url(http://www.smartchicagocollaborative.org/wp-content/uploads/2013/08/cropped-8594215537_23368c6e74_h.jpg) no-repeat scroll top;
+			background-size: 1600px auto;
+		}
+			.site-title,
+		.site-description {
+			color: #e2e2e2;
+		}
+		</style>
+	
+	<!-- Clean Archives Reloaded v3.2.0 | http://www.viper007bond.com/wordpress-plugins/clean-archives-reloaded/ -->
+	<style type="text/css">.car-collapse .car-yearmonth { cursor: s-resize; } </style>
+	<script type="text/javascript">
+		/* <![CDATA[ */
+			jQuery(document).ready(function() {
+				jQuery('.car-collapse').find('.car-monthlisting').hide();
+				jQuery('.car-collapse').find('.car-monthlisting:first').show();
+				jQuery('.car-collapse').find('.car-yearmonth').click(function() {
+					jQuery(this).next('ul').slideToggle('fast');
+				});
+				jQuery('.car-collapse').find('.car-toggler').click(function() {
+					if ( 'Expand All' == jQuery(this).text() ) {
+						jQuery(this).parent('.car-container').find('.car-monthlisting').show();
+						jQuery(this).text('Collapse All');
+					}
+					else {
+						jQuery(this).parent('.car-container').find('.car-monthlisting').hide();
+						jQuery(this).text('Expand All');
+					}
+					return false;
+				});
+			});
+		/* ]]> */
+	</script>
+
+
+<meta property=”og:image” content=”http://www.smartchicagocollaborative.org/wp-content/uploads/”/>
+
+<link rel=”image_src” href=”http://www.smartchicagocollaborative.org/wp-content/uploads/” / >
+
+
+
+</head>
+
+<body class="single single-post postid-2861 single-format-standard sidebar">
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=226265627446245";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+	<div id="page" class="hfeed site">
+		<header id="masthead" class="site-header" role="banner">
+			<a class="home-link" href="http://www.smartchicagocollaborative.org/" title="Smart Chicago" rel="home">
+				<h1 class="site-title">Smart Chicago</h1>
+				<h2 class="site-description">A civic organization devoted to improving lives in Chicago through technology.</h2>
+			</a>
+
+			<div id="navbar" class="navbar">
+				<nav id="site-navigation" class="navigation main-navigation" role="navigation">
+					<h3 class="menu-toggle">Menu</h3>
+					<a class="screen-reader-text skip-link" href="#content" title="Skip to content">Skip to content</a>
+					<div class="nav-menu"><ul><li class="page_item page-item-511"><a href="http://www.smartchicagocollaborative.org/home/">Home</a></li><li class="page_item page-item-243 page_item_has_children"><a href="http://www.smartchicagocollaborative.org/what-we-do/">What We Do</a><ul class='children'><li class="page_item page-item-2886"><a href="http://www.smartchicagocollaborative.org/what-we-do/neighborhood-tools/">Neighborhood Tools</a></li><li class="page_item page-item-437"><a href="http://www.smartchicagocollaborative.org/what-we-do/our-culture/">Our Culture</a></li><li class="page_item page-item-2290"><a href="http://www.smartchicagocollaborative.org/what-we-do/our-software-philosophy/">Our Software Philosophy</a></li><li class="page_item page-item-434"><a href="http://www.smartchicagocollaborative.org/what-we-do/what-we-care-abnout/">What We Care About</a></li><li class="page_item page-item-234"><a href="http://www.smartchicagocollaborative.org/what-we-do/history/">History</a></li><li class="page_item page-item-2691"><a href="http://www.smartchicagocollaborative.org/what-we-do/advisory-committee/">Advisory Committee</a></li><li class="page_item page-item-538"><a href="http://www.smartchicagocollaborative.org/what-we-do/featured/">Featured</a></li></ul></li><li class="page_item page-item-128 page_item_has_children"><a href="http://www.smartchicagocollaborative.org/projects/">Projects</a><ul class='children'><li class="page_item page-item-1680"><a href="http://www.smartchicagocollaborative.org/projects/civic-innovation-summer-2/">#CivicSummer</a></li><li class="page_item page-item-2540"><a href="http://www.smartchicagocollaborative.org/projects/chicago-early-learning-portal/">Chicago Early Learning Portal</a></li><li class="page_item page-item-663"><a href="http://www.smartchicagocollaborative.org/projects/chicago-health-atlas/">Chicago Health Atlas</a></li><li class="page_item page-item-771"><a href="http://www.smartchicagocollaborative.org/projects/civic-innovation-in-chicago/">Civic Works Project</a></li><li class="page_item page-item-1501"><a href="http://www.smartchicagocollaborative.org/projects/civic-user-testing-group/">CUTGroup</a></li><li class="page_item page-item-1360"><a href="http://www.smartchicagocollaborative.org/projects/developer-resources/">Developer Resources</a></li><li class="page_item page-item-1719"><a href="http://www.smartchicagocollaborative.org/projects/foodborne-chicago/">Foodborne Chicago</a></li><li class="page_item page-item-796"><a href="http://www.smartchicagocollaborative.org/projects/hosted-web-space/">Hosted Web Space</a></li><li class="page_item page-item-760"><a href="http://www.smartchicagocollaborative.org/projects/illinois-open-technology-challenge/">Illinois Open Technology Challenge</a></li><li class="page_item page-item-126 page_item_has_children"><a href="http://www.smartchicagocollaborative.org/projects/broadband-technology-opportunities-program/">BTOP</a><ul class='children'><li class="page_item page-item-144"><a href="http://www.smartchicagocollaborative.org/projects/broadband-technology-opportunities-program/sustainable-broadband-adoption/">Sustainable Broadband Adoption</a></li><li class="page_item page-item-247"><a href="http://www.smartchicagocollaborative.org/projects/broadband-technology-opportunities-program/smart-communities/">Smart Communities</a></li><li class="page_item page-item-156"><a href="http://www.smartchicagocollaborative.org/projects/broadband-technology-opportunities-program/public-computer-centers/">Public Computer Centers</a></li><li class="page_item page-item-333"><a href="http://www.smartchicagocollaborative.org/projects/broadband-technology-opportunities-program/youmedia-expansion/">YOUMedia Expansion</a></li><li class="page_item page-item-202"><a href="http://www.smartchicagocollaborative.org/projects/broadband-technology-opportunities-program/chicago-housing-authority/">CHA Computer Center Expansion</a></li><li class="page_item page-item-204"><a href="http://www.smartchicagocollaborative.org/projects/broadband-technology-opportunities-program/city-colleges-chicago/">CCC Computer Center Expansion</a></li><li class="page_item page-item-206"><a href="http://www.smartchicagocollaborative.org/projects/broadband-technology-opportunities-program/digital-skills-initiative/">Digital Skills Initiative</a></li><li class="page_item page-item-197"><a href="http://www.smartchicagocollaborative.org/projects/broadband-technology-opportunities-program/ctc-connect/">CTC Connect</a></li></ul></li><li class="page_item page-item-195"><a href="http://www.smartchicagocollaborative.org/projects/connect-chicago/">Connect Chicago</a></li><li class="page_item page-item-200"><a href="http://www.smartchicagocollaborative.org/projects/smart-health-centers/">Smart Health Centers</a></li></ul></li><li class="page_item page-item-898"><a href="http://www.smartchicagocollaborative.org/archives/">News</a></li><li class="page_item page-item-2333"><a href="http://www.smartchicagocollaborative.org/sign-up-for-the-cutgroup-and-make-money-to-test-civic-apps/">Sign up for the CUTGroup and make money to test civic apps</a></li></ul></div>
+					<form role="search" method="get" class="search-form" action="http://www.smartchicagocollaborative.org/">
+				<label>
+					<span class="screen-reader-text">Search for:</span>
+					<input type="search" class="search-field" placeholder="Search &hellip;" value="" name="s" title="Search for:" />
+				</label>
+				<input type="submit" class="search-submit" value="Search" />
+			</form>				</nav><!-- #site-navigation -->
+			</div><!-- #navbar -->
+		</header><!-- #masthead -->
+
+		<div id="main" class="site-main">
+	<div id="primary" class="content-area">
+		<div id="content" class="site-content" role="main">
+
+						
+				
+<article id="post-2861" class="post-2861 post type-post status-publish format-standard hentry category-1871 category-city-of-chicago category-opengov-hack-night category-opengovchicago">
+	<header class="entry-header">
+		
+				<h1 class="entry-title">Chicago&#8217;s Hidden Open Data</h1>
+				<div class="entry-meta">
+			<span class="date"><a href="http://www.smartchicagocollaborative.org/chicagos-hidden-opendata/" title="Permalink to Chicago&#8217;s Hidden Open Data" rel="bookmark"><time class="entry-date" datetime="2013-12-05T22:55:59+00:00">December 5, 2013</time></a></span><span class="categories-links"><a href="http://www.smartchicagocollaborative.org/category/1871/" title="View all posts in 1871" rel="category tag">1871</a>, <a href="http://www.smartchicagocollaborative.org/category/city-of-chicago/" title="View all posts in City of Chicago" rel="category tag">City of Chicago</a>, <a href="http://www.smartchicagocollaborative.org/category/opengov-hack-night/" title="View all posts in OpenGov Hack Night" rel="category tag">OpenGov Hack Night</a>, <a href="http://www.smartchicagocollaborative.org/category/opengovchicago/" title="View all posts in OpenGovChicago" rel="category tag">OpenGovChicago</a></span><span class="author vcard"><a class="url fn n" href="http://www.smartchicagocollaborative.org/author/govintrenches/" title="View all posts by Christopher Whitaker" rel="author">Christopher Whitaker</a></span>			
+		</div><!-- .entry-meta -->
+	</header><!-- .entry-header -->
+
+		<div class="entry-content">
+		<p>At this week&#8217;s hack night, Forest Gregg of <a href="www.datamade.us" target="_blank">DataMade</a> gave a talk about Chicago&#8217;s hidden open data. While the civic innovation community has gotten used to going to <a href="http://data.cityofchicago.org ">data.cityofchicago.org </a>for their open data needs, there&#8217;s a lot more data that&#8217;s not on the portal.</p>
+<p><a title="Chicago's Hidden Data by Christopher Whitaker, on Flickr" href="http://www.flickr.com/photos/91210421@N03/11210872655"><img alt="Chicago's Hidden Data" src="http://farm6.staticflickr.com/5528/11210872655_7112d745dc_z.jpg" width="640" height="480" /></a></p>
+<p>The last few OpenGov Hack Nights have been spent building out a website (<a href="http://opengovhacknight.org/" target="_blank">opengovhacknight.org</a>) to help gather information on <a href="http://opengovhacknight.org/projects.html">projects</a>, <a href="http://opengovhacknight.org/people.html">people</a>, and <a href="http://opengovhacknight.org/events.html" target="_blank">events</a> in Chicago&#8217;s robust civic innovation community. Another goal of the project is to list all the <a href="http://opengovhacknight.org/resources.html" target="_blank">resources</a> available to developers (including Smart Chicago&#8217;s <a href="http://opengovhacknight.org/resources.html#free-developer-infrastructure" target="_blank">free web hosting for civic apps and user testing</a>.)</p>
+<p>A large part of the page has been documenting all the open data that&#8217;s not on the portal. Forest Gregg talks more about that below the fold.</p>
+<p><span id="more-2861"></span></p>
+<p><iframe src="//www.youtube.com/embed/TLDnNlg_Ldw" height="360" width="640" allowfullscreen="" frameborder="0"></iframe></p>
+<p>One of the first resources that was looked at was the <a href="https://webapps1.cityofchicago.org/VCSearchWeb/org/cityofchicago/vcsearch/controller/agencySelection/displayAgencyHome.do" target="_blank">City of Chicago&#8217;s Vendor Portal</a>. The vendor portal provides information on awarded contracts, payments to vendors, and solicitations made by the City. The system also gives out detailed information about bids that won their contracts.</p>
+<p><iframe src="//www.youtube.com/embed/vEQBgC94cvY" height="360" width="640" allowfullscreen="" frameborder="0"></iframe></p>
+<p>One of the points that Forest raised how can we add value to the data currently available and is there a business case for doing so?</p>
+<p>This also raised question on why we need to start businesses to address these issues and what are the social benefits of civic startups?</p>
+<p><iframe src="//www.youtube.com/embed/h8er0hFcl0c" height="480" width="640" allowfullscreen="" frameborder="0"></iframe></p>
+<p>Another rich source of data that&#8217;s hidden in plain sight is the <a href="http://www.mwrd.org/irj/portal/anonymous/Home" target="_blank">Metropolitan Water Reclamation District of Greater Chicago</a> (MWRD). The MWRD helps to protect the region&#8217;s water supply and works to prevent flooding to homes and businesses.</p>
+<p>One of the major projects that MWRD helps to manage is the <a href="http://www.mwrd.org/pv_obj_cache/pv_obj_id_D8D85AEFFCFE043844F6FB7D4FA4253160380700/filename/TARP_2013_status_web.pdf" target="_blank">Deep Tunnel Project</a>. Currently, during major storms the wastewater system is designed to dump wastewater back into the river to prevent flooding. When this happens, it&#8217;s called a <a href="http://www.mwrd.org/irj/portal/anonymous/overview" target="_blank">combined sewer overflow event</a>.  Needless to say, wastewater going into the river isn&#8217;t the most healthy way to deal with the issue.</p>
+<p>The Deep Tunnel Project aims to fix this by diverting wastewater to tunnels and reservoirs  instead of the river. This effort has produced several data sets that are available on the <a href="http://www.mwrd.org/irj/portal/anonymous/WQM" target="_blank">MWRD website</a>.</p>
+<p><iframe src="//www.youtube.com/embed/9RS8LI3EL6Y" height="480" width="640" allowfullscreen="" frameborder="0"></iframe></p>
+<p>Lastly, no OpenGov Hack Night presentation would be complete without question and answer time!</p>
+<p><iframe src="//www.youtube.com/embed/nxev4LPoUUY" height="480" width="640" allowfullscreen="" frameborder="0"></iframe></p>
+<h2 id="related-posts-via-categories-title">Related Posts</h2><ul id="related-posts-via-categories-list"><li><a href="http://www.smartchicagocollaborative.org/hack-night-live-chicago-open-data-hidden-in-plain-sight/" title="Hack Night Live: Chicago Open Data Hidden in Plain Sight">Hack Night Live: Chicago Open Data Hidden in Plain Sight</a></li><li><a href="http://www.smartchicagocollaborative.org/cnt-kicks-off-sustainable-apps-challenge-at-opengov-hack-night/" title="CNT kicks off Sustainable Apps Challenge at OpenGov Hack Night">CNT kicks off Sustainable Apps Challenge at OpenGov Hack Night</a></li><li><a href="http://www.smartchicagocollaborative.org/smart-chicago-collaborative-and-the-citys-technology-plan/" title="Smart Chicago Collaborative and the City&#8217;s Technology Plan">Smart Chicago Collaborative and the City&#8217;s Technology Plan</a></li></ul>		
+	</div><!-- .entry-content -->
+	
+
+	<footer class="entry-meta">
+		
+			</footer><!-- .entry-meta -->
+</article><!-- #post -->					<nav class="navigation post-navigation" role="navigation">
+		<h1 class="screen-reader-text">Post navigation</h1>
+		<div class="nav-links">
+
+			<a href="http://www.smartchicagocollaborative.org/hack-night-live-chicago-open-data-hidden-in-plain-sight/" rel="prev"><span class="meta-nav">&larr;</span> Hack Night Live: Chicago Open Data Hidden in Plain Sight</a>			
+		</div><!-- .nav-links -->
+	</nav><!-- .navigation -->
+					
+<div id="comments" class="comments-area">
+
+	
+						
+		<div id="respond" class="comment-respond">
+			<h3 id="reply-title" class="comment-reply-title">Leave a Reply <small><a rel="nofollow" id="cancel-comment-reply-link" href="/chicagos-hidden-opendata/#respond" style="display:none;">Cancel reply</a></small></h3>
+			<div id="commentform" class="comment-form">
+				<iframe src="http://jetpack.wordpress.com/jetpack-comment/?blogid=47333749&#038;postid=2861&#038;comment_registration=0&#038;require_name_email=1&#038;stc_enabled=1&#038;stb_enabled=1&#038;show_avatars=1&#038;avatar_default=gravatar_default&#038;greeting=Leave+a+Reply&#038;greeting_reply=Leave+a+Reply+to+%25s&#038;color_scheme=light&#038;lang=en-US&#038;jetpack_version=2.5&#038;sig=78312e3c07389b1ec9c2ed11911271ed882a3e6a#parent=http%3A%2F%2Fwww.smartchicagocollaborative.org%2Fchicagos-hidden-opendata%2F" allowtransparency="false" style="width:100%; height: 430px;border:0px;" frameBorder="0" scrolling="no" name="jetpack_remote_comment" id="jetpack_remote_comment"></iframe>
+			</div>
+		</div>
+
+		
+		<input type="hidden" name="comment_parent" id="comment_parent" value="" />
+
+		
+</div><!-- #comments -->
+			
+		</div><!-- #content -->
+	</div><!-- #primary -->
+
+	<div id="tertiary" class="sidebar-container" role="complementary">
+		<div class="sidebar-inner">
+			<div class="widget-area">
+				<aside id="text-9" class="widget widget_text"><h3 class="widget-title">Keep in touch on Facebook</h3>			<div class="textwidget"><div class="fb-like" data-href="https://www.facebook.com/smartchicago" data-width="180" data-show-faces="true" data-send="true"></div></div>
+		</aside><aside id="text-2" class="widget widget_text"><h3 class="widget-title">Talk to us on Twitter</h3>			<div class="textwidget"><a class="twitter-timeline" data-dnt="true" href="https://twitter.com/SmartChicago" data-widget-id="369278991783301120">Tweets by @SmartChicago</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+</div>
+		</aside>		<aside id="recent-posts-3" class="widget widget_recent_entries">		<h3 class="widget-title">Recently</h3>		<ul>
+					<li>
+				<a href="http://www.smartchicagocollaborative.org/chicagos-hidden-opendata/">Chicago&#8217;s Hidden Open Data</a>
+						</li>
+					<li>
+				<a href="http://www.smartchicagocollaborative.org/hack-night-live-chicago-open-data-hidden-in-plain-sight/">Hack Night Live: Chicago Open Data Hidden in Plain Sight</a>
+						</li>
+					<li>
+				<a href="http://www.smartchicagocollaborative.org/govjobs-city-of-chicago-mayoral-fellowships-in-technology/">GovJobs: City of Chicago Mayoral Fellowships in Technology</a>
+						</li>
+					<li>
+				<a href="http://www.smartchicagocollaborative.org/what-it-takes-to-get-the-municipal-code-of-chicago-online/">What It Takes to get the Municipal Code of Chicago Online</a>
+						</li>
+					<li>
+				<a href="http://www.smartchicagocollaborative.org/stoked-about-the-new-squared-away-app-from-the-metropolitan-tenants-ogranization/">Stoked About the New &#8220;Squared Away&#8221; App from the Metropolitan Tenants Ogranization</a>
+						</li>
+					<li>
+				<a href="http://www.smartchicagocollaborative.org/hack-night-live-redeyes-tracy-swartz-talks-homicide-tracker/">Hack Night Live: Redeye&#8217;s Tracy Swartz talks Homicide Tracker</a>
+						</li>
+					<li>
+				<a href="http://www.smartchicagocollaborative.org/opengovchicago-meeting-process-and-products-around-the-chicago-municipal-code/">OpenGovChicago Meeting: Process and Products Around the Chicago Municipal Code</a>
+						</li>
+					<li>
+				<a href="http://www.smartchicagocollaborative.org/announcing-the-winners-of-the-rockford-opentech-challenge/">Announcing the winners of the Rockford OpenTech Challenge</a>
+						</li>
+					<li>
+				<a href="http://www.smartchicagocollaborative.org/illinois-public-health-datapalooza-and-a-10k-challenge/">Illinois Public Health Datapalooza and a $10k Challenge</a>
+						</li>
+					<li>
+				<a href="http://www.smartchicagocollaborative.org/making-public-health-data-work-in-illinois/">Making Public Health Data Work in Illinois Day 1 Roundup</a>
+						</li>
+				</ul>
+		</aside>			</div><!-- .widget-area -->
+		</div><!-- .sidebar-inner -->
+	</div><!-- #tertiary -->
+
+		</div><!-- #main -->
+		<footer id="colophon" class="site-footer" role="contentinfo">
+				<div id="secondary" class="sidebar-container" role="complementary">
+		<div class="widget-area">
+			<aside id="text-3" class="widget widget_text"><h3 class="widget-title">Most recent photo</h3>			<div class="textwidget"></div>
+		</aside><aside id="text-7" class="widget widget_text"><h3 class="widget-title">Elsewhere</h3>			<div class="textwidget"><a href="https://twitter.com/#!/smartchicago"><img src="http://www.smartchicagocollaborative.org/twitter-favicon.png"> @smartchicago</a><br>
+<a href="https://www.facebook.com/smartchicago"><img src="http://www.smartchicagocollaborative.org/facebook-favicon.jpg"> /smartchicago</a><br>
+<a href="https://plus.google.com/118316248874425232974"><img src="http://www.smartchicagocollaborative.org/google-plus-favicon.png"> +smartchicago</a></div>
+		</aside><aside id="text-10" class="widget widget_text"><h3 class="widget-title">Sharing is caring.</h3>			<div class="textwidget"><a href="https://twitter.com/share" class="twitter-share-button" data-via="SmartChicago" data-size="large" data-dnt="true">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script></div>
+		</aside><aside id="text-6" class="widget widget_text"><h3 class="widget-title">Contact</h3>			<div class="textwidget">Want to get involved with Smart Chicago? Write to <a href='mailto:doneil@cct.org'>Dan O'Neil</a> or call (773) 960-6045. Think about <a href="http://www.smartchicagocollaborative.org/volunteer-at-smart-chicago-be-a-cutgroup-test-proctor/">volunteering as a GUTGroup proctor</a>.</div>
+		</aside><aside id="text-5" class="widget widget_text"><h3 class="widget-title">Founders</h3>			<div class="textwidget"><a href="http://www.macfound.org">John D. and Catherine T. MacArthur Foundation</a><br>
+<a class="list_text_link" href="http://www.cityofchicago.org/city/en.html"><span class="list-title">City of Chicago</a><br>
+<a href="http://cct.org/">The Chicago Community Trust</a></div>
+		</aside>		</div><!-- .widget-area -->
+	</div><!-- #secondary -->
+
+			<div class="site-info">
+								<a href="http://wordpress.org/" title="Semantic Personal Publishing Platform">Proudly powered by WordPress</a>
+			</div><!-- .site-info -->
+		</footer><!-- #colophon -->
+	</div><!-- #page -->
+
+		<div style="display:none">
+	</div>
+<script type='text/javascript' src='http://s0.wp.com/wp-content/js/devicepx-jetpack.js?ver=201350'></script>
+<script type='text/javascript' src='http://s.gravatar.com/js/gprofiles.js?ver=2013Decaa'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var WPGroHo = {"my_hash":""};
+/* ]]> */
+</script>
+<script type='text/javascript' src='http://www.smartchicagocollaborative.org/wp-content/plugins/jetpack/modules/wpgroho.js?ver=3.7.1'></script>
+<script type='text/javascript' src='http://www.smartchicagocollaborative.org/wp-includes/js/jquery/jquery.masonry.min.js?ver=2.1.05'></script>
+<script type='text/javascript' src='http://www.smartchicagocollaborative.org/wp-content/themes/twentythirteen/js/functions.js?ver=2013-07-18'></script>
+
+		<!--[if IE]>
+		<script type="text/javascript">
+		if ( 0 === window.location.hash.indexOf( '#comment-' ) ) {
+			// window.location.reload() doesn't respect the Hash in IE
+			window.location.hash = window.location.hash;
+		}
+		</script>
+		<![endif]-->
+		<script type="text/javascript">
+			var comm_par_el = document.getElementById( 'comment_parent' ),
+			    comm_par = (comm_par_el && comm_par_el.value) ? comm_par_el.value : '',
+			    frame = document.getElementById( 'jetpack_remote_comment' ),
+			    tellFrameNewParent;
+
+			tellFrameNewParent = function() {
+				if ( comm_par ) {
+					frame.src = "http:\/\/jetpack.wordpress.com\/jetpack-comment\/?blogid=47333749&postid=2861&comment_registration=0&require_name_email=1&stc_enabled=1&stb_enabled=1&show_avatars=1&avatar_default=gravatar_default&greeting=Leave+a+Reply&greeting_reply=Leave+a+Reply+to+%25s&color_scheme=light&lang=en-US&jetpack_version=2.5&sig=78312e3c07389b1ec9c2ed11911271ed882a3e6a#parent=http%3A%2F%2Fwww.smartchicagocollaborative.org%2Fchicagos-hidden-opendata%2F" + '&replytocom=' + parseInt( comm_par, 10 ).toString();
+				} else {
+					frame.src = "http:\/\/jetpack.wordpress.com\/jetpack-comment\/?blogid=47333749&postid=2861&comment_registration=0&require_name_email=1&stc_enabled=1&stb_enabled=1&show_avatars=1&avatar_default=gravatar_default&greeting=Leave+a+Reply&greeting_reply=Leave+a+Reply+to+%25s&color_scheme=light&lang=en-US&jetpack_version=2.5&sig=78312e3c07389b1ec9c2ed11911271ed882a3e6a#parent=http%3A%2F%2Fwww.smartchicagocollaborative.org%2Fchicagos-hidden-opendata%2F";
+				}
+			};
+
+	
+			if ( 'undefined' !== typeof addComment ) {
+				addComment._Jetpack_moveForm = addComment.moveForm;
+
+				addComment.moveForm = function( commId, parentId, respondId, postId ) {
+					var returnValue = addComment._Jetpack_moveForm( commId, parentId, respondId, postId ), cancelClick, cancel;
+
+					if ( false === returnValue ) {
+						cancel = document.getElementById( 'cancel-comment-reply-link' );
+						cancelClick = cancel.onclick;
+						cancel.onclick = function() {
+							var cancelReturn = cancelClick.call( this );
+							if ( false !== cancelReturn ) {
+								return cancelReturn;
+							}
+
+							if ( !comm_par ) {
+								return cancelReturn;
+							}
+
+							comm_par = 0;
+
+							tellFrameNewParent();
+
+							return cancelReturn;
+						};
+					}
+
+					if ( comm_par == parentId ) {
+						return returnValue;
+					}
+
+					comm_par = parentId;
+
+					tellFrameNewParent();
+
+					return returnValue;
+				};
+			}
+
+	
+			if ( window.postMessage ) {
+				if ( document.addEventListener ) {
+					window.addEventListener( 'message', function( event ) {
+						if ( "http:\/\/jetpack.wordpress.com" !== event.origin ) {
+							return;
+						}
+
+						jQuery( frame ).height( event.data );
+					} );
+				} else if ( document.attachEvent ) {
+					window.attachEvent( 'message', function( event ) {
+						if ( "http:\/\/jetpack.wordpress.com" !== event.origin ) {
+							return;
+						}
+
+						jQuery( frame ).height( event.data );
+					} );
+				}
+			}
+		</script>
+
+	
+	<script src="http://stats.wordpress.com/e-201350.js" type="text/javascript"></script>
+	<script type="text/javascript">
+	st_go({v:'ext',j:'1:2.5',blog:'47333749',post:'2861',tz:'-6'});
+	var load_cmc = function(){linktracker_init(47333749,2861,2);};
+	if ( typeof addLoadEvent != 'undefined' ) addLoadEvent(load_cmc);
+	else load_cmc();
+	</script></body>
+</html>
