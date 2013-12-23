@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og: http://ogp.me/ns#">
+<head>
+  <meta charset="utf-8">
+  <title>Open Knowledge Foundation Labs - Open Knowledge Foundation Labs</title>
+
+  <!-- Open Graph Protocol http://ogp.me/ -->
+  <meta property="og:title" content="Open Knowledge Foundation Labs" />
+  <meta property="og:description" content="We're a community of civic hackers, data wranglers and ordinary citizens intrigued and excited by the possibilities of combining technology and information for good – making government more accountable, culture more accessible and science more efficient." />
+  <meta property="og:url" content="http://okfnlabs.org" />
+  <meta property="og:image" content="http://okfnlabs.org/img/okfnlabs.png" />
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <!-- styles -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/bootstrap-responsive.css">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/syntax.css" type="text/css" />
+  <link rel="stylesheet" href="/css/labs.css">
+  
+  <link rel="stylesheet" href="http://okfnlabs.org/githubActivity.js/githubActivity.css" />
+
+  <!-- must have these at the top of the page so we can do scripts in content of specific pages -->
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+  <script src="/js/underscore.js"></script>
+  <script src="http://okfnlabs.org/githubActivity.js/githubActivity.js"></script>
+
+  <link rel="alternate" type="application/atom+xml" title="Open Knowledge Foundation Labs Feed" href="http://okfnlabs.org/blog/feed.xml" />
+  <link rel="shortcut icon" href="http://assets.okfn.org/p/okfn/img/favicon.ico">
+</head>
+
+<body class="body-">
+  <!-- OKF Panel -->
+  <div class="absolute-okf-panel">
+    <div id="okf-panel" class="collapse">
+      <iframe src="http://assets.okfn.org/themes/okfn/okf-panel.html" scrolling="no"></iframe>
+    </div>
+    <div class="container">
+      <div class="okfn-ribbon">
+        <a href="http://okfn.org/" data-toggle="collapse" data-target="#okf-panel" title="Part of the Open Knowledge Foundation Network">An Open Knowledge Foundation Site</a>
+      </div>
+    </div>
+  </div>
+  <!-- End OKF Panel -->
+	<div class="navbar">
+    <div class="navbar-inner">
+      <div class="container">
+        <a href="/" class="brand"><img src="http://assets.okfn.org/p/labs/img/logo.png" alt="Open Knowledge Foundation Labs" style="width:218px; height:62px;"></a>
+        <ul class="nav pull-right">
+          <li><a class="nav-join" href="/join">Join</a></li>
+          <li><a class="nav-blog" href="/blog">Blog</a></li>
+          <li><a class="nav-code" href="/projects">Projects</a></li>
+          <li><a class="nav-events" href="/events">Events</a></li>
+          <li><a class="nav-about" href="/about">About</a></li>
+          <li><a class="nav-members" href="/members">Members</a></li>
+          <li><a class="nav-contact" href="/contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="content">
+      <div class="row">
+  <div class="span12">
+    <div id="claim" class="robot">
+      We make tools and insights using
+      <br />
+      open data, open content and open code
+      <br />
+      <a href="/join/">Join in &raquo;</a>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="span8 home">
+    <header class="blog-header">
+  <div class="socialism">
+    <a class="twitter" href="https://twitter.com/okfnlabs"><img
+      src="/img/blog_twitter.png"></a>
+    <a class="feed" href="/blog/feed.xml"><img src="/img/blog_feed.png"></a>
+  </div>
+  
+  <h1>The Data Wrangling Blog</h1>
+</header>
+
+    <ul class="blog posts">
+      
+              <li>
+        <div class="details">
+          <div class="meta">
+            <span class="date">19 November 2013</span>
+            <span class="author">Rufus Pollock</span> 
+          </div>
+          <h2><a href="/blog/2013/11/19/bad-data-examples-how-not-to-do-data.html">Bad Data: real-world examples of how not to do data</a></h2>
+        </div>
+        
+        <div class="excerpt">
+          We’ve just started a mini-project called Bad Data. Bad Data provides real-world examples of how not to publish data. It showcases the poorly structured, the mis-formatted, and the just plain ugly. This isn’t about being critical but about educating—providing examples of how not to do... 
+        </div>
+        <div class="more">
+          <a href="/blog/2013/11/19/bad-data-examples-how-not-to-do-data.html" title="read full post">●●●●●</a>
+        </div>
+      </li>
+
+
+
+      
+              <li>
+        <div class="details">
+          <div class="meta">
+            <span class="date">14 November 2013</span>
+            <span class="author">Neil Ashton</span> 
+          </div>
+          <h2><a href="/blog/2013/11/14/newsletter.html">Labs newsletter: 14 November, 2013</a></h2>
+        </div>
+        
+        <div class="excerpt">
+          Labs was bristling with discussion and creation this week, with major improvements to two projects, interesting conversations around a few others, and an awesome new blog post. Data Pipes: lots of improvements Data Pipes is a Labs project that provides a web API for a... 
+        </div>
+        <div class="more">
+          <a href="/blog/2013/11/14/newsletter.html" title="read full post">●●●●●</a>
+        </div>
+      </li>
+
+
+
+      
+              <li>
+        <div class="details">
+          <div class="meta">
+            <span class="date">11 November 2013</span>
+            <span class="author">Tarek Amr</span> 
+          </div>
+          <h2><a href="/blog/2013/11/11/python-nlp.html">Natural Language Processing using Python</a></h2>
+        </div>
+        
+        <div class="excerpt">
+          This weekend the Google Developer Group in Cairo arranged 2-days workshops followed by a hackathon. During this event, I organized a workshop about NLTK and the use of Python in Natural Language Processing (NLP). The session’s slides can be found here. The beauty of NLP... 
+        </div>
+        <div class="more">
+          <a href="/blog/2013/11/11/python-nlp.html" title="read full post">●●●●●</a>
+        </div>
+      </li>
+
+
+
+      
+              <li>
+        <div class="details">
+          <div class="meta">
+            <span class="date">07 November 2013</span>
+            <span class="author">Neil Ashton</span> 
+          </div>
+          <h2><a href="/blog/2013/11/07/newsletter.html">Labs newsletter: 7 November, 2013</a></h2>
+        </div>
+        
+        <div class="excerpt">
+          There was lots of interesting activity around Labs this week, with two launched projects, a new initiative in the works, and an Open Data Maker Night in London. Webshot: online screenshot service webshot.okfnlabs.org, an online service for taking screenshots of websites, is now live, thanks... 
+        </div>
+        <div class="more">
+          <a href="/blog/2013/11/07/newsletter.html" title="read full post">●●●●●</a>
+        </div>
+      </li>
+
+
+
+      
+              <li>
+        <div class="details">
+          <div class="meta">
+            <span class="date">06 November 2013</span>
+            <span class="author">Rufus Pollock</span> 
+          </div>
+          <h2><a href="/blog/2013/11/06/tracking-data-issues.html">Tracking Issues with Data the Simple Way</a></h2>
+        </div>
+        
+        <div class="excerpt">
+          Data Issues is a prototype initiative to track “issues” with data using a simple bug tracker—in this case, GitHub Issues. We’ve all come across “issues” with data, whether it’s “data” that turns out to be provided as a PDF, the many ways to badly format... 
+        </div>
+        <div class="more">
+          <a href="/blog/2013/11/06/tracking-data-issues.html" title="read full post">●●●●●</a>
+        </div>
+      </li>
+
+
+
+      
+      <li><a href="/blog/">All blog posts&hellip;</a></li>
+    </ul>
+
+
+    
+  </div>
+  <div class="span4 home sidebar">
+    <h4>Get involved</h4>
+    <p>
+      Labs is an open community. Join our mailing list and 
+      start contributing.
+    </p>
+    
+<form action="http://lists.okfn.org/mailman/subscribe/okfn-labs"
+  method="POST" class="form-inline">
+  <input type="text" class="input-medium" name="email" placeholder="Email">
+  <button type="submit" class="btn">Sign up</button>
+</form>
+
+    <p>If mailing lists are not your thing there are plenty of other ways to <a href="/contact/">get in touch</a>.</p>
+
+    <h4>Twitter</h4>
+    <a class="twitter-timeline" href="https://twitter.com/OKFNLabs" data-widget-id="332784266591211520">Tweets by @OKFNLabs</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+
+
+    <h4>Latest Activity</h4>
+    <div id="github-activity" style="width: 100%"></div>
+<script>
+try {
+  $('#github-activity').githubActivity({
+    "events": 8,
+    "repos": [
+        "okfn/annotator"
+      , "okfn/recline"
+      , "pybossa/pybossa"
+      , "okfn/publicbodies"
+      , "pudo/nomenklatura"
+      , "okfn/data.okfn.org"
+      , "okfn/dataexplorer"
+      , "okfn/timemapper"
+    ]
+  });
+} catch(e) {}
+</script>
+
+
+    <h4>Upcoming Events</h4>
+    <ul class="posts">
+      
+      
+      
+      
+      
+    </ul>
+
+    <!--div class="boxed">
+      Let's run an event together. 
+      <a href="/about">Get in touch</a>.
+    </div-->
+
+    <a href="http://www.shuttleworthfoundation.org/"><img src="http://assets.okfn.org/images/shuttleworth/shuttleworth%20funded-01.png" alt="Shuttleworth Supported" style="width: 200px;" /></a>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <!--div class="row">
+        <div class="span12">
+          <ul class="flatmenu">
+            <li><strong>Open Government</strong></li>
+            <li><a href="http://datahub.io">DataHub</a></li>
+            <li><a href="http://openspending.org">OpenSpending</a></li>
+            <li><a href="http://opengovernmentdata.org/">Open
+              Government Data WG</a></li>
+            <li><a href="http://datacatalogs.org/">DataCatalogs</a></li>
+            <li><a href="http://energy.publicdata.eu/ee/">Europe's Energy</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span12">
+          <ul class="flatmenu">
+            <li><strong>Open Research and Education</strong></li>
+            <li><a href="http://schoolofdata.org">School of Data</a></li>
+            <li><a href="http://access.okfn.org/">@ccess</a></li>
+            <li><a href="http://science.okfn.org">Science</a></li>
+            <li><a href="http://openeconomics.net/">Economics</a></li>
+            <li><a href="http://openbiblio.net/">Bibliography</a></li>
+            <li><a href="http://linguistics.okfn.org/">Linguistics</a></li>
+            
+          </ul>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span12">
+          <ul class="flatmenu">
+            <li><strong>Open Culture</strong></li>
+            <li><a href="http://humanities.okfn.org/">Humanities</a></li>
+            <li><a href="http://design.okfn.org/">Design</a></li>
+            <li><a href="http://openglam.org/">GLAM</a></li>
+            <li><a href="http://textusproject.org/">Textus</a></li>
+          </ul>
+        </div>
+      </div-->
+      <div class="row logorow">
+        <div class="span6">
+          <a href="http://www.shuttleworthfoundation.org/"><img src="/img/shuttleworth_small.png" alt="Funded by the Shuttleworth Foundation"></a>
+        </div>
+        <div class="span6 text-right">
+          <a href="http://okfn.org" class="okf-logo" title="Part of the Open Knowledge Foundation"><img src="/img/okfn.png" alt="Open
+            Knowledge Foundation"></a> 
+        </div>
+      </div>
+      <div class="row">
+        <div class="span12 text-right">
+          <ul class="flatmenu">
+            <li><a href="/about/">About Us</a></li>
+            <li><a href="http://okfn.org/opendata/">Open Data</a></li>
+            <li><a href="http://okfn.org/terms-of-use/">Terms of Use</a></li>
+            <li><a href="http://okfn.org/privacy-policy/">Privacy Policy</a></li>
+            <li><a href="http://okfn.org/ip-policy/">IP Policy</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span12 text-right">
+          <p class="projects">
+            <a href="http://schoolofdata.org/" title="School of Data - Learn Data Skills">
+              <img src="http://assets.okfn.org/p/schoolofdata/img/logo.png" alt="School of Data" /></a>
+            <a href="http://okfnlabs.org/" title="Open Knowledge Foundation Labs">
+              <img src="http://assets.okfn.org/p/labs/img/logo.png" alt="" /></a>
+            <a href="http://datahub.io/" title="DataHub - Publish, Find and Share Data Easily">
+              <img src="http://assets.okfn.org/p/datahub/img/logo-full.png" alt="DataHub" /></a>
+            <a href="http://openspending.org/" title="OpenSpending">
+              <img src="http://assets.okfn.org/p/openspending/img/openspending-logo.png" alt="OpenSpending" /></a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-33874954-3']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+<script src="http://assets.okfn.org/themes/okfn/collapse.min.js" type="text/javascript"></script>
+<script src="http://assets.okfn.org/themes/okfn/okf-panel.js" type="text/javascript"></script>
+</body>
+</html>
+
+

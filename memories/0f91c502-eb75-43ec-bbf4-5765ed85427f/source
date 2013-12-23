@@ -1,0 +1,471 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <link rel="shortcut icon" href="/favicon.ico" >
+  <link rel="stylesheet" href="/base.css" type="text/css">
+  <script language="JavaScript" src="/base.js"></script>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <link rel="alternate" type="application/rss+xml" title="RSS 1.0" href="/index.rdf" /> 
+  <link rel="EditURI" type="application/rsd+xml" title="RSD" href="/rsd.xml" />
+  <!--
+<rdf:RDF xmlns="http://web.resource.org/cc/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+<Work rdf:about="http://nikhil.superfacts.org/archives/2010/07/p2p_lending_svm.html">
+<dc:title>P2P Lending + SVM = $$$?</dc:title>
+<dc:description><![CDATA[<br>Since 2004, I've been intrigued by microfinance. It all started when I read Mohammed Yunus' book "Banker for the Poor". In it, Yunus describes how he was able to improve the lives of poor women in Bangladesh by providing them with small loans (as little as $50 or less). Not only did the lenders get a reliable return, the borrowers <b>...</b>]]></dc:description>
+<dc:creator>nikhil</dc:creator>
+<dc:date>2010-07-07T13:20:01-08:00</dc:date>
+<license rdf:resource="http://creativecommons.org/licenses/by/1.0/" />
+</Work>
+<License rdf:about="http://creativecommons.org/licenses/by/1.0/">
+<requires rdf:resource="http://web.resource.org/cc/Attribution" />
+<requires rdf:resource="http://web.resource.org/cc/Notice" />
+<permits rdf:resource="http://web.resource.org/cc/Reproduction" />
+<permits rdf:resource="http://web.resource.org/cc/Distribution" />
+<permits rdf:resource="http://web.resource.org/cc/DerivativeWorks" />
+</License>
+</rdf:RDF>
+-->
+
+<title>P2P Lending + SVM = $$$? - by nikhil bhatla</title>
+</head>
+
+<body>
+<form method="get" name=sform action="/mt-search.cgi">
+<table width=100% cellpadding=0 cellspacing=0 bgcolor=#dedede>
+  <tr>
+    <td nowrap>&nbsp;<a href="/"><b>Interesting ideas interspersed with nonsense</b></a> <span class=p>- <a class=b href=/index.rdf>RSS</a> - by nikhil bhatla, <a href=mailto:nbhatla@mit.edu>nbhatla@mit.edu</a> -  
+<input name="IncludeBlogs" value="1" type="hidden"><input id="search" name="search" size="24" value=" Search blog" style="font-size: 9px;" onfocus="sform.search.value=''" type="text"></span></td>
+  </tr>
+  <tr>
+    <td bgcolor=#BBBBBB colspan=2 height=1></td>
+  </tr>
+</form>
+</table>
+
+
+<div style="margin-left:10px; margin-top:12px; margin-bottom:12px">
+<span class="p">
+<a href="/">Home</a> <b>&rsaquo;</b>
+<a href="/archives.html">Archives</a> <b>&rsaquo;</b> 
+<a href="http://nikhil.superfacts.org/archives/2010/07/index.html">July 2010</a><br><br>
+<a href="http://nikhil.superfacts.org/archives/2010/07/video_of_bacter.html">&laquo; Video of real bacterial chemotaxis</a>
+
+ - 
+
+ 
+<a href="http://nikhil.superfacts.org/archives/2010/07/x.html">X &raquo;</a>
+
+</span>
+</div>
+
+<TABLE cellpadding=0 cellspacing=10>
+  <TR>
+    <TD class=j valign=top>
+      <b>P2P Lending + SVM = $$$?</b><br><span class=p><span class=l><a href="http://nikhil.superfacts.org/archives/2010/07/index.html" class=l>Jul</a>  7, 2010, 1:20p  - <a href=http://nikhil.superfacts.org/archives/investing/index.html class=l>Investing</a></span><br>
+      <br>Since 2004, I've been intrigued by microfinance.  It all started when I read Mohammed Yunus' book "Banker for the Poor".  In it, Yunus describes how he was able to improve the lives of poor women in Bangladesh by providing them with small loans (as little as $50 or less).  Not only did the lenders get a reliable return, the borrowers got the means to pull themselves out of poverty.  I'd never been that interested in investing (for a variety of reasons), but this win-win approach really appealed to me.  When I looked into investing my own money, I found that most services for lenders positioned the loan more as a temporary donation (with almost 0% interest) than as a competitive investment.  The money would also be sent far away, which made me uncomfortable, so ultimately I never lent any money.<br>
+
+<br><span style='font-size:110%;font-weight:bold'>Peer-to-Peer (P2P) Lending</span><br />
+When Prosper.com started providing peer-to-peer (P2P) loans in the United States in 2005, my interest was piqued again.  With their service, anyone in the US could go online and request to borrow up to $25,000.  Lenders could then go to the site, look at the borrower's credit grade and other listing information, and decide to lend as little as $50 per loan.  If the borrower got enough investors, their loan amount would be fully funded and they'd receive the loan (a supposed "wisdom of crowds" approach).  Prosper was set up as an auction, where the borrower specified the highest interest rate they're willing to borrow at, and lenders specified the lowest interest rate they're willing to lend at.  So the final interest rate ended up somewhere in between.  The loan term was for 3 years, with a fixed monthly payment of principal and interest.<br>
+
+<br>By cutting the bank out as the middleman, borrowers were able to get unsecured loans at interest rates lower than what credit cards or banks offer (from 8-20%).  Likewise, lenders were able to get interest rates higher than bank CDs and perhaps even the stock market.  Again, a win-win situation: you help people buy a car or get an engagement ring, and you get a good interest rate in return.<br>
+
+<br>So in 2008, I started lending money on Prosper.  At first it seemed like it was going really well, with my loans averaging about 11% interest.  I only lent to AA or A grade borrowers, so I thought that it was a relatively low-risk investment.  Fast-forward to July 2010: even after diversifying with more than 100 loans, 13% have defaulted, leaving my annualized return at a meager 0.8%.  So much for that idea...<br>
+
+<br><span style='font-size:110%;font-weight:bold'>Support Vector Machines (SVM)</span><br />
+As the defaults began to accumulate in 2009, I took a class on machine learning at MIT.  Machine learning is a sub-field of computer science that focuses on developing software that can learn.  What does that mean exactly?  As an example, let's say that I want a computer to label faces in a photograph with each person's name.  One approach would be to hand-code heuristics that identify each face.  For example, any face with light brown skin, black hair, and thick eyebrows could be labeled "Nikhil".  Of course, this approach is tricky and fraught with peril.  Not only does a person have to figure out the feature values that uniquely identify an individual, the computer has to know what "hair" and "eyebrows" are, what those features actually mean.  The first step is really time-consuming, brittle and perhaps impossible as the number of different unique faces increases.  And the second step is still an unsolved problem in computer vision.  In this heuristic approach, the computer doesn't learn: it's just programmed to label faces based on a set of human-specified features.<br>
+
+<br>Contrast this to a machine learning approach.  Rather than having a human figure out what sets of features values go with each person's face, the computer would be "trained" in the same way that people are trained: by just being shown faces and the names attached to those faces.  Then it's the computer's job to figure out what feature values go with the names.  This type of learning is called "supervised" learning.  After being shown a large number of face-name pairs, the program is "tested" by being presented with a face it's never seen before.  The program's job is to decide, of the labeled faces it's already seen, which is most similar to the new face, and then label it with that person's name.<br>
+
+<br>I'm not sure if this sounds easy or hard to you, but in fact it is quite tricky and doesn't work very well, especially with complex visual stimuli such as faces.  If you think about it, a face can be photographed from many different angles and under various lighting conditions.  One amazing ability of the human brain is that it instantly identifies faces, while even the most cutting-edge computer programs are much less accurate and much slower.<br>
+
+<br>So what does all of this have to do with P2P lending?  What if instead of having to label faces (a hard problem of choosing from a set of n choices), the computer just had to identify loan requests that were likely to default (a simpler problem of choosing from a set of only 2 choices, will default or won't)?  Labeling loans likely to default is a yes/no type of question, so maybe machine learning techniques could work in this more limited space.  I was so excited by this idea that I decided to actually test it.<br>
+
+<br>But before we get to the data analysis, let me explain the machine learning technique I used, which is called a support vector machine (SVM).  I don't fully understand the math behind the technique, but I do understand graphically how it's supposed to work.  So I'm going to use graphs to explain the concept.<br>
+
+<br>For simplicity, let's just assume that we know only 2 things about each loan: the loan amount (with a range of $50-$25,000) and the borrower's credit score (with a range of 550-800).  With this information, we can plot 10 imaginary loans on a 2-dimensional graph, as shown in Figure 1.  5 of the loans have defaulted (shown in red) and the remaining 5 are current or paid in full (shown in blue).<br>
+
+<br>&nbsp; &nbsp; &nbsp; <img src="http://chart.apis.google.com/chart?cht=s&chs=450x300&chd=t:550,600,600,650,650,700,700,750,750,800|10000,5000,19000,3000,12000,10000,8000,8000,24000,10000&chds=550,800,50,25000&chco=FF0000|0000FF&chdl=Defaulted|Non-defaulted&chdlp=t&chtt=Loans&chxt=x,x,y,y&chxr=0,550,800|1,550,800|2,0,25000,5000|3,0,25000&chxl=1:|Borrower+Credit+Score|2:|$0|$5,000|$10,000|$15,000|$20,000|$25,000|3:|Loan+$&chxp=1,700|3,12500&chxs=1,000000,12,0,_|3,000000,12,0,_&chm=o,00FF00,0,-1,0|o,FF0000,0,0:9:2,9|o,0000FF,1,1:9:2,9"><br />
+<br><center><b>Figure 1</b>: 10 imaginary loans plotted with respect to credit score and loan amount</center><br>
+
+<br>Now, what a support vector machine does is find the line that best separates the 2 populations of points, as shown in Figure 2:<br>
+
+<br>&nbsp; &nbsp; &nbsp; <img src="http://chart.apis.google.com/chart?cht=s&chs=450x300&chd=t:550,600,600,650,650,700,700,750,750,800,550,800|10000,5000,19000,3000,12000,10000,8000,8000,24000,10000,7000,15000&chds=550,800,50,25000&chco=FF0000|0000FF&chdl=Defaulted|Non-defaulted&chdlp=t&chtt=Loans&chxt=x,x,y,y&chxr=0,550,800|1,550,800|2,0,25000,5000|3,0,25000&chxl=1:|Borrower+Credit+Score|2:|$0|$5,000|$10,000|$15,000|$20,000|$25,000|3:|Loan+$&chxp=1,700|3,12500&chxs=1,000000,12,0,_|3,000000,12,0,_&chm=o,00FF00,0,-1,0|o,FF0000,0,0:9:2,9|o,0000FF,0,1:9:2,9|D,000000,0,10:,3,-1|@a,000000,0,.75:.55,5|@tSeparating+line+(from+SVM),000000,0,.75:.67,12"><br />
+<br><center><b>Figure 2</b>: A support vector machine (SVM) finds the line that best separates the 2 data sets</center><br>
+
+<br>The perfect separating line would have all defaulted loans on one side and all non-defaulted loans on the other.  In the example above, perfect separation is impossible for a linear function, though possible with a more complex function that can wiggle around.  To keep things simple, though, we'll focus on a linear separating function, which ends up looking like a straight line on a graph.<br>
+
+<br>An SVM is a bit magical because it'll find the line that best separates the two categories of points, by minimizing the categorization error over the training set.  The "training set" is the set of categorized points that the SVM gets to learn from before it draws its line (the 10 points in the current example).  In the graph above, the error rate on the training set is 10%, because 1 of the 10 loans is on the wrong side of the line and miscategorized as not-defaulting, even though it did default.<br>
+
+<br>Performance on the training set only means so much, though.  An SVM's true utility is revealed on loans not included in the training set, where it can predict whether they will default or not depending on which side of the line they fall on.  2 new loans, whose fate the SVM does not know, are depicted as green and purple <b>x</b>'s below.  The green <b>x</b> is a $14,000 loan request from a borrower with a credit score of 690, and the purple <b>x</b> is a $6,000 loan request from a borrower with a credit score of 640.<br>
+
+<br>&nbsp; &nbsp; &nbsp; <img src="http://chart.apis.google.com/chart?cht=s&chs=450x300&chd=t:550,600,600,650,650,700,700,750,750,800,550,800|10000,5000,19000,3000,12000,10000,8000,8000,24000,10000,7000,15000&chds=550,800,50,25000&chco=FF0000|0000FF&chdl=Defaulted|Non-defaulted&chdlp=t&chtt=Loans&chxt=x,x,y,y&chxr=0,550,800|1,550,800|2,0,25000,5000|3,0,25000&chxl=1:|Borrower+Credit+Score|2:|$0|$5,000|$10,000|$15,000|$20,000|$25,000|3:|Loan+$&chxp=1,700|3,12500&chxs=1,000000,12,0,_|3,000000,12,0,_&chm=o,00FF00,0,-1,0|o,FF0000,0,0:9:2,9|o,0000FF,0,1:9:2,9|D,000000,0,10:,3,-1|@x,00FF00,0,.55:.55,9|@x,FF00FF,0,.35:.25,9"><br />
+<br><center><b>Figure 3</b>: Two new loans (the <b>x</b>'s) plotted with respect to the separating line.  The SVM predicts that the green <b>x</b> will default, while the purple <b>x</b> won't.</center><br>
+
+<br>A naive investor might think that the larger loan to the more credit-worthy borrower is a better bet.  But the SVM, having learned from the outcomes of the last 10 loans, would suggest skipping that loan and instead lending to the lower credit-score borrower, because they're predicted not to default.<br>
+
+<br>In addition to categorizing a novel point, the SVM can also tell us how confident it is that its classification is correct.  Graphically, this amounts to how far the point is from the separating line. The SVM is less confident about points closer to the line (near the category boundary), while more confident about points farther from the line.  This subtlety will prove critical in the analysis described below.<br>
+
+<br>Hopefully this explanation of an SVM makes some sense.  One beauty of the SVM is that it can find the best separating line across n-dimensions, not just the 2-dimensions from the example.  Prosper makes available all of their historical loan data, which includes over 100 features per loan and whether or not the loan has defaulted.  In my analysis, I use this feature set to train the SVM, and then use the remaining historical data to test the SVM's prediction accuracy.<br>
+
+<br>Before we see how well it does, I want to mention some brief technical details.  All of the following analysis was done in Matlab (R2008a) using libsvm-mat-2.89-1 (released April 2009).  I simply normalized my data in Matlab and then fed it to libsvm, and it did all the hard work for me.<br>
+
+<br><span style='font-size:110%;font-weight:bold'>Using an SVM to Predict Defaults on Prosper.com</span><br />
+Remember, our goal with all of this mathematical trickery is to create a system that will give a return on investment that's better than we'd get without it.  This amounts to the SVM being able to identify loans that will default better than I can identify ones that'll default.<br>
+
+<br>At the time I did this analysis (April 2009), 4.65% of my Prosper loans fell into the default category (which includes loans that are more than 1 month late).  For me to benefit from an SVM, it should reduce this default rate significantly (ideally by half or more).<br>
+
+<br>I trained the SVM on Prosper loan data from November 11, 2005 to October 1, 2007, the day before my first loan.  Training was done on 35% of the total, feature-complete data set (7,108 of all 20,204 loans - more details in Appendix 1).  Initial results were promising.  <b>If I had followed the SVM's default predictions for the loans in my portfolio, my default rate would have dropped 14% (from 4.65% to 4.03%).</b>  While a small effect, this was an encouraging start.<br>
+
+<br>After further thinking, I realized that instead of just using the SVM's prediction alone to decide what to invest in, I could act only on those predictions that the SVM had confidence in.  <b>If I only invested in loans that the SVM was more than 90% confident would not default, I could further reduce my default rate by 76% (from 4.65% to 1.12%).</b>  I would invest in much fewer loans, but earn a better return overall.<br>
+
+<br>Curious about whether this result was specific to my portfolio or generalized further, I retested on the broader set of all loans available after the training period (a total of 13,096 loans).  I call this the "invest-in-everything" strategy.  <b>If I had invested in all loans the SVM predicted would not default with more than 90% confidence, my default rate would drop a whopping 85% (from 15.28% to only 2.33%)!</b>  Clearly the SVM is providing a significant improvement in accuracy, part of which is redundant with that ill-defined loan selection process that operates in my head.  This is sketched out in Figure 4:<br>
+
+<br>&nbsp; &nbsp; <img src='http://chart.apis.google.com/chart?cht=gv&chs=500x200&chl=digraph{rankdir=LR;labelloc=t;label="Prosper+Default+Rate";fontsize=16;fontcolor=blue;lp=b;<15%26%2337%3B>-><4.7%26%2337%3B>[label="my\nportfolio"];<4.7%26%2337%3B>-><1.1%26%2337%3B>[label="SVM"];<15%26%2337%3B>-><2.3%26%2337%3B>[headlabel="SVM"labeldistance=5labelangle=14];}'><br />
+<br><center><b>Figure 4</b>: Proportion of Prosper loans that default with subsequent filters.  If all loans are purchased, the default rate is 15%.  If only loans in my portfolio are included, the default rate is 4.7%.  If only the loans in my portfolio approved with high confidence by the SVM are included, the default rate is 1.1%.  If all loans approved with high confidence by the SVM are included, the default rate is 2.3%.</center><br>
+
+<br>It would be interesting to re-run this analysis today and see if the SVM still returns a significant advantage, as more than a year's worth of new data has accumulated.  However, I can no longer find a way to download loan performance data from Prosper.  It looks like they're no longer releasing it, which is unfortunate.<br>
+
+<br><span style='font-size:110%;font-weight:bold'>Using an SVM to Predict Defaults on LendingClub.com</span><br />
+After completing my analysis of Prosper in April 2009, I wasn't able to use it to invest in new loans because Prosper had temporarily shut down.  They were revising their legal agreements to comply with SEC regulations, and no new loans would be processed during that time.  So I turned my attention to another P2P lending service called LendingClub.com.<br>
+
+<br>Unlike Prosper's auction method, Lending Club sets interest rates using a proprietary analysis of the loan application, purposefully avoiding the supposed "wisdom of crowds".  In retrospect, this is a much better strategy.  Although Lending Club loans have lower interest rates, the default rates are substantially lower: from June 2007 to April 2009, 7.6% of all Lending Club loans were 1 or more months late, while 21% of all Prosper loan dollars were 1 or more months late.  By rejecting over 90% of borrower applications, Lending Club has improved performance for lenders.<br>
+
+<br>So once again I focused my trusty SVM on a new set of data, to see if it could improve results much like it had for Prosper.  In this case, though, I didn't haven any investments with Lending Club, so I couldn't compare the SVM's results with my portfolio's results.  So I was only able to compare the SVM approach with an "invest-in-everything" strategy.<br>
+
+<br><b>If the SVM is trained on the oldest 35% of loans and tested on the newest 65% (similar to what was done for the Prosper analysis above), the SVM default rate is no different than the naive default rate (of about 2.97%, or 79 of 2,662 loans defaulting).  If a confidence threshold of 0.9 is used, the default rate actually increases to 3.85% (3 of 78 loans default)!</b>  (More details can be found in Appendix 2)<br>
+
+<br>Note that this result depends on the training set used.  <b>If I train on the oldest 60% of loans (up to October 16, 2008) and test on the newest 40%, I am able to lower my default rate from 0.82% to 0.45% by only lending when the SVM is more than 90% confident that the loan won't default.</b><br>
+
+<br>Both outcomes are diagrammed in Figure 5:<br>
+
+<br>&nbsp; &nbsp; <img src='http://chart.apis.google.com/chart?cht=gv&chs=500x200&chl=digraph{rankdir=LR;labelloc=t;label="Lending+Club+Default+Rate";fontsize=16;fontcolor=blue;lp=b;<0.8%26%2337%3B>-><0.5%26%2337%3B>[label="SVM+%232"];<3.0%26%2337%3B>-><3.9%26%2337%3B>[label="SVM+%231"];}'><br />
+<br><center><b>Figure 5</b>: Proportion of Lending Club loans that default with 2 filters.  SVM #1 refers to an SVM that is trained on the oldest 35% of data.  This results in an increase in default rate.  SVM #2 refers to an SVM that is trained on the oldest 60% of the data.  This results in a decrease in default rate.</center><br>
+
+<br>Overall, it appears as if the Lending Club SVM can either increase or decrease the default rate, depending perhaps on the time period examined or overall amount of training data used.<br>
+
+<br><span style='font-size:110%;font-weight:bold'>Conclusions</span><br />
+So what did I learn from all of this?<br />
+<b><ol><li>Prosper has more defaulting loans, probably because it doesn't screen borrowers as well as Lending Club does.</li><br />
+<li>Investing on Prosper siginficantly benefits from using an SVM to make loan decisions, especially when a high confidence threshold (90%) is used.</li><br />
+<li>It's unclear whether investing on Lending Club benefits from an SVM: depending on the conditions, it can either help or hurt.</li><br />
+<li>The SVM is a useful computational tool for categorization, especially when there are only 2 categories to choose from.</li></ol></b>So how has all of this analysis influenced my lending?  I'm currently lending on Lending Club with new criteria I derived from my Prosper loans that defaulted.  So far I have 0 defaults, but the loans haven't had much time to default (varying between one month to one year).  <br>
+
+<br>I have no intention of making new loans on Prosper even with the SVM, as my non-SVM return on investment has been abysmal, the company seems a bit shady (for reasons you can find while Googling), and Lending Club seems to be a less riskier alternative.<br>
+
+<br>Perhaps in the future I'll setup a service that will use a Lending Club SVM to automatically suggest loans to purchase.  However, I'm a bit hesitant to use a program whose learned criteria I don't yet understand.  Though maybe I just learned the hard way what the SVM could have told me all along...<br>
+
+<br>If you've gotten this far and still have questions or comments, don't hesitate to email me.  My current email address is at the top of the page.<br>
+
+<br>--<br />
+<i>Notes, credits, and links:</i><br />
+<li><a href=http://nikhil.superfacts.org/archives/2004/12/book_notes_moha.html>My synopsis and comments</a> on Yunus' "Banker for the Poor"<br />
+<li><a href=http://prosper.com>Prosper.com</a> - the first P2P lending service in the US.  I got basically no return on my investment here, so I would not recommend them.<br />
+<li><a href=http://lendingclub.com>LendingClub.com</a> - another P2P lending service in the US.  I've only started investing here, and so far my experience has been positive.<br />
+<li><a href=http://mathworks.com>Matlab</a> - data analysis environment used<br />
+<li><a href=http://www.csie.ntu.edu.tw/~cjlin/libsvm/#matlab>libsvm</a> - SVM library used in Matlab for all analyses<br />
+<li>All figures were generated with <a href=http://code.google.com/apis/charttools/index.html>Google Chart Tools</a></li><br />
+--<br>
+
+<br><span style='font-size:110%;font-weight:bold'>Appendix 1: Prosper Analysis Details</span><br />
+I trained the Prosper SVM with 112 features (see below). The training data spanned November 11, 2005 to October 1, 2007 (7,028 loans).  I chose this start date because it's the first date data was available, and this end date because it's one day before my first loan.  This data set included 4,931 examples of non-defaulted loans, and 2,177 examples of defaulted loans (after removing loans with incomplete feature sets).<br>
+
+<br>The test data set was comprised of either (1) my portfolio of loans or (2) all loans made from October 2, 2007 to October 16, 2008 (the last day before Prosper shut down to comply with SEC regulations).<br>
+
+<br>A loan was classified as not defaulted if its Loan.Status was Origination delayed, Current, Late (less than 30 days), Payoff in progress, or Paid.  Conversely, a loan was classified as defaulted if its Loan.Status was Charge-off, 1 month late, 2 months late, 3 months late, 4+ months late, Defaulted (Delinquency), Defaulted (Bankruptcy), or Defaulted (Deceased).  A loan was not labeled if its Loan.Status was Repurchased or Cancelled.<br>
+
+<br>The following 112 features were used when training and testing the SVM:<br />
+<ol><i>Features related to the borrower herself:</i><li>CreditProfiles.AmountDelinquent<br />
+<li>CreditProfiles.BankcardUtilization<br />
+<li>CreditProfiles.CurrentCreditLines<br />
+<li>CreditProfiles.CurrentDelinquencies<br />
+<li>CreditProfiles.DelinquenciesLast7Years<br />
+<li>CreditProfiles.Income<br />
+<li>CreditProfiles.InquiriesLast6Months<br />
+<li>CreditProfiles.LengthStatusMonths<br />
+<li>CreditProfiles.OpenCreditLines<br />
+<li>CreditProfiles.PublicRecordsLast10Years<br />
+<li>CreditProfiles.PublicRecordsLast12Months<br />
+<li>CreditProfiles.RevolvingCreditBalance<br />
+<li>CreditProfiles.TotalCreditLines<br />
+<li>CreditProfiles.FirstRecordedCreditLine<br>
+
+<br><i>A borrower's credit grade.  Only 1 of the following can be true, leaving the rest false: </i><br />
+<li>CreditProfiles.AA<br />
+<li>CreditProfiles.A<br />
+<li>CreditProfiles.B<br />
+<li>CreditProfiles.C<br />
+<li>CreditProfiles.D<br />
+<li>CreditProfiles.E<br />
+<li>CreditProfiles.HR<br />
+<li>CreditProfiles.NC<br>
+
+<br><i>A borrower's employment status.  Only 1 of the following can be true, leaving the rest false: </i><br />
+<li>CreditProfiles.Full-time<br />
+<li>CreditProfiles.Part-time<br />
+<li>CreditProfiles.Self-employed<br />
+<li>CreditProfiles.Retired<br />
+<li>CreditProfiles.Not employed<br />
+<li>CreditProfiles.Not available<br />
+ <br />
+<i>A borrower's occupation.  Only 1 of the following can be true, leaving the rest false: </i><br />
+<li>CreditProfiles.Accountant/CPA<br />
+<li>CreditProfiles.Administrative Assistant<br />
+<li>CreditProfiles.Analyst<br />
+<li>CreditProfiles.Architect<br />
+<li>CreditProfiles.Attorney<br />
+<li>CreditProfiles.Biologist<br />
+<li>CreditProfiles.Bus Driver<br />
+<li>CreditProfiles.Car Dealer<br />
+<li>CreditProfiles.Chemist<br />
+<li>CreditProfiles.Civil Service<br />
+<li>CreditProfiles.Clergy<br />
+<li>CreditProfiles.Clerical<br />
+<li>CreditProfiles.Computer Programmer<br />
+<li>CreditProfiles.Construction<br />
+<li>CreditProfiles.Dentist<br />
+<li>CreditProfiles.Doctor<br />
+<li>CreditProfiles.Engineer - Chemical<br />
+<li>CreditProfiles.Engineer - Electrical<br />
+<li>CreditProfiles.Engineer - Mechanical<br />
+<li>CreditProfiles.Executive<br />
+<li>CreditProfiles.Fireman<br />
+<li>CreditProfiles.Flight Attendant<br />
+<li>CreditProfiles.Food Service<br />
+<li>CreditProfiles.Food Service Management<br />
+<li>CreditProfiles.Homemaker<br />
+<li>CreditProfiles.Investor<br />
+<li>CreditProfiles.Judge<br />
+<li>CreditProfiles.Laborer<br />
+<li>CreditProfiles.Landscaping<br />
+<li>CreditProfiles.Medical Technician<br />
+<li>CreditProfiles.Military Enlisted<br />
+<li>CreditProfiles.Military Officer<br />
+<li>CreditProfiles.Nurse (LPN)<br />
+<li>CreditProfiles.Nurse (RN)<br />
+<li>CreditProfiles.Nurse's Aide<br />
+<li>CreditProfiles.Pharmacist<br />
+<li>CreditProfiles.Pilot - Private/Commercial<br />
+<li>CreditProfiles.Police Officer/Correction Officer<br />
+<li>CreditProfiles.Postal Service<br />
+<li>CreditProfiles.Principal<br />
+<li>CreditProfiles.Professional<br />
+<li>CreditProfiles.Professor<br />
+<li>CreditProfiles.Psychologist<br />
+<li>CreditProfiles.Realtor<br />
+<li>CreditProfiles.Religious<br />
+<li>CreditProfiles.Retail Management<br />
+<li>CreditProfiles.Sales - Commission<br />
+<li>CreditProfiles.Sales - Retail<br />
+<li>CreditProfiles.Scientist<br />
+<li>CreditProfiles.Skilled Labor<br />
+<li>CreditProfiles.Social Worker<br />
+<li>CreditProfiles.Student - College Freshman<br />
+<li>CreditProfiles.Student - College Sophomore<br />
+<li>CreditProfiles.Student - College Junior<br />
+<li>CreditProfiles.Student - College Senior<br />
+<li>CreditProfiles.Student - College Graduate Student<br />
+<li>CreditProfiles.Student - Community College<br />
+<li>CreditProfiles.Student - Technical School<br />
+<li>CreditProfiles.Teacher<br />
+<li>CreditProfiles.Teacher's Aide<br />
+<li>CreditProfiles.Tradesman - Carpenter<br />
+<li>CreditProfiles.Tradesman - Electrician<br />
+<li>CreditProfiles.Tradesman - Mechanic<br />
+<li>CreditProfiles.Tradesman - Plumber<br />
+<li>CreditProfiles.Truck Driver<br />
+<li>CreditProfiles.Waiter/Waitress<br />
+<li>CreditProfiles.Other<br>
+
+<br><i>Information that's supposed to be about the loan listing itself, not the borrower (though you can see some, like HasVerifiedBankAccount, is about the borrower): </i><br />
+<li>Listing.AmountRequested<br />
+<li>Listing.BankDraftFeeAnnualRate<br />
+<li>Listing.BorrowerMaximumRate<br />
+<li>Listing.LenderRate<br />
+<li>Listing.DebtToIncomeRatio<br />
+<li>Listing.FundingOption<br />
+<li>Listing.GroupLeaderRewardRate<br />
+<li>Listing.HasVerifiedBankAccount<br />
+<li>Listing.IsBorrowerHomeowner<br>
+
+<br><i>What the loan will be used for.  Only 1 of the following can be true, leaving the rest false: </i><br />
+<li>Listing.Not available<br />
+<li>Listing.Debt consolidation<br />
+<li>Listing.Home Improvement Loan<br />
+<li>Listing.Business Loan<br />
+<li>Listing.Personal Loan<br />
+<li>Listing.Student Loan<br />
+<li>Listing.Auto Loan<br />
+<li>Listing.Other</ol>The following 36 features were ignored and NOT included when training or testing the SVM:<br />
+<ol><li>CreditProfiles.CreationDate<br />
+<li>CreditProfiles.DatePulled<br>
+
+<br><li>Listing.AmountFunded<br />
+<li>Listing.AmountRemaining<br />
+<li>Listing.BidCount<br />
+<li>Listing.BidMaximumRate<br />
+<li>Listing.BorrowerCity<br />
+<li>Listing.BorrowerState<br />
+<li>Listing.CreationDate<br />
+<li>Listing.CreditGrade (duplicate of credit grade associated with the CreditProfile)<br />
+<li>Listing.Description<br />
+<li>Listing.Duration<br />
+<li>Listing.EndDate<br />
+<li>Listing.Images<br />
+<li>Listing.GroupKey<br />
+<li>Listing.Key<br />
+<li>Listing.BorrowerRate<br />
+<li>Listing.ListingNumber<br />
+<li>Listing.MemberKey<br />
+<li>Listing.PercentFunded<br />
+<li>Listing.Status<br />
+<li>Listing.StartDate<br />
+<li>Listing.Title<br />
+<li>Listing.LoanTermInMonths<br>
+
+<br><li>Loan.AgeInMonths<br />
+<li>Loan.AmountBorrowed<br />
+<li>Loan.BorrowerRate<br />
+<li>Loan.CreationDate<br />
+<li>Loan.CreditGrade<br />
+<li>Loan.DebtToIncomeRatio<br />
+<li>Loan.GroupKey<br />
+<li>Loan.Key<br />
+<li>Loan.LenderRate<br />
+<li>Loan.ListingKey<br />
+<li>Loan.OriginationDate<br />
+<li>Loan.Term</li></ol><span style='font-size:110%;font-weight:bold'>Appendix 2: Lending Club Analysis Details</span><br />
+I trained the Lending Club SVM with 20 features (see below).  The first training data set spanned June 14, 2007 (the earliest available) through March 22, 2008 (1,430 loans).  The end date was chosen so that the training data comprised 35% of all of the available data (as was the case with the Prosper training set).  I thought this would be the best way to make the methods comparable.  This data set included 1,199 examples of non-defaulted loans, and 231 examples of defaulted loans (after removing loans with incomplete feature sets).<br>
+
+<br>The first test data set was comprised of the remaining 65% of data, spanning March 23, 2008 to April 28, 2009 (2,662 loans).<br>
+
+<br>A loans was categorized as not-defaulted if its Status was Issued, Current, In Grace Period, Late (16-30 days), or Fully Paid.  A loan was categorized as defaulted if its Status was Late (31-120 days), Default, or Charged Off.  A loan was not categorized or analyzed if its Status was Cancelled or Removed.<br>
+
+<br>The following 20 features were used to train and test the SVM:<br />
+<ol><li>Req (loan amount requested)<br />
+<li>IntRate<br />
+<li>Credit<br />
+<li>DebtToIncomeRatio<br>
+
+<br><li>Home.RENT<br />
+<li>Home.OWN<br />
+<li>Home.MORTGAGE<br />
+<li>Home.NONE (Home.ANY gets all zeros)<br>
+
+<br><li>MoInc (monthly income)<br />
+<li>FICO (credit score)<br />
+<li>EarliestCredit<br />
+<li>OpenCreditLines<br />
+<li>TotalCreditLines<br />
+<li>RevolvingCreditBalance<br />
+<li>RevolvingLineUtilization<br />
+<li>InquiriesInTheLast6Months<br />
+<li>AccountsNowDelinquent<br />
+<li>DelinquentAmount<br />
+<li>DelinquenciesLast2Yrs<br />
+<li>PublicRecordsOnFile</ol>The following 17 features were left out and NOT used in the SVM:<br />
+<ol><li>Bor (amount borrowed, usually redundant with Req)<br />
+<li>AppDate<br />
+<li>AppExp<br />
+<li>IssuedDate<br />
+<li>Title<br />
+<li>Description<br />
+<li>MoPayt<br />
+<li>RemainingPrincipal<br />
+<li>PaymentsToDate<br />
+<li>ScreenName<br />
+<li>City<br />
+<li>State<br />
+<li>Education<br />
+<li>Associations<br />
+<li>Code<br />
+<li>MonthsSinceLastDelinquency<br />
+<li>MonthsSinceLastRecord</li></ol><br><p></p>
+<nobr><a name="comments"></a><span class=p><a class=l href="javascript:void(0)" onclick="scrollToView('rc003739')">Read comments (5)</a> - <a class=b href="javascript:void(0)" onclick="scrollToView('c003739'); toggleFocus('author003739', 'c003739');"><b>Comment</b></a></span></nobr></span>
+    <div id="rc003739" name="rc003739"><span class=p>
+          <br><b>sundar</b>
+      <span class=l> - Jul  8, 2010, 11:51p</span>
+      <br />yes i did get this far - great to see you continue to do interesting stuff, this atleast is much better than those frikking worms you write about:)<br /><br>
+          <br><b>Tuomas Talola</b>
+      <span class=l> - Jul  9, 2010, 5:35a</span>
+      <br />Have to say, I've never heard of Support Vector Machines. What you've done, I know as regression analysis. Nothing wrong with regression analysis itself, but using it to predict future returns or defaults is little dubious. This has been the case in financial markets over and over again.<br />
+
+<br />However, the work you have done seems quite thorough, I appreciate it. I'd be interested in more detailed results.<br /><br>
+          <br><b>asenski</b>
+      <span class=l> - May  7, 2012, 12:57a</span>
+      <br />Few questions:<br />
+
+<br />1. Have you tried applying non-linear SVM?<br />
+
+<br />2. Did you make sure you are not using training data that would not have been available for the test data set? i.e. whether a loan defaulted or not won't be known until 3 years from its origination date. You may be cheating unintentionally here!<br />
+<br /><br>
+          <br><b>nikhil</b>
+      <span class=l> - May 10, 2012, 9:57p</span>
+      <br />Hi asenski,<br />
+
+<br />1) No, I have not tried using the non-linear SVM.  I think I just tried whatever was the default option in libsvm.<br />
+
+<br />2) If I recall accurately (it's been several years now), the training set always included loans issued before the loans in the test set.  I defined a default as a loan that's more than 1 month late.  So it's possible that a loan that issued several years ago defaulted after a loan from the test set was issued.  So if you were doing this analysis in current-time to predict the future, this might be construed as a form of "cheating" - i.e. you wouldn't know that a training set loan would default because it hasn't at the time you're considering making a new loan (which would be equivalent to an item from the test set).  Good eyes!  If I were to redo this analysis I would try to take care of this caveat, since it might make a difference.<br /><br>
+          <br><b>Dave</b>
+      <span class=l> - Jun 16, 2012, 2:34p</span>
+      <br />You should really try non-linear. I'd try a radial basis function first. <br /><br>
+    </span>
+    </div>
+
+    <div id="c003739" name="c003739"><a name=comment></a><br>
+          <form name=cf003739>
+      <table cellspacing=0 cellpadding=0>
+        <TR>
+          <TD valign=top><span class=p>Name&nbsp;</span></TD>
+          <TD><input type=text name=author id=author003739 size=22></TD>
+        </TR>
+        <TR>
+          <TD valign=top><span class=p>Comment&nbsp;</span></TD>
+          <TD><textarea name=text rows=14 cols=40></textarea></TD>
+        </TR>
+	<TR>
+	  <TD valign=top></TD>
+	  <TD valign=top><input type=button name="post" value="Submit" onclick="postComment(document.cf003739, '/mt-cmnts.cgi', '3739'); toggleDisplay('s003739'); document.cf003739.post.disabled = true; document.cf003739.post.value = 'Submitted';"> <span id=s003739 name=s003739 style="color:red; display:none" class=p>Thanks! Your comment will be published in a few minutes.</span></TD>
+	</TR>
+      </TABLE> 
+    </form>
+    </div>
+
+<span class="p l">
+<a href="http://nikhil.superfacts.org/archives/2010/07/video_of_bacter.html">&laquo; Video of real bacterial chemotaxis</a>
+
+ - 
+
+ 
+<a href="http://nikhil.superfacts.org/archives/2010/07/x.html">X &raquo;</a>
+
+</span>
+</table>
+
+<p></p>
+<div style="clear:both">
+<TABLE cellpadding=0 cellspacing=0 width=100% bgcolor=#DDDDDD>
+  <TR><TD height=1 bgcolor=#BBBBBB></TD></TR>
+  <TR><TD align=center><span class=p><span class=l>Come back soon! Better yet, stay up-to-date with <a class="b" href=/index.rdf>RSS</a> and an <a class=b href=http://blogspace.com/rss/readers>RSS Reader</a>.
+<a rel="license" href="http://creativecommons.org/licenses/by/3.0/">
+<img alt="Creative Commons License" style="border-width:0; margin-bottom:-3px" src="http://i.creativecommons.org/l/by/3.0/80x15.png" />
+</a>
+</span></span></TD></TR>
+  <TR><TD height=3></TD></TR>
+</TABLE></div>
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-36914844-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</body>
+</html>

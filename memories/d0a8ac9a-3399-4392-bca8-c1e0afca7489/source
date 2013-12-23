@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title> 
+    Home - Data Pipes
+  </title>
+  <meta name="author" content="Open Knowledge Foundation Labs" />
+  <meta name="description" content="Data Pipes - Streaming Online Data Processing and Transformations" />
+
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="shortcut icon" href="/favicon.ico"/>
+</head>
+<body>
+<div class="container">
+  <div class="header">
+    <h1>
+      <a href="/">Data Pipes</a>
+    </h1>
+    <a href="http://okfnlabs.org/"><img src="http://assets.okfn.org/p/labs/img/logo-flask.png" style="height: 50px; margin-top: 10px;" /></a>
+  </div>
+
+  <div class="content">
+    <h1 id="streaming-online-data-transformation-">Streaming Online Data Transformation!</h1>
+<p>Data Pipes is a service to provide streaming, &quot;pipe-like&quot; data transformations on the web &ndash; things like deleting rows or columns, find and replace, head, grep etc.</p>
+<p>To illustrate here&#39;s a live example:</p>
+<p><a href="/csv/head%20-n%2050/cut%200/delete%201:7/grep%20-i%20London/html?url=https://raw.github.com/okfn/datapipes/master/test/data/gla.csv">/csv/head -n 50/cut 0/delete 1:7/grep -i London/html?url=https&#58;//raw.github.com/okfn/datapipes/master/test/data/gla.csv</a></p>
+<p>Crudely this does the following: parses the incoming url as CSV, slices out the first 50 rows (<a href="/head/">head</a>), then cuts column 0 (<a href="/cut/">cut</a>), then deletes rows 1-5 (<a href="/delete/">delete</a>), then filters for all rows with London (case-insensitive) in them (<a href="/grep/">grep</a>), and finally transforms to HTML output (<a href="/html/">html</a>).</p>
+<h2 id="api">API</h2>
+<p>The basic API is of the form:</p>
+<pre><code>/csv/{transform} {args}/?url={source-url}</code></pre>
+<p>For example, here is a head operation which shows first n rows or a file (default case with no arguments will show first 10 lines):</p>
+<pre><code>/csv/head/?url={source-url}</code></pre>
+<p>With arguments (showing first 20 rows):</p>
+<pre><code>/csv/head -n 20/?url={source-url}</code></pre>
+<h3 id="piping">Piping</h3>
+<p>You can also do <strong>piping</strong>, that is pass output of one transformation as input to another:</p>
+<pre><code>/csv/{trans1} {args}/{trans2} {args}/.../?url={source-url}</code></pre>
+<h3 id="input-formats">Input Formats</h3>
+<p>At present we only support CSV but we are considering support for JSON, plain text and RSS.</p>
+<p><em>If you are interested in <a href="https://github.com/okfn/datapipes/issues/16">JSON support then vote here</a>)</em></p>
+<h3 id="query-string-substitution">Query string substitution</h3>
+<p>Some characters can’t be used in a URL path because of <a href="http://tools.ietf.org/html/rfc3986">restrictions</a>. If this is a limitation (for instance if you need to use backslashes in your <code>grep</code> regex) variables can be defined in the query string and substituted in. E.g.:</p>
+<pre><code>/csv/grep $dt/html/?dt=\d{2}-\d{2}-\d{4}&amp;url={source-url}</code></pre>
+<h3 id="cors-and-js-web-apps">CORS and JS web apps</h3>
+<p>CORS is supported so you can use this from pure JS web apps.</p>
+<h2 id="transform-operations">Transform Operations</h2>
+<p>The basic operations are inspired by unix-style commands such <code>head</code>, <code>cut</code>, <code>grep</code>, <code>sed</code> but really anything a map function can do could be supported. (<a href="https://github.com/okfn/datapipes/issues">Suggest new operations here</a>).</p>
+<ul>
+<li><a href="/none/">none</a> (aka <code>raw</code>) = no transform but file parsed (useful with CORS)</li>
+<li><a href="/csv/">csv</a> = parse / render csv</li>
+<li><a href="/html/">html</a> = render as viewable HTML table</li>
+<li><a href="/delete/">delete</a> = delete rows</li>
+<li><a href="/head/">head</a> = take only first X rows</li>
+<li><a href="/tail/">tail</a> = take only last X rows</li>
+<li><a href="/strip/">strip</a> = delete all blank rows</li>
+<li><a href="/cut/">cut</a> = select / delete columns</li>
+<li><a href="/grep/">grep</a> = filter rows based on pattern matching</li>
+<li>sed = find and replace (not yet implemented)</li>
+</ul>
+<h2 id="contributing">Contributing</h2>
+
+<p>Under the hood Data Pipes is a simple open-source node.js webapp living <a href="https://github.com/okfn/datapipes">here on github</a>.</p>
+<p>It&#39;s super easy to contribute and here are some of the <a href="https://github.com/okfn/datapipes/issues">current issues</a>.</p>
+
+  </div>
+
+  <div class="footer">
+    <p>
+      This service is run by the <a href="http://okfnlabs.org">Open
+        Knowledge Foundation Labs</a>
+      &ndash;
+      <a href="http://github.com/okfn/datapipes">Source Code</a>
+    </p>
+    <p>
+      <a href="http://opendefinition.org/ossd/" title="Open Online Software Service">
+        <img src="http://assets.okfn.org/images/ok_buttons/os_80x15_orange_grey.png" alt="" border="" />
+      </a>
+    </p>
+    <div class="feedback"><a href="https://github.com/okfn/datapipes/issues" target="_blank">Feedback</a></div>
+  </div>
+
+</div><!-- /container -->
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-33874954-19', 'okfnlabs.org');
+  ga('send', 'pageview');
+</script>
+</body>
+</html>
+
+

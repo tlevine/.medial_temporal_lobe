@@ -1,0 +1,557 @@
+<!DOCTYPE HTML>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		    <title>
+		  DataHub &#8211; Small Pieces Loosely Joined | Open Knowledge Foundation Community Notebook          </title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		    <meta name="description" content="Community Notebook – Post Anything, Anytime" />
+    		    
+    <link rel="pingback" href="http://notebook.okfn.org/xmlrpc.php" />
+		
+		<link rel="alternate" type="application/rss+xml" title="Open Knowledge Foundation Community Notebook &raquo; Feed" href="http://notebook.okfn.org/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Open Knowledge Foundation Community Notebook &raquo; Comments Feed" href="http://notebook.okfn.org/comments/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Open Knowledge Foundation Community Notebook &raquo; DataHub &#8211; Small Pieces Loosely Joined Comments Feed" href="http://notebook.okfn.org/2012/06/22/datahub-small-pieces-loosely-joined/feed/" />
+<link rel='stylesheet' id='okf-transparent-cookie-bar-css'  href='http://notebook.okfn.org/wp-content/mu-plugins/okfn-utility/css/cookie-bar.css?ver=3.6' type='text/css' media='all' />
+<link rel='stylesheet' id='admin-bar-css'  href='http://notebook.okfn.org/wp-includes/css/admin-bar.min.css?ver=3.6' type='text/css' media='all' />
+<link rel='stylesheet' id='bp-admin-bar-css'  href='http://notebook.okfn.org/wp-content/plugins/buddypress/bp-core/css/admin-bar.css?ver=1.6.4' type='text/css' media='all' />
+<link rel='stylesheet' id='okf-panel-master-frontend-css'  href='http://notebook.okfn.org/wp-content/plugins/okf-panel-master/assets/css/frontend.css' type='text/css' media='all' />
+<link rel='stylesheet' id='okf-wordpress-footer-frontend-css'  href='http://notebook.okfn.org/wp-content/plugins/okf-wordpress-footer/assets/css/frontend.css' type='text/css' media='all' />
+<script type='text/javascript' src='http://code.jquery.com/jquery-1.7.2.min.js?ver=3.6'></script>
+<script type='text/javascript' src='http://notebook.okfn.org/wp-content/plugins/okf-wordpress-footer/assets/js/frontend.js'></script>
+<script type='text/javascript' src='http://notebook.okfn.org/wp-includes/js/comment-reply.min.js?ver=3.6'></script>
+<script type='text/javascript' src='http://notebook.okfn.org/wp-content/plugins/uk-cookie-consent/js/uk-cookie-consent-js.js?ver=3.6'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var BP_DTheme = {"my_favs":"My Favorites","accepted":"Accepted","rejected":"Rejected","show_all_comments":"Show all comments for this thread","show_all":"Show all","comments":"comments","close":"Close","view":"View","mark_as_fav":"Favorite","remove_fav":"Remove Favorite"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='http://notebook.okfn.org/wp-content/plugins/buddypress/bp-themes/bp-default/_inc/global.js?ver=1.6.4'></script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://notebook.okfn.org/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://notebook.okfn.org/wp-includes/wlwmanifest.xml" /> 
+<link rel='prev' title='Javascript Tips and Tricks' href='http://notebook.okfn.org/2012/06/21/javascript-tips-and-tricks/' />
+<link rel='next' title='BBC Archive Statistics' href='http://notebook.okfn.org/2012/06/22/bbc-archive-statistics/' />
+<link rel='canonical' href='http://notebook.okfn.org/2012/06/22/datahub-small-pieces-loosely-joined/' />
+<link rel='shortlink' href='http://notebook.okfn.org/?p=2241' />
+
+	<script type="text/javascript">var ajaxurl = 'http://notebook.okfn.org/wp-admin/admin-ajax.php';</script>
+
+<script type="text/javascript" src="http://notebook.okfn.org/wp-content/plugins/embed-facebook/slidewindow/slidewindow_min.js"></script>
+<script type="text/javascript">currPath = "http://notebook.okfn.org/wp-content/plugins/embed-facebook/slidewindow/"; strImgOf="";</script>
+<style>
+	.sohailerror { border:1px solid #eee; background:#f9f9f9; padding:10px; margin-bottom:15px;}
+	.sohailfbbox { margin:0 0 25px 0; padding:0; font-family: 'lucida grande', tahoma, verdana; font-size: 12px; line-height:18px; border: 1px solid #C6CEDD; border-top-color:#315C99; }
+	#content .sohailfbbox a, .sohailfbbox a { color:#3B5998;text-decoration:none; }
+	#content .sohailfbbox a:hover, .sohailfbbox a:hover { color:#3B5998;text-decoration:underline; }
+	.sohailfbboxhead { margin: 0; padding: 10px; font-size: 17px; border-bottom: 1px solid #D8DFEA; background: #EDEFF4; height:40px; }
+	.sohailfbboxhead span { margin: 0; padding: 0px; font-size: 12px; }
+	.sohailfbboxbody { margin: 0; padding: 12px 10px 8px 10px; }
+	.sohailfbboxinfo { margin: 0 0 0 10px; padding: 10px; float:right; width:250px; border:1px solid #D8DFEA; background:#EDEFF4; tex-align:right; font-size:11px; }
+	#content .sohailfbthumb, .fbalbumpics .sohailfbthumb { border:1px solid #ccc; padding:4px; margin-right:6px; width:130px; height:98px; }
+</style>
+				<script type="text/javascript">
+				var _gaq = _gaq || [];
+								_gaq.push(['_setAccount', 'UA-33874954-7']);
+										_gaq.push(['_setDomainName', 'none']);
+										_gaq.push(['_setAllowLinker', true]);
+                                        _gaq.push(['_trackPageview']);
+                                        _gaq.push(['_trackPageLoadTime']);
+					
+										_gaq.push(['b._setAccount', 'UA-8271754-30']);
+                                        _gaq.push(['b._trackPageview']);
+                                        _gaq.push(['b._trackPageLoadTime']);
+									(function() {
+					var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+					ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+					var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+				  })();
+				</script>			
+				<script charset="utf-8" type="text/javascript">var switchTo5x=true;</script><script charset="utf-8" type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script><script type="text/javascript">stLight.options({publisher:'wp.b1f2480e-102f-4a03-8f86-f2bfe13feb8c'});var st_type='wordpress3.1';</script>
+		<style type="text/css" media="screen">
+			#catapult-cookie-bar {
+				direction: ltr;
+				color: #dddddd;
+				min-height: 30px;
+				position: fixed;
+				left: 0;
+				bottom: 0;
+				width: 100%;
+				z-index: 99999;
+				padding:6px 20px 4px;
+				background-color: #464646;
+				text-align:left;
+			}
+			#catapult-cookie-bar a {
+				color: #dddddd;
+			}
+			button#catapultCookie {
+				margin:0 20px;
+				line-height:20px;
+				background:#45AE52;
+				border:none;
+				color: #dddddd;
+				padding:4px 12px;
+				border-radius: 3px;
+				cursor: pointer;
+				font-size: 13px;
+				font-weight: bold;
+			}
+		</style>	<script type="text/javascript">
+		jQuery(document).ready(function(){
+			if(catapultReadCookie("catAccCookies")){//If the cookie has been set
+				jQuery("#catapult-cookie-bar").hide();
+				jQuery("html").css("margin-top","0");
+			}
+		});
+	</script>
+<!-- SHOW-HIDE MULTIPLE SCRIPT --> 
+<script type="text/javascript">
+function expandCollapse() {
+for (var i=0; i<expandCollapse.arguments.length; i++) {
+var element = document.getElementById(expandCollapse.arguments[i]);
+element.style.display = (element.style.display == "none") ? "block" : "none";
+}
+}
+</script>
+<script type="text/javascript">
+function readOnlyCheckBox() {
+   return false;
+}
+</script>
+
+<script type="text/javascript">
+  // wrong code here. breaking other JS on pages. 
+  // no reply to request to sysadmin. MM editing 17/06/2011
+  //$(NILS-REMOVED-INVALID-UTF-CHARACTER-20110927#signup-welcome).p(;:last-child').css('display', 'none');
+  jQuery('#signup-welcome p:last-child').css('display', 'none');
+</script>
+<style type="text/css">
+#branding img {
+  display: none;
+}
+</style>
+
+	<style type="text/css">
+		
+				#header h1 a, #desc { color:#FFFFFF; }
+			</style>
+
+<style type="text/css" media="print">#wpadminbar { display:none; }</style>
+<style type="text/css" media="screen">
+	html { margin-top: 28px !important; }
+	* html body { margin-top: 28px !important; }
+</style>
+<!-- nagios_check timestamp:1384974738 --><!-- nagios_db_check sitename:Open Knowledge Foundation Community Notebook -->        <link rel="stylesheet" href="http://notebook.okfn.org/wp-content/themes/wordpress-theme-okfn/style.css?1377872323"/>
+   
+    <!-- Theme Settings -->
+              <link rel="stylesheet" href="http://notebook.okfn.org/wp-content/themes/wordpress-theme-okfn/css/grey.css?ver=1.1.2"/>
+        
+		<style type="text/css">
+          @media (min-width: 980px) {
+				.navbar {
+					height:65px;
+				}
+				.navbar .brand {
+					line-height: 65px;
+				}
+				.navbar .brand img {
+					margin-top:15px;
+					height:35px;
+				}
+				.navbar .nav > li > a {
+					padding-top:24px;
+					padding-bottom:22px;
+				}
+				.navbar .sub-brand {
+					line-height:60px;
+					padding-top:5px;
+				}
+				.header-text {
+					margin-top:15px;
+				}
+				.navbar .navbar-inner .social-links,
+				.navbar .navbar-inner .header-search {
+					margin-top:22px;
+				}
+			}
+                					#wpadminbar {display:none; }
+			html {margin-top: 0px !important;}
+        </style>
+    
+          <link rel="shortcut icon" href="http://assets.okfn.org/p/okfn/img/favicon.ico" />
+        
+    <script type="text/javascript">
+      var Okfn = Okfn || {};
+      // Make this variable available to Javascript
+      Okfn.theme_directory = 'http://notebook.okfn.org/wp-content/themes/wordpress-theme-okfn';
+    </script>
+    
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    
+  </head>
+  
+	<body class="single single-post postid-2241 single-format-standard admin-bar no-customize-support no-js" id="bp-default">
+    <script type="text/javascript">//<![CDATA[
+(function(){var c=document.body.className;c=c.replace(/no-js/,'js');document.body.className=c;})();
+//]]></script>
+        
+            <header>
+      <div class="navbar">
+        <div class="navbar-inner">
+          <div class="container">
+                    
+                    
+                              <a data-target=".nav-collapse" data-toggle="collapse" class="btn btn-navbar collapsed">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a title="Home" 
+              class="brand" 
+              href="http://notebook.okfn.org">
+              
+                          <img src="http://assets.okfn.org/web/images/header-logox2.png" alt="logo"/>
+            
+                          Open Knowledge Foundation Community Notebook                      </a>
+          
+                    
+            <nav class="nav-collapse collapse">
+                                          <ul id="nav" class="nav"><li ><a href="http://notebook.okfn.org/" title="Home">Home</a></li></ul><!-- #nav -->
+            </nav>
+            <!-- Disabled until I've got separate images and confirmed link addresses -->
+          </div>
+        </div>
+        
+      </div>
+
+      <form action="http://okfn.org/search/" method="post" class="search-form" role="search">
+        <label for="search-terms" class="accessibly-hidden">Search for:</label>
+        <input type="text" id="search-terms" name="search-terms" value="" />
+
+        <label for="search-which" class="accessibly-hidden">Search these:</label><select name="search-which" id="search-which" style="width: auto"><option value="members">Members</option><option value="groups">Groups</option><option value="blogs">Blogs</option><option value="posts">Posts</option></select>
+        <input type="submit" name="search-submit" id="search-submit" value="Search" />
+        <input type="hidden" id="_wpnonce" name="_wpnonce" value="bcd39185fa" /><input type="hidden" name="_wp_http_referer" value="/2012/06/22/datahub-small-pieces-loosely-joined/" />      </form><!-- #search-form -->
+                  
+      <div class="sub-header">
+        <div class="container">
+          <div class="row">
+            <div class="span8">
+                          </div>
+            <div class="span4">
+                          </div>
+          </div>
+        </div>
+      </div>
+      
+    </header>
+		
+		
+    
+		 
+		    <div class="container">
+      <div class="row">
+
+
+<div class="span8 box extend">
+ <div class="padder">
+    <div class="row">
+      <div id="content" class="span8">
+          
+        <div class="page" id="blog-single" role="main">
+  
+          
+          <div id="post-2241" class="post-2241 post type-post status-publish format-standard hentry category-ckan category-datahub">
+  
+            <div class="post-content">
+              <h2 class="posttitle">DataHub &#8211; Small Pieces Loosely Joined</h2>
+  						                <div class="date">
+									 June 22, 2012 <span>in <a href="http://notebook.okfn.org/category/projects/ckan/" title="View all posts in CKAN" rel="category tag">CKAN</a>, <a href="http://notebook.okfn.org/category/projects/datahub/" title="View all posts in DataHub" rel="category tag">DataHub</a></span>                 </div>
+                
+              <div class="entry">
+                <p><img src="https://docs.google.com/drawings/pub?id=1O0AyGAlRIHoSaFMEaY-4JYw0YOHUpIGCmeoG_S6OAX4&amp;w=903&amp;h=720"></p>
+<p><span class='st_facebook_buttons' st_title='DataHub &#8211; Small Pieces Loosely Joined' st_url='http://notebook.okfn.org/2012/06/22/datahub-small-pieces-loosely-joined/' displayText='Facebook'></span><span class='st_twitter_buttons' st_title='DataHub &#8211; Small Pieces Loosely Joined' st_url='http://notebook.okfn.org/2012/06/22/datahub-small-pieces-loosely-joined/' displayText='Twitter'></span><span class='st_email_buttons' st_title='DataHub &#8211; Small Pieces Loosely Joined' st_url='http://notebook.okfn.org/2012/06/22/datahub-small-pieces-loosely-joined/' displayText='Email'></span><span class='st_sharethis_buttons' st_title='DataHub &#8211; Small Pieces Loosely Joined' st_url='http://notebook.okfn.org/2012/06/22/datahub-small-pieces-loosely-joined/' displayText='ShareThis'></span><span class='st_fblike_buttons' st_title='DataHub &#8211; Small Pieces Loosely Joined' st_url='http://notebook.okfn.org/2012/06/22/datahub-small-pieces-loosely-joined/' displayText='Facebook Like'></span><span class='st_plusone_buttons' st_title='DataHub &#8211; Small Pieces Loosely Joined' st_url='http://notebook.okfn.org/2012/06/22/datahub-small-pieces-loosely-joined/' displayText='Google +1'></span><span class='st_pinterest _buttons' st_title='DataHub &#8211; Small Pieces Loosely Joined' st_url='http://notebook.okfn.org/2012/06/22/datahub-small-pieces-loosely-joined/' displayText='Pinterest'></span></p>  
+                              </div>
+              
+                              <p class="post-utility"></p>
+                
+              <p class="postmetadata"></p>
+  
+              <div class="alignleft"><a href="http://notebook.okfn.org/2012/06/21/javascript-tips-and-tricks/" rel="prev"><span class="meta-nav">&larr;</span> Javascript Tips and Tricks</a></div>
+              <div class="alignright"><a href="http://notebook.okfn.org/2012/06/22/bbc-archive-statistics/" rel="next">BBC Archive Statistics <span class="meta-nav">&rarr;</span></a></div>
+            </div>
+  
+          </div>
+  
+          
+	
+
+									<div id="respond" class="comment-respond">
+				<h3 id="reply-title" class="comment-reply-title">Leave a reply <small><a rel="nofollow" id="cancel-comment-reply-link" href="/2012/06/22/datahub-small-pieces-loosely-joined/#respond" style="display:none;">Cancel reply</a></small></h3>
+									<form action="http://notebook.okfn.org/wp-comments-post.php" method="post" id="commentform" class="comment-form">
+							<div class="comment-avatar-box">
+		<div class="avb">
+							<img alt='' src='http://0.gravatar.com/avatar/ad516503a11cd5ca435acc9bb6523536?s=50' class='avatar avatar-50 photo avatar-default' height='50' width='50' />					</div>
+	</div>
+
+	<div class="comment-content standard-form">
+													<p class="comment-notes">Your email address will not be published. Required fields are marked <span class="required">*</span></p>							<p class="comment-form-author"><label for="author">Name<span class="required"> *</span></label> <input id="author" name="author" type="text" value="" size="30" aria-required='true' /></p>
+<p class="comment-form-email"><label for="email">Email<span class="required"> *</span></label> <input id="email" name="email" type="text" value="" size="30" aria-required='true' /></p>
+<p class="comment-form-url"><label for="url">Website</label><input id="url" name="url" type="text" value="" size="30" /></p>
+												<p class="form-textarea"><textarea name="comment" id="comment" cols="60" rows="10" aria-required="true"></textarea></p>						<p class="form-allowed-tags">You may use these <abbr title="HyperText Markup Language">HTML</abbr> tags and attributes:  <code>&lt;a href=&quot;&quot; title=&quot;&quot;&gt; &lt;abbr title=&quot;&quot;&gt; &lt;acronym title=&quot;&quot;&gt; &lt;b&gt; &lt;blockquote cite=&quot;&quot;&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=&quot;&quot;&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=&quot;&quot;&gt; &lt;strike&gt; &lt;strong&gt; </code></p>						<p class="form-submit">
+							<input name="submit" type="submit" id="submit" value="Post Comment" />
+							<input type='hidden' name='comment_post_ID' value='2241' id='comment_post_ID' />
+<input type='hidden' name='comment_parent' id='comment_parent' value='0' />
+						</p>
+						<p style="display: none;"><input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="3bb78a9527" /></p>
+	</div><!-- .comment-content standard-form -->
+
+					</form>
+							</div><!-- #respond -->
+						
+          
+              
+        </div>
+    
+              </div><!-- #content -->
+    
+           
+     <div style="clear:both;"></div>
+     </div>
+  </div>
+</div>
+<div id="sidebar" class="span4" role="complementary">
+      <div class="widget">
+			      <div class="author-box small">
+        <div class="avatar"><img src="http://www.gravatar.com/avatar/9a05859ce895e24f593846e0096993d6?d=http://notebook.okfn.org/wp-content/plugins/buddypress/bp-core/images/mystery-man.jpg&amp;s=50&amp;r=G" alt="Avatar of Rufus Pollock" class="avatar user-2-avatar" width="50" height="50" /></div>
+        <h3>Written by <br /> <a rel="author" href="http://okfn.org/members/rgrp/" title="Rufus Pollock">Rufus Pollock</a></h3>
+        <p><!--Replace this with buddypress field -->Dr. Rufus Pollock is Founder and co-Director of the Open Knowledge Foundation and a Shuttleworth Foundation Fellow.</p>
+      </div>
+          </div>
+  	
+	<div class="padder">
+
+	
+	
+		
+				
+			<p id="login-text">
+
+				Please <a href="http://okfn.org/register/" title="Create an account">create an account</a> to get started.
+			</p>
+
+		
+		<form name="login-form" id="sidebar-login-form" class="standard-form" action="http://notebook.okfn.org/wp-login.php?wpe-login=okf" method="post">
+			<label>Username<br />
+			<input type="text" name="log" id="sidebar-user-login" class="input" value="" tabindex="97" /></label>
+
+			<label>Password<br />
+			<input type="password" name="pwd" id="sidebar-user-pass" class="input" value="" tabindex="98" /></label>
+
+			<p class="forgetmenot"><label><input name="rememberme" type="checkbox" id="sidebar-rememberme" value="forever" tabindex="99" /> Remember Me</label></p>
+
+			
+	<input type="hidden" name="redirect_to" value="" />
+
+			<input type="submit" name="wp-submit" id="sidebar-wp-submit" value="Log In" tabindex="100" />
+			<input type="hidden" name="testcookie" value="1" />
+		</form>
+
+		
+	
+	
+	<div id="search-4" class="widget widget_search">
+<form role="search" method="get" id="searchform" action="http://notebook.okfn.org/">
+	<input type="text" value="" name="s" id="s" />
+	<input type="submit" id="searchsubmit" value="Search" />
+
+	</form>
+
+</div><div id="archives-3" class="widget widget_archive"><h3 class="widgettitle">Archives</h3>		<ul>
+			<li><a href='http://notebook.okfn.org/2013/10/' title='October 2013'>October 2013</a></li>
+	<li><a href='http://notebook.okfn.org/2013/09/' title='September 2013'>September 2013</a></li>
+	<li><a href='http://notebook.okfn.org/2013/08/' title='August 2013'>August 2013</a></li>
+	<li><a href='http://notebook.okfn.org/2013/07/' title='July 2013'>July 2013</a></li>
+	<li><a href='http://notebook.okfn.org/2013/06/' title='June 2013'>June 2013</a></li>
+	<li><a href='http://notebook.okfn.org/2013/05/' title='May 2013'>May 2013</a></li>
+	<li><a href='http://notebook.okfn.org/2013/04/' title='April 2013'>April 2013</a></li>
+	<li><a href='http://notebook.okfn.org/2013/03/' title='March 2013'>March 2013</a></li>
+	<li><a href='http://notebook.okfn.org/2013/02/' title='February 2013'>February 2013</a></li>
+	<li><a href='http://notebook.okfn.org/2013/01/' title='January 2013'>January 2013</a></li>
+	<li><a href='http://notebook.okfn.org/2012/12/' title='December 2012'>December 2012</a></li>
+	<li><a href='http://notebook.okfn.org/2012/11/' title='November 2012'>November 2012</a></li>
+	<li><a href='http://notebook.okfn.org/2012/10/' title='October 2012'>October 2012</a></li>
+	<li><a href='http://notebook.okfn.org/2012/09/' title='September 2012'>September 2012</a></li>
+	<li><a href='http://notebook.okfn.org/2012/08/' title='August 2012'>August 2012</a></li>
+	<li><a href='http://notebook.okfn.org/2012/07/' title='July 2012'>July 2012</a></li>
+	<li><a href='http://notebook.okfn.org/2012/06/' title='June 2012'>June 2012</a></li>
+	<li><a href='http://notebook.okfn.org/2012/05/' title='May 2012'>May 2012</a></li>
+	<li><a href='http://notebook.okfn.org/2012/04/' title='April 2012'>April 2012</a></li>
+	<li><a href='http://notebook.okfn.org/2012/03/' title='March 2012'>March 2012</a></li>
+	<li><a href='http://notebook.okfn.org/2012/02/' title='February 2012'>February 2012</a></li>
+	<li><a href='http://notebook.okfn.org/2012/01/' title='January 2012'>January 2012</a></li>
+	<li><a href='http://notebook.okfn.org/2011/12/' title='December 2011'>December 2011</a></li>
+	<li><a href='http://notebook.okfn.org/2011/11/' title='November 2011'>November 2011</a></li>
+	<li><a href='http://notebook.okfn.org/2011/10/' title='October 2011'>October 2011</a></li>
+	<li><a href='http://notebook.okfn.org/2011/09/' title='September 2011'>September 2011</a></li>
+	<li><a href='http://notebook.okfn.org/2011/08/' title='August 2011'>August 2011</a></li>
+	<li><a href='http://notebook.okfn.org/2011/07/' title='July 2011'>July 2011</a></li>
+	<li><a href='http://notebook.okfn.org/2011/06/' title='June 2011'>June 2011</a></li>
+	<li><a href='http://notebook.okfn.org/2011/05/' title='May 2011'>May 2011</a></li>
+	<li><a href='http://notebook.okfn.org/2011/04/' title='April 2011'>April 2011</a></li>
+	<li><a href='http://notebook.okfn.org/2011/03/' title='March 2011'>March 2011</a></li>
+	<li><a href='http://notebook.okfn.org/2011/02/' title='February 2011'>February 2011</a></li>
+		</ul>
+</div><div id="authors-4" class="widget widget_list_authors"><h3 class="widgettitle">Authors</h3><ul>        <!-- List Authors -->
+          <li><a href="http://notebook.okfn.org/author/adam/" title="Posts by Adam Green">Adam Green</a> (20)</li><li><a href="http://notebook.okfn.org/author/bmartini/" title="Posts by Beatrice Martini">Beatrice Martini</a> (21)</li><li>Christian Villum</li><li><a href="http://notebook.okfn.org/author/christianvillum/" title="Posts by Christian Villum">Christian Villum</a> (24)</li><li><a href="http://notebook.okfn.org/author/ddie/" title="Posts by Daniel Dietrich">Daniel Dietrich</a> (56)</li><li><a href="http://notebook.okfn.org/author/darwin/" title="Posts by Darwin Peltan">Darwin Peltan</a> (2)</li><li><a href="http://notebook.okfn.org/author/elaines/" title="Posts by Elaine Shaughnessy">Elaine Shaughnessy</a> (3)</li><li>faridavis</li><li><a href="http://notebook.okfn.org/author/turukawa/" title="Posts by Gavin Chait">Gavin Chait</a> (3)</li><li>Heather Leson</li><li><a href="http://notebook.okfn.org/author/iainemsley/" title="Posts by Iain Emsley">Iain Emsley</a> (1)</li><li><a href="http://notebook.okfn.org/author/jamesharrimansmith/" title="Posts by jamesharrimansmith">jamesharrimansmith</a> (3)</li><li><a href="http://notebook.okfn.org/author/jwyg/" title="Posts by Jonathan Gray">Jonathan Gray</a> (35)</li><li><a href="http://notebook.okfn.org/author/laura/" title="Posts by Laura James">Laura James</a> (48)</li><li><a href="http://notebook.okfn.org/author/lucychambers/" title="Posts by Lucy Chambers">Lucy Chambers</a> (51)</li><li><a href="http://notebook.okfn.org/author/digisus/" title="Posts by Marcus Dapp">Marcus Dapp</a> (4)</li><li>Mark Wainwright</li><li><a href="http://notebook.okfn.org/author/naomilillie/" title="Posts by Naomi Lillie">Naomi Lillie</a> (63)</li><li><a href="http://notebook.okfn.org/author/nealbastek/" title="Posts by nealbastek ">nealbastek </a> (6)</li><li><a href="http://notebook.okfn.org/author/admin/" title="Posts by Open Knowledge Foundation">Open Knowledge Foundation</a> (16)</li><li><a href="http://notebook.okfn.org/author/rmounce/" title="Posts by Ross Mounce">Ross Mounce</a> (22)</li><li><a href="http://notebook.okfn.org/author/rgrp/" title="Posts by Rufus Pollock">Rufus Pollock</a> (69)</li><li>Sander van der Waal</li><li>Srinivas </li><li><a href="http://notebook.okfn.org/author/theodora/" title="Posts by Theodora Middleton">Theodora Middleton</a> (20)</li><li><a href="http://notebook.okfn.org/author/everton137/" title="Posts by Tom ">Tom </a> (4)</li><li>trio3o</li><li><a href="http://notebook.okfn.org/author/vndimitrova/" title="Posts by Velichka Dimitrova">Velichka Dimitrova</a> (11)</li><li><a href="http://notebook.okfn.org/author/zararahman/" title="Posts by Zara Rahman">Zara Rahman</a> (15)</li>        <!-- /List Authors -->
+        </ul></div>
+	
+	</div><!-- .padder -->
+
+</div>
+      </div> <!-- /row -->
+    </div> <!-- /container -->
+		
+		    
+		
+		    
+    <div class="topbar">
+      <div class="padder">
+       
+		    
+				
+<!-- Generated in 0.409 seconds. (137 q) -->
+
+	<link rel='stylesheet' id='embedly_font_end-css'  href='http://notebook.okfn.org/wp-content/plugins/embedly/css/embedly-frontend.css?ver=3.6' type='text/css' media='all' />
+<script type='text/javascript' src='http://notebook.okfn.org/wp-content/plugins/okf-panel-master/assets/js/frontend.js'></script>
+<script type='text/javascript' src='http://notebook.okfn.org/wp-includes/js/admin-bar.min.js?ver=3.6'></script>
+		<div id="wpadminbar" class="nojq nojs" role="navigation">
+			<a class="screen-reader-shortcut" href="#wp-toolbar" tabindex="1">Skip to toolbar</a>
+			<div class="quicklinks" id="wp-toolbar" role="navigation" aria-label="Top navigation toolbar." tabindex="0">
+				<ul id="wp-admin-bar-root-default" class="ab-top-menu">
+		<li id="wp-admin-bar-wp-logo" class="menupop"><a class="ab-item"  aria-haspopup="true" href="http://notebook.okfn.org/wp-admin/about.php" title="About WordPress"><span class="ab-icon"></span></a><div class="ab-sub-wrapper"><ul id="wp-admin-bar-wp-logo-external" class="ab-sub-secondary ab-submenu">
+		<li id="wp-admin-bar-wporg"><a class="ab-item"  href="http://wordpress.org/">WordPress.org</a>		</li>
+		<li id="wp-admin-bar-documentation"><a class="ab-item"  href="http://codex.wordpress.org/">Documentation</a>		</li>
+		<li id="wp-admin-bar-support-forums"><a class="ab-item"  href="http://wordpress.org/support/">Support Forums</a>		</li>
+		<li id="wp-admin-bar-feedback"><a class="ab-item"  href="http://wordpress.org/support/forum/requests-and-feedback">Feedback</a>		</li></ul></div>		</li>
+		<li id="wp-admin-bar-bp-login"><a class="ab-item"  href="http://notebook.okfn.org/wp-login.php">Log in</a>		</li>
+		<li id="wp-admin-bar-bp-register"><a class="ab-item"  href="http://okfn.org/register/">Register</a>		</li></ul><ul id="wp-admin-bar-top-secondary" class="ab-top-secondary ab-top-menu">
+		<li id="wp-admin-bar-search" class="admin-bar-search"><div class="ab-item ab-empty-item" tabindex="-1"><form action="http://notebook.okfn.org/" method="get" id="adminbarsearch"><input class="adminbar-input" name="s" id="adminbar-search" type="text" value="" maxlength="150" /><input type="submit" class="adminbar-button" value="Search"/></form></div>		</li></ul>			</div>
+					</div>
+
+		      </div>     
+    </div>
+	<div id="catapult-cookie-bar">This site uses cookies<button id="catapultCookie" tabindex=1 onclick="catapultAcceptCookies();">No problem</button><a target="_blank" tabindex=1 href="http://okfn.org/cookie-policy">More info</a></div>		 	
+    <footer>
+    <div class="inner">
+      <div class="container">
+                  <style scoped>
+            #footer-widget-area > div {
+              width: 460px !important;
+						}
+          </style>
+          <div class="row">
+          <div id="footer-widgets">
+            
+			<div id="footer-widget-area" role="complementary">
+
+				
+					<div id="first" class="widget-area">
+						<ul class="xoxo">
+							<li id="search-3" class="widget widget_search">
+<form role="search" method="get" id="searchform" action="http://notebook.okfn.org/">
+	<input type="text" value="" name="s" id="s" />
+	<input type="submit" id="searchsubmit" value="Search" />
+
+	</form>
+
+</li>						</ul>
+					</div><!-- #first .widget-area -->
+
+				
+				
+					<div id="second" class="widget-area">
+						<ul class="xoxo">
+							<li id="linkcat-2" class="widget widget_links"><h3 class="widgettitle">Blogroll</h3>
+	<ul class='xoxo blogroll'>
+<li><a href="http://datahub.io/" target="_blank">The DataHub</a></li>
+
+	</ul>
+</li>
+						</ul>
+					</div><!-- #second .widget-area -->
+
+				
+				
+				
+					<div id="fourth" class="widget-area">
+						<ul class="xoxo">
+							<li id="text-3" class="widget widget_text"><h3 class="widgettitle">IP Policy</h3>			<div class="textwidget">The content of this site is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 License</a> (all jurisdictions).
+<br /><br />
+
+<a href="http://opendefinition.org/">
+ <img alt="This material is Open Knowledge" border="0" src="http://assets.okfn.org/images/ok_buttons/ok_80x15_blue.png" /></a>
+
+<a href="http://opendefinition.org/">
+  <img alt="This material is Open Content" border="0" src="http://assets.okfn.org/images/ok_buttons/oc_80x15_blue.png" />
+</a>
+<p>&nbsp;</p>
+<p><a href="http://flattr.com/thing/605365/Open-Knowledge-Foundation" target="_blank">
+<img src="http://api.flattr.com/button/flattr-badge-large.png" alt="Flattr this" title="Flattr this" border="0" /></a></p></div>
+		</li>						</ul>
+					</div><!-- #fourth .widget-area -->
+
+				
+			</div><!-- #footer-widget-area -->
+            <div class="footer-buttons">
+				 			                            
+                                        </div>
+          </div><!-- /footer-widgets -->
+          </div><!-- /row -->
+        
+        <div id="row">
+                  </div>
+        
+      </div><!-- /container --> 
+    </div><!-- /inner -->
+     
+    <div class="okf-footer">
+      <div class="container">
+        <ul>
+                  <li><a href="http://okfn.org/terms-of-use/">Terms of use</a></li>
+				          <li><a href="http://okfn.org/privacy-policy/">Privacy policy</a></li>
+				          <li><a href="http://okfn.org/ip-policy/">IP Policy</a></li>
+				        </ul>
+      </div>
+    </div>
+    </footer>
+    
+		<script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.1.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="http://notebook.okfn.org/wp-content/themes/wordpress-theme-okfn/include/jquery.dotdotdot-1.5.6-packed.js"></script>
+    
+		<script>
+		  // Tweeter
+			$("div.tweeter.carousel .tweetfeed").addClass("carousel-inner");
+			$("div.tweeter.carousel .tweetfeed li").addClass("item");
+			$("div.tweeter.carousel .tweetfeed li:nth-child(1)").addClass("active");
+			
+		  // cycling for carousel
+      $(".carousel.ticker").carousel({ interval: 6000 });
+			$(".carousel.cycle").carousel({ interval: 8000 });
+
+		  // allow button to hide elements
+			$(".hide-it").click(function () {
+				$(".hide-me").hide("slow");
+			});    
+			
+			// button for mailchimp form
+		  $("div.nm_mc_form input.nm_mc_button").addClass("btn btn-primary");
+    </script>
+    
+		    
+    <!-- sharethis -->
+    	</body>
+
+</html>
