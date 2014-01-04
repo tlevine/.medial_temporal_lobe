@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<script>var __pbpa = true;</script><script>var translated_warning_string = 'Warning: Never enter your Tumblr password unless \u201chttps://www.tumblr.com/login\u201d\x0ais the address in your web browser.\x0a\x0aYou should also see a green \u201cTumblr, Inc.\u201d identification in the address bar.\x0a\x0aSpammers and other bad guys use fake forms to steal passwords.\x0a\x0aTumblr will never ask you to log in from a user\u2019s blog.\x0a\x0aAre you absolutely sure you want to continue?';</script><script type="text/javascript" language="javascript" src="http://assets.tumblr.com/assets/scripts/pre_tumblelog.js?_v=5b797ec1789c05fafa10f8f64db3e278"></script>
+<!DOCTYPE html>
+<!--[if lt IE 7 ]> <html lang="en" class="no-js ie6 lte-ie8"> <![endif]-->
+<!--[if IE 7 ]> <html lang="en" class="no-js ie7 lte-ie8"> <![endif]-->
+<!--[if IE 8 ]> <html lang="en" class="no-js ie8 lte-ie8"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
+<!--
+==========================================================================
+ ____                     ___       __  __
+/\  _`\  __              /\_ \     /\ \/\ \          __
+\ \ \L\ \\_\  __  _    __\//\ \    \ \ \ \ \    ___ /\_\    ___    ___
+ \ \ ,__//\ \/\ \/'\ /'__`\\ \ \    \ \ \ \ \ /' _ `\/\ \  / __`\/' _ `\
+  \ \ \/ \ \ \/>  <//\  __/ \_\ \_   \ \ \_\ \/\ \/\ \ \ \/\ \L\ \\ \/\ \
+   \ \_\  \ \_\\_/\_\ \____\/\____\   \ \_____\ \_\ \_\ \_\ \____/ \_\ \_\
+    \/_/   \/_///\/_/\/____/\/____/    \/_____/\/_/\/_/\/_/\/___/ \/_/\/_/
+==========================================================================
+   Effector v3.2.0
+   Updated: October 16, 2013
+   Website: https://www.pixelunion.net
+   Themes: http://tumblr.com/themes/by/pixelunion-themes
+==========================================================================
+-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>design, usability, technology webmusings &bull; The business of open data</title>
+
+  
+    <meta name="description" content="The business of open data http://thomaslevine.com/!/socrata-products/ #opendata #digitaldivide I shared this yesterday, but I&rsquo;m sharing it again more widely. I think we need to ask what it means to..."/>
+  
+
+  <meta name="color:Background" content="#e6ebea"/>
+  <meta name="color:Colored Area Text" content="#fffadc"/>
+  <meta name="color:Colored Area Text Shadow" content="#bf4402"/>
+  <meta name="color:Inside Link" content="#f55b2c"/>
+  <meta name="color:Inside Link Hover" content="#fff7a5"/>
+  <meta name="color:Main Theme" content="#f55b2c"/>
+  <meta name="color:Outside Link" content="#f55b2c"/>
+  <meta name="color:Outside Link Hover" content="#131313"/>
+  <meta name="color:Outside Text" content="#616566"/>
+  <meta name="font:Inside Heading" content="Helvetica Neue, Arial, sans-serif"/>
+  <meta name="font:Inside Text" content="Georgia, serif"/>
+  <meta name="font:Outside Heading" content="Helvetica Neue, Arial, sans-serif"/>
+  <meta name="font:Outside Text" content="Helvetica Neue, Arial, sans-serif"/>
+  <meta name="image:Background" content=""/>
+  <meta name="image:Banner" content=""/>
+  <meta name="image:Large Sidebar Portrait" content=""/>
+  <meta name="image:Logo" content=""/>
+  <meta name="if:Align Top Menu Left" content="0"/>
+  <meta name="if:Automatic Headings" content="0"/>
+  <meta name="if:Blog Title in Page Header" content="0"/>
+  <meta name="if:Blog Title in Sidebar" content="0"/>
+  <meta name="if:Blog Title in Top bar" content="1"/>
+  <meta name="if:Centered Layout" content="1"/>
+  <meta name="if:Collapse Notes" content="1"/>
+  <meta name="if:Content Width 500" content="0"/>
+  <meta name="if:Content Width 600" content="0"/>
+  <meta name="if:Content Width 700" content="1"/>
+  <meta name="if:Custom Photosets" content="1"/>
+  <meta name="if:Fixed Background" content="0"/>
+  <meta name="if:Fixed Top Bar" content="1"/>
+  <meta name="if:Hide Sidebar" content="0"/>
+  <meta name="if:Infinite Scrolling" content="0"/>
+  <meta name="if:Invert" content="0"/>
+  <meta name="if:Invert Top Bar" content="0"/>
+  <meta name="if:Large Social Icons" content="1"/>
+  <meta name="if:Left Sidebar" content="0"/>
+  <meta name="if:Logo in Top bar" content="0"/>
+  <meta name="if:Fullscreen Background" content="0"/>
+  <meta name="if:Pages In Top Bar" content="0"/>
+  <meta name="if:Rounded Post Corners" content="0"/>
+  <meta name="if:Scale Images" content="1"/>
+  <meta name="if:Search Box In Sidebar" content="0"/>
+  <meta name="if:Show About Heading" content="1"/>
+  <meta name="if:Show Blogs I Follow" content="0"/>
+  <meta name="if:Show Description" content="1"/>
+  <meta name="if:Show Group Blog Info" content="0"/>
+  <meta name="if:Show Instagram" content="0"/>
+  <meta name="if:Show Likes" content="0"/>
+  <meta name="if:Show Likes in Sidebar" content="0"/>
+  <meta name="if:Show Pages Heading" content="1"/>
+  <meta name="if:Show Portrait" content="0"/>
+  <meta name="if:Show Random Post Icon" content="0"/>
+  <meta name="if:Show Social Icons Widget" content="0"/>
+  <meta name="if:Show Tweets" content="1"/>
+  <meta name="if:Show Twitter Profile" content="1"/>
+  <meta name="if:Top Menu With Labels" content="0"/>
+  <meta name="text:Behance Username" content=""/>
+  <meta name="text:Cargo URL" content=""/>
+  <meta name="text:Copyright Text" content=""/>
+  <meta name="text:Default Search Text" content="Search"/>
+  <meta name="text:Delicious Username" content=""/>
+  <meta name="text:Disqus Shortname" content=""/>
+  <meta name="text:Dribbble Username" content=""/>
+  <meta name="text:FFFFound Username" content=""/>
+  <meta name="text:Facebook Username" content=""/>
+  <meta name="text:Flickr Username" content=""/>
+  <meta name="text:Forrst Username" content=""/>
+  <meta name="text:Foursquare Username" content=""/>
+  <meta name="text:GetClicky Site ID" content=""/>
+  <meta name="text:Google Analytics Web Property ID" content=""/>
+  <meta name="text:Google URL" content=""/>
+  <meta name="text:Grooveshark Username" content=""/>
+  <meta name="text:Instagram Heading" content="Instagram"/>
+  <meta name="text:Instagram Access Token" content=""/>
+  <meta name="text:Instagram Count Max 4" content="4"/>
+  <meta name="text:Lastfm Username" content=""/>
+  <meta name="text:Liked Posts Heading" content="I Dig These Posts"/>
+  <meta name="text:Linkedin Profile URL" content=""/>
+  <meta name="text:Myspace Friend ID" content=""/>
+  <meta name="text:Num Tweets Max 4" content="4"/>
+  <meta name="text:Pinboard Username" content=""/>
+  <meta name="text:Pinterest Username" content=""/>
+  <meta name="text:Rdio Username" content=""/>
+  <meta name="text:Rows of Followed Avatars" content="3"/>
+  <meta name="text:Skype Username" content=""/>
+  <meta name="text:Social Icons Heading" content="Me, Elsewhere"/>
+  <meta name="text:Soundcloud Username" content=""/>
+  <meta name="text:Tagline" content=""/>
+  <meta name="text:Twitter Heading" content="Twitter"/>
+  <meta name="text:Twitter Username" content=""/>
+  <meta name="text:Vimeo Username" content=""/>
+  <meta name="text:Xbox Live Profile URL" content=""/>
+  <meta name="text:Youtube Username" content=""/>
+  <meta name="text:github Username" content=""/>
+
+  <!-- FACEBOOK OPEN GRAPH -->
+  <!-- >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>-->
+
+  <meta property="og:site_name" content="design, usability, technology webmusings"/>
+
+  
+
+    <meta property="og:url" content="http://georgiamoon.tumblr.com/post/71306764449/the-business-of-open-data"/>
+    <meta property="og:type" content="article"/>
+
+    
+      
+
+      
+
+      
+
+      
+
+      
+        <meta property="og:title" content="The business of open data"/>
+        <meta property="og:description" content="#opendata #digitaldivide 
+
+
+I shared this yesterday, but I&#8217;m sharing it again more widely. I think we need to ask what it means to hand all of our public data to one company and pay them to host it in inequitable ways? How does this play out in the next few years with different municipalities making different hosting/sharing decisions based on cost?
+
+
+Also.. I thought Socrata had worked out being a GSA service? But I guess that doesn&#8217;t adjust the pricing schemes."/>
+        <meta property="og:image" content="http://24.media.tumblr.com/avatar_abf52fa06c64_64.png"/>
+      
+
+      
+
+      
+
+      
+
+      
+
+    
+
+  
+
+  
+
+  <link rel="shortcut icon" href="http://25.media.tumblr.com/avatar_abf52fa06c64_128.png" />
+  <link rel="apple-touch-icon" href="http://25.media.tumblr.com/avatar_abf52fa06c64_128.png" />
+  <link rel="alternate" type="application/rss+xml" href="http://georgiamoon.tumblr.com/rss"/>
+  <link rel="stylesheet" href="http://static.tumblr.com/xgwqnql/MF5lbpkr4/jquery.fancybox-1.3.1.css" media="screen"/>
+
+  
+    <link href="http://static.tumblr.com/hugxd2w/NA2mtcd2h/style.css" media="screen" rel="stylesheet" type="text/css" />
+  
+
+  <script type="text/javascript">
+    tumblrUsername = 'georgiamoon';
+    searchValue = "Search";
+    themeColor = "#f55b2c";
+    
+    
+    contentWidth = 700;
+    customPhotosets = true;
+    
+    collapseNotes = true;
+    
+    twitterUsername = "georgiamoon";
+    fixedBar = true;
+    
+    showTweets = true;
+    numTweets = parseInt(10);
+    showTwitterProfile = true;
+    
+    var showInstagram = false;
+    showInstagram = true;
+    var accessToken = '';
+    var instaCount = '4';
+    
+    
+    showFollowing = true;
+    followedRows = parseInt(3);
+    
+    
+    showLikes = true;
+    isPermalink = true;
+    photosets = {};
+  </script>
+  <style type="text/css">
+    body {
+      font-family:Helvetica Neue, Arial, sans-serif;
+      color:#616566;
+      background-color:#e6ebea;
+      background-image:url(http://static.tumblr.com/7bc0b266bff49beffbcd5f94c8669053/edctb7w/87dmkk5dt/tumblr_static_885397_10100150633181739_599137630_o.jpg);
+      background-repeat:repeat;
+      background-attachment:fixed;
+      
+    }
+
+    .blog-title,
+    #sidebar h1,
+    #sidebar h2,
+    #sidebar h3,
+    #footer h1,
+    #footer h2,
+    #footer h3 {
+      font-family:Helvetica Neue, Arial, sans-serif;
+    }
+
+    .copy {
+      font-family:Georgia, serif;
+    }
+    .copy h1,
+    .copy h2,
+    .copy h3,
+    .copy h4,
+    .copy h5,
+    .copy h6,
+    .auto-headings .copy p:first-child strong:first-child,
+    #notes h2,
+    #disqus h2,
+    .speaker {
+      font-family:Helvetica Neue, Arial, sans-serif;
+    }
+
+    #tabs #tabs-nav h2 span.active {
+      background:#e6ebea;
+    }
+
+    
+
+    
+
+    /* Main Theme Color */
+    .colored-panel,
+    .type-answer .user-question,
+    .pages a:hover,
+    .invert .fixed .pages a:hover,
+    .invert .pinned .pages a:hover,
+    .invert #sidebar .pages a:hover,
+    .more-likes:hover,
+    .invert-topbar .fixed .pages a:hover,
+    .like_link a:hover,
+    .type-photoset .navi a:hover,
+    #pagination .nextprev a:hover,
+    #group-members li span,
+    #followed li span {
+      background-color:#f55b2c;
+    }
+    .corners .tl {
+      border-left-color: #f55b2c;
+    }
+    .corners .tr {
+      border-right-color: #f55b2c;
+    }
+    .corners .bl,
+    .corners .br {
+      border-bottom-color:#f55b2c;
+    }
+    #group-members li span:after,
+    #followed li span:after {
+      border-top-color:#f55b2c;
+    }
+
+    /* Outside Link Color */
+    a, #footer-end a:hover {
+      color:#f55b2c;
+    }
+
+    /* Outside Link Hover */
+    a:hover {
+      color:#131313;
+    }
+
+    /* Inside Link Color */
+    .copy a,
+    .copy li:before,
+    .type-chat .speaker,
+    .no-touch #notes-toggle:hover,
+    .touch #notes-toggle.up,
+    ol.notes a,
+    #disqus a {
+      color:#f55b2c;
+    }
+
+    .copy a:hover,
+    ol.notes a:hover {
+      border-color:#f55b2c;
+    }
+    .copy .post-title a:hover,
+    .copy a:hover,
+    ol.notes a:hover,
+    #dsq-comments a:hover,
+    #dsq-options a:hover {
+      background-color:#fff7a5;
+    }
+
+    .no-touch #notes-toggle:hover .icon,
+    .touch #notes-toggle.up .icon,
+    .photo-btns a:hover,
+    #back-to-top .icon {
+      background-color:#f55b2c;
+    }
+
+    /* Colored Area */
+    .colored-panel,
+    .colored-panel a,
+    .colored-panel a:hover,
+    .colored-panel .user-question,
+    .pages a:hover,
+    .invert-topbar .fixed .pages a:hover,
+    .invert #sidebar .pages a:hover,
+    .more-likes:hover,
+    .like_link a:hover,
+    #pagination .nextprev a:hover,
+    #group-members li span,
+    #followed li span {
+      color:#fffadc;
+    }
+
+    /* Colored Area Text Shadow */
+    .type-quote .quote-text,
+    .type-audio .audio-meta,
+    .type-answer .user-question,
+    .pages a:hover,
+    .more-likes:hover,
+    .like_link a:hover,
+    #pagination .nextprev a:hover,
+    #group-members li span,
+    #followed li span {
+      text-shadow:1px 1px #bf4402;
+    }
+
+    ol.notes li.tumblelog_georgiamoon {
+      background-color:#fbfbfb;
+    }
+    ol.notes li.tumblelog_georgiamoon .action {
+      font-weight:bold;
+    }
+    #page, .inner {
+      margin:0 auto;
+    }
+
+    
+  </style>
+
+  <script src="http://static.tumblr.com/hugxd2w/6Cpm8gh20/modernizr.2.6.1.min.js"></script>
+<!-- TWITTER TAGS --><meta charset="utf-8"><meta name="twitter:card" content="summary" /><meta name="twitter:description" content="The business of open data http://thomaslevine.com/!/socrata-products/ #opendata #digitaldivide I shared this yesterday, but I&rsquo;m sharing it again more widely. I think we need to ask what it means to..." /><meta name="twitter:title" content="Link" /><meta name="twitter:image" content="http://assets.tumblr.com/images/facebook_og_link.png?1338" /><meta name="twitter:image:width" content="90" /><meta name="twitter:image:height" content="90" /><meta name="twitter:url" content="http://georgiamoon.tumblr.com/post/71306764449/the-business-of-open-data" /><meta name="twitter:site" content="tumblr" /><meta name="twitter:creator" content="georgiamoon" /><meta name="twitter:app:name:iphone" content="Tumblr" /><meta name="twitter:app:name:ipad" content="Tumblr" /><meta name="twitter:app:name:googleplay" content="Tumblr" /><meta name="twitter:app:id:iphone" content="305343404" /><meta name="twitter:app:id:ipad" content="305343404" /><meta name="twitter:app:id:googleplay" content="com.tumblr" /><meta name="twitter:app:url:iphone" content="tumblr://x-callback-url/blog?blogName=georgiamoon&amp;postID=71306764449&amp;referrer=twitter-cards" /><meta name="twitter:app:url:ipad" content="tumblr://x-callback-url/blog?blogName=georgiamoon&amp;postID=71306764449&amp;referrer=twitter-cards" /><meta name="twitter:app:url:googleplay" content="tumblr://x-callback-url/blog?blogName=georgiamoon&amp;postID=71306764449&amp;referrer=twitter-cards" />
+
+<script src="http://assets.tumblr.com/assets/scripts/tumblelog.js?_v=0f46e4f107a4e8cb911e9a37fe9ea99f"></script>
+<meta http-equiv="x-dns-prefetch-control" content="off"/>
+</head>
+<body class="content-700 lg-icons auto-headings scale-images singular ">
+  <div id="header" class="pinned">
+    <div class="inner">
+      
+
+      
+        <h1 class="blog-title"><a href="/">design, usability, technology webmusings</a></h1>
+      
+
+      
+
+      
+        <div id="search">
+          <form id="search-form" method="get" action="/search">
+            <input type="text" name="q" value="Search" />
+          </form>
+        </div>
+      
+      <ul class="menu">
+        
+        <li><a class="archives" href="/archive" title="Archive"><span class="icon"></span><span class="label">Archive</span></a></li>
+        <li><a class="rss" href="http://georgiamoon.tumblr.com/rss" title="RSS feed"><span class="icon"></span><span class="label">RSS</span></a></li>
+        <li><a class="ask" href="/ask" title="Contact me"><span class="icon"></span><span class="label">Contact me</span></a></li>
+        
+      </ul>
+    </div><!-- .inner -->
+    <div class="shadow"><span></span></div>
+  </div><!-- /#header -->
+
+  <!-- PAGE -->
+  <div id="page" class="right-sidebar clearfix">
+
+    
+
+    
+      
+    
+
+    <div id="content">
+
+      <!-- BEGIN POSTS -->
+      
+        <article id="post-71306764449" class="post
+          
+          
+          
+          
+          type-link 
+          
+          
+          
+          
+          ">
+
+          
+
+          
+
+          
+
+          
+
+          
+            <div class="post-panel">
+              <div class="copy">
+                <h2 class="post-title"><a href="http://thomaslevine.com/!/socrata-products/" >The business of open data<span class="icon"></span></a></h2>
+                <p><p dir="ltr">#opendata #digitaldivide </p>
+<p dir="ltr">I shared this yesterday, but I&#8217;m sharing it again more widely. I think we need to ask what it means to hand all of our public data to one company and pay them to host it in inequitable ways? How does this play out in the next few years with different municipalities making different hosting/sharing decisions based on cost?</p>
+<p dir="ltr">Also.. I thought Socrata had worked out being a GSA service? But I guess that doesn&#8217;t adjust the pricing schemes.</p></p>
+              </div>
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+            <div class="meta">
+              <ul class="meta-list">
+
+                
+
+                
+
+                <li class="date">
+                  <a href="http://georgiamoon.tumblr.com/post/71306764449/the-business-of-open-data" title="Fri. December 27, 2013 @ 9:15 am">
+                    <span class="icon"></span>5 days ago
+                  </a>
+                  
+                </li>
+
+                
+
+                
+
+                <li class="permalink"><a href="http://georgiamoon.tumblr.com/post/71306764449/the-business-of-open-data"><span class="icon"></span>Permalink</a></li>
+
+              </ul><!--/.meta-list -->
+
+              <div class="share">
+                <span class="toggle">Share</span>
+                <div class="widget">
+                  <div class="short-link">
+                    <p>Short URL<br>
+                    <input type="text" readonly="" value="http://tmblr.co/ZvZ_Ty12QDk2X"></p>
+                  </div>
+                  <div class="share-links"><a target="_new" href="https://twitter.com/intent/tweet?url=http://tmblr.co/ZvZ_Ty12QDk2X" class="share-twitter">Twitter</a><a target="_new" href="https://www.facebook.com/sharer.php?u=http://georgiamoon.tumblr.com/post/71306764449/the-business-of-open-data" class="share-facebook">Facebook</a><a target="_new" href="http://pinterest.com/pin/create/button/?url=http://georgiamoon.tumblr.com/post/71306764449/the-business-of-open-data&media=" class="share-pinterest">Pinterest</a><a target="_new" href="https://plus.google.com/share?url=http://georgiamoon.tumblr.com/post/71306764449/the-business-of-open-data" class="share-google">Google+</a></div>
+                </div>
+              </div>
+            </div><!-- /.meta -->
+          
+
+          
+            
+
+            
+              
+            
+          
+
+          </div><!-- /.post-panel -->
+          <div class="post-shadow"></div>
+        </article><!-- /.post -->
+      
+      <!-- END POSTS -->
+
+      
+
+      
+
+      
+        <div id="pagination">
+          <div class="nextprev">
+            <a class="prev" href="http://georgiamoon.tumblr.com/post/71432039457"><span>&larr; Previous</span></a> <span class="sep">&bull;</span>
+            <a class="next" href="http://georgiamoon.tumblr.com/post/70695362872"><span>Next &rarr;</span></a>
+          </div>
+        </div><!--/#pagination -->
+      
+
+    </div><!-- /#content -->
+
+    <!-- SIDEBAR -->
+      <div id="sidebar">
+        <div id="blog-info" class="side-box">
+          
+            
+          
+
+          
+
+          
+
+          
+            <div class="description">
+              <h2>About</h2>
+              <img class="portrait" src="http://24.media.tumblr.com/avatar_abf52fa06c64_64.png" alt="Avatar"/>
+              interests: people, technology and the urban environment - usability, design, ubiquitous computing, urban planning; <br />
+civic tech for engagement: usability, design, data, visualization, urban planning; working for the < a href="http://opentechinstitute.org">Open Technology Institute</a>, <a href="http://twitter.com/oti">@OTI</a> on Twitter & adjunct <a href="http://twitter.com/S_I_D_L">@S_I_D_L</a><br />
+<br />
+<a href="http://georgiabullen.com">http://georgiabullen.com</a>
+            </div><!--/.description-->
+          
+        </div><!--/#blog-info -->
+
+        
+
+        
+          
+        
+
+        
+          <div class="side-box ruled-top">
+            <h2>Me, Elsewhere</h2>
+            <ul id="socialize">
+              
+              
+              
+              
+              
+              <li class="twitter"><a href="http://www.twitter.com/georgiamoon" title="@georgiamoon on Twitter">@georgiamoon on Twitter</a></li>
+              
+              <li class="vimeo"><a href="http://www.vimeo.com/georgiamoon" title="georgiamoon on Vimeo">georgiamoon on Vimeo</a></li>
+              <li class="youtube"><a href="http://www.youtube.com/georgia529" title="georgia529 on Youtube">georgia529 on Youtube</a></li>
+              
+              <li class="delicious"><a href="http://www.delicious.com/georgia.bullen" title="georgia.bullen on Delicious">georgia.bullen on Delicious</a></li>
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              <li class="github"><a href="http://github.com/georgiamoon" title="georgiamoon on github">georgiamoon on github</a></li>
+              
+            </ul>
+          </div>
+        
+
+        <div id="tabs">
+          <div id="tabs-nav">
+            <h2><span id="tab-twitter" class="active">Twitter</span></h2>
+            
+          </div>
+
+          
+            
+              <div id="twitter" class="side-box tab">
+                <p class="loading-text">loading tweets&hellip;</p>
+              </div>
+            
+          
+
+          
+            
+          
+        </div><!-- close TABS -->
+
+        
+
+        
+          
+            <div id="followed" class="side-box ruled-top">
+              <h2>Following</h2>
+              <div id="followed-wrap">
+                <ul id="followed-list">
+                  <li><a href="http://lolmythesis.com/" title="lolmythesis"><img src="http://25.media.tumblr.com/avatar_425249ac74e1_24.png"></a><span>lolmythesis</span></li><li><a href="http://alispagnola.tumblr.com/" title="alispagnola"><img src="http://24.media.tumblr.com/avatar_e1778e831697_24.png"></a><span>alispagnola</span></li><li><a href="http://www.symboliamag.com/" title="symboliamag"><img src="http://25.media.tumblr.com/avatar_a70d4af50590_24.png"></a><span>symboliamag</span></li><li><a href="http://urasaru.org/" title="urasaru"><img src="http://25.media.tumblr.com/avatar_df96e437331a_24.png"></a><span>urasaru</span></li><li><a href="http://workingatanonprofit.tumblr.com/" title="workingatanonprofit"><img src="http://assets.tumblr.com/images/default_avatar/cone_open_24.png"></a><span>workingatanonprofit</span></li><li><a href="http://hughlippe.tumblr.com/" title="hughlippe"><img src="http://24.media.tumblr.com/avatar_24d1e374e951_24.png"></a><span>hughlippe</span></li><li><a href="http://staff.tumblr.com/" title="staff"><img src="http://24.media.tumblr.com/avatar_c36b653e187f_24.png"></a><span>staff</span></li><li><a href="http://blog.instagram.com/" title="instagram"><img src="http://31.media.tumblr.com/avatar_4d7ca3671d98_24.png"></a><span>instagram</span></li><li><a href="http://nickgrossman.is/" title="nickgrossman"><img src="http://24.media.tumblr.com/avatar_3c839325cd89_24.png"></a><span>nickgrossman</span></li><li><a href="http://nycdigital.tumblr.com/" title="nycdigital"><img src="http://24.media.tumblr.com/avatar_8999da3c305f_24.png"></a><span>nycdigital</span></li><li><a href="http://guysoncitibikes.com/" title="guysoncitibikes"><img src="http://24.media.tumblr.com/avatar_1dae5fc160a8_24.png"></a><span>guysoncitibikes</span></li><li><a href="http://sunlightcities.tumblr.com/" title="sunlightcities"><img src="http://31.media.tumblr.com/avatar_b739cb22186c_24.png"></a><span>sunlightcities</span></li><li><a href="http://dearphotograph.com/" title="dear-photograph"><img src="http://24.media.tumblr.com/avatar_d2d85704e7bb_24.png"></a><span>dear-photograph</span></li><li><a href="http://hyperrealcartography.tumblr.com/" title="hyperrealcartography"><img src="http://25.media.tumblr.com/avatar_79ee6b5c83a1_24.png"></a><span>hyperrealcartography</span></li><li><a href="http://rhidigitalstewards.tumblr.com/" title="rhidigitalstewards"><img src="http://24.media.tumblr.com/avatar_25177234c6ef_24.png"></a><span>rhidigitalstewards</span></li><li><a href="http://nycopendata.tumblr.com/" title="nycopendata"><img src="http://24.media.tumblr.com/avatar_6586da59591f_24.png"></a><span>nycopendata</span></li><li><a href="http://cmpblldllghn.tumblr.com/" title="cmpblldllghn"><img src="http://25.media.tumblr.com/avatar_f4b47a9f8215_24.png"></a><span>cmpblldllghn</span></li><li><a href="http://girleatmachine.tumblr.com/" title="girleatmachine"><img src="http://25.media.tumblr.com/avatar_95ad95434af1_24.png"></a><span>girleatmachine</span></li><li><a href="http://newhopegriffin.tumblr.com/" title="newhopegriffin"><img src="http://25.media.tumblr.com/avatar_0989abdc5970_24.png"></a><span>newhopegriffin</span></li><li><a href="http://taiwanderlust.tumblr.com/" title="taiwanderlust"><img src="http://25.media.tumblr.com/avatar_d4991b4069f2_24.png"></a><span>taiwanderlust</span></li><li><a href="http://swirlybyraloo.tumblr.com/" title="swirlybyraloo"><img src="http://24.media.tumblr.com/avatar_dd37a8663ce2_24.png"></a><span>swirlybyraloo</span></li><li><a href="http://stephenkennedy.tumblr.com/" title="stephenkennedy"><img src="http://25.media.tumblr.com/avatar_6b689ed988c8_24.png"></a><span>stephenkennedy</span></li><li><a href="http://cbracy.tumblr.com/" title="cbracy"><img src="http://24.media.tumblr.com/avatar_befca9b8d10b_24.png"></a><span>cbracy</span></li><li><a href="http://sublimerubbish.tumblr.com/" title="sublimerubbish"><img src="http://25.media.tumblr.com/avatar_bccebd1435ae_24.png"></a><span>sublimerubbish</span></li><li><a href="http://minorflux.tumblr.com/" title="minorflux"><img src="http://24.media.tumblr.com/avatar_d5870e73143c_24.png"></a><span>minorflux</span></li><li><a href="http://cactimaze.tumblr.com/" title="cactimaze"><img src="http://25.media.tumblr.com/avatar_7bfbaf26bfba_24.png"></a><span>cactimaze</span></li><li><a href="http://jesseshapins.com/" title="jshapins"><img src="http://25.media.tumblr.com/avatar_27e7edf725f5_24.png"></a><span>jshapins</span></li><li><a href="http://brs.tumblr.com/" title="brs"><img src="http://31.media.tumblr.com/avatar_cb07afee893d_24.gif"></a><span>brs</span></li><li><a href="http://blog.cartodb.com/" title="cartodb"><img src="http://25.media.tumblr.com/avatar_c56cc97a675d_24.png"></a><span>cartodb</span></li><li><a href="http://ezioblasetti.tumblr.com/" title="ezioblasetti"><img src="http://24.media.tumblr.com/avatar_459f2f564666_24.png"></a><span>ezioblasetti</span></li><li><a href="http://aashaneela.tumblr.com/" title="aashaneela"><img src="http://24.media.tumblr.com/avatar_73b6a43cf13f_24.png"></a><span>aashaneela</span></li><li><a href="http://blog.zeega.com/" title="zeegaverse"><img src="http://24.media.tumblr.com/avatar_9e979881477e_24.png"></a><span>zeegaverse</span></li><li><a href="http://linepointpath.tumblr.com/" title="linepointpath"><img src="http://25.media.tumblr.com/avatar_bcfad4603234_24.png"></a><span>linepointpath</span></li><li><a href="http://pushinghoopswithsticks.com/" title="pushinghoopswithsticks"><img src="http://25.media.tumblr.com/avatar_08d02772fee3_24.png"></a><span>pushinghoopswithsticks</span></li><li><a href="http://mkhandekar.tumblr.com/" title="mkhandekar"><img src="http://25.media.tumblr.com/avatar_39babded7a66_24.png"></a><span>mkhandekar</span></li><li><a href="http://plandrea.tumblr.com/" title="plandrea"><img src="http://24.media.tumblr.com/avatar_476ebab2f955_24.png"></a><span>plandrea</span></li><li><a href="http://jakeporway.tumblr.com/" title="jakeporway"><img src="http://25.media.tumblr.com/avatar_d4024df25911_24.png"></a><span>jakeporway</span></li><li><a href="http://beingaplanner.tumblr.com/" title="beingaplanner"><img src="http://assets.tumblr.com/images/default_avatar_24.png"></a><span>beingaplanner</span></li><li><a href="http://blog.bandwagon.io/" title="bandwagon-io"><img src="http://25.media.tumblr.com/avatar_87974f3b8f41_24.png"></a><span>bandwagon-io</span></li><li><a href="http://techladymafia.com/" title="techladymafia"><img src="http://24.media.tumblr.com/avatar_7a10e5c03525_24.png"></a><span>techladymafia</span></li><li><a href="http://chartsnthings.tumblr.com/" title="chartsnthings"><img src="http://31.media.tumblr.com/avatar_7d0f2a145d46_24.png"></a><span>chartsnthings</span></li><li><a href="http://tumbling.alastair.is/" title="alastaircoote"><img src="http://31.media.tumblr.com/avatar_370bc66039f2_24.png"></a><span>alastaircoote</span></li><li><a href="http://ladypreneurs.tumblr.com/" title="ladypreneurs"><img src="http://24.media.tumblr.com/avatar_e01506487faf_24.png"></a><span>ladypreneurs</span></li><li><a href="http://divacity.tumblr.com/" title="divacity"><img src="http://25.media.tumblr.com/avatar_382f2f90cb31_24.png"></a><span>divacity</span></li><li><a href="http://technickle.nicklin.info/" title="technickle"><img src="http://25.media.tumblr.com/avatar_3d973dabefce_24.png"></a><span>technickle</span></li><li><a href="http://geisen.tumblr.com/" title="geisen"><img src="http://25.media.tumblr.com/avatar_b594aca2cd54_24.gif"></a><span>geisen</span></li><li><a href="http://tghhdrink.tumblr.com/" title="tghhdrink"><img src="http://assets.tumblr.com/images/default_avatar_24.png"></a><span>tghhdrink</span></li><li><a href="http://tracktwentynine.tumblr.com/" title="tracktwentynine"><img src="http://25.media.tumblr.com/avatar_2bde0f37d165_24.png"></a><span>tracktwentynine</span></li><li><a href="http://tidepools-oti.tumblr.com/" title="tidepools-oti"><img src="http://25.media.tumblr.com/avatar_d4b7b6c89fe1_24.png"></a><span>tidepools-oti</span></li><li><a href="http://critical-infrastructure.jeffmaki.com/" title="critical-infrastructure"><img src="http://24.media.tumblr.com/avatar_a02f95390833_24.png"></a><span>critical-infrastructure</span></li><li><a href="http://notatourist.tumblr.com/" title="notatourist"><img src="http://24.media.tumblr.com/avatar_abcb031b91c2_24.png"></a><span>notatourist</span></li><li><a href="http://gocodery.tumblr.com/" title="gocodery"><img src="http://24.media.tumblr.com/avatar_2593e242e9ed_24.png"></a><span>gocodery</span></li><li><a href="http://auciello.tumblr.com/" title="auciello"><img src="http://31.media.tumblr.com/avatar_5eb7f376687b_24.png"></a><span>auciello</span></li><li><a href="http://farmthis.tumblr.com/" title="farmthis"><img src="http://24.media.tumblr.com/avatar_d16485918e38_24.png"></a><span>farmthis</span></li><li><a href="http://radicalterrace.com/" title="radicalterrace"><img src="http://24.media.tumblr.com/avatar_86ae51880feb_24.png"></a><span>radicalterrace</span></li><li><a href="http://30xrandomacts.tumblr.com/" title="30xrandomacts"><img src="http://25.media.tumblr.com/avatar_4bd67f519216_24.png"></a><span>30xrandomacts</span></li><li><a href="http://newschallenge2.tumblr.com/" title="newschallenge2"><img src="http://assets.tumblr.com/images/default_avatar_24.png"></a><span>newschallenge2</span></li><li><a href="http://newschallenge1.tumblr.com/" title="newschallenge1"><img src="http://25.media.tumblr.com/avatar_9e47d4af4fbf_24.png"></a><span>newschallenge1</span></li><li><a href="http://smallstreets.tumblr.com/" title="smallstreets"><img src="http://25.media.tumblr.com/avatar_00aabc55f1b4_24.png"></a><span>smallstreets</span></li><li><a href="http://ericgoldwyn.tumblr.com/" title="ericgoldwyn"><img src="http://24.media.tumblr.com/avatar_f0b31bf00d25_24.png"></a><span>ericgoldwyn</span></li><li><a href="http://slash-awesome.tumblr.com/" title="slash-awesome"><img src="http://31.media.tumblr.com/avatar_35e5b81e59c2_24.png"></a><span>slash-awesome</span></li><li><a href="http://sweetwateraquapons.tumblr.com/" title="sweetwateraquapons"><img src="http://25.media.tumblr.com/avatar_8330908407d8_24.png"></a><span>sweetwateraquapons</span></li><li><a href="http://urbansystems.tumblr.com/" title="urbansystems"><img src="http://assets.tumblr.com/images/default_avatar_24.png"></a><span>urbansystems</span></li><li><a href="http://opentransportation.tumblr.com/" title="opentransportation"><img src="http://31.media.tumblr.com/avatar_e2f7b31edd5d_24.png"></a><span>opentransportation</span></li><li><a href="http://one4onegame.com/" title="theoneforone"><img src="http://24.media.tumblr.com/avatar_8a14f47edc8d_24.png"></a><span>theoneforone</span></li><li><a href="http://jeffoutofcontext.tumblr.com/" title="jeffoutofcontext"><img src="http://31.media.tumblr.com/avatar_d8f935b34590_24.png"></a><span>jeffoutofcontext</span></li><li><a href="http://vs-cellcity-sp12.tumblr.com/" title="vs-cellcity-sp12"><img src="http://24.media.tumblr.com/avatar_cb63e71bd7ef_24.png"></a><span>vs-cellcity-sp12</span></li><li><a href="http://textsfromhillaryclinton.tumblr.com/" title="textsfromhillaryclinton"><img src="http://31.media.tumblr.com/avatar_c78e144ae7a5_24.png"></a><span>textsfromhillaryclinton</span></li><li><a href="http://gsappworkflow.tumblr.com/" title="gsappworkflow"><img src="http://25.media.tumblr.com/avatar_e7e399c38178_24.png"></a><span>gsappworkflow</span></li><li><a href="http://lincoprinting.com/" title="lincoprinting"><img src="http://25.media.tumblr.com/avatar_eedababf7dbc_24.png"></a><span>lincoprinting</span></li><li><a href="http://sara-b-rosenberg.tumblr.com/" title="sara-b-rosenberg"><img src="http://25.media.tumblr.com/avatar_407b85dfccc4_24.png"></a><span>sara-b-rosenberg</span></li><li><a href="http://amorphtheus.tumblr.com/" title="amorphtheus"><img src="http://25.media.tumblr.com/avatar_ee2d7d309df3_24.png"></a><span>amorphtheus</span></li><li><a href="http://citygroups.tumblr.com/" title="citygroups"><img src="http://25.media.tumblr.com/avatar_0579e5fa377a_24.png"></a><span>citygroups</span></li><li><a href="http://starlab.tumblr.com/" title="starlab"><img src="http://assets.tumblr.com/images/default_avatar_24.png"></a><span>starlab</span></li><li><a href="http://urbanodelacruz.tumblr.com/" title="urbanodelacruz"><img src="http://31.media.tumblr.com/avatar_a50beb5943a9_24.png"></a><span>urbanodelacruz</span></li><li><a href="http://jea.tumblr.com/" title="jea"><img src="http://31.media.tumblr.com/avatar_83d9c494f8cc_24.png"></a><span>jea</span></li><li><a href="http://gsapp.tumblr.com/" title="gsapp"><img src="http://25.media.tumblr.com/avatar_2e4984c63036_24.png"></a><span>gsapp</span></li>
+                </ul>
+              </div>
+            </div><!-- close FOLLOWING -->
+          
+        
+
+        
+          
+        
+
+      </div><!-- /#sidebar -->
+    
+
+    
+
+    <div id="footer">
+      
+        
+          <!-- LIKES -->
+          
+            <div id="likes-panel" class="footer-panel ruled-top">
+              <h2>I Dig These Posts</h2>
+              <a class="more-likes" href="/liked/by/georgiamoon">See more &rarr;</a>
+              
+
+              
+
+              
+                <ul id="likes"><li class="like_post like_photo_post"><div class="post_info_top" style="display:none;"><a href="http://swirlybyraloo.tumblr.com/post/68309109754/orions-first-trip-to-the-midwest-meeting-his">Photo</a> <span class="via">via</span> <a href="http://swirlybyraloo.tumblr.com/">swirlybyraloo</a></div><a href="http://swirlybyraloo.tumblr.com/post/68309109754/orions-first-trip-to-the-midwest-meeting-his" class="photo_link"><img class="like_photo" alt=""
+                                src="http://31.media.tumblr.com/6204ec9011e4583f00fffb98a8587198/tumblr_mwy47pXgWX1sh0ty5o1_250.jpg"/></a><div class="like_below_photo"></div><div class="like_caption">
+<p></p>
+<p dir="ltr">Orion’s first trip to the Midwest… Meeting his cousin Diza and uncle Yuliy for the first time!</p>
+</div><div class="post_info_bottom" style="display:none;"><a href="http://swirlybyraloo.tumblr.com/post/68309109754/orions-first-trip-to-the-midwest-meeting-his">Photo</a> <span class="via">via</span> <a href="http://swirlybyraloo.tumblr.com/">swirlybyraloo</a></div></li><li class="like_post like_photo_post"><div class="post_info_top" style="display:none;"><a href="http://sublimerubbish.tumblr.com/post/63627703302/ian-mckellen-is-all-i-want-to-be-in-life">Photoset</a> <span class="via">via</span> <a href="http://sublimerubbish.tumblr.com/">sublimerubbish</a></div><a href="http://sublimerubbish.tumblr.com/post/63627703302/ian-mckellen-is-all-i-want-to-be-in-life" class="photo_link"><img class="like_photo" alt=""
+                                src="http://25.media.tumblr.com/b7255d40350ef9bc6d2f90b36a44171c/tumblr_mtovkbxP1X1ruw1vso1_250.jpg"/></a><div class="like_below_photo"></div><div class="like_caption"><p><strong>Ian McKellen is all I want to be in life.</strong></p></div><div class="post_info_bottom" style="display:none;"><a href="http://sublimerubbish.tumblr.com/post/63627703302/ian-mckellen-is-all-i-want-to-be-in-life">Photoset</a> <span class="via">via</span> <a href="http://sublimerubbish.tumblr.com/">sublimerubbish</a></div></li><li class="like_post like_photo_post"><div class="post_info_top" style="display:none;"><a href="http://swirlybyraloo.tumblr.com/post/60878104916">Photo</a> <span class="via">via</span> <a href="http://swirlybyraloo.tumblr.com/">swirlybyraloo</a></div><a href="http://swirlybyraloo.tumblr.com/post/60878104916" class="photo_link"><img class="like_photo" alt=""
+                                src="http://25.media.tumblr.com/fec38b170c00c56249abb85791a1758b/tumblr_msxl3qaNPh1sh0ty5o1_250.jpg"/></a><div class="like_below_photo"></div><div class="post_info_bottom" style="display:none;"><a href="http://swirlybyraloo.tumblr.com/post/60878104916">Photo</a> <span class="via">via</span> <a href="http://swirlybyraloo.tumblr.com/">swirlybyraloo</a></div></li><li class="like_post like_text_post"><div class="post_info_top" style="display:none;"><a href="http://workingatanonprofit.tumblr.com/post/61022469142/when-the-task-you-ve-been-given-the-runaround-on-for-6">Post</a> <span class="via">via</span> <a href="http://workingatanonprofit.tumblr.com/">workingatanonprofit</a></div>        
+        <div class="like_title">When the task you\&#039;ve been given the runaround on for 6 months actually takes 2 minutes to accomplish</div>
+<p></p>
+<p><img style="cursor:pointer;" onclick="if (typeof toggle_inline_photo_thumbnails != 'undefined') toggle_inline_photo_thumbnails(this); return false;" class="toggle_inline_image inline_image constrained_image" alt="image" src="http://media.tumblr.com/6ba262b5cc74f7def7b01ad36a23259b/tumblr_inline_mrwh4rzpoI1qz4rgp.gif" width="350"></p>
+<div class="post_info_bottom" style="display:none;"><a href="http://workingatanonprofit.tumblr.com/post/61022469142/when-the-task-you-ve-been-given-the-runaround-on-for-6">Post</a> <span class="via">via</span> <a href="http://workingatanonprofit.tumblr.com/">workingatanonprofit</a></div></li><li class="like_post like_photo_post"><div class="post_info_top" style="display:none;"><a href="http://swirlybyraloo.tumblr.com/post/59799264123">Photo</a> <span class="via">via</span> <a href="http://swirlybyraloo.tumblr.com/">swirlybyraloo</a></div><a href="http://swirlybyraloo.tumblr.com/post/59799264123" class="photo_link"><img class="like_photo" alt=""
+                                src="http://31.media.tumblr.com/aaecbca392f5fcb4c4d544b35ef21e54/tumblr_msd2euxxLV1sh0ty5o1_250.jpg"/></a><div class="like_below_photo"></div><div class="post_info_bottom" style="display:none;"><a href="http://swirlybyraloo.tumblr.com/post/59799264123">Photo</a> <span class="via">via</span> <a href="http://swirlybyraloo.tumblr.com/">swirlybyraloo</a></div></li></ul>
+              
+            </div>
+          
+          <!-- END LIKES -->
+        
+      
+
+      <div id="footer-end" class="ruled-top">
+        <div class="footer-copy">
+          <ul id="footer-links">
+            <li><a href="/rss">RSS</a></li>
+            <li><a href="/random">Random</a></li>
+            <li><a href="/archive">Archive</a></li>
+            <li><a href="/ask">Contact me</a></li>
+            
+            <li><a href="/mobile">Mobile</a></li>
+          </ul>
+          
+        </div>
+        <div class="pixel-union"><a href="http://www.tumblr.com/theme/17403"><strong>Effector Theme</strong></a> by <a class="logo" href="http://www.pixelunion.net">Pixel Union</a></div>
+      </div><!-- /#footer-end -->
+    </div><!-- /#footer -->
+  </div><!-- /#page -->
+
+  <!-- Footer Scripts -->
+
+  <script>
+    function recent_tweets(data){window.tweet_data=data;}
+  </script>
+
+  <script src="/tweets.js"></script>
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+
+  <script>window.jQuery || document.write('<script src="http://static.tumblr.com/hugxd2w/s4om61ic8/jquery-1.7.2.min.js"><\/script>')</script>
+
+  
+    <script src="http://static.tumblr.com/hugxd2w/fvZmtcd1s/script.js" type="text/javascript"></script>
+  
+
+  <script src="http://platform.twitter.com/widgets.js"></script>
+
+  <script src="https://apis.google.com/js/plusone.js" type="text/javascript"></script>
+
+  
+
+  
+<!-- BEGIN TUMBLR CODE --><iframe id="tumblr_controls" width="1" height="1" frameborder="0" scrolling="no" style="position:absolute; z-index:2147483647; top:0; right:0; border:0; background-color:transparent; overflow:hidden; " src="http://assets.tumblr.com/assets/html/iframe/o.html?_v=b19eea6226a7eb4150d9ea684ffba4f0#src=http%3A%2F%2Fgeorgiamoon.tumblr.com%2Fpost%2F71306764449%2Fthe-business-of-open-data&amp;pid=71306764449&amp;rk=ytvZT264&amp;lang=en_US&amp;name=georgiamoon&amp;avatar=http%3A%2F%2F24.media.tumblr.com%2Favatar_abf52fa06c64_64.png&amp;title=design%2C+usability%2C+technology+webmusings&amp;url=http%3A%2F%2Fgeorgiamoon.tumblr.com%2F&amp;page_slide=slide"></iframe><div id="teaser_iframe_container" style="display:none;"><iframe scrolling="no" frameborder="0" src="http://www.tumblr.com/assets/html/iframe/teaser.html?_v=a78fdd55d2fccf5f1d4342be53682407#src=http%3A%2F%2Fgeorgiamoon.tumblr.com%2Fpost%2F71306764449%2Fthe-business-of-open-data&amp;pid=71306764449&amp;rk=ytvZT264&amp;lang=en_US&amp;name=georgiamoon&amp;avatar=http%3A%2F%2F24.media.tumblr.com%2Favatar_abf52fa06c64_64.png&amp;title=design%2C+usability%2C+technology+webmusings&amp;url=http%3A%2F%2Fgeorgiamoon.tumblr.com%2F&amp;page_slide=slide" id="teaser_iframe" width="1" height="1"></iframe></div><script type="text/javascript">
+    (function(Tumblr){
+        var follow_iframe_initialized = false;
+        if (Tumblr.FollowTeaser && Tumblr.PostMessageListener) {
+            // Don't do anything until the first initialize event
+            Tumblr.PostMessageListener.initialize(function(message, origin) {
+                if (follow_iframe_initialized || message.length < 2) return;
+
+                if (message[0] === 'follow_iframe' && message[1] === 'enable') {
+                    Tumblr.FollowTeaser.current_page = 1;
+                    Tumblr.FollowTeaser.infer_infinite_scroll = true;
+                    Tumblr.FollowTeaser.create_from_tumblr_controls("http:\/\/assets.tumblr.com\/assets\/html\/iframe\/follow.html?_v=9759758dd2f15435e72f4fc485d64c4f");
+                    Tumblr.FollowTeaser.scroll_listener(true);
+                    follow_iframe_initialized = true;
+                }
+            });
+        }
+    })(this.Tumblr || (this.Tumblr = {}));
+</script><!--[if IE]><script type="text/javascript">document.getElementById('tumblr_controls').allowTransparency=true;</script><![endif]--><iframe onload="javascript:this.contentWindow.postMessage(['tick_google_analytics', '/post/71306764449/the-business-of-open-data?route=%2Fpost%2F%3Aid%2F%3Asummary'].join(';'), this.src.split('/analytics.html')[0]);  COMSCORE = true;this.contentWindow.postMessage('enable_comscore;' + window.location, this.src.split('/analytics.html')[0]);" src="http://assets.tumblr.com/analytics.html?ad2cae069893ce59ed750a2ae2244fd9" scrolling="no" width="1" height="1" frameborder="0" style="background-color:transparent; overflow:hidden; position:absolute; top:0; left:0 z-index:9999;" id="ga_target"></iframe><script type="text/javascript">
+      var _qevents = _qevents || [];
+
+      (function() {
+       var elem = document.createElement('script');
+
+       elem.src = (document.location.protocol == "https:" ? "https://secure" : "http://edge") + ".quantserve.com/quant.js";
+       elem.async = true;
+       elem.type = "text/javascript";
+       var scpt = document.getElementsByTagName('script')[0];
+       scpt.parentNode.insertBefore(elem, scpt);
+      })();
+    </script><script type="text/javascript">
+        _qevents.push( { qacct: 'p-19UtqE8ngoZbM' } );
+    </script><noscript><div style="display: none;"><img src="//pixel.quantserve.com/pixel/'p-19UtqE8ngoZbM'.gif" height="1" width="1" alt="Quantcast"/></div></noscript><script type="text/javascript">!function(s){s.src='http://www.tumblr.com/impixu?T=1388609630&J=eyJ0eXBlIjoidXJsIiwidXJsIjoiaHR0cDpcL1wvZ2VvcmdpYW1vb24udHVtYmxyLmNvbVwvcG9zdFwvNzEzMDY3NjQ0NDlcL3RoZS1idXNpbmVzcy1vZi1vcGVuLWRhdGEiLCJyZXF0eXBlIjowLCJyb3V0ZSI6IlwvcG9zdFwvOmlkXC86c3VtbWFyeSJ9&U=BMODMGICEI&K=057aad6d09dfb015347296d0dd1e9c99c22c0ab03eef1a33466e9c14ab066377&R='.replace(/&R=[^&$]*/,'').concat('&R='+escape(document.referrer)).slice(0,2000).replace(/%.?.?$/,'');}(new Image());</script><noscript><img style="position:absolute;z-index:-3334;top:0px;left:0px;visibility:hidden;" src="http://www.tumblr.com/impixu?T=1388609630&J=eyJ0eXBlIjoidXJsIiwidXJsIjoiaHR0cDpcL1wvZ2VvcmdpYW1vb24udHVtYmxyLmNvbVwvcG9zdFwvNzEzMDY3NjQ0NDlcL3RoZS1idXNpbmVzcy1vZi1vcGVuLWRhdGEiLCJyZXF0eXBlIjowLCJyb3V0ZSI6IlwvcG9zdFwvOmlkXC86c3VtbWFyeSIsIm5vc2NyaXB0IjoxfQ==&U=BMODMGICEI&K=10d56d67264f921f803c621d0d550c68b5aa05e9d2fe2421301564c148758ea3&R="></noscript><script type="text/javascript">!function(s){s.src='http://www.tumblr.com/impixu?T=1388609630&J=eyJ0eXBlIjoicG9zdCIsInVybCI6Imh0dHA6XC9cL2dlb3JnaWFtb29uLnR1bWJsci5jb21cL3Bvc3RcLzcxMzA2NzY0NDQ5XC90aGUtYnVzaW5lc3Mtb2Ytb3Blbi1kYXRhIiwicmVxdHlwZSI6MCwicm91dGUiOiJcL3Bvc3RcLzppZFwvOnN1bW1hcnkiLCJwb3N0cyI6W3sicG9zdGlkIjoiNzEzMDY3NjQ0NDkiLCJibG9naWQiOiIyMDg2OTc5Iiwic291cmNlIjozM31dfQ==&U=COCMEKOBNN&K=860385a1288446ee148bb24d8cf5ca514c487aef219f922335ff86acc937a466&R='.replace(/&R=[^&$]*/,'').concat('&R='+escape(document.referrer)).slice(0,2000).replace(/%.?.?$/,'');}(new Image());</script><noscript><img style="position:absolute;z-index:-3334;top:0px;left:0px;visibility:hidden;" src="http://www.tumblr.com/impixu?T=1388609630&J=eyJ0eXBlIjoicG9zdCIsInVybCI6Imh0dHA6XC9cL2dlb3JnaWFtb29uLnR1bWJsci5jb21cL3Bvc3RcLzcxMzA2NzY0NDQ5XC90aGUtYnVzaW5lc3Mtb2Ytb3Blbi1kYXRhIiwicmVxdHlwZSI6MCwicm91dGUiOiJcL3Bvc3RcLzppZFwvOnN1bW1hcnkiLCJwb3N0cyI6W3sicG9zdGlkIjoiNzEzMDY3NjQ0NDkiLCJibG9naWQiOiIyMDg2OTc5Iiwic291cmNlIjozM31dLCJub3NjcmlwdCI6MX0=&U=COCMEKOBNN&K=aec8bd303e8e52e7b22a1cfe40fede45298ea3c17a1e1a9782f12b3629862a9b&R="></noscript><script type="text/javascript" src="http://l.yimg.com/ss/rapid-3.9.js"></script><script>
+                    (function(YAHOO) {
+                        if (YAHOO) {
+                            YAHOO.i13n.beacon_server = 'nol.yahoo.com';
+                            var keys = { pd:'/post/:id/:summary', _li:0, i_rad:0, i_strm:0 };
+                            YAHOO.rapid = new YAHOO.i13n.Rapid({spaceid:1197719230, oo:1, client_only:1, yql_enabled:false, keys:keys});
+                        }
+                    })(window.YAHOO);
+                </script><!-- END TUMBLR CODE -->
+
+</body>
+</html>
