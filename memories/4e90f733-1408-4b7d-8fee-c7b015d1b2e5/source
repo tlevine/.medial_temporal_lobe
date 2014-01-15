@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Pass is the standard unix password manager, a lightweight password manager that uses GPG and Git for Linux, BSD, and Mac OS X." />
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+    <title>Pass: The Standard Unix Password Manager</title>
+  </head>
+
+  <body>
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="http://zx2c4.com/">A ZX2C4 Project</a>
+          <h1 id="project_title">pass</h1>
+          <h2 id="project_tagline">the standard unix password manager</h2>
+
+            <section id="downloads">
+              <a class="download_link" href="#download">Download</a>
+            </section>
+        </header>
+    </div>
+    
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+
+<h2>Introducing <code>pass</code></h2>
+
+<p>Password management should be simple and follow <a href="http://en.wikipedia.org/wiki/Unix_philosophy">Unix philosophy</a>. With <code>pass</code>, each password lives inside of a <a href="http://en.wikipedia.org/wiki/GNU_Privacy_Guard"><code>gpg</code></a> encrypted file whose filename is the title of the website or resource that requires the password. These encrypted files may be organized into meaningful folder hierarchies, copied from computer to computer, and, in general, manipulated using standard command line file management utilities.</p>
+
+<p><code>pass</code> makes managing these individual password files extremely easy. All passwords live in <code>~/.password-store</code>, and <code>pass</code> provides some nice commands for adding, editing, generating, and retrieving passwords. It is a very short and simple shell script. It's capable of temporarily putting passwords on your clipboard and tracking password changes using <a href="http://en.wikipedia.org/wiki/Git_(software)"><code>git</code></a>.</p>
+
+<p>You can edit the password store using ordinary unix shell commands alongside the <code>pass</code> command. There are no funky file formats or new paradigms to learn. There is <a href="http://en.wikipedia.org/wiki/Bash_(Unix_shell)">bash</a> <a href="http://en.wikipedia.org/wiki/Command-line_completion">completion</a> so that you can simply hit tab to fill in names and commands, as well as completion for <a href="http://en.wikipedia.org/wiki/Z_shell">zsh</a> and <a href="http://en.wikipedia.org/wiki/Friendly_interactive_shell">fish</a> available in the <a href="http://git.zx2c4.com/password-store/tree/contrib">contrib</a> folder. The community has even produced an <a href="https://github.com/rephorm/pass-ios#readme">iOS app</a>.</p>
+
+<p>The <code>pass</code> command is extensively documented in its <a target="_blank" href="http://git.zx2c4.com/password-store/about/">man page</a>.</p>
+
+<p><a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="zx2c4" data-related="zx2c4">Tweet</a></p>
+
+<h3>Using the password store</h3>
+
+<p>We can list all the existing passwords in the store:</p>
+
+<pre><code>zx2c4@laptop ~ $ pass
+Password Store
+├── Business
+│   ├── some-silly-business-site.com
+│   └── another-business-site.net
+├── Email
+│   ├── donenfeld.com
+│   └── zx2c4.com
+└── France
+    ├── bank
+    ├── freebox
+    └── mobilephone
+</code></pre>
+
+<p>And we can show passwords too:</p>
+
+<pre><code>zx2c4@laptop ~ $ pass Email/zx2c4.com
+sup3rh4x3rizmynam3
+</code></pre>
+
+<p>Or copy them to the clipboard:</p>
+
+<pre><code>zx2c4@laptop ~ $ pass -c Email/zx2c4.com
+Copied Email/jason@zx2c4.com to clipboard. Will clear in 45 seconds.
+</code></pre>
+
+<p>There will be a nice password input dialog using the standard <code>gpg-agent</code> (which can be configured to stay authenticated for several minutes), since all passwords are encrypted.</p>
+
+<p>We can add existing passwords to the store with <code>insert</code>:</p>
+
+<pre><code>zx2c4@laptop ~ $ pass insert Business/cheese-whiz-factory
+Enter password for Business/cheese-whiz-factory: omg so much cheese what am i gonna do
+</code></pre>
+
+<p>This also handles multiline passwords or other data with <code>--multiline</code> or <code>-m</code>, and passwords can be edited in your default text editor using <code>pass edit pass-name</code>.</p>
+
+<p>The utility can <code>generate</code> new passwords using the venerable <code>pwgen</code> utility internally:</p>
+
+<pre><code>zx2c4@laptop ~ $ pass generate Email/jasondonenfeld.com 15
+The generated password to Email/jasondonenfeld.com is:
+$(-QF&amp;Q=IN2nFBx
+</code></pre>
+
+<p>It's possible to generate passwords with no symbols using <code>--no-symbols</code> or <code>-n</code>, and we can copy it to the clipboard instead of displaying it at the console using <code>--clip</code> or <code>-c</code>.</p>
+
+<p>And of course, passwords can be removed:</p>
+
+<pre><code>zx2c4@laptop ~ $ pass rm Business/cheese-whiz-factory
+rm: remove regular file ‘/home/zx2c4/.password-store/Business/cheese-whiz-factory.gpg’? y
+removed ‘/home/zx2c4/.password-store/Business/cheese-whiz-factory.gpg’
+</code></pre>
+
+<p>If the password store is a git repository, since each manipulation creates a git commit, you can synchronize the password store using <code>pass git push</code> and <code>pass git pull</code>, which call <code>git-push</code> or <code>git-pull</code> on the store.</p>
+
+<p>You can read more examples and more features in the <a target="_blank" href="http://git.zx2c4.com/password-store/about/">man page</a>.</p>
+
+<h3>Setting it up</h3>
+
+<p>To begin, there is a single command to initialize the password store:</p>
+
+<pre><code>zx2c4@laptop ~ $ pass init "ZX2C4 Password Storage Key"
+mkdir: created directory ‘/home/zx2c4/.password-store’
+Password store initialized for ZX2C4 Password Storage Key.
+</code></pre>
+
+<p>Here, <code>ZX2C4 Password Storage Key</code> is the ID of my GPG key. You can use your standard GPG key or use an alternative one especially for the password store as shown above.</p>
+
+<p>We can additionally initialize the password store as a git repository:</p>
+
+<pre><code>zx2c4@laptop ~ $ pass git init
+Initialized empty Git repository in /home/zx2c4/.password-store/.git/
+zx2c4@laptop ~ $ pass git remote add origin kexec.com:pass-store
+</code></pre>
+
+<p>If a git repository is initialized, <code>pass</code> creates a git commit each time the password store is manipulated.</p>
+
+<p>There is a more <a href="http://git.zx2c4.com/password-store/about/#EXTENDED GIT EXAMPLE">detailed initialization example</a> in the <a target="_blank" href="http://git.zx2c4.com/password-store/about/">man page</a>.</p>
+
+<h2 id="download">Download</h2>
+
+<p>The latest version is 1.4.2.</p>
+
+<h3 id="deb">Ubuntu / Debian</h3>
+
+<pre><code>$ sudo apt-get install pass
+$ echo "source /etc/bash_completion.d/password-store" >> ~/.bashrc
+</code></pre>
+
+<h3 id="rpm">Fedora / RHEL</h3>
+
+<pre><code>$ sudo yum install pass
+$ echo "source /etc/bash_completion.d/password-store" >> ~/.bashrc</code></pre>
+
+<p>Fedora's RPM should also work on other RPM-based distros like OpenSUSE and Mageia. Certain users may have to add the <code>--enablerepo=updates-testing</code> argument to <code>yum</code>.</p>
+
+<h3 id="gentoo">Gentoo</h3>
+
+<pre><code># emerge -av pass
+# eselect bashcomp enable --global pass
+</code></pre>
+
+<h3 id="arch">Arch</h3>
+
+<pre><code>$ pacman -S pass
+$ echo "source /etc/bash_completion.d/password-store" >> ~/.bashrc</code></pre>
+
+<h3 id="macintosh">Macintosh</h3>
+
+<p>The password store is available through the <a href="http://mxcl.github.com/homebrew/">Homebrew package manager</a>:</p>
+
+<pre><code>$ brew install pass
+$ echo "source /usr/local/etc/bash_completion.d/password-store" >> ~/.bashrc</code></pre>
+
+<h3 id="freebsd">FreeBSD</h3>
+
+<pre><code># portmaster -d sysutils/password-store</code></pre>
+
+<h3 id="tarball">Tarball</h3>
+
+<ul>
+<li><a href="http://git.zx2c4.com/password-store/snapshot/password-store-1.4.2.tar.xz">Version 1.4.2</a>
+<li><a href="http://git.zx2c4.com/password-store/snapshot/password-store-master.tar.xz">Latest Git</a></li>
+</ul>
+The tarball contains a generic makefile, for which a simple <code>sudo make install</code> should do the trick.
+
+<h3>Git Repository</h3>
+
+<p>You may <a href="http://git.zx2c4.com/password-store/">browse the git repository</a> or clone the repo:
+</p>
+
+<pre><code>$ git clone http://git.zx2c4.com/password-store</code></pre>
+
+<p>All releases are tagged, and the tags are signed with <a href="http://pgp.mit.edu:11371/pks/lookup?op=get&search=0x49FC7012A5DE03AE">0xA5DE03AE</a>.</p>
+
+<h2 id="organization">Data Organization</h2>
+
+<h3>Usernames, Passwords, PINs, Websites, Metadata, et cetera</h3>
+
+<p>The password store does not impose any particular schema or type of organization of your data, as it is simply a flat text file, which can contain arbitrary data. Though the most common case is storing a single password per entry, some power users find they would like to store more than just their password inside the password store, and additionally store answers to secret questions, website URLs, and other sensitive information or metadata. Since the password store does not impose a scheme of it's own, you can choose your own organization. There are many possibilities.</p>
+
+<p>One approach is to use the multi-line functionality of pass (<code>--multiline</code> or <code>-m</code> in <code>insert</code>), and store the password itself on the first line of the file, and the additional information on subsequent lines. For example, <code>Amazon/bookreader</code> might look like this:</p>
+
+<pre><code>Yw|ZSNH!}z"6{ym9pI
+URL: *.amazon.com/*
+Username: AmazonianChicken@example.com
+Secret Question 1: What is your childhood best friend's most bizarre superhero fantasy? Oh god, Amazon, it's too awful to say...
+Phone Support PIN #: 84719</code></pre>
+
+<p><em>This is the preferred organzational scheme used by the author.</em> The <code>--clip</code> / <code>-c</code> options will only copy the first line of such a file to the clipboard, thereby making it easy to fetch the password for login forms, while retaining additional information in the same file.</p>
+
+<p>Another approach is to use folders, and store each piece of data inside a file in that folder. For example <code>Amazon/bookreader/password</code> would hold bookreader's password inside the <code>Amazon/bookreader</code> directory, and <code>Amazon/bookreader/secretquestion1</code> would hold a secret question, and <code>Amazon/bookreader/sensitivecode</code> would hold something else related to bookreader's account. And yet another approach might be to store the password in <code>Amazon/bookreader</code> and the additional data in <code>Amazon/bookreader.meta</code>. And even another approach might be use multiline, as outlined above, but put the URL template in the filename instead of inside the file.</p>
+
+<p>The point is, the possibilities here are extremely numerous, and there are many other organizational schemes not mentioned above; you have the freedom of choosing the one that fits your workflow best.</p>
+
+<h3 id="migration">Migrating to <code>pass</code></h3>
+<p>To free password data from the clutches of other (bloated) password managers, various users have come up with different password store organizations that work best for them. Some users have contributed scripts to help import passwords from other programs:</p>
+
+<ul>
+	<li><a href="http://git.zx2c4.com/password-store/tree/contrib/keepassx2pass.py">keepassx2pass.py</a>: imports KeepassX XML data</li>
+	<li><a href="http://git.zx2c4.com/password-store/tree/contrib/keepass2pass.py">keepass2pass.py</a>: imports Keepass2 XML data</li>
+	<li><a href="http://git.zx2c4.com/password-store/tree/contrib/fpm2pass.pl">fpm2pass.pl</a>: imports Figaro's Password Manager XML data</li>
+	<li><a href="http://git.zx2c4.com/password-store/tree/contrib/lastpass2pass.rb">lastpass2pass.rb</a>: imports Lastpass CSV data</li>
+	<li><a href="http://git.zx2c4.com/password-store/tree/contrib/kedpm2pass.py">kedpm2pass.py</a>: imports Ked Password Manager data</li>
+	<li><a href="http://git.zx2c4.com/password-store/tree/contrib/revelation2pass.py">revelation2pass.py</a>: imports Revelation Password Manager data</li>
+	<li><a href="http://git.zx2c4.com/password-store/tree/contrib/gorilla2pass.rb">gorilla2pass.rb</a>: imports Password Gorilla data</li>
+</ul>
+
+<h2>Credit &amp; License</h2>
+
+<p><code>pass</code> was written by <a href="mailto:Jason@zx2c4.com">Jason A. Donenfeld</a> of <a href="http://zx2c4.com">zx2c4.com</a> and is licensed under the <a href="http://www.gnu.org/licenses/gpl-2.0.html">GPLv2</a>+.</p>
+
+<h3>Contributing</h3>
+
+<p>This is a very active project with a <a href="http://git.zx2c4.com/password-store/stats/?period=y&ofs=-1">healthy dose of contributors</a>. The best way to contribute to the password store is to <a href="http://lists.zx2c4.com/listinfo.cgi/password-store-zx2c4.com">join the mailing list</a> and send git formatted patches.</p>
+
+<p><a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="zx2c4" data-related="zx2c4">Tweet</a></p>
+      </section>
+    </div>
+
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">&copy; Copyright 2012-2013 Jason A. Donenfeld. All Rights Reserved.</p>
+      </footer>
+    </div>
+
+    
+    <script type="text/javascript"> 
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-135234-1']);
+    _gaq.push(['_trackPageview']);
+ 
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+    </script>
+    <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+  </body>
+</html>
