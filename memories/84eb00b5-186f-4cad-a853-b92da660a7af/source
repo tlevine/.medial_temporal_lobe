@@ -1,0 +1,1021 @@
+<!DOCTYPE html>
+<script>var __pbpa = true;</script><script>var translated_warning_string = 'Warning: Never enter your Tumblr password unless \u201chttps://www.tumblr.com/login\u201d\x0ais the address in your web browser.\x0a\x0aYou should also see a green \u201cTumblr, Inc.\u201d identification in the address bar.\x0a\x0aSpammers and other bad guys use fake forms to steal passwords.\x0a\x0aTumblr will never ask you to log in from a user\u2019s blog.\x0a\x0aAre you absolutely sure you want to continue?';</script><script type="text/javascript" language="javascript" src="http://assets.tumblr.com/assets/scripts/pre_tumblelog.js?_v=9a8f53878980f315a039f29ddc0b2038"></script>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<!--
+
+  ◯
+  Theme by inky.
+  Inspired by 'Minimalist', one of the default Tumblr themes.
+
+-->
+  <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# blog: http://ogp.me/ns/blog#">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>Our Incredible Journey</title>
+
+    <meta name="color:Background" content="#fff"/>
+    <meta name="color:Text" content="#444"/>
+    <meta name="color:Secondary" content="#888"/>
+    <meta name="color:Minor" content="#bbb"/>
+    <meta name="color:Link" content="#000"/>
+
+    <meta name="font:Body" content="'Helvetica Neue', Arial, Helvetica, sans-serif"/>
+
+    <meta name="if:Show post notes" content="1"/>
+    <meta name="if:Show the number of post notes" content="0"/>
+    <meta name="if:Semitransparent audio player" content="1"/>
+    <meta name="if:Link to liked posts" content="0"/>
+    <meta name="if:Link to theme" content="0"/>
+
+    <meta name="text:Disqus Shortname" content="" />
+
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="http://ourincrediblejourney.tumblr.com/rss"/>
+    <link rel="icon" href="http://24.media.tumblr.com/avatar_4500f0bd1145_128.png"/>
+    <meta name="description" content=""/>
+    <style type="text/css">
+      html, body, div, span, object, iframe,
+      h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+      a, abbr, acronym, address, b, cite, code,
+      del, dfn, em, i, img, ins, kbd, q, samp,
+      strike, strong, tt, var,
+      dl, dt, dd, ol, ul, li,
+      fieldset, form, label, legend,
+      table, caption, tbody, tfoot, thead, tr, th, td
+          {margin: 0; padding: 0; border: 0; outline: 0; font-size: inherit;
+           line-height: inherit; vertical-align: baseline; background: transparent;}
+      html {font-size:100.01%;}
+      caption, cite, code, dfn, th, var {font-style: normal; font-weight: normal;}
+      h1, h2, h3, h4, h5, h6 {font-weight: normal;}
+      blockquote, q {quotes: none;}
+      blockquote:before, blockquote:after, q:before, q:after {content: '';}
+      :focus {outline: 0;}
+      ins {text-decoration: underline;}
+      del {text-decoration: line-through;}
+      a {text-decoration: none;}
+
+      html {background-color: #b1b1b1;}
+      body {font: 12pt/18pt 'Helvetica Neue', Arial, Helvetica, sans-serif; background-color: #b1b1b1; color: #030303;}
+
+      #body {background-color: #b1b1b1; padding: 1.5em 0.25em;}
+      #content {position: relative; width: 500px; margin: 0 auto;}
+
+      h1 {font-size: 3em; line-height:1; padding:0.5em 0 1em; text-align:center;}
+      h1 a {color: #030303; padding: 0 0.25em; font-weight: bold;}
+
+      h2, h3 {line-height: 18pt;}
+      p, pre, ul, ol, blockquote, form {margin: 9pt 0 18pt; line-height: 18pt;}
+      blockquote {padding-left: 1em; margin-left: 2pt; border-left: 0.25em solid #000000;}
+      pre {overflow-x: auto; font-size: 11pt;}
+      sup, sub {height: 0; line-height: 1; vertical-align: baseline; _vertical-align: bottom; position: relative;}
+      sup {bottom: 0.5ex;}
+      sub {top: 0.5ex;}
+      sup a {font-weight: normal !important; padding: 0 1px;}
+      hr {height: 0; margin: 0 0 18pt; border: solid #000000; border-width: 2pt 0 0;}
+
+      #description {position: absolute; left: 530px; color: #000000; font-size: 11pt; width: 10em;}
+      #description p, #description form, #description ul {margin-top: 0;}
+      #description a {color: #000000;}
+      #description a:hover {color: #030303;}
+      #description form .input
+        {background: #b1b1b1; color: #000000; font-size: 10pt;
+         text-transform: lowercase; width: 90%; border: solid #000000;
+         border-width: 0 1px 1px 0;}
+      #description .submit {height: 0; overflow: hidden; display: block;}
+      #description .meta {list-style: none; word-spacing: 0.25em; font-size: 10pt; text-transform: uppercase;}
+      #description .meta a {color: #000000;}
+      #description .meta a:hover {color: #030303;}
+
+      #posts {margin: 0;}
+      .post {position: relative; list-style: none; margin-bottom: 4.5em;}
+      .post ul li {list-style: square;}
+      .post img {max-width: 100%;}
+
+      .post-body h3 {font-size: 1.25em; position: relative;}
+      .post-body a {font-weight: bold; color: #0000ff; border-bottom: 1px solid transparent;}
+      .post-body a:hover {color: #030303; border-bottom-color: #000000;}
+      .post-body .image a {border-width: 0;}
+      .post-body ul ul, .post-body ul ol, .post-body ol ol, .post-body ol ul,
+        .post-body blockquote ul, .post-body blockquote ol {margin-left: 1.5em;}
+
+      .permalink {font-size: 11pt; position: absolute; right: 530px; text-align: right;}
+      .permalink a {color: #000000; white-space: nowrap; padding: 0 0 4.5pt 9pt;}
+      .permalink a:hover {color: #030303;}
+      a.disqus-permalink {text-transform: lowercase; padding-left: 0;}
+
+      .caption, .cite {font-size: 11pt; margin-top: 9pt;}
+      .caption p {margin-top: 18pt;}
+
+      .text-post {position: relative; top: -2pt;}
+      .text-post h3 {margin-bottom: 9pt;}
+
+      .link-post {position: relative; top: -2pt;}
+      .link-post h3 {display: inline; padding-right:9pt;}
+      .link-post a {color: #030303;}
+      .link-post a:hover {color: #000000;}
+      .link-post a.link {color: #0000ff;}
+      .link-post a.link:hover {color: #030303;}
+
+      .quote-post {position: relative; top: -4.5pt;}
+      .quote-post blockquote.quote
+        {font-size: 18pt; line-height: 24pt; text-indent: -7pt;
+         margin: 0; padding: 0; border-width: 0;}
+      .quote-post .quote:before {content: '“';}
+      .quote-post .quote:after {content: '”';}
+      .quote-post .quote a {color: #030303;}
+      .quote-post .quote a:hover {color: #000000;}
+      .quote-post .cite {color: #000000; margin-left: 1.5em; text-indent: -1.5em;}
+
+      .chat-post li {list-style: none; margin-left: 2em; text-indent: -2em;}
+      .chat-post b {font-weight: bold; padding-right: 4.5pt;}
+
+      
+      .audio-post .audio {opacity: 0.75;}
+      
+
+      .post-source {color: #000000;}
+      .post-source a {color: #000000;}
+      .post-source a:hover {color: #030303;}
+      .post-source .prefix {font-size: 0.9em; text-transform: uppercase;
+                            letter-spacing: 0.1em; word-spacing: 0.1em;}
+
+      #disqus_thread {margin-top: 54pt;}
+      #disqus_thread a {color: #000000;}
+
+      .notes {color: #000000; margin-top: 54pt;}
+      .notes li {list-style: none; margin-bottom: 18pt;}
+      .notes img, .notes .clear {display: none;}
+      .notes .photo_container img {display: block !important;}
+      .notes a {color: #000000;}
+      .notes a:hover {color: #030303;}
+
+      .footnotes a[rev="footnote"] {color: #000000;}
+      .footnotes hr {margin: 34pt 0 18pt;}
+
+      #footer {text-align: center; word-spacing: 0.75em; margin-top:4.5em;}
+      #footer a {color: #000000; font-weight:bold; padding: 0.25em 0.5em;}
+      #footer a:hover {color: #030303;}
+
+      body { font-family: Times, serif; }
+a { color: #00f ! important; text-decoration: underline; }
+p, pre, ul, ol, blockquote, form { line-height: 15pt; }
+input[type=text] { background-color: #fff ! important; border: 1px solid #666 ! important; }
+h1 { font-size: 2.8em; }
+blockquote { border-left: none; font-style: italic; margin-left: 40px; padding-left: 0; }
+    </style>
+  
+<!-- BEGIN TUMBLR FACEBOOK OPENGRAPH TAGS --><!-- If you'd like to specify your own Open Graph tags, define the og:url and og:title tags in your theme's HTML. --><!-- Read more: http://ogp.me/ --><meta property="fb:app_id" content="48119224995" /><meta property="og:title" content="Our Incredible Journey" /><meta property="og:url" content="http://ourincrediblejourney.tumblr.com/?og=1" /><meta property="og:description" content="" /><meta property="og:type" content="tumblr-feed:tumblelog" /><meta property="og:image" content="http://24.media.tumblr.com/avatar_4500f0bd1145_128.png" /><!-- END TUMBLR FACEBOOK OPENGRAPH TAGS -->
+
+
+<!-- TWITTER TAGS --><meta charset="utf-8"><meta name="twitter:site" content="tumblr" /><meta name="twitter:card" content="summary" /><meta name="twitter:title" content="ourincrediblejourney" /><meta name="twitter:description" content=" " /><meta name="twitter:app:name:iphone" content="Tumblr" /><meta name="twitter:app:name:ipad" content="Tumblr" /><meta name="twitter:app:name:googleplay" content="Tumblr" /><meta name="twitter:app:id:iphone" content="305343404" /><meta name="twitter:app:id:ipad" content="305343404" /><meta name="twitter:app:id:googleplay" content="com.tumblr" /><meta name="twitter:app:url:iphone" content="tumblr://x-callback-url/blog?blogName=ourincrediblejourney&amp;referrer=twitter-cards" /><meta name="twitter:app:url:ipad" content="tumblr://x-callback-url/blog?blogName=ourincrediblejourney&amp;referrer=twitter-cards" /><meta name="twitter:app:url:googleplay" content="tumblr://x-callback-url/blog?blogName=ourincrediblejourney&amp;referrer=twitter-cards" />
+
+<script src="http://assets.tumblr.com/assets/scripts/tumblelog.js?_v=6a17c519d68bc98ed5cdd6f4a55dbaa2"></script>
+<meta http-equiv="x-dns-prefetch-control" content="off"/>
+<meta name="keywords" content="Yahoo,Bump,Facebook,Google,Ptch" />
+</head>
+  <body>
+    <div id="body">
+      <div id="content">
+
+<h1><a href="/">Our Incredible Journey</a></h1>
+
+<div id="description">
+  <form action="/search" method="get">
+    <input class="input" type="text" name="q" value=""/>
+    <span class="submit"><input type="submit" value="Search"/></span>
+  </form>
+
+  <p></p>
+
+  
+  <ul class="pages meta">
+    
+    <li><a href="/about/">About</a></li>
+    
+  </ul>
+  
+
+  <ul class="pages meta">
+    <li><a href="/ask">Ask me anything</a></li>
+    
+  </ul>
+
+  <ul class="meta">
+    <li><a href="/archive">Archive</a> <span class="dim">/</span> <a href="http://ourincrediblejourney.tumblr.com/rss">RSS</a></li>
+    
+    
+  </ul>
+</div>
+
+<ul id="posts">
+  
+  <li class="post stackmob paypal">
+
+    
+    <h2 class="permalink">
+
+        
+          <a title="0 notes"
+            href="http://ourincrediblejourney.tumblr.com/post/76526083685/stackmob">2014-02-13</a>
+        
+
+        
+        
+        
+
+        
+          <a href="http://ourincrediblejourney.tumblr.com/post/76526083685/stackmob">0 notes</a>
+        
+
+        
+
+    </h2>
+    
+
+    
+
+    
+
+    
+
+    
+    <div class="post-body video-post">
+      <div id="photoset_76526083685" class="html_photoset">    <iframe id="photoset_iframe_76526083685" class="photoset" scrolling="no" frameborder="0" height="2175" width="500"
+                style="border:0px; background-color:transparent; overflow:hidden;" src="http://ourincrediblejourney.tumblr.com/post/76526083685/photoset_iframe/ourincrediblejourney/tumblr_n0xuew9Fah1s6cn2l/500/false"></iframe></div>
+
+      
+      <div class="caption"><p><a href="https://blog.stackmob.com/2013/12/stackmob-joins-paypal/">17 December 2013</a>:</p>
+<blockquote>
+<p>Today I’m proud to announce that StackMob has been acquired by PayPal, Inc. and that we will be joining the team at PayPal…</p>
+<p>Our goal at StackMob has always been to enable developers to build, deploy, and grow their mobile applications, and we’ve learned a lot from you – our customers…</p>
+<p>…</p>
+<p>We will be communicating with you very soon regarding the future of the StackMob platform.</p>
+<p>It has been a great four years and I’m truly grateful for all the support you have shown StackMob.</p>
+</blockquote>
+<p><a href="https://blog.stackmob.com/2014/02/stackmob-announcement/">12 February 2014</a>:</p>
+<blockquote>
+<p>Today we are announcing the end of StackMob Backend-as-a-Service, shutting down the StackMob brand, and focusing our team and resources on making PayPal the best global payments platform in the world. We are so thankful for your support of StackMob.</p>
+<p>The StackMob Platform will cease operation on Sunday May 11th, 2014. Customers will no longer have access to their StackMob accounts and this serves as our notice of termination of our agreement with you.</p>
+<p>…</p>
+<p>Thank you, our customers, for believing in us. It’s because of you that we’re able to move on, to rise to a new challenge, and to make a real difference.</p>
+</blockquote>
+<p>(Thanks <a href="https://twitter.com/aden_76/status/433926889884119041">Aden</a>.)</p></div>
+      
+    </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+      
+    
+
+  </li>
+  
+  <li class="post bright linkedin">
+
+    
+    <h2 class="permalink">
+
+        
+          <a title="0 notes"
+            href="http://ourincrediblejourney.tumblr.com/post/76428561557/bright">2014-02-12</a>
+        
+
+        
+        
+        
+
+        
+          <a href="http://ourincrediblejourney.tumblr.com/post/76428561557/bright">0 notes</a>
+        
+
+        
+
+    </h2>
+    
+
+    
+
+    
+
+    
+    <div class="post-body image-post">
+      <div class="image">
+        <a href="http://ourincrediblejourney.tumblr.com/image/76428561557"><img src="http://25.media.tumblr.com/b4c6e504180adb123cdc4040857c9fa0/tumblr_n0vl75SJHG1s6cn2lo1_r1_500.png" alt="10 Feb 2014:
+
+We wanted to share some exciting news with you: Bright has been acquired by LinkedIn&mdash;a company with a mission very similar to our own&hellip;
+By combining LinkedIn&rsquo;s vast network and innovative job seeking tools with Bright&rsquo;s powerful algorithms and matching technology, we&rsquo;ll be even better able to help you find the right career opportunities&hellip;
+You will be able to access existing account data on the site through February 28, 2014, but will not be able to create new activity. &nbsp;We encourage you to download your account information that you would like to keep.
+&hellip;
+
+
+We look forward to continuing to help you find your dream job on LinkedIn.
+
+Bright&amp;#8217;s public blog post fails to mention the deletion of any data.
+(Thanks, Jonathan McMillan.)"/></a>
+      </div>
+
+      
+      <div class="caption"><p>10 Feb 2014:</p>
+<blockquote>
+<p>We wanted to share some exciting news with you: Bright has been acquired by LinkedIn—a company with a mission very similar to our own…</p>
+<p>By combining LinkedIn’s vast network and innovative job seeking tools with Bright’s powerful algorithms and matching technology, we’ll be even better able to help you find the right career opportunities…</p>
+<ul><li><span>You will be able to access existing account data on the site through February 28, 2014, but will not be able to create new activity.  We encourage you to download your account information that you would like to keep.</span></li>
+</ul><div>…</div>
+</blockquote>
+<blockquote>
+<div>We look forward to continuing to help you find your dream job on LinkedIn.</div>
+</blockquote>
+<p>Bright&#8217;s <a href="http://blog.bright.com/2014/02/06/bright-and-linkedin/">public blog post</a> fails to mention the deletion of any data.</p>
+<p>(Thanks, Jonathan McMillan.)</p></div>
+      
+    </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+      
+    
+
+  </li>
+  
+  <li class="post tomfoolery yahoo">
+
+    
+    <h2 class="permalink">
+
+        
+          <a title="0 notes"
+            href="http://ourincrediblejourney.tumblr.com/post/75193437092/tomfoolery">2014-01-31</a>
+        
+
+        
+        
+        
+
+        
+          <a href="http://ourincrediblejourney.tumblr.com/post/75193437092/tomfoolery">0 notes</a>
+        
+
+        
+
+    </h2>
+    
+
+    
+
+    
+
+    
+    <div class="post-body image-post">
+      <div class="image">
+        <a href="http://ourincrediblejourney.tumblr.com/image/75193437092"><img src="http://31.media.tumblr.com/f37c05c81b07684f43420b6c8188f1be/tumblr_n0agr6Ensj1s6cn2lo1_500.png" alt="Tomfoolery&amp;#8217;s Anchor&nbsp;previously, now with added seven day window for downloading your data.
+31 Jan 2014:
+
+We are very excited and proud to announce that Team Tomfoolery has been acquired by Yahoo! We have travelled far and wide, starting off in a tiny room at NextSpace Coworking, with the mission to make work awesome. Now it&rsquo;s time for us to move to the next phase of our journey. &hellip;
+What does this mean for you, faithful Anchor (and for those of you who had a chance to try it, Action) advocate? Well, it means we will stop running Anchor and Action effective immediately. Don&rsquo;t worry, you can still download your files &amp;amp; photos from Anchor or Action. &nbsp;If you uploaded any files or photos, you will be getting a follow up email in the next few days with instructions on how to download your files and photos. This is only available for the next 7 days, after which all user info and data on Anchor and Action will be deleted. Forever.
+"/></a>
+      </div>
+
+      
+      <div class="caption"><p>Tomfoolery&#8217;s Anchor <a href="http://ourincrediblejourney.tumblr.com/post/75045292079/anchor">previously</a>, now with added <em>seven day</em> window for downloading your data.</p>
+<p>31 Jan 2014:</p>
+<blockquote>
+<p>We are very excited and proud to announce that Team Tomfoolery has been acquired by Yahoo! We have travelled far and wide, starting off in a tiny room at NextSpace Coworking, with the mission to make work awesome. Now it’s time for us to move to the next phase of our journey. …</p>
+<p>What does this mean for you, faithful Anchor (and for those of you who had a chance to try it, Action) advocate? Well, it means we will stop running Anchor and Action effective immediately. Don’t worry, you can still download your files &amp; photos from Anchor or Action.  If you uploaded any files or photos, you will be getting a follow up email in the next few days with instructions on how to download your files and photos. This is only available for the <strong>next 7 days</strong>, after which all user info and data on Anchor and Action will be deleted. Forever.</p>
+</blockquote></div>
+      
+    </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+      
+    
+
+  </li>
+  
+  <li class="post donna yahoo">
+
+    
+    <h2 class="permalink">
+
+        
+
+        
+        
+        
+
+        
+          <a href="http://ourincrediblejourney.tumblr.com/post/75138461615/donna">1 note</a>
+        
+
+        
+
+    </h2>
+    
+
+    
+
+    
+
+    
+    <div class="post-body image-post">
+      <div class="image">
+        <a href="http://ourincrediblejourney.tumblr.com/image/75138461615"><img src="http://25.media.tumblr.com/1b8ed951b8188775b602c5e7c016a99b/tumblr_n09eryq9UK1s6cn2lo1_500.png" alt="30 Jan 2014:
+
+Today, we are announcing that Incredible Labs has entered into an agreement to be acquired by Yahoo. &hellip;
+The transaction, which is subject to customary closing conditions, is expected to close shortly. Following closing, Donna will be removed from the app store and discontinued as a service.
+We can&rsquo;t begin to express how thankful we are for your support throughout this journey. What we&rsquo;ve accomplished thus far is just the beginning and we hope you stick with us through the next chapter.
+
+(Thanks antimega and mindcrash.)"/></a>
+      </div>
+
+      
+      <div class="caption"><p><a href="https://twitter.com/antimega/status/429023432122957826">30 Jan 2014</a>:</p>
+<blockquote>
+<p>Today, we are announcing that Incredible Labs has entered into an agreement to be acquired by Yahoo. …</p>
+<p>The transaction, which is subject to customary closing conditions, is expected to close shortly. Following closing, Donna will be removed from the app store and discontinued as a service.</p>
+<p>We can’t begin to express how thankful we are for your support throughout this journey. What we’ve accomplished thus far is just the beginning and we hope you stick with us through the next chapter.</p>
+</blockquote>
+<p>(Thanks <a href="https://twitter.com/antimega/status/429023432122957826">antimega</a> and <a href="https://twitter.com/mindcrash/status/429030455078158336">mindcrash</a>.)</p></div>
+      
+    </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <p class="post-source">
+      <span class="prefix">Source:</span>
+      <a href="http://blog.don.na/2014/01/30/donna-and-yahoo/" class="source_link">blog.don.na</a>
+    </p>
+    
+
+    
+
+    
+      
+    
+
+  </li>
+  
+  <li class="post anchor yahoo">
+
+    
+    <h2 class="permalink">
+
+        
+          <a title="1 note"
+            href="http://ourincrediblejourney.tumblr.com/post/75045292079/anchor">2014-01-30</a>
+        
+
+        
+        
+        
+
+        
+          <a href="http://ourincrediblejourney.tumblr.com/post/75045292079/anchor">1 note</a>
+        
+
+        
+
+    </h2>
+    
+
+    
+
+    
+
+    
+    <div class="post-body image-post">
+      <div class="image">
+        <a href="http://blog.tomfoolery.com/post/74954728920/the-next-phase-of-our-adventure"><img src="http://24.media.tumblr.com/dbdc857ce06d958a2b03599ce7fa42d0/tumblr_n07vjwFbV01s6cn2lo1_500.png" alt="30 Jan 2014:
+
+Friends &ndash; together we have traveled far and wide, you and the small and humble folk at Tomfoolery, Inc., and now it&rsquo;s time for us to move to the next phase of our journey. Today, we are announcing that we&rsquo;ve reached an agreement to join Yahoo to help build the next generation of communications and community products. &hellip;
+At deal close, we will discontinue Anchor (and for those of you who were able to try it out, Action). &hellip;
+So many of you have been our faithful advocates, and we hope you&rsquo;ll continue to be part of our adventures. We are so grateful for your support throughout.
+Here&rsquo;s to the future. Yours and Ours!
+
+(Thanks @antimega)"/></a>
+      </div>
+
+      
+      <div class="caption"><p><a href="http://blog.tomfoolery.com/post/74954728920/the-next-phase-of-our-adventure">30 Jan 2014</a>:</p>
+<blockquote>
+<p>Friends – together we have traveled far and wide, you and the small and humble folk at Tomfoolery, Inc., and now it’s time for us to move to the next phase of our journey. Today, we are announcing that we’ve reached an agreement to join Yahoo to help build the next generation of communications and community products. …</p>
+<p>At deal close, we will discontinue Anchor (and for those of you who were able to try it out, Action). …</p>
+<p>So many of you have been our faithful advocates, and we hope you’ll continue to be part of our adventures. We are so grateful for your support throughout.</p>
+<p>Here’s to the future. Yours and Ours!</p>
+</blockquote>
+<p>(Thanks <a href="https://twitter.com/antimega/status/428882777551810560">@antimega</a>)</p></div>
+      
+    </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+      
+    
+
+  </li>
+  
+  <li class="post cloud_party yahoo">
+
+    
+    <h2 class="permalink">
+
+        
+          <a title="0 notes"
+            href="http://ourincrediblejourney.tumblr.com/post/74502997886/cloud-party">2014-01-25</a>
+        
+
+        
+        
+        
+
+        
+          <a href="http://ourincrediblejourney.tumblr.com/post/74502997886/cloud-party">0 notes</a>
+        
+
+        
+
+    </h2>
+    
+
+    
+
+    
+
+    
+    <div class="post-body image-post">
+      <div class="image">
+        <a href="http://ourincrediblejourney.tumblr.com/image/74502997886"><img src="http://25.media.tumblr.com/bf908e3dd8709a9ccf008843c363d432/tumblr_mzyv4aXC9l1s6cn2lo1_500.png" alt="24 January 2014:
+
+We&rsquo;re excited to announce that the time has come for the Cloud Party team to start our next adventure. We are joining Yahoo! The last two years have been an incredible experience for everyone here. We&rsquo;ve been continually amazed by your creativity and the worlds you&rsquo;ve built and shared with us.
+Cloud Party will continue to run until February 21, 2014&hellip;
+Thank you all for sharing in this journey with us, and we hope you stick around for what&rsquo;s next!
+
+(Thanks to&nbsp;Kyle Machulis.)"/></a>
+      </div>
+
+      
+      <div class="caption"><p><a href="http://blog.cloudparty.com/2014/01/24/cloud_party_joins_yahoo/">24 January 2014</a>:</p>
+<blockquote>
+<p>We’re excited to announce that the time has come for the Cloud Party team to start our next adventure. We are joining Yahoo! The last two years have been an incredible experience for everyone here. We’ve been continually amazed by your creativity and the worlds you’ve built and shared with us.</p>
+<p>Cloud Party will continue to run until February 21, 2014…</p>
+<p>Thank you all for sharing in this journey with us, and we hope you stick around for what’s next!</p>
+</blockquote>
+<p>(Thanks to <a href="https://twitter.com/qDot/status/426825081436643328">Kyle Machulis</a>.)</p></div>
+      
+    </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <p class="post-source">
+      <span class="prefix">Source:</span>
+      <a href="http://blog.cloudparty.com/2014/01/24/cloud_party_joins_yahoo/" class="source_link">blog.cloudparty.com</a>
+    </p>
+    
+
+    
+
+    
+      
+    
+
+  </li>
+  
+  <li class="post little_eye facebook">
+
+    
+    <h2 class="permalink">
+
+        
+          <a title="0 notes"
+            href="http://ourincrediblejourney.tumblr.com/post/72651629904/little-eye">2014-01-08</a>
+        
+
+        
+        
+        
+
+        
+          <a href="http://ourincrediblejourney.tumblr.com/post/72651629904/little-eye">0 notes</a>
+        
+
+        
+
+    </h2>
+    
+
+    
+
+    
+
+    
+
+    
+    <div class="post-body video-post">
+      <div id="photoset_72651629904" class="html_photoset">    <iframe id="photoset_iframe_72651629904" class="photoset" scrolling="no" frameborder="0" height="1009" width="500"
+                style="border:0px; background-color:transparent; overflow:hidden;" src="http://ourincrediblejourney.tumblr.com/post/72651629904/photoset_iframe/ourincrediblejourney/tumblr_mz2vcg4hi81s6cn2l/500/false"></iframe></div>
+
+      
+      <div class="caption"><p><a href="http://www.littleeye.co/transition.php">8 Jan 2014</a>:</p>
+<blockquote>
+<p>Today, we&#8217;re very excited to announce that Facebook is acquiring our company.</p>
+<p>…</p>
+<p>This has been a fun and exciting journey. We&#8217;re eager to be working alongside the incredible team at Facebook, and together, we&#8217;ll continue on our mission of building awesome analysis tools to aide in the development of brilliant apps.</p>
+<p>…</p>
+<p>The next phase in our incredible journey begins now. Here we go&#8230;</p>
+</blockquote>
+<p>On <a href="http://www.littleeye.co/download.php">"Downloads" page</a>:</p>
+<blockquote>
+<p>If you&#8217;re an existing customer of Little Eye, we&#8217;re happy to let you know that we’re working on a version you can use until June 30, 2014</p>
+</blockquote>
+<p>(Thanks <a href="https://twitter.com/mindcrash">@mindcrash</a>)</p></div>
+      
+    </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+      
+    
+
+  </li>
+  
+  <li class="post bump google">
+
+    
+    <h2 class="permalink">
+
+        
+          <a title="4 notes"
+            href="http://ourincrediblejourney.tumblr.com/post/72315570164/16-september-2013-were-excited-to-announce">2014-01-05</a>
+        
+
+        
+        
+        
+
+        
+          <a href="http://ourincrediblejourney.tumblr.com/post/72315570164/16-september-2013-were-excited-to-announce">4 notes</a>
+        
+
+        
+
+    </h2>
+    
+
+    
+
+    
+
+    
+
+    
+    <div class="post-body video-post">
+      <div id="photoset_72315570164" class="html_photoset">    <iframe id="photoset_iframe_72315570164" class="photoset" scrolling="no" frameborder="0" height="1019" width="500"
+                style="border:0px; background-color:transparent; overflow:hidden;" src="http://ourincrediblejourney.tumblr.com/post/72315570164/photoset_iframe/ourincrediblejourney/tumblr_muvnx1il9H1s6cn2l/500/false"></iframe></div>
+
+      
+      <div class="caption"><p><a href="http://blog.bu.mp/post/61411611006/bump-google">16 September 2013</a>:</p>
+<blockquote>
+<p>We’re excited to announce that the Bump team is joining Google!</p>
+<p>…</p>
+<p>Bump and Flock will continue to work as they always have for now; stay tuned for future updates.</p>
+<p>We’d like to extend a special thank you to all of you who have used our products so far.  It continues to be a pleasure to serve you, and your feedback and evangelism inspire us every day.</p>
+</blockquote>
+<p><a href="http://blog.bu.mp/post/71781606704/all-good-things">31 December 2013</a>:</p>
+<blockquote>
+<p>We are now deeply focused on our new projects within Google, and we’ve decided to discontinue Bump and Flock. On January 31, 2014, Bump and Flock will be removed from the App Store and Google Play. After this date, neither app will work, and all user data will be deleted.</p>
+<p>…</p>
+<p>Over the years, we’ve been inspired and humbled by the millions of people who have used Bump and Flock. Your feedback, enthusiasm, and support has brought much meaning to our work, and we want to thank you all for that.</p>
+</blockquote>
+<p>(Thanks to everyone who pointed this out, causing me to find that first blog post that was waiting in Drafts for the inevitable emergence of the second post.)</p></div>
+      
+    </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+      
+    
+
+  </li>
+  
+  <li class="post ptch yahoo">
+
+    
+    <h2 class="permalink">
+
+        
+          <a title="0 notes"
+            href="http://ourincrediblejourney.tumblr.com/post/68966703828/ptch">2013-12-04</a>
+        
+
+        
+        
+        
+
+        
+          <a href="http://ourincrediblejourney.tumblr.com/post/68966703828/ptch">0 notes</a>
+        
+
+        
+
+    </h2>
+    
+
+    
+
+    
+
+    
+    <div class="post-body image-post">
+      <div class="image">
+        <a href="http://ourincrediblejourney.tumblr.com/image/68966703828"><img src="http://31.media.tumblr.com/980ef0eaefb5131d7f868b3ddaf4c775/tumblr_mxa142VRF41s6cn2lo1_500.png" alt="4 Dec 2013:
+
+Our passion and our mission was to give you the best way to make and share beautiful movies made from the photos and videos on your phone. &hellip;
+Today, we&rsquo;re excited to announce that Ptch will be joining Yahoo! &hellip;
+As part of this transition, Ptch will shut down on January 2, 2014.&nbsp;
+&hellip;
+Thank you so much for being a Ptch user and fan. We are grateful for your support and look forward to bringing you more exciting products through the Yahoo platform in the future.
+
+(via @mindcrash)"/></a>
+      </div>
+
+      
+      <div class="caption"><p><a href="http://blog.ptch.com/post/68919650988/ptch-joins-yahoo">4 Dec 2013</a>:</p>
+<blockquote>
+<p><span>Our passion and our mission was to give you the best way to make and share beautiful movies made from the photos and videos on your phone. …</span></p>
+<p><span>Today, we’re excited to announce that Ptch will be joining Yahoo! …</span></p>
+<p><span>As part of this transition, Ptch will shut down on January 2, 2014. </span></p>
+<p><span>…</span></p>
+<p><span>Thank you so much for being a Ptch user and fan. We are grateful for your support and look forward to bringing you more exciting products through the Yahoo platform in the future.</span></p>
+</blockquote>
+<p>(via <a href="https://twitter.com/mindcrash/status/408139034805174272">@mindcrash</a>)</p></div>
+      
+    </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+      
+    
+
+  </li>
+  
+  <li class="post sold dropbox">
+
+    
+    <h2 class="permalink">
+
+        
+          <a title="3 notes"
+            href="http://ourincrediblejourney.tumblr.com/post/66080794411/sold">2013-11-05</a>
+        
+
+        
+        
+        
+
+        
+          <a href="http://ourincrediblejourney.tumblr.com/post/66080794411/sold">3 notes</a>
+        
+
+        
+
+    </h2>
+    
+
+    
+
+    
+
+    
+    <div class="post-body image-post">
+      <div class="image">
+        <a href="http://ourincrediblejourney.tumblr.com/image/66080794411"><img src="http://24.media.tumblr.com/7330a1c91d62bd1e8aabfcf4e4c1063c/tumblr_mvsb316vs81s6cn2lo1_500.png" alt="5 November 2013:
+
+Hi, friends! We&amp;#8217;re very excited to announce that Sold has joined Dropbox! As of today, our service will no longer be accepting new items.&nbsp;
+We&amp;#8217;d like to sincerely thank all of our loyal friends and customers who have helped us, supported us, and spread the love for us through this amazing endeavor. &hellip;
+&hellip; we wanted to create something that affected people in a positive way. Something they had an emotional connection with. Something they trusted.
+&hellip;
+If you&rsquo;re a current user with items in the system, expect to hear from us with instructions on how to proceed and finish your transaction.&nbsp;
+
+(Thanks @RodBegbie, @sclv, @hondanhon and @mindcrash)"/></a>
+      </div>
+
+      
+      <div class="caption"><p><a href="http://usesold.com/">5 November 2013</a>:</p>
+<blockquote>
+<p>Hi, friends! We&#8217;re very excited to announce that Sold has joined Dropbox! As of today, our service will no longer be accepting new items. </p>
+<p>We&#8217;d like to sincerely thank all of our loyal friends and customers who have helped us, supported us, and spread the love for us through this amazing endeavor. …</p>
+<p>… we wanted to create something that affected people in a positive way. Something they had an emotional connection with. Something they trusted.</p>
+<p>…</p>
+<p>If you’re a current user with items in the system, expect to hear from us with instructions on how to proceed and finish your transaction. </p>
+</blockquote>
+<p>(Thanks @RodBegbie, @sclv, @hondanhon and @mindcrash)</p></div>
+      
+    </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+      
+    
+
+  </li>
+  
+</ul>
+
+<div id="footer">
+  
+  
+  <a href="/page/2" title="Older posts">&rarr;</a>
+  
+</div>
+
+      </div>
+    </div>
+
+    
+  <!-- BEGIN TUMBLR CODE --><iframe scrolling="no" width="1" height="1" frameborder="0" style="background-color:transparent; overflow:hidden; position:absolute; top:0; left:0 z-index:9999;" id="ga_target"></iframe><script type="text/javascript">
+    (function(){
+        var analytics_frame = document.getElementById('ga_target');
+        var analytics_iframe_loaded;
+        var user_logged_in;
+        var blog_is_nsfw = 'No';
+
+        var eventMethod = window.addEventListener ? "addEventListener" : "attachEvent";
+        var eventer = window[eventMethod];
+        var messageEvent = eventMethod == "attachEvent" ? "onmessage" : "message";
+        eventer(messageEvent,function(e) {
+            var message = (e.data && e.data.split) ? e.data.split(';') : '';
+            switch (message[0]) {
+                case 'analytics_iframe_loaded':
+                    analytics_iframe_loaded = true;
+                    postCSMessage();
+                    postGAMessage();
+                    break;
+                case 'user_logged_in':
+                    user_logged_in = message[1];
+                    postGAMessage();
+                    break;
+            }
+        }, false);
+
+        analytics_frame.src = "http://assets.tumblr.com/analytics.html?bef7446068aa5ddce42aa12134c58086#http://ourincrediblejourney.tumblr.com"
+        function postGAMessage() {
+            if (analytics_iframe_loaded && user_logged_in) {
+                var is_ajax = false;
+                analytics_frame.contentWindow.postMessage(['tick_google_analytics', is_ajax, user_logged_in, blog_is_nsfw, '/?route=%2F'].join(';'), analytics_frame.src.split('/analytics.html')[0]);
+            }
+        }
+        function postCSMessage() {
+            COMSCORE = true;
+            analytics_frame.contentWindow.postMessage('enable_comscore;' + window.location, analytics_frame.src.split('/analytics.html')[0]);
+        }
+    })();
+</script><script type="text/javascript">
+      var _qevents = _qevents || [];
+
+      (function() {
+       var elem = document.createElement('script');
+
+       elem.src = (document.location.protocol == "https:" ? "https://secure" : "http://edge") + ".quantserve.com/quant.js";
+       elem.async = true;
+       elem.type = "text/javascript";
+       var scpt = document.getElementsByTagName('script')[0];
+       scpt.parentNode.insertBefore(elem, scpt);
+      })();
+    </script><script type="text/javascript">
+        _qevents.push( { qacct: 'p-19UtqE8ngoZbM' } );
+    </script><noscript><div style="display: none;"><img src="//pixel.quantserve.com/pixel/'p-19UtqE8ngoZbM'.gif" height="1" width="1" alt="Quantcast"/></div></noscript><script type="text/javascript">!function(s){s.src='http://www.tumblr.com/impixu?T=1393017159&J=eyJ0eXBlIjoidXJsIiwidXJsIjoiaHR0cDpcL1wvb3VyaW5jcmVkaWJsZWpvdXJuZXkudHVtYmxyLmNvbVwvIiwicmVxdHlwZSI6MCwicm91dGUiOiJcLyJ9&U=FGOGGHJNFB&K=5a89d9d20011b3daa258cc727749a4248025b966d9d45e59941c4c50f92f9c75&R='.replace(/&R=[^&$]*/,'').concat('&R='+escape(document.referrer)).slice(0,2000).replace(/%.?.?$/,'');}(new Image());</script><noscript><img style="position:absolute;z-index:-3334;top:0px;left:0px;visibility:hidden;" src="http://www.tumblr.com/impixu?T=1393017159&J=eyJ0eXBlIjoidXJsIiwidXJsIjoiaHR0cDpcL1wvb3VyaW5jcmVkaWJsZWpvdXJuZXkudHVtYmxyLmNvbVwvIiwicmVxdHlwZSI6MCwicm91dGUiOiJcLyIsIm5vc2NyaXB0IjoxfQ==&U=FGOGGHJNFB&K=12ad23eb74e0be101c30d5a4473f0e2e69ebd7dac5256b8f16c6d2d01c41e46e&R="></noscript><script type="text/javascript">!function(s){s.src='http://www.tumblr.com/impixu?T=1393017159&J=eyJ0eXBlIjoicG9zdCIsInVybCI6Imh0dHA6XC9cL291cmluY3JlZGlibGVqb3VybmV5LnR1bWJsci5jb21cLyIsInJlcXR5cGUiOjAsInJvdXRlIjoiXC8iLCJwb3N0cyI6W3sicG9zdGlkIjoiNzY1MjYwODM2ODUiLCJibG9naWQiOiI5NTAzMjEzOCIsInNvdXJjZSI6MzN9LHsicG9zdGlkIjoiNzY0Mjg1NjE1NTciLCJibG9naWQiOiI5NTAzMjEzOCIsInNvdXJjZSI6MzN9LHsicG9zdGlkIjoiNzUxOTM0MzcwOTIiLCJibG9naWQiOiI5NTAzMjEzOCIsInNvdXJjZSI6MzN9LHsicG9zdGlkIjoiNzUxMzg0NjE2MTUiLCJibG9naWQiOiI5NTAzMjEzOCIsInNvdXJjZSI6MzN9LHsicG9zdGlkIjoiNzUwNDUyOTIwNzkiLCJibG9naWQiOiI5NTAzMjEzOCIsInNvdXJjZSI6MzN9LHsicG9zdGlkIjoiNzQ1MDI5OTc4ODYiLCJibG9naWQiOiI5NTAzMjEzOCIsInNvdXJjZSI6MzN9LHsicG9zdGlkIjoiNzI2NTE2Mjk5MDQiLCJibG9naWQiOiI5NTAzMjEzOCIsInNvdXJjZSI6MzN9LHsicG9zdGlkIjoiNzIzMTU1NzAxNjQiLCJibG9naWQiOiI5NTAzMjEzOCIsInNvdXJjZSI6MzN9LHsicG9zdGlkIjoiNjg5NjY3MDM4MjgiLCJibG9naWQiOiI5NTAzMjEzOCIsInNvdXJjZSI6MzN9LHsicG9zdGlkIjoiNjYwODA3OTQ0MTEiLCJibG9naWQiOiI5NTAzMjEzOCIsInNvdXJjZSI6MzN9XX0=&U=KFAFEJGCHA&K=fc7a7db810a6f1b31e253d85907ba20085f3754c833584db5a7fab29f7c5243b&R='.replace(/&R=[^&$]*/,'').concat('&R='+escape(document.referrer)).slice(0,2000).replace(/%.?.?$/,'');}(new Image());</script><noscript><img style="position:absolute;z-index:-3334;top:0px;left:0px;visibility:hidden;" src="http://www.tumblr.com/impixu?T=1393017159&J=eyJ0eXBlIjoicG9zdCIsInVybCI6Imh0dHA6XC9cL291cmluY3JlZGlibGVqb3VybmV5LnR1bWJsci5jb21cLyIsInJlcXR5cGUiOjAsInJvdXRlIjoiXC8iLCJwb3N0cyI6W3sicG9zdGlkIjoiNzY1MjYwODM2ODUiLCJibG9naWQiOiI5NTAzMjEzOCIsInNvdXJjZSI6MzN9LHsicG9zdGlkIjoiNzY0Mjg1NjE1NTciLCJibG9naWQiOiI5NTAzMjEzOCIsInNvdXJjZSI6MzN9LHsicG9zdGlkIjoiNzUxOTM0MzcwOTIiLCJibG9naWQiOiI5NTAzMjEzOCIsInNvdXJjZSI6MzN9LHsicG9zdGlkIjoiNzUxMzg0NjE2MTUiLCJibG9naWQiOiI5NTAzMjEzOCIsInNvdXJjZSI6MzN9LHsicG9zdGlkIjoiNzUwNDUyOTIwNzkiLCJibG9naWQiOiI5NTAzMjEzOCIsInNvdXJjZSI6MzN9LHsicG9zdGlkIjoiNzQ1MDI5OTc4ODYiLCJibG9naWQiOiI5NTAzMjEzOCIsInNvdXJjZSI6MzN9LHsicG9zdGlkIjoiNzI2NTE2Mjk5MDQiLCJibG9naWQiOiI5NTAzMjEzOCIsInNvdXJjZSI6MzN9LHsicG9zdGlkIjoiNzIzMTU1NzAxNjQiLCJibG9naWQiOiI5NTAzMjEzOCIsInNvdXJjZSI6MzN9LHsicG9zdGlkIjoiNjg5NjY3MDM4MjgiLCJibG9naWQiOiI5NTAzMjEzOCIsInNvdXJjZSI6MzN9LHsicG9zdGlkIjoiNjYwODA3OTQ0MTEiLCJibG9naWQiOiI5NTAzMjEzOCIsInNvdXJjZSI6MzN9XSwibm9zY3JpcHQiOjF9&U=KFAFEJGCHA&K=9dd0692a6115a85270f645fe80a37e4958ea6f12819cd6a9223e4aa212407bd6&R="></noscript><script type="text/javascript" src="http://l.yimg.com/ss/rapid-3.9.js"></script><script>
+                    (function(YAHOO) {
+                        if (YAHOO) {
+                            YAHOO.i13n.beacon_server = 'nol.yahoo.com';
+                            var keys = { pd:'/', _li:0, i_rad:0, i_strm:0 };
+                            YAHOO.rapid = new YAHOO.i13n.Rapid({spaceid:1197719229, client_only:1, yql_enabled:false, keys:keys});
+                        }
+                    })(window.YAHOO);
+                </script><iframe id="tumblr_controls" width="1" height="1" frameborder="0" scrolling="no" style="position:absolute; z-index:2147483647; top:0; right:0; border:0; background-color:transparent; overflow:hidden; " src="http://assets.tumblr.com/assets/html/iframe/o.html?_v=c308764d86293e253ae47d5caff39b18#src=http%3A%2F%2Fourincrediblejourney.tumblr.com%2F&amp;lang=en_US&amp;name=ourincrediblejourney&amp;avatar=http%3A%2F%2F25.media.tumblr.com%2Favatar_4500f0bd1145_64.png&amp;title=Our+Incredible+Journey&amp;url=http%3A%2F%2Fourincrediblejourney.tumblr.com%2F&amp;page_slide=slide"></iframe><div id="teaser_iframe_container" style="display:none;"><iframe scrolling="no" frameborder="0" src="http://www.tumblr.com/assets/html/iframe/teaser.html?_v=a991f59a6cf9a541156def0fee94182b#src=http%3A%2F%2Fourincrediblejourney.tumblr.com%2F&amp;lang=en_US&amp;name=ourincrediblejourney&amp;avatar=http%3A%2F%2F25.media.tumblr.com%2Favatar_4500f0bd1145_64.png&amp;title=Our+Incredible+Journey&amp;url=http%3A%2F%2Fourincrediblejourney.tumblr.com%2F&amp;page_slide=slide" id="teaser_iframe" width="1" height="1"></iframe></div><script type="text/javascript">
+    (function(Tumblr){
+        var follow_iframe_initialized = false;
+        if (Tumblr.FollowTeaser && Tumblr.PostMessageListener) {
+            // Don't do anything until the first initialize event
+            Tumblr.PostMessageListener.initialize(function(message, origin) {
+                if (follow_iframe_initialized || message.length < 2) return;
+
+                if (message[0] === 'follow_iframe' && message[1] === 'enable') {
+                    Tumblr.FollowTeaser.current_page = 1;
+                    Tumblr.FollowTeaser.infer_infinite_scroll = true;
+                    Tumblr.FollowTeaser.create_from_tumblr_controls("http:\/\/assets.tumblr.com\/assets\/html\/iframe\/follow.html?_v=9b919f46ee3dcfe209f7f59eb9ed6a8c");
+                    Tumblr.FollowTeaser.scroll_listener(true);
+                    follow_iframe_initialized = true;
+                }
+            });
+        }
+    })(this.Tumblr || (this.Tumblr = {}));
+</script><!--[if IE]><script type="text/javascript">document.getElementById('tumblr_controls').allowTransparency=true;</script><![endif]--><!-- END TUMBLR CODE -->
+
+</body>
+</html>

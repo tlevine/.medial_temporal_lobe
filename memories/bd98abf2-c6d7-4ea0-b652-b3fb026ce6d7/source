@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>justinzane - Nginx & PAM</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="http://www.justinzane.com/theme/css/screen.css" type="text/css" />
+    <link rel="stylesheet" href="http://www.justinzane.com/theme/css/fruity.css" type="text/css" />
+    <link href="http://www.justinzane.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="justinzane - Flux ATOM" />
+    <!----- google analytics ----->
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', "UA-2357728-2"]);
+      _gaq.push(['_trackPageview']);
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>    
+    <!----- piwik analytics ----->
+</head>
+<body>
+    <div id="page">
+
+        <header id="header">
+            <h1><a href="http://www.justinzane.com/index.html">justinzane</a></h1>
+        </header>
+
+<nav id="menu">
+    <a href="http://www.justinzane.com/index.html">Index</a>
+            <a href="http://www.justinzane.com/pages/privacy-policy.html">
+                Privacy Policy
+            </a>
+    <a href="http://www.justinzane.com/archives.html">Archives</a>
+</nav>
+<!-- /#nav -->
+        <section id="content">
+        
+  <article class="post">
+        <h2 class="page_title"><a href="nginx-pam.html" rel="bookmark" title="justinzane - Nginx & PAM">Nginx & PAM</a></h2>
+
+        <section class="post_content">
+        <h2 id="nginx-pam">Nginx &amp; PAM</h2>
+<p>As you can see <a href="http://web.iti.upv.es/~sto/nginx/">here</a>, a very nice person has written a 
+module to allow nginx to do HTTP Basic Authentication against just about any backend that PAM 
+can handle. Since <a href="http://en.wikipedia.org/wiki/Pluggable_authentication_module">PAM</a> can use 
+most anything that is at all common, from <code>/etc/passwd</code> to LDAP to SQL, this makes life much 
+easier on the sysadmin.</p>
+<p>Though I did not find it documented anywhere, the pam module <strong>is</strong> included int the <code>nginx-extras</code>
+package on Ubuntu based distros. Again, for Ubuntu based systems, I used the following config:</p>
+<p><code>/etc/pam.d/nginx</code></p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span class="err">@</span><span class="n">include</span>    <span class="n">common</span><span class="o">-</span><span class="n">auth</span>
+<span class="err">@</span><span class="n">include</span>    <span class="n">common</span><span class="o">-</span><span class="n">account</span>
+</pre></div>
+</td></tr></table>
+
+<p><code>/etc/nginx/nginx.conf</code> or <code>/etc/nginx/sites-enabled/sitename</code></p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span class="k">location</span> <span class="s">/</span> <span class="p">{</span>
+    <span class="kn">auth_pam</span>                <span class="s">&quot;Secure</span> <span class="s">Zone&quot;</span><span class="p">;</span>
+    <span class="kn">auth_pam_service_name</span>   <span class="s">&quot;nginx&quot;</span><span class="p">;</span>
+    <span class="kn">...</span>
+<span class="err">}</span>
+</pre></div>
+</td></tr></table>
+
+<p>I'm using this on a small home LAN, so generic *nix auth works for me. By adapting the 
+<code>/etc/pamd.d/nginx</code> configuration, you should be able to do whatever you need. And, there are 
+tons of example pam setups for other apps, so inspiration should be easy.</p>
+        </section>
+
+<details class="meta">
+    Published at <time datetime="2013-07-03T19:08:15.279150" pubdate="pubdate">2013-07-03</time>
+    <br />
+By Justin [Zane] Chudgar    <br />
+    Category <a href="http://www.justinzane.com/category/foss.html">foss</a>
+    <br />
+        Tags: 
+            <a href="http://www.justinzane.com/tag/nginx.html">nginx</a>
+,             <a href="http://www.justinzane.com/tag/pam.html">pam</a>
+,             <a href="http://www.justinzane.com/tag/auth.html">auth</a>
+,             <a href="http://www.justinzane.com/tag/ubuntu.html">ubuntu</a>
+</details>   </article>
+
+        <div class="comments">
+        <h2>Discussion:</h2>
+            <div id="disqus_thread"></div>
+            <script type="text/javascript">
+               var disqus_identifier = "nginx-pam.html";
+               (function() {
+               var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+               dsq.src = 'http://justinzane.disqus.com/embed.js';
+               (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+              })();
+            </script>
+        </div>
+
+        </section>
+        <!-- /#content -->
+
+<aside id="sidebar">
+    
+    <div class="widget" id="google_adsense">
+        <script async src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <!-- pelican_sidebar_20130722 -->
+        <ins class="adsbygoogle"
+            style="display:inline-block;width:180px;height:90px"
+            data-ad-client="ca-pub-317407888633431"
+            data-ad-slot="8409081921"></ins>
+        <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </div>
+
+    <div class="widget" id="categories">
+        <h2>Categories</h2>
+        <ul>
+          <li >
+              <a href="http://www.justinzane.com/category/.html"></a>
+          </li>
+          <li class="active">
+              <a href="http://www.justinzane.com/category/foss.html">foss</a>
+          </li>
+          <li >
+              <a href="http://www.justinzane.com/category/misc.html">misc</a>
+          </li>
+          <li >
+              <a href="http://www.justinzane.com/category/photography.html">photography</a>
+          </li>
+          <li >
+              <a href="http://www.justinzane.com/category/politics.html">politics</a>
+          </li>
+          <li >
+              <a href="http://www.justinzane.com/category/python.html">Python</a>
+          </li>
+        </ul>
+    </div>
+
+    <div class="widget" id="tags">
+        <h2>Tags</h2>
+        <ul>
+          <li><a href="http://www.justinzane.com/tag/nginx.html">nginx</a></li>
+          <li><a href="http://www.justinzane.com/tag/pam.html">pam</a></li>
+          <li><a href="http://www.justinzane.com/tag/auth.html">auth</a></li>
+          <li><a href="http://www.justinzane.com/tag/ubuntu.html">ubuntu</a></li>
+          <li><a class="more" href="http://www.justinzane.com/tags.html">More...</a></li>
+        </ul>
+    </div>
+  
+  <div class="widget" id="blogroll">
+    <h2>Links</h2>
+    <ul>
+      <li><a href="https://wiki.archlinux.org/index.php/The_Arch_Way">**Arch**</a></li>
+      <li><a href="http://getpelican.com/">Pelican</a></li>
+      <li><a href="http://pythonhosted.org/Markdown/extensions/index.html">PyMarkdown</a></li>
+      <li><a href="http://python.org/">Python.org</a></li>
+      <li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
+      <li><a href="http://www.kenrockwell.com/index.htm">Ken Rockwell Photography</a></li>
+      <li><a href="http://www.keh.com/">KEH Cameras</a></li>
+      <li><a href="http://www.popehat.com/">PopeHat</a></li>
+      <li><a href="http://www.artofmanliness.com/">The Art of Manliness</a></li>
+    </ul>
+  </div>
+
+    <div class="widget" id="social">
+      <h2>Social</h2>
+      <ul>
+        <li><a href="https://github.com/justinzane">GitHub</a></li>
+        <li><a href="http://www.facebook.com/justinchudgar">Facebook</a></li>
+       </ul>
+    </div>
+
+</aside>
+        <footer id="footer">
+            <p>Created with <a href="http://docs.notmyidea.org/alexis/pelican/index.html">Pelican</a>.</p>
+        </footer>
+    </div>
+    <!-- /#page -->
+</body>
+</html>
